@@ -1,0 +1,95 @@
+name: CI Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web-checks:
+    name: Web — typecheck + lint + tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+
+  mobile-typecheck:
+    name: Mobile — typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          if [ -d mobile ] && [ -f mobile/package.json ]; then
+            cd mobile && npm install --no-audit --no-fund && npx tsc --noEmit
+          else
+            echo "mobile/ scaffold not present yet — passing as no-op for Build 1 web-first launch"
+          fi
+
+  skip-ci-guard:
+    name: No [skip ci] in PR commits
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Reject [skip ci] markers
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+            range="$base..$head"
+          else
+            range="HEAD~1..HEAD"
+          fi
+          bad=$(git log --pretty=%B "$range" | grep -iE '\[skip ci\]|\[ci skip\]' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::Commits with [skip ci] are not allowed — Vercel deploys regardless and this creates state skew."
+            echo "$bad"
+            exit 1
+          fi
+          echo "✓ No [skip ci] markers found."
+
+  brand-color-guard:
+    name: STRICT — no yellow/amber/gold/orange anywhere in client/src
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan all UI source for forbidden brand colors
+        run: |
+          set -euo pipefail
+          # Scan TS/TSX/CSS/JSON/SVG in app/, components/, mobile/, athlynx-app/
+          # Forbidden: yellow, amber, gold, orange (any color value or class)
+          # Allowed exception: this workflow file itself
+          patterns='\byellow\b|\bamber\b|\bgold\b|\borange\b|#f59e0b|#fbbf24|#fcd34d|#fde68a|#fbbf24|#ea580c|#f97316|#fdba74|#ffd700'
+          dirs=()
+          [ -d app ] && dirs+=(app)
+          [ -d components ] && dirs+=(components)
+          [ -d mobile ] && dirs+=(mobile)
+          [ -d athlynx-app ] && dirs+=(athlynx-app)
+          if [ ${#dirs[@]} -eq 0 ]; then
+            echo "No UI directories to scan."
+            exit 0
+          fi
+          if grep -rniE --include='*.tsx' --include='*.ts' --include='*.css' --include='*.json' --include='*.svg' \
+              "$patterns" "${dirs[@]}" ; then
+            echo "::error::Forbidden brand color detected — cobalt/granite/electric-blue only."
+            exit 1
+          fi
+          echo "✓ No forbidden brand colors found in ${dirs[*]}."

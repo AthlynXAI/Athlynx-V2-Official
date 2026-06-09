@@ -1,0 +1,47 @@
+name: Lane Discipline
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  author-check:
+    name: Author allowlist (AthlynxChad only, no bots)
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Enforce author identity
+        run: |
+          set -euo pipefail
+          range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          # Allowed: AthlynxChad <chaddozier75@gmail.com> and the squash-merge bot author 'AthlynXAI'
+          # Allowed deploy creator on Vercel side only (NOT here): chaddozier75-cmd
+          forbidden_authors=(
+            "chaddozier-bot"
+            "chaddozier75-bot"
+            "chaddozier75-cmd"
+            "AthlynX Robot"
+            "vercel[bot]"
+          )
+          forbidden_emails=(
+            "chad@athlynx.ai"
+          )
+          fail=0
+          while IFS=$'\t' read -r name email; do
+            for f in "${forbidden_authors[@]}"; do
+              if [ "$name" = "$f" ]; then
+                echo "::error::Forbidden author '$name' in commit history"
+                fail=1
+              fi
+            done
+            for f in "${forbidden_emails[@]}"; do
+              if [ "$email" = "$f" ]; then
+                echo "::error::Forbidden email '$email' in commit history"
+                fail=1
+              fi
+            done
+          done < <(git log --pretty=$'%an\t%ae' "$range")
+          if [ "$fail" = "1" ]; then exit 1; fi
+          echo "✓ All commit authors comply with doctrine."
