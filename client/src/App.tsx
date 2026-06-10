@@ -299,6 +299,10 @@ import AthletePlaybookEpisode1 from "./pages/AthletePlaybookEpisode1";
 import GlucoAthleteOS from "./pages/GlucoAthleteOS";
 import AthlynxEngine from "./pages/AthlynxEngine";
 import GoogleWorkspaceOS from "./pages/GoogleWorkspaceOS";
+import WellnessPortal from "./pages/WellnessPortal";
+import SEODashboard from "./pages/SEODashboard";
+import VendorMarketplace from "./pages/VendorMarketplace";
+import BetaSignup from "./pages/BetaSignup";
 
 function Router() {
   return (
@@ -781,6 +785,24 @@ function Router() {
       <Route path="/workspace" component={GoogleWorkspaceOS} />
       <Route path="/gws" component={GoogleWorkspaceOS} />
       <Route path="/gemini" component={GoogleWorkspaceOS} />
+      {/* SEO Command Center */}
+      <Route path="/seo" component={SEODashboard} />
+      <Route path="/seo-dashboard" component={SEODashboard} />
+      {/* Commerce / Vendor Marketplace */}
+      <Route path="/commerce" component={VendorMarketplace} />
+      <Route path="/vendor-marketplace" component={VendorMarketplace} />
+      {/* Wellness Portal */}
+      <Route path="/wellness-portal" component={WellnessPortal} />
+      {/* Founder Podcast canonical route */}
+      <Route path="/founder-podcast" component={FounderPodcast} />
+      {/* Booking Hub canonical route */}
+      <Route path="/booking-hub" component={BookingHub} />
+      {/* GlucoAthlete OS canonical route */}
+      <Route path="/gluco-athlete-os" component={GlucoAthleteOS} />
+      {/* Beta Signup — User Acquisition */}
+      <Route path="/beta" component={BetaSignup} />
+      <Route path="/join" component={BetaSignup} />
+      <Route path="/get-started" component={BetaSignup} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
