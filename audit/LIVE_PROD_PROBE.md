@@ -1,80 +1,0 @@
-=== LIVE PROD ENDPOINTS PROBE ===
-Generated: 2026-05-08T07:42:02Z
-
-## Homepage
-- **URL:** `https://athlynx.ai`
-- **Method:** GET
-- **HTTP:** 200
-- **Time:** 0.080863s
-- **Body preview:** `<!doctype html> <html lang="en">    <head>     <meta charset="UTF-8" />     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />      <!-- Primary SEO Meta Tags`
-
-## Health check
-- **URL:** `https://athlynx.ai/api/health`
-- **Method:** GET
-- **HTTP:** 200
-- **Time:** 0.227895s
-- **Body preview:** `{"status":"ok","platform":"ATHLYNX","version":"1.0.3","timestamp":"2026-05-08T07:42:02.988Z"}`
-
-## tRPC auth.me (no session, expect 401)
-- **URL:** `https://athlynx.ai/api/trpc/auth.me?input=%7B%7D`
-- **Method:** GET
-- **HTTP:** 401
-- **Time:** 0.181325s
-- **Body preview:** `{"error":{"json":{"message":"Please login (10001)","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"auth.me"}}}}`
-
-## tRPC auth.login (empty body)
-- **URL:** `https://athlynx.ai/api/trpc/auth.login`
-- **Method:** POST
-- **HTTP:** 400
-- **Time:** 0.177283s
-- **Body preview:** `{"error":{"json":{"message":"[\n  {\n    \"origin\": \"string\",\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"inclusive\": true,\n    \"path\": [\n      \"email\"\n    ],\n    \"message\"`
-
-## Stripe checkout endpoint probe
-- **URL:** `https://athlynx.ai/api/trpc/stripe.createCheckout`
-- **Method:** POST
-- **HTTP:** 404
-- **Time:** 0.165242s
-- **Body preview:** `{"error":{"json":{"message":"No procedure found on path \"stripe.createCheckout\"","code":-32004,"data":{"code":"NOT_FOUND","httpStatus":404,"path":"stripe.createCheckout"}}}}`
-
-## Stripe webhook endpoint
-- **URL:** `https://athlynx.ai/api/stripe/webhook`
-- **Method:** POST
-- **HTTP:** 200
-- **Time:** 0.161940s
-- **Body preview:** `{"verified":true}`
-
-## Nebius/AI endpoint probe
-- **URL:** `https://athlynx.ai/api/trpc/ai.chat`
-- **Method:** POST
-- **HTTP:** 404
-- **Time:** 0.150833s
-- **Body preview:** `{"error":{"json":{"message":"No procedure found on path \"ai.chat\"","code":-32004,"data":{"code":"NOT_FOUND","httpStatus":404,"path":"ai.chat"}}}}`
-
-## Static asset (favicon)
-- **URL:** `https://athlynx.ai/favicon.ico`
-- **Method:** GET
-- **HTTP:** 200
-- **Time:** 0.185344s
-- **Body preview:** ` k6   R ¡00 ²ó‰PNG  IHDRóÿa2IDATxœ%ÓÛk›eÀñïó¼Ï›¦I»5©]Š“vn´Ô…Š»""(U”R…y¡ÔaK™WRDX/-óFY/•ÓÔà˜vóÈªè¶Ö­k›Ò6MÒ$ïéùyÑÿà_¾’Ëå$ŸÏK`
-
-## Cron probe (daily report)
-- **URL:** `https://athlynx.ai/api/cron/daily-report`
-- **Method:** GET
-- **HTTP:** 401
-- **Time:** 0.405309s
-- **Body preview:** `{"error":"Unauthorized"}`
-
-## Public NIL deals listing
-- **URL:** `https://athlynx.ai/api/trpc/nil.listDeals?input=%7B%7D`
-- **Method:** GET
-- **HTTP:** 404
-- **Time:** 0.161465s
-- **Body preview:** `{"error":{"json":{"message":"No procedure found on path \"nil.listDeals\"","code":-32004,"data":{"code":"NOT_FOUND","httpStatus":404,"path":"nil.listDeals"}}}}`
-
-## Athletes listing
-- **URL:** `https://athlynx.ai/api/trpc/profile.listAthletes?input=%7B%7D`
-- **Method:** GET
-- **HTTP:** 404
-- **Time:** 0.165603s
-- **Body preview:** `{"error":{"json":{"message":"No procedure found on path \"profile.listAthletes\"","code":-32004,"data":{"code":"NOT_FOUND","httpStatus":404,"path":"profile.listAthletes"}}}}`
-

@@ -1,120 +1,12 @@
 {
-  "buildCommand": "npm run build:vercel",
-  "outputDirectory": "dist/public",
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "framework": null,
-  "rewrites": [
-    {
-      "source": "/api/cron/:path*",
-      "destination": "/api/cron/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/index.js"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/((?!assets|api|.*\\..*).*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        },
-        {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
-        },
-        {
-          "key": "Surrogate-Control",
-          "value": "no-store"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "crons": [
     {
-      "path": "/api/cron/social-content-seeder",
-      "schedule": "0 10 * * 1-5"
-    },
-    {
-      "path": "/api/cron/social-queue-guardrail",
-      "schedule": "30 11 * * 1-5"
-    },
-    {
-      "path": "/api/cron/social-post",
-      "schedule": "0 13 * * *"
-    },
-    {
-      "path": "/api/cron/social-post",
-      "schedule": "0 18 * * *"
-    },
-    {
-      "path": "/api/cron/social-post",
-      "schedule": "0 23 * * *"
-    },
-    {
-      "path": "/api/cron/daily-report",
-      "schedule": "0 12 * * *"
-    },
-    {
-      "path": "/api/cron/owner-daily-post",
-      "schedule": "0 15,19,23 * * *"
-    },
-    {
-      "path": "/api/cron/nebius-spend-digest",
-      "schedule": "0 13 * * *"
-    },
-    {
-      "path": "/api/cron/doctrine-snapshot",
-      "schedule": "0 6 * * *"
-    },
-    {
-      "path": "/api/cron/morning-schedule",
-      "schedule": "0 12 * * *"
-    },
-    {
-      "path": "/api/cron/inbox-cleanup-nightly",
-      "schedule": "59 4 * * *"
-    }
-  ],
-  "git": {
-    "deploymentEnabled": {
-      "main": true
-    }
-  },
-  "redirects": [
-    {
-      "source": "/transfer-portal-redirect",
-      "destination": "/transfer-portal",
-      "permanent": true
-    },
-    {
-      "source": "/nil-portal-redirect",
-      "destination": "/nil-portal",
-      "permanent": true
-    },
-    {
-      "source": "/dhg-redirect",
-      "destination": "/dhg",
-      "permanent": true
+      "path": "/api/keep-alive",
+      "schedule": "*/30 * * * *"
     }
   ]
 }

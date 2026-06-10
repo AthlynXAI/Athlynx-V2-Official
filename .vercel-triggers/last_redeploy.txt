@@ -1,3 +1,0 @@
-production redeploy requested at 2026-05-28 04:51:44 UTC
-reason: retry AthlynxChad production deploy under approved git author chaddozier75@gmail.com after blocked unverified author deploys
-includes: mobile Supabase auth guard commit 6bc92f60d4c9760c525901fd5a740f4ec6a7ecac
