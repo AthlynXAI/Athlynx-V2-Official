@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1776296800134,
+      "tag": "0000_clean_thunderbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1776299568818,
+      "tag": "0001_open_princess_powerful",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1745705400000,
+      "tag": "0002_credit_system_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1745716800000,
+      "tag": "0003_fix_notifications_schema",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1745803200000,
+      "tag": "0004_missing_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1747008000000,
+      "tag": "0005_build2_foundation",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1747094400000,
+      "tag": "0006_build3_editable_topfive_avatars",
+      "breakpoints": true
+    }
+  ]
+}
