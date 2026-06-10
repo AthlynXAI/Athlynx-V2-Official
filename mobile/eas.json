@@ -25,7 +25,7 @@
       "ios": {
         "distribution": "store",
         "credentialsSource": "remote",
-        "image": "macos-tahoe-26.4-xcode-26.4"
+        "image": "macos-sequoia-16.4-xcode-16.4"
       },
       "autoIncrement": true,
       "node": "22.22.2",
