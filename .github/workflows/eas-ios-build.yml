@@ -1,0 +1,198 @@
+name: EAS iOS build & TestFlight submit
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Auto-iOS pipeline: pushes to main that touch the mobile app build a fresh
+# iOS IPA on EAS and submit it to TestFlight automatically. You'll get the
+# TestFlight push notification on your phone — no Manus, no manual EAS run.
+#
+# Required GitHub repo secrets:
+#   - EXPO_TOKEN              (Expo account token)
+#   - ASC_API_KEY_P8          (Contents of AuthKey_<KEY_ID>.p8 — the .p8 file body)
+#   - ASC_API_KEY_ID          (e.g. 5PTLU5B336)
+#   - ASC_API_KEY_ISSUER_ID   (e.g. ba530e88-4441-4029-bc5a-853abab91a91)
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/eas-ios-build.yml'
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "EAS build profile"
+        required: true
+        default: production
+        type: choice
+        options: [production, preview, development]
+      submit_to_testflight:
+        description: "Submit the resulting IPA to TestFlight"
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: eas-ios-build
+  cancel-in-progress: false
+
+jobs:
+  build-and-submit:
+    name: iOS build (${{ inputs.profile || 'production' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: mobile
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Verify required secrets
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          ASC_API_KEY_P8: ${{ secrets.ASC_API_KEY_P8 }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          # EXPO_TOKEN is non-negotiable — build can't even start without it.
+          if [ -z "${EXPO_TOKEN}" ]; then
+            echo "::error::EXPO_TOKEN secret is not set."
+            exit 1
+          fi
+          # ASC keys are only mandatory when the user explicitly triggers TestFlight via manual dispatch.
+          # On push, missing ASC keys downgrade to a warning and we skip TestFlight submission (build still runs).
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.submit_to_testflight }}" = "true" ]; then
+            missing=()
+            [ -z "${ASC_API_KEY_P8}" ] && missing+=("ASC_API_KEY_P8")
+            [ -z "${ASC_API_KEY_ID}" ] && missing+=("ASC_API_KEY_ID")
+            [ -z "${ASC_API_KEY_ISSUER_ID}" ] && missing+=("ASC_API_KEY_ISSUER_ID")
+            if [ ${#missing[@]} -gt 0 ]; then
+              echo "::error::Manual TestFlight submission requested but secrets missing: ${missing[*]}"
+              exit 1
+            fi
+          fi
+          echo "Required secrets present (EXPO_TOKEN at minimum)."
+
+      - name: Set up Expo / EAS CLI
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Confirm EAS authentication
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: npx eas-cli whoami
+
+      - name: Resolve build profile
+        id: profile
+        run: |
+          if [ -n "${{ inputs.profile }}" ]; then
+            echo "value=${{ inputs.profile }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=production" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build iOS on EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          npx eas-cli build \
+            --platform ios \
+            --profile "${{ steps.profile.outputs.value }}" \
+            --non-interactive
+
+      - name: Should submit to TestFlight?
+        id: submit_gate
+        env:
+          ASC_API_KEY_P8: ${{ secrets.ASC_API_KEY_P8 }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            INTENT=true
+          elif [ "${{ inputs.submit_to_testflight }}" = "true" ]; then
+            INTENT=true
+          else
+            INTENT=false
+          fi
+
+          # Soft gate: if any ASC secret is missing, skip TestFlight submit and warn loudly.
+          # IPA still built and available on EAS.
+          if [ "$INTENT" = "true" ] && { [ -z "${ASC_API_KEY_P8}" ] || [ -z "${ASC_API_KEY_ID}" ] || [ -z "${ASC_API_KEY_ISSUER_ID}" ]; }; then
+            echo "::warning::App Store Connect API secrets not all present — skipping TestFlight submission. IPA built successfully and is available on EAS. Paste ASC_API_KEY_P8 / ASC_API_KEY_ID / ASC_API_KEY_ISSUER_ID into repo secrets to enable auto-submit."
+            echo "submit=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "submit=$INTENT" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Write App Store Connect API key (.p8) and align EAS submit config
+        if: steps.submit_gate.outputs.submit == 'true'
+        env:
+          ASC_API_KEY_P8: ${{ secrets.ASC_API_KEY_P8 }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          set -euo pipefail
+          umask 077
+          KEY_PATH="AuthKey_${ASC_API_KEY_ID}.p8"
+          printf '%s' "${ASC_API_KEY_P8}" > "${KEY_PATH}"
+          if [ ! -s "${KEY_PATH}" ]; then
+            echo "::error::ASC_API_KEY_P8 wrote an empty file."
+            exit 1
+          fi
+          if ! grep -q "BEGIN PRIVATE KEY" "${KEY_PATH}"; then
+            echo "::error::ASC_API_KEY_P8 does not look like a valid App Store Connect .p8 key."
+            exit 1
+          fi
+
+          # Keep secrets in GitHub Actions only, but patch the runner's local eas.json
+          # so EAS submit uses the exact API key filename/ID/issuer supplied by secrets.
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'eas.json';
+          const eas = JSON.parse(fs.readFileSync(path, 'utf8'));
+          eas.submit ??= {};
+          eas.submit.production ??= {};
+          eas.submit.production.ios ??= {};
+          eas.submit.production.ios.ascApiKeyPath = `./AuthKey_${process.env.ASC_API_KEY_ID}.p8`;
+          eas.submit.production.ios.ascApiKeyId = process.env.ASC_API_KEY_ID;
+          eas.submit.production.ios.ascApiKeyIssuerId = process.env.ASC_API_KEY_ISSUER_ID;
+          fs.writeFileSync(path, JSON.stringify(eas, null, 2) + '\n');
+          NODE
+
+      - name: Submit latest iOS build to TestFlight
+        if: steps.submit_gate.outputs.submit == 'true'
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          npx eas-cli submit \
+            --platform ios \
+            --profile "${{ steps.profile.outputs.value }}" \
+            --latest \
+            --non-interactive
+
+      - name: Remove ASC API key file
+        if: always() && steps.submit_gate.outputs.submit == 'true'
+        env:
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+        run: |
+          if [ -n "${ASC_API_KEY_ID}" ]; then
+            rm -f "AuthKey_${ASC_API_KEY_ID}.p8"
+            rm -f AuthKey_*.p8
+          fi

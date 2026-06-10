@@ -1,54 +1,123 @@
-# AthlynX — Build 1
+# AthlynX · The Athlete's Playbook
 
-**The Athlete's Playbook** · One Platform. Every Tool. Unlimited Potential.
+**ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM.**
 
-This is the single canonical codebase for the AthlynX ecosystem:
-
-- 🌐 **Web** — [athlynx.ai](https://athlynx.ai) (Next.js 14 + Supabase)
-- 📱 **iOS** — TestFlight build 1 (Expo Router + Supabase auth)
-- 🤖 **Android** — Google Play Internal build 1 (Expo Router + Supabase auth)
-
-## Stack
-
-| Layer | Tech |
-|---|---|
-| Web | Next.js 14 App Router · React 18 · TypeScript strict · Tailwind |
-| Mobile | Expo SDK 53 · Expo Router v4 · React Native 0.79 · TypeScript strict |
-| Auth | Supabase Auth (Firebase fully removed) |
-| Database | Supabase Postgres · Neon (PR previews) · Prisma |
-| Hosting | Vercel (web auto-deploy on push to `main`) · EAS (mobile builds) |
-| Monitoring | Sentry (web + mobile) |
-| Connectors | GitHub · Vercel · Supabase · Stripe · Sentry · Pipedream · YouTube · Spotify · Vimeo · Google Drive · Google Cloud · AWS · Slack · Monday · Pipedrive · Calendly · Zoom · Fireflies · Superhuman · Outlook · Airtable · Confluence · Jira · Trello · DocuSign · Apple HealthKit |
-
-## Doctrine (do not violate)
-
-✅ **Push only to** `AthlynXAI/Athlynx-V2-Official` on `main`, authored by **AthlynxChad** (`chaddozier75@gmail.com`).
-✅ Vercel team `AthlynxChad` (chad-a-doziers-projects) auto-deploys.
-✅ Apple App Store / iCloud uses **`chad.dozier@icloud.com`** only.
-✅ Google Play uses **`chaddozier75@gmail.com`** only.
-✅ `chaddozier75-cmd` allowed only as the Vercel→GitHub deploy creator (never as commit author).
-
-❌ Never push to `AthlynXAI/AthlynXAI` (archived), `chaddozier-bot`, `chaddozier75-bot`.
-❌ No Firebase anywhere — Supabase auth only.
-❌ No yellow/amber/gold/orange anywhere in client UI (cobalt/granite/electric-blue brand lock).
-
-## Quick start
-
-```bash
-git clone https://github.com/AthlynXAI/Athlynx-V2-Official.git
-cd Athlynx-V2-Official
-cp .env.example .env.local      # fill from Google Drive secrets vault
-pnpm install
-pnpm dev                        # http://localhost:3000
-```
-
-## Project history
-
-The pre-Build-1 codebase (Dec 2025 → Jun 9 2026) lives at
-[`AthlynXAI/Athlynx-V2-Official-archived-2026-06-09`](https://github.com/AthlynXAI/Athlynx-V2-Official-archived-2026-06-09) (archived, read-only).
-
-See `HANDOFF.md` for the full session protocol between Manus and Perplexity Computer.
+Production repository for the AthlynX platform — the unified identity, recruiting, NIL, brand, and content operating system for every athlete from youth to pro to post-career.
 
 ---
 
-© 2026 AthlynX AI Corporation · A Dozier Holdings Group Company · All Rights Reserved
+## Brand Lock
+
+- **Palette:** cobalt `#1E90FF` + true black + white. No gold, yellow, or orange anywhere.
+- **Header lockup:** AthlynX (white) + XAI (cobalt). Sub-tagline: THE ATHLETE'S PLAYBOOK.
+- **Tagline:** ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM.
+- **Signoff:** 
+---
+
+## Master Admin Doctrine
+
+Locked May 29, 2026. Source of truth: [`client/src/governance.ts`](client/src/governance.ts).
+
+| Person | Role | Access |
+|---|---|---|
+| Chad A. Dozier Sr. | Founder · CEO · Chairman · sole financial authority | Master Admin |
+| Leronious (Lee) Marshall Jr. | V.P. Sales, Marketing & Partnerships · Co-Host | Full Admin · Partner & Team Member |
+| Glenn M. Tse | CFO & COO | Full Admin · Partner & Team Member |
+| Tony Locey | First Athlete Partner | Full Admin · Partner & Team Member |
+
+All four: Unlimited Credits · Billing Exempt.
+
+Server-side mirror: [`server/_core/adminAllowlist.ts`](server/_core/adminAllowlist.ts).
+Database columns (Neon `users` table): `access_tier`, `partner_status`, `full_admin`, `unlimited_credits`, `billing_exempt`, `is_vip`.
+
+---
+
+## Production Lane
+
+- **GitHub:** `AthlyXAI/Athlynx-V2-Official` → `main`
+- **Vercel team:** AthlynxChad (`chad-a-doziers-projects`)
+- **Project:** `athlynx-platform` (`prj_eL4LkEdQ3LJ9J4Jlt50b0jef9CsU`)
+- **Database:** Neon Postgres (production)
+- **Identity:** `chaddozier75@gmail.com` (Master Admin only)
+
+Vercel auto-deploys every push to `main`. No manual deploy step.
+
+---
+
+## Live Mirror Domains
+
+athlynx.ai · athlynx.io · athlynx.net · athlynx.pro · nilportal.ai · nilgateway.com · nilgateway.org · nilportals.com · transferportal.live · transferportal360.com · dozierholdingsgroup.com
+
+All routes resolve identically across every mirror.
+
+---
+
+## Key Routes
+
+| Path | What it is |
+|---|---|
+| `/` | Seasonal Hero Strip + Road to Omaha |
+| `/team` | Unified team profiles (TeamProfileCard with locked doctrine badges) |
+| `/brackets` | MCWS + WCWS live bracket dashboard |
+| `/brackets/mcws` | Men's College World Series live tracker (auto-routes 11a–5p CT during regional weekend) |
+| `/brackets/wcws` | Women's College World Series live tracker |
+| `/diamond-grind-iq` | Youth pitcher/catcher battery coach (COPPA-safe) |
+| `/api/me/doctrine` | Server endpoint returning the signed-in user's doctrine flag block |
+| `/api/doctrine` | The four canonical platform specs (Layer Cake · Sport Matrix · Autonomous OS · Quality Bar) |
+
+---
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Express + Vite on the same port. Drizzle ORM against Neon. TypeScript strict.
+
+---
+
+## Type-Check
+
+```bash
+npx tsc --noEmit
+```
+
+Must pass before every commit.
+
+---
+
+## Hackathon Track
+
+[`athlynx-adk-agents/`](../athlynx-adk-agents) (separate repo) — two Google ADK multi-agent systems shipped May 29:
+
+1. **AthlynX Recruiting Room** — 5 ADK agents (scout, nil_valuator, eligibility, outreach, parent_concierge)
+2. **Diamond Grind IQ Battery Coach** — 5 ADK agents (coppa_guardian, pitch_smart, battery_iq, drill_selector, parent_concierge) with ordered COPPA + Pitch Smart safety gates
+
+Devpost deadline: June 5, 2026 · 7:00 PM CDT.
+
+---
+
+## Lane Discipline
+
+- **Production execution** (Manus): Stripe, Neon writes, Workspace admin, Cloud Run deploys
+- **Code + content** (Perplexity Computer + Chad in unison): repo edits, brand, brackets, podcast, investor materials
+- **Same source-of-truth file:** `client/src/governance.ts` — only Chad edits it.
+- **Every commit:** authored by Chad A. Dozier Sr. `<chaddozier75@gmail.com>`
+
+---
+
+## DEAD LANES (never touch)
+
+- `chaddozier-bot/*` repos
+- `chaddozier75-bot/*` repos
+- `AthlynXAI/AthlynXAI` (404)
+- `chaddozier75-cmd/AthlynXAI-Launch-2026-14` (404)
+- Netlify (production runs on Vercel only)
+
+---
+
+****
+
+— Chad A. Dozier Sr., Founder · CEO · Chairman, AthlynX

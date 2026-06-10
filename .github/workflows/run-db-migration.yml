@@ -1,0 +1,142 @@
+name: Run DB Migration
+
+# Manually triggered only — never auto-runs on push, PR, deploy, or cron.
+# Each run applies exactly ONE migration script chosen via input.
+# DATABASE_URL is read from repository secrets — never committed, never logged.
+#
+# Doctrine:
+# - No public HTTP migrate route exists.
+# - No build-time migration in vercel.json or any deploy hook.
+# - Schema changes flow: PR review -> merge to main -> manual workflow dispatch.
+
+on:
+  workflow_dispatch:
+    inputs:
+      migration:
+        description: "Migration number to run (e.g. 0011, 0012, 0013)"
+        required: true
+        type: choice
+        options:
+          - "0011"
+          - "0012"
+          - "0013"
+      environment:
+        description: "Target environment"
+        required: true
+        type: choice
+        default: "production"
+        options:
+          - "production"
+          - "staging"
+      confirm:
+        description: "Type RUN to confirm you intend to apply this migration"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  apply-migration:
+    name: Apply migration ${{ inputs.migration }} to ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    timeout-minutes: 5
+
+    steps:
+      - name: Verify confirm token
+        if: ${{ inputs.confirm != 'RUN' }}
+        run: |
+          echo "::error::Confirm input must equal 'RUN' to proceed."
+          exit 1
+
+      - name: Verify actor is Owner
+        env:
+          ACTOR: ${{ github.actor }}
+        run: |
+          # Only the real GitHub login 'AthlyXAI' (Owner) may dispatch migrations.
+          # 'chaddozier75' is the local-part of the Owner's email, NOT a GitHub login.
+          # 'chaddozier75-cmd' is a Vercel display name, NOT a GitHub login.
+          if [ "$ACTOR" != "AthlyXAI" ]; then
+            echo "::error::Migrations may only be dispatched by the Owner (GitHub login: AthlyXAI). Got: $ACTOR"
+            exit 1
+          fi
+
+      - name: Reject manus/* dispatch branches
+        env:
+          REF: ${{ github.ref_name }}
+        run: |
+          case "$REF" in
+            manus/*)
+              echo "::error::Migrations cannot be dispatched from manus/* branches. Use main."
+              exit 1 ;;
+          esac
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20.x"
+
+      - name: Install runner dependency (pg only)
+        run: |
+          npm init -y >/dev/null
+          npm install --no-save --no-audit --no-fund pg@^8.11.0
+
+      - name: Verify migration script exists
+        run: |
+          # `test -f` does not expand shell globs, so we check the runner script directly
+          # and use shell glob expansion via `compgen -G` for the SQL file (POSIX-portable on
+          # bash; the GitHub-hosted ubuntu runner uses bash).
+          test -f "scripts/run-migration-${{ inputs.migration }}.mjs" \
+            || (echo "::error::scripts/run-migration-${{ inputs.migration }}.mjs not found" && exit 1)
+          if ! compgen -G "drizzle/${{ inputs.migration }}_*.sql" >/dev/null; then
+            echo "::error::No file matching drizzle/${{ inputs.migration }}_*.sql found"
+            exit 1
+          fi
+
+      - name: Verify migration target proof file is present and fresh
+        run: |
+          PROOF="db/migration-target-proof.json"
+          if [ ! -f "$PROOF" ]; then
+            echo "::error::$PROOF missing. Generate it with scripts/preflight-migration.mjs before dispatching."
+            exit 1
+          fi
+          AGE=$(( $(date -u +%s) - $(date -u -r "$PROOF" +%s) ))
+          if [ "$AGE" -gt 86400 ]; then
+            echo "::error::$PROOF is older than 24h (age ${AGE}s). Re-generate it."
+            exit 1
+          fi
+          echo "target-proof OK (age ${AGE}s)"
+          cat "$PROOF"
+
+      - name: Verify last commit carries Owner approval trailer
+        run: |
+          MSG=$(git log -1 --format=%B)
+          echo "$MSG" | grep -E '^Migration-Approved-By:\s*chaddozier75@gmail\.com' \
+            || { echo "::error::Last commit on main must include trailer: Migration-Approved-By: chaddozier75@gmail.com"; exit 1; }
+
+      - name: Preflight — DATABASE_URL host must match target proof
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::DATABASE_URL secret is not set for environment '${{ inputs.environment }}'"
+            exit 1
+          fi
+          node scripts/preflight-migration.mjs
+
+      - name: Apply migration
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          node "scripts/run-migration-${{ inputs.migration }}.mjs"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Migration ${{ inputs.migration }} → ${{ inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "Triggered by: @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY

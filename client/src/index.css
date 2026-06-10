@@ -1,0 +1,442 @@
+@import "tailwindcss";
+
+/* Only the animations actually used in this codebase (replaces tw-animate-css) */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+@keyframes caret-blink {
+  0%, 70%, 100% { opacity: 1; }
+  20%, 50% { opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+}
+@keyframes enter {
+  from { opacity: var(--tw-enter-opacity, 1); transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0)); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0); }
+}
+@keyframes exit {
+  from { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0); }
+  to { opacity: var(--tw-exit-opacity, 1); transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0)); }
+}
+.animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+.animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+.animate-caret-blink { animation: caret-blink 1.25s ease-out infinite; }
+.animate-marquee { animation: marquee var(--duration, 40s) linear infinite; }
+.animate-in { animation-name: enter; animation-duration: 150ms; }
+.animate-out { animation-name: exit; animation-duration: 150ms; }
+/* bounce, ping, pulse, spin are built into Tailwind core */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #1E90FF;
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: #1E90FF;
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --radius: 0.65rem;
+  --background: oklch(0.08 0.02 250);
+
+
+  --foreground: oklch(1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: oklch(0.98 0.001 286.375);
+  --secondary-foreground: oklch(0.4 0.015 65);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.141 0.005 285.823);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: #1E90FF;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+.dark {
+  --primary: #1E90FF;
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: #1E90FF;
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #0080FF;
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* ============================================
+   iOS & Android Mobile Optimizations
+   ============================================ */
+
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+#root {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea, select {
+  font-size: max(16px, 1rem);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  button:active, a:active, [role="button"]:active {
+    opacity: 0.75;
+    transition: opacity 0.1s ease;
+  }
+}
+
+@media (display-mode: standalone) {
+  .pwa-header-pad {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+/* ─── PWA Install Banner Animation ─────────────────────────────────────── */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-slide-up {
+  animation: slide-up 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ─── PWA Standalone Mode Enhancements ──────────────────────────────────── */
+@media (display-mode: standalone) {
+  /* Extra top padding for iOS notch in standalone mode */
+  body {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  /* Hide browser-only elements when running as PWA */
+  .browser-only {
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AthlynX PREMIUM UI — Global Dark Glass System
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* All native inputs, selects, textareas get premium treatment */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+select,
+textarea {
+  color: white !important;
+  caret-color: #60a5fa !important;
+  background-color: rgba(5, 13, 31, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(96, 165, 250, 0.5) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35), 0 0 20px rgba(59, 130, 246, 0.2) !important;
+  outline: none !important;
+}
+
+/* Select option text */
+select option {
+  background-color: #050d1f !important;
+  color: white !important;
+}
+
+/* Text selection */
+::selection {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Scrollbar — premium dark */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 13, 31, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* X-Factor phone mockup progress bar */
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+.animate-progress { animation: progress 3s linear infinite; }
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+/* AI Wizard bounce animation */
+@keyframes wizard-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(59, 130, 246, 0.7); }
+}
+
+
+
+/* ATHLYNX EXACT USER MEDIA THEME
+   Visual-only: uses the provided video/photos as site theme assets.
+   No logo replacement, no content rewrite, no mockup page, no generated visuals. */
+:root {
+  --exact-athlynx-blue: #1E90FF;
+  --exact-athlynx-cyan: #1E90FF;
+  --exact-athlynx-deep: #0a1628;
+  --exact-athlynx-panel: #0a1628;
+  --athlynx-black: #000000;
+  --athlynx-cobalt-pressed: #0080FF;
+}
+body {
+  background: radial-gradient(circle at 12% 8%, rgba(30,144,255,.18), transparent 30%), linear-gradient(135deg, #000000 0%, #0a1628 55%, #000000 100%);
+}
+/* Site-wide color correction to the approved True Black / Deep Navy / Electric Cobalt family. */
+.text-yellow-300,.text-yellow-400,.text-amber-200,.text-amber-300,.text-amber-400,.text-orange-300,.text-orange-400 { color: #7dd3fc !important; }
+.bg-yellow-400,.bg-yellow-500,.bg-amber-300,.bg-amber-400,.bg-orange-400,.bg-orange-500 { background-color: #1E90FF !important; }
+.border-yellow-400,.border-yellow-500,.border-amber-300,.border-amber-400,.border-orange-400,.border-orange-500 { border-color: rgba(0,194,255,.55) !important; }
+
+
+/* AthlynXAI Brand Family Additive Layer — preserves existing AthlynX look */
+:root {
+  --athlynx-msu-maroon: #5D1725;
+  --athlynx-msu-maroon-deep: #2A0710;
+  --athlynx-msu-silver: #C9CDD2;
+  --athlynx-premium-gold: #F6C453;
+  --athlynx-brand-family-watermark: url('/brand/legacy/athlynx-family-watermark.webp');
+}
+
+body::before {
+  content: "ATHLYNX · ATHLYNXAI · AXN · AVN · THE ATHLETE'S PLAYBOOK · MSU";
+
+  position: fixed;
+  inset: auto -12vw 10vh auto;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-18deg);
+  font-size: clamp(2rem, 8vw, 8rem);
+  line-height: 0.88;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.026);
+  text-shadow: 0 0 48px rgba(93,23,37,0.18);
+  max-width: 120vw;
+  white-space: pre-wrap;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(93,23,37,0.16), transparent 32%),
+    radial-gradient(circle at 88% 16%, rgba(246,196,83,0.10), transparent 28%),
+    linear-gradient(135deg, rgba(93,23,37,0.09), transparent 46%);
+  mix-blend-mode: screen;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.athlynx-brand-family-ribbon {
+  background: linear-gradient(90deg, rgba(42,7,16,0.92), rgba(93,23,37,0.78), rgba(15,23,42,0.88));
+  border-bottom: 1px solid rgba(246,196,83,0.22);
+  box-shadow: 0 12px 42px rgba(0,0,0,0.35);
+}
+
+.athlynx-premium-watermark-card {
+  background-image:
+    linear-gradient(135deg, rgba(2,6,23,0.80), rgba(93,23,37,0.62)),
+    var(--athlynx-brand-family-watermark);
+  background-size: cover;
+  background-position: center;
+}

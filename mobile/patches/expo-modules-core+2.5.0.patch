@@ -1,0 +1,26 @@
+diff --git a/node_modules/expo-modules-core/expo-module-gradle-plugin/src/main/kotlin/expo/modules/plugin/android/AndroidLibraryExtension.kt b/node_modules/expo-modules-core/expo-module-gradle-plugin/src/main/kotlin/expo/modules/plugin/android/AndroidLibraryExtension.kt
+index 9bfae8d..c5ce77d 100644
+--- a/node_modules/expo-modules-core/expo-module-gradle-plugin/src/main/kotlin/expo/modules/plugin/android/AndroidLibraryExtension.kt
++++ b/node_modules/expo-modules-core/expo-module-gradle-plugin/src/main/kotlin/expo/modules/plugin/android/AndroidLibraryExtension.kt
+@@ -1,19 +1,16 @@
+ package expo.modules.plugin.android
+-
+ import com.android.build.gradle.LibraryExtension
+-
+ internal fun LibraryExtension.applySDKVersions(compileSdk: Int, minSdk: Int, targetSdk: Int) {
+   this.compileSdk = compileSdk
+   defaultConfig {
+     this@defaultConfig.minSdk = minSdk
+-    this@defaultConfig.targetSdk = targetSdk
++    // targetSdk is deprecated in Gradle 8.11+ for library modules; use testOptions instead
++    testOptions.targetSdk = targetSdk
+   }
+ }
+-
+ internal fun LibraryExtension.applyLinterOptions() {
+   lintOptions.isAbortOnError = false
+ }
+-
+ internal fun LibraryExtension.applyPublishingVariant() {
+   publishing { publishing ->
+     publishing.singleVariant("release") {

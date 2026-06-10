@@ -1,0 +1,148 @@
+name: Vimeo video flow regression check
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Pre-merge gate for the Vimeo recruiting video upload flow.
+# Validates that auth, existing video lookup, the tus upload handshake, and
+# the player config endpoint all still return 2xx after any change to:
+#   - server/services/vimeo.ts          (Vimeo API client)
+#   - server/routers/mediaRouter.ts     (upload + playback routes)
+#   - client/src/components/VideoUploadHub.tsx  (RN upload UI)
+#
+# Any 4xx/5xx fails the job, the full response body is logged inline, and
+# every response (status, headers, request id, rate-limit counters, body) is
+# uploaded as a workflow artifact for debugging.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'server/services/vimeo.ts'
+      - 'server/routers/mediaRouter.ts'
+      - 'client/src/components/VideoUploadHub.tsx'
+      - 'scripts/vimeo-ci/**'
+      - '.github/workflows/vimeo-video-flow.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'server/services/vimeo.ts'
+      - 'server/routers/mediaRouter.ts'
+      - 'client/src/components/VideoUploadHub.tsx'
+      - 'scripts/vimeo-ci/**'
+      - '.github/workflows/vimeo-video-flow.yml'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or SHA to test (defaults to current ref)'
+        required: false
+        default: ''
+
+concurrency:
+  group: vimeo-video-flow-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  vimeo-video-flow:
+    name: Vimeo video flow regression check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event.pull_request.draft != true
+
+    env:
+      NODE_ENV: test
+      VIMEO_API_BASE: https://api.vimeo.com
+      VIMEO_ACCESS_TOKEN: ${{ secrets.VIMEO_ACCESS_TOKEN }}
+      VIMEO_TEST_VIDEO_IDS: ${{ vars.VIMEO_TEST_VIDEO_IDS }}
+      VIMEO_TEST_FOLDER_ID: ${{ vars.VIMEO_TEST_FOLDER_ID }}
+      LOG_DIR: ${{ github.workspace }}/vimeo-logs
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.head_ref || github.ref }}
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Verify required secrets are present
+        run: |
+          missing=0
+          if [ -z "$VIMEO_ACCESS_TOKEN" ]; then
+            echo "::error::Missing repo secret VIMEO_ACCESS_TOKEN — add it under Settings → Secrets and variables → Actions"
+            missing=1
+          fi
+          if [ -z "$VIMEO_TEST_VIDEO_IDS" ]; then
+            echo "::error::Missing repo variable VIMEO_TEST_VIDEO_IDS — add 2–5 stable production video IDs, comma-separated"
+            missing=1
+          fi
+          if [ "$missing" -eq 1 ]; then exit 1; fi
+
+      - name: Prepare log directory
+        run: mkdir -p "$LOG_DIR"
+
+      # Step 1: auth sanity
+      - name: Vimeo auth sanity (/me)
+        run: node scripts/vimeo-ci/vimeo-check-auth.js
+
+      # Step 2: validate every existing video ID
+      - name: Validate existing video IDs
+        run: node scripts/vimeo-ci/vimeo-validate-videos.js
+
+      # Step 3: simulate a new upload (POST + tus HEAD + DELETE)
+      - name: Simulate new video upload
+        run: node scripts/vimeo-ci/vimeo-simulate-upload.js
+
+      # Step 4: verify player config (HLS manifest reachable)
+      - name: Verify player config endpoint
+        run: node scripts/vimeo-ci/vimeo-verify-player.js
+
+      - name: Upload response logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vimeo-response-logs-${{ github.run_id }}
+          path: ${{ env.LOG_DIR }}
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Comment failure summary on PR
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const logDir = process.env.LOG_DIR;
+            let summary = '### ❌ Vimeo video flow regression detected\n\n';
+            summary += 'The PR failed the Vimeo integration gate. ';
+            summary += 'Download the `vimeo-response-logs-${{ github.run_id }}` artifact for full response bodies.\n\n';
+            try {
+              const files = fs.readdirSync(logDir).filter(f => f.endsWith('.json'));
+              summary += '<details><summary>Failed steps</summary>\n\n';
+              for (const f of files) {
+                const body = JSON.parse(fs.readFileSync(path.join(logDir, f), 'utf8'));
+                if (body.ok === false) {
+                  summary += `**${f}** — status \`${body.status}\` from \`${body.url}\`\n\n`;
+                  summary += '```json\n' + JSON.stringify(body.response, null, 2).slice(0, 1500) + '\n```\n\n';
+                }
+              }
+              summary += '</details>';
+            } catch (e) {
+              summary += `_Could not read log directory: ${e.message}_`;
+            }
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: summary,
+            });

@@ -1,0 +1,33 @@
+--- list teams
+Tool execution result saved to: /home/ubuntu/.mcp/tool-results/2026-05-23_16-06-03_vercel_list_teams.json
+Tool execution result:
+{
+  "teams": [
+    {
+      "name": "AthlynxChad",
+      "slug": "chad-a-doziers-projects",
+      "id": "team_7neDSatyrDspOku2p0LxT8zO",
+      "saml": {}
+    },
+    {
+      "name": "Cdozier14",
+      "slug": "cdozier14",
+      "id": "team_FnZ6TFaOYpQ3VSrHRdy1TlI1",
+      "saml": {}
+    }
+  ]
+}
+--- AthlynxChad projects
+Tool execution result saved to: /home/ubuntu/.mcp/tool-results/2026-05-23_16-06-03_vercel_list_projects.json
+Tool execution result:
+{
+  "projects": []
+}
+--- Cdozier14 projects
+Tool execution result saved to: /home/ubuntu/.mcp/tool-results/2026-05-23_16-06-04_vercel_list_projects.json
+Tool execution result:
+{
+  "projects": []
+}
+--- local vercel project link
+no .vercel/project.json in approved repo clone

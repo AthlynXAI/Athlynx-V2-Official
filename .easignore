@@ -1,0 +1,17 @@
+node_modules/
+mobile/node_modules/
+.expo/
+mobile/.expo/
+android/
+ios/
+mobile/android/
+mobile/ios/
+dist/
+mobile/dist/
+client/
+server/
+drizzle/
+attached_assets/
+*.log
+*.map
+.git/
