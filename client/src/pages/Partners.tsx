@@ -53,7 +53,7 @@ function PartnersInner() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <img src="/athlynx-sports-brand.png" alt="AthlynX™" className="h-10 w-10 rounded-xl object-contain" />
+              <img src="/logo-owl-512.png" alt="AthlynX™" className="h-10 w-10 rounded-xl object-contain" />
               <div>
                 <div className="text-white font-black text-lg">AthlynX™</div>
                 <div className="text-blue-400 text-xs">A Dozier Holdings Group™ Company</div>

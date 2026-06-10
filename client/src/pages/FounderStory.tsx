@@ -92,16 +92,13 @@ function FounderStoryInner() {
             <p className="text-cyan-400 tracking-wider">DREAMS DO TRULY COME TRUE</p>
           </div>
           
-          {/* Video Player */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-400/30">
-            <video 
-              controls 
-              className="w-full aspect-video bg-black"
-              poster="/athlynx-icon.png"
-            >
-              <source src="/athlynx-sports-brand.png" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          {/* Founder story key art — cobalt brand-locked owl mark */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-500/30 bg-black">
+            <img
+              src="/logo-lockup-1024.png"
+              alt="AthlynX — The Athlete's Playbook"
+              className="w-full aspect-video object-contain"
+            />
           </div>
           
           <p className="text-slate-400 text-center mt-6">

@@ -14,6 +14,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import Sports from "./pages/Sports";
+import AllSportsHub from "./pages/AllSportsHub";
 import BrandedProfileBuilder from "./pages/BrandedProfileBuilder";
 import AITrainerBuild from "./pages/AITrainerBuild";
 import DozierLegacy from "./pages/DozierLegacy";
@@ -302,6 +303,8 @@ function Router() {
       {/* ── Core ── */}
       <Route path="/" component={Home} />
       <Route path="/sports" component={Sports} />
+      <Route path="/all-sports-hub" component={AllSportsHub} />
+      <Route path="/sports/:slug" component={AllSportsHub} />
       <Route path="/branded-profile" component={BrandedProfileBuilder} />
       <Route path="/branded-profile-builder" component={BrandedProfileBuilder} />
       <Route path="/top-5-schools" component={BrandedProfileBuilder} />
