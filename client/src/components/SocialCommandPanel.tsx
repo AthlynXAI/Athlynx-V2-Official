@@ -16,7 +16,7 @@ const PLATFORMS = [
   { id: "twitter", label: "Instagram (@ChadADozier2)", icon: "", color: "text-[#00C2FF]" },
   { id: "linkedin", label: "LinkedIn", icon: "", color: "text-blue-300" },
   { id: "buffer_linkedin", label: "Buffer → LinkedIn (backup)", icon: "", color: "text-[#00C2FF]" },
-  { id: "buffer_instagram", label: "Buffer → Instagram (backup)", icon: "", color: "text-[#00C2FF]" },
+  { id: "buffer_twitter", label: "Buffer → Twitter (backup)", icon: "", color: "text-[#00C2FF]" },
 ] as const;
 
 type PlatformId = typeof PLATFORMS[number]["id"];
@@ -34,7 +34,7 @@ export default function SocialCommandPanel() {
   const [message, setMessage] = useState("");
   const [topic, setTopic] = useState("");
   const [tone, setTone] = useState<"professional" | "hype" | "motivational" | "educational">("motivational");
-  const [selectedPlatforms, setSelectedPlatforms] = useState<PlatformId[]>(["buffer_linkedin", "buffer_instagram"]);
+  const [selectedPlatforms, setSelectedPlatforms] = useState<PlatformId[]>(["buffer_linkedin", "buffer_twitter"]);
   const [postResult, setPostResult] = useState<any>(null);
   const [mode, setMode] = useState<"manual" | "ai">("manual");
 

@@ -3,7 +3,7 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import PlatformLayout from "@/components/PlatformLayout";
 import MobileBottomNav from '@/components/MobileBottomNav'
 import { Link } from "wouter";
-import EPXPhoneMockup from "../components/EPXPhoneMockup";
+import EPXPhoneMockup from "../components/XFactorPhoneMockup";
 import MeetAthletes from "@/components/MeetAthletes";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";

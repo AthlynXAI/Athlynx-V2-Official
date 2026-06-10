@@ -61,13 +61,13 @@ const MCWS_TEAMS: MCWSTeam[] = [
   // Bracket 1
   { seed: 1, natlSeed: 5,  name: "North Carolina",  record: "50-12-1", bracket: "bracket1", status: "2-0 · Winners bracket" },
   { seed: 2, natlSeed: 16, name: "West Virginia",   record: "45-15",   bracket: "bracket1", status: "First-ever MCWS appearance" },
-  { seed: 3, natlSeed: null, name: "Ole Miss",       record: "41-21",   bracket: "bracket1" },
-  { seed: 4, natlSeed: null, name: "Troy",           record: "38-30",   bracket: "bracket1", status: "First-ever MCWS appearance" },
+  { seed: 3, natlSeed: undefined, name: "Ole Miss",       record: "41-21",   bracket: "bracket1" },
+  { seed: 4, natlSeed: undefined, name: "Troy",           record: "38-30",   bracket: "bracket1", status: "First-ever MCWS appearance" },
   // Bracket 2
   { seed: 1, natlSeed: 3,  name: "Georgia",         record: "51-12",   bracket: "bracket2" },
   { seed: 2, natlSeed: 6,  name: "Texas",           record: "45-13",   bracket: "bracket2" },
   { seed: 3, natlSeed: 7,  name: "Alabama",         record: "41-19",   bracket: "bracket2" },
-  { seed: 4, natlSeed: null, name: "Oklahoma",      record: "37-22",   bracket: "bracket2" },
+  { seed: 4, natlSeed: undefined, name: "Oklahoma",      record: "37-22",   bracket: "bracket2" },
 ];
 
 const MCWS_SCHEDULE: MCWSGame[] = [

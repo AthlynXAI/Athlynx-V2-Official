@@ -87,7 +87,7 @@ const APP_ICONS: Record<string, { emoji: string; bg: string }> = {
   "White Label": { emoji: "", bg: "from-[#0a1628] to-[#1E90FF]" },
   "Partners": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
   "Softmor": { emoji: "", bg: "from-[#1E90FF] to-blue-700" },
-  "Bitcoin Mining": { icon: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Bitcoin Mining": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
   "Robotics": { emoji: "", bg: "from-slate-500 to-[#0080FF]" },
 };
 

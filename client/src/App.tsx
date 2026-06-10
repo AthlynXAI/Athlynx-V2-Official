@@ -368,7 +368,6 @@ function Router() {
       <Route path="/elite-events" component={EliteEvents} />
       <Route path="/events" component={EliteEvents} />
       <Route path="/epx" component={EPX} />
-      <Route path="/epx" component={EPX} />
       <Route path="/nil-calculator" component={NILCalculator} />
       <Route path="/transfer-portal" component={TransferPortalFOS} />
       <Route path="/transfer-portal-fos" component={TransferPortalFOS} />

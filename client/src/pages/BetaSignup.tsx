@@ -58,7 +58,7 @@ export default function BetaSignup() {
     }
     setLoading(true);
     setError("");
-    signupMutation.mutate({ email, name, role, sport, phone });
+    signupMutation.mutate({ email, fullName: name, role: (role || "athlete") as "athlete" | "parent" | "coach" | "brand" | "scout" | "agent", sport, phone });
   };
 
   const shareUrl = "https://athlynx.ai/beta";
@@ -166,7 +166,7 @@ export default function BetaSignup() {
               {["role", "info", "sport"].map((s, i) => (
                 <div key={s} className={`h-1 flex-1 rounded-full transition-colors ${
                   step === s ? "bg-[#1E90FF]" :
-                  (step === "info" && i === 0) || (step === "sport" && i <= 1) || step === "done" ? "bg-[#1E90FF]/50" :
+                  (step === "info" && i === 0) || (step === "sport" && i <= 1) || (step as string) === "done" ? "bg-[#1E90FF]/50" :
                   "bg-white/10"
                 }`} />
               ))}

@@ -13,7 +13,7 @@ import PartnerAvatar, { isMasterAdmin } from "@/components/PartnerAvatar";
 
 const RECIPIENT_OPTIONS = [
   { value: "all", label: "All Users", emoji: "" },
-  { value: "trial", label: "Trial Users", icon: "" },
+  { value: "trial", label: "Trial Users", emoji: "" },
   { value: "subscribed", label: "Subscribers", emoji: "" },
   { value: "free", label: "Free Users", emoji: "" },
 ] as const;

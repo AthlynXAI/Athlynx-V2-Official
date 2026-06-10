@@ -677,7 +677,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
   const { data: feedData, isLoading: feedLoading } = trpc.feed.getFeed.useQuery({ limit: 20 }, { refetchInterval: 30000, retry: 1 });
   const likePost = trpc.feed.likePost.useMutation({ onSuccess: () => utils.feed.getFeed.invalidate() });
   const createPost = trpc.feed.createPost.useMutation({ onSuccess: () => { setPostText(""); utils.feed.getFeed.invalidate(); } });
-  const calcEPX = trpc.ai.calculateEPX.useMutation({ onSuccess: (data) => setXScoreResult(data) });
+  const calcEPX = { mutate: (_: any) => {}, isPending: false }; // calculateEPX not yet in aiRouter
 
   const dbPosts = feedData?.posts ?? [];
   const sportPosts = dbPosts.filter((p: any) =>
