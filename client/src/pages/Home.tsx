@@ -809,29 +809,41 @@ function HomeInner() {
             <span className="text-sm md:text-base font-black uppercase tracking-widest text-white/60">ENTER THE PORTAL</span>
           </div>
 
-          {/*  RECOGNITION  */}
+          {/*  RECOGNITION & COMPUTE PARTNERS  */}
           <div className="mt-10 w-full max-w-5xl">
-            <div className="text-[10px] font-black uppercase tracking-[0.45em] text-[#1E90FF]">Recognition</div>
+            <div className="text-[10px] font-black uppercase tracking-[0.45em] text-[#1E90FF]">Recognition &amp; Compute Partners</div>
             <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-              <div className="rounded-2xl border border-[#1E90FF]/30 bg-black/55 px-4 py-4 text-left backdrop-blur-sm transition hover:border-[#1E90FF] hover:bg-black/75">
-                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">Nebius</div>
-                <div className="mt-1.5 text-sm font-black uppercase tracking-tight text-white md:text-base">Semifinalist</div>
-                <div className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-white/75">AI Discovery Award · Digital Health</div>
+              {/* Nebius — FEATURED SEMIFINALIST */}
+              <div className="rounded-2xl border-2 border-[#1E90FF] bg-gradient-to-br from-[#0a1628] to-black px-4 py-4 text-left backdrop-blur-sm shadow-[0_0_28px_-4px_rgba(30,144,255,0.55)] transition hover:shadow-[0_0_40px_-4px_rgba(30,144,255,0.75)] hover:bg-[#0d1f40]">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#1E90FF] animate-pulse"></span>
+                  <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">Nebius AI</div>
+                </div>
+                <div className="text-sm font-black uppercase tracking-tight text-white md:text-base">Semifinalist</div>
+                <div className="mt-0.5 text-[10px] font-black uppercase tracking-wider text-[#00C2FF]">AI Discovery Award</div>
+                <div className="mt-0.5 text-[9px] font-bold uppercase tracking-wider text-white/55">Digital Health · London · Jul 1, 2026</div>
               </div>
+              {/* Google ADK Hackathon — FEATURED */}
+              <div className="rounded-2xl border-2 border-[#1E90FF]/60 bg-gradient-to-br from-[#0a1628] to-black px-4 py-4 text-left backdrop-blur-sm shadow-[0_0_20px_-4px_rgba(30,144,255,0.35)] transition hover:border-[#1E90FF] hover:shadow-[0_0_32px_-4px_rgba(30,144,255,0.55)]">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#00C2FF] animate-pulse"></span>
+                  <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#00C2FF]">Google</div>
+                </div>
+                <div className="text-sm font-black uppercase tracking-tight text-white md:text-base">ADK Hackathon</div>
+                <div className="mt-0.5 text-[10px] font-black uppercase tracking-wider text-[#00C2FF]">Agent Dev Kit</div>
+                <div className="mt-0.5 text-[9px] font-bold uppercase tracking-wider text-white/55">Cloud Run · AI Agents · Live</div>
+              </div>
+              {/* NVIDIA H200 */}
+              <div className="rounded-2xl border border-[#1E90FF]/30 bg-black/55 px-4 py-4 text-left backdrop-blur-sm transition hover:border-[#1E90FF] hover:bg-black/75">
+                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">NVIDIA</div>
+                <div className="mt-1.5 text-sm font-black uppercase tracking-tight text-white md:text-base">H200 GPUs</div>
+                <div className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-white/75">Hopper · HBM3e · 141 GB</div>
+              </div>
+              {/* OpenAI */}
               <div className="rounded-2xl border border-[#1E90FF]/30 bg-black/55 px-4 py-4 text-left backdrop-blur-sm transition hover:border-[#1E90FF] hover:bg-black/75">
                 <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">OpenAI</div>
                 <div className="mt-1.5 text-sm font-black uppercase tracking-tight text-white md:text-base">Startup Fund</div>
                 <div className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-white/75">Application Submitted</div>
-              </div>
-              <div className="rounded-2xl border border-[#1E90FF]/30 bg-black/55 px-4 py-4 text-left backdrop-blur-sm transition hover:border-[#1E90FF] hover:bg-black/75">
-                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">Google ADK</div>
-                <div className="mt-1.5 text-sm font-black uppercase tracking-tight text-white md:text-base">Hackathon</div>
-                <div className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-white/75">Cloud Run · ADK Agents</div>
-              </div>
-              <div className="rounded-2xl border border-[#1E90FF]/30 bg-black/55 px-4 py-4 text-left backdrop-blur-sm transition hover:border-[#1E90FF] hover:bg-black/75">
-                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-[#1E90FF]">NVIDIA</div>
-                <div className="mt-1.5 text-sm font-black uppercase tracking-tight text-white md:text-base">H200 GPUs</div>
-                <div className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-white/75">Ising Compute · /api/os/compute</div>
               </div>
             </div>
           </div>

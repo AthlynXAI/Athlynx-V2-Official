@@ -1,308 +1,276 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+/**
+ * AthlynX MCWS Brackets Screen — v2.0.0
+ * Full Road to Omaha bracket, schedule, and team info
+ */
+import React, { useState } from "react";
 import {
-  ActivityIndicator,
-  RefreshControl,
+  ImageBackground,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
-import { BorderRadius, Colors, Spacing, Typography } from "../../lib/theme";
+import { Colors, BorderRadius, Typography, Spacing } from "../../lib/theme";
 
-const COBALT = "#1E90FF";
-const ESPN_BASEBALL = "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard";
-const ESPN_SOFTBALL = "https://site.api.espn.com/apis/site/v2/sports/softball/college-softball/scoreboard";
+const BRACKET_1 = [
+  { game: 1, date: "Fri Jun 12", time: "2pm ET", team1: { abbr: "WVU",  name: "West Virginia", seed: 16, record: "42-20" }, team2: { abbr: "TROY", name: "Troy",          seed: 0,  record: "40-22" }, status: "UPCOMING", channel: "ESPN" },
+  { game: 2, date: "Fri Jun 12", time: "7pm ET", team1: { abbr: "UNC",  name: "North Carolina", seed: 5,  record: "45-17" }, team2: { abbr: "MISS", name: "Ole Miss",       seed: 0,  record: "41-21" }, status: "UPCOMING", channel: "ESPN" },
+];
+const BRACKET_2 = [
+  { game: 3, date: "Sat Jun 13", time: "3pm ET", team1: { abbr: "ALA",  name: "Alabama",        seed: 7,  record: "43-19" }, team2: { abbr: "OU",   name: "Oklahoma",      seed: 0,  record: "43-19" }, status: "UPCOMING", channel: "ESPN" },
+  { game: 4, date: "Sat Jun 13", time: "8pm ET", team1: { abbr: "UGA",  name: "Georgia",        seed: 3,  record: "47-16" }, team2: { abbr: "TEX",  name: "Texas",         seed: 6,  record: "44-18" }, status: "UPCOMING", channel: "ESPN" },
+];
 
-type Sport = "baseball" | "softball";
-type GameState = "pre" | "in" | "post";
+const CHAMPIONSHIP_SCHEDULE = [
+  { label: "Championship Game 1", date: "Sat Jun 20", time: "8pm ET",   channel: "ESPN" },
+  { label: "Championship Game 2", date: "Sun Jun 21", time: "2:30pm ET", channel: "ABC"  },
+  { label: "Championship Game 3", date: "Mon Jun 22", time: "7pm ET",   channel: "ESPN", note: "if necessary" },
+];
 
-type ESPNTeam = {
-  homeAway: "home" | "away";
-  score?: string;
-  curatedRank?: { current?: number };
-  team?: { shortDisplayName?: string; abbreviation?: string };
-};
+const HOW_THEY_GOT_HERE = [
+  { abbr: "UGA",  seed: 3,  how: "Athens Regional champs → def. Mississippi State (10 HR slugfest)" },
+  { abbr: "UNC",  seed: 5,  how: "Chapel Hill Regional champs → def. USC in wild walk-off Game 3" },
+  { abbr: "TEX",  seed: 6,  how: "Austin Regional champs → swept Oregon (6-5 dramatic clincher)" },
+  { abbr: "ALA",  seed: 7,  how: "Advanced through super regional" },
+  { abbr: "WVU",  seed: 16, how: "Swept Cal Poly: 12-2, 17-1 — dominant super regional run" },
+  { abbr: "TROY", seed: 0,  how: "Cinderella story — unseeded team in Omaha" },
+  { abbr: "MISS", seed: 0,  how: "def. Auburn 2-0, 5-3 in super regional" },
+  { abbr: "OU",   seed: 0,  how: "Atlanta Regional champs → def. Georgia Tech 8-7 in 10 innings" },
+];
 
-type ESPNEvent = {
-  id: string;
-  date: string;
-  competitions?: Array<{
-    status?: { type?: { state?: string; shortDetail?: string } };
-    competitors?: ESPNTeam[];
-    notes?: Array<{ headline?: string }>;
-  }>;
-};
-
-type Game = {
-  id: string;
-  state: GameState;
-  detail: string;
-  date: string;
-  ctTimeLabel: string;
-  ctDateLabel: string;
-  bracketTail: string;
-  home: { name: string; rank?: number; score?: string };
-  away: { name: string; rank?: number; score?: string };
-  winner?: "home" | "away";
-};
-
-type Regional = { name: string; games: Game[] };
-
-type Slots = Record<"game1" | "game2" | "game3" | "game4" | "game5" | "game6" | "game7", Game | null>;
-
-function yyyymmdd(d: Date) {
-  return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
-}
-
-function parseRegionalName(note: string) {
-  const parts = note.split(" - ").map((s) => s.trim());
-  const regional = parts.find((p) => /Regional/i.test(p)) ?? "";
-  const tail = regional ? parts.slice(parts.indexOf(regional) + 1).join(" - ") : "";
-  return { regional, tail };
-}
-
-function mapEvent(e: ESPNEvent): { regional: string; game: Game } | null {
-  const comp = e.competitions?.[0] ?? {};
-  const status = comp.status?.type ?? {};
-  const teams = comp.competitors ?? [];
-  const home = teams.find((t) => t.homeAway === "home");
-  const away = teams.find((t) => t.homeAway === "away");
-  const note = comp.notes?.[0]?.headline ?? "";
-  if (!/Regional/i.test(note)) return null;
-  const { regional, tail } = parseRegionalName(note);
-  const dt = new Date(e.date);
-  const ctDateLabel = dt.toLocaleDateString("en-US", { timeZone: "America/Chicago", weekday: "short", month: "short", day: "numeric" });
-  const ctTimeLabel = dt.toLocaleTimeString("en-US", { timeZone: "America/Chicago", hour: "numeric", minute: "2-digit", hour12: true });
-  const state = ((status.state as GameState) || "pre") as GameState;
-  const homeScore = home?.score;
-  const awayScore = away?.score;
-  const winner = state === "post" && homeScore != null && awayScore != null
-    ? Number(homeScore) > Number(awayScore) ? "home" : "away"
-    : undefined;
-  return {
-    regional,
-    game: {
-      id: e.id,
-      state,
-      detail: status.shortDetail ?? "",
-      date: e.date,
-      ctTimeLabel,
-      ctDateLabel,
-      bracketTail: tail,
-      home: {
-        name: home?.team?.shortDisplayName ?? home?.team?.abbreviation ?? "TBD",
-        rank: home?.curatedRank?.current && home.curatedRank.current < 99 ? home.curatedRank.current : undefined,
-        score: homeScore,
-      },
-      away: {
-        name: away?.team?.shortDisplayName ?? away?.team?.abbreviation ?? "TBD",
-        rank: away?.curatedRank?.current && away.curatedRank.current < 99 ? away.curatedRank.current : undefined,
-        score: awayScore,
-      },
-      winner,
-    },
-  };
-}
-
-async function fetchDay(sport: Sport, date: string) {
-  const base = sport === "baseball" ? ESPN_BASEBALL : ESPN_SOFTBALL;
-  try {
-    const res = await fetch(`${base}?dates=${date}&limit=100`);
-    if (!res.ok) return [];
-    const data = await res.json();
-    const events: ESPNEvent[] = data.events ?? [];
-    return events.map(mapEvent).filter((x): x is { regional: string; game: Game } => x != null);
-  } catch {
-    return [];
-  }
-}
-
-function assignSlots(regional: Regional): Slots {
-  const sorted = [...regional.games].sort((a, b) => a.date.localeCompare(b.date));
-  const result: Slots = { game1: null, game2: null, game3: null, game4: null, game5: null, game6: null, game7: null };
-  const byDay: Record<string, Game[]> = { Fri: [], Sat: [], Sun: [], Mon: [], other: [] };
-  for (const g of sorted) {
-    const day = new Date(g.date).toLocaleDateString("en-US", { timeZone: "America/Chicago", weekday: "short" });
-    (byDay[day] ?? byDay.other).push(g);
-  }
-  if (byDay.Fri[0]) result.game1 = byDay.Fri[0];
-  if (byDay.Fri[1]) result.game2 = byDay.Fri[1];
-  for (const g of byDay.Sat) {
-    if (/Elimination/i.test(g.bracketTail) && !result.game4) result.game4 = g;
-    else if (!result.game3) result.game3 = g;
-    else if (!result.game4) result.game4 = g;
-  }
-  for (const g of byDay.Sun) {
-    if (/Elimination/i.test(g.bracketTail) && !result.game5) result.game5 = g;
-    else if (/Final/i.test(g.bracketTail) && !result.game6) result.game6 = g;
-    else if (!result.game5) result.game5 = g;
-    else if (!result.game6) result.game6 = g;
-  }
-  if (byDay.Mon[0]) result.game7 = byDay.Mon[0];
-  return result;
-}
-
-function TeamRow({ team, winner }: { team: Game["home"]; winner: boolean }) {
+function GameCard({ game }: { game: typeof BRACKET_1[0] }) {
+  const isUpcoming = game.status === "UPCOMING";
   return (
-    <View style={styles.teamRow}>
-      <Text style={[styles.teamName, winner && styles.winner]} numberOfLines={1}>
-        {team.rank ? <Text style={styles.rank}>#{team.rank} </Text> : null}{team.name}
-      </Text>
-      <Text style={[styles.score, winner && styles.winner]}>{team.score ?? "–"}</Text>
-    </View>
-  );
-}
-
-function GameSlot({ label, slotDay, game }: { label: string; slotDay: string; game: Game | null }) {
-  return (
-    <View style={styles.gameSlot}>
-      <View style={styles.gameHeader}>
-        <Text style={styles.gameLabel}>{label}</Text>
-        <Text style={[styles.statePill, game?.state === "in" && styles.livePill]}>{game ? (game.state === "post" ? "FINAL" : game.state === "in" ? `LIVE ${game.detail}` : game.detail || "SCHEDULED") : "TBD"}</Text>
+    <View style={styles.gameCard}>
+      <View style={styles.gameCardTop}>
+        <View style={styles.gameNum}>
+          <Text style={styles.gameNumText}>GAME {game.game}</Text>
+        </View>
+        <Text style={styles.gameDateTime}>{game.date} · {game.time}</Text>
+        <View style={styles.gameChannel}>
+          <Text style={styles.gameChannelText}>{game.channel}</Text>
+        </View>
       </View>
-      {game ? (
-        <>
-          <TeamRow team={game.away} winner={game.winner === "away"} />
-          <TeamRow team={game.home} winner={game.winner === "home"} />
-          {game.state === "pre" ? <Text style={styles.timeText}>{game.ctDateLabel} · {game.ctTimeLabel} CT</Text> : null}
-        </>
-      ) : (
-        <>
-          <Text style={styles.tbdText}>TBD</Text>
-          <Text style={styles.tbdText}>TBD</Text>
-          <Text style={styles.timeText}>{slotDay}</Text>
-        </>
-      )}
-    </View>
-  );
-}
-
-function RegionalCard({ regional, sport }: { regional: Regional; sport: Sport }) {
-  const slots = useMemo(() => assignSlots(regional), [regional]);
-  const shortName = regional.name.replace(/Regional$/i, "").trim();
-  return (
-    <View style={styles.regionalCard}>
-      <View style={styles.regionalHeader}>
-        <Text style={styles.roadLabel}>{sport === "baseball" ? "ROAD TO OMAHA" : "ROAD TO OKC"}</Text>
-        <Text style={styles.regionalTitle}>{shortName} Regional</Text>
-        <Text style={styles.elimLabel}>7-game double-elimination</Text>
+      <View style={styles.gameTeams}>
+        <View style={styles.gameTeam}>
+          {game.team1.seed > 0 && <Text style={styles.gameSeed}>#{game.team1.seed}</Text>}
+          <View>
+            <Text style={styles.gameTeamAbbr}>{game.team1.abbr}</Text>
+            <Text style={styles.gameTeamName}>{game.team1.name}</Text>
+            <Text style={styles.gameTeamRecord}>{game.team1.record}</Text>
+          </View>
+        </View>
+        <View style={styles.gameVS}>
+          <Text style={styles.gameVSText}>VS</Text>
+        </View>
+        <View style={[styles.gameTeam, styles.gameTeamRight]}>
+          {game.team2.seed > 0 && <Text style={styles.gameSeed}>#{game.team2.seed}</Text>}
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={styles.gameTeamAbbr}>{game.team2.abbr}</Text>
+            <Text style={styles.gameTeamName}>{game.team2.name}</Text>
+            <Text style={styles.gameTeamRecord}>{game.team2.record}</Text>
+          </View>
+        </View>
       </View>
-      <GameSlot label="Game 1 · Opening" slotDay="Fri" game={slots.game1} />
-      <GameSlot label="Game 2 · Opening" slotDay="Fri" game={slots.game2} />
-      <GameSlot label="Game 3 · Winners 1-0" slotDay="Sat" game={slots.game3} />
-      <GameSlot label="Game 4 · Elimination" slotDay="Sat" game={slots.game4} />
-      <GameSlot label="Game 5 · Elimination" slotDay="Sun" game={slots.game5} />
-      <GameSlot label="Game 6 · Regional Final" slotDay="Sun" game={slots.game6} />
-      <GameSlot label="Game 7 · If Necessary" slotDay="Mon" game={slots.game7} />
+      <View style={[styles.gameStatus, isUpcoming && styles.gameStatusUpcoming]}>
+        <Text style={[styles.gameStatusText, isUpcoming && styles.gameStatusTextUpcoming]}>
+          {isUpcoming ? "⏰ UPCOMING" : game.status}
+        </Text>
+      </View>
     </View>
   );
 }
 
 export default function BracketsScreen() {
-  const [sport, setSport] = useState<Sport>("baseball");
-  const [regionals, setRegionals] = useState<Regional[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-
-  const load = useCallback(async () => {
-    const now = new Date();
-    const days = [-1, 0, 1, 2].map((offset) => yyyymmdd(new Date(now.getTime() + offset * 24 * 60 * 60 * 1000)));
-    const results = await Promise.all(days.map((day) => fetchDay(sport, day)));
-    const byRegional = new Map<string, Regional>();
-    const seenIds = new Set<string>();
-    for (const { regional, game } of results.flat()) {
-      if (!regional || seenIds.has(game.id)) continue;
-      seenIds.add(game.id);
-      if (!byRegional.has(regional)) byRegional.set(regional, { name: regional, games: [] });
-      byRegional.get(regional)!.games.push(game);
-    }
-    setRegionals(Array.from(byRegional.values()).sort((a, b) => a.name.localeCompare(b.name)));
-    setLastUpdated(new Date());
-    setLoading(false);
-  }, [sport]);
-
-  useEffect(() => {
-    let mounted = true;
-    const run = async () => { if (mounted) await load(); };
-    run();
-    const id = setInterval(run, 60_000);
-    return () => { mounted = false; clearInterval(id); };
-  }, [load]);
-
-  const onRefresh = useCallback(async () => {
-    setRefreshing(true);
-    await load();
-    setRefreshing(false);
-  }, [load]);
+  const [tab, setTab] = useState<"bracket" | "schedule" | "teams">("bracket");
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={COBALT} />}
-    >
-      <View style={styles.hero}>
-        <Text style={styles.eyebrow}>REGIONAL BRACKETS</Text>
-        <Text style={styles.title}>{sport === "baseball" ? "Men · Road to Omaha" : "Women · Road to OKC"}</Text>
-        <Text style={styles.subtitle}>Direct ESPN scoreboard feed · 60-second refresh · regional double-elimination tree.</Text>
-      </View>
-      <View style={styles.toggleRow}>
-        <TouchableOpacity style={[styles.toggle, sport === "baseball" && styles.toggleActive]} onPress={() => { setLoading(true); setSport("baseball"); }}>
-          <Text style={[styles.toggleText, sport === "baseball" && styles.toggleTextActive]}>MEN · OMAHA</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.toggle, sport === "softball" && styles.toggleActive]} onPress={() => { setLoading(true); setSport("softball"); }}>
-          <Text style={[styles.toggleText, sport === "softball" && styles.toggleTextActive]}>WOMEN · OKC</Text>
-        </TouchableOpacity>
-      </View>
-      <Text style={styles.lastUpdated}>{lastUpdated ? `Updated ${lastUpdated.toLocaleTimeString()}` : "Loading live bracket feed"}</Text>
-      {loading ? (
-        <View style={styles.centered}><ActivityIndicator color={COBALT} size="large" /></View>
-      ) : regionals.length ? (
-        regionals.map((regional) => <RegionalCard key={regional.name} regional={regional} sport={sport} />)
-      ) : (
-        <View style={styles.emptyCard}>
-          <Text style={styles.emptyTitle}>No regional games found</Text>
-          <Text style={styles.emptyText}>Pull to refresh. ESPN regional notes may appear closer to first pitch.</Text>
+    <View style={styles.root}>
+      {/* Hero */}
+      <ImageBackground
+        source={require("../../assets/stadium_hero_bg.png")}
+        style={styles.hero}
+        imageStyle={styles.heroImage}
+      >
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroLabel}>⚾ MCWS 2026</Text>
+          <Text style={styles.heroTitle}>ROAD TO OMAHA</Text>
+          <Text style={styles.heroSub}>Charles Schwab Field · June 12–22, 2026</Text>
+          <View style={styles.heroStats}>
+            <View style={styles.heroStat}><Text style={styles.heroStatNum}>8</Text><Text style={styles.heroStatLabel}>Teams</Text></View>
+            <View style={styles.heroStatDivider} />
+            <View style={styles.heroStat}><Text style={styles.heroStatNum}>11</Text><Text style={styles.heroStatLabel}>Days</Text></View>
+            <View style={styles.heroStatDivider} />
+            <View style={styles.heroStat}><Text style={styles.heroStatNum}>1</Text><Text style={styles.heroStatLabel}>Champion</Text></View>
+          </View>
         </View>
-      )}
-    </ScrollView>
+      </ImageBackground>
+
+      {/* Tabs */}
+      <View style={styles.tabs}>
+        {(["bracket", "schedule", "teams"] as const).map((t) => (
+          <Pressable key={t} onPress={() => setTab(t)} style={[styles.tabBtn, tab === t && styles.tabBtnActive]}>
+            <Text style={[styles.tabBtnText, tab === t && styles.tabBtnTextActive]}>
+              {t === "bracket" ? "Bracket" : t === "schedule" ? "Schedule" : "Teams"}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+
+      <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+        {tab === "bracket" && (
+          <View style={styles.content}>
+            <Text style={styles.bracketGroupLabel}>BRACKET 1</Text>
+            {BRACKET_1.map((g) => <GameCard key={g.game} game={g} />)}
+            <Text style={[styles.bracketGroupLabel, { marginTop: 16 }]}>BRACKET 2</Text>
+            {BRACKET_2.map((g) => <GameCard key={g.game} game={g} />)}
+            <View style={styles.champSection}>
+              <Text style={styles.champLabel}>🏆 CHAMPIONSHIP SERIES</Text>
+              {CHAMPIONSHIP_SCHEDULE.map((c) => (
+                <View key={c.label} style={styles.champRow}>
+                  <View style={styles.champRowLeft}>
+                    <Text style={styles.champRowLabel}>{c.label}</Text>
+                    {c.note && <Text style={styles.champRowNote}>({c.note})</Text>}
+                  </View>
+                  <View style={styles.champRowRight}>
+                    <Text style={styles.champRowDate}>{c.date}</Text>
+                    <Text style={styles.champRowTime}>{c.time} · {c.channel}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {tab === "schedule" && (
+          <View style={styles.content}>
+            {[
+              { day: "Fri Jun 12", games: ["Game 1: WVU vs Troy · 2pm ET", "Game 2: UNC vs Ole Miss · 7pm ET"] },
+              { day: "Sat Jun 13", games: ["Game 3: Alabama vs Oklahoma · 3pm ET", "Game 4: Georgia vs Texas · 8pm ET"] },
+              { day: "Sun Jun 14", games: ["Game 5: L1 vs L2 · 2pm ET", "Game 6: W1 vs W2 · 7pm ET"] },
+              { day: "Mon Jun 15", games: ["Game 7: L3 vs L4 · 2pm ET", "Game 8: W3 vs W4 · 7pm ET"] },
+              { day: "Tue Jun 16", games: ["Game 9: W5 vs L6 · 2pm ET", "Game 10: W7 vs L8 · 8pm ET"] },
+              { day: "Wed Jun 17", games: ["Game 11: W6 vs W9 · 2pm ET", "Game 12: W8 vs W10 · 7pm ET"] },
+              { day: "Sat Jun 20", games: ["Championship Game 1 · 8pm ET · ESPN"] },
+              { day: "Sun Jun 21", games: ["Championship Game 2 · 2:30pm ET · ABC"] },
+              { day: "Mon Jun 22", games: ["Championship Game 3 · 7pm ET · ESPN (if needed)"] },
+            ].map((day) => (
+              <View key={day.day} style={styles.scheduleDay}>
+                <Text style={styles.scheduleDayLabel}>{day.day}</Text>
+                {day.games.map((g) => (
+                  <View key={g} style={styles.scheduleGame}>
+                    <View style={styles.scheduleGameDot} />
+                    <Text style={styles.scheduleGameText}>{g}</Text>
+                  </View>
+                ))}
+              </View>
+            ))}
+          </View>
+        )}
+
+        {tab === "teams" && (
+          <View style={styles.content}>
+            {HOW_THEY_GOT_HERE.map((team) => (
+              <View key={team.abbr} style={styles.teamRow}>
+                <View style={styles.teamRowLeft}>
+                  <Text style={styles.teamRowAbbr}>{team.abbr}</Text>
+                  {team.seed > 0 && <Text style={styles.teamRowSeed}>#{team.seed}</Text>}
+                </View>
+                <Text style={styles.teamRowHow}>{team.how}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+
+        <View style={{ height: 40 }} />
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#000000" },
-  content: { padding: Spacing.md, paddingBottom: 36, gap: Spacing.md },
-  hero: { borderRadius: BorderRadius.xl, borderWidth: 1, borderColor: `${COBALT}66`, backgroundColor: "#050A12", padding: Spacing.lg },
-  eyebrow: { ...Typography.label, color: COBALT, marginBottom: 8 },
-  title: { color: "#FFFFFF", fontSize: 28, fontWeight: "900" },
-  subtitle: { color: Colors.textSecondary, marginTop: 8, lineHeight: 21 },
-  toggleRow: { flexDirection: "row", gap: Spacing.sm },
-  toggle: { flex: 1, borderRadius: BorderRadius.md, borderWidth: 1, borderColor: Colors.border, paddingVertical: 12, alignItems: "center", backgroundColor: "#070707" },
-  toggleActive: { backgroundColor: COBALT, borderColor: COBALT },
-  toggleText: { color: Colors.textSecondary, fontSize: 12, fontWeight: "900" },
-  toggleTextActive: { color: "#FFFFFF" },
-  lastUpdated: { color: Colors.textMuted, fontSize: 11, textAlign: "right" },
-  centered: { padding: 40, alignItems: "center" },
-  regionalCard: { borderRadius: BorderRadius.xl, borderWidth: 1, borderColor: `${COBALT}44`, backgroundColor: "#050505", padding: Spacing.md, gap: Spacing.sm },
-  regionalHeader: { marginBottom: 4 },
-  roadLabel: { alignSelf: "flex-start", backgroundColor: COBALT, color: "#FFFFFF", fontSize: 10, fontWeight: "900", paddingHorizontal: 8, paddingVertical: 4, borderRadius: 5, overflow: "hidden", marginBottom: 8 },
-  regionalTitle: { color: "#FFFFFF", fontSize: 18, fontWeight: "900" },
-  elimLabel: { color: Colors.textMuted, fontSize: 11, marginTop: 3, textTransform: "uppercase" },
-  gameSlot: { borderRadius: BorderRadius.md, borderWidth: 1, borderColor: "rgba(255,255,255,0.10)", backgroundColor: "#090909", padding: Spacing.sm },
-  gameHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: Spacing.sm, marginBottom: 6 },
-  gameLabel: { color: "#88A8FF", fontSize: 10, fontWeight: "900", flex: 1 },
-  statePill: { color: Colors.textMuted, fontSize: 9, fontWeight: "900", borderWidth: 1, borderColor: "rgba(255,255,255,0.20)", borderRadius: 4, paddingHorizontal: 5, paddingVertical: 2, overflow: "hidden" },
-  livePill: { color: "#FFFFFF", backgroundColor: COBALT, borderColor: COBALT },
-  teamRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: Spacing.sm, marginVertical: 1 },
-  teamName: { color: Colors.textSecondary, fontSize: 13, flex: 1, fontWeight: "700" },
-  rank: { color: COBALT, fontWeight: "900" },
-  score: { color: Colors.textSecondary, fontSize: 13, fontWeight: "900" },
-  winner: { color: "#FFFFFF" },
-  timeText: { color: Colors.textMuted, fontSize: 10, marginTop: 5 },
-  tbdText: { color: Colors.textMuted, fontSize: 13, marginVertical: 1 },
-  emptyCard: { borderRadius: BorderRadius.lg, borderWidth: 1, borderColor: Colors.border, backgroundColor: "#070707", padding: Spacing.lg, alignItems: "center" },
-  emptyTitle: { color: "#FFFFFF", fontWeight: "900", marginBottom: 6 },
-  emptyText: { color: Colors.textSecondary, textAlign: "center", lineHeight: 20 },
+  root: { flex: 1, backgroundColor: Colors.granite950 },
+  hero: { height: 200 },
+  heroImage: {},
+  heroOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    padding: 20,
+    justifyContent: "flex-end",
+  },
+  heroLabel: { color: Colors.electric, fontSize: 11, fontWeight: "800", letterSpacing: 1.2, marginBottom: 4 },
+  heroTitle: { color: "#FFF", fontSize: 28, fontWeight: "900", letterSpacing: -0.5 },
+  heroSub: { color: Colors.textSecondary, fontSize: 13, marginTop: 4 },
+  heroStats: { flexDirection: "row", alignItems: "center", marginTop: 12, gap: 16 },
+  heroStat: { alignItems: "center" },
+  heroStatNum: { color: Colors.electric, fontSize: 22, fontWeight: "900" },
+  heroStatLabel: { color: Colors.textMuted, fontSize: 11, fontWeight: "600" },
+  heroStatDivider: { width: 1, height: 30, backgroundColor: Colors.electricBorder },
+  tabs: {
+    flexDirection: "row",
+    backgroundColor: Colors.granite900,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.electricBorder,
+  },
+  tabBtn: { flex: 1, paddingVertical: 14, alignItems: "center" },
+  tabBtnActive: { borderBottomWidth: 2, borderBottomColor: Colors.electric },
+  tabBtnText: { color: Colors.textMuted, fontSize: 13, fontWeight: "600" },
+  tabBtnTextActive: { color: Colors.electric },
+  scroll: { flex: 1 },
+  content: { padding: 16 },
+  bracketGroupLabel: {
+    color: Colors.electric,
+    fontSize: 11,
+    fontWeight: "800",
+    letterSpacing: 1.5,
+    textTransform: "uppercase",
+    marginBottom: 10,
+  },
+  gameCard: {
+    backgroundColor: Colors.granite800,
+    borderRadius: BorderRadius.lg,
+    borderWidth: 1,
+    borderColor: Colors.electricBorder,
+    padding: 16,
+    marginBottom: 10,
+  },
+  gameCardTop: { flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 12 },
+  gameNum: { backgroundColor: Colors.cobalt, borderRadius: 4, paddingHorizontal: 8, paddingVertical: 3 },
+  gameNumText: { color: "#FFF", fontSize: 10, fontWeight: "800" },
+  gameDateTime: { flex: 1, color: Colors.textSecondary, fontSize: 12 },
+  gameChannel: { backgroundColor: Colors.granite700, borderRadius: 4, paddingHorizontal: 8, paddingVertical: 3 },
+  gameChannelText: { color: Colors.textMuted, fontSize: 10, fontWeight: "700" },
+  gameTeams: { flexDirection: "row", alignItems: "center", marginBottom: 12 },
+  gameTeam: { flex: 1, flexDirection: "row", alignItems: "center", gap: 8 },
+  gameTeamRight: { justifyContent: "flex-end" },
+  gameSeed: { color: Colors.electric, fontSize: 12, fontWeight: "700" },
+  gameTeamAbbr: { color: Colors.textPrimary, fontSize: 22, fontWeight: "900" },
+  gameTeamName: { color: Colors.textSecondary, fontSize: 11 },
+  gameTeamRecord: { color: Colors.textMuted, fontSize: 10 },
+  gameVS: { paddingHorizontal: 16 },
+  gameVSText: { color: Colors.textMuted, fontSize: 12, fontWeight: "700" },
+  gameStatus: { backgroundColor: Colors.granite700, borderRadius: BorderRadius.full, paddingHorizontal: 12, paddingVertical: 5, alignSelf: "flex-start" },
+  gameStatusUpcoming: { backgroundColor: Colors.electricGlow, borderWidth: 1, borderColor: Colors.electricBorder },
+  gameStatusText: { color: Colors.textMuted, fontSize: 11, fontWeight: "700" },
+  gameStatusTextUpcoming: { color: Colors.electric },
+  champSection: { marginTop: 24, backgroundColor: Colors.goldDim, borderRadius: BorderRadius.lg, borderWidth: 1, borderColor: Colors.gold, padding: 16 },
+  champLabel: { color: Colors.gold, fontSize: 13, fontWeight: "800", letterSpacing: 0.5, marginBottom: 12 },
+  champRow: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", paddingVertical: 8, borderTopWidth: 1, borderTopColor: "rgba(245,197,24,0.2)" },
+  champRowLeft: { flex: 1 },
+  champRowLabel: { color: Colors.textPrimary, fontSize: 13, fontWeight: "600" },
+  champRowNote: { color: Colors.textMuted, fontSize: 11, marginTop: 2 },
+  champRowRight: { alignItems: "flex-end" },
+  champRowDate: { color: Colors.gold, fontSize: 13, fontWeight: "700" },
+  champRowTime: { color: Colors.textSecondary, fontSize: 11, marginTop: 2 },
+  scheduleDay: { marginBottom: 16 },
+  scheduleDayLabel: { color: Colors.electric, fontSize: 13, fontWeight: "800", marginBottom: 8 },
+  scheduleGame: { flexDirection: "row", alignItems: "center", gap: 10, paddingVertical: 6 },
+  scheduleGameDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: Colors.electric },
+  scheduleGameText: { color: Colors.textPrimary, fontSize: 14 },
+  teamRow: { flexDirection: "row", alignItems: "flex-start", gap: 12, paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: Colors.electricBorder },
+  teamRowLeft: { width: 52, alignItems: "center" },
+  teamRowAbbr: { color: Colors.electric, fontSize: 16, fontWeight: "900" },
+  teamRowSeed: { color: Colors.textMuted, fontSize: 11, fontWeight: "600" },
+  teamRowHow: { flex: 1, color: Colors.textSecondary, fontSize: 13, lineHeight: 18 },
 });

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AthlynXAI",
-    "slug": "athlynxai",
+    "name": "AthlynX",
+    "slug": "athlynx",
     "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "100",
+      "buildNumber": "1",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -32,7 +32,7 @@
         "backgroundColor": "#000000"
       },
       "package": "ai.athlynx.app",
-      "versionCode": 100,
+      "versionCode": 1,
       "permissions": [
         "POST_NOTIFICATIONS",
         "android.permission.RECORD_AUDIO",

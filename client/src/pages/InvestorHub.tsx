@@ -158,7 +158,11 @@ function InvestorRequestGate({ onGranted }: { onGranted: () => void }) {
             <p className="text-white font-bold mt-1">contact@athlynx.ai</p>
             <p className="text-white/60 text-sm">Book a call</p>
           </div>
-          <button onClick={onGranted} className="text-blue-400 underline text-sm">View investor materials anyway →</button>
+          <div className="bg-[#0d1b3e] border border-[#1E90FF]/30 rounded-2xl p-5 mt-2 text-left">
+            <p className="text-[#1E90FF] text-xs font-black uppercase tracking-widest mb-1">Next Step — NDA Required</p>
+            <p className="text-white/70 text-sm leading-relaxed">A Mutual Non-Disclosure Agreement will be sent to your email address. No materials, meetings, or discussions take place before the NDA is signed. No exceptions.</p>
+            <p className="text-white/30 text-xs mt-3">You will receive an email from <span className="text-white/60">cdozier14@athlynx.ai</span> within 1–2 business days.</p>
+          </div>
           <p className="text-white/20 text-xs mt-4">CONFIDENTIAL · FOR ACCREDITED INVESTOR USE ONLY · © 2026 Dozier Holdings Group, LLC</p>
         </div>
       </div>

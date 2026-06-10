@@ -167,9 +167,29 @@ const PUBLIC_LAYERS = [
     color: "border-[#1E90FF] bg-[#0a1628]/40",
     titleColor: "text-[#1E90FF]",
     items: [
-      { name: "NVIDIA H200 Inference", desc: "AthlynXAI OS runs production AI workloads on NVIDIA H200 GPU infrastructure via Nebius AI Cloud.", icon: "" },
-      { name: "Open-Model Aligned", desc: "Designed to integrate with NVIDIA’s open-model portfolio (Nemotron, Cosmos, Ising) as vertical sports AI evolves.", icon: "" },
-      { name: "Workload Generator", desc: "AthlynX is the demand-side workload for AI infrastructure — recruiting, NIL valuation, Battery Coach, scouting, content. Every athlete query = inference cycles.", icon: "" },
+      { name: "NVIDIA H200 Inference", desc: "AthlynXAI OS runs production AI workloads on NVIDIA H200 GPU infrastructure via Nebius AI Cloud. Hopper architecture, 141 GB HBM3e, 4.8 TB/s memory bandwidth.", icon: "" },
+      { name: "Nebius AI Cloud", desc: "Primary compute engine. Nebius AI Discovery Awards 2026 Semifinalist — Digital Health category. London, July 1, 2026.", icon: "" },
+      { name: "Google ADK Hackathon", desc: "Google Agent Development Kit. Cloud Run deployment. AI Agents built and running on Google infrastructure.", icon: "" },
+    ],
+  },
+  {
+    tier: "COMMERCE PARTNER · ICC-USA",
+    color: "border-[#00C2FF] bg-[#00C2FF]/8",
+    titleColor: "text-[#00C2FF]",
+    items: [
+      { name: "ICC-USA Network", desc: "Primary commerce and fulfillment partner. Products, gear, and equipment available to buy and sell through the AthlynX network.", icon: "" },
+      { name: "Vendor Marketplace", desc: "ICC-USA powers the physical product layer — AI GPU servers, enterprise hardware, and athlete gear through the AthlynX Vendor Marketplace.", icon: "" },
+      { name: "Partner Commerce", desc: "ICC-USA's network provides AthlynX with access to enterprise-grade products and fulfillment infrastructure for the athlete economy.", icon: "" },
+    ],
+  },
+  {
+    tier: "HEALTH INTELLIGENCE LANE",
+    color: "border-blue-800 bg-blue-900/10",
+    titleColor: "text-blue-300",
+    items: [
+      { name: "Abbott Libre Medical", desc: "Continuous glucose monitoring integration lane. Athlete metabolic data, performance nutrition, and glucose-aware training protocols.", icon: "" },
+      { name: "Dexcom BioSignal OS", desc: "Real-time biosignal data pipeline. Wearable sensor integration for athlete health monitoring, recovery, and performance optimization.", icon: "" },
+      { name: "Medical Intelligence Layer", desc: "HIPAA-aligned, consent-controlled athlete health data. Physical wellness, injury history, training load, sleep, and return-to-play readiness.", icon: "" },
     ],
   },
 ];
