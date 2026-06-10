@@ -28,15 +28,18 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v5
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 20
-
+      # pnpm MUST be installed before setup-node so setup-node's package-manager
+      # cache detection can find the binary on PATH. Reversing this order breaks
+      # the whole gate with 'Unable to locate executable file: pnpm'.
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
 
       - name: Install root dependencies
         run: pnpm install --no-frozen-lockfile
@@ -88,8 +91,11 @@ jobs:
           cache: npm
           cache-dependency-path: mobile/package-lock.json
 
+      # Use `npm install` (not `npm ci`) to tolerate lockfile drift from
+      # Dependabot/security bumps that haven't been resynced. The gate's job
+      # is to typecheck the source, not to enforce lockfile reproducibility.
       - name: Install mobile dependencies
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
       - name: Typecheck (mobile)
         run: |

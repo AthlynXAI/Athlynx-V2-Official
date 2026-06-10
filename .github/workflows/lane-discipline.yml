@@ -23,10 +23,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      # setup-node@v5 auto-detects pnpm from packageManager in package.json.
+      # Install pnpm first so that detection finds the binary on PATH.
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
       - name: Set up Node
         uses: actions/setup-node@v5
         with:
-          node-version: "24"
+          node-version: "22"
 
       - name: Prepare tmp dir
         shell: bash
