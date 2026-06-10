@@ -74,10 +74,10 @@ export default function MediaOS() {
     <PlatformLayout>
       <main className="min-h-screen bg-[#061426] text-white pb-24">
         <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
-          <div className="rounded-3xl border border-cyan-400/25 bg-gradient-to-br from-[#071d36] via-[#0b2a55] to-[#071426] p-6 sm:p-8 shadow-2xl shadow-cyan-950/40">
+          <div className="rounded-3xl border border-[#1E90FF]/30 bg-gradient-to-br from-[#071d36] via-[#0b2a55] to-[#071426] p-6 sm:p-8 shadow-2xl shadow-cyan-950/40">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
               <div>
-                <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">AthlynXAI OS</p>
+                <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">AthlynXAI OS</p>
                 <h1 className="mt-3 text-3xl sm:text-5xl font-black leading-tight">Full-Stack Media Layer Cake</h1>
                 <p className="mt-4 max-w-3xl text-blue-100 text-base sm:text-lg leading-relaxed">
                   The owned operating system for The Athlete’s Playbook Podcast, Spotify for Creators, Suno music, AXN streaming, fail-proof social distribution, and the free-entry plus tiers/credits model. External platforms are rails. AthlynXAI OS is the source of truth.
@@ -96,7 +96,7 @@ export default function MediaOS() {
           <section className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {lanes.map((lane) => (
               <article key={lane.name} className="rounded-2xl border border-blue-500/25 bg-[#0c2444] p-5 shadow-xl">
-                <div className="text-cyan-300 text-xs font-black uppercase tracking-widest">{lane.status}</div>
+                <div className="text-[#00C2FF] text-xs font-black uppercase tracking-widest">{lane.status}</div>
                 <h2 className="mt-2 text-xl font-black">{lane.name}</h2>
                 <p className="mt-3 text-sm text-blue-100 leading-relaxed">{lane.proof}</p>
                 <div className="mt-4 space-y-2 text-xs text-blue-200">
@@ -115,13 +115,13 @@ export default function MediaOS() {
                 <p className="text-sm text-blue-300 mt-1">Create → Vault → Quality → Approval → Queue → Connector Check → Distribution → Proof → Watchdog.</p>
               </div>
               <Link href="/social-os">
-                <span className="inline-flex rounded-xl bg-cyan-500 hover:bg-cyan-400 text-[#04111f] font-black px-4 py-3 cursor-pointer">Open Social OS</span>
+                <span className="inline-flex rounded-xl bg-[#1E90FF] hover:bg-[#1E90FF] text-[#04111f] font-black px-4 py-3 cursor-pointer">Open Social OS</span>
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {layers.map(([title, body], index) => (
                 <div key={title} className="rounded-2xl bg-white/[0.04] border border-white/10 p-4">
-                  <div className="text-cyan-300 text-xs font-black">Layer {index + 1}</div>
+                  <div className="text-[#00C2FF] text-xs font-black">Layer {index + 1}</div>
                   <div className="text-lg font-black mt-1">{title}</div>
                   <p className="text-sm text-blue-100 mt-2 leading-relaxed">{body}</p>
                 </div>
@@ -143,24 +143,24 @@ export default function MediaOS() {
               <p className="text-sm text-blue-300 mt-2">Every item must be visible. Nothing should disappear between production, approval, posting, and proof.</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {queueStates.map((state) => (
-                  <span key={state} className="rounded-full border border-cyan-400/25 bg-cyan-400/10 text-cyan-100 px-3 py-2 text-xs font-bold">{state}</span>
+                  <span key={state} className="rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF] px-3 py-2 text-xs font-bold">{state}</span>
                 ))}
               </div>
-              <div className="mt-6 rounded-2xl bg-red-950/30 border border-red-400/25 p-4">
-                <div className="text-red-200 font-black">External Action Gate</div>
-                <p className="text-sm text-red-100/90 mt-2 leading-relaxed">No Spotify upload, Suno publish, Buffer/Zapier action, social post, storage sync, or automation runs unless that exact connector is visibly ON, authenticated, and verified with a harmless live check.</p>
+              <div className="mt-6 rounded-2xl bg-[#1E90FF]/30 border border-[#1E90FF]/25 p-4">
+                <div className="text-[#1E90FF] font-black">External Action Gate</div>
+                <p className="text-sm text-[#1E90FF]/90 mt-2 leading-relaxed">No Spotify upload, Suno publish, Buffer/Zapier action, social post, storage sync, or automation runs unless that exact connector is visibly ON, authenticated, and verified with a harmless live check.</p>
               </div>
             </div>
           </section>
 
-          <section className="rounded-3xl border border-cyan-400/20 bg-gradient-to-r from-[#08213f] to-[#061426] p-5 sm:p-6">
+          <section className="rounded-3xl border border-[#1E90FF]/30 bg-gradient-to-r from-[#08213f] to-[#061426] p-5 sm:p-6">
             <h2 className="text-2xl font-black">Free Access + Premium OS Model</h2>
             <p className="mt-3 text-blue-100 leading-relaxed max-w-4xl">
               AthlynXAI is designed so athletes can enter the network without being denied access because of cost. Free profiles and discovery build the athlete community, while paid OS tiers and credits unlock premium media production, AI tools, recruiting intelligence, NIL campaign workflows, analytics, brand kits, and service-heavy work. Free builds the crowd; tiers and credits monetize the machine.
             </p>
           </section>
 
-          <section className="rounded-3xl border border-cyan-400/20 bg-gradient-to-r from-[#08213f] to-[#061426] p-5 sm:p-6">
+          <section className="rounded-3xl border border-[#1E90FF]/30 bg-gradient-to-r from-[#08213f] to-[#061426] p-5 sm:p-6">
             <h2 className="text-2xl font-black">AXN Network Positioning</h2>
             <p className="mt-3 text-blue-100 leading-relaxed max-w-4xl">
               AXN is the media-network layer of the stack. It organizes shows, seasons, episodes, clips, athletes, sports categories, and live or recorded programming. The Athlete’s Playbook is the first anchor lane, while Suno provides soundtrack and music-bed capacity and Spotify for Creators provides the podcast distribution lane.

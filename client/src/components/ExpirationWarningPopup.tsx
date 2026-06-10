@@ -94,21 +94,21 @@ export default function ExpirationWarningPopup() {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
       <div className={`w-full max-w-md rounded-3xl border-2 p-8 shadow-2xl ${
         isExpired
-          ? "bg-[#1a0000] border-red-500 shadow-red-500/30"
+          ? "bg-[#1a0000] border-[#1E90FF] shadow-red-500/30"
           : "bg-[#040c1a] border-blue-400 shadow-blue-400/20"
       }`}>
 
         {/* Icon */}
         <div className="text-center mb-5">
           <div className={`text-6xl mb-3 ${isExpired ? "animate-pulse" : ""}`}>
-            {isExpired ? "🔒" : "⚠️"}
+            {isExpired ? "" : ""}
           </div>
           <div className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black tracking-widest uppercase ${
             isExpired
-              ? "bg-red-500/20 border border-red-500/40 text-red-400"
-              : "bg-blue-400/10 border border-blue-400/30 text-sky-400"
+              ? "bg-[#1E90FF]/20 border border-[#1E90FF]/40 text-[#1E90FF]"
+              : "bg-blue-400/10 border border-blue-400/30 text-[#00C2FF]"
           }`}>
-            <span className={`w-2 h-2 rounded-full ${isExpired ? "bg-red-400" : "bg-blue-400"} animate-pulse`} />
+            <span className={`w-2 h-2 rounded-full ${isExpired ? "bg-[#1E90FF]" : "bg-blue-400"} animate-pulse`} />
             {isExpired ? "Account Suspended" : `${daysRemaining} Day${daysRemaining !== 1 ? "s" : ""} Remaining`}
           </div>
         </div>
@@ -138,8 +138,8 @@ export default function ExpirationWarningPopup() {
         <div className="grid grid-cols-3 gap-2 mb-6">
           {[
             { name: "Starter", price: "$9.99/mo", color: "border-blue-500/40 text-blue-400" },
-            { name: "Pro", price: "$19.99/mo", color: "border-cyan-500/40 text-cyan-400", highlight: true },
-            { name: "Elite", price: "$39.99/mo", color: "border-purple-500/40 text-purple-400" },
+            { name: "Pro", price: "$19.99/mo", color: "border-[#1E90FF]/30 text-[#00C2FF]", highlight: true },
+            { name: "Elite", price: "$39.99/mo", color: "border-[#1E90FF]/40 text-[#1E90FF]" },
           ].map(p => (
             <div key={p.name} className={`rounded-xl border p-2 text-center ${p.color} ${p.highlight ? "bg-white/5" : ""}`}>
               <div className="font-black text-xs">{p.name}</div>
@@ -154,12 +154,12 @@ export default function ExpirationWarningPopup() {
             <button
               className={`w-full py-4 rounded-2xl font-black text-base transition-all ${
                 isExpired
-                  ? "bg-red-500 hover:bg-red-400 text-white shadow-lg shadow-red-500/30"
-                  : "bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-500/30"
+                  ? "bg-[#1E90FF] hover:bg-[#1E90FF] text-white shadow-lg shadow-red-500/30"
+                  : "bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white shadow-lg shadow-blue-500/30"
               }`}
               onClick={() => setVisible(false)}
             >
-              🚀 Upgrade Now — Keep Full Access
+               Upgrade Now — Keep Full Access
             </button>
           </Link>
 

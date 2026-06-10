@@ -125,7 +125,7 @@ function CorporateDocumentsInner() {
               <button className="text-slate-300 hover:text-white px-4 py-2">Legal Hub</button>
             </Link>
             <Link href="/">
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-lg font-medium">
+              <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white px-4 py-2 rounded-lg font-medium">
                 Back to Home
               </button>
             </Link>
@@ -158,11 +158,11 @@ function CorporateDocumentsInner() {
           <div className="grid md:grid-cols-3 gap-4">
             {boardMembers.map((member) => (
               <div key={member.name} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-[#0a1628] rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-bold text-white">{member.name}</h3>
-                <p className="text-cyan-400 text-sm">{member.role}</p>
+                <p className="text-[#00C2FF] text-sm">{member.role}</p>
                 <p className="text-slate-500 text-xs mt-2">Since {member.since}</p>
               </div>
             ))}
@@ -177,17 +177,17 @@ function CorporateDocumentsInner() {
           <p className="text-slate-400 text-center mb-12">12 Companies • $168M+ Capital Raise Target</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {companies.map((company) => (
-              <div key={company.name} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-cyan-400 transition-all">
+              <div key={company.name} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-[#1E90FF] transition-all">
                 <div className="flex items-start justify-between mb-4">
-                  <Building className="w-8 h-8 text-cyan-400" />
+                  <Building className="w-8 h-8 text-[#00C2FF]" />
                   <span className={`px-2 py-1 rounded text-xs font-medium ${
-                    company.status === "Active" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
+                    company.status === "Active" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"
                   }`}>
                     {company.status}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1">{company.name}</h3>
-                <p className="text-cyan-400 text-sm mb-4">{company.type}</p>
+                <p className="text-[#00C2FF] text-sm mb-4">{company.type}</p>
                 <div className="flex items-center gap-4 text-slate-400 text-sm mb-4">
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {company.state}
@@ -221,7 +221,7 @@ function CorporateDocumentsInner() {
             contact our corporate office to request official documents.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:contact@athlynx.ai" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
+            <a href="mailto:contact@athlynx.ai" className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
               <FileText className="w-5 h-5" />
               Request Documents
             </a>

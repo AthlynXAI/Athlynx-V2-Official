@@ -8,10 +8,10 @@ function MilitaryDivisionInner() {
   const [activeTab, setActiveTab] = useState<"pipeline" | "support" | "mentorship">("pipeline");
 
   const marketStats = [
-    { value: "$1.4B+", label: "DoD Recruitment Budget", icon: "🎖️" },
-    { value: "500K+", label: "College Athletes/Year", icon: "🎖️" },
-    { value: "19M", label: "U.S. Veterans", icon: "🎖️" },
-    { value: "96%", label: "Athletes Need Career Path", icon: "🎖️" },
+    { value: "$1.4B+", label: "DoD Recruitment Budget", icon: "" },
+    { value: "500K+", label: "College Athletes/Year", icon: "" },
+    { value: "19M", label: "U.S. Veterans", icon: "" },
+    { value: "96%", label: "Athletes Need Career Path", icon: "" },
   ];
 
   const pipelinePrograms = [
@@ -19,28 +19,28 @@ function MilitaryDivisionInner() {
       id: 1,
       name: "Military NIL Sponsorships",
       desc: "Athletes receive NIL deals from Army, Navy, Air Force, Marines, Space Force, Coast Guard in exchange for service commitment",
-      icon: "⚡",
+      icon: "",
       branch: "All Branches",
     },
     {
       id: 2,
       name: "ROTC Athlete Program",
       desc: "Support and NIL opportunities for ROTC cadets who are also college athletes",
-      icon: "🏅",
+      icon: "",
       branch: "Army, Navy, Air Force",
     },
     {
       id: 3,
       name: "Military Academy Support",
       desc: "Connect with athletes at West Point, Annapolis, Air Force Academy, Coast Guard Academy",
-      icon: "🏛️",
+      icon: "",
       branch: "Service Academies",
     },
     {
       id: 4,
       name: "Officer Candidate Connections",
       desc: "Fast-track athletes to officer programs with leadership development",
-      icon: "⚡",
+      icon: "",
       branch: "All Branches",
     },
   ];
@@ -50,49 +50,49 @@ function MilitaryDivisionInner() {
       id: 1,
       name: "VA Benefits Navigator",
       desc: "AI-powered tool to help veterans understand and claim their benefits",
-      icon: "🤖",
+      icon: "",
       type: "Technology",
     },
     {
       id: 2,
       name: "Disability Claims Assistance",
       desc: "Guide veterans through the claims process with expert support",
-      icon: "📋",
+      icon: "",
       type: "Support",
     },
     {
       id: 3,
       name: "GI Bill Optimization",
       desc: "Help veterans maximize their education benefits",
-      icon: "📚",
+      icon: "",
       type: "Education",
     },
     {
       id: 4,
       name: "Healthcare Coordination",
       desc: "Connect veterans with VA healthcare services",
-      icon: "🏥",
+      icon: "",
       type: "Healthcare",
     },
     {
       id: 5,
       name: "Mental Health Resources",
       desc: "PTSD support, counseling connections, peer support networks",
-      icon: "🧠",
+      icon: "",
       type: "Wellness",
     },
     {
       id: 6,
       name: "Career Transition Services",
       desc: "Help veterans find civilian employment",
-      icon: "⚡",
+      icon: "",
       type: "Career",
     },
     {
       id: 7,
       name: "Veteran-Owned Business Support",
       desc: "Resources for veteran entrepreneurs",
-      icon: "⚡",
+      icon: "",
       type: "Business",
     },
   ];
@@ -102,42 +102,42 @@ function MilitaryDivisionInner() {
       id: 1,
       name: "Battle Buddy System",
       desc: "Pair current athletes with veteran mentors for guidance and support",
-      icon: "⚡",
+      icon: "",
     },
     {
       id: 2,
       name: "Leadership Development",
       desc: "Military-style leadership training for athletes",
-      icon: "⚡",
+      icon: "",
     },
     {
       id: 3,
       name: "Life Skills Training",
       desc: "Financial literacy, discipline, goal-setting",
-      icon: "⚡",
+      icon: "",
     },
     {
       id: 4,
       name: "Career Guidance",
       desc: "Veterans help athletes plan post-sport careers",
-      icon: "⚡",
+      icon: "",
     },
     {
       id: 5,
       name: "Speaker Series",
       desc: "Veteran athletes share their stories and inspire the next generation",
-      icon: "🎤",
+      icon: "",
     },
   ];
 
   const defensePartners = [
-    { company: "Lockheed Martin", opportunity: "STEM athlete sponsorships", logo: "🛡️" },
-    { company: "Raytheon", opportunity: "Engineering career pipeline", logo: "🔧" },
-    { company: "Boeing", opportunity: "Aviation athlete program", logo: "✈️" },
+    { company: "Lockheed Martin", opportunity: "STEM athlete sponsorships", logo: "" },
+    { company: "Raytheon", opportunity: "Engineering career pipeline", logo: "" },
+    { company: "Boeing", opportunity: "Aviation athlete program", logo: "" },
     { company: "Northrop Grumman", opportunity: "Cybersecurity training", logo: "" },
-    { company: "General Dynamics", opportunity: "Leadership development", logo: "⚙️" },
+    { company: "General Dynamics", opportunity: "Leadership development", logo: "" },
     { company: "BAE Systems", opportunity: "Technical career paths", logo: "" },
-    { company: "L3Harris", opportunity: "Communications training", logo: "📡" },
+    { company: "L3Harris", opportunity: "Communications training", logo: "" },
   ];
 
   const missionPhases = [
@@ -192,12 +192,12 @@ function MilitaryDivisionInner() {
   ];
 
   const militaryBranches = [
-    { name: "U.S. Army", motto: "This We'll Defend", icon: "⚡" },
-    { name: "U.S. Navy", motto: "Non Sibi Sed Patriae", icon: "⚓" },
-    { name: "U.S. Air Force", motto: "Aim High... Fly-Fight-Win", icon: "✈️" },
-    { name: "U.S. Marines", motto: "Semper Fidelis", icon: "🦅" },
-    { name: "U.S. Coast Guard", motto: "Semper Paratus", icon: "🚢" },
-    { name: "U.S. Space Force", motto: "Semper Supra", icon: "⚡" },
+    { name: "U.S. Army", motto: "This We'll Defend", icon: "" },
+    { name: "U.S. Navy", motto: "Non Sibi Sed Patriae", icon: "" },
+    { name: "U.S. Air Force", motto: "Aim High... Fly-Fight-Win", icon: "" },
+    { name: "U.S. Marines", motto: "Semper Fidelis", icon: "" },
+    { name: "U.S. Coast Guard", motto: "Semper Paratus", icon: "" },
+    { name: "U.S. Space Force", motto: "Semper Supra", icon: "" },
   ];
 
   return (
@@ -212,7 +212,7 @@ function MilitaryDivisionInner() {
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link href="/home" className="text-gray-400 hover:text-white">Platform</Link>
             <Link href="/careers" className="text-gray-400 hover:text-white">Careers</Link>
-            <Link href="/military-division" className="text-red-400 font-semibold">Military Division</Link>
+            <Link href="/military-division" className="text-[#1E90FF] font-semibold">Military Division</Link>
             <Link href="/faith" className="text-gray-400 hover:text-white">Faith</Link>
           </nav>
         </div>
@@ -227,18 +227,18 @@ function MilitaryDivisionInner() {
               <span className="text-5xl"></span>
               <span className="text-5xl"></span>
             </div>
-            <span className="inline-block px-4 py-1 bg-red-500/20 text-red-400 rounded-full text-sm font-semibold mb-4 border border-red-500/30">
+            <span className="inline-block px-4 py-1 bg-[#1E90FF]/20 text-[#1E90FF] rounded-full text-sm font-semibold mb-4 border border-[#1E90FF]/30">
               OPERATION: WARRIOR PIPELINE
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-              MILITARY <span className="text-red-400">DIVISION</span>
+              MILITARY <span className="text-[#1E90FF]">DIVISION</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-6">
               The first-ever NIL platform that connects college athletes with military service opportunities 
               while supporting our veterans through their entire journey.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
+              <span className="px-3 py-1 bg-[#00C2FF]/20 text-[#00C2FF] rounded-full border border-[#00C2FF]/30">
                 Division Commander: Private until approved
               </span>
               <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full border border-blue-500/30">
@@ -248,15 +248,15 @@ function MilitaryDivisionInner() {
           </div>
 
           {/* The Problem We Solve */}
-          <div className="bg-gradient-to-r from-red-900/20 via-white/5 to-blue-900/20 rounded-2xl border border-white/10 p-8 mb-10">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 via-white/5 to-blue-900/20 rounded-2xl border border-white/10 p-8 mb-10">
             <h2 className="text-2xl font-bold text-white mb-4 text-center">
-              THE PROBLEM <span className="text-red-400">WE SOLVE</span>
+              THE PROBLEM <span className="text-[#1E90FF]">WE SOLVE</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black/30 rounded-xl p-6 border border-red-500/20">
-                <h3 className="text-lg font-bold text-red-400 mb-3">Military Recruitment Crisis</h3>
+              <div className="bg-black/30 rounded-xl p-6 border border-[#1E90FF]/20">
+                <h3 className="text-lg font-bold text-[#1E90FF] mb-3">Military Recruitment Crisis</h3>
                 <p className="text-gray-300 mb-4">
-                  In 2023, the Army missed its recruiting goal by <span className="text-red-400 font-bold">25%</span>. 
+                  In 2023, the Army missed its recruiting goal by <span className="text-[#1E90FF] font-bold">25%</span>. 
                   The Navy, Air Force, and Marines are all struggling.
                 </p>
                 <p className="text-gray-400 text-sm">
@@ -270,13 +270,13 @@ function MilitaryDivisionInner() {
                   and only 2-4% go pro.
                 </p>
                 <p className="text-gray-400 text-sm">
-                  That means <span className="text-red-400 font-bold">96%</span> of college athletes need a career path after college.
+                  That means <span className="text-[#1E90FF] font-bold">96%</span> of college athletes need a career path after college.
                 </p>
               </div>
             </div>
             <div className="text-center mt-6">
               <p className="text-xl text-white font-semibold">
-                Athletes already have what the military needs. <span className="text-cyan-400">We connect these two worlds.</span>
+                Athletes already have what the military needs. <span className="text-[#00C2FF]">We connect these two worlds.</span>
               </p>
             </div>
           </div>
@@ -284,7 +284,7 @@ function MilitaryDivisionInner() {
           {/* Market Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {marketStats.map((stat, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 text-center hover:border-red-500/50 transition-all">
+              <div key={i} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 text-center hover:border-[#1E90FF]/50 transition-all">
                 <span className="text-3xl block mb-2">{stat.icon}</span>
                 <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
                 <p className="text-gray-500 text-sm">{stat.label}</p>
@@ -293,9 +293,9 @@ function MilitaryDivisionInner() {
           </div>
 
           {/* The Gap */}
-          <div className="bg-gradient-to-r from-red-900/20 to-red-900/20 rounded-2xl border border-red-500/20 p-8 mb-10">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 rounded-2xl border border-[#1E90FF]/20 p-8 mb-10">
             <h2 className="text-2xl font-bold text-white mb-4 text-center">
-              THE <span className="text-red-400">GAP</span> WE FILL
+              THE <span className="text-[#1E90FF]">GAP</span> WE FILL
             </h2>
             <p className="text-gray-300 text-center mb-6">No platform exists that:</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -305,15 +305,15 @@ function MilitaryDivisionInner() {
                 { num: "3", text: "Supports veterans with benefits navigation" },
                 { num: "4", text: "Creates a mentorship pipeline from veterans to athletes" },
               ].map((item) => (
-                <div key={item.num} className="bg-black/30 rounded-xl p-4 border border-red-500/20">
-                  <span className="inline-block w-8 h-8 bg-red-500 text-black font-bold rounded-full flex items-center justify-center mb-2">
+                <div key={item.num} className="bg-black/30 rounded-xl p-4 border border-[#1E90FF]/20">
+                  <span className="inline-block w-8 h-8 bg-[#1E90FF] text-black font-bold rounded-full flex items-center justify-center mb-2">
                     {item.num}
                   </span>
                   <p className="text-gray-300 text-sm">{item.text}</p>
                 </div>
               ))}
             </div>
-            <p className="text-center mt-6 text-xl font-bold text-red-400">
+            <p className="text-center mt-6 text-xl font-bold text-[#1E90FF]">
               AthlynX fills this gap. YOU lead this mission.
             </p>
           </div>
@@ -321,7 +321,7 @@ function MilitaryDivisionInner() {
           {/* Three Pillars Tabs */}
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              THREE PILLARS OF THE <span className="text-red-400">MILITARY DIVISION</span>
+              THREE PILLARS OF THE <span className="text-[#1E90FF]">MILITARY DIVISION</span>
             </h2>
             
             {/* Tab Navigation */}
@@ -330,7 +330,7 @@ function MilitaryDivisionInner() {
                 onClick={() => setActiveTab("pipeline")}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeTab === "pipeline"
-                    ? "bg-red-500 text-white"
+                    ? "bg-[#1E90FF] text-white"
                     : "bg-white/5 text-gray-400 hover:bg-white/10"
                 }`}
               >
@@ -344,13 +344,13 @@ function MilitaryDivisionInner() {
                     : "bg-white/5 text-gray-400 hover:bg-white/10"
                 }`}
               >
-                🏥 Veteran Support Services
+                 Veteran Support Services
               </button>
               <button
                 onClick={() => setActiveTab("mentorship")}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeTab === "mentorship"
-                    ? "bg-green-500 text-white"
+                    ? "bg-[#00C2FF] text-white"
                     : "bg-white/5 text-gray-400 hover:bg-white/10"
                 }`}
               >
@@ -366,18 +366,18 @@ function MilitaryDivisionInner() {
                     <span className="text-3xl"></span>
                     <div>
                       <h3 className="text-xl font-bold text-white">PILLAR 1: ATHLETE TO MILITARY PIPELINE</h3>
-                      <p className="text-red-400">Mission: Recruit elite athletes into military service</p>
+                      <p className="text-[#1E90FF]">Mission: Recruit elite athletes into military service</p>
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4 mb-6">
                     {pipelinePrograms.map((program) => (
-                      <div key={program.id} className="bg-black/30 rounded-xl p-4 border border-red-500/20 hover:border-red-500/50 transition-all">
+                      <div key={program.id} className="bg-black/30 rounded-xl p-4 border border-[#1E90FF]/20 hover:border-[#1E90FF]/50 transition-all">
                         <div className="flex items-start gap-3">
                           <span className="text-2xl">{program.icon}</span>
                           <div>
                             <h4 className="font-bold text-white">{program.name}</h4>
                             <p className="text-gray-400 text-sm mb-2">{program.desc}</p>
-                            <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">
+                            <span className="px-2 py-1 bg-[#1E90FF]/20 text-[#1E90FF] text-xs rounded">
                               {program.branch}
                             </span>
                           </div>
@@ -389,7 +389,7 @@ function MilitaryDivisionInner() {
                     <h4 className="font-bold text-white mb-2">Revenue Model</h4>
                     <div className="flex flex-wrap gap-2">
                       {["Government contracts", "Per-recruit fees", "ROTC partnerships", "Defense contractor sponsorships"].map((item) => (
-                        <span key={item} className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full">
+                        <span key={item} className="px-3 py-1 bg-[#00C2FF]/20 text-[#00C2FF] text-sm rounded-full">
                           {item}
                         </span>
                       ))}
@@ -401,7 +401,7 @@ function MilitaryDivisionInner() {
               {activeTab === "support" && (
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">🏥</span>
+                    <span className="text-3xl"></span>
                     <div>
                       <h3 className="text-xl font-bold text-white">PILLAR 2: VETERAN SUPPORT SERVICES</h3>
                       <p className="text-blue-400">Mission: Serve those who served</p>
@@ -427,7 +427,7 @@ function MilitaryDivisionInner() {
                     <h4 className="font-bold text-white mb-2">Revenue Model</h4>
                     <div className="flex flex-wrap gap-2">
                       {["VA partnership contracts", "VSO partnerships", "Corporate hiring fees", "Premium subscriptions"].map((item) => (
-                        <span key={item} className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full">
+                        <span key={item} className="px-3 py-1 bg-[#00C2FF]/20 text-[#00C2FF] text-sm rounded-full">
                           {item}
                         </span>
                       ))}
@@ -442,12 +442,12 @@ function MilitaryDivisionInner() {
                     <span className="text-3xl"></span>
                     <div>
                       <h3 className="text-xl font-bold text-white">PILLAR 3: VETERAN ATHLETE MENTORSHIP NETWORK</h3>
-                      <p className="text-green-400">Mission: Connect generations of warrior-athletes</p>
+                      <p className="text-[#00C2FF]">Mission: Connect generations of warrior-athletes</p>
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                     {mentorshipPrograms.map((program) => (
-                      <div key={program.id} className="bg-black/30 rounded-xl p-4 border border-green-500/20 hover:border-green-500/50 transition-all">
+                      <div key={program.id} className="bg-black/30 rounded-xl p-4 border border-[#00C2FF]/20 hover:border-[#00C2FF]/50 transition-all">
                         <div className="flex items-start gap-3">
                           <span className="text-2xl">{program.icon}</span>
                           <div>
@@ -462,7 +462,7 @@ function MilitaryDivisionInner() {
                     <h4 className="font-bold text-white mb-2">Revenue Model</h4>
                     <div className="flex flex-wrap gap-2">
                       {["Corporate sponsorships", "School program fees", "Speaking engagement fees", "Training program licensing"].map((item) => (
-                        <span key={item} className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full">
+                        <span key={item} className="px-3 py-1 bg-[#00C2FF]/20 text-[#00C2FF] text-sm rounded-full">
                           {item}
                         </span>
                       ))}
@@ -476,11 +476,11 @@ function MilitaryDivisionInner() {
           {/* Military Branches */}
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              PARTNER <span className="text-red-400">BRANCHES</span>
+              PARTNER <span className="text-[#1E90FF]">BRANCHES</span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {militaryBranches.map((branch) => (
-                <div key={branch.name} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 text-center hover:border-red-500/50 transition-all">
+                <div key={branch.name} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 text-center hover:border-[#1E90FF]/50 transition-all">
                   <span className="text-3xl block mb-2">{branch.icon}</span>
                   <p className="text-white font-semibold text-sm">{branch.name}</p>
                   <p className="text-gray-500 text-xs italic">{branch.motto}</p>
@@ -492,14 +492,14 @@ function MilitaryDivisionInner() {
           {/* Defense Contractor Partnerships */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 mb-10">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              DEFENSE CONTRACTOR <span className="text-cyan-400">PARTNERSHIPS</span>
+              DEFENSE CONTRACTOR <span className="text-[#00C2FF]">PARTNERSHIPS</span>
             </h2>
             <p className="text-gray-400 text-center mb-6">
               These companies spend BILLIONS on recruitment and workforce development. Athletes are premium candidates.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {defensePartners.map((partner) => (
-                <div key={partner.company} className="bg-black/30 rounded-xl p-4 border border-cyan-500/20 hover:border-cyan-500/50 transition-all">
+                <div key={partner.company} className="bg-black/30 rounded-xl p-4 border border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">{partner.logo}</span>
                     <h4 className="font-bold text-white">{partner.company}</h4>
@@ -513,25 +513,25 @@ function MilitaryDivisionInner() {
           {/* Mission Objectives Timeline */}
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              MISSION <span className="text-red-400">OBJECTIVES</span>
+              MISSION <span className="text-[#1E90FF]">OBJECTIVES</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {missionPhases.map((phase, index) => (
-                <div key={phase.phase} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:border-red-500/50 transition-all">
+                <div key={phase.phase} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:border-[#1E90FF]/50 transition-all">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="w-8 h-8 bg-red-500 text-black font-bold rounded-full flex items-center justify-center text-sm">
+                    <span className="w-8 h-8 bg-[#1E90FF] text-black font-bold rounded-full flex items-center justify-center text-sm">
                       {index + 1}
                     </span>
                     <div>
                       <h3 className="font-bold text-white">{phase.phase}</h3>
-                      <p className="text-red-400 text-xs">{phase.timeline}</p>
+                      <p className="text-[#1E90FF] text-xs">{phase.timeline}</p>
                     </div>
                   </div>
                   <h4 className="text-white font-semibold mb-3">{phase.title}</h4>
                   <ul className="space-y-2">
                     {phase.tasks.map((task, i) => (
                       <li key={i} className="flex items-start gap-2 text-gray-400 text-sm">
-                        <span className="text-green-400 mt-1">☐</span>
+                        <span className="text-[#00C2FF] mt-1"></span>
                         {task}
                       </li>
                     ))}
@@ -542,9 +542,9 @@ function MilitaryDivisionInner() {
           </div>
 
           {/* Warrior Lifecycle */}
-          <div className="bg-gradient-to-r from-red-900/20 via-blue-900/20 to-green-900/20 rounded-2xl border border-white/10 p-8 mb-10">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 via-blue-900/20 to-[#0a1628]/20 rounded-2xl border border-white/10 p-8 mb-10">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              THE WARRIOR <span className="text-cyan-400">LIFECYCLE</span>
+              THE WARRIOR <span className="text-[#00C2FF]">LIFECYCLE</span>
             </h2>
             <div className="flex flex-wrap justify-center items-center gap-4 text-center">
               {["ATHLETES", "MILITARY SERVICE", "VETERANS", "MENTORS", "NEXT GENERATION"].map((stage, i) => (
@@ -552,12 +552,12 @@ function MilitaryDivisionInner() {
                   <span className="px-4 py-2 bg-white/10 rounded-xl text-white font-semibold">
                     {stage}
                   </span>
-                  {i < 4 && <span className="text-cyan-400 text-2xl">→</span>}
+                  {i < 4 && <span className="text-[#00C2FF] text-2xl">→</span>}
                 </div>
               ))}
             </div>
             <p className="text-center mt-6 text-gray-300">
-              We're not just building a business. We're building a <span className="text-cyan-400 font-bold">MOVEMENT</span>.
+              We're not just building a business. We're building a <span className="text-[#00C2FF] font-bold">MOVEMENT</span>.
             </p>
             <p className="text-center text-gray-400">
               A movement that honors service, supports warriors, and creates the next generation of leaders.
@@ -579,15 +579,15 @@ function MilitaryDivisionInner() {
           </div>
 
           {/* CTA */}
-          <div className="text-center bg-gradient-to-r from-red-500/20 via-white/5 to-blue-500/20 rounded-2xl border border-white/10 p-8">
+          <div className="text-center bg-gradient-to-r from-[#1E90FF]/20 via-white/5 to-blue-500/20 rounded-2xl border border-white/10 p-8">
             <h2 className="text-3xl font-bold text-white mb-4">
-              WHERE ATHLETES BECOME <span className="text-red-400">LEGENDS</span>
+              WHERE ATHLETES BECOME <span className="text-[#1E90FF]">LEGENDS</span>
             </h2>
-            <p className="text-xl text-cyan-400 font-semibold mb-6">
+            <p className="text-xl text-[#00C2FF] font-semibold mb-6">
               AND WARRIORS SERVE FOREVER
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/" className="px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
+              <Link href="/" className="px-8 py-3 bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold rounded-xl transition-all">
                 Join the Mission
               </Link>
               <Link href="/veterans" className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all border border-white/20">

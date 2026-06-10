@@ -88,7 +88,7 @@ function ContractsInner() {
               <button className="text-slate-300 hover:text-white px-4 py-2">Legal Hub</button>
             </Link>
             <Link href="/">
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-lg font-medium">
+              <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white px-4 py-2 rounded-lg font-medium">
                 Back to Home
               </button>
             </Link>
@@ -99,12 +99,12 @@ function ContractsInner() {
       {/* Hero */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 text-[#1E90FF] px-4 py-2 rounded-full text-sm font-medium mb-6">
             <FileSignature className="w-4 h-4" />
             CONTRACT TEMPLATES
           </div>
           <h1 className="text-4xl md:text-5xl font-black mb-6">
-            <span className="bg-gradient-to-r from-indigo-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1E90FF] to-blue-600 bg-clip-text text-transparent">
               Contracts & Agreements
             </span>
           </h1>
@@ -115,7 +115,7 @@ function ContractsInner() {
           <div className="flex flex-wrap justify-center gap-3">
             {features.map((feature) => (
               <span key={feature} className="flex items-center gap-2 bg-slate-800/50 px-3 py-2 rounded-lg text-sm text-slate-300">
-                <CheckCircle className="w-4 h-4 text-green-400" />
+                <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                 {feature}
               </span>
             ))}
@@ -129,20 +129,20 @@ function ContractsInner() {
           <h2 className="text-3xl font-bold text-center mb-12">Contract Templates</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contractTypes.map((contract) => (
-              <div key={contract.title} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-indigo-400 transition-all relative">
+              <div key={contract.title} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-[#1E90FF] transition-all relative">
                 {contract.popular && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-red-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white text-xs px-2 py-1 rounded-full font-medium">
                     Popular
                   </span>
                 )}
-                <contract.icon className="w-10 h-10 text-indigo-400 mb-4" />
+                <contract.icon className="w-10 h-10 text-[#1E90FF] mb-4" />
                 <h3 className="text-lg font-bold text-white mb-2">{contract.title}</h3>
                 <p className="text-slate-400 text-sm mb-4">{contract.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-xs bg-slate-700 text-slate-300 px-2 py-1 rounded">
                     {contract.category}
                   </span>
-                  <button className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1">
+                  <button className="text-[#1E90FF] hover:text-[#1E90FF] text-sm flex items-center gap-1">
                     <Download className="w-4 h-4" />
                     Preview
                   </button>
@@ -160,10 +160,10 @@ function ContractsInner() {
           <p className="text-slate-400 text-center mb-12">Access contracts from any of our domains</p>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { domain: "athlynx.ai", desc: "Main Platform", color: "from-blue-500 to-cyan-500" },
+              { domain: "athlynx.ai", desc: "Main Platform", color: "from-blue-500 to-[#0a1628]" },
               { domain: "athlynx.ai", desc: "Main Platform", color: "from-[#0066ff] to-[#00c2ff]" },
-              { domain: "nilportals.com", desc: "NIL Portal", color: "from-green-500 to-emerald-500" },
-              { domain: "transferportal.ai", desc: "Transfer Portal AI", color: "from-blue-600 to-cyan-500" },
+              { domain: "nilportals.com", desc: "NIL Portal", color: "from-[#00C2FF] to-[#00C2FF]" },
+              { domain: "transferportal.ai", desc: "Transfer Portal AI", color: "from-blue-600 to-[#0a1628]" },
             ].map((site) => (
               <div key={site.domain} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 text-center">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${site.color} mx-auto mb-4 flex items-center justify-center`}>
@@ -180,14 +180,14 @@ function ContractsInner() {
       {/* Custom Contracts */}
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-indigo-500/20 to-blue-600/20 border border-indigo-500/30 rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-600/20 border border-[#1E90FF]/30 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Need a Custom Contract?</h2>
             <p className="text-slate-300 mb-6">
               Our legal team can draft custom contracts tailored to your specific needs. 
               From complex NIL deals to multi-party partnerships, we've got you covered.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="mailto:legal@athlynx.ai" className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 py-3 rounded-lg font-medium">
+              <a href="mailto:legal@athlynx.ai" className="bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white px-6 py-3 rounded-lg font-medium">
                 Request Custom Contract
               </a>
               <a href="/book" className="bg-slate-700 text-white px-6 py-3 rounded-lg font-medium">

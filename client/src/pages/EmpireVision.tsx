@@ -35,7 +35,7 @@ function EmpireVisionInner() {
       became: "The Everything Store",
       marketCap: "$1.5 Trillion",
       lesson: "Start with one vertical, perfect it, then expand into everything.",
-      color: "from-red-500 to-red-500"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       name: "Ray Kroc",
@@ -44,7 +44,7 @@ function EmpireVisionInner() {
       became: "World's Largest Real Estate Company",
       marketCap: "$200 Billion",
       lesson: "The product is the entry point. The real business is the ecosystem.",
-      color: "from-red-500 to-red-500"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       name: "Chad A. Dozier",
@@ -53,7 +53,7 @@ function EmpireVisionInner() {
       became: "One Identity, Every Athlete, Every Platform Empire",
       marketCap: "Building...",
       lesson: "Athletes are the entry point. The empire serves their entire life.",
-      color: "from-cyan-500 to-blue-600"
+      color: "from-[#1E90FF] to-blue-600"
     }
   ];
 
@@ -73,12 +73,12 @@ function EmpireVisionInner() {
   ];
 
   const aiCapabilities = [
-    { name: "FuelBots", desc: "AI Companions that guide athletes through every aspect of their journey", icon: "🤖" },
-    { name: "AI Training Bot", desc: "Personalized workout plans, form analysis, and performance optimization", icon: "🤖" },
-    { name: "Recruiting Intelligence", desc: "AI-powered matching between athletes and programs", icon: "🤖" },
-    { name: "NIL Valuation", desc: "Real-time athlete market value calculation and deal recommendations", icon: "🤖" },
-    { name: "Content Generation", desc: "AI-created highlight reels, social posts, and media kits", icon: "🎬" },
-    { name: "Analytics Engine", desc: "Deep performance insights and predictive analytics", icon: "🤖" },
+    { name: "FuelBots", desc: "AI Companions that guide athletes through every aspect of their journey", icon: "" },
+    { name: "AI Training Bot", desc: "Personalized workout plans, form analysis, and performance optimization", icon: "" },
+    { name: "Recruiting Intelligence", desc: "AI-powered matching between athletes and programs", icon: "" },
+    { name: "NIL Valuation", desc: "Real-time athlete market value calculation and deal recommendations", icon: "" },
+    { name: "Content Generation", desc: "AI-created highlight reels, social posts, and media kits", icon: "" },
+    { name: "Analytics Engine", desc: "Deep performance insights and predictive analytics", icon: "" },
   ];
 
   const timeline = [
@@ -97,32 +97,32 @@ function EmpireVisionInner() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDIxNywyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50" />
         
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#1E90FF]/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
         <div className="container relative py-16 px-5">
           <Link href="/dhg">
-            <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-cyan-500/30 rounded-full px-4 py-2 mb-8 cursor-pointer hover:bg-slate-800/80 transition-colors">
+            <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-[#1E90FF]/30 rounded-full px-4 py-2 mb-8 cursor-pointer hover:bg-slate-800/80 transition-colors">
               <span className="text-white/60 text-sm">← Back to DHG</span>
             </div>
           </Link>
 
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full px-4 py-2 mb-6">
-              <Crown className="w-4 h-4 text-red-400" />
-              <span className="text-cyan-400 text-sm font-bold">THE EMPIRE VISION</span>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/20 border border-[#1E90FF]/30 rounded-full px-4 py-2 mb-6">
+              <Crown className="w-4 h-4 text-[#1E90FF]" />
+              <span className="text-[#00C2FF] text-sm font-bold">THE EMPIRE VISION</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
               BUILDING AN
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] via-blue-400 to-[#0a1628]">
                 EMPIRE
               </span>
             </h1>
             
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
               Bezos started with books. Ray Kroc sold ice cream machines. 
-              <strong className="text-cyan-400"> We're starting with athletes.</strong>
+              <strong className="text-[#00C2FF]"> We're starting with athletes.</strong>
             </p>
           </div>
         </div>
@@ -131,7 +131,7 @@ function EmpireVisionInner() {
       {/* Empire Builders Comparison */}
       <section className="container px-5 py-16">
         <h2 className="text-3xl font-bold text-white text-center mb-12">
-          <Sparkles className="inline w-8 h-8 text-red-400 mr-2" />
+          <Sparkles className="inline w-8 h-8 text-[#1E90FF] mr-2" />
           Learning From The Legends
         </h2>
         
@@ -139,10 +139,10 @@ function EmpireVisionInner() {
           {empireBuilders.map((builder, i) => (
             <div
               key={i}
-              className={`relative bg-slate-900/80 border ${i === 2 ? 'border-cyan-500 ring-2 ring-cyan-500/30' : 'border-white/10'} rounded-2xl p-6 overflow-hidden`}
+              className={`relative bg-slate-900/80 border ${i === 2 ? 'border-[#1E90FF] ring-2 ring-cyan-500/30' : 'border-white/10'} rounded-2xl p-6 overflow-hidden`}
             >
               {i === 2 && (
-                <div className="absolute top-0 right-0 bg-cyan-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg">
+                <div className="absolute top-0 right-0 bg-[#1E90FF] text-black text-xs font-bold px-3 py-1 rounded-bl-lg">
                   OUR PATH
                 </div>
               )}
@@ -152,7 +152,7 @@ function EmpireVisionInner() {
               </div>
               
               <h3 className="text-xl font-bold text-white mb-1">{builder.name}</h3>
-              <p className="text-cyan-400 font-semibold mb-4">{builder.company}</p>
+              <p className="text-[#00C2FF] font-semibold mb-4">{builder.company}</p>
               
               <div className="space-y-3 mb-4">
                 <div className="bg-white/5 rounded-lg p-3">
@@ -165,7 +165,7 @@ function EmpireVisionInner() {
                 </div>
                 <div className="bg-white/5 rounded-lg p-3">
                   <p className="text-white/50 text-xs uppercase">Market Cap</p>
-                  <p className={`font-bold ${i === 2 ? 'text-cyan-400' : 'text-green-400'}`}>{builder.marketCap}</p>
+                  <p className={`font-bold ${i === 2 ? 'text-[#00C2FF]' : 'text-[#00C2FF]'}`}>{builder.marketCap}</p>
                 </div>
               </div>
               
@@ -181,7 +181,7 @@ function EmpireVisionInner() {
       <section className="container px-5 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">
-            <Globe className="inline w-8 h-8 text-cyan-400 mr-2" />
+            <Globe className="inline w-8 h-8 text-[#00C2FF] mr-2" />
             The Complete Ecosystem
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
@@ -199,26 +199,26 @@ function EmpireVisionInner() {
                 <vertical.icon className={`w-8 h-8 text-${vertical.color}-400`} />
                 <span className={`text-xs font-bold px-2 py-1 rounded ${
                   vertical.status === 'LIVE' 
-                    ? 'bg-green-500/20 text-green-400' 
-                    : 'bg-red-500/20 text-red-400'
+                    ? 'bg-[#00C2FF]/20 text-[#00C2FF]' 
+                    : 'bg-[#1E90FF]/20 text-[#1E90FF]'
                 }`}>
                   {vertical.status}
                 </span>
               </div>
               <h3 className="text-white font-bold mb-1">{vertical.name}</h3>
               <p className="text-white/50 text-sm mb-2">{vertical.desc}</p>
-              <p className="text-cyan-400 text-xs">{vertical.detail}</p>
+              <p className="text-[#00C2FF] text-xs">{vertical.detail}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* AI Ecosystem */}
-      <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-16">
+      <section className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/10 py-16">
         <div className="container px-5">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              <Cpu className="inline w-8 h-8 text-cyan-400 mr-2" />
+              <Cpu className="inline w-8 h-8 text-[#00C2FF] mr-2" />
               AI-Powered Everything
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
@@ -230,7 +230,7 @@ function EmpireVisionInner() {
             {aiCapabilities.map((ai, i) => (
               <div
                 key={i}
-                className="bg-slate-900/80 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-500 transition-all"
+                className="bg-slate-900/80 border border-[#1E90FF]/30 rounded-xl p-6 hover:border-[#1E90FF] transition-all"
               >
                 <span className="text-4xl block mb-4">{ai.icon}</span>
                 <h3 className="text-xl font-bold text-white mb-2">{ai.name}</h3>
@@ -241,7 +241,7 @@ function EmpireVisionInner() {
 
           <div className="mt-10 text-center">
             <Link href="/fuel-bots">
-              <button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-3 rounded-xl transition-colors inline-flex items-center gap-2">
+              <button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold px-8 py-3 rounded-xl transition-colors inline-flex items-center gap-2">
                 Explore FuelBots AI <ChevronRight className="w-5 h-5" />
               </button>
             </Link>
@@ -251,11 +251,11 @@ function EmpireVisionInner() {
 
       {/* Social Media Empire */}
       <section className="container px-5 py-16">
-        <div className="bg-gradient-to-br from-blue-600/20 to-red-500/20 border border-blue-600/30 rounded-2xl p-8 md:p-12">
+        <div className="bg-gradient-to-br from-blue-600/20 to-[#0a1628]/20 border border-blue-600/30 rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                🌐 The Social Media Empire
+                 The Social Media Empire
               </h2>
               <p className="text-white/70 mb-6">
                 AthlynX isn't just an app—it's the <strong className="text-blue-500">athlete social network</strong>. 
@@ -283,15 +283,15 @@ function EmpireVisionInner() {
                 <p className="text-white/60 text-sm">Target Athletes</p>
               </div>
               <div className="bg-white/10 rounded-xl p-5 text-center">
-                <p className="text-4xl font-black text-red-400">$50B</p>
+                <p className="text-4xl font-black text-[#1E90FF]">$50B</p>
                 <p className="text-white/60 text-sm">NIL Market</p>
               </div>
               <div className="bg-white/10 rounded-xl p-5 text-center">
-                <p className="text-4xl font-black text-cyan-400">15+</p>
+                <p className="text-4xl font-black text-[#00C2FF]">15+</p>
                 <p className="text-white/60 text-sm">Sports Covered</p>
               </div>
               <div className="bg-white/10 rounded-xl p-5 text-center">
-                <p className="text-4xl font-black text-red-400">∞</p>
+                <p className="text-4xl font-black text-[#1E90FF]">∞</p>
                 <p className="text-white/60 text-sm">Possibilities</p>
               </div>
             </div>
@@ -302,12 +302,12 @@ function EmpireVisionInner() {
       {/* Timeline */}
       <section className="container px-5 py-16">
         <h2 className="text-3xl font-bold text-white text-center mb-12">
-          <TrendingUp className="inline w-8 h-8 text-cyan-400 mr-2" />
+          <TrendingUp className="inline w-8 h-8 text-[#00C2FF] mr-2" />
           The Roadmap to Empire
         </h2>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-500 to-blue-600 hidden md:block" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#1E90FF] to-blue-600 hidden md:block" />
           
           <div className="space-y-8">
             {timeline.map((item, i) => (
@@ -316,13 +316,13 @@ function EmpireVisionInner() {
                 className={`flex flex-col md:flex-row items-center gap-4 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
                 <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <div className={`bg-slate-900/80 border border-white/10 rounded-xl p-5 inline-block ${i === 0 ? 'border-cyan-500 ring-2 ring-cyan-500/30' : ''}`}>
-                    <span className="text-cyan-400 font-bold">{item.year}</span>
+                  <div className={`bg-slate-900/80 border border-white/10 rounded-xl p-5 inline-block ${i === 0 ? 'border-[#1E90FF] ring-2 ring-cyan-500/30' : ''}`}>
+                    <span className="text-[#00C2FF] font-bold">{item.year}</span>
                     <h3 className="text-white font-bold text-lg">{item.event}</h3>
                     <p className="text-white/60 text-sm">{item.desc}</p>
                   </div>
                 </div>
-                <div className="w-4 h-4 bg-cyan-500 rounded-full border-4 border-slate-900 z-10 hidden md:block" />
+                <div className="w-4 h-4 bg-[#1E90FF] rounded-full border-4 border-slate-900 z-10 hidden md:block" />
                 <div className="flex-1" />
               </div>
             ))}
@@ -332,7 +332,7 @@ function EmpireVisionInner() {
 
       {/* CTA */}
       <section className="container px-5 py-16">
-        <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Be Part of the Empire
           </h2>

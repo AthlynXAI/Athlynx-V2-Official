@@ -82,7 +82,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
           textAlign: "center",
         }}>
           {/* Logo */}
-          <div style={{ fontSize: "48px", marginBottom: "16px" }}>⚡</div>
+          <div style={{ fontSize: "48px", marginBottom: "16px" }}></div>
           <div style={{
             fontSize: "28px",
             fontWeight: "900",
@@ -105,7 +105,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
             width: "100%",
             marginTop: "24px",
           }}>
-            <div style={{ fontSize: "40px", marginBottom: "16px" }}>🔧</div>
+            <div style={{ fontSize: "40px", marginBottom: "16px" }}></div>
             <h2 style={{ color: "#fff", fontSize: "20px", fontWeight: "800", marginBottom: "8px" }}>
               Something went wrong
             </h2>
@@ -165,7 +165,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
                   cursor: "pointer",
                 }}
               >
-                🔄 Retry
+                 Retry
               </button>
             </div>
           </div>
@@ -213,7 +213,7 @@ export class RouteErrorBoundary extends Component<Props, State> {
           background: "#000000",
           fontFamily: "system-ui, sans-serif",
         }}>
-          <div style={{ fontSize: "48px", marginBottom: "16px" }}>⚡</div>
+          <div style={{ fontSize: "48px", marginBottom: "16px" }}></div>
           <h2 style={{ color: "#fff", fontSize: "18px", fontWeight: "800", marginBottom: "8px" }}>
             This page hit an error
           </h2>

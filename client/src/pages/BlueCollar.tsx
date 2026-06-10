@@ -51,7 +51,7 @@ const starLevels = [
     requirements: "20+ years, master certification, business owner, industry recognition",
     earnings: "$150,000 - $500,000+",
     opportunities: "Brand ambassadorships, TV appearances, consulting, product development",
-    color: "from-red-400 to-red-500"
+    color: "from-[#1E90FF] to-[#0a1628]"
   },
   {
     stars: 4,
@@ -75,7 +75,7 @@ const starLevels = [
     requirements: "2-5 years, apprenticeship complete, building reputation",
     earnings: "$35,000 - $50,000",
     opportunities: "Skill showcases, job matching, certification support",
-    color: "from-green-400 to-green-600"
+    color: "from-[#00C2FF] to-[#0a1628]"
   },
   {
     stars: 1,
@@ -146,7 +146,7 @@ const successStories = [
 
 function BlueCollarInner() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-red-950/20 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-[#1E90FF]/20 to-slate-900">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -157,7 +157,7 @@ function BlueCollarInner() {
             </Button>
           </Link>
           <div className="flex items-center gap-2">
-            <HardHat className="w-5 h-5 text-red-400" />
+            <HardHat className="w-5 h-5 text-[#1E90FF]" />
             <span className="font-semibold text-white">Blue Collar Stars</span>
           </div>
         </div>
@@ -167,12 +167,12 @@ function BlueCollarInner() {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-6">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-6">
               <Wrench className="w-3 h-3 mr-1" />
               The Life Playbook
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Blue Collar <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500">Stars</span>
+              Blue Collar <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">Stars</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
               Athletes aren't the only stars. Electricians, plumbers, welders, truckers — 
@@ -189,15 +189,15 @@ function BlueCollarInner() {
               { value: "∞", label: "Dreams to Chase" }
             ].map((stat, index) => (
               <div key={index} className="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-700">
-                <div className="text-3xl font-bold text-red-400">{stat.value}</div>
+                <div className="text-3xl font-bold text-[#1E90FF]">{stat.value}</div>
                 <div className="text-slate-400 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Mission Statement */}
-          <div className="bg-gradient-to-r from-red-500/10 to-red-500/10 rounded-3xl border border-red-500/30 p-8 text-center">
-            <Sparkles className="w-12 h-12 text-red-400 mx-auto mb-4" />
+          <div className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 rounded-3xl border border-[#1E90FF]/30 p-8 text-center">
+            <Sparkles className="w-12 h-12 text-[#1E90FF] mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-white mb-4">
               "Everyone is an NIL Commodity"
             </h2>
@@ -220,12 +220,12 @@ function BlueCollarInner() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {industries.map((industry, index) => (
-              <Card key={index} className="bg-slate-900/50 border-slate-700 hover:border-red-500/50 transition-all duration-300 text-center">
+              <Card key={index} className="bg-slate-900/50 border-slate-700 hover:border-[#1E90FF]/50 transition-all duration-300 text-center">
                 <CardContent className="p-4">
-                  <industry.icon className="w-8 h-8 text-red-400 mx-auto mb-2" />
+                  <industry.icon className="w-8 h-8 text-[#1E90FF] mx-auto mb-2" />
                   <h3 className="text-white font-medium text-sm mb-1">{industry.name}</h3>
                   <p className="text-slate-500 text-xs">{industry.workers} workers</p>
-                  <Badge className="mt-2 bg-green-500/20 text-green-400 border-green-500/30 text-xs">
+                  <Badge className="mt-2 bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 text-xs">
                     {industry.growth}
                   </Badge>
                 </CardContent>
@@ -257,7 +257,7 @@ function BlueCollarInner() {
                         {[...Array(5)].map((_, i) => (
                           <Star 
                             key={i} 
-                            className={`w-5 h-5 ${i < level.stars ? 'text-red-400 fill-red-400' : 'text-slate-600'}`} 
+                            className={`w-5 h-5 ${i < level.stars ? 'text-[#1E90FF] fill-red-400' : 'text-slate-600'}`} 
                           />
                         ))}
                       </div>
@@ -267,10 +267,10 @@ function BlueCollarInner() {
                       <p className="text-slate-400 text-sm">{level.requirements}</p>
                     </div>
                     <div>
-                      <p className="text-green-400 font-semibold">{level.earnings}</p>
+                      <p className="text-[#00C2FF] font-semibold">{level.earnings}</p>
                     </div>
                     <div>
-                      <p className="text-red-400 text-sm">{level.opportunities}</p>
+                      <p className="text-[#1E90FF] text-sm">{level.opportunities}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -281,10 +281,10 @@ function BlueCollarInner() {
       </section>
 
       {/* Life Playbook Features */}
-      <section className="py-16 px-4 bg-gradient-to-r from-red-500/10 to-red-500/10">
+      <section className="py-16 px-4 bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
               <BookOpen className="w-3 h-3 mr-1" />
               Your Personal Guide
             </Badge>
@@ -297,10 +297,10 @@ function BlueCollarInner() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {lifePlaybookFeatures.map((feature, index) => (
-              <Card key={index} className="bg-slate-900/50 border-slate-700 hover:border-red-500/50 transition-all duration-300">
+              <Card key={index} className="bg-slate-900/50 border-slate-700 hover:border-[#1E90FF]/50 transition-all duration-300">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500/20 to-red-500/20 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-red-400" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 flex items-center justify-center mb-4">
+                    <feature.icon className="w-6 h-6 text-[#1E90FF]" />
                   </div>
                   <CardTitle className="text-white">{feature.title}</CardTitle>
                 </CardHeader>
@@ -327,16 +327,16 @@ function BlueCollarInner() {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     {[...Array(story.stars)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-red-400 fill-red-400" />
+                      <Star key={i} className="w-4 h-4 text-[#1E90FF] fill-red-400" />
                     ))}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-1">{story.name}</h3>
-                  <Badge className="mb-4 bg-red-500/20 text-red-400 border-red-500/30">
+                  <Badge className="mb-4 bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">
                     {story.trade}
                   </Badge>
                   <p className="text-slate-400 text-sm mb-4">{story.story}</p>
                   <div className="pt-4 border-t border-slate-700">
-                    <p className="text-green-400 font-semibold">{story.earnings}</p>
+                    <p className="text-[#00C2FF] font-semibold">{story.earnings}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -361,7 +361,7 @@ function BlueCollarInner() {
               { step: 4, title: "Earn & Grow", description: "Complete NIL deals, build your reputation, and level up your star rating. Dreams come true." }
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-bold text-lg">{item.step}</span>
                 </div>
                 <div>
@@ -377,8 +377,8 @@ function BlueCollarInner() {
       {/* The Vision */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="bg-gradient-to-r from-red-500/10 to-red-500/10 rounded-3xl border border-red-500/30 p-8 md:p-12">
-            <Heart className="w-12 h-12 text-red-400 mx-auto mb-6" />
+          <div className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 rounded-3xl border border-[#1E90FF]/30 p-8 md:p-12">
+            <Heart className="w-12 h-12 text-[#1E90FF] mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-6">
               Dreams Do Truly Come True
             </h2>
@@ -387,7 +387,7 @@ function BlueCollarInner() {
               The one-man billionaire story begins with believing that every person — 
               athlete, veteran, blue-collar worker — has value worth monetizing.
             </p>
-            <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500">
+            <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
               "Everyone is an NIL Commodity. Everyone Has a Star Rating. Everyone Can Win."
             </p>
           </div>
@@ -395,7 +395,7 @@ function BlueCollarInner() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-red-600 to-red-600">
+      <section className="py-16 px-4 bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
         <div className="container mx-auto max-w-4xl text-center">
           <HardHat className="w-16 h-16 text-white mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -407,7 +407,7 @@ function BlueCollarInner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/early-access">
-              <Button size="lg" className="bg-white text-red-600 hover:bg-white/90 px-8">
+              <Button size="lg" className="bg-white text-[#1E90FF] hover:bg-white/90 px-8">
                 <Star className="w-5 h-5 mr-2" />
                 Get Your Star Rating
               </Button>
@@ -426,7 +426,7 @@ function BlueCollarInner() {
         <p className="text-slate-500">
           © 2026 Dozier Holdings Group, LLC. All rights reserved.
         </p>
-        <p className="text-red-400 font-medium mt-2">
+        <p className="text-[#1E90FF] font-medium mt-2">
           The Life Playbook — Dreams Do Truly Come True
         </p>
       </footer>

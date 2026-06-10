@@ -96,22 +96,22 @@ function MindsetInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-cyan-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-[#1E90FF]/30">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
-            <span className="text-cyan-400 font-bold text-sm tracking-widest cursor-pointer hover:text-cyan-300 transition-colors">
+            <span className="text-[#00C2FF] font-bold text-sm tracking-widest cursor-pointer hover:text-[#00C2FF] transition-colors">
               THE FUTURE OF ATHLETE SUCCESS
             </span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/studio">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer flex items-center gap-2">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer flex items-center gap-2">
                 <Mic className="w-4 h-4" />
                 Studio
               </span>
             </Link>
             <Link href="/">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer">
                 AthlynX
               </span>
             </Link>
@@ -123,8 +123,8 @@ function MindsetInner() {
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1E90FF]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto text-center relative z-10">
@@ -134,16 +134,16 @@ function MindsetInner() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <Brain className="w-20 h-20 text-cyan-400 mx-auto mb-4" />
+              <Brain className="w-20 h-20 text-[#00C2FF] mx-auto mb-4" />
             </motion.div>
             
-            <motion.p variants={fadeInUp} className="text-cyan-400 tracking-[0.3em] text-sm mb-4">
+            <motion.p variants={fadeInUp} className="text-[#00C2FF] tracking-[0.3em] text-sm mb-4">
               IN THE ZONE
             </motion.p>
             
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black text-white mb-6">
               MINDSET &<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-red-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
                 MOTIVATION
               </span>
             </motion.h1>
@@ -154,7 +154,7 @@ function MindsetInner() {
 
             <motion.div variants={fadeInUp} className="flex justify-center gap-4">
               <Link href="/studio">
-                <Button className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white px-8 py-6 text-lg rounded-full">
+                <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white px-8 py-6 text-lg rounded-full">
                   <Play className="w-5 h-5 mr-2" />
                   Watch Episodes
                 </Button>
@@ -173,17 +173,17 @@ function MindsetInner() {
             viewport={{ once: true }}
             className="max-w-5xl mx-auto text-center"
           >
-            <Target className="w-16 h-16 text-red-400 mx-auto mb-8" />
+            <Target className="w-16 h-16 text-[#1E90FF] mx-auto mb-8" />
             
             <blockquote className="text-2xl md:text-4xl font-bold text-white leading-relaxed mb-8">
               "Dreams without Goals are just dreams and ultimately without Goals they fuel disappointment.
               <br /><br />
-              <span className="text-cyan-400">On the Road to Achieving your Dreams you must apply discipline but more importantly Consistency.</span>
+              <span className="text-[#00C2FF]">On the Road to Achieving your Dreams you must apply discipline but more importantly Consistency.</span>
               <br /><br />
               Because without Commitment you'll never start but without Consistency You'll never Finish."
             </blockquote>
             
-            <p className="text-red-400 text-xl font-semibold">— Chad Allen Dozier Sr.</p>
+            <p className="text-[#1E90FF] text-xl font-semibold">— Chad Allen Dozier Sr.</p>
             <p className="text-white/50 mt-2">Founder, Dozier Holdings Group</p>
           </motion.div>
         </div>
@@ -198,16 +198,16 @@ function MindsetInner() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-3xl p-12 border border-cyan-500/20 text-center">
-              <Lightbulb className="w-16 h-16 text-red-400 mx-auto mb-8" />
+            <div className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-3xl p-12 border border-[#1E90FF]/30 text-center">
+              <Lightbulb className="w-16 h-16 text-[#1E90FF] mx-auto mb-8" />
               
               <blockquote className="text-3xl md:text-5xl font-bold text-white mb-6">
                 "Logic will get you from A to B.
                 <br />
-                <span className="text-cyan-400">Imagination will take you Everywhere.</span>"
+                <span className="text-[#00C2FF]">Imagination will take you Everywhere.</span>"
               </blockquote>
               
-              <p className="text-red-400 text-xl font-semibold">— Albert Einstein</p>
+              <p className="text-[#1E90FF] text-xl font-semibold">— Albert Einstein</p>
             </div>
           </motion.div>
         </div>
@@ -224,9 +224,9 @@ function MindsetInner() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp}>
-              <Flame className="w-16 h-16 text-red-500 mx-auto mb-4" />
+              <Flame className="w-16 h-16 text-[#1E90FF] mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                THE CLOSER'S <span className="text-red-500">MENTALITY</span>
+                THE CLOSER'S <span className="text-[#1E90FF]">MENTALITY</span>
               </h2>
               <p className="text-white/60 text-xl max-w-2xl mx-auto">
                 You have to eat. And I have been hungry for years.
@@ -242,12 +242,12 @@ function MindsetInner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-red-500/10 to-red-500/10 rounded-2xl p-8 border border-red-500/20 hover:border-red-500/40 transition-all"
+                className="bg-gradient-to-br from-[#1E90FF]/10 to-[#0a1628]/10 rounded-2xl p-8 border border-[#1E90FF]/20 hover:border-[#1E90FF]/40 transition-all"
               >
                 <blockquote className="text-xl md:text-2xl font-bold text-white mb-4">
                   "{item.quote}"
                 </blockquote>
-                <p className="text-red-400 text-sm uppercase tracking-wider">
+                <p className="text-[#1E90FF] text-sm uppercase tracking-wider">
                   {item.context}
                 </p>
               </motion.div>
@@ -267,9 +267,9 @@ function MindsetInner() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp}>
-              <Lock className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+              <Lock className="w-16 h-16 text-[#00C2FF] mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                THE 6 RULES OF <span className="text-cyan-400">POWER</span>
+                THE 6 RULES OF <span className="text-[#00C2FF]">POWER</span>
               </h2>
               <p className="text-white/60 text-xl max-w-2xl mx-auto">
                 Move in silence. Let success make the noise.
@@ -285,13 +285,13 @@ function MindsetInner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-2xl p-8 border border-cyan-500/20 hover:border-cyan-500/40 transition-all group"
+                className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-2xl p-8 border border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all group"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-black text-xl group-hover:bg-cyan-500/30 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-[#1E90FF]/20 flex items-center justify-center text-[#00C2FF] font-black text-xl group-hover:bg-[#1E90FF]/20 transition-colors">
                     {rule.number}
                   </div>
-                  <rule.icon className="w-8 h-8 text-cyan-400/50" />
+                  <rule.icon className="w-8 h-8 text-[#00C2FF]/50" />
                 </div>
                 
                 <h3 className="text-xl font-bold text-white mb-3">
@@ -312,11 +312,11 @@ function MindsetInner() {
             viewport={{ once: true }}
             className="mt-12 text-center"
           >
-            <div className="inline-block bg-gradient-to-r from-cyan-500/20 to-red-500/20 rounded-2xl px-12 py-8 border border-cyan-500/30">
+            <div className="inline-block bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 rounded-2xl px-12 py-8 border border-[#1E90FF]/30">
               <p className="text-2xl md:text-3xl font-bold text-white">
                 Don't tell people your next big move.
               </p>
-              <p className="text-cyan-400 text-xl mt-2">
+              <p className="text-[#00C2FF] text-xl mt-2">
                 Move in silence. Shock them with your results.
               </p>
             </div>
@@ -335,9 +335,9 @@ function MindsetInner() {
             className="text-center mb-16"
           >
             <motion.div variants={fadeInUp}>
-              <Trophy className="w-16 h-16 text-red-400 mx-auto mb-4" />
+              <Trophy className="w-16 h-16 text-[#1E90FF] mx-auto mb-4" />
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                THE <span className="text-red-400">JOURNEY</span>
+                THE <span className="text-[#1E90FF]">JOURNEY</span>
               </h2>
               <p className="text-white/60 text-xl max-w-3xl mx-auto">
                 Revolutionizing the sports market journey with athletes, parents, coaches, agents, lawyers, trainers, counselors, and chaplains. Total positivity. Total support.
@@ -348,12 +348,12 @@ function MindsetInner() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {[
               { name: "Athletes", emoji: "" },
-              { name: "Parents", emoji: "👨‍👩‍👧‍👦" },
-              { name: "Coaches", emoji: "📋" },
+              { name: "Parents", emoji: "" },
+              { name: "Coaches", emoji: "" },
               { name: "Agents", emoji: "" },
-              { name: "Lawyers", emoji: "⚖️" },
+              { name: "Lawyers", emoji: "" },
               { name: "Trainers", emoji: "" },
-              { name: "Counselors", emoji: "🧠" },
+              { name: "Counselors", emoji: "" },
               { name: "Chaplains", emoji: "" }
             ].map((stakeholder, index) => (
               <motion.div
@@ -362,10 +362,10 @@ function MindsetInner() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-[#1a3a5c]/30 rounded-xl p-6 text-center border border-cyan-500/10 hover:border-cyan-500/30 transition-all cursor-pointer group"
+                className="bg-[#1a3a5c]/30 rounded-xl p-6 text-center border border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all cursor-pointer group"
               >
                 <span className="text-4xl mb-3 block">{stakeholder.emoji}</span>
-                <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors">
+                <p className="text-white font-semibold group-hover:text-[#00C2FF] transition-colors">
                   {stakeholder.name}
                 </p>
               </motion.div>
@@ -382,15 +382,15 @@ function MindsetInner() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Mic className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
+            <Mic className="w-16 h-16 text-[#00C2FF] mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              WATCH THE <span className="text-cyan-400">STUDIO</span>
+              WATCH THE <span className="text-[#00C2FF]">STUDIO</span>
             </h2>
             <p className="text-white/60 text-xl max-w-2xl mx-auto mb-8">
               TED Talk style conversations about mindset, motivation, and the mental game. Real talk from real athletes and entrepreneurs.
             </p>
             <Link href="/studio">
-              <Button className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white px-10 py-6 text-lg rounded-full">
+              <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white px-10 py-6 text-lg rounded-full">
                 Enter the Studio
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>

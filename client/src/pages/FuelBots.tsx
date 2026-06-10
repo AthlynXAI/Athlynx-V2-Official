@@ -44,7 +44,7 @@ function FuelBotsInner() {
       id: "sports",
       name: "Sports & Stadiums",
       icon: Trophy,
-      color: "from-cyan-500 to-blue-600",
+      color: "from-[#1E90FF] to-blue-600",
       description: "Revolutionary training companions for athletes and teams",
       features: [
         "AI-powered drill running and real-time coaching",
@@ -74,7 +74,7 @@ function FuelBotsInner() {
       id: "fuel",
       name: "Fuel & Gas",
       icon: Fuel,
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       description: "Safety-first companions for hazardous environments",
       features: [
         "Pipeline inspection and leak detection",
@@ -89,7 +89,7 @@ function FuelBotsInner() {
       id: "geothermal",
       name: "Geothermal Power",
       icon: Flame,
-      color: "from-green-500 to-emerald-600",
+      color: "from-[#00C2FF] to-emerald-600",
       description: "Sustainable energy facility companions",
       features: [
         "Facility monitoring and inspection",
@@ -152,23 +152,23 @@ function FuelBotsInner() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-br from-slate-950 via-cyan-950/30 to-slate-950" />
+          <div className="w-full h-full bg-gradient-to-br from-slate-950 via-[#1E90FF]/30 to-slate-950" />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
           {/* Badge */}
-          <Badge className="mb-6 bg-cyan-500/20 text-cyan-400 border-cyan-500/30 px-4 py-2 text-sm">
+          <Badge className="mb-6 bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 px-4 py-2 text-sm">
             <Bot className="w-4 h-4 mr-2" />
             DOZIER HOLDINGS GROUP
           </Badge>
 
           {/* Main Title */}
           <h1 className="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight">
-            FUEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">BOTS</span>
+            FUEL <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-500">BOTS</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-cyan-400 font-bold mb-6">
+          <p className="text-2xl md:text-3xl text-[#00C2FF] font-bold mb-6">
             AI COMPANIONS
           </p>
           <p className="text-xl text-white/70 max-w-3xl mx-auto mb-8">
@@ -179,26 +179,26 @@ function FuelBotsInner() {
           {/* Key Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl font-black text-cyan-400">$180M</div>
+              <div className="text-4xl font-black text-[#00C2FF]">$180M</div>
               <div className="text-white/60 text-sm">Annual Market Opportunity</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-black text-green-400">30%</div>
+              <div className="text-4xl font-black text-[#00C2FF]">30%</div>
               <div className="text-white/60 text-sm">Faster Medical Response</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-black text-red-400">24/7</div>
+              <div className="text-4xl font-black text-[#1E90FF]">24/7</div>
               <div className="text-white/60 text-sm">Training Availability</div>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-6 text-lg">
+            <Button size="lg" className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white px-8 py-6 text-lg">
               <Play className="w-5 h-5 mr-2" />
               Schedule Demo
             </Button>
-            <Button size="lg" variant="outline" className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 px-8 py-6 text-lg">
+            <Button size="lg" variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20 px-8 py-6 text-lg">
               <GraduationCap className="w-5 h-5 mr-2" />
               University Pilot Program
             </Button>
@@ -207,8 +207,8 @@ function FuelBotsInner() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan-500/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-pulse" />
+          <div className="w-6 h-10 border-2 border-[#1E90FF]/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-[#1E90FF] rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
@@ -217,11 +217,11 @@ function FuelBotsInner() {
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-red-500/20 text-red-400 border-red-500/30">
+            <Badge className="mb-4 bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">
               THE COMPLETE ECOSYSTEM
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Three Pillars. One <span className="text-cyan-400">Insurmountable Moat</span>
+              Three Pillars. One <span className="text-[#00C2FF]">Insurmountable Moat</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Dozier Holdings Group builds a complete OS for modern athletes, where each component strengthens the others.
@@ -232,7 +232,7 @@ function FuelBotsInner() {
             {/* NIL Portal */}
             <Card className="bg-gradient-to-br from-blue-900/40 to-blue-950/40 border-blue-500/30 hover:border-blue-400/50 transition-all group">
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center group-hover:scale-110 transition-transform">
                   <img src="/fuelbots-icon.png" alt="NIL Portal" className="w-12 h-12" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">NIL Portal</h3>
@@ -241,9 +241,9 @@ function FuelBotsInner() {
             </Card>
 
             {/* Fuel Candy */}
-            <Card className="bg-gradient-to-br from-red-900/40 to-red-950/40 border-red-500/30 hover:border-red-400/50 transition-all group">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/40 to-[#0a1628]/40 border-[#1E90FF]/30 hover:border-[#1E90FF]/50 transition-all group">
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-red-500 to-red-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#1E90FF] to-[#0a1628] flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Zap className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Fuel Candy</h3>
@@ -252,14 +252,14 @@ function FuelBotsInner() {
             </Card>
 
             {/* Fuel Bots */}
-            <Card className="bg-gradient-to-br from-cyan-900/40 to-cyan-950/40 border-cyan-500/30 hover:border-cyan-400/50 transition-all group ring-2 ring-cyan-500/50">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/40 border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all group ring-2 ring-cyan-500/50">
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#1E90FF] to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Bot className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Fuel Bots</h3>
                 <p className="text-white/60">AI companions for training, medical response, and industrial operations</p>
-                <Badge className="mt-4 bg-cyan-500/20 text-cyan-400">YOU ARE HERE</Badge>
+                <Badge className="mt-4 bg-[#1E90FF]/20 text-[#00C2FF]">YOU ARE HERE</Badge>
               </CardContent>
             </Card>
           </div>
@@ -270,11 +270,11 @@ function FuelBotsInner() {
       <section className="py-20 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
+            <Badge className="mb-4 bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30">
               ADVANCED ROBOTICS PLATFORM
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Three Robot Dog <span className="text-cyan-400">Product Lines</span>
+              Three Robot Dog <span className="text-[#00C2FF]">Product Lines</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Industrial-grade AI companions designed for any environment and application.
@@ -283,22 +283,22 @@ function FuelBotsInner() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Hexapod Robot Dog */}
-            <Card className="bg-gradient-to-br from-cyan-900/30 to-cyan-950/30 border-cyan-500/30 hover:border-cyan-400/50 transition-all overflow-hidden">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/30 border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-48 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center">
-                  <Bot className="w-24 h-24 text-cyan-400" />
+                <div className="h-48 bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/20 flex items-center justify-center">
+                  <Bot className="w-24 h-24 text-[#00C2FF]" />
                 </div>
                 <div className="p-6">
-                  <Badge className="mb-3 bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs">6 LEGS</Badge>
+                  <Badge className="mb-3 bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 text-xs">6 LEGS</Badge>
                   <h3 className="text-xl font-bold text-white mb-2">Hexapod Robot Dog</h3>
-                  <p className="text-cyan-400 text-sm mb-4">六足机器狗</p>
+                  <p className="text-[#00C2FF] text-sm mb-4"></p>
                   <ul className="space-y-2 text-sm text-white/70">
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />High stability under load</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />Minimal body undulation</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />Lower operating noise</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />Force & visual perception</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />High stability under load</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />Minimal body undulation</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />Lower operating noise</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />Force & visual perception</li>
                   </ul>
-                  <p className="mt-4 text-xs text-cyan-400 italic">"More stable, more powerful, more precise"</p>
+                  <p className="mt-4 text-xs text-[#00C2FF] italic">"More stable, more powerful, more precise"</p>
                 </div>
               </CardContent>
             </Card>
@@ -312,7 +312,7 @@ function FuelBotsInner() {
                 <div className="p-6">
                   <Badge className="mb-3 bg-blue-600/20 text-blue-500 border-blue-600/30 text-xs">HYBRID</Badge>
                   <h3 className="text-xl font-bold text-white mb-2">Wheel-Leg Hybrid</h3>
-                  <p className="text-blue-500 text-sm mb-4">轮组机器狗</p>
+                  <p className="text-blue-500 text-sm mb-4"></p>
                   <ul className="space-y-2 text-sm text-white/70">
                     <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />IP66 industrial protection</li>
                     <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />-20°C to 55°C operation</li>
@@ -325,22 +325,22 @@ function FuelBotsInner() {
             </Card>
 
             {/* Medium Size */}
-            <Card className="bg-gradient-to-br from-red-900/30 to-red-950/30 border-red-500/30 hover:border-red-400/50 transition-all overflow-hidden">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/30 to-[#0a1628]/30 border-[#1E90FF]/30 hover:border-[#1E90FF]/50 transition-all overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-48 bg-gradient-to-br from-red-600/20 to-red-600/20 flex items-center justify-center">
-                  <Bot className="w-24 h-24 text-red-400" />
+                <div className="h-48 bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/20 flex items-center justify-center">
+                  <Bot className="w-24 h-24 text-[#1E90FF]" />
                 </div>
                 <div className="p-6">
-                  <Badge className="mb-3 bg-red-500/20 text-red-400 border-red-500/30 text-xs">INDUSTRIAL</Badge>
+                  <Badge className="mb-3 bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 text-xs">INDUSTRIAL</Badge>
                   <h3 className="text-xl font-bold text-white mb-2">Medium Size Robot</h3>
-                  <p className="text-red-400 text-sm mb-4">中型机器狗</p>
+                  <p className="text-[#1E90FF] text-sm mb-4"></p>
                   <ul className="space-y-2 text-sm text-white/70">
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />Heavy payload standard</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />Premium hardware platform</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />Open for rapid development</li>
-                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />Customizable applications</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#1E90FF] mt-0.5 flex-shrink-0" />Heavy payload standard</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#1E90FF] mt-0.5 flex-shrink-0" />Premium hardware platform</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#1E90FF] mt-0.5 flex-shrink-0" />Open for rapid development</li>
+                    <li className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-[#1E90FF] mt-0.5 flex-shrink-0" />Customizable applications</li>
                   </ul>
-                  <p className="mt-4 text-xs text-red-400 italic">"Built for industrial excellence"</p>
+                  <p className="mt-4 text-xs text-[#1E90FF] italic">"Built for industrial excellence"</p>
                 </div>
               </CardContent>
             </Card>
@@ -384,37 +384,37 @@ function FuelBotsInner() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-500/20 text-green-400 border-green-500/30">
+            <Badge className="mb-4 bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30">
               TRANSFORMING OPERATIONS
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Dual Roles: <span className="text-green-400">AI Trainer</span> & <span className="text-red-400">Medical Response</span>
+              Dual Roles: <span className="text-[#00C2FF]">AI Trainer</span> & <span className="text-[#1E90FF]">Medical Response</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* AI Trainer */}
-            <Card className="bg-gradient-to-br from-green-900/30 to-green-950/30 border-green-500/30 overflow-hidden">
+            <Card className="bg-gradient-to-br from-[#00C2FF]/30 to-[#0a1628]/30 border-[#00C2FF]/30 overflow-hidden">
               <CardContent className="p-8">
-                <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6">
-                  <Brain className="w-8 h-8 text-green-400" />
+                <div className="w-16 h-16 rounded-2xl bg-[#00C2FF]/20 flex items-center justify-center mb-6">
+                  <Brain className="w-8 h-8 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">AI-Powered Trainer</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
                     Runs drills and provides real-time coaching
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
                     Voice interaction and behavioral adaptation
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
                     24/7 training availability
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
                     Performance data collection
                   </li>
                 </ul>
@@ -422,27 +422,27 @@ function FuelBotsInner() {
             </Card>
 
             {/* Medical Response */}
-            <Card className="bg-gradient-to-br from-red-900/30 to-red-950/30 border-red-500/30 overflow-hidden">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/30 to-[#0a1628]/30 border-[#1E90FF]/30 overflow-hidden">
               <CardContent className="p-8">
-                <div className="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center mb-6">
-                  <Heart className="w-8 h-8 text-red-400" />
+                <div className="w-16 h-16 rounded-2xl bg-[#1E90FF]/20 flex items-center justify-center mb-6">
+                  <Heart className="w-8 h-8 text-[#1E90FF]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Medical & Safety</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-red-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#1E90FF] flex-shrink-0" />
                     Rapid AED delivery to any location
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-red-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#1E90FF] flex-shrink-0" />
                     30% faster medical response time
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-red-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#1E90FF] flex-shrink-0" />
                     Injury support and first aid supplies
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <CheckCircle2 className="w-5 h-5 text-red-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#1E90FF] flex-shrink-0" />
                     Emergency alert system integration
                   </li>
                 </ul>
@@ -456,11 +456,11 @@ function FuelBotsInner() {
       <section className="py-20 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
+            <Badge className="mb-4 bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30">
               MULTI-INDUSTRY APPLICATIONS
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              One Platform. <span className="text-cyan-400">Endless Possibilities.</span>
+              One Platform. <span className="text-[#00C2FF]">Endless Possibilities.</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               From sports stadiums to power stations, Fuel Bots adapt to any environment.
@@ -500,7 +500,7 @@ function FuelBotsInner() {
                       <ul className="space-y-3">
                         {activeIndustryData.features.map((feature, index) => (
                           <li key={index} className="flex items-start gap-3 text-white/80">
-                            <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                             {feature}
                           </li>
                         ))}
@@ -524,24 +524,24 @@ function FuelBotsInner() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-500/20 text-green-400 border-green-500/30">
+            <Badge className="mb-4 bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30">
               <DollarSign className="w-4 h-4 mr-1" />
               REVENUE MODEL
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              <span className="text-green-400">$180M</span> Annual Market Opportunity
+              <span className="text-[#00C2FF]">$180M</span> Annual Market Opportunity
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {revenueStreams.map((stream, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700/50 hover:border-green-500/50 transition-all group">
+              <Card key={index} className="bg-slate-800/50 border-slate-700/50 hover:border-[#00C2FF]/50 transition-all group">
                 <CardContent className="p-6 text-center">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-green-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <stream.icon className="w-7 h-7 text-green-400" />
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-[#00C2FF]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <stream.icon className="w-7 h-7 text-[#00C2FF]" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-1">{stream.title}</h3>
-                  <div className="text-green-400 font-bold mb-2">{stream.value}</div>
+                  <div className="text-[#00C2FF] font-bold mb-2">{stream.value}</div>
                   <p className="text-white/60 text-sm">{stream.description}</p>
                 </CardContent>
               </Card>
@@ -566,14 +566,14 @@ function FuelBotsInner() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-blue-600" />
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#1E90FF] via-blue-500 to-blue-600" />
 
               {/* Timeline Items */}
               <div className="space-y-8">
                 {roadmap.map((item, index) => (
                   <div key={index} className="relative pl-20">
                     {/* Timeline Dot */}
-                    <div className="absolute left-6 w-5 h-5 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 border-4 border-slate-900" />
+                    <div className="absolute left-6 w-5 h-5 rounded-full bg-gradient-to-br from-[#1E90FF] to-blue-500 border-4 border-slate-900" />
                     
                     <Card className="bg-slate-800/50 border-slate-700/50 hover:border-blue-500/50 transition-all">
                       <CardContent className="p-6">
@@ -581,7 +581,7 @@ function FuelBotsInner() {
                           <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
                             {item.phase}
                           </Badge>
-                          <span className="text-cyan-400 font-bold">{item.date}</span>
+                          <span className="text-[#00C2FF] font-bold">{item.date}</span>
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                         <p className="text-white/60">{item.description}</p>
@@ -599,11 +599,11 @@ function FuelBotsInner() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-red-500/20 text-red-400 border-red-500/30">
+            <Badge className="mb-4 bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">
               JOIN THE REVOLUTION
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              The Future of Athletic Training <span className="text-red-400">Starts Now</span>
+              The Future of Athletic Training <span className="text-[#1E90FF]">Starts Now</span>
             </h2>
           </div>
 
@@ -637,28 +637,28 @@ function FuelBotsInner() {
             </Card>
 
             {/* Investors */}
-            <Card className="bg-gradient-to-br from-green-900/40 to-green-950/40 border-green-500/30 hover:border-green-400/50 transition-all group cursor-pointer">
+            <Card className="bg-gradient-to-br from-[#00C2FF]/40 to-[#0a1628]/40 border-[#00C2FF]/30 hover:border-[#00C2FF]/50 transition-all group cursor-pointer">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-green-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <DollarSign className="w-8 h-8 text-green-400" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#00C2FF]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <DollarSign className="w-8 h-8 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Investors</h3>
                 <p className="text-white/60 text-sm mb-4">Be part of the $180M opportunity</p>
-                <Button className="w-full bg-green-500 hover:bg-green-400">
+                <Button className="w-full bg-[#00C2FF] hover:bg-[#00C2FF]">
                   Learn More <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </CardContent>
             </Card>
 
             {/* Athletes */}
-            <Card className="bg-gradient-to-br from-cyan-900/40 to-cyan-950/40 border-cyan-500/30 hover:border-cyan-400/50 transition-all group cursor-pointer">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/40 border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all group cursor-pointer">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Target className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#1E90FF]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Target className="w-8 h-8 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Athletes</h3>
                 <p className="text-white/60 text-sm mb-4">Experience the future of training</p>
-                <Button className="w-full bg-cyan-500 hover:bg-cyan-400">
+                <Button className="w-full bg-[#1E90FF] hover:bg-[#1E90FF]">
                   Sign Up <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </CardContent>

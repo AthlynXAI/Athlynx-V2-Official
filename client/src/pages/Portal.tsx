@@ -9,89 +9,89 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { CreditsBadge } from "@/components/CreditsBadge";
 
-// ─── APP ICON HELPER — renders emoji in a colored circle when no real icon exists ───
+//  APP ICON HELPER — renders emoji in a colored circle when no real icon exists 
 // Each app has a unique emoji + gradient so no two look the same
 const APP_ICONS: Record<string, { emoji: string; bg: string }> = {
   // Core Platform
-  "Portal": { emoji: "🏟️", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Messenger": { emoji: "💬", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Dashboard": { emoji: "📊", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Feed": { emoji: "📰", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Profile": { emoji: "👤", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Social Hub": { emoji: "🌐", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Comms Hub": { emoji: "📡", bg: "from-blue-500 to-violet-600" },
-  "Notifications": { emoji: "🔔", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Portal": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Messenger": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Dashboard": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Feed": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Profile": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Social Hub": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Comms Hub": { emoji: "", bg: "from-blue-500 to-violet-600" },
+  "Notifications": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
   // NIL & Business
-  "NIL Portal": { emoji: "💰", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "NIL Vault": { emoji: "🔐", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "NIL Marketplace": { emoji: "🛒", bg: "from-cyan-500 to-red-500" },
-  "NIL Calculator": { emoji: "🧮", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "NIL Jobs": { emoji: "💼", bg: "from-cyan-600 to-blue-500" },
-  "Elite Events": { emoji: "🏆", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "X-Factor": { emoji: "⚡", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Athlete Calendar": { emoji: "📅", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Contracts": { emoji: "📝", bg: "from-[#0a1628] to-[#1E90FF]" },
-  "Athlete Legal Hub": { emoji: "⚖️", bg: "from-slate-600 to-blue-700" },
-  "Athlete Life Hub": { emoji: "🌟", bg: "from-cyan-500 to-teal-600" },
-  "Agent Finder": { emoji: "🤝", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Financial Advisors": { emoji: "📈", bg: "from-green-600 to-emerald-500" },
-  "Athlete Legal": { emoji: "🏛️", bg: "from-slate-600 to-gray-700" },
-  "Store": { emoji: "🛍️", bg: "from-pink-500 to-rose-500" },
-  "Marketplace": { emoji: "🏪", bg: "from-cyan-500 to-blue-500" },
+  "NIL Portal": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "NIL Vault": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "NIL Marketplace": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "NIL Calculator": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "NIL Jobs": { emoji: "", bg: "from-[#1E90FF] to-blue-500" },
+  "Elite Events": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "EPX": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Athlete Calendar": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Contracts": { emoji: "", bg: "from-[#0a1628] to-[#1E90FF]" },
+  "Athlete Legal Hub": { emoji: "", bg: "from-slate-600 to-blue-700" },
+  "Athlete Life Hub": { emoji: "", bg: "from-[#1E90FF] to-teal-600" },
+  "Agent Finder": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Financial Advisors": { emoji: "", bg: "from-[#00C2FF] to-[#00C2FF]" },
+  "Athlete Legal": { emoji: "", bg: "from-slate-600 to-gray-700" },
+  "Store": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Marketplace": { emoji: "", bg: "from-[#1E90FF] to-blue-500" },
   // AI Tools
-  "AI Recruiter": { emoji: "🤖", bg: "from-purple-500 to-violet-600" },
-  "AI Training Bot": { emoji: "🧠", bg: "from-violet-500 to-purple-600" },
-  "AI Content": { emoji: "✨", bg: "from-fuchsia-500 to-purple-600" },
-  "AI Sales": { emoji: "📣", bg: "from-purple-600 to-indigo-600" },
-  "Fuel Bots": { emoji: "⚡", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Team Bots": { emoji: "👥", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Wizards Hub": { emoji: "🪄", bg: "from-violet-600 to-purple-700" },
-  "CRM Command": { emoji: "🎯", bg: "from-red-500 to-rose-600" },
+  "AI Recruiter": { emoji: "", bg: "from-[#1E90FF] to-violet-600" },
+  "AI Training Bot": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "AI Content": { emoji: "", bg: "from-fuchsia-500 to-[#0a1628]" },
+  "AI Sales": { emoji: "", bg: "from-[#1E90FF] to-indigo-600" },
+  "Fuel Bots": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Team Bots": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Wizards Hub": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "CRM Command": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
   // Recruiting & Transfer
-  "Transfer Portal": { emoji: "🚀", bg: "from-green-500 to-emerald-600" },
-  "Transfer Intelligence": { emoji: "🔍", bg: "from-emerald-500 to-teal-600" },
-  "Signing Day": { emoji: "✍️", bg: "from-green-600 to-lime-600" },
-  "Athlete Playbook": { emoji: "📖", bg: "from-teal-500 to-green-600" },
-  "School Branding": { emoji: "🎓", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Athlete Website": { emoji: "🌐", bg: "from-cyan-600 to-blue-600" },
-  "Scout Wizard": { emoji: "🔭", bg: "from-green-500 to-teal-500" },
-  "Career Wizard": { emoji: "🧭", bg: "from-emerald-600 to-green-700" },
+  "Transfer Portal": { emoji: "", bg: "from-[#00C2FF] to-emerald-600" },
+  "Transfer Intelligence": { emoji: "", bg: "from-[#00C2FF] to-teal-600" },
+  "Signing Day": { emoji: "", bg: "from-[#00C2FF] to-lime-600" },
+  "Athlete Playbook": { emoji: "", bg: "from-[#00C2FF] to-[#0a1628]" },
+  "School Branding": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Athlete Website": { emoji: "", bg: "from-[#1E90FF] to-blue-600" },
+  "Scout Wizard": { emoji: "", bg: "from-[#00C2FF] to-[#00C2FF]" },
+  "Career Wizard": { emoji: "", bg: "from-[#00C2FF] to-[#0a1628]" },
   // Sports Apps
-  "Diamond Grind": { emoji: "⚾", bg: "from-red-500 to-rose-600" },
-  "Warriors Playbook": { emoji: "🏀", bg: "from-cyan-500 to-red-500" },
-  "Court Kings": { emoji: "👑", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Gridiron Nexus": { emoji: "🏈", bg: "from-green-600 to-emerald-700" },
-  "Pitch Pulse": { emoji: "⚽", bg: "from-green-500 to-lime-600" },
-  "Fairway Elite": { emoji: "⛳", bg: "from-green-400 to-teal-500" },
-  "Hunt Pro": { emoji: "🦌", bg: "from-[#0a1628] to-[#1E90FF]" },
-  "Reel Masters": { emoji: "🎣", bg: "from-blue-600 to-teal-600" },
+  "Diamond Grind": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Warriors Playbook": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Court Kings": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Gridiron Nexus": { emoji: "", bg: "from-[#00C2FF] to-emerald-700" },
+  "Pitch Pulse": { emoji: "", bg: "from-[#00C2FF] to-lime-600" },
+  "Fairway Elite": { emoji: "", bg: "from-[#00C2FF] to-[#00C2FF]" },
+  "Hunt Pro": { emoji: "", bg: "from-[#0a1628] to-[#1E90FF]" },
+  "Reel Masters": { emoji: "", bg: "from-blue-600 to-teal-600" },
   // Media & Content
-  "Studio": { emoji: "🎬", bg: "from-pink-500 to-fuchsia-600" },
-  "Music": { emoji: "🎵", bg: "from-fuchsia-500 to-pink-600" },
-  "Podcast": { emoji: "🎙️", bg: "from-purple-500 to-pink-600" },
-  "Media Showcase": { emoji: "🎥", bg: "from-rose-500 to-pink-600" },
-  "AthlynX Browser": { emoji: "🔗", bg: "from-blue-500 to-[#0080FF]" },
+  "Studio": { emoji: "", bg: "from-[#1E90FF] to-fuchsia-600" },
+  "Music": { emoji: "", bg: "from-fuchsia-500 to-[#0a1628]" },
+  "Podcast": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Media Showcase": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "AthlynX Browser": { emoji: "", bg: "from-blue-500 to-[#0080FF]" },
   // Health & Wellness
-  "Training": { emoji: "💪", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Athlete Health": { emoji: "❤️", bg: "from-red-400 to-rose-500" },
-  "Career Hub": { emoji: "🏢", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Medical": { emoji: "🏥", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Wellness Portal": { emoji: "🧘", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Mindset": { emoji: "🧠", bg: "from-cyan-500 to-teal-600" },
-  "Nutrition": { emoji: "🥗", bg: "from-green-500 to-lime-500" },
-  "Faith": { emoji: "✝️", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Training": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Athlete Health": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Career Hub": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Medical": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Wellness Portal": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Mindset": { emoji: "", bg: "from-[#1E90FF] to-teal-600" },
+  "Nutrition": { emoji: "", bg: "from-[#00C2FF] to-lime-500" },
+  "Faith": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
   // DHG Empire
   "DHG Home": { emoji: "", bg: "from-[#0a1628] to-[#1E90FF]" },
-  "Investor Hub": { emoji: "💎", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Military Division": { emoji: "🎖️", bg: "from-slate-600 to-gray-700" },
-  "White Label": { emoji: "🏷️", bg: "from-[#0a1628] to-[#1E90FF]" },
-  "Partners": { emoji: "🤝", bg: "from-[#1E90FF] to-[#0a1628]" },
-  "Softmor": { emoji: "🏗️", bg: "from-cyan-600 to-blue-700" },
-  "Bitcoin Mining": { emoji: "₿", bg: "from-[#1E90FF] to-[#0080FF]" },
-  "Robotics": { emoji: "🤖", bg: "from-slate-500 to-[#0080FF]" },
+  "Investor Hub": { emoji: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Military Division": { emoji: "", bg: "from-slate-600 to-gray-700" },
+  "White Label": { emoji: "", bg: "from-[#0a1628] to-[#1E90FF]" },
+  "Partners": { emoji: "", bg: "from-[#1E90FF] to-[#0a1628]" },
+  "Softmor": { emoji: "", bg: "from-[#1E90FF] to-blue-700" },
+  "Bitcoin Mining": { icon: "", bg: "from-[#1E90FF] to-[#0080FF]" },
+  "Robotics": { emoji: "", bg: "from-slate-500 to-[#0080FF]" },
 };
 
-// ─── ALL AthlynX APPS — ORGANIZED BY CATEGORY ───────────────────────────────
+//  ALL AthlynX APPS — ORGANIZED BY CATEGORY 
 const appCategories = [
   {
     category: "Core Platform",
@@ -119,7 +119,7 @@ const appCategories = [
       { name: "NIL Calculator", icon: "/nil-vault-icon.png", href: "/nil-calculator", desc: "Calculate your NIL value" },
       { name: "NIL Jobs", icon: "/nil-portal-logo.jpeg", href: "/nil-jobs", desc: "Headhunter & NIL job board" },
       { name: "Elite Events", icon: "", href: "/elite-events", desc: "7v7, Elite 11, All-Stars, Combines" },
-      { name: "X-Factor", icon: "/xfactor-logo-dark.png", href: "/x-factor", desc: "Athlete social feed & scouting" },
+      { name: "EPX", icon: "/epx-logo-dark.png", href: "/epx", desc: "Athlete social feed & scouting" },
       { name: "Athlete Calendar", icon: "/nil-vault-icon.png", href: "/athlete-calendar", desc: "Games, NIL deadlines & recruiting" },
       { name: "Contracts", icon: "/contracts-logo.png", href: "/contracts", desc: "Smart contract management" },
       { name: "Athlete Legal Hub", icon: "/contracts-logo.png", href: "/athlete-legal-hub", desc: "Legal tools for athletes" },
@@ -133,8 +133,8 @@ const appCategories = [
   },
   {
     category: "AI Tools",
-    color: "from-purple-500 to-violet-600",
-    borderColor: "border-purple-500/40",
+    color: "from-[#1E90FF] to-violet-600",
+    borderColor: "border-[#1E90FF]/40",
     apps: [
       { name: "AI Recruiter", icon: "/ai-recruiter.png", href: "/ai-recruiter", desc: "AI-powered recruiting engine" },
       { name: "AI Training Bot", icon: "/fuelbots-icon.png", href: "/ai-training-bot", desc: "Personalized AI workouts" },
@@ -148,8 +148,8 @@ const appCategories = [
   },
   {
     category: "Recruiting & Transfer",
-    color: "from-green-500 to-emerald-600",
-    borderColor: "border-green-500/40",
+    color: "from-[#00C2FF] to-emerald-600",
+    borderColor: "border-[#00C2FF]/40",
     apps: [
       { name: "Transfer Portal", icon: "/transfer-portal-icon.png", href: "/transfer-portal", desc: "Find your next school" },
       { name: "Transfer Intelligence", icon: "/transfer-portal.png", href: "/transfer-intelligence", desc: "AI transfer analytics" },
@@ -163,8 +163,8 @@ const appCategories = [
   },
   {
     category: "Sports Apps",
-    color: "from-red-500 to-rose-600",
-    borderColor: "border-red-500/40",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    borderColor: "border-[#1E90FF]/40",
     apps: [
       { name: "Diamond Grind", icon: "/diamond-grind-icon.png", href: "/diamond-grind", desc: "Elite baseball platform" },
       { name: "Warriors Playbook", icon: "/warriors-playbook-icon.png", href: "/warriors-playbook", desc: "Basketball dominance" },
@@ -178,8 +178,8 @@ const appCategories = [
   },
   {
     category: "Media & Content",
-    color: "from-pink-500 to-fuchsia-600",
-    borderColor: "border-pink-500/40",
+    color: "from-[#1E90FF] to-fuchsia-600",
+    borderColor: "border-[#1E90FF]/40",
     apps: [
       { name: "Studio", icon: "", href: "/studio", desc: "Content creation studio" },
       { name: "Music", icon: "", href: "/music", desc: "Athlete music platform" },
@@ -192,7 +192,7 @@ const appCategories = [
   {
     category: "Health & Wellness",
     color: "from-[#1E90FF] to-[#0080FF]",
-    borderColor: "border-teal-500/40",
+    borderColor: "border-[#00C2FF]/40",
     apps: [
       { name: "Training", icon: "", href: "/training", desc: "Elite training programs" },
       { name: "Athlete Health", icon: "/wellness-logo-final.png", href: "/athlete-health", desc: "Doctors, PTs, trainers & nutrition" },
@@ -301,7 +301,7 @@ function PortalInner() {
             </CardHeader>
             <CardContent className="space-y-3 pb-6 px-4">
               <a href="/signin" className="block">
-                <Button className="w-full bg-gradient-to-r from-[#1E90FF] to-[#0080FF] hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3 rounded-xl shadow-lg">
+                <Button className="w-full bg-gradient-to-r from-[#1E90FF] to-[#0080FF] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold py-3 rounded-xl shadow-lg">
                   Sign In to AthlynX
                 </Button>
               </a>
@@ -328,7 +328,7 @@ function PortalInner() {
               <div className="bg-gradient-to-r from-[#0a1628] via-[#1E90FF] to-[#0080FF] rounded-xl px-4 py-2 flex items-center gap-3 shadow-xl hover:shadow-cyan-500/30 transition-all border border-[#1E90FF]/30">
                 <img src="/athlynx-icon.png" alt="AthlynX" className="h-10 md:h-12 rounded-lg shadow-lg group-hover:scale-105 transition-all duration-300" />
               </div>
-              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-400 rounded-full border-2 border-slate-900 animate-pulse"></div>
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#1E90FF] rounded-full border-2 border-slate-900 animate-pulse"></div>
             </div>
           </Link>
           <div className="flex items-center gap-4">
@@ -367,7 +367,7 @@ function PortalInner() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
 
-        {/* ── FEED TAB ── */}
+        {/*  FEED TAB  */}
         {activeTab === "feed" && (
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-6">
@@ -388,7 +388,7 @@ function PortalInner() {
                     <Button
                       onClick={handleCreatePost}
                       disabled={createPost.isPending}
-                      className="bg-gradient-to-r from-[#1E90FF] to-[#0080FF] hover:from-blue-500 hover:to-cyan-400"
+                      className="bg-gradient-to-r from-[#1E90FF] to-[#0080FF] hover:from-blue-500 hover:to-[#0a1628]"
                     >
                       {createPost.isPending ? "Posting..." : "Post"}
                     </Button>
@@ -439,11 +439,11 @@ function PortalInner() {
                 <CardContent className="space-y-2">
                   {[
                     { label: "NIL Portal", href: "/nil-portal", color: "text-[#1E90FF]" },
-                    { label: "Transfer Portal", href: "/transfer-portal", color: "text-green-400" },
-                    { label: "AI Recruiter", href: "/ai-recruiter", color: "text-purple-400" },
+                    { label: "Transfer Portal", href: "/transfer-portal", color: "text-[#00C2FF]" },
+                    { label: "AI Recruiter", href: "/ai-recruiter", color: "text-[#1E90FF]" },
                     { label: "Messenger", href: "/messenger", color: "text-[#1E90FF]" },
-                    { label: "Training", href: "/training", color: "text-red-400" },
-                    { label: "NIL Calculator", href: "/nil-calculator", color: "text-cyan-400" },
+                    { label: "Training", href: "/training", color: "text-[#1E90FF]" },
+                    { label: "NIL Calculator", href: "/nil-calculator", color: "text-[#00C2FF]" },
                   ].map((item) => (
                     <Link key={item.href} href={item.href}>
                       <div className={`flex items-center justify-between p-2 rounded-lg hover:bg-slate-700 cursor-pointer transition-colors`}>
@@ -471,7 +471,7 @@ function PortalInner() {
           </div>
         )}
 
-        {/* ── PROFILE TAB ── */}
+        {/*  PROFILE TAB  */}
         {activeTab === "profile" && (
           <div className="max-w-2xl mx-auto">
             <Card className="bg-slate-800 border-slate-700">
@@ -512,7 +512,7 @@ function PortalInner() {
           </div>
         )}
 
-        {/* ── APPS TAB ── */}
+        {/*  APPS TAB  */}
         {activeTab === "apps" && (
           <div className="space-y-10">
             {/* Header */}

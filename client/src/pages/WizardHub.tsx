@@ -28,7 +28,7 @@ const wizards = [
     id: "agent",
     name: "Agent Wizard",
     icon: Users,
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-500 to-[#0a1628]",
     description: "Find & vet sports agents, understand contracts, negotiate deals",
     features: ["Agent database", "Contract templates", "Negotiation tips", "Red flag alerts"],
     href: "/wizards/agent",
@@ -38,7 +38,7 @@ const wizards = [
     id: "lawyer",
     name: "Legal Advisor",
     icon: Scale,
-    color: "from-blue-600 to-red-500",
+    color: "from-blue-600 to-[#0a1628]",
     description: "NIL compliance, contract review, legal protection guidance",
     features: ["Contract review", "NIL compliance", "Rights protection", "Legal templates"],
     href: "/wizards/lawyer",
@@ -48,7 +48,7 @@ const wizards = [
     id: "financial",
     name: "Financial Coach",
     icon: DollarSign,
-    color: "from-green-500 to-emerald-500",
+    color: "from-[#00C2FF] to-[#00C2FF]",
     description: "Money management, taxes, investments, budgeting for athletes",
     features: ["Budget planning", "Tax guidance", "Investment basics", "NIL income management"],
     href: "/wizards/financial",
@@ -58,7 +58,7 @@ const wizards = [
     id: "scholarship",
     name: "Scholarship Navigator",
     icon: GraduationCap,
-    color: "from-red-500 to-red-500",
+    color: "from-[#1E90FF] to-[#0a1628]",
     description: "NCAA rules, academic eligibility, scholarship opportunities",
     features: ["NCAA rules explained", "Eligibility tracker", "Scholarship finder", "Academic planning"],
     href: "/wizards/scholarship",
@@ -68,7 +68,7 @@ const wizards = [
     id: "scout",
     name: "Scout Simulator",
     icon: Eye,
-    color: "from-red-500 to-red-500",
+    color: "from-[#1E90FF] to-[#0a1628]",
     description: "See yourself through a scout's eyes, improve your profile",
     features: ["Profile analysis", "Improvement tips", "Highlight review", "Combine prep"],
     href: "/wizards/scout",
@@ -78,7 +78,7 @@ const wizards = [
     id: "transfer",
     name: "Transfer Guide",
     icon: RefreshCw,
-    color: "from-cyan-500 to-blue-500",
+    color: "from-[#1E90FF] to-blue-500",
     description: "Navigate the transfer portal step-by-step",
     features: ["Portal timeline", "Communication templates", "School research", "Decision framework"],
     href: "/wizards/transfer",
@@ -88,7 +88,7 @@ const wizards = [
     id: "life",
     name: "Life Coach",
     icon: Heart,
-    color: "from-red-500 to-red-500",
+    color: "from-[#1E90FF] to-[#0a1628]",
     description: "Balance athletics, academics, and personal life",
     features: ["Time management", "Mental wellness", "Relationship advice", "Career planning"],
     href: "/wizards/life",
@@ -98,7 +98,7 @@ const wizards = [
     id: "career",
     name: "Career Transition",
     icon: Zap,
-    color: "from-indigo-500 to-blue-600",
+    color: "from-[#1E90FF] to-blue-600",
     description: "Prepare for life after sports, build your future",
     features: ["Resume building", "Interview prep", "Network building", "Industry connections"],
     href: "/wizards/career",
@@ -111,7 +111,7 @@ function WizardCard({ wizard }: { wizard: typeof wizards[0] }) {
   
   return (
     <Link href={wizard.href}>
-      <Card className="bg-slate-800/80 border-slate-700 hover:border-cyan-400/50 transition-all cursor-pointer group h-full">
+      <Card className="bg-slate-800/80 border-slate-700 hover:border-[#1E90FF]/30 transition-all cursor-pointer group h-full">
         <CardContent className="p-6">
           {/* Header */}
           <div className="flex items-start justify-between mb-4">
@@ -119,7 +119,7 @@ function WizardCard({ wizard }: { wizard: typeof wizards[0] }) {
               <Icon className="w-7 h-7 text-white" />
             </div>
             {wizard.popular && (
-              <span className="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+              <span className="bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
                 <Star className="w-3 h-3 fill-red-400" />
                 POPULAR
               </span>
@@ -127,7 +127,7 @@ function WizardCard({ wizard }: { wizard: typeof wizards[0] }) {
           </div>
 
           {/* Title & Description */}
-          <h3 className="text-white font-bold text-lg mb-2 group-hover:text-cyan-400 transition-colors">
+          <h3 className="text-white font-bold text-lg mb-2 group-hover:text-[#00C2FF] transition-colors">
             {wizard.name}
           </h3>
           <p className="text-slate-400 text-sm mb-4">
@@ -138,7 +138,7 @@ function WizardCard({ wizard }: { wizard: typeof wizards[0] }) {
           <div className="space-y-2 mb-4">
             {wizard.features.map((feature, index) => (
               <div key={index} className="flex items-center gap-2 text-slate-300 text-sm">
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#1E90FF]" />
                 {feature}
               </div>
             ))}
@@ -146,8 +146,8 @@ function WizardCard({ wizard }: { wizard: typeof wizards[0] }) {
 
           {/* CTA */}
           <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-            <span className="text-cyan-400 text-sm font-medium">Start Chat</span>
-            <ChevronRight className="w-5 h-5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+            <span className="text-[#00C2FF] text-sm font-medium">Start Chat</span>
+            <ChevronRight className="w-5 h-5 text-[#00C2FF] group-hover:translate-x-1 transition-transform" />
           </div>
         </CardContent>
       </Card>
@@ -173,26 +173,26 @@ function WizardHubInner() {
               {/* Queen of the Ball Logo */}
               <Link href="/">
                 <div className="relative cursor-pointer group">
-                  <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 rounded-xl px-3 py-2 shadow-xl hover:shadow-cyan-500/30 transition-all border border-cyan-400/30">
+                  <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-[#0a1628] rounded-xl px-3 py-2 shadow-xl hover:shadow-cyan-500/30 transition-all border border-[#1E90FF]/30">
                     <img 
                       src="/athlynx-icon.png" 
                       alt="AthlynX - The Athlete's Playbook" 
                       className="h-8 md:h-10 rounded-lg shadow-lg group-hover:scale-105 transition-all duration-300"
                     />
                   </div>
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full border border-slate-900 animate-pulse"></div>
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#1E90FF] rounded-full border border-slate-900 animate-pulse"></div>
                 </div>
               </Link>
               
               <div>
                 <h1 className="text-xl font-black text-white flex items-center gap-2">
-                  <Bot className="w-5 h-5 text-cyan-400" />
+                  <Bot className="w-5 h-5 text-[#00C2FF]" />
                   AI Wizard Hub
                 </h1>
-                <p className="text-cyan-400 text-xs">THE ATHLETE'S PLAYBOOK</p>
+                <p className="text-[#00C2FF] text-xs">THE ATHLETE'S PLAYBOOK</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-red-500/20 px-4 py-2 rounded-full border border-blue-600/30">
+            <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-[#0a1628]/20 px-4 py-2 rounded-full border border-blue-600/30">
               <Sparkles className="w-4 h-4 text-blue-500" />
               <span className="text-blue-300 text-sm font-medium">AthlynXAI Wizards</span>
             </div>
@@ -203,14 +203,14 @@ function WizardHubInner() {
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-cyan-400/20 px-4 py-2 rounded-full mb-6">
-            <Shield className="w-4 h-4 text-cyan-400" />
-            <span className="text-cyan-400 text-sm font-medium">YOUR SUCCESS TEAM</span>
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 px-4 py-2 rounded-full mb-6">
+            <Shield className="w-4 h-4 text-[#00C2FF]" />
+            <span className="text-[#00C2FF] text-sm font-medium">YOUR SUCCESS TEAM</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
             AI Advisors for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-600">
               Every Step
             </span>{" "}
             of Your Journey
@@ -224,11 +224,11 @@ function WizardHubInner() {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-3xl font-black text-cyan-400">8</p>
+              <p className="text-3xl font-black text-[#00C2FF]">8</p>
               <p className="text-slate-400 text-sm">AI Wizards</p>
             </div>
             <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-3xl font-black text-green-400">24/7</p>
+              <p className="text-3xl font-black text-[#00C2FF]">24/7</p>
               <p className="text-slate-400 text-sm">Available</p>
             </div>
             <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
@@ -236,7 +236,7 @@ function WizardHubInner() {
               <p className="text-slate-400 text-sm">For Athletes</p>
             </div>
             <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-              <p className="text-3xl font-black text-red-400">∞</p>
+              <p className="text-3xl font-black text-[#1E90FF]">∞</p>
               <p className="text-slate-400 text-sm">Questions</p>
             </div>
           </div>
@@ -261,7 +261,7 @@ function WizardHubInner() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#1E90FF] to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-white font-bold mb-2">1. Ask Anything</h4>
@@ -271,7 +271,7 @@ function WizardHubInner() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-[#0a1628] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-white font-bold mb-2">2. Get Expert Guidance</h4>
@@ -281,7 +281,7 @@ function WizardHubInner() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#00C2FF] to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-white font-bold mb-2">3. Take Action</h4>
@@ -296,7 +296,7 @@ function WizardHubInner() {
       {/* CTA */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center">
-          <div className="bg-gradient-to-r from-cyan-900/50 to-blue-950/50 rounded-3xl p-8 md:p-12 border border-cyan-400/30">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-950/50 rounded-3xl p-8 md:p-12 border border-[#1E90FF]/30">
             <h3 className="text-3xl font-bold text-white mb-4">
               Ready to Build Your Dream Career?
             </h3>
@@ -305,13 +305,13 @@ function WizardHubInner() {
             </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <Link href="/transfer-portal">
-                <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500">
+                <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500">
                   <RefreshCw className="w-4 h-4 mr-2" />
                   Transfer Portal
                 </Button>
               </Link>
               <Link href="/pricing">
-                <Button variant="outline" className="border-slate-600 text-slate-300 hover:border-cyan-400">
+                <Button variant="outline" className="border-slate-600 text-slate-300 hover:border-[#1E90FF]">
                   <DollarSign className="w-4 h-4 mr-2" />
                   View Plans
                 </Button>

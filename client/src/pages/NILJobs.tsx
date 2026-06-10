@@ -7,39 +7,39 @@ import { Briefcase, Star, TrendingUp, Search, Filter, ChevronRight, CheckCircle,
 
 const JOB_LISTINGS = [
   // NIL Deals
-  { id: 1, title: "Brand Ambassador — Social Media", company: "Gatorade", logo: "🟡", location: "Remote", pay: "$500–$2,000/mo", type: "NIL Deal", sport: "All Sports", tier: "starter", followers: "1K+", deadline: "May 15", tags: ["Social Media", "Content Creation"], hot: true },
-  { id: 2, title: "Local Car Dealership Spokesperson", company: "AutoNation Group", logo: "🚗", location: "Dallas, TX", pay: "$1,000–$5,000", type: "Endorsement", sport: "Football", tier: "rising", followers: "5K+", deadline: "May 20", tags: ["Spokesperson", "Video"], hot: false },
-  { id: 3, title: "Youth Football Camp Instructor", company: "Elite Sports Camps", logo: "🏈", location: "Houston, TX", pay: "$75/hr", type: "Training Job", sport: "Football", tier: "starter", followers: "Any", deadline: "June 1", tags: ["Coaching", "Youth"], hot: false },
-  { id: 4, title: "Protein Brand Content Creator", company: "Optimum Nutrition", logo: "💪", location: "Remote", pay: "$2,500–$8,000", type: "NIL Deal", sport: "All Sports", tier: "rising", followers: "10K+", deadline: "May 25", tags: ["Nutrition", "Content"], hot: true },
-  { id: 5, title: "College Recruiting Analyst", company: "AthlynXAI", logo: "⚡", location: "Remote", pay: "$3,000/mo", type: "Full-Time", sport: "All Sports", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Analytics", "Recruiting"], hot: true },
-  { id: 6, title: "Sports Apparel Model", company: "Under Armour", logo: "🦸", location: "Baltimore, MD", pay: "$5,000–$15,000", type: "Endorsement", sport: "All Sports", tier: "pro", followers: "25K+", deadline: "June 10", tags: ["Modeling", "Apparel"], hot: false },
-  { id: 7, title: "Basketball Skills Trainer", company: "Pro Skills Academy", logo: "🏀", location: "Los Angeles, CA", pay: "$50–$150/hr", type: "Training Job", sport: "Basketball", tier: "starter", followers: "Any", deadline: "Rolling", tags: ["Training", "Basketball"], hot: false },
-  { id: 8, title: "NIL Podcast Co-Host", company: "The Athlete's Playbook", logo: "🎙️", location: "Remote", pay: "$1,500/episode", type: "Media", sport: "All Sports", tier: "rising", followers: "15K+", deadline: "May 30", tags: ["Podcast", "Media"], hot: true },
-  { id: 9, title: "Regional Sports Bank Ambassador", company: "First National Bank", logo: "🏦", location: "Southeast US", pay: "$10,000–$25,000/yr", type: "Endorsement", sport: "All Sports", tier: "elite", followers: "50K+", deadline: "June 15", tags: ["Finance", "Ambassador"], hot: false },
-  { id: 10, title: "eSports Content Creator", company: "EA Sports", logo: "🎮", location: "Remote", pay: "$3,000–$12,000", type: "NIL Deal", sport: "All Sports", tier: "rising", followers: "20K+", deadline: "May 28", tags: ["Gaming", "Content"], hot: true },
-  { id: 11, title: "Athlete Mentor — High School Program", company: "Boys & Girls Club", logo: "🌟", location: "Nationwide", pay: "$25/hr", type: "Community", sport: "All Sports", tier: "starter", followers: "Any", deadline: "Rolling", tags: ["Mentorship", "Community"], hot: false },
-  { id: 12, title: "Golf Equipment Influencer", company: "Callaway Golf", logo: "⛳", location: "Remote", pay: "$8,000–$20,000", type: "Endorsement", sport: "Golf", tier: "elite", followers: "30K+", deadline: "June 5", tags: ["Golf", "Influencer"], hot: false },
+  { id: 1, title: "Brand Ambassador — Social Media", company: "Gatorade", logo: "", location: "Remote", pay: "$500–$2,000/mo", type: "NIL Deal", sport: "All Sports", tier: "starter", followers: "1K+", deadline: "May 15", tags: ["Social Media", "Content Creation"], hot: true },
+  { id: 2, title: "Local Car Dealership Spokesperson", company: "AutoNation Group", logo: "", location: "Dallas, TX", pay: "$1,000–$5,000", type: "Endorsement", sport: "Football", tier: "rising", followers: "5K+", deadline: "May 20", tags: ["Spokesperson", "Video"], hot: false },
+  { id: 3, title: "Youth Football Camp Instructor", company: "Elite Sports Camps", logo: "", location: "Houston, TX", pay: "$75/hr", type: "Training Job", sport: "Football", tier: "starter", followers: "Any", deadline: "June 1", tags: ["Coaching", "Youth"], hot: false },
+  { id: 4, title: "Protein Brand Content Creator", company: "Optimum Nutrition", logo: "", location: "Remote", pay: "$2,500–$8,000", type: "NIL Deal", sport: "All Sports", tier: "rising", followers: "10K+", deadline: "May 25", tags: ["Nutrition", "Content"], hot: true },
+  { id: 5, title: "College Recruiting Analyst", company: "AthlynXAI", logo: "", location: "Remote", pay: "$3,000/mo", type: "Full-Time", sport: "All Sports", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Analytics", "Recruiting"], hot: true },
+  { id: 6, title: "Sports Apparel Model", company: "Under Armour", logo: "", location: "Baltimore, MD", pay: "$5,000–$15,000", type: "Endorsement", sport: "All Sports", tier: "pro", followers: "25K+", deadline: "June 10", tags: ["Modeling", "Apparel"], hot: false },
+  { id: 7, title: "Basketball Skills Trainer", company: "Pro Skills Academy", logo: "", location: "Los Angeles, CA", pay: "$50–$150/hr", type: "Training Job", sport: "Basketball", tier: "starter", followers: "Any", deadline: "Rolling", tags: ["Training", "Basketball"], hot: false },
+  { id: 8, title: "NIL Podcast Co-Host", company: "The Athlete's Playbook", logo: "", location: "Remote", pay: "$1,500/episode", type: "Media", sport: "All Sports", tier: "rising", followers: "15K+", deadline: "May 30", tags: ["Podcast", "Media"], hot: true },
+  { id: 9, title: "Regional Sports Bank Ambassador", company: "First National Bank", logo: "", location: "Southeast US", pay: "$10,000–$25,000/yr", type: "Endorsement", sport: "All Sports", tier: "elite", followers: "50K+", deadline: "June 15", tags: ["Finance", "Ambassador"], hot: false },
+  { id: 10, title: "eSports Content Creator", company: "EA Sports", logo: "", location: "Remote", pay: "$3,000–$12,000", type: "NIL Deal", sport: "All Sports", tier: "rising", followers: "20K+", deadline: "May 28", tags: ["Gaming", "Content"], hot: true },
+  { id: 11, title: "Athlete Mentor — High School Program", company: "Boys & Girls Club", logo: "", location: "Nationwide", pay: "$25/hr", type: "Community", sport: "All Sports", tier: "starter", followers: "Any", deadline: "Rolling", tags: ["Mentorship", "Community"], hot: false },
+  { id: 12, title: "Golf Equipment Influencer", company: "Callaway Golf", logo: "", location: "Remote", pay: "$8,000–$20,000", type: "Endorsement", sport: "Golf", tier: "elite", followers: "30K+", deadline: "June 5", tags: ["Golf", "Influencer"], hot: false },
   // Headhunter — Elite Placements
-  { id: 13, title: "D1 Transfer Portal — Quarterback", company: "AthlynXAI Headhunter", logo: "🏈", location: "Nationwide", pay: "Full Scholarship + NIL", type: "Headhunter", sport: "Football", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Transfer Portal", "QB", "D1"], hot: true },
-  { id: 14, title: "NBA G-League Tryout Placement", company: "AthlynXAI Headhunter", logo: "🏀", location: "Multiple Cities", pay: "$35,000–$125,000/yr", type: "Headhunter", sport: "Basketball", tier: "elite", followers: "Any", deadline: "Rolling", tags: ["Pro Basketball", "G-League"], hot: true },
-  { id: 15, title: "MLB Draft Prep — Pitcher Showcase", company: "AthlynXAI Headhunter", logo: "⚾", location: "Houston, TX", pay: "Draft Eligible", type: "Headhunter", sport: "Baseball", tier: "elite", followers: "Any", deadline: "June 1", tags: ["MLB Draft", "Pitcher"], hot: true },
-  { id: 16, title: "Nike Athlete Ambassador — Multi-Year", company: "Nike", logo: "✔️", location: "Remote + Events", pay: "$50,000–$500,000/yr", type: "Endorsement", sport: "All Sports", tier: "elite", followers: "100K+", deadline: "Rolling", tags: ["Nike", "Ambassador", "Multi-Year"], hot: true },
-  { id: 17, title: "ESPN College GameDay Analyst", company: "ESPN", logo: "📺", location: "Bristol, CT / Remote", pay: "$75,000–$150,000/yr", type: "Media", sport: "Football", tier: "elite", followers: "50K+", deadline: "July 1", tags: ["ESPN", "Analyst", "TV"], hot: false },
-  { id: 18, title: "Adidas Signature Shoe Deal", company: "Adidas", logo: "👟", location: "Remote", pay: "$100,000–$2M+", type: "Endorsement", sport: "Basketball", tier: "elite", followers: "500K+", deadline: "Rolling", tags: ["Adidas", "Signature", "Shoe Deal"], hot: true },
-  { id: 19, title: "College Head Coach — D2 Football", company: "University Search", logo: "🏫", location: "Southeast US", pay: "$120,000–$200,000/yr", type: "Full-Time", sport: "Football", tier: "elite", followers: "Any", deadline: "June 15", tags: ["Coaching", "Head Coach", "D2"], hot: false },
-  { id: 20, title: "Sports Agent — NIL Specialist", company: "AthlynXAI Headhunter", logo: "🤝", location: "Remote", pay: "Commission + Base", type: "Full-Time", sport: "All Sports", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Agent", "NIL", "Sports Law"], hot: true },
-  { id: 21, title: "Rawlings Baseball Brand Partner", company: "Rawlings", logo: "⚾", location: "Remote", pay: "$15,000–$50,000/yr", type: "Endorsement", sport: "Baseball", tier: "rising", followers: "10K+", deadline: "May 31", tags: ["Rawlings", "Baseball", "Equipment"], hot: false },
-  { id: 22, title: "Wilson Basketball Ambassador", company: "Wilson Sporting Goods", logo: "🏀", location: "Remote", pay: "$20,000–$75,000/yr", type: "Endorsement", sport: "Basketball", tier: "pro", followers: "25K+", deadline: "June 20", tags: ["Wilson", "Basketball", "Equipment"], hot: false },
-  { id: 23, title: "Rogue Fitness Athlete Sponsorship", company: "Rogue Fitness", logo: "🏋️", location: "Remote", pay: "$10,000–$40,000/yr", type: "Endorsement", sport: "All Sports", tier: "rising", followers: "15K+", deadline: "Rolling", tags: ["Rogue", "Fitness", "Strength"], hot: true },
-  { id: 24, title: "Theragun Recovery Partner", company: "Hyperice", logo: "💪", location: "Remote", pay: "$5,000–$25,000/yr", type: "Endorsement", sport: "All Sports", tier: "rising", followers: "10K+", deadline: "Rolling", tags: ["Recovery", "Theragun", "Wellness"], hot: false },
+  { id: 13, title: "D1 Transfer Portal — Quarterback", company: "AthlynXAI Headhunter", logo: "", location: "Nationwide", pay: "Full Scholarship + NIL", type: "Headhunter", sport: "Football", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Transfer Portal", "QB", "D1"], hot: true },
+  { id: 14, title: "NBA G-League Tryout Placement", company: "AthlynXAI Headhunter", logo: "", location: "Multiple Cities", pay: "$35,000–$125,000/yr", type: "Headhunter", sport: "Basketball", tier: "elite", followers: "Any", deadline: "Rolling", tags: ["Pro Basketball", "G-League"], hot: true },
+  { id: 15, title: "MLB Draft Prep — Pitcher Showcase", company: "AthlynXAI Headhunter", logo: "", location: "Houston, TX", pay: "Draft Eligible", type: "Headhunter", sport: "Baseball", tier: "elite", followers: "Any", deadline: "June 1", tags: ["MLB Draft", "Pitcher"], hot: true },
+  { id: 16, title: "Nike Athlete Ambassador — Multi-Year", company: "Nike", logo: "", location: "Remote + Events", pay: "$50,000–$500,000/yr", type: "Endorsement", sport: "All Sports", tier: "elite", followers: "100K+", deadline: "Rolling", tags: ["Nike", "Ambassador", "Multi-Year"], hot: true },
+  { id: 17, title: "ESPN College GameDay Analyst", company: "ESPN", logo: "", location: "Bristol, CT / Remote", pay: "$75,000–$150,000/yr", type: "Media", sport: "Football", tier: "elite", followers: "50K+", deadline: "July 1", tags: ["ESPN", "Analyst", "TV"], hot: false },
+  { id: 18, title: "Adidas Signature Shoe Deal", company: "Adidas", logo: "", location: "Remote", pay: "$100,000–$2M+", type: "Endorsement", sport: "Basketball", tier: "elite", followers: "500K+", deadline: "Rolling", tags: ["Adidas", "Signature", "Shoe Deal"], hot: true },
+  { id: 19, title: "College Head Coach — D2 Football", company: "University Search", logo: "", location: "Southeast US", pay: "$120,000–$200,000/yr", type: "Full-Time", sport: "Football", tier: "elite", followers: "Any", deadline: "June 15", tags: ["Coaching", "Head Coach", "D2"], hot: false },
+  { id: 20, title: "Sports Agent — NIL Specialist", company: "AthlynXAI Headhunter", logo: "", location: "Remote", pay: "Commission + Base", type: "Full-Time", sport: "All Sports", tier: "pro", followers: "Any", deadline: "Rolling", tags: ["Agent", "NIL", "Sports Law"], hot: true },
+  { id: 21, title: "Rawlings Baseball Brand Partner", company: "Rawlings", logo: "", location: "Remote", pay: "$15,000–$50,000/yr", type: "Endorsement", sport: "Baseball", tier: "rising", followers: "10K+", deadline: "May 31", tags: ["Rawlings", "Baseball", "Equipment"], hot: false },
+  { id: 22, title: "Wilson Basketball Ambassador", company: "Wilson Sporting Goods", logo: "", location: "Remote", pay: "$20,000–$75,000/yr", type: "Endorsement", sport: "Basketball", tier: "pro", followers: "25K+", deadline: "June 20", tags: ["Wilson", "Basketball", "Equipment"], hot: false },
+  { id: 23, title: "Rogue Fitness Athlete Sponsorship", company: "Rogue Fitness", logo: "", location: "Remote", pay: "$10,000–$40,000/yr", type: "Endorsement", sport: "All Sports", tier: "rising", followers: "15K+", deadline: "Rolling", tags: ["Rogue", "Fitness", "Strength"], hot: true },
+  { id: 24, title: "Theragun Recovery Partner", company: "Hyperice", logo: "", location: "Remote", pay: "$5,000–$25,000/yr", type: "Endorsement", sport: "All Sports", tier: "rising", followers: "10K+", deadline: "Rolling", tags: ["Recovery", "Theragun", "Wellness"], hot: false },
 ];
 
 const TIERS = [
   { id: "all", label: "All Tiers", color: "bg-blue-900/40 text-blue-300 border-blue-700/40" },
-  { id: "starter", label: "🌱 Starter", color: "bg-green-900/40 text-green-300 border-green-700/40", desc: "Any follower count, any level" },
-  { id: "rising", label: "📈 Rising Star", color: "bg-blue-900/40 text-sky-300 border-blue-700/40", desc: "5K–25K followers" },
-  { id: "pro", label: "⭐ Pro", color: "bg-purple-900/40 text-purple-300 border-purple-700/40", desc: "25K–100K followers" },
-  { id: "elite", label: "👑 Elite", color: "bg-red-900/40 text-red-300 border-red-700/40", desc: "100K+ followers" },
+  { id: "starter", label: " Starter", color: "bg-[#00C2FF]/40 text-[#00C2FF] border-[#00C2FF]/40", desc: "Any follower count, any level" },
+  { id: "rising", label: " Rising Star", color: "bg-blue-900/40 text-[#00C2FF] border-blue-700/40", desc: "5K–25K followers" },
+  { id: "pro", label: " Pro", color: "bg-[#1E90FF]/40 text-[#1E90FF] border-[#1E90FF]/40", desc: "25K–100K followers" },
+  { id: "elite", label: " Elite", color: "bg-[#1E90FF]/40 text-[#1E90FF] border-[#1E90FF]/40", desc: "100K+ followers" },
 ];
 
 const NIL_SCORE_FACTORS = [
@@ -51,11 +51,11 @@ const NIL_SCORE_FACTORS = [
 ];
 
 const CAREER_LADDER = [
-  { tier: "🌱 Starter", range: "$0–$500/mo", req: "Active profile, any sport", color: "border-green-500", active: true },
-  { tier: "📈 Rising Star", range: "$500–$5K/mo", req: "1K+ followers, 3+ deals", color: "border-blue-500", active: false },
-  { tier: "⭐ Pro", range: "$5K–$25K/mo", req: "10K+ followers, verified athlete", color: "border-purple-500", active: false },
-  { tier: "👑 Elite", range: "$25K–$100K/mo", req: "50K+ followers, D1/Pro athlete", color: "border-red-500", active: false },
-  { tier: "💎 Legend", range: "$100K+/mo", req: "Pro contract, national brand deals", color: "border-blue-400", active: false },
+  { tier: " Starter", range: "$0–$500/mo", req: "Active profile, any sport", color: "border-[#00C2FF]", active: true },
+  { tier: " Rising Star", range: "$500–$5K/mo", req: "1K+ followers, 3+ deals", color: "border-blue-500", active: false },
+  { tier: " Pro", range: "$5K–$25K/mo", req: "10K+ followers, verified athlete", color: "border-[#1E90FF]", active: false },
+  { tier: " Elite", range: "$25K–$100K/mo", req: "50K+ followers, D1/Pro athlete", color: "border-[#1E90FF]", active: false },
+  { tier: " Legend", range: "$100K+/mo", req: "Pro contract, national brand deals", color: "border-blue-400", active: false },
 ];
 
 function NILJobsInner() {
@@ -78,7 +78,7 @@ function NILJobsInner() {
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">Portal</span>
           </Link>
-          <span className="text-xl font-black text-white">AthlynX <span className="text-sky-400">JOBS</span></span>
+          <span className="text-xl font-black text-white">AthlynX <span className="text-[#00C2FF]">JOBS</span></span>
           <Link href="/nil-marketplace" className="text-sm text-blue-400 hover:text-white transition-colors">NIL Market →</Link>
         </div>
       </header>
@@ -88,21 +88,21 @@ function NILJobsInner() {
 
           {/* Hero */}
           <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1 bg-blue-500/20 text-sky-400 rounded-full text-sm font-semibold mb-4">
-              💼 NIL HEADHUNTER & JOBS PLATFORM
+            <span className="inline-block px-4 py-1 bg-blue-500/20 text-[#00C2FF] rounded-full text-sm font-semibold mb-4">
+               NIL HEADHUNTER & JOBS PLATFORM
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-              Your Worth. <span className="text-sky-400">Your Market.</span>
+              Your Worth. <span className="text-[#00C2FF]">Your Market.</span>
             </h1>
             <p className="text-blue-300 text-lg max-w-2xl mx-auto mb-6">
               Every athlete has value. Start small, grow big. We match you to real paid opportunities based on exactly where you are — then help you climb to where you deserve to be.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               {[
-                { icon: "💰", text: "Real Paying Jobs" },
-                { icon: "🤖", text: "AI Matching Engine" },
-                { icon: "📈", text: "NIL Value Score" },
-                { icon: "🏆", text: "Career Ladder" },
+                { icon: "", text: "Real Paying Jobs" },
+                { icon: "", text: "AI Matching Engine" },
+                { icon: "", text: "NIL Value Score" },
+                { icon: "", text: "Career Ladder" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
                   <span>{item.icon}</span>
@@ -115,10 +115,10 @@ function NILJobsInner() {
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { label: "Active Jobs", value: "2,847", icon: Briefcase, color: "text-sky-400" },
-              { label: "Athletes Placed", value: "14,200+", icon: Users, color: "text-green-400" },
+              { label: "Active Jobs", value: "2,847", icon: Briefcase, color: "text-[#00C2FF]" },
+              { label: "Athletes Placed", value: "14,200+", icon: Users, color: "text-[#00C2FF]" },
               { label: "Total Paid Out", value: "$4.2M", icon: DollarSign, color: "text-blue-400" },
-              { label: "Brand Partners", value: "380+", icon: Building2, color: "text-purple-400" },
+              { label: "Brand Partners", value: "380+", icon: Building2, color: "text-[#1E90FF]" },
             ].map((stat, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
                 <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-2`} />
@@ -131,10 +131,10 @@ function NILJobsInner() {
           {/* Tabs */}
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
             {[
-              { id: "jobs", label: "🔍 Browse Jobs" },
-              { id: "score", label: "📊 My NIL Score" },
-              { id: "ladder", label: "🪜 Career Ladder" },
-              { id: "post", label: "📢 Post a Job" },
+              { id: "jobs", label: " Browse Jobs" },
+              { id: "score", label: " My NIL Score" },
+              { id: "ladder", label: " Career Ladder" },
+              { id: "post", label: " Post a Job" },
             ].map(tab => (
               <button
                 key={tab.id}
@@ -195,7 +195,7 @@ function NILJobsInner() {
                         </div>
                       </div>
                       {job.hot && (
-                        <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs font-bold rounded-full border border-red-500/30">🔥 HOT</span>
+                        <span className="px-2 py-0.5 bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-bold rounded-full border border-[#1E90FF]/30"> HOT</span>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-1 mb-3">
@@ -204,7 +204,7 @@ function NILJobsInner() {
                       ))}
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-xs mb-4">
-                      <div className="flex items-center gap-1 text-gray-400"><DollarSign className="w-3 h-3 text-green-400" /><span className="text-green-400 font-bold">{job.pay}</span></div>
+                      <div className="flex items-center gap-1 text-gray-400"><DollarSign className="w-3 h-3 text-[#00C2FF]" /><span className="text-[#00C2FF] font-bold">{job.pay}</span></div>
                       <div className="flex items-center gap-1 text-gray-400"><MapPin className="w-3 h-3" />{job.location}</div>
                       <div className="flex items-center gap-1 text-gray-400"><Users className="w-3 h-3" />{job.followers} followers</div>
                       <div className="flex items-center gap-1 text-gray-400"><Clock className="w-3 h-3" />Due {job.deadline}</div>
@@ -229,7 +229,7 @@ function NILJobsInner() {
           {activeTab === "score" && (
             <div className="max-w-2xl mx-auto">
               <div className="bg-[#0d1a3a] border border-blue-900/40 rounded-2xl p-8 text-center mb-6">
-                <div className="text-6xl font-black text-sky-400 mb-2">742</div>
+                <div className="text-6xl font-black text-[#00C2FF] mb-2">742</div>
                 <div className="text-white font-bold text-xl mb-1">Your NIL Score</div>
                 <div className="text-blue-300 text-sm mb-4">Rising Star Tier — Top 35% of Athletes</div>
                 <div className="w-full bg-white/10 rounded-full h-3 mb-2">
@@ -244,7 +244,7 @@ function NILJobsInner() {
                   <div key={i} className="bg-[#0d1a3a] border border-blue-900/40 rounded-xl p-4">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <factor.icon className="w-4 h-4 text-sky-400" />
+                        <factor.icon className="w-4 h-4 text-[#00C2FF]" />
                         <span className="text-white text-sm font-bold">{factor.label}</span>
                       </div>
                       <span className="text-gray-400 text-xs">{factor.weight}% weight</span>
@@ -256,13 +256,13 @@ function NILJobsInner() {
                 ))}
               </div>
               <div className="bg-blue-900/20 border border-blue-700/30 rounded-2xl p-5">
-                <h3 className="text-white font-black mb-3">🚀 How to Boost Your Score</h3>
+                <h3 className="text-white font-black mb-3"> How to Boost Your Score</h3>
                 <ul className="space-y-2 text-sm text-blue-300">
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />Complete your athlete profile (adds +50 pts)</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />Upload highlight reel (adds +75 pts)</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-sky-400 flex-shrink-0" />Connect social accounts (adds +100 pts)</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-sky-400 flex-shrink-0" />Complete first NIL deal (adds +150 pts)</li>
-                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-red-400 flex-shrink-0" />Get verified by AthlynX (adds +200 pts)</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />Complete your athlete profile (adds +50 pts)</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />Upload highlight reel (adds +75 pts)</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />Connect social accounts (adds +100 pts)</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />Complete first NIL deal (adds +150 pts)</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#1E90FF] flex-shrink-0" />Get verified by AthlynX (adds +200 pts)</li>
                 </ul>
               </div>
             </div>
@@ -280,15 +280,15 @@ function NILJobsInner() {
                   <div key={i} className={`bg-[#0d1a3a] border-l-4 ${rung.color} border border-blue-900/40 rounded-2xl p-5 ${rung.active ? "ring-2 ring-blue-500/30" : ""}`}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="text-white font-black text-lg">{rung.tier}</div>
-                      {rung.active && <span className="px-2 py-0.5 bg-blue-500/20 text-sky-400 text-xs font-bold rounded-full border border-blue-500/30">YOU ARE HERE</span>}
+                      {rung.active && <span className="px-2 py-0.5 bg-blue-500/20 text-[#00C2FF] text-xs font-bold rounded-full border border-blue-500/30">YOU ARE HERE</span>}
                     </div>
-                    <div className="text-green-400 font-bold text-sm mb-1">{rung.range}</div>
+                    <div className="text-[#00C2FF] font-bold text-sm mb-1">{rung.range}</div>
                     <div className="text-gray-400 text-xs">{rung.req}</div>
                   </div>
                 ))}
               </div>
               <div className="mt-8 bg-gradient-to-r from-blue-500/10 to-blue-400/5 border border-blue-500/20 rounded-2xl p-6 text-center">
-                <div className="text-sky-400 text-3xl mb-2">💎</div>
+                <div className="text-[#00C2FF] text-3xl mb-2"></div>
                 <h3 className="text-white font-black text-xl mb-2">The Legend Tier</h3>
                 <p className="text-gray-300 text-sm">Pro contracts, national brand deals, $100K+ per month. This is where AthlynX athletes go when they make it to the league or the show. We are with you every step of the way — from your first deal to your last.</p>
               </div>
@@ -328,7 +328,7 @@ function NILJobsInner() {
                     />
                   </div>
                   <button className="w-full bg-gradient-to-r from-blue-500 to-blue-400 text-black font-black py-4 rounded-xl text-base hover:from-blue-400 hover:to-blue-300 transition-all">
-                    Post Job — AI Matching Starts Immediately 🚀
+                    Post Job — AI Matching Starts Immediately 
                   </button>
                   <p className="text-center text-gray-500 text-xs">Free for the first 30 days. Pro posting plans available in the Marketplace.</p>
                 </div>

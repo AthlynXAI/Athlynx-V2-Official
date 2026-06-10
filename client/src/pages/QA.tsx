@@ -41,18 +41,18 @@ const KIND_LABEL: Record<Kind, string> = {
 
 const KIND_STYLE: Record<Kind, string> = {
   question: "bg-blue-500/10 text-blue-300 border-blue-500/30",
-  feature_request: "bg-purple-500/10 text-purple-300 border-purple-500/30",
-  bug: "bg-red-500/10 text-red-300 border-red-500/30",
+  feature_request: "bg-[#1E90FF]/10 text-[#1E90FF] border-[#1E90FF]/30",
+  bug: "bg-[#1E90FF]/10 text-[#1E90FF] border-[#1E90FF]/30",
   general: "bg-white/5 text-white/70 border-white/20",
-  love: "bg-green-500/10 text-green-300 border-green-500/30",
-  hate: "bg-blue-500/10 text-sky-300 border-blue-500/30",
+  love: "bg-[#00C2FF]/10 text-[#00C2FF] border-[#00C2FF]/30",
+  hate: "bg-blue-500/10 text-[#00C2FF] border-blue-500/30",
 };
 
 const STATUS_STYLE: Record<Status, string> = {
   open: "bg-white/5 text-white/60 border-white/20",
   planned: "bg-blue-500/10 text-blue-300 border-blue-500/30",
-  in_progress: "bg-blue-500/10 text-sky-300 border-blue-500/30",
-  shipped: "bg-green-500/10 text-green-300 border-green-500/30",
+  in_progress: "bg-blue-500/10 text-[#00C2FF] border-blue-500/30",
+  shipped: "bg-[#00C2FF]/10 text-[#00C2FF] border-[#00C2FF]/30",
   answered: "bg-[#00c2ff]/10 text-[#00c2ff] border-[#00c2ff]/30",
   closed: "bg-white/5 text-white/40 border-white/10",
 };
@@ -207,8 +207,8 @@ function QAInner() {
               >
                 {createMut.isPending ? "Posting…" : "Post"}
               </button>
-              {submitted ? <span className="text-green-400 text-sm">Posted. Thank you.</span> : null}
-              {createMut.error ? <span className="text-red-400 text-sm">Could not post. Try again.</span> : null}
+              {submitted ? <span className="text-[#00C2FF] text-sm">Posted. Thank you.</span> : null}
+              {createMut.error ? <span className="text-[#1E90FF] text-sm">Could not post. Try again.</span> : null}
             </div>
           </div>
         </div>
@@ -225,9 +225,9 @@ function QAInner() {
             <article key={r.id} className={`bg-[#0a1628] border rounded-xl p-5 ${r.is_pinned ? "border-[#00c2ff]/40" : "border-white/10"}`}>
               <div className="flex items-start gap-4">
                 <div className="flex flex-col items-center gap-1 shrink-0">
-                  <button onClick={() => voteMut.mutate({ questionId: r.id, direction: 1 })} className="text-white/40 hover:text-green-400" title="Upvote">▲</button>
+                  <button onClick={() => voteMut.mutate({ questionId: r.id, direction: 1 })} className="text-white/40 hover:text-[#00C2FF]" title="Upvote"></button>
                   <div className="text-sm font-bold text-white">{r.upvotes - r.downvotes}</div>
-                  <button onClick={() => voteMut.mutate({ questionId: r.id, direction: -1 })} className="text-white/40 hover:text-red-400" title="Downvote">▼</button>
+                  <button onClick={() => voteMut.mutate({ questionId: r.id, direction: -1 })} className="text-white/40 hover:text-[#1E90FF]" title="Downvote"></button>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-1">

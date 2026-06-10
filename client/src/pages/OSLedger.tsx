@@ -68,8 +68,8 @@ export default function OSLedger() {
                     <td className="px-4 py-2 text-white/80">{r.ai_min}</td>
                     <td className="px-4 py-2 text-white/80">${(r.revenue_cents / 100).toFixed(2)}</td>
                     <td className="px-4 py-2">
-                      <span className={r.status === "live" ? "text-green-400" : "text-sky-400"}>
-                        ● {r.status}
+                      <span className={r.status === "live" ? "text-[#00C2FF]" : "text-[#00C2FF]"}>
+                         {r.status}
                       </span>
                     </td>
                   </tr>

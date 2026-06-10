@@ -66,11 +66,11 @@ function CapabilitiesInner() {
   ];
 
   const bots = [
-    { id: "executive", name: "Executive", icon: "👔", color: "bg-blue-500" },
-    { id: "presentation", name: "Presentation", icon: "📊", color: "bg-blue-600" },
-    { id: "operations", name: "Operations", icon: "⚙️", color: "bg-green-500" },
-    { id: "marketing", name: "Marketing", icon: "📊", color: "bg-red-500" },
-    { id: "sales", name: "Sales", icon: "📊", color: "bg-red-500" },
+    { id: "executive", name: "Executive", icon: "", color: "bg-blue-500" },
+    { id: "presentation", name: "Presentation", icon: "", color: "bg-blue-600" },
+    { id: "operations", name: "Operations", icon: "", color: "bg-[#00C2FF]" },
+    { id: "marketing", name: "Marketing", icon: "", color: "bg-[#1E90FF]" },
+    { id: "sales", name: "Sales", icon: "", color: "bg-[#1E90FF]" },
   ];
 
   const keyFeatures = [
@@ -196,35 +196,35 @@ function CapabilitiesInner() {
                           <TableCell className="font-medium">{capability.name}</TableCell>
                           <TableCell className="text-center">
                             {capability.executive ? (
-                              <CheckCircle2 className="h-5 w-5 text-green-500 mx-auto" />
+                              <CheckCircle2 className="h-5 w-5 text-[#00C2FF] mx-auto" />
                             ) : (
                               <Circle className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                             )}
                           </TableCell>
                           <TableCell className="text-center">
                             {capability.presentation ? (
-                              <CheckCircle2 className="h-5 w-5 text-green-500 mx-auto" />
+                              <CheckCircle2 className="h-5 w-5 text-[#00C2FF] mx-auto" />
                             ) : (
                               <Circle className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                             )}
                           </TableCell>
                           <TableCell className="text-center">
                             {capability.operations ? (
-                              <CheckCircle2 className="h-5 w-5 text-green-500 mx-auto" />
+                              <CheckCircle2 className="h-5 w-5 text-[#00C2FF] mx-auto" />
                             ) : (
                               <Circle className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                             )}
                           </TableCell>
                           <TableCell className="text-center">
                             {capability.marketing ? (
-                              <CheckCircle2 className="h-5 w-5 text-green-500 mx-auto" />
+                              <CheckCircle2 className="h-5 w-5 text-[#00C2FF] mx-auto" />
                             ) : (
                               <Circle className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                             )}
                           </TableCell>
                           <TableCell className="text-center">
                             {capability.sales ? (
-                              <CheckCircle2 className="h-5 w-5 text-green-500 mx-auto" />
+                              <CheckCircle2 className="h-5 w-5 text-[#00C2FF] mx-auto" />
                             ) : (
                               <Circle className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                             )}
@@ -244,7 +244,7 @@ function CapabilitiesInner() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-center gap-8">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-green-500" />
+                <CheckCircle2 className="h-5 w-5 text-[#00C2FF]" />
                 <span className="text-sm">Capability Available</span>
               </div>
               <div className="flex items-center gap-2">

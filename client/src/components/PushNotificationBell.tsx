@@ -33,7 +33,7 @@ export function PushNotificationBell() {
         transition: "all 0.2s",
       }}
     >
-      <span style={{ fontSize: "16px" }}>{isSubscribed ? "🔔" : "🔕"}</span>
+      <span style={{ fontSize: "16px" }}>{isSubscribed ? "" : ""}</span>
       {isLoading ? "..." : isSubscribed ? "Alerts ON" : "Enable Alerts"}
     </button>
   );

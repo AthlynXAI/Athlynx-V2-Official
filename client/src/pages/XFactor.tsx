@@ -3,7 +3,7 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import PlatformLayout from "@/components/PlatformLayout";
 import MobileBottomNav from '@/components/MobileBottomNav'
 import { Link } from "wouter";
-import XFactorPhoneMockup from "../components/XFactorPhoneMockup";
+import EPXPhoneMockup from "../components/EPXPhoneMockup";
 import MeetAthletes from "@/components/MeetAthletes";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -19,71 +19,71 @@ const FEED_POSTS = [
   {
     id: 1,
     user: { name: "Marcus Williams", handle: "@mwilliams_qb", sport: "Football", position: "QB", school: "Westlake HS", verified: true, avatar: "MW", xScore: 94 },
-    content: "Just dropped a 4.38 40-yard dash at the Nike Combine today. The work doesn't lie. 🏈⚡",
+    content: "Just dropped a 4.38 40-yard dash at the Nike Combine today. The work doesn't lie. ",
     stats: { likes: 2847, reposts: 412, comments: 189, views: 48200 },
     time: "2h",
     tags: ["#Combine", "#Football", "#QB"],
-    highlight: { type: "combine", label: "4.38s 40-Yard Dash", icon: "⚡" },
+    highlight: { type: "combine", label: "4.38s 40-Yard Dash", icon: "" },
     trending: true,
   },
   {
     id: 2,
     user: { name: "Aaliyah Johnson", handle: "@aaliyah_hoops", sport: "Basketball", position: "PG", school: "Oak Ridge Academy", verified: true, avatar: "AJ", xScore: 91 },
-    content: "Dropped 38 pts, 11 ast, 6 reb last night. Nike EYBL Peach Jam next week. Scouts — I'll be there. 🏀",
+    content: "Dropped 38 pts, 11 ast, 6 reb last night. Nike EYBL Peach Jam next week. Scouts — I'll be there. ",
     stats: { likes: 5103, reposts: 891, comments: 344, views: 92400 },
     time: "4h",
     tags: ["#EYBL", "#Basketball", "#PeachJam"],
-    highlight: { type: "game", label: "38 PTS | 11 AST | 6 REB", icon: "🏀" },
+    highlight: { type: "game", label: "38 PTS | 11 AST | 6 REB", icon: "" },
     trending: true,
   },
   {
     id: 3,
     user: { name: "DeShawn Carter", handle: "@dcarter_wr", sport: "Football", position: "WR", school: "IMG Academy", verified: false, avatar: "DC", xScore: 88 },
-    content: "Just committed to my dream school. The journey was real but God had a plan. More details dropping soon. 🙏",
+    content: "Just committed to my dream school. The journey was real but God had a plan. More details dropping soon. ",
     stats: { likes: 8920, reposts: 1204, comments: 672, views: 187000 },
     time: "6h",
     tags: ["#Committed", "#Football", "#WR"],
-    highlight: { type: "commitment", label: "COMMITTED ✅", icon: "🎓" },
+    highlight: { type: "commitment", label: "COMMITTED ", icon: "" },
     trending: true,
   },
   {
     id: 4,
     user: { name: "Sofia Reyes", handle: "@sofia_soccer10", sport: "Soccer", position: "MF", school: "Dallas FC Academy", verified: true, avatar: "SR", xScore: 89 },
-    content: "Named to the US Soccer U-20 National Pool. Everything I've worked for since age 6. Thank you to everyone who believed. ⚽🇺🇸",
+    content: "Named to the US Soccer U-20 National Pool. Everything I've worked for since age 6. Thank you to everyone who believed. ",
     stats: { likes: 3412, reposts: 567, comments: 231, views: 61800 },
     time: "8h",
     tags: ["#USYNT", "#Soccer", "#NationalPool"],
-    highlight: { type: "award", label: "US Soccer U-20 National Pool", icon: "🇺🇸" },
+    highlight: { type: "award", label: "US Soccer U-20 National Pool", icon: "" },
     trending: false,
   },
   {
     id: 5,
     user: { name: "Jordan Miles", handle: "@jmiles_track", sport: "Track & Field", position: "Sprinter", school: "Centennial HS", verified: false, avatar: "JM", xScore: 86 },
-    content: "10.87 in the 100m at New Balance Nationals. PR by 0.12 seconds. The grind is real. 💨",
+    content: "10.87 in the 100m at New Balance Nationals. PR by 0.12 seconds. The grind is real. ",
     stats: { likes: 1923, reposts: 298, comments: 145, views: 34700 },
     time: "12h",
     tags: ["#Track", "#NBNationals", "#Sprinter"],
-    highlight: { type: "pr", label: "10.87s 100M — Personal Record", icon: "💨" },
+    highlight: { type: "pr", label: "10.87s 100M — Personal Record", icon: "" },
     trending: false,
   },
   {
     id: 6,
     user: { name: "Tyler Brooks", handle: "@tbrooks_lb", sport: "Football", position: "LB", school: "Mater Dei HS", verified: true, avatar: "TB", xScore: 92 },
-    content: "Elite 11 invite just hit the inbox. See y'all in Dallas. 🔥 #Elite11",
+    content: "Elite 11 invite just hit the inbox. See y'all in Dallas.  #Elite11",
     stats: { likes: 4201, reposts: 734, comments: 289, views: 78300 },
     time: "1d",
     tags: ["#Elite11", "#Football", "#LB"],
-    highlight: { type: "invite", label: "Elite 11 Invite — Dallas", icon: "🔥" },
+    highlight: { type: "invite", label: "Elite 11 Invite — Dallas", icon: "" },
     trending: true,
   },
 ];
 
 const TRENDING_ATHLETES = [
-  { name: "Marcus Williams", handle: "@mwilliams_qb", sport: "⚡ Football QB", xScore: 94, change: "+8" },
-  { name: "Aaliyah Johnson", handle: "@aaliyah_hoops", sport: "🏀 Basketball PG", xScore: 91, change: "+5" },
-  { name: "Tyler Brooks", handle: "@tbrooks_lb", sport: "🏈 Football LB", xScore: 92, change: "+12" },
-  { name: "Sofia Reyes", handle: "@sofia_soccer10", sport: "⚽ Soccer MF", xScore: 89, change: "+3" },
-  { name: "DeShawn Carter", handle: "@dcarter_wr", sport: "🏈 Football WR", xScore: 88, change: "+7" },
+  { name: "Marcus Williams", handle: "@mwilliams_qb", sport: " Football QB", xScore: 94, change: "+8" },
+  { name: "Aaliyah Johnson", handle: "@aaliyah_hoops", sport: " Basketball PG", xScore: 91, change: "+5" },
+  { name: "Tyler Brooks", handle: "@tbrooks_lb", sport: " Football LB", xScore: 92, change: "+12" },
+  { name: "Sofia Reyes", handle: "@sofia_soccer10", sport: " Soccer MF", xScore: 89, change: "+3" },
+  { name: "DeShawn Carter", handle: "@dcarter_wr", sport: " Football WR", xScore: 88, change: "+7" },
 ];
 
 const TRENDING_TAGS = [
@@ -97,8 +97,8 @@ const TRENDING_TAGS = [
 
 const XFACTOR_CATEGORIES = ["All", "Football", "Basketball", "Baseball", "Soccer", "Track", "Highlights", "Combines", "Commitments"];
 
-// ─── XFactor Feed — Real DB data with seeded fallback ─────────────────────────
-function XFactorFeed({ activeCategory, activeTab, postText, setPostText }: {
+//  EPX Feed — Real DB data with seeded fallback 
+function EPXFeed({ activeCategory, activeTab, postText, setPostText }: {
   activeCategory: string;
   activeTab: string;
   postText: string;
@@ -154,7 +154,7 @@ function XFactorFeed({ activeCategory, activeTab, postText, setPostText }: {
             <textarea
               value={postText}
               onChange={e => setPostText(e.target.value)}
-              placeholder="Share your X-Factor moment..."
+              placeholder="Share your EPX moment..."
               className="w-full bg-transparent text-white placeholder-slate-600 text-base resize-none outline-none min-h-[60px]"
               rows={2}
             />
@@ -181,7 +181,7 @@ function XFactorFeed({ activeCategory, activeTab, postText, setPostText }: {
       {isLoading ? (
         <div className="p-8 text-center">
           <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-slate-500 text-sm">Loading X-Factor feed...</p>
+          <p className="text-slate-500 text-sm">Loading athlete feed...</p>
         </div>
       ) : (
         <div>
@@ -191,7 +191,7 @@ function XFactorFeed({ activeCategory, activeTab, postText, setPostText }: {
           {displayPosts.length === 0 && (
             <div className="p-8 text-center text-slate-500">
               <Trophy className="w-8 h-8 mx-auto mb-2 text-blue-600" />
-              <p className="text-sm">Be the first to post your X-Factor moment!</p>
+              <p className="text-sm">Be the first to post your EPX moment!</p>
             </div>
           )}
         </div>
@@ -210,8 +210,8 @@ function XFactorFeed({ activeCategory, activeTab, postText, setPostText }: {
   );
 }
 
-function XFactorScore({ score }: { score: number }) {
-  const color = score >= 90 ? "text-sky-400" : score >= 80 ? "text-blue-400" : "text-slate-400";
+function EPXScore({ score }: { score: number }) {
+  const color = score >= 90 ? "text-[#00C2FF]" : score >= 80 ? "text-blue-400" : "text-slate-400";
   return (
     <span className={`text-xs font-bold ${color} flex items-center gap-0.5`}>
       <Zap className="w-3 h-3" />
@@ -250,7 +250,7 @@ function PostCard({ post, onLike }: { post: any; onLike?: () => void }) {
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="font-bold text-white text-sm">{post.user?.name ?? post.authorName ?? "Athlete"}</span>
             {post.user?.verified && <Verified className="w-4 h-4 text-blue-400 fill-blue-400" />}
-            {post.user?.xScore && <XFactorScore score={post.user.xScore} />}
+            {post.user?.xScore && <EPXScore score={post.user.xScore} />}
             <span className="text-slate-500 text-sm">{post.user?.handle ?? ""}</span>
             <span className="text-slate-600 text-sm">·</span>
             <span className="text-slate-500 text-sm">{post.time ?? (post.createdAt ? new Date(post.createdAt).toLocaleDateString() : "now")}</span>
@@ -273,7 +273,7 @@ function PostCard({ post, onLike }: { post: any; onLike?: () => void }) {
             <div className="mb-2 inline-flex items-center gap-1.5 bg-blue-950/60 border border-blue-800/50 rounded-full px-3 py-1">
               <span className="text-sm">{post.highlight.icon}</span>
               <span className="text-xs font-bold text-blue-300">{post.highlight.label}</span>
-              {post.trending && <Flame className="w-3 h-3 text-cyan-400" />}
+              {post.trending && <Flame className="w-3 h-3 text-[#00C2FF]" />}
             </div>
           )}
 
@@ -295,13 +295,13 @@ function PostCard({ post, onLike }: { post: any; onLike?: () => void }) {
               <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
               <span className="text-xs">{(post.stats?.comments ?? post.commentCount ?? 0).toLocaleString()}</span>
             </button>
-            <button className="flex items-center gap-1.5 hover:text-green-400 transition-colors group">
+            <button className="flex items-center gap-1.5 hover:text-[#00C2FF] transition-colors group">
               <Repeat2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
               <span className="text-xs">{(post.stats?.reposts ?? 0).toLocaleString()}</span>
             </button>
             <button
               onClick={() => { setLiked(!liked); if (!liked && onLike) onLike(); }}
-              className={`flex items-center gap-1.5 transition-colors group ${liked ? "text-pink-500" : "hover:text-pink-400"}`}
+              className={`flex items-center gap-1.5 transition-colors group ${liked ? "text-[#1E90FF]" : "hover:text-[#1E90FF]"}`}
             >
               <Heart className={`w-4 h-4 group-hover:scale-110 transition-transform ${liked ? "fill-pink-500" : ""}`} />
               <span className="text-xs">{((post.stats?.likes ?? post.likes ?? 0) + (liked ? 1 : 0)).toLocaleString()}</span>
@@ -327,7 +327,7 @@ function PostCard({ post, onLike }: { post: any; onLike?: () => void }) {
   );
 }
 
-function XFactorInner() {
+function EPXInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState("For You");
   const [activeCategory, setActiveCategory] = useState("All");
@@ -351,7 +351,7 @@ function XFactorInner() {
               <img src="/athlynx-icon.png" alt="AthlynX" className="w-9 h-9 rounded-xl object-cover" style={{ boxShadow: "0 0 12px rgba(0,194,255,0.5)" }} />
               <div className="flex flex-col leading-none">
                 <span className="font-black text-[10px] tracking-widest text-[#00c2ff] uppercase">AthlynX</span>
-                <span className="font-black text-lg tracking-tight text-white leading-tight">X-Factor</span>
+                <span className="font-black text-lg tracking-tight text-white leading-tight">EPX</span>
               </div>
             </div>
           </div>
@@ -399,7 +399,7 @@ function XFactorInner() {
 
       {/* Hero Phone Mockup — shown on landing, hidden once user scrolls into feed */}
       <div className="bg-black border-b border-slate-800">
-        <XFactorPhoneMockup />
+        <EPXPhoneMockup />
       </div>
 
       <div className="max-w-6xl mx-auto flex">
@@ -434,10 +434,10 @@ function XFactorInner() {
                     <div className="text-xs text-slate-500">{athlete.sport}</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-xs font-bold text-sky-400 flex items-center gap-0.5">
+                    <div className="text-xs font-bold text-[#00C2FF] flex items-center gap-0.5">
                       <Zap className="w-3 h-3" />{athlete.xScore}
                     </div>
-                    <div className="text-xs text-green-400">{athlete.change}</div>
+                    <div className="text-xs text-[#00C2FF]">{athlete.change}</div>
                   </div>
                 </div>
               ))}
@@ -524,7 +524,7 @@ function XFactorInner() {
                 <textarea
                   value={postText}
                   onChange={e => setPostText(e.target.value)}
-                  placeholder="Share your X-Factor moment..."
+                  placeholder="Share your EPX moment..."
                   className="w-full bg-transparent text-white placeholder-slate-600 text-base resize-none outline-none min-h-[60px]"
                   rows={2}
                 />
@@ -548,7 +548,7 @@ function XFactorInner() {
             </div>
           </div>
 
-          {/* ── FOUNDER WELCOME BANNER ── */}
+          {/*  FOUNDER WELCOME BANNER  */}
           <div className="border-b border-slate-800 bg-gradient-to-r from-blue-950/60 to-slate-900/60 p-4">
             <div className="flex items-start gap-3">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00c2ff] to-blue-700 flex items-center justify-center text-white font-black text-lg shrink-0 ring-2 ring-[#00c2ff]/40">
@@ -561,7 +561,7 @@ function XFactorInner() {
                   <span className="text-slate-500 text-xs">Founder · CEO · Chairman, AthlynXAI</span>
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                  🏆 Welcome to AthlynX — the platform built <strong>FOR YOU</strong>. Every sport. Every level. Youth to Pro to Retired. I built this because athletes deserve better. Your NIL deals, your recruiting profile, your training, your future — all in one place.
+                   Welcome to AthlynX — the platform built <strong>FOR YOU</strong>. Every sport. Every level. Youth to Pro to Retired. I built this because athletes deserve better. Your NIL deals, your recruiting profile, your training, your future — all in one place.
                 </p>
                 <p className="text-slate-400 text-xs mb-3">
                   I read every message. Tell me what you need. This platform exists to serve you.
@@ -569,17 +569,17 @@ function XFactorInner() {
                 <div className="flex flex-wrap gap-2">
                   <Link href="/community-feedback">
                     <button className="flex items-center gap-1.5 bg-[#00c2ff]/10 hover:bg-[#00c2ff]/20 border border-[#00c2ff]/30 text-[#00c2ff] text-xs font-bold px-3 py-1.5 rounded-full transition-all">
-                      💬 Talk to the Founder
+                       Talk to the Founder
                     </button>
                   </Link>
                   <Link href="/profile">
                     <button className="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 text-xs font-bold px-3 py-1.5 rounded-full transition-all">
-                      👤 Set Up Your Profile
+                       Set Up Your Profile
                     </button>
                   </Link>
                   <Link href="/nil-portal">
                     <button className="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 text-xs font-bold px-3 py-1.5 rounded-full transition-all">
-                      💰 Find NIL Deals
+                       Find NIL Deals
                     </button>
                   </Link>
                 </div>
@@ -588,25 +588,25 @@ function XFactorInner() {
           </div>
 
           {/* Feed — Real DB Data */}
-          <XFactorFeed activeCategory={activeCategory} activeTab={activeTab} postText={postText} setPostText={setPostText} />
+          <EPXFeed activeCategory={activeCategory} activeTab={activeTab} postText={postText} setPostText={setPostText} />
         </div>
 
         {/* Right Sidebar */}
         <div className="hidden xl:block w-72 flex-shrink-0 sticky top-[105px] h-[calc(100vh-105px)] overflow-y-auto px-4 py-4">
-          {/* X-Factor Score Explainer */}
+          {/* EPX Score Explainer */}
           <div className="bg-gradient-to-br from-blue-950 to-slate-900 border border-blue-800/50 rounded-2xl p-4 mb-4">
             <div className="flex items-center gap-2 mb-2">
-              <Zap className="w-5 h-5 text-sky-400" />
-              <h3 className="font-bold text-white">What is X-Factor?</h3>
+              <Zap className="w-5 h-5 text-[#00C2FF]" />
+              <h3 className="font-bold text-white">What is EPX?</h3>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed mb-3">
-              Your X-Factor score (0–100) is your AI-powered athlete rating based on combine metrics, game film, stats, recruiting interest, and intangibles. It grows as you perform.
+              Your EPX score (0–100) is your AI-powered athlete rating based on combine metrics, game film, stats, recruiting interest, and intangibles. It grows as you perform.
             </p>
             <div className="space-y-1.5">
               {[
-                { label: "90–100", desc: "Elite — Pro Prospect", color: "text-sky-400" },
+                { label: "90–100", desc: "Elite — Pro Prospect", color: "text-[#00C2FF]" },
                 { label: "80–89", desc: "High Major D1", color: "text-blue-400" },
-                { label: "70–79", desc: "Mid Major D1", color: "text-green-400" },
+                { label: "70–79", desc: "Mid Major D1", color: "text-[#00C2FF]" },
                 { label: "60–69", desc: "D2 / D3 Prospect", color: "text-slate-400" },
               ].map((tier, i) => (
                 <div key={i} className="flex items-center justify-between text-xs">
@@ -617,7 +617,7 @@ function XFactorInner() {
             </div>
             <Link href="/portal">
               <button className="mt-3 w-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold py-2 rounded-full transition-colors">
-                Get Your X-Factor Score
+                Get Your EPX Score
               </button>
             </Link>
           </div>
@@ -632,9 +632,9 @@ function XFactorInner() {
               Scout Spotlight
             </h3>
             <div className="bg-blue-950/50 border border-blue-800/30 rounded-xl p-3">
-              <div className="text-xs text-blue-300 font-medium mb-1">🔍 Scouts are watching</div>
+              <div className="text-xs text-blue-300 font-medium mb-1"> Scouts are watching</div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                14 verified scouts and coaches are active on X-Factor right now. Post your highlights to get noticed.
+                14 verified scouts and coaches are active on EPX right now. Post your highlights to get noticed.
               </p>
               <button className="mt-2 text-xs text-blue-400 hover:underline font-medium">
                 See who's watching →
@@ -647,6 +647,6 @@ function XFactorInner() {
   );
 }
 
-export default function XFactor() {
-  return <RouteErrorBoundary><XFactorInner /></RouteErrorBoundary>;
+export default function EPX() {
+  return <RouteErrorBoundary><EPXInner /></RouteErrorBoundary>;
 }

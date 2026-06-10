@@ -24,10 +24,10 @@ function timeAgo(date: string | Date | null): string {
 }
 
 function daysColor(days: number): string {
-  if (days <= 0) return "text-red-400";
-  if (days <= 2) return "text-red-300";
-  if (days <= 4) return "text-cyan-400";
-  return "text-sky-400";
+  if (days <= 0) return "text-[#1E90FF]";
+  if (days <= 2) return "text-[#1E90FF]";
+  if (days <= 4) return "text-[#00C2FF]";
+  return "text-[#00C2FF]";
 }
 
 function AdminExpiryInner() {
@@ -55,7 +55,7 @@ function AdminExpiryInner() {
   if (!user || user.role !== "admin") return (
     <PlatformLayout title="Access Denied">
       <div className="max-w-lg mx-auto text-center py-16">
-        <div className="text-5xl mb-4">🔒</div>
+        <div className="text-5xl mb-4 hidden"></div>
         <h2 className="text-white font-black text-xl mb-2">Admin Only</h2>
         <p className="text-blue-400 text-sm mb-4">This page is restricted to AthlynX administrators.</p>
         <Link href="/feed"><button className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl text-sm">Go to Feed</button></Link>
@@ -68,13 +68,13 @@ function AdminExpiryInner() {
 
   // Email cadence summary
   const emailCadence = [
-    { day: 7, label: "Day 7", desc: "First warning — trial ending in 1 week", color: "text-sky-400" },
-    { day: 5, label: "Day 5", desc: "Second warning — 5 days remaining", color: "text-sky-400" },
-    { day: 4, label: "Day 4", desc: "Daily warning begins", color: "text-cyan-400" },
-    { day: 3, label: "Day 3", desc: "Urgent — 3 days left", color: "text-cyan-400" },
-    { day: 2, label: "Day 2", desc: "Critical — 2 days left", color: "text-red-400" },
-    { day: 1, label: "Day 1", desc: "Final warning — expires tomorrow", color: "text-red-400" },
-    { day: 0, label: "Day 0", desc: "Expired — account suspended", color: "text-red-600" },
+    { day: 7, label: "Day 7", desc: "First warning — trial ending in 1 week", color: "text-[#00C2FF]" },
+    { day: 5, label: "Day 5", desc: "Second warning — 5 days remaining", color: "text-[#00C2FF]" },
+    { day: 4, label: "Day 4", desc: "Daily warning begins", color: "text-[#00C2FF]" },
+    { day: 3, label: "Day 3", desc: "Urgent — 3 days left", color: "text-[#00C2FF]" },
+    { day: 2, label: "Day 2", desc: "Critical — 2 days left", color: "text-[#1E90FF]" },
+    { day: 1, label: "Day 1", desc: "Final warning — expires tomorrow", color: "text-[#1E90FF]" },
+    { day: 0, label: "Day 0", desc: "Expired — account suspended", color: "text-[#1E90FF]" },
   ];
 
   return (
@@ -85,11 +85,11 @@ function AdminExpiryInner() {
         <div className="bg-gradient-to-br from-[#0d1b3e] to-[#1a3a8f] rounded-2xl border border-blue-800 p-5">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-xl font-black text-white mb-1">⏰ Subscription Expiry Dashboard</h1>
+              <h1 className="text-xl font-black text-white mb-1"> Subscription Expiry Dashboard</h1>
               <p className="text-blue-300 text-sm">Monitor expiring trials and overdue accounts. Send manual email reminders.</p>
             </div>
             <div className="text-right">
-              <div className="text-3xl font-black text-cyan-400">{warnings.length}</div>
+              <div className="text-3xl font-black text-[#00C2FF]">{warnings.length}</div>
               <div className="text-blue-400 text-xs">Expiring Soon</div>
             </div>
           </div>
@@ -98,10 +98,10 @@ function AdminExpiryInner() {
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { label: "Expiring (7 days)", value: warnings.length, color: "text-sky-400", icon: "⚠️" },
-            { label: "Expired / Overdue", value: overdue.length || "—", color: "text-red-400", icon: "🚨" },
-            { label: "With Paid Sub", value: warnings.filter(w => w.hasPaidSub).length, color: "text-green-400", icon: "✅" },
-            { label: "Email Cadence", value: "7 emails", color: "text-blue-400", icon: "📧" },
+            { label: "Expiring (7 days)", value: warnings.length, color: "text-[#00C2FF]", icon: "" },
+            { label: "Expired / Overdue", value: overdue.length || "—", color: "text-[#1E90FF]", icon: "" },
+            { label: "With Paid Sub", value: warnings.filter(w => w.hasPaidSub).length, color: "text-[#00C2FF]", icon: "" },
+            { label: "Email Cadence", value: "7 emails", color: "text-blue-400", icon: "" },
           ].map((stat, i) => (
             <div key={i} className="bg-[#0d1b3e] rounded-xl border border-blue-800 p-3 text-center">
               <div className="text-2xl mb-1">{stat.icon}</div>
@@ -114,7 +114,7 @@ function AdminExpiryInner() {
         {/* Email Cadence Reference */}
         <div className="bg-[#0d1b3e] rounded-2xl border border-blue-800 p-4">
           <h3 className="text-white font-black text-sm mb-3 flex items-center gap-2">
-            <span>📧</span> Email Cadence Schedule
+            <span></span> Email Cadence Schedule
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
             {emailCadence.map(e => (
@@ -130,15 +130,15 @@ function AdminExpiryInner() {
         <div className="flex gap-2">
           <button
             onClick={() => setActiveTab("expiring")}
-            className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "expiring" ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white" : "bg-[#0d1b3e] border border-blue-800 text-blue-400"}`}
+            className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "expiring" ? "bg-gradient-to-r from-blue-600 to-[#0a1628] text-white" : "bg-[#0d1b3e] border border-blue-800 text-blue-400"}`}
           >
-            ⚠️ Expiring Soon ({warnings.length})
+             Expiring Soon ({warnings.length})
           </button>
           <button
             onClick={() => setActiveTab("overdue")}
-            className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "overdue" ? "bg-gradient-to-r from-red-700 to-red-600 text-white" : "bg-[#0d1b3e] border border-blue-800 text-blue-400"}`}
+            className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "overdue" ? "bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white" : "bg-[#0d1b3e] border border-blue-800 text-blue-400"}`}
           >
-            🚨 Overdue ({overdue.length})
+             Overdue ({overdue.length})
           </button>
         </div>
 
@@ -152,8 +152,8 @@ function AdminExpiryInner() {
               <div className="p-8 text-center text-blue-400 text-sm animate-pulse">Loading expiry data...</div>
             ) : warnings.length === 0 ? (
               <div className="p-8 text-center">
-                <div className="text-3xl mb-2">✅</div>
-                <p className="text-green-400 text-sm font-bold">No expiring accounts in the next 7 days!</p>
+                <div className="text-3xl mb-2"></div>
+                <p className="text-[#00C2FF] text-sm font-bold">No expiring accounts in the next 7 days!</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -186,8 +186,8 @@ function AdminExpiryInner() {
                           {w.trialEndsAt ? new Date(w.trialEndsAt).toLocaleDateString() : "—"}
                         </td>
                         <td className="px-4 py-3">
-                          <span className={`text-xs font-bold ${w.hasPaidSub ? "text-green-400" : "text-red-400"}`}>
-                            {w.hasPaidSub ? "✅ Yes" : "❌ No"}
+                          <span className={`text-xs font-bold ${w.hasPaidSub ? "text-[#00C2FF]" : "text-[#1E90FF]"}`}>
+                            {w.hasPaidSub ? " Yes" : " No"}
                           </span>
                         </td>
                         <td className="px-4 py-3 text-blue-400 text-xs">
@@ -208,9 +208,9 @@ function AdminExpiryInner() {
                         <td className="px-4 py-3">
                           <a
                             href={`mailto:${w.email}?subject=Your AthlynX Trial is Expiring&body=Hi ${w.name},%0A%0AYour AthlynX trial expires in ${w.daysLeft} day(s). Upgrade now to keep access to all your athlete tools.%0A%0AUpgrade here: https://athlynx.ai/pricing%0A%0A— Chad Dozier%0AAthlynXAI`}
-                            className="text-[10px] bg-cyan-600/20 border border-cyan-600 text-cyan-400 rounded px-2 py-1 hover:bg-cyan-600/40 transition-colors"
+                            className="text-[10px] bg-[#1E90FF]/20 border border-[#1E90FF] text-[#00C2FF] rounded px-2 py-1 hover:bg-[#1E90FF]/20 transition-colors"
                           >
-                            📧 Send
+                             Send
                           </a>
                         </td>
                       </tr>
@@ -224,22 +224,22 @@ function AdminExpiryInner() {
 
         {/* Overdue Users Table */}
         {activeTab === "overdue" && (
-          <div className="bg-[#0d1b3e] rounded-2xl border border-red-800/50 overflow-hidden">
-            <div className="p-4 border-b border-red-800/50 bg-red-900/20">
-              <h3 className="text-white font-black text-sm">🚨 Overdue Accounts (Expired, No Paid Sub)</h3>
+          <div className="bg-[#0d1b3e] rounded-2xl border border-[#1E90FF]/50 overflow-hidden">
+            <div className="p-4 border-b border-[#1E90FF]/50 bg-[#1E90FF]/20">
+              <h3 className="text-white font-black text-sm"> Overdue Accounts (Expired, No Paid Sub)</h3>
             </div>
             {overdueQuery.isLoading ? (
               <div className="p-8 text-center text-blue-400 text-sm animate-pulse">Loading overdue data...</div>
             ) : overdue.length === 0 ? (
               <div className="p-8 text-center">
-                <div className="text-3xl mb-2">✅</div>
-                <p className="text-green-400 text-sm font-bold">No overdue accounts!</p>
+                <div className="text-3xl mb-2"></div>
+                <p className="text-[#00C2FF] text-sm font-bold">No overdue accounts!</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-red-900/30 text-red-300 text-xs">
+                    <tr className="bg-[#1E90FF]/30 text-[#1E90FF] text-xs">
                       <th className="text-left px-4 py-2">User</th>
                       <th className="text-left px-4 py-2">Expired</th>
                       <th className="text-left px-4 py-2">Trial Ended</th>
@@ -249,24 +249,24 @@ function AdminExpiryInner() {
                   </thead>
                   <tbody>
                     {overdue.map((u: any) => (
-                      <tr key={u.id} className="border-t border-red-900/30 hover:bg-red-900/10 transition-colors">
+                      <tr key={u.id} className="border-t border-[#1E90FF]/30 hover:bg-[#1E90FF]/10 transition-colors">
                         <td className="px-4 py-3">
                           <div className="text-white font-bold text-xs">{u.name || "Unknown"}</div>
-                          <div className="text-red-300 text-[10px]">{u.email}</div>
+                          <div className="text-[#1E90FF] text-[10px]">{u.email}</div>
                         </td>
                         <td className="px-4 py-3">
-                          <span className="text-red-400 font-black text-sm">{u.expiredDaysAgo}d ago</span>
+                          <span className="text-[#1E90FF] font-black text-sm">{u.expiredDaysAgo}d ago</span>
                         </td>
-                        <td className="px-4 py-3 text-red-300 text-xs">
+                        <td className="px-4 py-3 text-[#1E90FF] text-xs">
                           {u.trialEndsAt ? new Date(u.trialEndsAt).toLocaleDateString() : "—"}
                         </td>
                         <td className="px-4 py-3 text-blue-400 text-xs">{u.stripePlanId || "Free"}</td>
                         <td className="px-4 py-3 flex gap-2">
                           <a
                             href={`mailto:${u.email}?subject=Your AthlynX Account Has Expired&body=Hi ${u.name},%0A%0AYour AthlynX trial expired ${u.expiredDaysAgo} day(s) ago. Reactivate now to regain access.%0A%0AUpgrade: https://athlynx.ai/pricing%0A%0A— Chad Dozier%0AAthlynXAI`}
-                            className="text-[10px] bg-red-600/20 border border-red-600 text-red-400 rounded px-2 py-1 hover:bg-red-600/40 transition-colors"
+                            className="text-[10px] bg-[#1E90FF]/20 border border-[#1E90FF] text-[#1E90FF] rounded px-2 py-1 hover:bg-[#1E90FF]/40 transition-colors"
                           >
-                            📧 Re-engage
+                             Re-engage
                           </a>
                         </td>
                       </tr>
@@ -281,10 +281,10 @@ function AdminExpiryInner() {
         {/* Quick Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { label: "Admin Dashboard", href: "/admin/dashboard", icon: "🏠" },
-            { label: "User Tracker", href: "/admin/users", icon: "👥" },
-            { label: "CRM", href: "/admin/crm", icon: "📊" },
-            { label: "Broadcast", href: "/admin/broadcast", icon: "📢" },
+            { label: "Admin Dashboard", href: "/admin/dashboard", icon: "" },
+            { label: "User Tracker", href: "/admin/users", icon: "" },
+            { label: "CRM", href: "/admin/crm", icon: "" },
+            { label: "Broadcast", href: "/admin/broadcast", icon: "" },
           ].map(link => (
             <Link key={link.href} href={link.href}>
               <div className="bg-[#0d1b3e] rounded-xl border border-blue-800 p-3 text-center hover:border-blue-600 hover:bg-blue-900/30 transition-all cursor-pointer">

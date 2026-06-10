@@ -155,7 +155,7 @@ function StudioSuiteInner() {
           </label>
         </header>
 
-        {/* ─── Tab switcher ─────────────────────────────────────────── */}
+        {/*  Tab switcher  */}
         <div className="mb-6 flex gap-2 border-b border-neutral-800">
           {TABS.map((t) => (
             <button
@@ -163,7 +163,7 @@ function StudioSuiteInner() {
               type="button"
               className={`px-4 py-2 text-sm font-semibold transition ${
                 tab === t.id
-                  ? "border-b-2 border-blue-400 text-sky-300"
+                  ? "border-b-2 border-blue-400 text-[#00C2FF]"
                   : "text-neutral-400 hover:text-neutral-200"
               }`}
               onClick={() => setTab(t.id)}
@@ -173,7 +173,7 @@ function StudioSuiteInner() {
           ))}
         </div>
 
-        {/* ─── Active studio ────────────────────────────────────────── */}
+        {/*  Active studio  */}
         {tab === "lineup" ? (
           rosterQ.isLoading ? (
             <div className="rounded border border-neutral-800 p-8 text-center text-neutral-400">
@@ -199,7 +199,7 @@ function StudioSuiteInner() {
         {tab === "finalscore" ? (
           <>
             {autoIngestQ.data?.ingest ? (
-              <div className="mb-4 rounded border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+              <div className="mb-4 rounded border border-[#1E90FF]/40 bg-[#1E90FF]/10 px-4 py-3 text-sm text-[#00C2FF]">
                 <strong className="font-semibold">GameChanger auto-ingest:</strong>{" "}
                 {teamName} vs {autoIngestQ.data.ingest.opponent} —{" "}
                 {autoIngestQ.data.ingest.teamScore}-{autoIngestQ.data.ingest.opponentScore}{" "}
@@ -228,7 +228,7 @@ function StudioSuiteInner() {
           </>
         ) : null}
 
-        {/* ─── Caption + publish dock ───────────────────────────────── */}
+        {/*  Caption + publish dock  */}
         {lastGraphic && lastGraphic.type === tab ? (
           <CaptionPublishDock
             graphicId={lastGraphic.id}
@@ -265,7 +265,7 @@ function CaptionPublishDock({ graphicId, captions, onPublish, publishing }: Capt
         <h3 className="text-lg font-bold">
           Captions for graphic #{graphicId}
         </h3>
-        <span className="text-xs uppercase tracking-widest text-sky-400">
+        <span className="text-xs uppercase tracking-widest text-[#00C2FF]">
           AI Caption Engine · Llama 3.3-70B
         </span>
       </div>

@@ -41,7 +41,7 @@ export default function AthlynXAITrustSearchBlueprint() {
     <main className="min-h-screen bg-[#030817] text-white">
       <section className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.35),transparent_35%),linear-gradient(135deg,#030817_0%,#061a3d_52%,#020617_100%)]">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="mb-6 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-200">
+          <div className="mb-6 inline-flex rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-[#00C2FF]">
             AthlynXAI Trust Search Blueprint
           </div>
           <h1 className="max-w-4xl text-4xl font-black leading-tight md:text-6xl">
@@ -52,7 +52,7 @@ export default function AthlynXAITrustSearchBlueprint() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/browse-athletes">
-              <a className="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300">
+              <a className="rounded-xl bg-[#1E90FF] px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-[#1E90FF]">
                 Browse Athletes
               </a>
             </Link>
@@ -69,7 +69,7 @@ export default function AthlynXAITrustSearchBlueprint() {
         <div className="grid gap-4 md:grid-cols-4">
           {pillars.map((pillar) => (
             <article key={pillar.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-xl shadow-black/20">
-              <h2 className="text-lg font-black text-cyan-200">{pillar.title}</h2>
+              <h2 className="text-lg font-black text-[#00C2FF]">{pillar.title}</h2>
               <p className="mt-3 text-sm leading-6 text-blue-100/75">{pillar.body}</p>
             </article>
           ))}
@@ -79,7 +79,7 @@ export default function AthlynXAITrustSearchBlueprint() {
       <section className="border-y border-white/10 bg-white/[0.03]">
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">The trust rule</p>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-[#00C2FF]">The trust rule</p>
             <h2 className="mt-3 text-3xl font-black">If AthlynXAI says it, the user should be able to see what supports it.</h2>
             <p className="mt-4 text-base leading-7 text-blue-100/75">
               AI can summarize, but evidence must stay visible. AthlynXAI should show whether a claim came from an athlete, parent, coach, school, public source, film upload, trainer, platform AI, or admin review.
@@ -98,12 +98,12 @@ export default function AthlynXAITrustSearchBlueprint() {
 
       <section className="mx-auto max-w-6xl px-6 py-14">
         <div className="rounded-3xl border border-blue-400/20 bg-gradient-to-br from-[#071b42] to-[#031026] p-6 md:p-8">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">Build path</p>
+          <p className="text-sm font-black uppercase tracking-[0.25em] text-[#00C2FF]">Build path</p>
           <h2 className="mt-3 text-3xl font-black">From blueprint to product without disrupting the store cycle.</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {roadmap.map(([phase, body]) => (
               <div key={phase} className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                <div className="text-sm font-black text-cyan-300">{phase}</div>
+                <div className="text-sm font-black text-[#00C2FF]">{phase}</div>
                 <p className="mt-3 text-sm leading-6 text-blue-100/75">{body}</p>
               </div>
             ))}

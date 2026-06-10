@@ -5,7 +5,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
-// ── Static showcase data — always renders regardless of DB state ──────────────
+//  Static showcase data — always renders regardless of DB state 
 const SHOWCASE_ATHLETES = [
   { name: "Marcus J.", position: "QB", sport: "Football", fromSchool: "Alabama", gpa: "3.8", stats: "3,200 yds, 28 TD, 4 INT", nilValue: "$1.2M", status: "Available" },
   { name: "DeShawn T.", position: "PG", sport: "Basketball", fromSchool: "Duke", gpa: "3.5", stats: "18.4 PPG, 7.2 APG, 3.1 SPG", nilValue: "$850K", status: "Available" },
@@ -16,12 +16,12 @@ const SHOWCASE_ATHLETES = [
 ];
 
 const RECRUITING_SCHOOLS = [
-  { name: "University of Florida", sport: "Football", openings: "2 WR, 1 QB", scholarship: true, nilProgram: "Elite", conference: "SEC", logo: "🐊" },
-  { name: "Ohio State", sport: "Basketball", openings: "1 PG, 1 SG", scholarship: true, nilProgram: "Elite", conference: "Big Ten", logo: "🌰" },
-  { name: "LSU", sport: "Baseball", openings: "2 SP, 1 C", scholarship: true, nilProgram: "Strong", conference: "SEC", logo: "🐯" },
-  { name: "USC", sport: "Football", openings: "3 DB, 1 LB", scholarship: true, nilProgram: "Elite", conference: "Big Ten", logo: "✌️" },
-  { name: "Texas", sport: "Football", openings: "2 RB, 1 TE", scholarship: true, nilProgram: "Elite", conference: "SEC", logo: "🤘" },
-  { name: "Michigan", sport: "Basketball", openings: "2 SF, 1 PF", scholarship: true, nilProgram: "Strong", conference: "Big Ten", logo: "〽️" },
+  { name: "University of Florida", sport: "Football", openings: "2 WR, 1 QB", scholarship: true, nilProgram: "Elite", conference: "SEC", logo: "" },
+  { name: "Ohio State", sport: "Basketball", openings: "1 PG, 1 SG", scholarship: true, nilProgram: "Elite", conference: "Big Ten", logo: "" },
+  { name: "LSU", sport: "Baseball", openings: "2 SP, 1 C", scholarship: true, nilProgram: "Strong", conference: "SEC", logo: "" },
+  { name: "USC", sport: "Football", openings: "3 DB, 1 LB", scholarship: true, nilProgram: "Elite", conference: "Big Ten", logo: "" },
+  { name: "Texas", sport: "Football", openings: "2 RB, 1 TE", scholarship: true, nilProgram: "Elite", conference: "SEC", logo: "" },
+  { name: "Michigan", sport: "Basketball", openings: "2 SF, 1 PF", scholarship: true, nilProgram: "Strong", conference: "Big Ten", logo: "" },
 ];
 
 const SPORTS = ["All", "Football", "Basketball", "Baseball", "Soccer", "Track & Field", "Swimming", "Tennis", "Volleyball", "Wrestling", "Golf", "Lacrosse", "Hockey", "Softball", "Cross Country", "Gymnastics", "Rugby", "Cricket", "Rowing", "Water Polo", "Field Hockey", "Cheerleading"];
@@ -73,7 +73,7 @@ function TransferPortalInner() {
     <PlatformLayout title="Transfer Portal">
       <div className="space-y-4 pb-20 lg:pb-4">
 
-        {/* ── Header ── */}
+        {/*  Header  */}
         <div className="bg-gradient-to-r from-[#1a3a8f] to-[#1a2a4a] border border-blue-700 rounded-xl p-5">
           <div className="flex items-center gap-4">
             <img
@@ -85,7 +85,7 @@ function TransferPortalInner() {
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h2 className="text-2xl font-black text-white">TRANSFER PORTAL</h2>
-                <span className="text-xs bg-green-600 text-white px-2 py-0.5 rounded-full font-bold">LIVE</span>
+                <span className="text-xs bg-[#00C2FF] text-white px-2 py-0.5 rounded-full font-bold">LIVE</span>
                 <span className="text-xs bg-blue-700 text-blue-200 px-2 py-0.5 rounded-full font-bold">POWERED BY AthlynXAI</span>
               </div>
               <p className="text-blue-300 text-sm mt-0.5">Find your next school. Maximize your NIL value.</p>
@@ -105,7 +105,7 @@ function TransferPortalInner() {
           </div>
         </div>
 
-        {/* ── Tabs ── */}
+        {/*  Tabs  */}
         <div className="flex gap-1 bg-[#1a3a8f] border border-blue-900 rounded-xl p-1">
           {["athletes", "schools", "eligibility"].map(tab => (
             <button
@@ -120,7 +120,7 @@ function TransferPortalInner() {
           ))}
         </div>
 
-        {/* ── Athletes Tab ── */}
+        {/*  Athletes Tab  */}
         {activeTab === "athletes" && (
           <div className="space-y-3">
             {/* Sport filter */}
@@ -144,21 +144,21 @@ function TransferPortalInner() {
             {user && !submitted && (
               <button
                 onClick={() => setShowEnterPortal(true)}
-                className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 text-white font-bold py-3 rounded-xl transition-all"
+                className="w-full bg-gradient-to-r from-[#00C2FF] to-blue-600 hover:from-[#00C2FF] hover:to-blue-500 text-white font-bold py-3 rounded-xl transition-all"
               >
                 + Enter Transfer Portal
               </button>
             )}
             {submitted && (
-              <div className="bg-green-900/40 border border-green-600 rounded-xl p-4 text-center">
-                <div className="text-green-400 font-black text-base">✅ YOU'RE IN THE PORTAL</div>
-                <div className="text-green-300 text-sm mt-1">Coaches can now find your profile. Check your messages for recruiting interest.</div>
+              <div className="bg-[#00C2FF]/40 border border-[#00C2FF] rounded-xl p-4 text-center">
+                <div className="text-[#00C2FF] font-black text-base"> YOU'RE IN THE PORTAL</div>
+                <div className="text-[#00C2FF] text-sm mt-1">Coaches can now find your profile. Check your messages for recruiting interest.</div>
               </div>
             )}
 
             {/* Enter Portal Form */}
             {showEnterPortal && (
-              <div className="bg-[#0d1f3c] border border-green-700 rounded-xl p-5 space-y-3">
+              <div className="bg-[#0d1f3c] border border-[#00C2FF] rounded-xl p-5 space-y-3">
                 <h4 className="text-white font-bold">Enter Transfer Portal</h4>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -213,7 +213,7 @@ function TransferPortalInner() {
                 <div className="flex gap-2">
                   <button
                     onClick={handleSubmitPortal}
-                    className="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-2.5 rounded-xl"
+                    className="flex-1 bg-[#00C2FF] hover:bg-[#00C2FF] text-white font-bold py-2.5 rounded-xl"
                   >
                     Submit to Portal
                   </button>
@@ -244,7 +244,7 @@ function TransferPortalInner() {
                       <span className="font-bold text-white">{athlete.name}</span>
                       <span className="text-xs bg-blue-900 text-blue-300 px-2 py-0.5 rounded-full">{athlete.position}</span>
                       <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                        athlete.status === "Available" ? "bg-green-900 text-green-400" : "bg-blue-900 text-sky-400"
+                        athlete.status === "Available" ? "bg-[#00C2FF] text-[#00C2FF]" : "bg-blue-900 text-[#00C2FF]"
                       }`}>
                         {athlete.status}
                       </span>
@@ -253,7 +253,7 @@ function TransferPortalInner() {
                       {athlete.sport} · From: {athlete.fromSchool} · GPA: {athlete.gpa}
                     </div>
                     <div className="text-blue-300 text-xs mt-0.5">{athlete.stats}</div>
-                    <div className="text-green-400 text-xs font-bold mt-0.5">NIL Value: {athlete.nilValue}</div>
+                    <div className="text-[#00C2FF] text-xs font-bold mt-0.5">NIL Value: {athlete.nilValue}</div>
                   </div>
                 </div>
                 <div className="flex gap-2 mt-3">
@@ -269,7 +269,7 @@ function TransferPortalInner() {
           </div>
         )}
 
-        {/* ── Schools Tab ── */}
+        {/*  Schools Tab  */}
         {activeTab === "schools" && (
           <div className="space-y-3">
             {RECRUITING_SCHOOLS.map((school, i) => (
@@ -288,9 +288,9 @@ function TransferPortalInner() {
                     {school.nilProgram} NIL
                   </span>
                 </div>
-                <div className="text-xs text-green-400 mb-3 font-semibold">Open Spots: {school.openings}</div>
+                <div className="text-xs text-[#00C2FF] mb-3 font-semibold">Open Spots: {school.openings}</div>
                 {school.scholarship && (
-                  <div className="text-xs text-sky-400 mb-3">✓ Full Scholarship Available</div>
+                  <div className="text-xs text-[#00C2FF] mb-3"> Full Scholarship Available</div>
                 )}
                 <button className="w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold py-2 rounded-lg transition-colors">
                   Apply to Transfer
@@ -300,7 +300,7 @@ function TransferPortalInner() {
           </div>
         )}
 
-        {/* ── Eligibility Tab ── */}
+        {/*  Eligibility Tab  */}
         {activeTab === "eligibility" && (
           <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-5">
             <h3 className="text-white font-bold mb-1">Transfer Eligibility Checker</h3>
@@ -326,28 +326,28 @@ function TransferPortalInner() {
                 CHECK MY ELIGIBILITY
               </button>
               {eligResult && (
-                <div className="bg-green-900/30 border border-green-700 rounded-xl p-4 text-center">
-                  <div className="text-green-400 font-black text-lg">✅ ELIGIBLE TO TRANSFER</div>
-                  <div className="text-green-300 text-sm mt-1">You qualify for immediate eligibility at your next school.</div>
+                <div className="bg-[#00C2FF]/30 border border-[#00C2FF] rounded-xl p-4 text-center">
+                  <div className="text-[#00C2FF] font-black text-lg"> ELIGIBLE TO TRANSFER</div>
+                  <div className="text-[#00C2FF] text-sm mt-1">You qualify for immediate eligibility at your next school.</div>
                 </div>
               )}
             </div>
 
             {/* NIL Connection Banner */}
             <div className="mt-5 bg-gradient-to-r from-[#1530a0] to-[#0d1f3c] border border-blue-700 rounded-xl p-4 text-center">
-              <div className="text-white font-black mb-1">💰 Maximize Your Transfer Value</div>
+              <div className="text-white font-black mb-1"> Maximize Your Transfer Value</div>
               <div className="text-blue-300 text-xs mb-3">Connect your transfer with the NIL Portal to find the best school + the best deal simultaneously.</div>
-              <a href="/nil-portal" className="inline-block bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
+              <a href="/nil-portal" className="inline-block bg-[#00C2FF] hover:bg-[#00C2FF] text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
                 Open NIL Portal →
               </a>
             </div>
           </div>
         )}
 
-        {/* ── AI Advisor Banner ── */}
+        {/*  AI Advisor Banner  */}
         <div className="bg-gradient-to-r from-[#0d1f3c] to-[#1a3a8f] border border-blue-700 rounded-xl p-4">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-2xl">🤖</span>
+            <span className="text-2xl"></span>
             <div>
               <div className="text-white font-bold text-sm">AthlynXAI Transfer Advisor</div>
               <div className="text-blue-400 text-xs">Get a personalized transfer strategy in seconds</div>

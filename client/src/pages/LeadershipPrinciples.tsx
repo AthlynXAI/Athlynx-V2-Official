@@ -48,7 +48,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders start with the athlete and work backwards. They work vigorously to earn and keep athlete trust. Although leaders pay attention to competitors, they obsess over athletes.",
       dhgVersion: "Every decision starts with: How does this help the athlete succeed?",
       icon: Users,
-      color: "from-cyan-500 to-blue-600"
+      color: "from-[#1E90FF] to-blue-600"
     },
     {
       number: 2,
@@ -64,7 +64,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders expect and require innovation and invention from their teams and always find ways to simplify.",
       dhgVersion: "If it's complicated, we haven't finished building it yet.",
       icon: Lightbulb,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 4,
@@ -72,7 +72,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders are right a lot. They have strong judgment and good instincts. They seek diverse perspectives and work to disconfirm their beliefs.",
       dhgVersion: "Trust the data. Trust the process. But always verify.",
       icon: Target,
-      color: "from-green-500 to-emerald-600"
+      color: "from-[#00C2FF] to-emerald-600"
     },
     {
       number: 5,
@@ -80,7 +80,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders are never done learning and always seek to improve themselves. They are curious about new possibilities and act to explore them.",
       dhgVersion: "Stay hungry. Stay curious. The game is always evolving.",
       icon: BookOpen,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 6,
@@ -88,7 +88,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders raise the performance bar with every hire and promotion. They recognize exceptional talent.",
       dhgVersion: "A players hire A players. B players hire C players.",
       icon: Award,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 7,
@@ -96,7 +96,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders have relentlessly high standards—many people may think these standards are unreasonably high.",
       dhgVersion: "Good enough isn't. Championship standards only.",
       icon: Star,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 8,
@@ -104,7 +104,7 @@ function LeadershipPrinciplesInner() {
       description: "Thinking small is a self-fulfilling prophecy. Leaders create and communicate a bold direction that inspires results.",
       dhgVersion: "We're not building an app. We're building an empire.",
       icon: Rocket,
-      color: "from-indigo-500 to-blue-700"
+      color: "from-[#1E90FF] to-blue-700"
     },
     {
       number: 9,
@@ -112,7 +112,7 @@ function LeadershipPrinciplesInner() {
       description: "Speed matters in business. Many decisions and actions are reversible and do not need extensive study. We value calculated risk taking.",
       dhgVersion: "Move fast. Break things. Fix them faster.",
       icon: Zap,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 10,
@@ -120,7 +120,7 @@ function LeadershipPrinciplesInner() {
       description: "Accomplish more with less. Constraints breed resourcefulness, self-sufficiency and invention.",
       dhgVersion: "Every dollar matters until we're profitable. Then every dollar still matters.",
       icon: DollarSign,
-      color: "from-emerald-500 to-teal-600"
+      color: "from-[#00C2FF] to-teal-600"
     },
     {
       number: 11,
@@ -128,7 +128,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders listen attentively, speak candidly, and treat others respectfully. They are vocally self-critical.",
       dhgVersion: "Trust is earned in drops and lost in buckets.",
       icon: Shield,
-      color: "from-blue-500 to-cyan-600"
+      color: "from-blue-500 to-[#0a1628]"
     },
     {
       number: 12,
@@ -152,7 +152,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders focus on the key inputs for their business and deliver them with the right quality and in a timely fashion.",
       dhgVersion: "All the hard work means nothing without the close. The deal has to get done—that's when we get paid.",
       icon: Trophy,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 15,
@@ -160,7 +160,7 @@ function LeadershipPrinciplesInner() {
       description: "Leaders work every day to create a safer, more productive, higher performing work environment.",
       dhgVersion: "Take care of your people. They'll take care of the business.",
       icon: Heart,
-      color: "from-red-500 to-red-600"
+      color: "from-[#1E90FF] to-[#0a1628]"
     },
     {
       number: 16,
@@ -168,7 +168,7 @@ function LeadershipPrinciplesInner() {
       description: "We are big, we impact the world, and we are far from perfect. We must be humble and thoughtful.",
       dhgVersion: "With great platform comes great responsibility. Use it wisely.",
       icon: Globe,
-      color: "from-teal-500 to-cyan-600"
+      color: "from-[#00C2FF] to-[#0a1628]"
     }
   ];
 
@@ -223,21 +223,21 @@ function LeadershipPrinciplesInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-cyan-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-[#1E90FF]/30">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
-            <span className="text-cyan-400 font-bold text-sm tracking-widest cursor-pointer hover:text-cyan-300 transition-colors">
+            <span className="text-[#00C2FF] font-bold text-sm tracking-widest cursor-pointer hover:text-[#00C2FF] transition-colors">
               THE FUTURE OF ATHLETE SUCCESS
             </span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/team">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer">
                 Team
               </span>
             </Link>
             <Link href="/">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer">
                 AthlynX
               </span>
             </Link>
@@ -248,8 +248,8 @@ function LeadershipPrinciplesInner() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1E90FF]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto text-center relative z-10">
@@ -266,13 +266,13 @@ function LeadershipPrinciplesInner() {
               />
             </motion.div>
             
-            <motion.p variants={fadeInUp} className="text-cyan-400 tracking-[0.3em] text-sm mb-4">
+            <motion.p variants={fadeInUp} className="text-[#00C2FF] tracking-[0.3em] text-sm mb-4">
               DOZIER HOLDINGS GROUP
             </motion.p>
             
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black text-white mb-6">
               LEADERSHIP<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-red-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
                 PRINCIPLES
               </span>
             </motion.h1>
@@ -296,7 +296,7 @@ function LeadershipPrinciplesInner() {
           >
             <motion.div variants={fadeInUp}>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                THE <span className="text-cyan-400">16 PRINCIPLES</span>
+                THE <span className="text-[#00C2FF]">16 PRINCIPLES</span>
               </h2>
               <p className="text-white/60 text-xl max-w-2xl mx-auto">
                 Inspired by the best. Adapted for athletes.
@@ -326,8 +326,8 @@ function LeadershipPrinciplesInner() {
                           <h3 className="text-xl font-bold text-white">{principle.title}</h3>
                         </div>
                         <p className="text-white/60 text-sm mb-3">{principle.description}</p>
-                        <div className="bg-cyan-500/10 rounded-lg px-4 py-2 border-l-2 border-cyan-400">
-                          <p className="text-cyan-400 text-sm font-medium">
+                        <div className="bg-[#1E90FF]/20 rounded-lg px-4 py-2 border-l-2 border-[#1E90FF]">
+                          <p className="text-[#00C2FF] text-sm font-medium">
                             <span className="text-white/50">DHG:</span> {principle.dhgVersion}
                           </p>
                         </div>
@@ -353,7 +353,7 @@ function LeadershipPrinciplesInner() {
           >
             <motion.div variants={fadeInUp}>
               <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                THE <span className="text-red-400">DOZIER PRINCIPLES</span>
+                THE <span className="text-[#1E90FF]">DOZIER PRINCIPLES</span>
               </h2>
               <p className="text-white/60 text-xl max-w-2xl mx-auto">
                 Additional principles from the founder. The mindset that builds empires.
@@ -369,13 +369,13 @@ function LeadershipPrinciplesInner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-red-500/10 to-red-500/10 rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
+                className="bg-gradient-to-br from-[#1E90FF]/10 to-[#0a1628]/10 rounded-2xl p-6 border border-[#1E90FF]/20 hover:border-[#1E90FF]/40 transition-all"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <span className="text-red-400 font-black">{principle.number}</span>
+                  <div className="w-10 h-10 rounded-full bg-[#1E90FF]/20 flex items-center justify-center">
+                    <span className="text-[#1E90FF] font-black">{principle.number}</span>
                   </div>
-                  <principle.icon className="w-6 h-6 text-red-400" />
+                  <principle.icon className="w-6 h-6 text-[#1E90FF]" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{principle.title}</h3>
                 <p className="text-white/70">{principle.description}</p>
@@ -394,11 +394,11 @@ function LeadershipPrinciplesInner() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-3xl p-12 border border-cyan-500/20">
+            <div className="bg-gradient-to-br from-[#1a3a5c]/50 to-[#0d1e36]/50 rounded-3xl p-12 border border-[#1E90FF]/30">
               <div className="text-center mb-10">
-                <Lock className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+                <Lock className="w-16 h-16 text-[#00C2FF] mx-auto mb-4" />
                 <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-                  THE 6 RULES OF <span className="text-cyan-400">POWER</span>
+                  THE 6 RULES OF <span className="text-[#00C2FF]">POWER</span>
                 </h2>
                 <p className="text-white/60 text-xl">
                   Move in silence. Let success make the noise.
@@ -415,8 +415,8 @@ function LeadershipPrinciplesInner() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center gap-4 bg-black/30 rounded-xl px-6 py-4"
                   >
-                    <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-cyan-400 font-bold">{index + 1}</span>
+                    <div className="w-8 h-8 rounded-full bg-[#1E90FF]/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#00C2FF] font-bold">{index + 1}</span>
                     </div>
                     <p className="text-white/80">{rule}</p>
                   </motion.div>
@@ -428,7 +428,7 @@ function LeadershipPrinciplesInner() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-r from-cyan-500/10 to-red-500/10">
+      <section className="py-20 px-4 bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/10">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -436,19 +436,19 @@ function LeadershipPrinciplesInner() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              JOIN THE <span className="text-cyan-400">MOVEMENT</span>
+              JOIN THE <span className="text-[#00C2FF]">MOVEMENT</span>
             </h2>
             <p className="text-white/60 text-xl max-w-2xl mx-auto mb-8">
               These principles guide everything we do. If they resonate with you, you might be a perfect fit for our team.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/team">
-                <Button className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white px-10 py-6 text-lg rounded-full">
+                <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white px-10 py-6 text-lg rounded-full">
                   Meet the Team
                 </Button>
               </Link>
               <Link href="/careers">
-                <Button variant="outline" className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 px-10 py-6 text-lg rounded-full">
+                <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20 px-10 py-6 text-lg rounded-full">
                   View Careers
                 </Button>
               </Link>

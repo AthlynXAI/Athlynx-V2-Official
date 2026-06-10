@@ -73,7 +73,7 @@ function CommunitySoonInner() {
       </div>
 
       {/* Icon */}
-      <div style={{ fontSize: "64px", marginBottom: "20px", lineHeight: 1 }}>🏟️</div>
+      <div style={{ fontSize: "64px", marginBottom: "20px", lineHeight: 1 }}></div>
 
       {/* Title */}
       <h1 style={{
@@ -115,10 +115,10 @@ function CommunitySoonInner() {
         marginBottom: "40px",
       }}>
         {[
-          { icon: "💬", title: "Athlete Forums", desc: "Discuss recruiting, training, and NIL with athletes worldwide" },
-          { icon: "🏆", title: "Leaderboards", desc: "Compete for top rankings in your sport and position" },
-          { icon: "📅", title: "Event Hub", desc: "Showcases, combines, and signing day events near you" },
-          { icon: "🤝", title: "Mentor Network", desc: "Connect with pro athletes and coaches who've been there" },
+          { icon: "", title: "Athlete Forums", desc: "Discuss recruiting, training, and NIL with athletes worldwide" },
+          { icon: "", title: "Leaderboards", desc: "Compete for top rankings in your sport and position" },
+          { icon: "", title: "Event Hub", desc: "Showcases, combines, and signing day events near you" },
+          { icon: "", title: "Mentor Network", desc: "Connect with pro athletes and coaches who've been there" },
         ].map((f) => (
           <div key={f.title} style={{
             background: "rgba(255,255,255,0.04)",
@@ -186,7 +186,7 @@ function CommunitySoonInner() {
           fontWeight: "700",
           fontSize: "15px",
         }}>
-          ✅ You're on the list! We'll notify you when Community launches.
+           You're on the list! We'll notify you when Community launches.
         </div>
       )}
 

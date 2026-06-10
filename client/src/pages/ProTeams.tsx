@@ -14,72 +14,72 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 
 const LEAGUES = [
-  { name: "NFL", icon: "🏈", teams: 32, sport: "Football" },
-  { name: "NBA", icon: "🏀", teams: 30, sport: "Basketball" },
-  { name: "MLB", icon: "⚾", teams: 30, sport: "Baseball" },
-  { name: "NHL", icon: "🏒", teams: 32, sport: "Hockey" },
-  { name: "MLS", icon: "⚽", teams: 29, sport: "Soccer" },
-  { name: "WNBA", icon: "🏀", teams: 13, sport: "Basketball" },
-  { name: "Pro Soccer", icon: "⚽", teams: 50, sport: "Soccer" },
-  { name: "Pro Baseball", icon: "⚾", teams: 30, sport: "Baseball" },
+  { name: "NFL", icon: "", teams: 32, sport: "Football" },
+  { name: "NBA", icon: "", teams: 30, sport: "Basketball" },
+  { name: "MLB", icon: "", teams: 30, sport: "Baseball" },
+  { name: "NHL", icon: "", teams: 32, sport: "Hockey" },
+  { name: "MLS", icon: "", teams: 29, sport: "Soccer" },
+  { name: "WNBA", icon: "", teams: 13, sport: "Basketball" },
+  { name: "Pro Soccer", icon: "", teams: 50, sport: "Soccer" },
+  { name: "Pro Baseball", icon: "", teams: 30, sport: "Baseball" },
 ];
 
 const FEATURES = [
   {
-    icon: "👥",
+    icon: "",
     title: "Roster Management",
     desc: "Full 53-man roster tracking with position depth charts, injury reports, and practice squad management. Real-time updates synced across coaching staff.",
     badge: "CORE",
     color: "border-blue-500/40 bg-blue-500/5",
   },
   {
-    icon: "📋",
+    icon: "",
     title: "Contract Tracking",
     desc: "Track every contract, bonus, incentive clause, and cap hit. Automatic alerts for upcoming renewals, voidable years, and dead cap calculations.",
     badge: "FINANCE",
-    color: "border-green-500/40 bg-green-500/5",
+    color: "border-[#00C2FF]/40 bg-[#00C2FF]/5",
   },
   {
-    icon: "🔭",
+    icon: "",
     title: "AI Scouting Intelligence",
     desc: "AI-powered scouting reports on college and pro prospects. Combine data, game film analysis, and predictive performance modeling.",
     badge: "AI",
-    color: "border-cyan-500/40 bg-cyan-500/5",
+    color: "border-[#1E90FF]/30 bg-[#1E90FF]/20",
   },
   {
-    icon: "🏋️",
+    icon: "",
     title: "Training & Performance",
     desc: "Athlete training logs, performance metrics, recovery tracking, and AI-generated workout plans tailored to each player's position and goals.",
     badge: "TRAINING",
-    color: "border-purple-500/40 bg-purple-500/5",
+    color: "border-[#1E90FF]/40 bg-[#1E90FF]/5",
   },
   {
-    icon: "💼",
+    icon: "",
     title: "Brand Deals & NIL",
     desc: "Manage team-wide brand partnerships, player NIL deals, and sponsorship activations. Full deal pipeline from outreach to signed contract.",
     badge: "NIL",
     color: "border-blue-500/40 bg-blue-500/5",
   },
   {
-    icon: "📊",
+    icon: "",
     title: "Analytics Dashboard",
     desc: "Team-wide performance analytics, win probability models, opponent tendencies, and custom reports for front office and coaching staff.",
     badge: "DATA",
-    color: "border-red-500/40 bg-red-500/5",
+    color: "border-[#1E90FF]/40 bg-[#1E90FF]/5",
   },
   {
-    icon: "📱",
+    icon: "",
     title: "Player Communication Hub",
     desc: "Secure team messaging, broadcast announcements, schedule management, and meeting coordination — all in one encrypted platform.",
     badge: "COMMS",
-    color: "border-indigo-500/40 bg-indigo-500/5",
+    color: "border-[#1E90FF]/40 bg-[#1E90FF]/5",
   },
   {
-    icon: "🤖",
+    icon: "",
     title: "AI Front Office Assistant",
     desc: "Ask the AI anything — trade value analysis, salary cap scenarios, draft pick projections, and free agent market comparisons.",
     badge: "AI",
-    color: "border-cyan-500/40 bg-cyan-500/5",
+    color: "border-[#1E90FF]/30 bg-[#1E90FF]/20",
   },
 ];
 
@@ -118,9 +118,9 @@ const PRICING_TIERS: Array<{
       "Dedicated account manager",
       "API access",
     ],
-    color: "border-red-400/60",
+    color: "border-[#1E90FF]/60",
     badge: "MOST POPULAR",
-    badgeColor: "bg-red-500",
+    badgeColor: "bg-[#1E90FF]",
     highlight: true,
   },
   {
@@ -168,30 +168,30 @@ function ProTeamsInner() {
     <PlatformLayout title="Pro Teams">
       <div className="min-h-screen bg-[#040c1a] text-white">
 
-        {/* ── HERO ── */}
+        {/*  HERO  */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-[#040c1a] to-blue-950/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1E90FF]/30 via-[#040c1a] to-blue-950/30 pointer-events-none" />
           <div className="max-w-6xl mx-auto px-4 py-20 relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-400/30 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              <span className="text-red-400 text-xs font-black tracking-widest uppercase">Pro Teams — Now Available</span>
+            <div className="inline-flex items-center gap-2 bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-full px-4 py-1.5 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#1E90FF] animate-pulse" />
+              <span className="text-[#1E90FF] text-xs font-black tracking-widest uppercase">Pro Teams — Now Available</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4 leading-tight">
               The Platform Built for<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-400">
                 Professional Sports
               </span>
             </h1>
             <p className="text-xl text-white/60 max-w-3xl mx-auto mb-4">
               From the practice field to the front office — AthlynX gives pro teams the AI-powered tools to manage rosters, track contracts, scout talent, and close brand deals.
             </p>
-            <p className="text-red-400 font-bold text-lg mb-10">
+            <p className="text-[#1E90FF] font-bold text-lg mb-10">
               Youth → High School → College → Pro → Retired — Every Level, Every Sport
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:contact@athlynx.ai?subject=Pro Teams Access Request"
-                className="bg-red-500 hover:bg-red-400 text-white font-black px-8 py-4 rounded-2xl text-lg transition-all shadow-lg shadow-red-500/30"
+                className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-black px-8 py-4 rounded-2xl text-lg transition-all shadow-lg shadow-red-500/30"
               >
                 Request Pro Teams Access
               </a>
@@ -204,12 +204,12 @@ function ProTeamsInner() {
           </div>
         </section>
 
-        {/* ── STATS ── */}
+        {/*  STATS  */}
         <section className="max-w-6xl mx-auto px-4 py-10">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {STATS.map(s => (
               <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center">
-                <div className="text-3xl font-black text-red-400">{s.value}</div>
+                <div className="text-3xl font-black text-[#1E90FF]">{s.value}</div>
                 <div className="text-white font-bold text-sm mt-1">{s.label}</div>
                 <div className="text-white/40 text-xs mt-0.5">{s.sub}</div>
               </div>
@@ -217,10 +217,10 @@ function ProTeamsInner() {
           </div>
         </section>
 
-        {/* ── LEAGUES ── */}
+        {/*  LEAGUES  */}
         <section className="max-w-6xl mx-auto px-4 py-10">
           <div className="text-center mb-8">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Supported Leagues</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Supported Leagues</p>
             <h2 className="text-3xl font-black text-white">Every Major League. Every Sport.</h2>
             <p className="text-white/50 mt-2">AthlynX Pro Teams supports all major professional sports organizations nationwide.</p>
           </div>
@@ -231,7 +231,7 @@ function ProTeamsInner() {
                 onClick={() => setActiveLeague(activeLeague === l.name ? null : l.name)}
                 className={`rounded-2xl p-4 text-center border transition-all ${
                   activeLeague === l.name
-                    ? "bg-red-500/20 border-red-400/60"
+                    ? "bg-[#1E90FF]/20 border-[#1E90FF]/60"
                     : "bg-white/5 border-white/10 hover:border-white/30"
                 }`}
               >
@@ -243,10 +243,10 @@ function ProTeamsInner() {
           </div>
         </section>
 
-        {/* ── FEATURES ── */}
+        {/*  FEATURES  */}
         <section className="max-w-6xl mx-auto px-4 py-10">
           <div className="text-center mb-10">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Platform Features</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Platform Features</p>
             <h2 className="text-4xl font-black text-white">Everything a Pro Organization Needs</h2>
             <p className="text-white/50 mt-2 max-w-2xl mx-auto">
               One platform. Every tool your front office, coaching staff, and players need — from day one of training camp to the championship.
@@ -266,26 +266,26 @@ function ProTeamsInner() {
           </div>
         </section>
 
-        {/* ── PRICING ── */}
+        {/*  PRICING  */}
         <section className="max-w-6xl mx-auto px-4 py-10">
           <div className="text-center mb-10">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Pro Teams Pricing</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Pro Teams Pricing</p>
             <h2 className="text-4xl font-black text-white">Built for Organizations, Priced for ROI</h2>
             <p className="text-white/50 mt-2">All plans include a 30-day onboarding period with dedicated support.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {PRICING_TIERS.map(t => (
-              <div key={t.name} className={`rounded-3xl border-2 p-8 ${t.color} ${t.highlight ? "bg-red-400/5 scale-105 shadow-xl shadow-red-500/20" : "bg-white/5"}`}>
+              <div key={t.name} className={`rounded-3xl border-2 p-8 ${t.color} ${t.highlight ? "bg-[#1E90FF]/5 scale-105 shadow-xl shadow-red-500/20" : "bg-white/5"}`}>
                 <div className="flex items-center justify-between mb-4">
                   <span className={`text-[10px] font-black px-3 py-1 rounded-full text-white ${t.badgeColor}`}>{t.badge}</span>
                 </div>
                 <h3 className="text-xl font-black text-white mb-1">{t.name}</h3>
-                <div className="text-3xl font-black text-red-400 mb-0.5">{t.price}</div>
+                <div className="text-3xl font-black text-[#1E90FF] mb-0.5">{t.price}</div>
                 <div className="text-white/40 text-xs mb-5">{t.priceNote}</div>
                 <ul className="space-y-2 mb-6">
                   {t.features.map(f => (
                     <li key={f} className="flex items-start gap-2 text-sm text-white/70">
-                      <span className="text-green-400 mt-0.5 shrink-0">✓</span>
+                      <span className="text-[#00C2FF] mt-0.5 shrink-0"></span>
                       {f}
                     </li>
                   ))}
@@ -296,7 +296,7 @@ function ProTeamsInner() {
                     disabled={checkoutLoading === t.stripeId}
                     className={`block w-full text-center py-3 rounded-xl font-black text-sm transition-all disabled:opacity-60 ${
                       t.highlight
-                        ? "bg-red-500 hover:bg-red-400 text-white"
+                        ? "bg-[#1E90FF] hover:bg-[#1E90FF] text-white"
                         : "bg-white/10 hover:bg-white/20 border border-white/20 text-white"
                     }`}
                   >
@@ -315,21 +315,21 @@ function ProTeamsInner() {
           </div>
         </section>
 
-        {/* ── CTA ── */}
+        {/*  CTA  */}
         <section className="max-w-6xl mx-auto px-4 py-10 pb-20">
-          <div className="bg-gradient-to-r from-red-500/20 via-red-400/10 to-red-500/20 border-2 border-red-400/50 rounded-3xl p-12 text-center">
-            <div className="text-5xl mb-4">🏆</div>
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 via-[#0a1628] to-black border-2 border-[#1E90FF]/50 rounded-3xl p-12 text-center">
+            <div className="text-5xl mb-4 hidden"></div>
             <h2 className="text-4xl font-black text-white mb-3">Ready to Bring AthlynX to Your Organization?</h2>
             <p className="text-white/60 text-lg mb-2">
               Join the platform that covers every level — Youth, High School, College, Pro, and Retired.
             </p>
-            <p className="text-red-400 font-bold mb-8">
+            <p className="text-[#1E90FF] font-bold mb-8">
               One platform. Every athlete. Every sport. Every level.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:contact@athlynx.ai?subject=Pro Teams Demo Request"
-                className="bg-red-500 hover:bg-red-400 text-white font-black px-8 py-4 rounded-2xl text-lg transition-all shadow-lg shadow-red-500/30"
+                className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-black px-8 py-4 rounded-2xl text-lg transition-all shadow-lg shadow-red-500/30"
               >
                 Schedule a Demo
               </a>
@@ -337,7 +337,7 @@ function ProTeamsInner() {
                 href="/book"
                 className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all"
               >
-                📞 Book a call
+                 Book a call
               </a>
             </div>
             <p className="text-white/30 text-xs mt-6">

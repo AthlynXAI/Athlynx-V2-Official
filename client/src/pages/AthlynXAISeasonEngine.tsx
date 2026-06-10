@@ -88,10 +88,10 @@ const omahaTimeline = [
 ];
 
 const mississippiChampionshipWatch = [
-  { label: "Mississippi State Baseball", detail: "No. 14 national seed · Starkville Regional host · Dudy Noble Field", tone: "border-red-300/30 bg-red-950/25" },
+  { label: "Mississippi State Baseball", detail: "No. 14 national seed · Starkville Regional host · Dudy Noble Field", tone: "border-[#1E90FF]/30 bg-[#1E90FF]/25" },
   { label: "Southern Miss Baseball", detail: "Hattiesburg Regional host · Pete Taylor Park · Base Burg energy", tone: "border-blue-300/30 bg-blue-400/10" },
   { label: "Ole Miss Baseball", detail: "Lincoln Regional · Hotty Toddy · Magnolia State in the field", tone: "border-blue-300/30 bg-blue-400/10" },
-  { label: "Mississippi State Softball", detail: "Women’s College World Series · first trip to Oklahoma City", tone: "border-pink-300/30 bg-pink-400/10" },
+  { label: "Mississippi State Softball", detail: "Women’s College World Series · first trip to Oklahoma City", tone: "border-[#1E90FF]/30 bg-[#1E90FF]/10" },
 ];
 
 const fanCallStats = [
@@ -143,10 +143,10 @@ const wcwsBracket = [
 export default function AthlynXAISeasonEngine() {
   return (
     <main className="min-h-screen bg-[#030814] text-white">
-      <section className="relative overflow-hidden border-b border-cyan-400/20 bg-gradient-to-br from-[#020617] via-[#061b3a] to-[#071a52] px-4 py-16">
+      <section className="relative overflow-hidden border-b border-[#1E90FF]/30 bg-gradient-to-br from-[#020617] via-[#061b3a] to-[#071a52] px-4 py-16">
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 10%, rgba(0,194,255,0.35), transparent 28%), radial-gradient(circle at 80% 0%, rgba(37,99,235,0.3), transparent 32%)" }} />
         <div className="relative mx-auto max-w-7xl">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-200">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-[#00C2FF]">
             <Sparkles className="h-4 w-4" /> AthlynXAI OS · Season Engine · CRM
           </div>
           <h1 className="max-w-5xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
@@ -156,7 +156,7 @@ export default function AthlynXAISeasonEngine() {
             This is the operating layer for true user growth, player development, recruiting intelligence, NIL readiness, transfer paths, pro-team interest, and championship-season activation across men’s and women’s sports. Baseball and softball are the immediate acquisition window: Road to Omaha, Road to OKC, Diamond Grind, public feed moments, NIL Messenger sharing, and free school-pride fan calls.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/signup" className="rounded-2xl bg-cyan-400 px-6 py-3 font-black text-[#03122d] shadow-lg shadow-cyan-500/20 transition hover:bg-white">
+            <Link href="/signup" className="rounded-2xl bg-[#1E90FF] px-6 py-3 font-black text-[#03122d] shadow-lg shadow-cyan-500/20 transition hover:bg-white">
               Claim an athlete profile
             </Link>
             <Link href="/crm" className="rounded-2xl border border-white/20 bg-white/10 px-6 py-3 font-black text-white transition hover:bg-white/20">
@@ -170,10 +170,10 @@ export default function AthlynXAISeasonEngine() {
       </section>
 
 
-      <section className="border-y border-cyan-400/20 bg-[#020713] px-4 py-12">
+      <section className="border-y border-[#1E90FF]/30 bg-[#020713] px-4 py-12">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-cyan-200">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">
               <TrendingUp className="h-4 w-4" /> Free fan calls · school pride only
             </div>
             <h2 className="mt-5 text-3xl font-black leading-tight md:text-5xl">Let fans make the call, then show the crowd.</h2>
@@ -189,11 +189,11 @@ export default function AthlynXAISeasonEngine() {
               ))}
             </div>
           </div>
-          <div className="rounded-3xl border border-cyan-300/20 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
+          <div className="rounded-3xl border border-[#1E90FF]/30 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
             <div className="mb-5 flex items-center gap-3">
-              <BarChart3 className="h-8 w-8 text-cyan-300" />
+              <BarChart3 className="h-8 w-8 text-[#00C2FF]" />
               <div>
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-cyan-300">Fan-call analytics</div>
+                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#00C2FF]">Fan-call analytics</div>
                 <h3 className="text-2xl font-black">What the chart tracks</h3>
               </div>
             </div>
@@ -203,12 +203,12 @@ export default function AthlynXAISeasonEngine() {
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <div>
                       <p className="font-black text-white">{stat.label}</p>
-                      <p className="text-xs font-black uppercase tracking-[0.16em] text-cyan-200">{stat.value}</p>
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-[#00C2FF]">{stat.value}</p>
                     </div>
                     <span className="text-lg font-black text-white">{stat.pct}%</span>
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" style={{ width: `${stat.pct}%` }} />
+                    <div className="h-full rounded-full bg-gradient-to-r from-[#1E90FF] to-blue-500" style={{ width: `${stat.pct}%` }} />
                   </div>
                   <p className="mt-2 text-xs leading-relaxed text-blue-200">{stat.detail}</p>
                 </div>
@@ -219,22 +219,22 @@ export default function AthlynXAISeasonEngine() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 lg:grid-cols-3">
-        <div className="rounded-3xl border border-cyan-400/20 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
-          <BarChart3 className="mb-4 h-8 w-8 text-cyan-300" />
+        <div className="rounded-3xl border border-[#1E90FF]/30 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
+          <BarChart3 className="mb-4 h-8 w-8 text-[#00C2FF]" />
           <h2 className="text-2xl font-black">True growth source of truth</h2>
           <p className="mt-3 text-sm leading-relaxed text-blue-200">
             The daily report must stop mixing entity types. AthlynXAI needs separate counts for accounts, athlete profiles, public profiles, profile claims, onboarding completion, activation, and returning athletes.
           </p>
         </div>
         <div className="rounded-3xl border border-blue-300/20 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
-          <Crown className="mb-4 h-8 w-8 text-sky-300" />
+          <Crown className="mb-4 h-8 w-8 text-[#00C2FF]" />
           <h2 className="text-2xl font-black">Elite and five-tool classification</h2>
           <p className="mt-3 text-sm leading-relaxed text-blue-200">
             Each sport gets 0–5 star classification, plus an elite category for world-class, pro-ready, five-tool, and generational athletes who should be routed to NIL, endorsement, scouting, and pro workflows.
           </p>
         </div>
-        <div className="rounded-3xl border border-emerald-300/20 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
-          <HeartPulse className="mb-4 h-8 w-8 text-emerald-300" />
+        <div className="rounded-3xl border border-[#1E90FF]/20 bg-[#07142c] p-6 shadow-2xl shadow-blue-950/40">
+          <HeartPulse className="mb-4 h-8 w-8 text-[#00C2FF]" />
           <h2 className="text-2xl font-black">Mental and physical health</h2>
           <p className="mt-3 text-sm leading-relaxed text-blue-200">
             Athlete development includes the body and the mind. Health-related signals must be privacy-aware, clearly labeled, and protected from public sharing unless the athlete and proper permissions allow it.
@@ -246,7 +246,7 @@ export default function AthlynXAISeasonEngine() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <div className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">All sports · men’s and women’s seasons</div>
+              <div className="text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">All sports · men’s and women’s seasons</div>
               <h2 className="mt-2 text-3xl font-black md:text-4xl">Seasonal championship hubs and app-marketing windows</h2>
             </div>
             <p className="max-w-2xl text-sm leading-relaxed text-blue-200">
@@ -255,17 +255,17 @@ export default function AthlynXAISeasonEngine() {
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {sportSeasons.map((item) => (
-              <Link key={`${item.sport}-${item.gender}`} href={item.route} className="group rounded-3xl border border-white/10 bg-[#0a1a3c] p-5 transition hover:-translate-y-1 hover:border-cyan-300/50 hover:bg-[#0d2455]">
+              <Link key={`${item.sport}-${item.gender}`} href={item.route} className="group rounded-3xl border border-white/10 bg-[#0a1a3c] p-5 transition hover:-translate-y-1 hover:border-[#1E90FF]/30 hover:bg-[#0d2455]">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">{item.gender} · {item.season}</div>
+                    <div className="text-xs font-black uppercase tracking-[0.2em] text-[#00C2FF]">{item.gender} · {item.season}</div>
                     <h3 className="mt-2 text-xl font-black text-white">{item.sport}</h3>
                   </div>
-                  <Trophy className="h-6 w-6 text-sky-300" />
+                  <Trophy className="h-6 w-6 text-[#00C2FF]" />
                 </div>
                 <p className="mt-4 text-sm font-semibold text-blue-100">{item.championship}</p>
                 <p className="mt-2 text-sm text-blue-300">{item.hub}</p>
-                <div className="mt-4 text-xs font-black uppercase tracking-[0.2em] text-white/60 group-hover:text-cyan-200">Open hub →</div>
+                <div className="mt-4 text-xs font-black uppercase tracking-[0.2em] text-white/60 group-hover:text-[#00C2FF]">Open hub →</div>
               </Link>
             ))}
           </div>
@@ -276,9 +276,9 @@ export default function AthlynXAISeasonEngine() {
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-3xl border border-blue-700/50 bg-[#07142c] p-6">
             <div className="mb-6 flex items-center gap-3">
-              <Activity className="h-8 w-8 text-cyan-300" />
+              <Activity className="h-8 w-8 text-[#00C2FF]" />
               <div>
-                <div className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">Athletic journey CRM</div>
+                <div className="text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">Athletic journey CRM</div>
                 <h2 className="text-3xl font-black">From youth to world-class elite</h2>
               </div>
             </div>
@@ -287,7 +287,7 @@ export default function AthlynXAISeasonEngine() {
                 <div key={stage.stage} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <h3 className="text-lg font-black text-white">{stage.stage}</h3>
-                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-cyan-200">{stage.action}</span>
+                    <span className="rounded-full bg-[#1E90FF]/20 px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#00C2FF]">{stage.action}</span>
                   </div>
                   <p className="mt-3 text-sm text-blue-200"><span className="font-bold text-white">Signal:</span> {stage.signal}</p>
                   <p className="mt-1 text-sm text-blue-200"><span className="font-bold text-white">Data:</span> {stage.data}</p>
@@ -298,22 +298,22 @@ export default function AthlynXAISeasonEngine() {
 
           <div className="rounded-3xl border border-blue-300/30 bg-gradient-to-br from-[#18110a] to-[#07142c] p-6">
             <div className="mb-6 flex items-center gap-3">
-              <Star className="h-8 w-8 text-sky-300" />
+              <Star className="h-8 w-8 text-[#00C2FF]" />
               <div>
-                <div className="text-xs font-black uppercase tracking-[0.25em] text-sky-200">Profile money layer</div>
+                <div className="text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">Profile money layer</div>
                 <h2 className="text-3xl font-black">Recruiting, NIL, transfer, and pro value</h2>
               </div>
             </div>
             <div className="grid gap-3">
               {profileLayers.map((layer) => (
                 <div key={layer} className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3 text-sm text-blue-100">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-300" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00C2FF]" />
                   <span>{layer}</span>
                 </div>
               ))}
             </div>
             <div className="mt-6 rounded-2xl border border-white/10 bg-black/30 p-4">
-              <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.2em] text-cyan-200"><MessageSquare className="h-4 w-4" /> verified communication</div>
+              <div className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.2em] text-[#00C2FF]"><MessageSquare className="h-4 w-4" /> verified communication</div>
               <p className="mt-2 text-sm leading-relaxed text-blue-200">
                 College coaches, scouts, agents, lawyers, financial advisors, brands, and approved pro/team contacts should communicate through verified AthlynXAI lanes so the athlete, family, and organization keep a clean record.
               </p>
@@ -322,18 +322,18 @@ export default function AthlynXAISeasonEngine() {
         </div>
       </section>
 
-      <section className="border-y border-cyan-400/10 bg-[#07142c] px-4 py-12">
+      <section className="border-y border-[#1E90FF]/30 bg-[#07142c] px-4 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex items-center gap-3">
-            <Target className="h-8 w-8 text-cyan-300" />
+            <Target className="h-8 w-8 text-[#00C2FF]" />
             <div>
-              <div className="text-xs font-black uppercase tracking-[0.25em] text-cyan-300">Growth recovery</div>
+              <div className="text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">Growth recovery</div>
               <h2 className="text-3xl font-black">Stop guessing. Count the funnel correctly.</h2>
             </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-blue-700/60">
             <table className="w-full border-collapse text-left text-sm">
-              <thead className="bg-blue-950/80 text-xs uppercase tracking-[0.18em] text-cyan-200">
+              <thead className="bg-blue-950/80 text-xs uppercase tracking-[0.18em] text-[#00C2FF]">
                 <tr>
                   <th className="p-4">Metric</th>
                   <th className="p-4">Current finding</th>
@@ -358,7 +358,7 @@ export default function AthlynXAISeasonEngine() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-blue-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-sky-200">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-blue-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">
                 <Trophy className="h-4 w-4" /> Diamond Grind · Road to Omaha
               </div>
               <h2 className="mt-4 max-w-4xl text-3xl font-black md:text-5xl">Regionals. Super Regionals. Omaha. OKC. Free fan calls. Championship data every year.</h2>
@@ -372,11 +372,11 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
             {omahaTimeline.map((item, index) => (
               <div key={item.phase} className="rounded-3xl border border-white/10 bg-black/25 p-5 shadow-xl shadow-black/20">
                 <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="rounded-full bg-cyan-400/15 px-3 py-1 text-xs font-black text-cyan-200">0{index + 1}</span>
-                  <Clock className="h-5 w-5 text-sky-300" />
+                  <span className="rounded-full bg-[#1E90FF]/20 px-3 py-1 text-xs font-black text-[#00C2FF]">0{index + 1}</span>
+                  <Clock className="h-5 w-5 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-xl font-black text-white">{item.phase}</h3>
-                <div className="mt-2 text-xs font-black uppercase tracking-[0.18em] text-sky-200">{item.timing}</div>
+                <div className="mt-2 text-xs font-black uppercase tracking-[0.18em] text-[#00C2FF]">{item.timing}</div>
                 <p className="mt-3 text-sm leading-relaxed text-blue-200">{item.detail}</p>
               </div>
             ))}
@@ -386,10 +386,10 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
             <div className="rounded-3xl border border-blue-300/20 bg-black/25 p-5">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div>
-                  <div className="text-xs font-black uppercase tracking-[0.22em] text-sky-200">Mississippi championship watch</div>
+                  <div className="text-xs font-black uppercase tracking-[0.22em] text-[#00C2FF]">Mississippi championship watch</div>
                   <h3 className="mt-2 text-2xl font-black">The Magnolia State is all over the hunt</h3>
                 </div>
-                <span className="rounded-full bg-blue-300/10 px-3 py-1 text-[11px] font-black uppercase text-sky-100">Respect all · pull for all</span>
+                <span className="rounded-full bg-blue-300/10 px-3 py-1 text-[11px] font-black uppercase text-[#00C2FF]">Respect all · pull for all</span>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 {mississippiChampionshipWatch.map((team) => (
@@ -400,15 +400,15 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl border border-cyan-300/20 bg-black/25 p-5">
-              <div className="text-xs font-black uppercase tracking-[0.22em] text-cyan-300">WCWS Road to OKC</div>
+            <div className="rounded-3xl border border-[#1E90FF]/30 bg-black/25 p-5">
+              <div className="text-xs font-black uppercase tracking-[0.22em] text-[#00C2FF]">WCWS Road to OKC</div>
               <h3 className="mt-2 text-2xl font-black">Women’s softball belongs at the top.</h3>
               <div className="mt-4 space-y-3">
                 {wcwsBracket.map((item) => (
                   <div key={item.game} className="rounded-2xl border border-white/10 bg-[#0a1a3c] p-3">
                     <div className="flex items-center justify-between gap-3">
                       <h4 className="font-black text-white">{item.game}</h4>
-                      <span className="text-[10px] font-black uppercase tracking-[0.14em] text-pink-200">WCWS</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.14em] text-[#1E90FF]">WCWS</span>
                     </div>
                     <p className="mt-2 text-sm font-bold text-blue-100">{item.matchup}</p>
                     <p className="mt-1 text-xs text-blue-300">{item.time}</p>
@@ -422,19 +422,19 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {dataSourceModel.map((item) => (
               <div key={item.label} className="rounded-2xl border border-white/10 bg-[#081a3a] p-4">
-                <div className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">{item.label} data lane</div>
+                <div className="text-xs font-black uppercase tracking-[0.18em] text-[#00C2FF]">{item.label} data lane</div>
                 <p className="mt-2 text-sm leading-relaxed text-blue-200">{item.detail}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 rounded-3xl border border-cyan-300/20 bg-[#061126] p-5">
+          <div className="mt-10 rounded-3xl border border-[#1E90FF]/30 bg-[#061126] p-5">
             <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <div>
-                <div className="text-xs font-black uppercase tracking-[0.22em] text-cyan-300">Field of 64 bracket board</div>
+                <div className="text-xs font-black uppercase tracking-[0.22em] text-[#00C2FF]">Field of 64 bracket board</div>
                 <h3 className="mt-2 text-2xl font-black">16 Regionals → 8 Super Regionals → 8-team College World Series in Omaha → championship series</h3>
               </div>
-              <span className="rounded-full border border-blue-300/40 bg-blue-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-sky-100">Official links · original cards</span>
+              <span className="rounded-full border border-blue-300/40 bg-blue-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#00C2FF]">Official links · original cards</span>
             </div>
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
               {bracketBlueprint.map((slot) => (
@@ -451,22 +451,22 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 text-xs font-black uppercase tracking-[0.14em] text-cyan-200">{slot.path}</div>
+                  <div className="mt-3 text-xs font-black uppercase tracking-[0.14em] text-[#00C2FF]">{slot.path}</div>
                 </div>
               ))}
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <div className="rounded-2xl border border-emerald-300/20 bg-emerald-400/10 p-4">
-                <h4 className="font-black text-emerald-100">Selection committee watch</h4>
-                <p className="mt-2 text-sm text-emerald-50/80">Track national seeds, 16 host sites, bubble teams, first in, first out, automatic bids, and at-large pressure.</p>
+              <div className="rounded-2xl border border-[#1E90FF]/20 bg-[#1E90FF]/10 p-4">
+                <h4 className="font-black text-[#00C2FF]">Selection committee watch</h4>
+                <p className="mt-2 text-sm text-[#00C2FF]/80">Track national seeds, 16 host sites, bubble teams, first in, first out, automatic bids, and at-large pressure.</p>
               </div>
-              <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/10 p-4">
-                <h4 className="font-black text-cyan-100">Player journey tie-in</h4>
-                <p className="mt-2 text-sm text-cyan-50/80">Every athlete can connect schedule, awards, stats, school interest, pro interest, and Road to Omaha content to their profile.</p>
+              <div className="rounded-2xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 p-4">
+                <h4 className="font-black text-[#00C2FF]">Player journey tie-in</h4>
+                <p className="mt-2 text-sm text-[#00C2FF]/80">Every athlete can connect schedule, awards, stats, school interest, pro interest, and Road to Omaha content to their profile.</p>
               </div>
               <div className="rounded-2xl border border-blue-300/20 bg-blue-400/10 p-4">
-                <h4 className="font-black text-sky-100">Feed and share cards</h4>
-                <p className="mt-2 text-sm text-sky-50/80">Regional wins, Super Regional clinches, Omaha appearances, honors, and highlight moments become cross-share assets.</p>
+                <h4 className="font-black text-[#00C2FF]">Feed and share cards</h4>
+                <p className="mt-2 text-sm text-[#00C2FF]/80">Regional wins, Super Regional clinches, Omaha appearances, honors, and highlight moments become cross-share assets.</p>
               </div>
             </div>
           </div>
@@ -474,9 +474,9 @@ Diamond Grind and Softball Nation are the seasonal front doors right now. The pa
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 lg:grid-cols-3">
-        <div className="rounded-3xl border border-cyan-400/20 bg-[#07142c] p-6 lg:col-span-2">
+        <div className="rounded-3xl border border-[#1E90FF]/30 bg-[#07142c] p-6 lg:col-span-2">
           <div className="mb-4 flex items-center gap-3">
-            <Medal className="h-8 w-8 text-sky-300" />
+            <Medal className="h-8 w-8 text-[#00C2FF]" />
             <h2 className="text-3xl font-black">Diamond Grind Road to Omaha activation</h2>
           </div>
           <p className="text-sm leading-relaxed text-blue-200">
@@ -490,13 +490,13 @@ NCAA Baseball Regionals, Super Regionals, the Men’s College World Series in Om
         </div>
         <div className="rounded-3xl border border-blue-300/20 bg-[#07142c] p-6">
           <div className="mb-4 flex items-center gap-3">
-            <Radio className="h-8 w-8 text-pink-300" />
+            <Radio className="h-8 w-8 text-[#1E90FF]" />
             <h2 className="text-2xl font-black">TikTok LIVE Studio</h2>
           </div>
           <p className="text-sm leading-relaxed text-blue-200">
             LIVE access must be used and verified before the 14-day revocation-risk window closes. The OS should store first-use deadline, first-live checklist, proof URL, content calendar, and reminders.
           </p>
-          <Link href="/social-command-center" className="mt-5 inline-flex rounded-2xl bg-pink-500 px-5 py-3 text-sm font-black text-white transition hover:bg-pink-400">
+          <Link href="/social-command-center" className="mt-5 inline-flex rounded-2xl bg-[#1E90FF] px-5 py-3 text-sm font-black text-white transition hover:bg-[#1E90FF]">
             Open social command
           </Link>
         </div>
@@ -505,10 +505,10 @@ NCAA Baseball Regionals, Super Regionals, the Men’s College World Series in Om
       <section className="bg-[#030814] px-4 py-12">
         <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-gradient-to-r from-blue-950 to-slate-950 p-6">
           <div className="grid gap-6 md:grid-cols-4">
-            <div className="flex gap-3"><ShieldCheck className="h-6 w-6 text-emerald-300" /><div><h3 className="font-black">Privacy first</h3><p className="mt-1 text-sm text-blue-200">Health, family, and recruiting-sensitive data require access labels.</p></div></div>
-            <div className="flex gap-3"><Lock className="h-6 w-6 text-cyan-300" /><div><h3 className="font-black">Verified access</h3><p className="mt-1 text-sm text-blue-200">Professionals must be verified before communicating with athletes.</p></div></div>
-            <div className="flex gap-3"><CalendarDays className="h-6 w-6 text-sky-300" /><div><h3 className="font-black">Calendar drives growth</h3><p className="mt-1 text-sm text-blue-200">Schedules, championships, visits, and camps create repeat usage.</p></div></div>
-            <div className="flex gap-3"><Video className="h-6 w-6 text-pink-300" /><div><h3 className="font-black">Shareable media</h3><p className="mt-1 text-sm text-blue-200">Every achievement can become feed content and outside-platform traffic.</p></div></div>
+            <div className="flex gap-3"><ShieldCheck className="h-6 w-6 text-[#00C2FF]" /><div><h3 className="font-black">Privacy first</h3><p className="mt-1 text-sm text-blue-200">Health, family, and recruiting-sensitive data require access labels.</p></div></div>
+            <div className="flex gap-3"><Lock className="h-6 w-6 text-[#00C2FF]" /><div><h3 className="font-black">Verified access</h3><p className="mt-1 text-sm text-blue-200">Professionals must be verified before communicating with athletes.</p></div></div>
+            <div className="flex gap-3"><CalendarDays className="h-6 w-6 text-[#00C2FF]" /><div><h3 className="font-black">Calendar drives growth</h3><p className="mt-1 text-sm text-blue-200">Schedules, championships, visits, and camps create repeat usage.</p></div></div>
+            <div className="flex gap-3"><Video className="h-6 w-6 text-[#1E90FF]" /><div><h3 className="font-black">Shareable media</h3><p className="mt-1 text-sm text-blue-200">Every achievement can become feed content and outside-platform traffic.</p></div></div>
           </div>
         </div>
       </section>

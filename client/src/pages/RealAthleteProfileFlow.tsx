@@ -60,8 +60,8 @@ export default function RealAthleteProfileFlow() {
       <UnifiedNav />
       <main className="px-4 pb-16 pt-24 md:px-6">
         <section className="mx-auto max-w-6xl">
-          <div className="rounded-[2rem] border border-cyan-400/20 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
-            <Badge className="mb-4 border-cyan-400/30 bg-cyan-400/10 text-cyan-200">
+          <div className="rounded-[2rem] border border-[#1E90FF]/30 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
+            <Badge className="mb-4 border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]">
               <Workflow className="mr-2 h-3.5 w-3.5" /> Reusable NIL profile flow
             </Badge>
             <h1 className="max-w-4xl text-4xl font-black leading-tight md:text-6xl">
@@ -72,10 +72,10 @@ export default function RealAthleteProfileFlow() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/athlete-nil-intake">
-                <Button className="bg-cyan-400 font-black text-slate-950 hover:bg-cyan-300">Start NIL intake</Button>
+                <Button className="bg-[#1E90FF] font-black text-slate-950 hover:bg-[#1E90FF]">Start NIL intake</Button>
               </Link>
               <Link href="/media-vault-rules">
-                <Button variant="outline" className="border-cyan-400/40 text-cyan-200 hover:bg-cyan-400/10">Review vault rules</Button>
+                <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20">Review vault rules</Button>
               </Link>
               <Link href="/founder/chad-dozier">
                 <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">View proof profile</Button>
@@ -86,7 +86,7 @@ export default function RealAthleteProfileFlow() {
           <Card className="mt-6 border-white/10 bg-white/[0.04]">
             <CardContent className="p-6 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <Database className="h-7 w-7 text-cyan-300" />
+                <Database className="h-7 w-7 text-[#00C2FF]" />
                 <div>
                   <h2 className="text-3xl font-black text-white">Profile data sections</h2>
                   <p className="text-sm text-white/55">Every public profile is built from the same verified record structure.</p>
@@ -97,7 +97,7 @@ export default function RealAthleteProfileFlow() {
                   <div key={section.title} className="rounded-2xl border border-white/10 bg-slate-950/55 p-5">
                     <div className="mb-3 flex items-center justify-between gap-3">
                       <h3 className="text-xl font-black text-white">{section.title}</h3>
-                      <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-200">{section.status}</span>
+                      <span className="rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#00C2FF]">{section.status}</span>
                     </div>
                     <div className="grid gap-2">
                       {section.fields.map((field) => (
@@ -114,13 +114,13 @@ export default function RealAthleteProfileFlow() {
             <Card className="border-white/10 bg-white/[0.04]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center gap-3">
-                  <ClipboardCheck className="h-7 w-7 text-cyan-300" />
+                  <ClipboardCheck className="h-7 w-7 text-[#00C2FF]" />
                   <h2 className="text-3xl font-black text-white">Lifecycle</h2>
                 </div>
                 <div className="grid gap-3">
                   {lifecycle.map(([stage, copy], index) => (
                     <div key={stage} className="grid gap-3 rounded-2xl border border-white/10 bg-slate-950/55 p-4 md:grid-cols-[4rem_1fr]">
-                      <div className="text-xs font-black uppercase tracking-[0.22em] text-cyan-300">{String(index + 1).padStart(2, "0")}</div>
+                      <div className="text-xs font-black uppercase tracking-[0.22em] text-[#00C2FF]">{String(index + 1).padStart(2, "0")}</div>
                       <div>
                         <h3 className="text-lg font-black text-white">{stage}</h3>
                         <p className="mt-1 text-sm leading-relaxed text-white/60">{copy}</p>
@@ -131,16 +131,16 @@ export default function RealAthleteProfileFlow() {
               </CardContent>
             </Card>
 
-            <Card className="border-cyan-400/20 bg-cyan-400/[0.06]">
+            <Card className="border-[#1E90FF]/30 bg-[#1E90FF]/[0.06]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center gap-3">
-                  <ShieldCheck className="h-7 w-7 text-cyan-300" />
+                  <ShieldCheck className="h-7 w-7 text-[#00C2FF]" />
                   <h2 className="text-3xl font-black text-white">Verification states</h2>
                 </div>
                 <div className="grid gap-3">
                   {verificationStates.map((state) => (
                     <div key={state.label} className="rounded-xl border border-white/10 bg-slate-950/55 p-4">
-                      <div className="font-black text-cyan-200">{state.label}</div>
+                      <div className="font-black text-[#00C2FF]">{state.label}</div>
                       <p className="mt-1 text-sm leading-relaxed text-white/60">{state.meaning}</p>
                     </div>
                   ))}
@@ -152,7 +152,7 @@ export default function RealAthleteProfileFlow() {
           <Card className="mt-6 border-white/10 bg-white/[0.04]">
             <CardContent className="p-6 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <Eye className="h-7 w-7 text-cyan-300" />
+                <Eye className="h-7 w-7 text-[#00C2FF]" />
                 <div>
                   <h2 className="text-3xl font-black text-white">Public profile publishing rules</h2>
                   <p className="text-sm text-white/55">The profile is real only when the athlete record is protected, verified, and approved.</p>
@@ -168,7 +168,7 @@ export default function RealAthleteProfileFlow() {
             </CardContent>
           </Card>
 
-          <Card className="mt-6 border-cyan-400/20 bg-slate-950/70">
+          <Card className="mt-6 border-[#1E90FF]/30 bg-slate-950/70">
             <CardContent className="grid gap-5 p-6 md:grid-cols-4 md:p-8">
               <ProofTile icon={Lock} title="Private first" copy="Nothing public until the vault and consent gates pass." />
               <ProofTile icon={UserCheck} title="Athlete owned" copy="The athlete controls Name, Image, and Likeness use." />
@@ -186,7 +186,7 @@ export default function RealAthleteProfileFlow() {
 function ProofTile({ icon: Icon, title, copy }: { icon: any; title: string; copy: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-200">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]">
         <Icon className="h-5 w-5" />
       </div>
       <h3 className="text-lg font-black text-white">{title}</h3>

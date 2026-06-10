@@ -128,22 +128,22 @@ function AthleteFinancialInner() {
       {/* Hero */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="flex justify-center mb-4">
-          <div className="flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-4 py-2">
-            <DollarSign className="w-4 h-4 text-green-400" />
-            <span className="text-green-300 text-sm font-semibold">AthlynX FINANCIAL HUB</span>
+          <div className="flex items-center gap-2 bg-[#00C2FF]/20 border border-[#00C2FF]/30 rounded-full px-4 py-2">
+            <DollarSign className="w-4 h-4 text-[#00C2FF]" />
+            <span className="text-[#00C2FF] text-sm font-semibold">AthlynX FINANCIAL HUB</span>
           </div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-black text-center mb-3">
-          Protect & Grow <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Your Wealth</span>
+          Protect & Grow <span className="bg-gradient-to-r from-[#00C2FF] to-emerald-400 bg-clip-text text-transparent">Your Wealth</span>
         </h1>
         <p className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-8">
           78% of NFL players go broke within 2 years of retirement. Not you. Connect with certified financial advisors, tax experts, and wealth managers who specialize in athlete finances.
         </p>
 
         {/* Warning Stat */}
-        <div className="max-w-3xl mx-auto bg-red-900/30 border border-red-400/30 rounded-2xl p-4 mb-8 flex items-start gap-3">
-          <Shield className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-          <p className="text-red-200 text-sm">
+        <div className="max-w-3xl mx-auto bg-[#1E90FF]/30 border border-[#1E90FF]/30 rounded-2xl p-4 mb-8 flex items-start gap-3">
+          <Shield className="w-5 h-5 text-[#1E90FF] mt-0.5 flex-shrink-0" />
+          <p className="text-[#1E90FF] text-sm">
             <strong>The #1 threat to your career earnings isn't taxes — it's not having the right team.</strong> The average NFL career is 3.3 years. The average NBA career is 4.5 years. Your financial decisions in those years determine the next 50.
           </p>
         </div>
@@ -157,7 +157,7 @@ function AthleteFinancialInner() {
             { value: "500+", label: "Certified Athlete Advisors" }
           ].map((s, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-              <div className={`text-xl font-black ${i < 2 ? "text-red-400" : "text-green-400"}`}>{s.value}</div>
+              <div className={`text-xl font-black ${i < 2 ? "text-[#1E90FF]" : "text-[#00C2FF]"}`}>{s.value}</div>
               <div className="text-xs text-slate-400 mt-1">{s.label}</div>
             </div>
           ))}
@@ -169,7 +169,7 @@ function AthleteFinancialInner() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-green-600 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-[#00C2FF] text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
             >
               {tab}
             </button>
@@ -180,9 +180,9 @@ function AthleteFinancialInner() {
         {activeTab === "advisors" && (
           <div className="space-y-5">
             {ADVISORS.map((adv, i) => (
-              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${adv.featured ? "border-green-400/40" : "border-white/10"}`}>
+              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${adv.featured ? "border-[#00C2FF]/40" : "border-white/10"}`}>
                 {adv.featured && (
-                  <div className="flex items-center gap-1 text-xs text-sky-400 font-semibold mb-3">
+                  <div className="flex items-center gap-1 text-xs text-[#00C2FF] font-semibold mb-3">
                     <Star className="w-3 h-3 fill-blue-400" />
                     FEATURED ADVISOR
                   </div>
@@ -190,32 +190,32 @@ function AthleteFinancialInner() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-black text-white">{adv.name}</h3>
-                    <p className="text-green-400 text-sm font-semibold">{adv.firm}</p>
+                    <p className="text-[#00C2FF] text-sm font-semibold">{adv.firm}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3 text-slate-400" />
                       <span className="text-slate-400 text-xs">{adv.location}</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${adv.available ? "bg-green-500/20 text-green-400" : "bg-slate-500/20 text-slate-400"}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${adv.available ? "bg-green-400" : "bg-slate-400"}`} />
+                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${adv.available ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-slate-500/20 text-slate-400"}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${adv.available ? "bg-[#00C2FF]" : "bg-slate-400"}`} />
                       {adv.available ? "Available" : "Busy"}
                     </div>
                     <div className="flex items-center gap-1 mt-1 justify-end">
-                      <Star className="w-3 h-3 text-sky-400 fill-blue-400" />
+                      <Star className="w-3 h-3 text-[#00C2FF] fill-blue-400" />
                       <span className="text-white text-sm font-bold">{adv.rating}</span>
                       <span className="text-slate-400 text-xs">({adv.reviews})</span>
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-2 mb-4">
-                  {adv.aum !== "$0" && <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-sm font-black text-green-400">{adv.aum}</div><div className="text-xs text-slate-400">AUM</div></div>}
+                  {adv.aum !== "$0" && <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-sm font-black text-[#00C2FF]">{adv.aum}</div><div className="text-xs text-slate-400">AUM</div></div>}
                   <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-sm font-black text-blue-400">{adv.clients}</div><div className="text-xs text-slate-400">Clients</div></div>
-                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-sky-400">Free</div><div className="text-xs text-slate-400">Consultation</div></div>
+                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-[#00C2FF]">Free</div><div className="text-xs text-slate-400">Consultation</div></div>
                 </div>
                 <div className="flex flex-wrap gap-1 mb-3">
                   {adv.certifications.map((c, j) => (
-                    <span key={j} className="flex items-center gap-1 text-xs bg-green-500/20 text-green-300 border border-green-400/30 px-2 py-0.5 rounded-full">
+                    <span key={j} className="flex items-center gap-1 text-xs bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30 px-2 py-0.5 rounded-full">
                       <Award className="w-2.5 h-2.5" />{c}
                     </span>
                   ))}
@@ -225,7 +225,7 @@ function AthleteFinancialInner() {
                   {adv.specialties.map((s, j) => <span key={j} className="text-xs bg-white/10 text-slate-300 px-2 py-0.5 rounded-full">{s}</span>)}
                 </div>
                 <div className="flex gap-2">
-                  <button className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-bold py-2.5 rounded-xl transition-all">
+                  <button className="flex-1 flex items-center justify-center gap-2 bg-[#00C2FF] hover:bg-[#00C2FF] text-white text-sm font-bold py-2.5 rounded-xl transition-all">
                     <Calendar className="w-4 h-4" />
                     Book Free Consultation
                   </button>
@@ -246,13 +246,13 @@ function AthleteFinancialInner() {
               const Icon = svc.icon;
               const colors: Record<string, string> = {
                 blue: "text-blue-400 bg-blue-500/20 border-blue-400/30",
-                green: "text-green-400 bg-green-500/20 border-green-400/30",
-                purple: "text-purple-400 bg-purple-500/20 border-purple-400/30",
-                yellow: "text-sky-400 bg-blue-500/20 border-blue-400/30",
-                orange: "text-cyan-400 bg-cyan-500/20 border-cyan-400/30",
-                cyan: "text-cyan-400 bg-cyan-500/20 border-cyan-400/30",
-                pink: "text-pink-400 bg-pink-500/20 border-pink-400/30",
-                indigo: "text-indigo-400 bg-indigo-500/20 border-indigo-400/30"
+                green: "text-[#00C2FF] bg-[#00C2FF]/20 border-[#00C2FF]/30",
+                purple: "text-[#1E90FF] bg-[#1E90FF]/20 border-[#1E90FF]/30",
+                yellow: "text-[#00C2FF] bg-blue-500/20 border-blue-400/30",
+                orange: "text-[#00C2FF] bg-[#1E90FF]/20 border-[#1E90FF]/30",
+                cyan: "text-[#00C2FF] bg-[#1E90FF]/20 border-[#1E90FF]/30",
+                pink: "text-[#1E90FF] bg-[#1E90FF]/20 border-[#1E90FF]/30",
+                indigo: "text-[#1E90FF] bg-[#1E90FF]/20 border-[#1E90FF]/30"
               };
               return (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-all cursor-pointer">
@@ -277,7 +277,7 @@ function AthleteFinancialInner() {
                 {NIL_TAX_TIPS.map((tip, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-[#00C2FF] mt-0.5 flex-shrink-0" />
                       <div>
                         <h3 className="text-white font-bold text-sm mb-1">{tip.title}</h3>
                         <p className="text-slate-400 text-sm leading-relaxed">{tip.desc}</p>
@@ -294,12 +294,12 @@ function AthleteFinancialInner() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                 {WEALTH_STAGES.map((stage, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <div className="text-xs text-green-400 font-bold mb-1">{stage.stage}</div>
+                    <div className="text-xs text-[#00C2FF] font-bold mb-1">{stage.stage}</div>
                     <h3 className="text-white font-bold text-sm mb-3">{stage.title}</h3>
                     <ul className="space-y-1">
                       {stage.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-1.5 text-xs text-slate-400">
-                          <ArrowRight className="w-3 h-3 text-green-400 mt-0.5 flex-shrink-0" />
+                          <ArrowRight className="w-3 h-3 text-[#00C2FF] mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -312,13 +312,13 @@ function AthleteFinancialInner() {
         )}
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-green-900/50 to-emerald-900/50 border border-green-400/20 rounded-2xl p-6 sm:p-8 text-center">
-          <DollarSign className="w-10 h-10 text-green-400 mx-auto mb-3" />
+        <div className="mt-12 bg-gradient-to-r from-[#00C2FF]/50 to-emerald-900/50 border border-[#00C2FF]/20 rounded-2xl p-6 sm:p-8 text-center">
+          <DollarSign className="w-10 h-10 text-[#00C2FF] mx-auto mb-3" />
           <h3 className="text-xl font-black text-white mb-2">Are You a Certified Financial Advisor?</h3>
           <p className="text-slate-400 text-sm mb-4 max-w-xl mx-auto">
             Join the AthlynX Financial Network and connect with athletes at every level — from high school NIL to professional contracts.
           </p>
-          <button className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
+          <button className="bg-[#00C2FF] hover:bg-[#00C2FF] text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
             Apply to Join the Network
           </button>
         </div>

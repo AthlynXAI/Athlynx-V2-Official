@@ -10,18 +10,18 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { toast } from "sonner";
 
 const BADGE_COLORS: Record<string, string> = {
-  ACHIEVEMENT: "bg-blue-600", WORKOUT: "bg-green-600",
-  NIL_DEAL: "bg-purple-600", STATUS: "bg-[#1E90FF]",
-  ANNOUNCEMENT: "bg-red-600", MILESTONE: "bg-blue-500",
+  ACHIEVEMENT: "bg-blue-600", WORKOUT: "bg-[#00C2FF]",
+  NIL_DEAL: "bg-[#1E90FF]", STATUS: "bg-[#1E90FF]",
+  ANNOUNCEMENT: "bg-[#1E90FF]", MILESTONE: "bg-blue-500",
 };
 
 const STORY_TYPES = [
-  { type: "update", label: "Update", icon: "📢", color: "#3b82f6" },
-  { type: "highlight", label: "Highlight", icon: "🏆", color: "#f59e0b" },
-  { type: "nil", label: "NIL", icon: "💰", color: "#10b981" },
-  { type: "game", label: "Game", icon: "🎮", color: "#ef4444" },
-  { type: "training", label: "Training", icon: "⚡", color: "#06b6d4" },
-  { type: "life", label: "Life", icon: "🌟", color: "#8b5cf6" },
+  { type: "update", label: "Update", icon: "", color: "#3b82f6" },
+  { type: "highlight", label: "Highlight", icon: "", color: "#f59e0b" },
+  { type: "nil", label: "NIL", icon: "", color: "#10b981" },
+  { type: "game", label: "Game", icon: "", color: "#ef4444" },
+  { type: "training", label: "Training", icon: "", color: "#06b6d4" },
+  { type: "life", label: "Life", icon: "", color: "#8b5cf6" },
 ];
 
 // NIL doctrine: render the athlete's real Image; fall back to silhouette "Identity pending", never colored initials.
@@ -38,7 +38,7 @@ function Avatar({ src, name, size = "md" }: { src?: string | null; name?: string
   );
 }
 
-// ─── STORIES BAR ─────────────────────────────────────────────────────────────
+//  STORIES BAR 
 function StoriesBar({ user }: { user: any }) {
   const [showAddStory, setShowAddStory] = useState(false);
   const [viewingStory, setViewingStory] = useState<any>(null);
@@ -133,10 +133,10 @@ function StoriesBar({ user }: { user: any }) {
 
           {/* Placeholder stories for visual richness */}
           {storyUsers.length === 0 && [
-            { name: "Marcus J.", icon: "🏈", color: "from-red-500 to-red-700" },
-            { name: "Jordan D.", icon: "🏀", color: "from-[#1E90FF] to-[#0080FF]" },
-            { name: "Aaliyah T.", icon: "🏃", color: "from-[#1E90FF] to-[#0080FF]" },
-            { name: "Deon W.", icon: "⚾", color: "from-[#1E90FF] to-[#0080FF]" },
+            { name: "Marcus J.", icon: "", color: "from-[#1E90FF] to-[#0a1628]" },
+            { name: "Jordan D.", icon: "", color: "from-[#1E90FF] to-[#0080FF]" },
+            { name: "Aaliyah T.", icon: "", color: "from-[#1E90FF] to-[#0080FF]" },
+            { name: "Deon W.", icon: "", color: "from-[#1E90FF] to-[#0080FF]" },
           ].map((p, i) => (
             <div key={i} className="flex flex-col items-center gap-1.5 shrink-0 opacity-40">
               <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${p.color} flex items-center justify-center text-2xl border-2 border-[#1E90FF]`}>
@@ -154,7 +154,7 @@ function StoriesBar({ user }: { user: any }) {
           <div className="bg-[#0a1628] border border-[#1E90FF]/25 rounded-t-2xl sm:rounded-2xl w-full max-w-sm p-5 space-y-4 overflow-y-auto" style={{maxHeight: "85vh", paddingBottom: "80px"}}>
             <div className="flex items-center justify-between">
               <h3 className="text-white font-black text-lg">Add to Your Story</h3>
-              <button onClick={() => setShowAddStory(false)} className="w-8 h-8 bg-[#0a1628] rounded-full flex items-center justify-center text-white hover:bg-[#1E90FF]/20">✕</button>
+              <button onClick={() => setShowAddStory(false)} className="w-8 h-8 bg-[#0a1628] rounded-full flex items-center justify-center text-white hover:bg-[#1E90FF]/20"></button>
             </div>
             <div className="flex items-center gap-3">
               <Avatar src={user?.avatarUrl} name={user?.name} />
@@ -184,7 +184,7 @@ function StoriesBar({ user }: { user: any }) {
             <div className="flex gap-3">
               <button onClick={() => createStory.mutate({ caption: newStory.caption, storyType: newStory.storyType as any, mediaType: "text" })}
                 disabled={createStory.isPending || !newStory.caption.trim()}
-                className="flex-1 bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] disabled:opacity-50 text-white font-bold py-3 rounded-xl transition-colors">
+                className="flex-1 bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] disabled:opacity-50 text-white font-bold py-3 rounded-xl transition-colors">
                 {createStory.isPending ? "Posting..." : "Post Story"}
               </button>
               <button onClick={() => setShowAddStory(false)} className="flex-1 border border-[#1E90FF]/25 text-[#1E90FF] font-bold py-3 rounded-xl hover:bg-[#0a1628]">Cancel</button>
@@ -209,7 +209,7 @@ function StoriesBar({ user }: { user: any }) {
             </div>
           </div>
           {/* Close */}
-          <button onClick={closeStory} className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white text-lg z-10">✕</button>
+          <button onClick={closeStory} className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white text-lg z-10"></button>
           {/* Content */}
           <div className="max-w-sm w-full mx-4 text-center" onClick={e => e.stopPropagation()}>
             {viewingStory.mediaUrl && viewingStory.mediaType === "image" && (
@@ -221,7 +221,7 @@ function StoriesBar({ user }: { user: any }) {
               </div>
             )}
             {!viewingStory.mediaUrl && !viewingStory.caption && (
-              <div className="bg-gradient-to-br from-[#1E90FF] via-[#0080FF] to-[#1E90FF] rounded-2xl p-12 text-6xl">🏆</div>
+              <div className="bg-gradient-to-br from-[#1E90FF] via-[#0080FF] to-[#1E90FF] rounded-2xl p-12 text-6xl"></div>
             )}
           </div>
         </div>
@@ -230,7 +230,7 @@ function StoriesBar({ user }: { user: any }) {
   );
 }
 
-// ─── POST CARD ────────────────────────────────────────────────────────────────
+//  POST CARD 
 function PostCard({ post, currentUserId, currentUserAvatar, currentUserName }: {
   post: any; currentUserId?: number; currentUserAvatar?: string | null; currentUserName?: string | null;
 }) {
@@ -265,7 +265,7 @@ function PostCard({ post, currentUserId, currentUserAvatar, currentUserName }: {
             <span className="font-bold text-white text-sm">{post.authorName || "Athlete"}</span>
             <svg className="w-3.5 h-3.5 text-[#1E90FF] shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
           </div>
-          <div className="text-[#1E90FF] text-xs mt-0.5">{timeAgo(post.createdAt)} · 🌐</div>
+          <div className="text-[#1E90FF] text-xs mt-0.5">{timeAgo(post.createdAt)} · </div>
         </div>
         <span className={`text-[9px] font-black px-2 py-1 rounded-full text-white shrink-0 ${BADGE_COLORS[post.postType?.toUpperCase()] ?? "bg-[#1E90FF]"}`}>
           {post.postType?.toUpperCase() || "POST"}
@@ -281,7 +281,7 @@ function PostCard({ post, currentUserId, currentUserAvatar, currentUserName }: {
       <div className="px-4 py-2 flex items-center justify-between text-xs text-[#1E90FF] border-t border-[#1E90FF]/15/50">
         <div className="flex items-center gap-1">
           {likeCount > 0 && (
-            <><span className="w-4 h-4 bg-[#1E90FF] rounded-full flex items-center justify-center text-[8px]">👍</span><span>{likeCount.toLocaleString()}</span></>
+            <><span className="w-4 h-4 bg-[#1E90FF] rounded-full flex items-center justify-center text-[8px]"></span><span>{likeCount.toLocaleString()}</span></>
           )}
         </div>
         <div className="flex items-center gap-3">
@@ -343,7 +343,7 @@ function PostCard({ post, currentUserId, currentUserAvatar, currentUserName }: {
   );
 }
 
-// ─── MAIN FEED ────────────────────────────────────────────────────────────────
+//  MAIN FEED 
 function FeedInner() {
   const { user } = useAuth();
   const [postText, setPostText] = useState("");
@@ -373,11 +373,11 @@ function FeedInner() {
           <div className="absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-blue-300/15 blur-3xl" />
           <div className="relative flex items-start justify-between gap-3">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-[0.32em] text-sky-200">AthlynX COMMAND FEED</div>
+              <div className="text-[10px] font-black uppercase tracking-[0.32em] text-[#00C2FF]">AthlynX COMMAND FEED</div>
               <h2 className="mt-1 text-xl font-black leading-tight text-white">Not a social clone. The athlete operating system.</h2>
               <p className="mt-2 max-w-sm text-xs font-semibold leading-relaxed text-slate-300">Recruiting, NIL, AI Trainer, media, alerts, and athlete proof rails in one founder-built platform.</p>
             </div>
-            <div className="rounded-2xl border border-cyan-200/30 bg-[#1E90FF]/10 px-3 py-2 text-right shadow-[0_0_28px_rgba(30,144,255,0.22)]">
+            <div className="rounded-2xl border border-[#1E90FF]/30 bg-[#1E90FF]/10 px-3 py-2 text-right shadow-[0_0_28px_rgba(30,144,255,0.22)]">
               <div className="text-[10px] font-black uppercase tracking-widest text-[#1E90FF]">Live OS</div>
               <div className="text-lg font-black text-white">$1B</div>
             </div>
@@ -399,10 +399,10 @@ function FeedInner() {
               </div>
               <div className="flex items-center gap-1 px-4 pb-3 pt-1 border-t border-[#1E90FF]/15/50">
                 {[
-                  { label: "📸 Photo", value: "achievement", color: "text-green-400" },
-                  { label: "🎬 Video", value: "workout", color: "text-red-400" },
-                  { label: "💰 NIL Deal", value: "nil_deal", color: "text-green-400" },
-                  { label: "⚡ Highlight", value: "status", color: "text-[#1E90FF]" },
+                  { label: " Photo", value: "achievement", color: "text-[#00C2FF]" },
+                  { label: " Video", value: "workout", color: "text-[#1E90FF]" },
+                  { label: " NIL Deal", value: "nil_deal", color: "text-[#00C2FF]" },
+                  { label: " Highlight", value: "status", color: "text-[#1E90FF]" },
                 ].map(btn => (
                   <button key={btn.value} onClick={() => setPostType(btn.value as any)}
                     className={`text-xs font-semibold px-2 py-1.5 rounded-lg transition-colors ${postType === btn.value ? `${btn.color} bg-[#1E90FF]/10` : `${btn.color} hover:bg-white/5`}`}>
@@ -411,14 +411,14 @@ function FeedInner() {
                 ))}
                 <button onClick={() => postText.trim() && createPostMutation.mutate({ content: postText, postType })}
                   disabled={createPostMutation.isPending || !postText.trim()}
-                  className="ml-auto bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] disabled:opacity-50 text-white text-sm font-bold px-5 py-1.5 rounded-full transition-colors">
+                  className="ml-auto bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] disabled:opacity-50 text-white text-sm font-bold px-5 py-1.5 rounded-full transition-colors">
                   {createPostMutation.isPending ? "Posting..." : "Post"}
                 </button>
               </div>
             </>
           ) : (
             <div className="p-4 text-center">
-              <a href="/signup" className="inline-block bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] text-white font-bold px-6 py-2.5 rounded-xl transition-colors">Sign In to Post</a>
+              <a href="/signup" className="inline-block bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_12px_38px_rgba(30,144,255,0.28)] text-white font-bold px-6 py-2.5 rounded-xl transition-colors">Sign In to Post</a>
             </div>
           )}
         </div>
@@ -435,7 +435,7 @@ function FeedInner() {
         {!isLoading && (posts as any[]).length === 0 && (
           <>
             <div className="bg-gradient-to-r from-black via-[#0a1628] to-black border border-[#1E90FF]/30 rounded-xl p-4 text-center">
-              <div className="text-3xl mb-2">🏆</div>
+              <div className="text-3xl mb-2"></div>
               <div className="text-white font-bold text-base mb-1">The Feed is Live — Be First</div>
               <div className="text-[#1E90FF] text-sm mb-3">Share your highlight, training update, or NIL news. The community is watching.</div>
               {!user && <a href="/signup" className="inline-block bg-gradient-to-r from-[#1E90FF] via-[#0080FF] to-[#1E90FF] text-white font-bold px-6 py-2.5 rounded-xl transition-all hover:opacity-90">Join Free — 7 Days</a>}
@@ -443,8 +443,8 @@ function FeedInner() {
             {/* Showcase activity cards */}
             {[
               { name: "Marcus Johnson", sport: "Football", type: "NIL_DEAL", content: "Just signed a $15,000 NIL deal with Under Armour! Hard work pays off. Thank you to everyone who believed in me. #NIL #Football #AthlynX", time: "2h", likes: 847, comments: 124, avatar: null },
-              { name: "Destiny Williams", sport: "Basketball", type: "ACHIEVEMENT", content: "Committed to LSU! 🐯 After months of recruiting visits and conversations, I know this is where I'm supposed to be. Can't wait to play in the SEC! #Committed #LSU #Basketball", time: "5h", likes: 2341, comments: 389, avatar: null },
-              { name: "Tyler Brooks", sport: "Baseball", type: "WORKOUT", content: "Day 47 of offseason training. Velocity up to 94 mph from 88 mph last year. The Diamond Grind AI training program is no joke. Scouts are calling. 🔥 #DiamondGrind #Baseball #Velocity", time: "1d", likes: 1203, comments: 87, avatar: null },
+              { name: "Destiny Williams", sport: "Basketball", type: "ACHIEVEMENT", content: "Committed to LSU!  After months of recruiting visits and conversations, I know this is where I'm supposed to be. Can't wait to play in the SEC! #Committed #LSU #Basketball", time: "5h", likes: 2341, comments: 389, avatar: null },
+              { name: "Tyler Brooks", sport: "Baseball", type: "WORKOUT", content: "Day 47 of offseason training. Velocity up to 94 mph from 88 mph last year. The Diamond Grind AI training program is no joke. Scouts are calling.  #DiamondGrind #Baseball #Velocity", time: "1d", likes: 1203, comments: 87, avatar: null },
               { name: "Aaliyah Torres", sport: "Soccer", type: "MILESTONE", content: "Just hit 10,000 followers! My NIL value on AthlynX just updated to $38K. If you're a brand looking for a Stanford soccer player with a real audience — my DMs are open. #NIL #Soccer #Stanford", time: "2d", likes: 3102, comments: 445, avatar: null },
             ].map((p, i) => (
               <div key={i} className="bg-[#000000]/92 border border-[#1E90FF]/20 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl overflow-hidden">
@@ -459,12 +459,12 @@ function FeedInner() {
                     </div>
                     <div className="text-[#1E90FF] text-xs">{p.time} · {p.sport}</div>
                   </div>
-                  <span className={`text-[9px] font-black px-2 py-1 rounded-full text-white ${p.type === 'NIL_DEAL' ? 'bg-purple-600' : p.type === 'ACHIEVEMENT' ? 'bg-blue-600' : p.type === 'WORKOUT' ? 'bg-green-600' : 'bg-[#1E90FF]'}`}>{p.type.replace('_', ' ')}</span>
+                  <span className={`text-[9px] font-black px-2 py-1 rounded-full text-white ${p.type === 'NIL_DEAL' ? 'bg-[#1E90FF]' : p.type === 'ACHIEVEMENT' ? 'bg-blue-600' : p.type === 'WORKOUT' ? 'bg-[#00C2FF]' : 'bg-[#1E90FF]'}`}>{p.type.replace('_', ' ')}</span>
                 </div>
                 <div className="px-4 pb-3"><p className="text-slate-100 text-sm leading-relaxed">{p.content}</p></div>
                 <div className="px-2 py-1 flex items-center border-t border-[#1E90FF]/15">
-                  <div className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-[#1E90FF]">👍 {p.likes.toLocaleString()}</div>
-                  <div className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-[#1E90FF]">💬 {p.comments}</div>
+                  <div className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-[#1E90FF]"> {p.likes.toLocaleString()}</div>
+                  <div className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-[#1E90FF]"> {p.comments}</div>
                   <div className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-semibold text-[#1E90FF]">↗ Share</div>
                 </div>
               </div>

@@ -25,12 +25,12 @@ type Platform = "android" | "ios";
 
 function statusBadge(status: string) {
   const map: Record<string, { label: string; cls: string }> = {
-    finished: { label: "Finished", cls: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
+    finished: { label: "Finished", cls: "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30" },
     "in-progress": { label: "In progress", cls: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
     "in-queue": { label: "Queued", cls: "bg-slate-500/20 text-slate-300 border-slate-500/30" },
     new: { label: "New", cls: "bg-slate-500/20 text-slate-300 border-slate-500/30" },
-    errored: { label: "Errored", cls: "bg-red-500/20 text-red-300 border-red-500/30" },
-    canceled: { label: "Canceled", cls: "bg-blue-500/20 text-sky-300 border-blue-500/30" },
+    errored: { label: "Errored", cls: "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30" },
+    canceled: { label: "Canceled", cls: "bg-blue-500/20 text-[#00C2FF] border-blue-500/30" },
   };
   const m = map[status] ?? { label: status, cls: "bg-slate-500/20 text-slate-300 border-slate-500/30" };
   return <Badge className={`border ${m.cls}`}>{m.label}</Badge>;
@@ -187,9 +187,9 @@ function BuildMonitorInner() {
             <CardTitle className="text-base text-white flex items-center gap-2">
               <PlayCircle className="h-5 w-5 text-blue-400" /> Self-test
               {allChecksPass ? (
-                <Badge className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">PASS</Badge>
+                <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] border border-[#1E90FF]/30">PASS</Badge>
               ) : (
-                <Badge className="bg-red-500/20 text-red-300 border border-red-500/30">FAIL</Badge>
+                <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30">FAIL</Badge>
               )}
             </CardTitle>
           </CardHeader>
@@ -198,9 +198,9 @@ function BuildMonitorInner() {
               {selfTestQuery.data?.checks.map((c) => (
                 <li key={c.name} className="flex items-center gap-2 text-slate-200">
                   {c.pass ? (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                    <CheckCircle2 className="h-4 w-4 text-[#00C2FF]" />
                   ) : (
-                    <AlertTriangle className="h-4 w-4 text-red-400" />
+                    <AlertTriangle className="h-4 w-4 text-[#1E90FF]" />
                   )}
                   {c.name}
                 </li>
@@ -210,8 +210,8 @@ function BuildMonitorInner() {
         </Card>
 
         {status?.spike10091?.spike && (
-          <Card className="border-red-500/40">
-            <CardContent className="p-4 text-red-200 flex items-start gap-3">
+          <Card className="border-[#1E90FF]/40">
+            <CardContent className="p-4 text-[#1E90FF] flex items-start gap-3">
               <AlertTriangle className="h-5 w-5 mt-0.5" />
               <div>
                 <div className="font-semibold">10091 spike detected</div>
@@ -289,7 +289,7 @@ function BuildMonitorInner() {
               <CardTitle className="text-base text-white flex items-center gap-2">
                 Log for {selectedBuild}
                 {logQuery.data?.source === "mock" && (
-                  <Badge className="bg-blue-500/20 text-sky-300 border border-blue-500/30">
+                  <Badge className="bg-blue-500/20 text-[#00C2FF] border border-blue-500/30">
                     mock
                   </Badge>
                 )}
@@ -311,7 +311,7 @@ function BuildMonitorInner() {
                   <ul className="text-xs text-slate-300 space-y-1">
                     {logQuery.data.parsed.signals.slice(0, 20).map((s, i) => (
                       <li key={i}>
-                        <span className="text-sky-300">[{s.severity}]</span>{" "}
+                        <span className="text-[#00C2FF]">[{s.severity}]</span>{" "}
                         <span className="text-slate-400">L{s.line}</span> {s.category}: {s.excerpt}
                         {s.hint && <div className="pl-6 text-slate-500">↳ {s.hint}</div>}
                       </li>

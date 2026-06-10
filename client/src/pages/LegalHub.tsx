@@ -11,14 +11,14 @@ function LegalHubInner() {
       description: "Healthcare data protection and privacy standards",
       icon: Shield,
       href: "/hipaa",
-      color: "from-green-500 to-emerald-600",
+      color: "from-[#00C2FF] to-emerald-600",
     },
     {
       title: "Privacy Policy",
       description: "How we collect, use, and protect your data",
       icon: Lock,
       href: "/privacy",
-      color: "from-blue-500 to-cyan-600",
+      color: "from-blue-500 to-[#0a1628]",
     },
     {
       title: "Terms of Service",
@@ -32,14 +32,14 @@ function LegalHubInner() {
       description: "How we use cookies and tracking technologies",
       icon: Cookie,
       href: "/cookies",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
     },
     {
       title: "Data Protection",
       description: "GDPR, CCPA, and data security measures",
       icon: Database,
       href: "/data-protection",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
     },
     {
       title: "Corporate Documents",
@@ -53,14 +53,14 @@ function LegalHubInner() {
       description: "NIL contracts, partnerships, and legal templates",
       icon: FileSignature,
       href: "/contracts",
-      color: "from-indigo-500 to-blue-600",
+      color: "from-[#1E90FF] to-blue-600",
     },
     {
       title: "Partners Portal",
       description: "Partner agreements and collaboration hub",
       icon: Handshake,
       href: "/partners",
-      color: "from-teal-500 to-cyan-600",
+      color: "from-[#00C2FF] to-[#0a1628]",
     },
   ];
 
@@ -76,7 +76,7 @@ function LegalHubInner() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/">
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-lg font-medium">
+              <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white px-4 py-2 rounded-lg font-medium">
                 Back to Home
               </button>
             </Link>
@@ -87,12 +87,12 @@ function LegalHubInner() {
       {/* Hero Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#00C2FF]/20 text-[#00C2FF] px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
             LEGAL & COMPLIANCE CENTER
           </div>
           <h1 className="text-4xl md:text-6xl font-black mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1E90FF] via-blue-500 to-blue-600 bg-clip-text text-transparent">
               Legal Hub
             </span>
           </h1>
@@ -102,7 +102,7 @@ function LegalHubInner() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
             <span className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-green-400" /> HIPAA Compliant
+              <Shield className="w-4 h-4 text-[#00C2FF]" /> HIPAA Compliant
             </span>
             <span className="flex items-center gap-2">
               <Lock className="w-4 h-4 text-blue-400" /> GDPR Ready
@@ -111,7 +111,7 @@ function LegalHubInner() {
               <Database className="w-4 h-4 text-blue-500" /> CCPA Compliant
             </span>
             <span className="flex items-center gap-2">
-              <Scale className="w-4 h-4 text-red-400" /> SOC 2 Type II
+              <Scale className="w-4 h-4 text-[#1E90FF]" /> SOC 2 Type II
             </span>
           </div>
         </div>
@@ -123,7 +123,7 @@ function LegalHubInner() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {legalSections.map((section) => (
               <Link key={section.href} href={section.href}>
-                <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-cyan-400 transition-all cursor-pointer group">
+                <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 hover:border-[#1E90FF] transition-all cursor-pointer group">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${section.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <section.icon className="w-7 h-7 text-white" />
                   </div>
@@ -142,7 +142,7 @@ function LegalHubInner() {
           <h2 className="text-3xl font-bold text-center mb-12">Corporate Information</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-              <Building className="w-10 h-10 text-cyan-400 mb-4" />
+              <Building className="w-10 h-10 text-[#00C2FF] mb-4" />
               <h3 className="text-xl font-bold mb-4">Parent Company</h3>
               <p className="text-slate-300 font-semibold">Dozier Holdings Group, LLC</p>
               <p className="text-slate-400 text-sm mt-2">
@@ -165,7 +165,7 @@ function LegalHubInner() {
               </p>
             </div>
             <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-              <Scale className="w-10 h-10 text-red-400 mb-4" />
+              <Scale className="w-10 h-10 text-[#1E90FF] mb-4" />
               <h3 className="text-xl font-bold mb-4">Legal Contact</h3>
               <p className="text-slate-300 font-semibold">Legal Department</p>
               <p className="text-slate-400 text-sm mt-2">

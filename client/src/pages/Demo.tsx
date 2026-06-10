@@ -10,7 +10,7 @@ const STEPS = [
     step: "01",
     title: "Create Your Free Account",
     subtitle: "7-Day Free Trial — credit card required — not charged for 7 days",
-    icon: "🏆",
+    icon: "",
     color: "from-blue-600 to-blue-800",
     border: "border-blue-600",
     description: "Sign up in 30 seconds. Your 7-day free trial starts the moment you log in. Access every feature — NIL deals, recruiting tools, AI coach, messaging, and more.",
@@ -26,9 +26,9 @@ const STEPS = [
     step: "02",
     title: "Build Your Athlete Profile",
     subtitle: "Your Digital Recruiting Resume",
-    icon: "⚡",
-    color: "from-indigo-600 to-blue-700",
-    border: "border-indigo-500",
+    icon: "",
+    color: "from-[#1E90FF] to-blue-700",
+    border: "border-[#1E90FF]",
     description: "Your profile is your brand. Coaches, scouts, and brands search AthlynX to find athletes. Make yours impossible to ignore.",
     bullets: [
       "Add your stats, GPA, and measurables",
@@ -42,13 +42,13 @@ const STEPS = [
     step: "03",
     title: "Activate the Social Feed",
     subtitle: "The Athlete's Instagram + LinkedIn Combined",
-    icon: "🔥",
-    color: "from-red-600 to-red-700",
-    border: "border-red-500",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     description: "Post highlights, training clips, game-day moments. React to teammates. Connect with athletes across every sport globally. This is your court, field, and diamond — all in one feed.",
     bullets: [
       "Post photos, videos, and updates",
-      "React with 🔥 Fire, 🏆 Trophy, 👏 Clap, ❤️ Heart",
+      "React with  Fire,  Trophy,  Clap,  Heart",
       "Follow coaches, scouts, and other athletes",
       "Stories bar shows who's active right now",
     ],
@@ -58,9 +58,9 @@ const STEPS = [
     step: "04",
     title: "Use the NIL Portal",
     subtitle: "Get Paid for Your Name, Image & Likeness",
-    icon: "💰",
-    color: "from-green-600 to-emerald-700",
-    border: "border-green-500",
+    icon: "",
+    color: "from-[#00C2FF] to-emerald-700",
+    border: "border-[#00C2FF]",
     description: "The NIL Portal connects you directly with brands looking to sponsor athletes. From local businesses to national brands — your NIL career starts here.",
     bullets: [
       "Browse active brand deals in your sport",
@@ -74,7 +74,7 @@ const STEPS = [
     step: "05",
     title: "Connect with Coaches via Messenger",
     subtitle: "Direct Line to Every Coach in the Country",
-    icon: "📱",
+    icon: "",
     color: "from-blue-700 to-blue-700",
     border: "border-blue-600",
     description: "AthlynX Messenger is built for athletes. Message coaches directly, get recruiting updates, coordinate with teammates, and never miss a contact window.",
@@ -90,9 +90,9 @@ const STEPS = [
     step: "06",
     title: "Use the AI Recruiter",
     subtitle: "Your Personal Recruiting Agent — Available 24/7",
-    icon: "🤖",
-    color: "from-cyan-600 to-blue-700",
-    border: "border-cyan-500",
+    icon: "",
+    color: "from-[#1E90FF] to-blue-700",
+    border: "border-[#1E90FF]",
     description: "The AI Recruiter analyzes your profile, stats, and target schools — then gives you a personalized recruiting strategy. It knows what coaches want to see.",
     bullets: [
       "Get a personalized school target list",
@@ -106,9 +106,9 @@ const STEPS = [
     step: "07",
     title: "Navigate the Transfer Portal",
     subtitle: "Find Your Next School — Faster Than Anyone",
-    icon: "🎓",
-    color: "from-red-600 to-red-600",
-    border: "border-red-500",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     description: "The Transfer Portal Intelligence system tracks every open roster spot, scholarship availability, and coach contact windows. If you're entering the portal, AthlynX gives you the edge.",
     bullets: [
       "Search open roster spots by sport and position",
@@ -122,9 +122,9 @@ const STEPS = [
     step: "08",
     title: "Train with AI-Powered Tools",
     subtitle: "Elite Training Programs Built for Your Sport",
-    icon: "💪",
-    color: "from-red-600 to-red-700",
-    border: "border-red-500",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     description: "Access sport-specific training programs, film breakdown tools, and AI coaching. Whether you're a quarterback, pitcher, or point guard — AthlynX has your training plan.",
     bullets: [
       "Sport-specific workout programs",
@@ -137,14 +137,14 @@ const STEPS = [
 ];
 
 const FEATURES = [
-  { icon: "🏈", label: "Gridiron Nexus", desc: "Football", href: "/gridiron-nexus" },
-  { icon: "⚾", label: "Diamond Grind", desc: "Baseball", href: "/diamond-grind" },
-  { icon: "⚽", label: "Pitch Pulse", desc: "Soccer", href: "/pitch-pulse" },
-  { icon: "🏀", label: "Court Kings", desc: "Basketball", href: "/court-kings" },
-  { icon: "🎣", label: "Reel Masters", desc: "Fishing", href: "/reel-masters" },
-  { icon: "🧠", label: "AI Content", desc: "Go Viral", href: "/ai-content" },
-  { icon: "📊", label: "NIL Vault", desc: "Contracts", href: "/nil-vault" },
-  { icon: "🌍", label: "Social Hub", desc: "Community", href: "/social-hub" },
+  { icon: "", label: "Gridiron Nexus", desc: "Football", href: "/gridiron-nexus" },
+  { icon: "", label: "Diamond Grind", desc: "Baseball", href: "/diamond-grind" },
+  { icon: "", label: "Pitch Pulse", desc: "Soccer", href: "/pitch-pulse" },
+  { icon: "", label: "Court Kings", desc: "Basketball", href: "/court-kings" },
+  { icon: "", label: "Reel Masters", desc: "Fishing", href: "/reel-masters" },
+  { icon: "", label: "AI Content", desc: "Go Viral", href: "/ai-content" },
+  { icon: "", label: "NIL Vault", desc: "Contracts", href: "/nil-vault" },
+  { icon: "", label: "Social Hub", desc: "Community", href: "/social-hub" },
 ];
 
 function DemoInner() {
@@ -166,7 +166,7 @@ function DemoInner() {
             <Link href="/feed" className="text-xs bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-bold transition-colors hidden sm:block">
               ENTER PLATFORM
             </Link>
-            <Link href="/signup" className="text-xs bg-gradient-to-r from-red-400 to-red-500 text-black px-4 py-1.5 rounded-lg font-black transition-all hover:scale-105">
+            <Link href="/signup" className="text-xs bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-black px-4 py-1.5 rounded-lg font-black transition-all hover:scale-105">
               JOIN FREE
             </Link>
           </div>
@@ -187,8 +187,8 @@ function DemoInner() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#060e24] via-[#060e24]/50 to-transparent pointer-events-none" />
         <div className="absolute bottom-8 left-0 right-0 text-center px-4">
-          <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500 text-red-300 text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest">
-            <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF] text-[#1E90FF] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest">
+            <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse" />
             OFFICIAL PLATFORM WALKTHROUGH
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight">HOW AthlynX WORKS</h1>
@@ -246,14 +246,14 @@ function DemoInner() {
                 <ul className="space-y-2 mb-8">
                   {STEPS[activeStep].bullets.map((b, bi) => (
                     <li key={bi} className="flex items-start gap-3 text-white/90 text-sm">
-                      <span className="text-red-400 font-black mt-0.5">✓</span>
+                      <span className="text-[#1E90FF] font-black mt-0.5"></span>
                       {b}
                     </li>
                   ))}
                 </ul>
                 <Link
                   href={STEPS[activeStep].cta.href}
-                  className="inline-block bg-white text-blue-900 font-black px-8 py-3 rounded-xl hover:bg-red-400 transition-all hover:scale-105 shadow-xl"
+                  className="inline-block bg-white text-blue-900 font-black px-8 py-3 rounded-xl hover:bg-[#1E90FF] transition-all hover:scale-105 shadow-xl"
                 >
                   {STEPS[activeStep].cta.label} →
                 </Link>
@@ -318,7 +318,7 @@ function DemoInner() {
               <thead>
                 <tr className="border-b border-blue-800">
                   <th className="text-left py-3 px-4 text-blue-400 font-black uppercase tracking-widest text-xs">Feature</th>
-                  <th className="py-3 px-4 text-red-400 font-black text-center">AthlynX</th>
+                  <th className="py-3 px-4 text-[#1E90FF] font-black text-center">AthlynX</th>
                   <th className="py-3 px-4 text-blue-600 font-bold text-center text-xs">Hudl</th>
                   <th className="py-3 px-4 text-blue-600 font-bold text-center text-xs">On3</th>
                   <th className="py-3 px-4 text-blue-600 font-bold text-center text-xs">Perfect Game</th>
@@ -326,21 +326,21 @@ function DemoInner() {
               </thead>
               <tbody>
                 {[
-                  ["Social Feed (Posts, Stories, Reactions)", "✅", "❌", "❌", "❌"],
-                  ["Direct Messaging to Coaches", "✅", "❌", "❌", "❌"],
-                  ["NIL Deal Management", "✅", "❌", "✅", "❌"],
-                  ["AI Recruiting Assistant", "✅", "❌", "❌", "❌"],
-                  ["Transfer Portal Intelligence", "✅", "❌", "✅", "❌"],
-                  ["Film Upload & Breakdown", "✅", "✅", "❌", "❌"],
-                  ["Sport-Specific Platforms", "✅", "✅", "✅", "✅"],
-                  ["Athlete-to-Athlete Networking", "✅", "❌", "❌", "❌"],
-                  ["AI Content Creation", "✅", "❌", "❌", "❌"],
-                  ["Free 7-Day Trial", "✅", "❌", "❌", "❌"],
+                  ["Social Feed (Posts, Stories, Reactions)", "", "", "", ""],
+                  ["Direct Messaging to Coaches", "", "", "", ""],
+                  ["NIL Deal Management", "", "", "", ""],
+                  ["AI Recruiting Assistant", "", "", "", ""],
+                  ["Transfer Portal Intelligence", "", "", "", ""],
+                  ["Film Upload & Breakdown", "", "", "", ""],
+                  ["Sport-Specific Platforms", "", "", "", ""],
+                  ["Athlete-to-Athlete Networking", "", "", "", ""],
+                  ["AI Content Creation", "", "", "", ""],
+                  ["Free 7-Day Trial", "", "", "", ""],
                 ].map(([feature, ...vals], i) => (
                   <tr key={i} className={`border-b border-blue-900/50 ${i % 2 === 0 ? "bg-[#0d1b3e]/30" : ""}`}>
                     <td className="py-3 px-4 text-white font-semibold">{feature}</td>
                     {vals.map((v, vi) => (
-                      <td key={vi} className={`py-3 px-4 text-center font-black text-lg ${v === "✅" ? "text-green-400" : "text-red-600/60"}`}>{v}</td>
+                      <td key={vi} className={`py-3 px-4 text-center font-black text-lg ${v === "" ? "text-[#00C2FF]" : "text-[#1E90FF]/60"}`}>{v}</td>
                     ))}
                   </tr>
                 ))}
@@ -360,7 +360,7 @@ function DemoInner() {
             {[
               { name: "STARTER", price: "FREE", period: "7 days", features: ["Full platform access", "Basic profile", "Feed & Messenger", "NIL browsing"], color: "border-blue-700", badge: "" },
               { name: "PRO", price: "$29", period: "/month", features: ["Everything in Starter", "AI Recruiter", "NIL deal submissions", "Transfer Portal Intel", "Priority support"], color: "border-blue-500 ring-2 ring-blue-500", badge: "MOST POPULAR" },
-              { name: "ELITE", price: "$99", period: "/month", features: ["Everything in Pro", "Unlimited NIL deals", "AI Content creation", "Personal recruiting agent", "White-glove support"], color: "border-red-600", badge: "ELITE" },
+              { name: "ELITE", price: "$99", period: "/month", features: ["Everything in Pro", "Unlimited NIL deals", "AI Content creation", "Personal recruiting agent", "White-glove support"], color: "border-[#1E90FF]", badge: "ELITE" },
             ].map((plan) => (
               <div key={plan.name} className={`bg-[#0d1b3e] border ${plan.color} rounded-2xl p-6 relative`}>
                 {plan.badge && (
@@ -374,7 +374,7 @@ function DemoInner() {
                 <ul className="space-y-2 mb-6">
                   {plan.features.map((f, fi) => (
                     <li key={fi} className="text-blue-300 text-xs flex items-start gap-2">
-                      <span className="text-green-400 font-black">✓</span>{f}
+                      <span className="text-[#00C2FF] font-black"></span>{f}
                     </li>
                   ))}
                 </ul>
@@ -393,7 +393,7 @@ function DemoInner() {
       {/* Final CTA */}
       <section className="py-20 px-4 bg-[#060e24] border-t border-blue-900 text-center">
         <div className="max-w-2xl mx-auto">
-          <div className="text-6xl mb-6">🏆</div>
+          <div className="text-6xl mb-6"></div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">YOUR CAREER STARTS NOW</h2>
           <p className="text-blue-300 text-xl mb-8">
             Join the platform built by a pro athlete, for every athlete. 
@@ -402,7 +402,7 @@ function DemoInner() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/signup"
-              className="inline-block bg-gradient-to-r from-red-400 to-red-500 hover:from-red-300 hover:to-red-400 text-black font-black text-xl px-10 py-4 rounded-2xl transition-all shadow-2xl hover:scale-105"
+              className="inline-block bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-black font-black text-xl px-10 py-4 rounded-2xl transition-all shadow-2xl hover:scale-105"
             >
               JOIN FREE — 7 DAYS →
             </Link>

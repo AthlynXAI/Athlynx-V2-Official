@@ -33,11 +33,11 @@ function VCTechInner() {
           <div className="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-500/30 rounded-full px-4 py-2 text-blue-300 text-sm mb-6">
             <Building2 className="w-4 h-4" /> A DOZIER HOLDINGS GROUP COMPANY
           </div>
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#1E90FF] to-blue-600 rounded-2xl flex items-center justify-center">
             <Code2 className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">VC TECHNOLOGIES</span>
+            <span className="bg-gradient-to-r from-[#1E90FF] to-blue-500 bg-clip-text text-transparent">VC TECHNOLOGIES</span>
           </h1>
           <p className="text-xl text-blue-200 mb-2 font-bold">Enterprise Software & AI Solutions</p>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
@@ -45,7 +45,7 @@ function VCTechInner() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/infrastructure">
-              <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all">
+              <button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all">
                 View Infrastructure <ChevronRight className="inline w-4 h-4" />
               </button>
             </Link>
@@ -72,11 +72,11 @@ function VCTechInner() {
               { icon: Globe, title: 'API & Integrations', desc: 'Third-party API integrations, microservices architecture, and seamless ecosystem connectivity.', link: '/capabilities' },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
-                <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 hover:border-cyan-500/50 hover:bg-slate-800/80 transition-all cursor-pointer group">
-                  <service.icon className="w-8 h-8 text-cyan-400 mb-4 group-hover:scale-110 transition-transform" />
+                <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 hover:border-[#1E90FF]/30 hover:bg-slate-800/80 transition-all cursor-pointer group">
+                  <service.icon className="w-8 h-8 text-[#00C2FF] mb-4 group-hover:scale-110 transition-transform" />
                   <h3 className="text-white font-bold text-lg mb-2">{service.title}</h3>
                   <p className="text-gray-400 text-sm">{service.desc}</p>
-                  <div className="mt-4 flex items-center gap-1 text-cyan-400 text-sm font-semibold">
+                  <div className="mt-4 flex items-center gap-1 text-[#00C2FF] text-sm font-semibold">
                     Learn More <ChevronRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -103,8 +103,8 @@ function VCTechInner() {
               { name: 'AI Recruiter', link: '/ai-recruiter', status: 'LIVE' },
             ].map((p, i) => (
               <Link key={i} href={p.link}>
-                <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-4 text-center hover:border-cyan-500/50 transition-all cursor-pointer">
-                  <div className="text-xs text-green-400 font-bold mb-1">{p.status}</div>
+                <div className="bg-slate-800/60 border border-slate-700 rounded-xl p-4 text-center hover:border-[#1E90FF]/30 transition-all cursor-pointer">
+                  <div className="text-xs text-[#00C2FF] font-bold mb-1">{p.status}</div>
                   <div className="text-white font-bold text-sm">{p.name}</div>
                 </div>
               </Link>

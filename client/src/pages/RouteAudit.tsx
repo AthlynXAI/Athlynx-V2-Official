@@ -18,7 +18,7 @@ const ROUTE_SEEDS = [
   "/family", "/team", "/os",
   "/connector-os/thesis", "/connector-os/pricing", "/connector-os/layer-cake",
   "/doctrine/manifesto", "/doctrine/brand", "/doctrine/small-circle",
-  "/team/glenn-tse", "/team/lee-marshall", "/team/tony-locey",
+  "/team/glenn-tse", "/team/lee-marshall", "/team/",
   "/athlete-dashboard", "/athlete-data", "/athlete-financial", "/athlete-health",
   "/athlete-career", "/athlete-life", "/athlete-store", "/athlete-playbook",
   "/discover", "/browse-athletes",
@@ -70,7 +70,7 @@ export default function RouteAudit() {
               <span className="ml-2 text-xs uppercase tracking-widest text-[#00c2ff]">Audit</span>
             </Link>
             <div className="text-sm text-white/60">
-              {running ? "Probing…" : "Done"} · <span className="text-[#00c2ff]">{okCount} OK</span> · <span className="text-red-400">{failCount} fail</span>
+              {running ? "Probing…" : "Done"} · <span className="text-[#00c2ff]">{okCount} OK</span> · <span className="text-[#1E90FF]">{failCount} fail</span>
             </div>
           </div>
         </header>
@@ -103,9 +103,9 @@ export default function RouteAudit() {
                     </td>
                     <td className="px-4 py-2">
                       {p.status === 200 ? (
-                        <span className="text-green-400">● {p.status}</span>
+                        <span className="text-[#00C2FF]"> {p.status}</span>
                       ) : (
-                        <span className="text-red-400">● {String(p.status)}</span>
+                        <span className="text-[#1E90FF]"> {String(p.status)}</span>
                       )}
                     </td>
                     <td className="px-4 py-2 text-white/60">{p.ms}ms</td>

@@ -17,10 +17,10 @@ const TIERS = [
     price: "$299",
     period: "/mo",
     athletes: "Up to 50 athletes",
-    color: "from-blue-600 to-cyan-600",
+    color: "from-blue-600 to-[#0a1628]",
     borderColor: "border-blue-600",
     badgeColor: "bg-blue-600",
-    icon: "🏟️",
+    icon: "",
     features: [
       "Custom team branding & colors",
       "Up to 50 athlete profiles",
@@ -39,10 +39,10 @@ const TIERS = [
     price: "$599",
     period: "/mo",
     athletes: "Up to 500 athletes",
-    color: "from-indigo-600 to-purple-600",
-    borderColor: "border-indigo-500",
-    badgeColor: "bg-indigo-600",
-    icon: "🎓",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    borderColor: "border-[#1E90FF]",
+    badgeColor: "bg-[#1E90FF]",
+    icon: "",
     popular: true,
     features: [
       "Everything in Team, plus:",
@@ -62,10 +62,10 @@ const TIERS = [
     price: "$1,499",
     period: "/mo",
     athletes: "Unlimited athletes",
-    color: "from-purple-600 to-pink-600",
-    borderColor: "border-purple-500",
-    badgeColor: "bg-purple-600",
-    icon: "🏆",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    borderColor: "border-[#1E90FF]",
+    badgeColor: "bg-[#1E90FF]",
+    icon: "",
     features: [
       "Everything in School, plus:",
       "Unlimited athlete profiles",
@@ -84,10 +84,10 @@ const TIERS = [
     price: "Custom",
     period: "",
     athletes: "Unlimited + custom",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-500 to-[#0a1628]",
     borderColor: "border-blue-500",
     badgeColor: "bg-blue-600",
-    icon: "🌐",
+    icon: "",
     features: [
       "Everything in Conference, plus:",
       "Fully custom white-label deployment",
@@ -103,18 +103,18 @@ const TIERS = [
 ];
 
 const SPORT_APPS = [
-  { name: "Diamond Grind", sport: "Baseball", icon: "⚾", status: "live", href: "/diamond-grind" },
-  { name: "Gridiron Nexus", sport: "Football", icon: "🏈", status: "live", href: "/gridiron-nexus" },
-  { name: "Court Kings", sport: "Basketball", icon: "🏀", status: "live", href: "/court-kings" },
-  { name: "Pitch Pulse", sport: "Soccer", icon: "⚽", status: "live", href: "/pitch-pulse" },
-  { name: "Reel Masters", sport: "Fishing", icon: "🎣", status: "live", href: "/reel-masters" },
-  { name: "Racket Kings", sport: "Tennis", icon: "🎾", status: "live", href: "/racket-kings" },
-  { name: "Swim Surge", sport: "Swimming", icon: "🏊", status: "live", href: "/swim-surge" },
-  { name: "Mat Warriors", sport: "Wrestling", icon: "🤼", status: "live", href: "/mat-warriors" },
-  { name: "Net Setters", sport: "Volleyball", icon: "🏐", status: "live", href: "/net-setters" },
-  { name: "Track Elite", sport: "Track & Field", icon: "🏃", status: "live", href: "/track-elite" },
-  { name: "Softball Nation", sport: "Softball", icon: "🥎", status: "live", href: "/softball-nation" },
-  { name: "Cheer Elite", sport: "Cheer", icon: "📣", status: "coming-soon", href: "#" },
+  { name: "Diamond Grind", sport: "Baseball", icon: "", status: "live", href: "/diamond-grind" },
+  { name: "Gridiron Nexus", sport: "Football", icon: "", status: "live", href: "/gridiron-nexus" },
+  { name: "Court Kings", sport: "Basketball", icon: "", status: "live", href: "/court-kings" },
+  { name: "Pitch Pulse", sport: "Soccer", icon: "", status: "live", href: "/pitch-pulse" },
+  { name: "Reel Masters", sport: "Fishing", icon: "", status: "live", href: "/reel-masters" },
+  { name: "Racket Kings", sport: "Tennis", icon: "", status: "live", href: "/racket-kings" },
+  { name: "Swim Surge", sport: "Swimming", icon: "", status: "live", href: "/swim-surge" },
+  { name: "Mat Warriors", sport: "Wrestling", icon: "", status: "live", href: "/mat-warriors" },
+  { name: "Net Setters", sport: "Volleyball", icon: "", status: "live", href: "/net-setters" },
+  { name: "Track Elite", sport: "Track & Field", icon: "", status: "live", href: "/track-elite" },
+  { name: "Softball Nation", sport: "Softball", icon: "", status: "live", href: "/softball-nation" },
+  { name: "Cheer Elite", sport: "Cheer", icon: "", status: "coming-soon", href: "#" },
 ];
 
 function WhiteLabelInner() {
@@ -181,17 +181,17 @@ function WhiteLabelInner() {
 
         {/* Hero */}
         <div className="bg-gradient-to-br from-[#0d1b3e] to-[#1a3a8f] rounded-2xl border border-blue-800 p-8 text-center">
-          <div className="text-5xl mb-4">🏷️</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <h1 className="text-3xl font-black text-white mb-3">White-Label Licensing</h1>
           <p className="text-blue-300 text-base max-w-2xl mx-auto mb-4">
             Power your organization with the full AthlynX platform under your brand. 
             Same world-class AI, NIL tools, and recruiting infrastructure — your logo, your colors, your domain.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-blue-400">
-            <span className="flex items-center gap-1">✅ Custom branding</span>
-            <span className="flex items-center gap-1">🤖 Triple AI engine</span>
-            <span className="flex items-center gap-1">🏆 44 sports supported</span>
-            <span className="flex items-center gap-1">🔒 HIPAA-compliant</span>
+            <span className="flex items-center gap-1"> Custom branding</span>
+            <span className="flex items-center gap-1"> Triple AI engine</span>
+            <span className="flex items-center gap-1"> 44 sports supported</span>
+            <span className="flex items-center gap-1"> HIPAA-compliant</span>
           </div>
         </div>
 
@@ -205,7 +205,7 @@ function WhiteLabelInner() {
                 className={`relative bg-[#0d1b3e] rounded-2xl border-2 ${tier.borderColor} overflow-hidden hover:scale-105 transition-all`}
               >
                 {tier.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[10px] font-black text-center py-1 tracking-widest">
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white text-[10px] font-black text-center py-1 tracking-widest">
                     MOST POPULAR
                   </div>
                 )}
@@ -222,7 +222,7 @@ function WhiteLabelInner() {
                   <ul className="space-y-1.5 mb-5">
                     {tier.features.map((f, i) => (
                       <li key={i} className="flex items-start gap-1.5 text-xs text-blue-200">
-                        <span className="text-cyan-400 mt-0.5 shrink-0">✓</span>
+                        <span className="text-[#00C2FF] mt-0.5 shrink-0"></span>
                         <span>{f}</span>
                       </li>
                     ))}
@@ -257,7 +257,7 @@ function WhiteLabelInner() {
                   required
                   value={form.orgName}
                   onChange={e => setForm(f => ({ ...f, orgName: e.target.value }))}
-                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                   placeholder="e.g. Houston Texans, University of Texas"
                 />
               </div>
@@ -266,7 +266,7 @@ function WhiteLabelInner() {
                 <input
                   value={form.orgType}
                   onChange={e => setForm(f => ({ ...f, orgType: e.target.value }))}
-                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                   placeholder="e.g. NFL Team, Division I University"
                 />
               </div>
@@ -276,7 +276,7 @@ function WhiteLabelInner() {
                   required
                   value={form.contactName}
                   onChange={e => setForm(f => ({ ...f, contactName: e.target.value }))}
-                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                   placeholder="Your full name"
                 />
               </div>
@@ -287,7 +287,7 @@ function WhiteLabelInner() {
                   type="email"
                   value={form.contactEmail}
                   onChange={e => setForm(f => ({ ...f, contactEmail: e.target.value }))}
-                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                   placeholder="you@organization.com"
                 />
               </div>
@@ -296,7 +296,7 @@ function WhiteLabelInner() {
                 <input
                   value={form.contactPhone}
                   onChange={e => setForm(f => ({ ...f, contactPhone: e.target.value }))}
-                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
@@ -307,7 +307,7 @@ function WhiteLabelInner() {
                     value={form.notes}
                     onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
                     rows={3}
-                    className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"
+                    className="w-full bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[#1E90FF]"
                     placeholder="Tell us about your athlete count, sports, custom requirements..."
                   />
                 </div>
@@ -338,10 +338,10 @@ function WhiteLabelInner() {
 
         {/* Success state */}
         {submitted && (
-          <div className="bg-green-900/30 border border-green-600 rounded-2xl p-6 text-center">
-            <div className="text-4xl mb-3">✅</div>
+          <div className="bg-[#00C2FF]/30 border border-[#00C2FF] rounded-2xl p-6 text-center">
+            <div className="text-4xl mb-3"></div>
             <h3 className="text-white font-black text-lg mb-2">Inquiry Received!</h3>
-            <p className="text-green-300 text-sm">
+            <p className="text-[#00C2FF] text-sm">
               We'll contact you at <strong>{form.contactEmail}</strong> within 24 hours to discuss your enterprise licensing options.
             </p>
           </div>
@@ -358,8 +358,8 @@ function WhiteLabelInner() {
                   <div className="text-2xl mb-1">{app.icon}</div>
                   <div className="text-white text-xs font-bold">{app.name}</div>
                   <div className="text-blue-400 text-[10px]">{app.sport}</div>
-                  <div className={`text-[9px] font-black mt-1 ${app.status === "live" ? "text-green-400" : "text-sky-400"}`}>
-                    {app.status === "live" ? "● LIVE" : "● SOON"}
+                  <div className={`text-[9px] font-black mt-1 ${app.status === "live" ? "text-[#00C2FF]" : "text-[#00C2FF]"}`}>
+                    {app.status === "live" ? " LIVE" : " SOON"}
                   </div>
                 </div>
               </Link>
@@ -372,9 +372,9 @@ function WhiteLabelInner() {
           <h2 className="text-xl font-black text-white mb-4 text-center">How White-Label Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { icon: "🏗️", title: "Same Infrastructure", desc: "All platforms run on the AthlynX backend — one codebase, one database, one AI engine. Zero maintenance for you." },
-              { icon: "🎨", title: "Your Brand", desc: "Custom logo, colors, domain, and sport-specific features. Athletes see your brand, not ours." },
-              { icon: "💰", title: "Revenue Flows", desc: "All subscriptions, AI credits, and NIL transactions flow through your Stripe account. You keep the revenue." },
+              { icon: "", title: "Same Infrastructure", desc: "All platforms run on the AthlynX backend — one codebase, one database, one AI engine. Zero maintenance for you." },
+              { icon: "", title: "Your Brand", desc: "Custom logo, colors, domain, and sport-specific features. Athletes see your brand, not ours." },
+              { icon: "", title: "Revenue Flows", desc: "All subscriptions, AI credits, and NIL transactions flow through your Stripe account. You keep the revenue." },
             ].map((item, i) => (
               <div key={i} className="text-center p-4 bg-blue-900/20 rounded-xl border border-blue-800/40">
                 <div className="text-4xl mb-3">{item.icon}</div>
@@ -393,12 +393,12 @@ function WhiteLabelInner() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="mailto:contact@athlynx.ai?subject=White-Label Licensing Inquiry"
-              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black rounded-xl text-sm hover:opacity-90 transition-all">
-              📧 Email Us
+              className="px-6 py-3 bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white font-black rounded-xl text-sm hover:opacity-90 transition-all">
+               Email Us
             </a>
             <a href="/book"
               className="px-6 py-3 bg-blue-900/50 border border-blue-600 text-white font-black rounded-xl text-sm hover:bg-blue-900 transition-all">
-              📞 Call Chad: Book a call
+               Call Chad: Book a call
             </a>
           </div>
         </div>

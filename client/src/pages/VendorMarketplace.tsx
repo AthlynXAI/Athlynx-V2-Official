@@ -4,27 +4,27 @@ import { useState } from "react";
 import { Link } from "wouter";
 
 const COLLECTIONS = [
-  { id: "athlynx-sportswear", name: "AthlynX Sportswear", items: 4, icon: "👕", description: "Premium performance apparel for elite athletes" },
-  { id: "diamond-grind-gear", name: "Diamond Grind Gear", items: 2, icon: "⚾", description: "Pro baseball training equipment and gear" },
-  { id: "warriors-playbook-gear", name: "Warriors Playbook Gear", items: 1, icon: "🏀", description: "Basketball coaching and training tools" },
-  { id: "nil-merchandise", name: "NIL Merchandise", items: 1, icon: "💰", description: "Athlete branded NIL merchandise" },
-  { id: "athlynxai-apparel", name: "AthlynXAI Branded Apparel", items: 1, icon: "🦉", description: "Official AthlynXAI OS branded gear" },
-  { id: "athletic-equipment", name: "Athletic Equipment", items: 1, icon: "🏋️", description: "Pro-grade training equipment" },
-  { id: "accessories", name: "Accessories", items: 1, icon: "🎒", description: "Athlete lifestyle accessories" },
+  { id: "athlynx-sportswear", name: "AthlynX Sportswear", items: 4, icon: "", description: "Premium performance apparel for elite athletes" },
+  { id: "diamond-grind-gear", name: "Diamond Grind Gear", items: 2, icon: "", description: "Pro baseball training equipment and gear" },
+  { id: "warriors-playbook-gear", name: "Warriors Playbook Gear", items: 1, icon: "", description: "Basketball coaching and training tools" },
+  { id: "nil-merchandise", name: "NIL Merchandise", items: 1, icon: "", description: "Athlete branded NIL merchandise" },
+  { id: "athlynxai-apparel", name: "AthlynXAI Branded Apparel", items: 1, icon: "", description: "Official AthlynXAI OS branded gear" },
+  { id: "athletic-equipment", name: "Athletic Equipment", items: 1, icon: "", description: "Pro-grade training equipment" },
+  { id: "accessories", name: "Accessories", items: 1, icon: "", description: "Athlete lifestyle accessories" },
 ];
 
 const PRODUCTS = [
-  { id: 1, name: "AthlynX Training Tee", price: "$34.99", collection: "AthlynX Sportswear", image: "👕", vendor: "ICC-USA", status: "In Stock" },
-  { id: 2, name: "AthlynX Training Shorts", price: "$44.99", collection: "AthlynX Sportswear", image: "🩳", vendor: "ICC-USA", status: "In Stock" },
-  { id: 3, name: "AthlynX Performance Hoodie", price: "$69.99", collection: "AthlynX Sportswear", image: "🧥", vendor: "ICC-USA", status: "In Stock" },
-  { id: 4, name: "AthlynX Compression Leggings", price: "$54.99", collection: "AthlynX Sportswear", image: "🩱", vendor: "ICC-USA", status: "In Stock" },
-  { id: 5, name: "Diamond Grind Pro Batting Gloves", price: "$49.99", collection: "Diamond Grind Gear", image: "🧤", vendor: "ICC-USA", status: "In Stock" },
-  { id: 6, name: "Diamond Grind Training Batting Helmet", price: "$89.99", collection: "Diamond Grind Gear", image: "⛑️", vendor: "ICC-USA", status: "In Stock" },
-  { id: 7, name: "Warriors Playbook Pro Coaching Binder", price: "$39.99", collection: "Warriors Playbook Gear", image: "📋", vendor: "ICC-USA", status: "In Stock" },
-  { id: 8, name: "NIL Athlete Snapback Hat", price: "$29.99", collection: "NIL Merchandise", image: "🧢", vendor: "ICC-USA", status: "In Stock" },
-  { id: 9, name: "AthlynXAI Logo Performance Tee", price: "$39.99", collection: "AthlynXAI Branded Apparel", image: "🦉", vendor: "ICC-USA", status: "In Stock" },
-  { id: 10, name: "Pro Resistance Band Set", price: "$24.99", collection: "Athletic Equipment", image: "💪", vendor: "ICC-USA", status: "In Stock" },
-  { id: 11, name: "Insulated Athlete Water Bottle", price: "$34.99", collection: "Accessories", image: "🍶", vendor: "ICC-USA", status: "In Stock" },
+  { id: 1, name: "AthlynX Training Tee", price: "$34.99", collection: "AthlynX Sportswear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 2, name: "AthlynX Training Shorts", price: "$44.99", collection: "AthlynX Sportswear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 3, name: "AthlynX Performance Hoodie", price: "$69.99", collection: "AthlynX Sportswear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 4, name: "AthlynX Compression Leggings", price: "$54.99", collection: "AthlynX Sportswear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 5, name: "Diamond Grind Pro Batting Gloves", price: "$49.99", collection: "Diamond Grind Gear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 6, name: "Diamond Grind Training Batting Helmet", price: "$89.99", collection: "Diamond Grind Gear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 7, name: "Warriors Playbook Pro Coaching Binder", price: "$39.99", collection: "Warriors Playbook Gear", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 8, name: "NIL Athlete Snapback Hat", price: "$29.99", collection: "NIL Merchandise", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 9, name: "AthlynXAI Logo Performance Tee", price: "$39.99", collection: "AthlynXAI Branded Apparel", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 10, name: "Pro Resistance Band Set", price: "$24.99", collection: "Athletic Equipment", image: "", vendor: "ICC-USA", status: "In Stock" },
+  { id: 11, name: "Insulated Athlete Water Bottle", price: "$34.99", collection: "Accessories", image: "", vendor: "ICC-USA", status: "In Stock" },
 ];
 
 const VENDORS = [
@@ -58,7 +58,7 @@ export default function VendorMarketplace() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Hero */}
         <div className="text-center mb-10">
-          <div className="text-5xl mb-4">🦉</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <h1 className="text-4xl font-black tracking-tight mb-2">AthlynX Commerce</h1>
           <p className="text-white/50 text-lg">Official gear, equipment & athlete merchandise. Fulfilled by ICC-USA.</p>
         </div>
@@ -124,7 +124,7 @@ export default function VendorMarketplace() {
                     <div className="text-white/40 text-xs mt-1">{p.collection}</div>
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-[#1E90FF] font-bold">{p.price}</span>
-                      <span className="text-green-400 text-xs">{p.status}</span>
+                      <span className="text-[#00C2FF] text-xs">{p.status}</span>
                     </div>
                     <a
                       href="https://0010yz-fn.myshopify.com"
@@ -155,8 +155,8 @@ export default function VendorMarketplace() {
                       <span className="text-white/50">{v.products} products</span>
                     </div>
                   </div>
-                  <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold">
-                    ✅ {v.status}
+                  <span className="px-3 py-1 bg-[#00C2FF]/20 text-[#00C2FF] rounded-full text-xs font-bold">
+                     {v.status}
                   </span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function VendorMarketplace() {
         {tab === "partner" && (
           <div className="max-w-2xl mx-auto">
             <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
-              <div className="text-4xl mb-4">🤝</div>
+              <div className="text-4xl mb-4"></div>
               <h2 className="text-2xl font-black mb-2">Become an AthlynX Vendor Partner</h2>
               <p className="text-white/60 mb-6">
                 Join the AthlynX Vendor Marketplace. Sell your athletic gear, equipment, and merchandise to thousands of athletes, coaches, and programs on the AthlynXAI OS platform.
@@ -182,7 +182,7 @@ export default function VendorMarketplace() {
                   "Revenue share on all platform-driven sales",
                 ].map(b => (
                   <div key={b} className="flex items-center gap-2 text-sm text-white/80">
-                    <span className="text-[#1E90FF]">✓</span> {b}
+                    <span className="text-[#1E90FF]"></span> {b}
                   </div>
                 ))}
               </div>

@@ -39,24 +39,24 @@ import {
 
 // Quick access sites
 const QUICK_SITES = [
-  { name: 'Transfer Portal', url: '/transfer-portal', icon: '🏈', color: '#00d4ff' },
-  { name: 'NIL Calculator', url: '/nil-calculator', icon: '💰', color: '#1E90FF' },
-  { name: 'AI Wizards', url: '/wizards', icon: '🤖', color: '#00ff88' },
-  { name: 'Social Hub', url: '/social', icon: '📱', color: '#E4405F' },
-  { name: 'ESPN', url: 'https://espn.com', icon: '🏀', color: '#ff0000' },
-  { name: 'On3', url: 'https://on3.com', icon: '📊', color: '#00d4ff' },
-  { name: '247Sports', url: 'https://247sports.com', icon: '🏆', color: '#1E90FF' },
-  { name: 'Twitter/X', url: 'https://x.com', icon: '🐦', color: '#1DA1F2' },
+  { name: 'Transfer Portal', url: '/transfer-portal', icon: '', color: '#00d4ff' },
+  { name: 'NIL Calculator', url: '/nil-calculator', icon: '', color: '#1E90FF' },
+  { name: 'AI Wizards', url: '/wizards', icon: '', color: '#00ff88' },
+  { name: 'Social Hub', url: '/social', icon: '', color: '#E4405F' },
+  { name: 'ESPN', url: 'https://espn.com', icon: '', color: '#ff0000' },
+  { name: 'On3', url: 'https://on3.com', icon: '', color: '#00d4ff' },
+  { name: '247Sports', url: 'https://247sports.com', icon: '', color: '#1E90FF' },
+  { name: 'Twitter/X', url: 'https://x.com', icon: '', color: '#1DA1F2' },
 ];
 
 // AI Models available
 const AI_MODELS = [
-  { name: 'AthlynXAI', provider: 'AthlynXAI', icon: '🤖' },
-  { name: 'GPT-OSS-120B', provider: 'Nebius', icon: '🧠' },
-  { name: 'Kimi-K2', provider: 'Moonshot', icon: '🌙' },
-  { name: 'DeepSeek-V3', provider: 'DeepSeek', icon: '🔍' },
-  { name: 'Qwen3-235B', provider: 'Alibaba', icon: '☁️' },
-  { name: 'Llama-4', provider: 'Meta', icon: '🦙' },
+  { name: 'AthlynXAI', provider: 'AthlynXAI', icon: '' },
+  { name: 'GPT-OSS-120B', provider: 'Nebius', icon: '' },
+  { name: 'Kimi-K2', provider: 'Moonshot', icon: '' },
+  { name: 'DeepSeek-V3', provider: 'DeepSeek', icon: '' },
+  { name: 'Qwen3-235B', provider: 'Alibaba', icon: '' },
+  { name: 'Llama-4', provider: 'Meta', icon: '' },
 ];
 
 interface BrowserTab {
@@ -134,7 +134,7 @@ function AthlynXBrowserInner() {
 
   const addBookmark = () => {
     if (url) {
-      toast({ title: '⭐ Bookmark Added', description: 'Page saved to bookmarks' });
+      toast({ title: ' Bookmark Added', description: 'Page saved to bookmarks' });
     }
   };
 
@@ -158,7 +158,7 @@ function AthlynXBrowserInner() {
               <span className="truncate text-sm">{tab.title}</span>
               {tabs.length > 1 && (
                 <X 
-                  className="w-4 h-4 flex-shrink-0 hover:text-red-400" 
+                  className="w-4 h-4 flex-shrink-0 hover:text-[#1E90FF]" 
                   onClick={(e) => { e.stopPropagation(); closeTab(tab.id); }}
                 />
               )}

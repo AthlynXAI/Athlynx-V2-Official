@@ -6,9 +6,9 @@ import { Link } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
 
 const nilDeals = [
-  { brand: "Nike", type: "Sponsorship", duration: "12 months", value: 25000, status: "Active", statusColor: "bg-green-500" },
-  { brand: "Gatorade", type: "Social Post", duration: "6 months", value: 5000, status: "Active", statusColor: "bg-green-500" },
-  { brand: "Local Auto Dealer", type: "Appearance", duration: "One-time", value: 2500, status: "Pending", statusColor: "bg-red-500" },
+  { brand: "Nike", type: "Sponsorship", duration: "12 months", value: 25000, status: "Active", statusColor: "bg-[#00C2FF]" },
+  { brand: "Gatorade", type: "Social Post", duration: "6 months", value: 5000, status: "Active", statusColor: "bg-[#00C2FF]" },
+  { brand: "Local Auto Dealer", type: "Appearance", duration: "One-time", value: 2500, status: "Pending", statusColor: "bg-[#1E90FF]" },
   { brand: "Under Armour", type: "Equipment Deal", duration: "1 season", value: 3000, status: "Negotiating", statusColor: "bg-blue-500" },
   { brand: "Protein World", type: "Ambassador", duration: "6 months", value: 1500, status: "Completed", statusColor: "bg-gray-500" },
 ];
@@ -17,17 +17,17 @@ const fuelInsights = [
   {
     title: "Speed Training Alert",
     desc: "Your 40-time can improve 0.05s with targeted drills",
-    icon: "⚡",
-    color: "from-red-900/50 to-red-900/30",
-    borderColor: "border-red-700/40",
-    labelColor: "text-red-400",
+    icon: "",
+    color: "from-[#1E90FF]/50 to-[#0a1628]/30",
+    borderColor: "border-[#1E90FF]/40",
+    labelColor: "text-[#1E90FF]",
     cta: "View Plan",
   },
   {
     title: "Recruiting Window Open",
     desc: "3 D1 coaches viewed your profile this week. Follow up now.",
-    icon: "🎓",
-    color: "from-blue-900/50 to-cyan-900/30",
+    icon: "",
+    color: "from-blue-900/50 to-[#0a1628]/30",
     borderColor: "border-blue-700/40",
     labelColor: "text-blue-400",
     cta: "View Coaches",
@@ -35,19 +35,19 @@ const fuelInsights = [
   {
     title: "NIL Opportunity",
     desc: "New local brand deal available — $1,200 for 2 social posts",
-    icon: "💰",
-    color: "from-green-900/50 to-emerald-900/30",
-    borderColor: "border-green-700/40",
-    labelColor: "text-green-400",
+    icon: "",
+    color: "from-[#00C2FF]/50 to-emerald-900/30",
+    borderColor: "border-[#00C2FF]/40",
+    labelColor: "text-[#00C2FF]",
     cta: "View Deal",
   },
 ];
 
 const stats = [
-  { label: "Profile Views", value: "1,247", change: "+18%", icon: "👁️", color: "text-blue-400" },
-  { label: "NIL Earnings", value: "$32,500", change: "+$5K", icon: "💵", color: "text-green-400" },
-  { label: "Recruiting Score", value: "94/100", change: "+3pts", icon: "📊", color: "text-blue-500" },
-  { label: "Social Reach", value: "48.2K", change: "+2.1K", icon: "📱", color: "text-red-400" },
+  { label: "Profile Views", value: "1,247", change: "+18%", icon: "", color: "text-blue-400" },
+  { label: "NIL Earnings", value: "$32,500", change: "+$5K", icon: "", color: "text-[#00C2FF]" },
+  { label: "Recruiting Score", value: "94/100", change: "+3pts", icon: "", color: "text-blue-500" },
+  { label: "Social Reach", value: "48.2K", change: "+2.1K", icon: "", color: "text-[#1E90FF]" },
 ];
 
 const upcomingEvents = [
@@ -72,15 +72,15 @@ function AthleteDashboardInner() {
             <Link href="/" className="text-gray-400 hover:text-white text-sm">← AthlynX</Link>
             <span className="text-gray-600">|</span>
             <div>
-              <div className="text-cyan-400 font-black text-lg leading-none">ATHLETE</div>
-              <div className="text-cyan-400 font-black text-lg leading-none">DASHBOARD</div>
+              <div className="text-[#00C2FF] font-black text-lg leading-none">ATHLETE</div>
+              <div className="text-[#00C2FF] font-black text-lg leading-none">DASHBOARD</div>
               <div className="text-gray-500 text-xs">Powered by AthlynX</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-3 py-1">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs font-bold">Verified</span>
+            <div className="flex items-center gap-2 bg-[#00C2FF]/20 border border-[#00C2FF]/30 rounded-full px-3 py-1">
+              <div className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse" />
+              <span className="text-[#00C2FF] text-xs font-bold">Verified</span>
             </div>
             <button className="text-gray-300 hover:text-white text-sm border border-blue-900/40 px-3 py-1.5 rounded-lg">
               Settings
@@ -91,11 +91,11 @@ function AthleteDashboardInner() {
 
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/20 border border-blue-700/30 rounded-2xl p-6 mb-6">
+        <div className="bg-gradient-to-r from-blue-900/40 to-[#0a1628]/20 border border-blue-700/30 rounded-2xl p-6 mb-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <h1 className="text-2xl font-black text-white">
-                Welcome back, {user?.name?.split(" ")[0] || "Athlete"} 👋
+                Welcome back, {user?.name?.split(" ")[0] || "Athlete"} 
               </h1>
               <p className="text-gray-400 text-sm mt-1">Your platform is working for you 24/7. Here's your update.</p>
             </div>
@@ -104,8 +104,8 @@ function AthleteDashboardInner() {
                 <div className="text-blue-400 font-black text-xl">{nilDeals.filter(d => d.status === "Active").length}</div>
                 <div className="text-gray-500 text-xs">Active Deals</div>
               </div>
-              <div className="bg-green-600/20 border border-green-600/30 rounded-xl px-4 py-2 text-center">
-                <div className="text-green-400 font-black text-xl">${(totalNIL / 1000).toFixed(0)}K</div>
+              <div className="bg-[#00C2FF]/20 border border-[#00C2FF]/30 rounded-xl px-4 py-2 text-center">
+                <div className="text-[#00C2FF] font-black text-xl">${(totalNIL / 1000).toFixed(0)}K</div>
                 <div className="text-gray-500 text-xs">NIL Earned</div>
               </div>
             </div>
@@ -118,7 +118,7 @@ function AthleteDashboardInner() {
             <div key={s.label} className="bg-white/5 border border-blue-900/20 rounded-xl p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-2xl">{s.icon}</span>
-                <span className="text-green-400 text-xs font-bold">{s.change}</span>
+                <span className="text-[#00C2FF] text-xs font-bold">{s.change}</span>
               </div>
               <div className={`text-2xl font-black ${s.color}`}>{s.value}</div>
               <div className="text-gray-500 text-xs">{s.label}</div>
@@ -147,14 +147,14 @@ function AthleteDashboardInner() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* FUEL Bot Insights */}
             <div>
-              <h2 className="text-white font-black text-lg mb-4">🤖 FUEL Bot Insights</h2>
+              <h2 className="text-white font-black text-lg mb-4"> FUEL Bot Insights</h2>
               <div className="space-y-4">
                 {fuelInsights.map((insight) => (
                   <div key={insight.title} className={`bg-gradient-to-r ${insight.color} border ${insight.borderColor} rounded-xl p-5`}>
                     <div className={`text-xs font-bold mb-2 ${insight.labelColor}`}>FUEL Bot Insight</div>
                     <h3 className="text-white font-bold text-lg mb-1">{insight.title}</h3>
                     <p className="text-gray-300 text-sm mb-4">{insight.desc}</p>
-                    <button className="bg-red-500 hover:bg-red-400 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
+                    <button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
                       {insight.cta}
                     </button>
                   </div>
@@ -165,7 +165,7 @@ function AthleteDashboardInner() {
             {/* Upcoming Events + Quick Links */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-white font-black text-lg mb-4">📅 Upcoming</h2>
+                <h2 className="text-white font-black text-lg mb-4"> Upcoming</h2>
                 <div className="space-y-3">
                   {upcomingEvents.map((event) => (
                     <div key={event.name} className="bg-white/5 border border-blue-900/20 rounded-xl p-4 flex items-center justify-between">
@@ -174,8 +174,8 @@ function AthleteDashboardInner() {
                         <div className="text-gray-500 text-xs">{event.date} · {event.type}</div>
                       </div>
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                        event.status === "Registered" ? "bg-green-500/20 text-green-400" :
-                        event.status === "Action Needed" ? "bg-red-500/20 text-red-400" :
+                        event.status === "Registered" ? "bg-[#00C2FF]/20 text-[#00C2FF]" :
+                        event.status === "Action Needed" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
                         event.status === "Scheduled" ? "bg-blue-500/20 text-blue-400" :
                         "bg-gray-500/20 text-gray-400"
                       }`}>
@@ -187,15 +187,15 @@ function AthleteDashboardInner() {
               </div>
 
               <div>
-                <h2 className="text-white font-black text-lg mb-4">⚡ Quick Actions</h2>
+                <h2 className="text-white font-black text-lg mb-4"> Quick Actions</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { label: "Update Profile", icon: "👤", href: "/profile" },
-                    { label: "Browse NIL Deals", icon: "💰", href: "/nil-portal" },
-                    { label: "Find Tournaments", icon: "🏆", href: "/gridiron-nexus" },
-                    { label: "AI Recruiter", icon: "🤖", href: "/ai-recruiter" },
-                    { label: "Film Review", icon: "🎬", href: "/warriors-playbook" },
-                    { label: "Social Hub", icon: "📱", href: "/feed" },
+                    { label: "Update Profile", icon: "", href: "/profile" },
+                    { label: "Browse NIL Deals", icon: "", href: "/nil-portal" },
+                    { label: "Find Tournaments", icon: "", href: "/gridiron-nexus" },
+                    { label: "AI Recruiter", icon: "", href: "/ai-recruiter" },
+                    { label: "Film Review", icon: "", href: "/warriors-playbook" },
+                    { label: "Social Hub", icon: "", href: "/feed" },
                   ].map((action) => (
                     <Link key={action.label} href={action.href}
                       className="bg-white/5 hover:bg-blue-600/20 border border-blue-900/20 hover:border-blue-600/40 rounded-xl p-3 flex items-center gap-2 transition-all">
@@ -225,7 +225,7 @@ function AthleteDashboardInner() {
                     <div className="text-gray-400 text-sm">{deal.type} · {deal.duration}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-green-400 font-black text-xl">${deal.value.toLocaleString()}</div>
+                    <div className="text-[#00C2FF] font-black text-xl">${deal.value.toLocaleString()}</div>
                     <span className={`text-xs font-bold text-white px-2 py-0.5 rounded-full ${deal.statusColor}`}>
                       {deal.status}
                     </span>
@@ -233,13 +233,13 @@ function AthleteDashboardInner() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 bg-gradient-to-r from-green-900/30 to-emerald-900/20 border border-green-700/30 rounded-xl p-5">
+            <div className="mt-6 bg-gradient-to-r from-[#00C2FF]/30 to-emerald-900/20 border border-[#00C2FF]/30 rounded-xl p-5">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-gray-400 text-sm">Total NIL Earnings</div>
-                  <div className="text-green-400 font-black text-3xl">${totalNIL.toLocaleString()}</div>
+                  <div className="text-[#00C2FF] font-black text-3xl">${totalNIL.toLocaleString()}</div>
                 </div>
-                <Link href="/nil-portal" className="bg-green-600 hover:bg-green-500 text-white font-bold px-5 py-3 rounded-xl transition-colors">
+                <Link href="/nil-portal" className="bg-[#00C2FF] hover:bg-[#00C2FF] text-white font-bold px-5 py-3 rounded-xl transition-colors">
                   Find More Deals →
                 </Link>
               </div>
@@ -313,13 +313,13 @@ function AthleteDashboardInner() {
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-white font-bold text-sm">{metric.label}</span>
                       <div className="text-right">
-                        <span className="text-cyan-400 font-bold">{metric.value}</span>
+                        <span className="text-[#00C2FF] font-bold">{metric.value}</span>
                         <span className="text-gray-500 text-xs ml-2">/ {metric.target}</span>
                       </div>
                     </div>
                     <div className="w-full bg-gray-800 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-cyan-600 to-blue-500 h-2 rounded-full transition-all"
+                        className="bg-gradient-to-r from-[#1E90FF] to-blue-500 h-2 rounded-full transition-all"
                         style={{ width: `${metric.progress}%` }}
                       />
                     </div>
@@ -337,15 +337,15 @@ function AthleteDashboardInner() {
                     { day: "Friday", focus: "Recovery & Mobility", duration: "45 min", status: "Upcoming" },
                   ].map((session) => (
                     <div key={session.day} className={`bg-white/5 border rounded-xl p-4 flex items-center justify-between ${
-                      session.status === "Today" ? "border-red-600/50 bg-red-900/10" : "border-blue-900/20"
+                      session.status === "Today" ? "border-[#1E90FF]/50 bg-[#1E90FF]/10" : "border-blue-900/20"
                     }`}>
                       <div>
                         <div className="text-white font-bold text-sm">{session.day}</div>
                         <div className="text-gray-400 text-xs">{session.focus} · {session.duration}</div>
                       </div>
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                        session.status === "Completed" ? "bg-green-500/20 text-green-400" :
-                        session.status === "Today" ? "bg-red-500/20 text-red-400" :
+                        session.status === "Completed" ? "bg-[#00C2FF]/20 text-[#00C2FF]" :
+                        session.status === "Today" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
                         "bg-gray-500/20 text-gray-400"
                       }`}>
                         {session.status}

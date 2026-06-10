@@ -55,7 +55,7 @@ function BillingInner() {
     return (
       <div className="min-h-screen bg-[#0a0f1e] flex items-center justify-center">
         <Card className="bg-white/5 border-white/10 p-8 text-center max-w-sm">
-          <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
+          <AlertCircle className="w-12 h-12 text-[#1E90FF] mx-auto mb-4" />
           <h2 className="text-white text-xl font-bold mb-2">Sign In Required</h2>
           <p className="text-blue-200/60 mb-4">Please sign in to manage your billing.</p>
           <Button
@@ -107,17 +107,17 @@ function BillingInner() {
 
         {/* Success / Cancelled banners */}
         {justSubscribed && (
-          <div className="mb-6 flex items-center gap-3 bg-green-500/10 border border-green-500/30 rounded-xl p-4">
-            <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-            <span className="text-green-300 font-medium">
+          <div className="mb-6 flex items-center gap-3 bg-[#00C2FF]/10 border border-[#00C2FF]/30 rounded-xl p-4">
+            <CheckCircle className="w-5 h-5 text-[#00C2FF] flex-shrink-0" />
+            <span className="text-[#00C2FF] font-medium">
               Payment successful! Your subscription is now active.
             </span>
           </div>
         )}
         {justCancelled && (
-          <div className="mb-6 flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-xl p-4">
-            <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-            <span className="text-red-300 font-medium">
+          <div className="mb-6 flex items-center gap-3 bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-xl p-4">
+            <AlertCircle className="w-5 h-5 text-[#1E90FF] flex-shrink-0" />
+            <span className="text-[#1E90FF] font-medium">
               Checkout was cancelled. No charge was made.
             </span>
           </div>
@@ -147,9 +147,9 @@ function BillingInner() {
                     <div className="text-white font-bold text-lg">{planInfo.label}</div>
                     <div className="text-blue-200/60 text-sm capitalize">
                       Status:{" "}
-                      <span className="text-green-400 font-medium">{isOwnerAccount || isPartnerAccount ? "active" : subscription?.status}</span>
+                      <span className="text-[#00C2FF] font-medium">{isOwnerAccount || isPartnerAccount ? "active" : subscription?.status}</span>
                       {subscription?.cancelAtPeriodEnd && (
-                        <span className="ml-2 text-red-400">(Cancels at period end)</span>
+                        <span className="ml-2 text-[#1E90FF]">(Cancels at period end)</span>
                       )}
                     </div>
                     {subscription?.currentPeriodEnd && (
@@ -160,7 +160,7 @@ function BillingInner() {
                     )}
                   </div>
                 </div>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
+                <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30">
                   Active
                 </Badge>
               </div>
@@ -185,14 +185,14 @@ function BillingInner() {
         <Card className="bg-white/5 border-white/10 mb-6">
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2">
-              <Zap className="w-5 h-5 text-sky-400" />
+              <Zap className="w-5 h-5 text-[#00C2FF]" />
               AI Credits
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <div className="text-4xl font-black text-sky-400">{user?.credits ?? 0}</div>
+                <div className="text-4xl font-black text-[#00C2FF]">{user?.credits ?? 0}</div>
                 <div className="text-blue-200/60 text-sm mt-1">Credits remaining — used for AI features across the platform</div>
               </div>
               <Button

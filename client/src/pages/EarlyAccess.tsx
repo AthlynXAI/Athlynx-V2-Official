@@ -122,7 +122,7 @@ function EarlyAccessInner() {
           borderRadius: '16px', padding: '48px 40px', width: '100%', maxWidth: '420px',
           textAlign: 'center',
         }}>
-          <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
+          <div style={{ fontSize: '48px', marginBottom: '16px' }}></div>
           <h2 style={{ color: '#fff', fontSize: '22px', fontWeight: '800', marginBottom: '12px' }}>
             Welcome to AthlynX!
           </h2>

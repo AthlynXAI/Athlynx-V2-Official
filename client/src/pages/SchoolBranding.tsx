@@ -60,9 +60,9 @@ const licenseTiers = [
     name: "Athletic Dept",
     price: "$124,999",
     period: "/ year",
-    color: "from-cyan-500/20 to-blue-600/20",
-    border: "border-cyan-500/30",
-    badge: "bg-cyan-500/20 text-cyan-400",
+    color: "from-[#1E90FF]/20 to-blue-600/20",
+    border: "border-[#1E90FF]/30",
+    badge: "bg-[#1E90FF]/20 text-[#00C2FF]",
     icon: Trophy,
     popular: true,
     features: [
@@ -80,9 +80,9 @@ const licenseTiers = [
     name: "Conference",
     price: "$999,999",
     period: "/ year",
-    color: "from-blue-500/20 to-cyan-600/20",
+    color: "from-blue-500/20 to-[#0a1628]/20",
     border: "border-blue-500/30",
-    badge: "bg-blue-500/20 text-sky-400",
+    badge: "bg-blue-500/20 text-[#00C2FF]",
     icon: Crown,
     features: [
       "Everything in Athletic Dept",
@@ -118,14 +118,14 @@ function SchoolBrandingInner() {
 
       {/* Hero */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1E90FF]/20 via-transparent to-transparent" />
         <div className="container relative px-4 md:px-6 text-center max-w-5xl mx-auto">
-          <Badge className="bg-blue-500/20 text-sky-400 border-blue-500/30 mb-4">
+          <Badge className="bg-blue-500/20 text-[#00C2FF] border-blue-500/30 mb-4">
             <Crown className="w-3 h-3 mr-1" /> WHITE-LABEL LICENSING
           </Badge>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
             Your School.
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-400">
               Your Brand. Your Empire.
             </span>
           </h1>
@@ -135,7 +135,7 @@ function SchoolBrandingInner() {
             management software ever built.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-8">
+            <Button size="lg" className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold px-8">
               Get Your School's Portal <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
@@ -159,7 +159,7 @@ function SchoolBrandingInner() {
                 onClick={() => setSelectedSchool(school)}
                 className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all ${
                   selectedSchool.abbr === school.abbr
-                    ? "border-cyan-500/50 bg-cyan-500/10"
+                    ? "border-[#1E90FF]/30 bg-[#1E90FF]/20"
                     : "border-white/10 bg-white/5 hover:border-white/20"
                 }`}
               >
@@ -174,7 +174,7 @@ function SchoolBrandingInner() {
                   <p className="text-white/50 text-sm">{school.conference} · {school.abbr.toLowerCase()}.athlynx.ai</p>
                 </div>
                 {selectedSchool.abbr === school.abbr && (
-                  <CheckCircle className="w-5 h-5 text-cyan-400 ml-auto" />
+                  <CheckCircle className="w-5 h-5 text-[#00C2FF] ml-auto" />
                 )}
               </button>
             ))}
@@ -229,10 +229,10 @@ function SchoolBrandingInner() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {brandingFeatures.map((feature, i) => (
-            <Card key={i} className="bg-white/5 border-white/10 hover:border-cyan-500/30 transition-all">
+            <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/30 transition-all">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-white font-bold mb-2">{feature.title}</h3>
                 <p className="text-white/50 text-sm">{feature.desc}</p>
@@ -245,7 +245,7 @@ function SchoolBrandingInner() {
       {/* Licensing Tiers */}
       <section className="container px-4 md:px-6 pb-16">
         <div className="text-center mb-10">
-          <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-4">
+          <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 mb-4">
             <DollarSign className="w-3 h-3 mr-1" /> LICENSING TIERS
           </Badge>
           <h2 className="text-3xl font-black text-white mb-3">License the Platform</h2>
@@ -258,7 +258,7 @@ function SchoolBrandingInner() {
             <Card key={i} className={`bg-gradient-to-br ${tier.color} ${tier.border} border relative`}>
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-cyan-500 text-white border-0 px-4">MOST POPULAR</Badge>
+                  <Badge className="bg-[#1E90FF] text-white border-0 px-4">MOST POPULAR</Badge>
                 </div>
               )}
               <CardHeader className="pb-4">
@@ -275,7 +275,7 @@ function SchoolBrandingInner() {
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feature, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-white/80">
-                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>
                   ))}
@@ -293,7 +293,7 @@ function SchoolBrandingInner() {
       <section className="container px-4 md:px-6 pb-16">
         <Card className="bg-gradient-to-r from-gray-900 to-gray-800 border-white/10">
           <CardContent className="p-10 text-center">
-            <Database className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+            <Database className="w-16 h-16 text-[#00C2FF] mx-auto mb-4" />
             <h2 className="text-3xl font-black text-white mb-4">
               "Own the Data. Own the World."
             </h2>
@@ -310,8 +310,8 @@ function SchoolBrandingInner() {
                 { icon: Heart, title: "Athletes Control It", desc: "Athletes decide what to share and with whom" }
               ].map((item, i) => (
                 <div key={i} className="text-center">
-                  <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <item.icon className="w-6 h-6 text-cyan-400" />
+                  <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <item.icon className="w-6 h-6 text-[#00C2FF]" />
                   </div>
                   <h3 className="text-white font-bold mb-1">{item.title}</h3>
                   <p className="text-white/50 text-sm">{item.desc}</p>
@@ -334,7 +334,7 @@ function SchoolBrandingInner() {
               onChange={(e) => setSchoolName(e.target.value)}
               className="bg-white/10 border-white/20 text-white placeholder:text-white/40"
             />
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold whitespace-nowrap">
+            <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold whitespace-nowrap">
               Request Demo
             </Button>
           </div>

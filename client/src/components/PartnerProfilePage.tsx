@@ -1,6 +1,6 @@
 /**
  * PartnerProfilePage — shared layout for public partner / family profile pages.
- * Routes: /team/glenn-tse · /team/lee-marshall · /team/tony-locey
+ * Routes: /team/glenn-tse · /team/lee-marshall · /team/
  *
  * Locked rules:
  * - Public. No auth wall. No PlatformLayout.

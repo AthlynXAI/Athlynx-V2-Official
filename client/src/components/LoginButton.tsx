@@ -8,7 +8,7 @@ interface LoginButtonProps {
 }
 
 export default function LoginButton({ 
-  className = "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-6 py-2 rounded-lg shadow-lg shadow-cyan-500/30 transition-all",
+  className = "bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold px-6 py-2 rounded-lg shadow-lg shadow-cyan-500/30 transition-all",
   variant,
   size,
   children = "LOGIN"

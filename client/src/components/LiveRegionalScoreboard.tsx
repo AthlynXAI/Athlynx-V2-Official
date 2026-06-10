@@ -349,7 +349,7 @@ export function LiveRegionalScoreboard({ sport = "baseball" }: { sport?: Sport }
           <div className="text-[10px] tracking-widest uppercase text-white/50">Last update</div>
           <div className="text-xs font-mono text-white">{lastUpdatedLabel} CT</div>
           {feedSource === "manual" && (
-            <div className="text-[9px] uppercase tracking-[0.18em] text-sky-400 mt-1 max-w-[200px]">
+            <div className="text-[9px] uppercase tracking-[0.18em] text-[#00C2FF] mt-1 max-w-[200px]">
               {WCWS_FEED_SOURCE_LABEL}
             </div>
           )}
@@ -369,7 +369,7 @@ export function LiveRegionalScoreboard({ sport = "baseball" }: { sport?: Sport }
               <div className="mb-3 flex items-baseline justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <span className="text-base" role="img" aria-label="ticket">
-                    🎫
+                    
                   </span>
                   <h3 className="text-sm font-black tracking-[0.22em] uppercase text-white">
                     Super Regional Tickets Punched

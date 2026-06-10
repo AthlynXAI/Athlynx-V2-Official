@@ -12,18 +12,18 @@ import PlatformLayout from "@/components/PlatformLayout";
 import PartnerAvatar, { isMasterAdmin } from "@/components/PartnerAvatar";
 
 const RECIPIENT_OPTIONS = [
-  { value: "all", label: "All Users", emoji: "🌐" },
-  { value: "trial", label: "Trial Users", emoji: "⏱️" },
-  { value: "subscribed", label: "Subscribers", emoji: "💎" },
-  { value: "free", label: "Free Users", emoji: "🆓" },
+  { value: "all", label: "All Users", emoji: "" },
+  { value: "trial", label: "Trial Users", icon: "" },
+  { value: "subscribed", label: "Subscribers", emoji: "" },
+  { value: "free", label: "Free Users", emoji: "" },
 ] as const;
 
 const MESSAGE_TEMPLATES = [
-  { label: "Welcome", subject: "Welcome to AthlynX!", body: "Welcome to AthlynX! Your journey starts here. Explore NIL deals, connect with coaches, and build your brand. We're glad you're here. 🏆" },
-  { label: "New Feature", subject: "🚀 New Feature Alert!", body: "We just launched something big on AthlynX. Log in now to check it out and stay ahead of the game." },
-  { label: "NIL Opportunity", subject: "💰 New NIL Opportunities Live!", body: "Brands are looking for athletes like you. Check the NIL Portal now for new deals." },
-  { label: "Recruiting Update", subject: "📣 Recruiting Season Update", body: "Make sure your profile is complete and your highlight reel is up to date. Coaches are watching." },
-  { label: "Maintenance", subject: "🔧 Scheduled Maintenance", body: "Scheduled maintenance tonight from 2–4 AM EST. The platform will be briefly unavailable. We apologize for any inconvenience." },
+  { label: "Welcome", subject: "Welcome to AthlynX!", body: "Welcome to AthlynX! Your journey starts here. Explore NIL deals, connect with coaches, and build your brand. We're glad you're here. " },
+  { label: "New Feature", subject: " New Feature Alert!", body: "We just launched something big on AthlynX. Log in now to check it out and stay ahead of the game." },
+  { label: "NIL Opportunity", subject: " New NIL Opportunities Live!", body: "Brands are looking for athletes like you. Check the NIL Portal now for new deals." },
+  { label: "Recruiting Update", subject: " Recruiting Season Update", body: "Make sure your profile is complete and your highlight reel is up to date. Coaches are watching." },
+  { label: "Maintenance", subject: " Scheduled Maintenance", body: "Scheduled maintenance tonight from 2–4 AM EST. The platform will be briefly unavailable. We apologize for any inconvenience." },
 ];
 
 function MasterAdminInner() {
@@ -54,7 +54,7 @@ function MasterAdminInner() {
     return (
       <PlatformLayout>
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-          <Shield className="w-16 h-16 text-red-500 mb-4" />
+          <Shield className="w-16 h-16 text-[#1E90FF] mb-4" />
           <h1 className="text-2xl font-black text-white mb-2">Access Denied</h1>
           <p className="text-blue-400">This page is restricted to Master Admins only.</p>
         </div>
@@ -150,11 +150,11 @@ function MasterAdminInner() {
                   onClick={() => setChannel(c)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
                     channel === c
-                      ? "bg-indigo-600 text-white border-indigo-500"
-                      : "bg-indigo-900/20 text-indigo-300 border-indigo-800/30 hover:bg-indigo-800/40"
+                      ? "bg-[#1E90FF] text-white border-[#1E90FF]"
+                      : "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 hover:bg-[#1E90FF]/40"
                   }`}
                 >
-                  {c === "in_app" ? "📱 In-App" : c === "email" ? "📧 Email" : "📱📧 Both"}
+                  {c === "in_app" ? " In-App" : c === "email" ? " Email" : " Both"}
                 </button>
               ))}
             </div>
@@ -206,7 +206,7 @@ function MasterAdminInner() {
             disabled={isPending || sent || !subject.trim() || !body.trim()}
             className={`w-full font-black py-3 rounded-xl text-base transition-all ${
               sent
-                ? "bg-green-600 hover:bg-green-600"
+                ? "bg-[#00C2FF] hover:bg-[#00C2FF]"
                 : "bg-gradient-to-r from-blue-700 to-indigo-600 hover:from-blue-600 hover:to-indigo-500"
             } text-white shadow-lg`}
           >
@@ -220,9 +220,9 @@ function MasterAdminInner() {
           </Button>
 
           {recipientFilter === "all" && (
-            <div className="flex items-center gap-2 bg-red-900/20 border border-red-700/30 rounded-xl p-3">
-              <AlertTriangle className="w-4 h-4 text-red-500 shrink-0" />
-              <p className="text-red-300 text-xs">This will send to ALL users on the platform. Make sure your message is ready.</p>
+            <div className="flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-xl p-3">
+              <AlertTriangle className="w-4 h-4 text-[#1E90FF] shrink-0" />
+              <p className="text-[#1E90FF] text-xs">This will send to ALL users on the platform. Make sure your message is ready.</p>
             </div>
           )}
         </div>
@@ -281,19 +281,19 @@ function MasterAdminInner() {
                   <div className="text-white font-bold text-sm truncate flex items-center gap-1.5">
                     {u.name || "Unknown User"}
                     {isMasterAdmin(u.email) && (
-                      <Crown className="w-3.5 h-3.5 text-sky-400 shrink-0" aria-label="Master Admin" />
+                      <Crown className="w-3.5 h-3.5 text-[#00C2FF] shrink-0" aria-label="Master Admin" />
                     )}
                   </div>
                   <div className="text-blue-500 text-xs truncate">{u.email} {u.sport ? `· ${u.sport}` : ""} {u.school ? `· ${u.school}` : ""}</div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   {isMasterAdmin(u.email) ? (
-                    <Badge className="bg-blue-500/20 text-sky-300 border-blue-500/40 text-xs">Master Admin</Badge>
+                    <Badge className="bg-blue-500/20 text-[#00C2FF] border-blue-500/40 text-xs">Master Admin</Badge>
                   ) : u.role === "admin" && (
                     <Badge className="bg-blue-700/40 text-blue-200 border-blue-600/30 text-xs">Admin</Badge>
                   )}
                   {u.stripeSubscriptionId && (
-                    <Badge className="bg-green-900/40 text-green-300 border-green-700/30 text-xs">Pro</Badge>
+                    <Badge className="bg-[#00C2FF]/40 text-[#00C2FF] border-[#00C2FF]/30 text-xs">Pro</Badge>
                   )}
                 </div>
               </div>

@@ -12,7 +12,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 
 const PILLARS = [
   {
-    icon: "📸",
+    icon: "",
     title: "Build Your Media Profile",
     desc: "Create a professional digital presence that makes coaches stop scrolling.",
     items: [
@@ -22,11 +22,11 @@ const PILLARS = [
       "Engagement tactics to grow your athlete following",
       "Platform-specific best practices — Instagram, TikTok, X, YouTube",
     ],
-    color: "from-blue-600 to-cyan-500",
+    color: "from-blue-600 to-[#0a1628]",
     bg: "bg-blue-900/20 border-blue-700/40",
   },
   {
-    icon: "📈",
+    icon: "",
     title: "Boost Recruiting Visibility",
     desc: "Get seen by the right coaches before your competition does.",
     items: [
@@ -36,11 +36,11 @@ const PILLARS = [
       "Target schools that match your talent level and academic goals",
       "Follow-up strategies that get real responses from coaches",
     ],
-    color: "from-green-600 to-emerald-500",
-    bg: "bg-green-900/20 border-green-700/40",
+    color: "from-[#00C2FF] to-[#00C2FF]",
+    bg: "bg-[#00C2FF]/20 border-[#00C2FF]/40",
   },
   {
-    icon: "🌍",
+    icon: "",
     title: "Connect Globally",
     desc: "Build a worldwide network of athletes, coaches, and mentors.",
     items: [
@@ -50,11 +50,11 @@ const PILLARS = [
       "Connect with athletes already enrolled at your target schools",
       "Build relationships with international scouts and coaches",
     ],
-    color: "from-purple-600 to-violet-500",
-    bg: "bg-purple-900/20 border-purple-700/40",
+    color: "from-[#1E90FF] to-violet-500",
+    bg: "bg-[#1E90FF]/20 border-[#1E90FF]/40",
   },
   {
-    icon: "📅",
+    icon: "",
     title: "Share Your Schedule",
     desc: "Make it effortless for recruiters to see you compete.",
     items: [
@@ -64,11 +64,11 @@ const PILLARS = [
       "Post game results and highlights within minutes",
       "Track which coaches viewed your schedule and follow up",
     ],
-    color: "from-cyan-600 to-blue-500",
-    bg: "bg-cyan-900/20 border-cyan-700/40",
+    color: "from-[#1E90FF] to-blue-500",
+    bg: "bg-[#1E90FF]/20 border-[#1E90FF]/30",
   },
   {
-    icon: "⚖️",
+    icon: "",
     title: "Compare Recruiting Efforts",
     desc: "Benchmark your progress and learn from athletes who made it.",
     items: [
@@ -78,11 +78,11 @@ const PILLARS = [
       "Understand NIL deal structures at every level of competition",
       "Identify gaps in your recruiting strategy before it's too late",
     ],
-    color: "from-red-600 to-rose-500",
-    bg: "bg-red-900/20 border-red-700/40",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    bg: "bg-[#1E90FF]/20 border-[#1E90FF]/40",
   },
   {
-    icon: "💰",
+    icon: "",
     title: "Maximize Your NIL Value",
     desc: "Your name, image, and likeness are worth more than you think.",
     items: [
@@ -99,32 +99,32 @@ const PILLARS = [
 
 const GLOBAL_FEATURES = [
   {
-    icon: "🏆",
+    icon: "",
     title: "Global Athlete Rankings",
     desc: "See where you rank against athletes in your sport — by state, region, country, and worldwide.",
   },
   {
-    icon: "💬",
+    icon: "",
     title: "Athlete Discussion Boards",
     desc: "Talk recruiting with athletes from every corner of the world. Share strategies, compare offers, get real advice.",
   },
   {
-    icon: "📊",
+    icon: "",
     title: "Recruiting Intelligence",
     desc: "Real-time data on which schools are recruiting your position, what stats they want, and when they make offers.",
   },
   {
-    icon: "🔄",
+    icon: "",
     title: "Transfer Portal Network",
     desc: "Connect with athletes in the portal. Find out which schools are looking, what they offer, and how to get noticed.",
   },
   {
-    icon: "🤝",
+    icon: "",
     title: "Mentor Matching",
     desc: "Get paired with athletes who've been through the recruiting process at your target schools.",
   },
   {
-    icon: "📱",
+    icon: "",
     title: "Live Schedule Sharing",
     desc: "Share your game schedule globally. Coaches and scouts worldwide can see when and where to find you.",
   },
@@ -157,17 +157,17 @@ function AthletePlaybookInner() {
     <PlatformLayout title="The Athlete Playbook">
       <div className="space-y-0">
 
-        {/* ── Hero ──────────────────────────────────────────────── */}
+        {/*  Hero  */}
         <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0a1628] via-[#0f2040] to-[#0a1628] border border-blue-900/40 p-8 md:p-12 mb-8">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,212,255,0.08),_transparent_60%)]" />
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-cyan-400 text-xs font-bold tracking-widest">THE ATHLETE PLAYBOOK</span>
-              <span className="bg-cyan-500 text-black text-xs font-bold px-2 py-0.5 rounded-full">POWERED BY AthlynX</span>
+            <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-4 py-1.5 mb-6">
+              <span className="text-[#00C2FF] text-xs font-bold tracking-widest">THE ATHLETE PLAYBOOK</span>
+              <span className="bg-[#1E90FF] text-black text-xs font-bold px-2 py-0.5 rounded-full">POWERED BY AthlynX</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight">
               Your Complete<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-400">
                 Athlete Playbook
               </span>
             </h1>
@@ -179,13 +179,13 @@ function AthletePlaybookInner() {
             <div className="flex flex-wrap gap-4">
               {user ? (
                 <Link href="/profile">
-                  <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
+                  <button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
                     Build My Profile →
                   </button>
                 </Link>
               ) : (
                 <Link href="/signup">
-                  <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
+                  <button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
                     Start Free — 7 Days →
                   </button>
                 </Link>
@@ -199,17 +199,17 @@ function AthletePlaybookInner() {
           </div>
         </section>
 
-        {/* ── Stats Bar ─────────────────────────────────────────── */}
+        {/*  Stats Bar  */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {STATS.map((s, i) => (
             <div key={i} className="bg-[#0f1f3d] border border-blue-900/40 rounded-xl p-5 text-center">
-              <div className="text-3xl font-black text-cyan-400 mb-1">{s.value}</div>
+              <div className="text-3xl font-black text-[#00C2FF] mb-1">{s.value}</div>
               <div className="text-xs text-blue-300 font-medium">{s.label}</div>
             </div>
           ))}
         </section>
 
-        {/* ── Six Pillars ───────────────────────────────────────── */}
+        {/*  Six Pillars  */}
         <section className="mb-10">
           <div className="mb-6">
             <h2 className="text-2xl font-black text-white">Six Pillars of Athletic Success</h2>
@@ -228,7 +228,7 @@ function AthletePlaybookInner() {
                 <ul className="space-y-2">
                   {p.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-blue-200">
-                      <span className="text-cyan-400 mt-0.5 flex-shrink-0">✓</span>
+                      <span className="text-[#00C2FF] mt-0.5 flex-shrink-0"></span>
                       {item}
                     </li>
                   ))}
@@ -238,17 +238,17 @@ function AthletePlaybookInner() {
           </div>
         </section>
 
-        {/* ── Global Connect ────────────────────────────────────── */}
+        {/*  Global Connect  */}
         <section className="bg-gradient-to-br from-[#0a1628] to-[#0d1f3c] border border-blue-900/40 rounded-2xl p-8 mb-8">
           <div className="mb-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-1.5 mb-4">
-              <span className="text-purple-400 text-xs font-bold tracking-widest">🌍 GLOBAL ATHLETE NETWORK</span>
+            <div className="inline-flex items-center gap-2 bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-full px-4 py-1.5 mb-4">
+              <span className="text-[#1E90FF] text-xs font-bold tracking-widest"> GLOBAL ATHLETE NETWORK</span>
             </div>
             <h2 className="text-3xl font-black text-white mb-3">Connect With Athletes Worldwide</h2>
             <p className="text-blue-300 max-w-2xl mx-auto text-sm leading-relaxed">
               AthlynX connects athletes across every sport, every country, and every level of competition.
               Share your schedule. Compare recruiting efforts. Build your global brand.
-              <strong className="text-cyan-400"> Iron Sharpens Iron.</strong>
+              <strong className="text-[#00C2FF]"> Iron Sharpens Iron.</strong>
             </p>
           </div>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -262,26 +262,26 @@ function AthletePlaybookInner() {
           </div>
         </section>
 
-        {/* ── Transfer Portal + NIL Integration ────────────────── */}
+        {/*  Transfer Portal + NIL Integration  */}
         <section className="grid md:grid-cols-2 gap-5 mb-8">
-          <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/20 border border-green-700/40 rounded-xl p-6">
-            <div className="text-3xl mb-3">🔄</div>
+          <div className="bg-gradient-to-br from-[#00C2FF]/30 to-emerald-900/20 border border-[#00C2FF]/40 rounded-xl p-6">
+            <div className="text-3xl mb-3"></div>
             <h3 className="text-white font-black text-lg mb-2">Transfer Portal Intelligence</h3>
-            <p className="text-green-200 text-sm leading-relaxed mb-4">
+            <p className="text-[#00C2FF] text-sm leading-relaxed mb-4">
               The Athlete Playbook integrates directly with AthlynX's Transfer Portal.
               Athletes from smaller schools use the playbook to improve their profile,
               enter the portal, and land at bigger programs — increasing their NIL value in the process.
             </p>
             <Link href="/transfer-portal">
-              <button className="bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors">
+              <button className="bg-[#00C2FF] hover:bg-[#00C2FF] text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors">
                 Explore Transfer Portal →
               </button>
             </Link>
           </div>
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-900/20 border border-blue-700/40 rounded-xl p-6">
-            <div className="text-3xl mb-3">💰</div>
+            <div className="text-3xl mb-3"></div>
             <h3 className="text-white font-black text-lg mb-2">NIL Marketplace Access</h3>
-            <p className="text-sky-200 text-sm leading-relaxed mb-4">
+            <p className="text-[#00C2FF] text-sm leading-relaxed mb-4">
               A stronger recruiting profile means a higher NIL value. The Athlete Playbook
               shows you exactly how to build the brand that brands want to pay for.
               Your name, image, and likeness are your business.
@@ -294,10 +294,10 @@ function AthletePlaybookInner() {
           </div>
         </section>
 
-        {/* ── CTA ───────────────────────────────────────────────── */}
-        <section className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl p-8 text-center">
+        {/*  CTA  */}
+        <section className="bg-gradient-to-r from-[#1E90FF] to-blue-700 rounded-2xl p-8 text-center">
           <h2 className="text-3xl font-black text-white mb-3">Ready to Execute the Playbook?</h2>
-          <p className="text-cyan-100 mb-6 max-w-xl mx-auto text-sm">
+          <p className="text-[#00C2FF] mb-6 max-w-xl mx-auto text-sm">
             Join AthlynX today and get full access to The Athlete Playbook, the Transfer Portal,
             the NIL Marketplace, and every tool you need to go from unrecruited to unstoppable.
           </p>
@@ -323,7 +323,7 @@ function AthletePlaybookInner() {
               </>
             )}
           </div>
-          <p className="text-cyan-200 text-xs mt-4">Iron Sharpens Iron — Proverbs 27:17</p>
+          <p className="text-[#00C2FF] text-xs mt-4">Iron Sharpens Iron — Proverbs 27:17</p>
         </section>
 
       </div>

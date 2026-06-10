@@ -11,7 +11,7 @@
  *     tier chips (Build/Sharpen/Optimize/Elite), persistent red "Get Assessed" CTA.
  *   - Opendorse: social-proof rail, brand wall, "athletes drive 3x engagement" pull-quote.
  *   - Recapp: black canvas + accent gold/red, bold ALL-CAPS display headlines,
- *     story cards with athlete photo + "Must Watch 🔥" tag, 4.8★ App Store polish.
+ *     story cards with athlete photo + "Must Watch " tag, 4.8 App Store polish.
  *
  * Spec lock: docs/specs/SPORT_PAGE_DESIGN_SPEC.md
  * Quality gate: Honor the journey · Nike proud · Mama proud
@@ -39,7 +39,7 @@ const SPORT = {
   accent: "#E63946",       // Maven red
   accentSoft: "rgba(230,57,70,0.12)",
   accentRing: "rgba(230,57,70,0.40)",
-  emblem: "⚾",
+  emblem: "",
   trpcSport: "Baseball",   // value passed to tRPC filters
   ctaLabel: "Get Assessed",
   // Hero photo: served from /public — fallback to athlynx default if missing
@@ -78,10 +78,10 @@ const TIERS = ["Build", "Sharpen", "Optimize", "Elite"] as const;
 type Tier = (typeof TIERS)[number];
 
 const ASSESSMENT_STEPS = [
-  { icon: "📋", title: "Intake",     desc: "Goals, position, history — locked in 10 minutes.",      duration: "10 min" },
-  { icon: "🎥", title: "3D Capture", desc: "Markerless mocap — hitting, pitching, fielding.",       duration: "45 min" },
-  { icon: "🧠", title: "AI Analysis",desc: "Gemini + Nebius H200 grade every frame, every joint.",  duration: "20 min" },
-  { icon: "🤝", title: "Coach Review",desc: "Live readout, plan, next step. You leave with proof.", duration: "15 min" },
+  { icon: "", title: "Intake",     desc: "Goals, position, history — locked in 10 minutes.",      duration: "10 min" },
+  { icon: "", title: "3D Capture", desc: "Markerless mocap — hitting, pitching, fielding.",       duration: "45 min" },
+  { icon: "", title: "AI Analysis",desc: "Gemini + Nebius H200 grade every frame, every joint.",  duration: "20 min" },
+  { icon: "", title: "Coach Review",desc: "Live readout, plan, next step. You leave with proof.", duration: "15 min" },
 ];
 
 const BASEBALL_STATS_FIELDS = [

@@ -88,8 +88,8 @@ export default function CoachAthleteOnboarding() {
       <UnifiedNav />
       <main className="px-4 pb-16 pt-24 md:px-6">
         <section className="mx-auto max-w-6xl">
-          <div className="rounded-[2rem] border border-cyan-400/20 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
-            <Badge className="mb-4 border-cyan-400/30 bg-cyan-400/10 text-cyan-200">
+          <div className="rounded-[2rem] border border-[#1E90FF]/30 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
+            <Badge className="mb-4 border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]">
               <MessageSquare className="mr-2 h-3.5 w-3.5" /> Coach onboarding prompts
             </Badge>
             <h1 className="max-w-4xl text-4xl font-black leading-tight md:text-6xl">
@@ -100,10 +100,10 @@ export default function CoachAthleteOnboarding() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/athlete-nil-intake">
-                <Button className="bg-cyan-400 font-black text-slate-950 hover:bg-cyan-300">Start NIL intake</Button>
+                <Button className="bg-[#1E90FF] font-black text-slate-950 hover:bg-[#1E90FF]">Start NIL intake</Button>
               </Link>
               <Link href="/real-athlete-profile-flow">
-                <Button variant="outline" className="border-cyan-400/40 text-cyan-200 hover:bg-cyan-400/10">View profile flow</Button>
+                <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20">View profile flow</Button>
               </Link>
               <Link href="/media-vault-rules">
                 <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">Review vault rules</Button>
@@ -116,7 +116,7 @@ export default function CoachAthleteOnboarding() {
               <Card key={item.title} className="border-white/10 bg-white/[0.04]">
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center gap-3">
-                    <div className="rounded-2xl border border-cyan-400/30 bg-cyan-400/10 p-3 text-cyan-200">
+                    <div className="rounded-2xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 p-3 text-[#00C2FF]">
                       <ShieldCheck className="h-6 w-6" />
                     </div>
                     <h2 className="text-2xl font-black text-white">{item.title}</h2>
@@ -130,7 +130,7 @@ export default function CoachAthleteOnboarding() {
           <Card className="mt-6 border-white/10 bg-white/[0.04]">
             <CardContent className="p-6 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <BookOpen className="h-7 w-7 text-cyan-300" />
+                <BookOpen className="h-7 w-7 text-[#00C2FF]" />
                 <div>
                   <h2 className="text-3xl font-black text-white">Prompt library</h2>
                   <p className="text-sm text-white/55">Coach prompts are direct, consent-first, and built for real athlete records.</p>
@@ -142,7 +142,7 @@ export default function CoachAthleteOnboarding() {
                   return (
                     <div key={group.title} className="rounded-2xl border border-white/10 bg-slate-950/55 p-5">
                       <div className="mb-4 flex items-center gap-3">
-                        <div className="rounded-xl border border-cyan-400/30 bg-cyan-400/10 p-2 text-cyan-200">
+                        <div className="rounded-xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 p-2 text-[#00C2FF]">
                           <Icon className="h-5 w-5" />
                         </div>
                         <h3 className="text-xl font-black text-white">{group.title}</h3>
@@ -161,10 +161,10 @@ export default function CoachAthleteOnboarding() {
             </CardContent>
           </Card>
 
-          <Card className="mt-6 border-cyan-400/20 bg-cyan-400/[0.06]">
+          <Card className="mt-6 border-[#1E90FF]/30 bg-[#1E90FF]/[0.06]">
             <CardContent className="p-6 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <Workflow className="h-7 w-7 text-cyan-300" />
+                <Workflow className="h-7 w-7 text-[#00C2FF]" />
                 <div>
                   <h2 className="text-3xl font-black text-white">Coach action lanes</h2>
                   <p className="text-sm text-white/55">Each lane is a controlled step in the athlete profile operating system.</p>
@@ -173,7 +173,7 @@ export default function CoachAthleteOnboarding() {
               <div className="grid gap-3 md:grid-cols-3">
                 {coachActions.map(([title, copy]) => (
                   <div key={title} className="rounded-2xl border border-white/10 bg-slate-950/55 p-5">
-                    <div className="font-black text-cyan-200">{title}</div>
+                    <div className="font-black text-[#00C2FF]">{title}</div>
                     <p className="mt-2 text-sm leading-relaxed text-white/60">{copy}</p>
                   </div>
                 ))}

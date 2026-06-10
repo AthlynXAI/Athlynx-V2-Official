@@ -63,7 +63,7 @@ const schoolData: Record<string, {
     coachSince: 2024,
     primaryColor: "#9E1B32",
     secondaryColor: "#828A8F",
-    logo: "🅰️",
+    logo: "",
     nilCollective: "Yea Alabama",
     nilBudget: "$20M+",
     ranking: 5,
@@ -86,7 +86,7 @@ const schoolData: Record<string, {
     coachSince: 2016,
     primaryColor: "#BA0C2F",
     secondaryColor: "#000000",
-    logo: "🐶",
+    logo: "",
     nilCollective: "1785 Society",
     nilBudget: "$18M+",
     ranking: 2,
@@ -109,7 +109,7 @@ const schoolData: Record<string, {
     coachSince: 2019,
     primaryColor: "#BB0000",
     secondaryColor: "#666666",
-    logo: "🌰",
+    logo: "",
     nilCollective: "The Foundation",
     nilBudget: "$22M+",
     ranking: 1,
@@ -132,7 +132,7 @@ const schoolData: Record<string, {
     coachSince: 2021,
     primaryColor: "#BF5700",
     secondaryColor: "#333F48",
-    logo: "🤘",
+    logo: "",
     nilCollective: "Horns with Heart",
     nilBudget: "$15M+",
     ranking: 3,
@@ -155,7 +155,7 @@ const schoolData: Record<string, {
     coachSince: 2023,
     primaryColor: "#CFB87C",
     secondaryColor: "#000000",
-    logo: "🦬",
+    logo: "",
     nilCollective: "Buffs4Life",
     nilBudget: "$25M+",
     ranking: 15,
@@ -178,7 +178,7 @@ const schoolData: Record<string, {
     coachSince: 2024,
     primaryColor: "#660000",
     secondaryColor: "#FFFFFF",
-    logo: "🔔",
+    logo: "",
     nilCollective: "First & Goal",
     nilBudget: "$8M+",
     ranking: 45,
@@ -201,7 +201,7 @@ const schoolData: Record<string, {
     coachSince: 2020,
     primaryColor: "#CE1126",
     secondaryColor: "#14213D",
-    logo: "🔴",
+    logo: "",
     nilCollective: "Grove Collective",
     nilBudget: "$12M+",
     ranking: 12,
@@ -224,7 +224,7 @@ const schoolData: Record<string, {
     coachSince: 2022,
     primaryColor: "#990000",
     secondaryColor: "#1E90FF",
-    logo: "✌️",
+    logo: "",
     nilCollective: "Student Body Right",
     nilBudget: "$18M+",
     ranking: 18,
@@ -324,42 +324,42 @@ function SchoolPageInner() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 -mt-12 relative z-20 mb-8">
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <TrendingUp className="w-6 h-6 text-green-400 mx-auto mb-2" />
+              <TrendingUp className="w-6 h-6 text-[#00C2FF] mx-auto mb-2" />
               <p className="text-2xl font-bold text-white">{school.transfersIn}</p>
               <p className="text-slate-400 text-sm">Transfers In</p>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <TrendingDown className="w-6 h-6 text-red-400 mx-auto mb-2" />
+              <TrendingDown className="w-6 h-6 text-[#1E90FF] mx-auto mb-2" />
               <p className="text-2xl font-bold text-white">{school.transfersOut}</p>
               <p className="text-slate-400 text-sm">Transfers Out</p>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <DollarSign className="w-6 h-6 text-green-400 mx-auto mb-2" />
+              <DollarSign className="w-6 h-6 text-[#00C2FF] mx-auto mb-2" />
               <p className="text-2xl font-bold text-white">{school.nilBudget}</p>
               <p className="text-slate-400 text-sm">NIL Budget</p>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <Trophy className="w-6 h-6 text-red-400 mx-auto mb-2" />
+              <Trophy className="w-6 h-6 text-[#1E90FF] mx-auto mb-2" />
               <p className="text-2xl font-bold text-white">{school.championships}</p>
               <p className="text-slate-400 text-sm">Championships</p>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <Users className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+              <Users className="w-6 h-6 text-[#00C2FF] mx-auto mb-2" />
               <p className="text-2xl font-bold text-white">{school.capacity.toLocaleString()}</p>
               <p className="text-slate-400 text-sm">Stadium Cap.</p>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-700">
             <CardContent className="p-4 text-center">
-              <Star className="w-6 h-6 text-red-400 mx-auto mb-2" />
+              <Star className="w-6 h-6 text-[#1E90FF] mx-auto mb-2" />
               <p className="text-lg font-bold text-white">{school.topTransferNIL}</p>
               <p className="text-slate-400 text-sm">Top NIL</p>
             </CardContent>
@@ -371,19 +371,19 @@ function SchoolPageInner() {
           <div className="lg:col-span-2">
             <Tabs defaultValue="news" className="w-full">
               <TabsList className="bg-slate-800 border-slate-700 mb-6">
-                <TabsTrigger value="news" className="data-[state=active]:bg-cyan-500">Transfer News</TabsTrigger>
-                <TabsTrigger value="roster" className="data-[state=active]:bg-cyan-500">Roster Moves</TabsTrigger>
-                <TabsTrigger value="nil" className="data-[state=active]:bg-cyan-500">NIL Program</TabsTrigger>
-                <TabsTrigger value="info" className="data-[state=active]:bg-cyan-500">School Info</TabsTrigger>
+                <TabsTrigger value="news" className="data-[state=active]:bg-[#1E90FF]">Transfer News</TabsTrigger>
+                <TabsTrigger value="roster" className="data-[state=active]:bg-[#1E90FF]">Roster Moves</TabsTrigger>
+                <TabsTrigger value="nil" className="data-[state=active]:bg-[#1E90FF]">NIL Program</TabsTrigger>
+                <TabsTrigger value="info" className="data-[state=active]:bg-[#1E90FF]">School Info</TabsTrigger>
               </TabsList>
 
               <TabsContent value="news" className="space-y-4">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Flame className="w-5 h-5 text-red-400" />
+                  <Flame className="w-5 h-5 text-[#1E90FF]" />
                   Latest Transfer News
                 </h2>
                 {news.map((item, idx) => (
-                  <Card key={idx} className="bg-slate-900 border-slate-700 hover:border-cyan-400/50 transition-all cursor-pointer">
+                  <Card key={idx} className="bg-slate-900 border-slate-700 hover:border-[#1E90FF]/30 transition-all cursor-pointer">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between">
                         <div>
@@ -391,9 +391,9 @@ function SchoolPageInner() {
                             variant="outline"
                             className={`mb-2 ${
                               item.type === "commitment" 
-                                ? "border-green-400 text-green-400" 
+                                ? "border-[#00C2FF] text-[#00C2FF]" 
                                 : item.type === "portal"
-                                ? "border-red-400 text-red-400"
+                                ? "border-[#1E90FF] text-[#1E90FF]"
                                 : "border-blue-400 text-blue-400"
                             }`}
                           >
@@ -421,7 +421,7 @@ function SchoolPageInner() {
                   <CardContent className="p-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h3 className="text-green-400 font-bold mb-4 flex items-center gap-2">
+                        <h3 className="text-[#00C2FF] font-bold mb-4 flex items-center gap-2">
                           <TrendingUp className="w-5 h-5" /> Incoming ({school.transfersIn})
                         </h3>
                         <p className="text-slate-400">
@@ -429,7 +429,7 @@ function SchoolPageInner() {
                         </p>
                       </div>
                       <div>
-                        <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2">
+                        <h3 className="text-[#1E90FF] font-bold mb-4 flex items-center gap-2">
                           <TrendingDown className="w-5 h-5" /> Outgoing ({school.transfersOut})
                         </h3>
                         <p className="text-slate-400">Players seeking new opportunities</p>
@@ -449,21 +449,21 @@ function SchoolPageInner() {
                           <p className="text-slate-400 text-sm">NIL Collective</p>
                           <p className="text-white font-bold text-lg">{school.nilCollective}</p>
                         </div>
-                        <DollarSign className="w-8 h-8 text-green-400" />
+                        <DollarSign className="w-8 h-8 text-[#00C2FF]" />
                       </div>
                       <div className="flex items-center justify-between p-4 bg-slate-800 rounded-lg">
                         <div>
                           <p className="text-slate-400 text-sm">Estimated Annual Budget</p>
-                          <p className="text-green-400 font-bold text-2xl">{school.nilBudget}</p>
+                          <p className="text-[#00C2FF] font-bold text-2xl">{school.nilBudget}</p>
                         </div>
-                        <TrendingUp className="w-8 h-8 text-green-400" />
+                        <TrendingUp className="w-8 h-8 text-[#00C2FF]" />
                       </div>
                       <div className="flex items-center justify-between p-4 bg-slate-800 rounded-lg">
                         <div>
                           <p className="text-slate-400 text-sm">Highest NIL Deal</p>
                           <p className="text-white font-bold">{school.topTransfer} - {school.topTransferNIL}</p>
                         </div>
-                        <Star className="w-8 h-8 text-red-400" />
+                        <Star className="w-8 h-8 text-[#1E90FF]" />
                       </div>
                     </div>
                   </CardContent>
@@ -476,28 +476,28 @@ function SchoolPageInner() {
                   <CardContent className="p-6 space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="flex items-center gap-3 p-3 bg-slate-800 rounded-lg">
-                        <MapPin className="w-5 h-5 text-cyan-400" />
+                        <MapPin className="w-5 h-5 text-[#00C2FF]" />
                         <div>
                           <p className="text-slate-400 text-sm">Location</p>
                           <p className="text-white font-semibold">{school.location}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 p-3 bg-slate-800 rounded-lg">
-                        <Building className="w-5 h-5 text-cyan-400" />
+                        <Building className="w-5 h-5 text-[#00C2FF]" />
                         <div>
                           <p className="text-slate-400 text-sm">Stadium</p>
                           <p className="text-white font-semibold">{school.stadium}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 p-3 bg-slate-800 rounded-lg">
-                        <GraduationCap className="w-5 h-5 text-cyan-400" />
+                        <GraduationCap className="w-5 h-5 text-[#00C2FF]" />
                         <div>
                           <p className="text-slate-400 text-sm">Head Coach</p>
                           <p className="text-white font-semibold">{school.headCoach} (since {school.coachSince})</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 p-3 bg-slate-800 rounded-lg">
-                        <Trophy className="w-5 h-5 text-red-400" />
+                        <Trophy className="w-5 h-5 text-[#1E90FF]" />
                         <div>
                           <p className="text-slate-400 text-sm">National Championships</p>
                           <p className="text-white font-semibold">{school.championships}</p>
@@ -516,7 +516,7 @@ function SchoolPageInner() {
             <Card className="bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700">
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-red-400" />
+                  <Star className="w-5 h-5 text-[#1E90FF]" />
                   Featured Transfer
                 </h3>
                 <div className="text-center">
@@ -527,7 +527,7 @@ function SchoolPageInner() {
                     {school.logo}
                   </div>
                   <h4 className="text-white font-bold text-xl">{school.topTransfer}</h4>
-                  <p className="text-green-400 font-bold text-2xl mt-2">{school.topTransferNIL}</p>
+                  <p className="text-[#00C2FF] font-bold text-2xl mt-2">{school.topTransferNIL}</p>
                   <p className="text-slate-400 text-sm">NIL Valuation</p>
                 </div>
               </CardContent>

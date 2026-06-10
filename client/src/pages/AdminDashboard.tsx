@@ -51,7 +51,7 @@ function AdminDashboardInner() {
   if (meQuery.isLoading) {
     return (
       <div className="min-h-screen bg-[#0a1628] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#1E90FF]"></div>
       </div>
     );
   }
@@ -61,9 +61,9 @@ function AdminDashboardInner() {
   if (meQuery.data?.role !== "admin") {
     return (
       <div className="min-h-screen bg-[#0a1628] flex items-center justify-center">
-        <Card className="bg-[#0d2847] border-red-500/30 max-w-md">
+        <Card className="bg-[#0d2847] border-[#1E90FF]/30 max-w-md">
           <CardHeader>
-            <CardTitle className="text-red-400 flex items-center gap-2">
+            <CardTitle className="text-[#1E90FF] flex items-center gap-2">
               <XCircle className="h-6 w-6" />
               Access Denied
             </CardTitle>
@@ -79,14 +79,14 @@ function AdminDashboardInner() {
 
   const getStatusBadge = (status: string) => {
     const colors: Record<string, string> = {
-      pending: "bg-red-500/20 text-red-400 border-red-500/30",
+      pending: "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30",
       contacted: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-      closed: "bg-green-500/20 text-green-400 border-green-500/30",
+      closed: "bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30",
       processing: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       shipped: "bg-blue-600/20 text-blue-500 border-blue-600/30",
-      delivered: "bg-green-500/20 text-green-400 border-green-500/30",
-      cancelled: "bg-red-500/20 text-red-400 border-red-500/30",
-      active: "bg-green-500/20 text-green-400 border-green-500/30",
+      delivered: "bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30",
+      cancelled: "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30",
+      active: "bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30",
       inactive: "bg-gray-500/20 text-gray-400 border-gray-500/30",
     };
     return colors[status] || "bg-gray-500/20 text-gray-400 border-gray-500/30";
@@ -101,7 +101,7 @@ function AdminDashboardInner() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-            <LayoutDashboard className="h-8 w-8 text-cyan-400" />
+            <LayoutDashboard className="h-8 w-8 text-[#00C2FF]" />
             Admin Dashboard
           </h1>
           <p className="text-gray-400 mt-2">
@@ -109,7 +109,7 @@ function AdminDashboardInner() {
           </p>
           <div className="mt-4 flex gap-3 flex-wrap">
             <Link href="/admin/crm">
-              <button className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold rounded-xl text-sm hover:from-cyan-500 hover:to-blue-500 transition-all flex items-center gap-2">
+              <button className="px-4 py-2 bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white font-bold rounded-xl text-sm hover:from-[#1E90FF] hover:to-blue-500 transition-all flex items-center gap-2">
                 <Users className="w-4 h-4" /> Open CRM Dashboard
               </button>
             </Link>
@@ -130,7 +130,7 @@ function AdminDashboardInner() {
         {statsLoading ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
             {[...Array(6)].map((_, i) => (
-              <Card key={i} className="bg-[#0d2847] border-cyan-500/20 animate-pulse">
+              <Card key={i} className="bg-[#0d2847] border-[#1E90FF]/30 animate-pulse">
                 <CardContent className="p-4">
                   <div className="h-16"></div>
                 </CardContent>
@@ -139,36 +139,36 @@ function AdminDashboardInner() {
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-400 text-sm">Orders</p>
                     <p className="text-2xl font-bold text-white">{(stats as any)?.totalOrders || 0}</p>
                   </div>
-                  <ShoppingCart className="h-8 w-8 text-cyan-400" />
+                  <ShoppingCart className="h-8 w-8 text-[#00C2FF]" />
                 </div>
               </CardContent>
             </Card>
-            <Card className="bg-[#0d2847] border-green-500/20">
+            <Card className="bg-[#0d2847] border-[#00C2FF]/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-400 text-sm">Revenue</p>
-                    <p className="text-2xl font-bold text-green-400">${((stats as any)?.totalRevenue || 0).toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-[#00C2FF]">${((stats as any)?.totalRevenue || 0).toLocaleString()}</p>
                   </div>
-                  <DollarSign className="h-8 w-8 text-green-400" />
+                  <DollarSign className="h-8 w-8 text-[#00C2FF]" />
                 </div>
               </CardContent>
             </Card>
-            <Card className="bg-[#0d2847] border-red-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-400 text-sm">Inquiries</p>
-                    <p className="text-2xl font-bold text-red-400">{(stats as any)?.totalInquiries || 0}</p>
+                    <p className="text-2xl font-bold text-[#1E90FF]">{(stats as any)?.totalInquiries || 0}</p>
                   </div>
-                  <MessageSquare className="h-8 w-8 text-red-400" />
+                  <MessageSquare className="h-8 w-8 text-[#1E90FF]" />
                 </div>
               </CardContent>
             </Card>
@@ -194,14 +194,14 @@ function AdminDashboardInner() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="bg-[#0d2847] border-red-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/20">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-gray-400 text-sm">Users</p>
-                    <p className="text-2xl font-bold text-red-400">{stats?.totalUsers || 0}</p>
+                    <p className="text-2xl font-bold text-[#1E90FF]">{stats?.totalUsers || 0}</p>
                   </div>
-                  <Users className="h-8 w-8 text-red-400" />
+                  <Users className="h-8 w-8 text-[#1E90FF]" />
                 </div>
               </CardContent>
             </Card>
@@ -212,40 +212,40 @@ function AdminDashboardInner() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
           <div className="relative -mx-4 px-4 sm:mx-0 sm:px-0">
             <div className="overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <TabsList className="w-max min-w-full justify-start bg-[#0d2847] border border-cyan-500/20 p-1 snap-x snap-mandatory">
-                <TabsTrigger value="overview" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+              <TabsList className="w-max min-w-full justify-start bg-[#0d2847] border border-[#1E90FF]/30 p-1 snap-x snap-mandatory">
+                <TabsTrigger value="overview" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <TrendingUp className="h-4 w-4 mr-2" />
               Overview
             </TabsTrigger>
-                <TabsTrigger value="inquiries" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="inquiries" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <MessageSquare className="h-4 w-4 mr-2" />
               Inquiries
             </TabsTrigger>
-                <TabsTrigger value="orders" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="orders" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <ShoppingCart className="h-4 w-4 mr-2" />
               Orders
             </TabsTrigger>
-                <TabsTrigger value="products" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="products" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <Package className="h-4 w-4 mr-2" />
               Products
             </TabsTrigger>
-                <TabsTrigger value="partners" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="partners" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <Handshake className="h-4 w-4 mr-2" />
               Partners
             </TabsTrigger>
-                <TabsTrigger value="users" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="users" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <Users className="h-4 w-4 mr-2" />
               Users
             </TabsTrigger>
-                <TabsTrigger value="logs" className="snap-start shrink-0 data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                <TabsTrigger value="logs" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
               <Activity className="h-4 w-4 mr-2" />
               Logs
             </TabsTrigger>
-                <TabsTrigger value="payroll" className="snap-start shrink-0 data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">
+                <TabsTrigger value="payroll" className="snap-start shrink-0 data-[state=active]:bg-[#00C2FF]/20 data-[state=active]:text-[#00C2FF]">
               <DollarSign className="h-4 w-4 mr-2" />
               Payroll
             </TabsTrigger>
-                <TabsTrigger value="expiry" className="snap-start shrink-0 data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">
+                <TabsTrigger value="expiry" className="snap-start shrink-0 data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#1E90FF]">
               <AlertCircle className="h-4 w-4 mr-2" />
                   Expiry Warnings
                 </TabsTrigger>
@@ -257,10 +257,10 @@ function AdminDashboardInner() {
           {/* Overview Tab */}
           <TabsContent value="overview">
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-[#0d2847] border-cyan-500/20">
+              <Card className="bg-[#0d2847] border-[#1E90FF]/30">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-cyan-400" />
+                    <Clock className="h-5 w-5 text-[#00C2FF]" />
                     Recent Activity
                   </CardTitle>
                 </CardHeader>
@@ -270,17 +270,17 @@ function AdminDashboardInner() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="bg-[#0d2847] border-cyan-500/20">
+              <Card className="bg-[#0d2847] border-[#1E90FF]/30">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <AlertCircle className="h-5 w-5 text-red-400" />
+                    <AlertCircle className="h-5 w-5 text-[#1E90FF]" />
                     Quick Actions
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                    className="w-full justify-start border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20"
                     onClick={() => setActiveTab("inquiries")}
                   >
                     <MessageSquare className="h-4 w-4 mr-2" />
@@ -288,7 +288,7 @@ function AdminDashboardInner() {
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                    className="w-full justify-start border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20"
                     onClick={() => setActiveTab("orders")}
                   >
                     <ShoppingCart className="h-4 w-4 mr-2" />
@@ -296,7 +296,7 @@ function AdminDashboardInner() {
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                    className="w-full justify-start border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20"
                     onClick={() => setActiveTab("partners")}
                   >
                     <Handshake className="h-4 w-4 mr-2" />
@@ -309,7 +309,7 @@ function AdminDashboardInner() {
 
           {/* Inquiries Tab */}
           <TabsContent value="inquiries">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Sales Inquiries</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -320,7 +320,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Name</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Email</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Company</th>
@@ -331,7 +331,7 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {([] as any[]).map((inquiry: any) => (
-                        <tr key={inquiry.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={inquiry.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4 text-white">{inquiry.name}</td>
                           <td className="py-3 px-4 text-gray-300">{inquiry.email}</td>
                           <td className="py-3 px-4 text-gray-300">{inquiry.company || "-"}</td>
@@ -343,7 +343,7 @@ function AdminDashboardInner() {
                           </td>
                           <td className="py-3 px-4">
                             <select
-                              className="bg-[#0a1628] border border-cyan-500/30 rounded px-2 py-1 text-white text-sm"
+                              className="bg-[#0a1628] border border-[#1E90FF]/30 rounded px-2 py-1 text-white text-sm"
                               value={inquiry.status}
                               onChange={(e) => updateInquiryStatus.mutate({ 
                                 id: inquiry.id, 
@@ -373,7 +373,7 @@ function AdminDashboardInner() {
 
           {/* Orders Tab */}
           <TabsContent value="orders">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Orders</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -384,7 +384,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Order ID</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Customer</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Amount</th>
@@ -395,7 +395,7 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {([] as any[]).map((order: any) => (
-                        <tr key={order.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={order.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4 text-white font-mono">#{order.id}</td>
                           <td className="py-3 px-4">
                             <div>
@@ -403,7 +403,7 @@ function AdminDashboardInner() {
                               <p className="text-gray-400 text-sm">{order.user_email}</p>
                             </div>
                           </td>
-                          <td className="py-3 px-4 text-green-400 font-semibold">
+                          <td className="py-3 px-4 text-[#00C2FF] font-semibold">
                             ${Number(order.total_amount).toLocaleString()}
                           </td>
                           <td className="py-3 px-4">
@@ -416,7 +416,7 @@ function AdminDashboardInner() {
                           </td>
                           <td className="py-3 px-4">
                             <select
-                              className="bg-[#0a1628] border border-cyan-500/30 rounded px-2 py-1 text-white text-sm"
+                              className="bg-[#0a1628] border border-[#1E90FF]/30 rounded px-2 py-1 text-white text-sm"
                               value={order.status}
                               onChange={(e) => updateOrderStatus.mutate({ 
                                 id: order.id, 
@@ -448,7 +448,7 @@ function AdminDashboardInner() {
 
           {/* Products Tab */}
           <TabsContent value="products">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Products</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -459,7 +459,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Name</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Category</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Price</th>
@@ -469,26 +469,26 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {([] as any[]).map((product: any) => (
-                        <tr key={product.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={product.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4 text-white">{product.name}</td>
                           <td className="py-3 px-4">
-                            <Badge variant="outline" className="border-cyan-500/30 text-cyan-400">
+                            <Badge variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF]">
                               {product.category}
                             </Badge>
                           </td>
-                          <td className="py-3 px-4 text-green-400">
+                          <td className="py-3 px-4 text-[#00C2FF]">
                             {Number(product.price) > 0 ? `$${Number(product.price).toLocaleString()}` : "Quote"}
                           </td>
                           <td className="py-3 px-4">
                             {product.in_stock === "yes" ? (
-                              <CheckCircle className="h-5 w-5 text-green-400" />
+                              <CheckCircle className="h-5 w-5 text-[#00C2FF]" />
                             ) : (
-                              <XCircle className="h-5 w-5 text-red-400" />
+                              <XCircle className="h-5 w-5 text-[#1E90FF]" />
                             )}
                           </td>
                           <td className="py-3 px-4">
                             {product.requires_quote === "yes" ? (
-                              <Badge className="bg-red-500/20 text-red-400 border-red-500/30">
+                              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">
                                 Required
                               </Badge>
                             ) : (
@@ -513,7 +513,7 @@ function AdminDashboardInner() {
 
           {/* Partners Tab */}
           <TabsContent value="partners">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Partners</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -524,7 +524,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Company</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Contact</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Email</th>
@@ -535,12 +535,12 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {([] as any[]).map((partner: any) => (
-                        <tr key={partner.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={partner.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4 text-white font-semibold">{partner.company}</td>
                           <td className="py-3 px-4 text-gray-300">{partner.name}</td>
                           <td className="py-3 px-4 text-gray-300">{partner.email}</td>
                           <td className="py-3 px-4">
-                            <code className="bg-[#0a1628] px-2 py-1 rounded text-cyan-400 text-sm">
+                            <code className="bg-[#0a1628] px-2 py-1 rounded text-[#00C2FF] text-sm">
                               {partner.access_code}
                             </code>
                           </td>
@@ -551,7 +551,7 @@ function AdminDashboardInner() {
                           </td>
                           <td className="py-3 px-4">
                             <select
-                              className="bg-[#0a1628] border border-cyan-500/30 rounded px-2 py-1 text-white text-sm"
+                              className="bg-[#0a1628] border border-[#1E90FF]/30 rounded px-2 py-1 text-white text-sm"
                               value={partner.status}
                               onChange={(e) => updatePartnerStatus.mutate({ 
                                 id: partner.id, 
@@ -580,7 +580,7 @@ function AdminDashboardInner() {
 
           {/* Users Tab */}
           <TabsContent value="users">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Users</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -591,7 +591,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">User</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Email</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Role</th>
@@ -601,14 +601,14 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {users?.map((u: any) => (
-                        <tr key={u.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={u.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-3">
                               {u.avatar ? (
                                 <img src={u.avatar} alt="" className="w-8 h-8 rounded-full" />
                               ) : (
-                                <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                                  <Users className="h-4 w-4 text-cyan-400" />
+                                <div className="w-8 h-8 rounded-full bg-[#1E90FF]/20 flex items-center justify-center">
+                                  <Users className="h-4 w-4 text-[#00C2FF]" />
                                 </div>
                               )}
                               <span className="text-white">{u.name || "Unknown"}</span>
@@ -625,7 +625,7 @@ function AdminDashboardInner() {
                           </td>
                           <td className="py-3 px-4">
                             <select
-                              className="bg-[#0a1628] border border-cyan-500/30 rounded px-2 py-1 text-white text-sm"
+                              className="bg-[#0a1628] border border-[#1E90FF]/30 rounded px-2 py-1 text-white text-sm"
                               value={u.role}
                               onChange={(e) => updateUserRole.mutate({ 
                                 id: u.id, 
@@ -655,7 +655,7 @@ function AdminDashboardInner() {
 
           {/* Access Logs Tab */}
           <TabsContent value="logs">
-            <Card className="bg-[#0d2847] border-cyan-500/20">
+            <Card className="bg-[#0d2847] border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white">Partner Access Logs</CardTitle>
                 <CardDescription className="text-gray-400">
@@ -666,7 +666,7 @@ function AdminDashboardInner() {
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-cyan-500/20">
+                      <tr className="border-b border-[#1E90FF]/30">
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Partner</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">Action</th>
                         <th className="text-left py-3 px-4 text-gray-400 font-medium">IP Address</th>
@@ -675,10 +675,10 @@ function AdminDashboardInner() {
                     </thead>
                     <tbody>
                       {([] as any[]).map((log: any) => (
-                        <tr key={log.id} className="border-b border-cyan-500/10 hover:bg-cyan-500/5">
+                        <tr key={log.id} className="border-b border-[#1E90FF]/30 hover:bg-[#1E90FF]/20">
                           <td className="py-3 px-4 text-white">{log.partner_company || "Unknown"}</td>
                           <td className="py-3 px-4">
-                            <Badge variant="outline" className="border-cyan-500/30 text-cyan-400">
+                            <Badge variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF]">
                               {log.action}
                             </Badge>
                           </td>
@@ -718,7 +718,7 @@ function AdminDashboardInner() {
   );
 }
 
-// ─── Payroll Panel Component ──────────────────────────────────────────────────
+//  Payroll Panel Component 
 function PayrollPanel() {
   const [netRevenue, setNetRevenue] = useState("");
   const [payrollResult, setPayrollResult] = useState<any>(null);
@@ -740,15 +740,15 @@ function PayrollPanel() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-950/40 to-slate-900/60 border border-green-800/30 rounded-2xl p-6">
+      <div className="bg-gradient-to-r from-[#00C2FF]/40 to-slate-900/60 border border-[#00C2FF]/30 rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-2">
-          <DollarSign className="w-6 h-6 text-green-400" />
+          <DollarSign className="w-6 h-6 text-[#00C2FF]" />
           <h2 className="text-xl font-black text-white">Team Payroll — Stripe Connect</h2>
         </div>
         <p className="text-slate-400 text-sm">Automated revenue distribution to your team. Each member connects their bank account once via Stripe Express — then you run payroll in one click.</p>
         <div className="flex gap-6 mt-4">
           <div className="text-center">
-            <div className="text-2xl font-black text-green-400">{connectedCount}/{team.length}</div>
+            <div className="text-2xl font-black text-[#00C2FF]">{connectedCount}/{team.length}</div>
             <div className="text-slate-500 text-xs">Connected</div>
           </div>
           <div className="text-center">
@@ -779,10 +779,10 @@ function PayrollPanel() {
                 <div className="flex items-center gap-2 mt-1">
                   <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                     member.connected
-                      ? "bg-green-900/40 text-green-400 border border-green-800/40"
-                      : "bg-blue-900/40 text-sky-400 border border-blue-800/40"
+                      ? "bg-[#00C2FF]/40 text-[#00C2FF] border border-[#00C2FF]/40"
+                      : "bg-blue-900/40 text-[#00C2FF] border border-blue-800/40"
                   }`}>
-                    {member.connected ? "✅ Connected" : "⏳ Not Connected"}
+                    {member.connected ? " Connected" : " Not Connected"}
                   </span>
                   <span className="text-blue-400 text-xs font-bold">{member.percentageOfRevenue}% of net revenue</span>
                 </div>
@@ -800,7 +800,7 @@ function PayrollPanel() {
                 </button>
               )}
               {member.connected && (
-                <span className="text-green-400 text-xs font-bold flex-shrink-0">Bank Connected ✓</span>
+                <span className="text-[#00C2FF] text-xs font-bold flex-shrink-0">Bank Connected </span>
               )}
             </div>
           ))
@@ -810,7 +810,7 @@ function PayrollPanel() {
       {/* Onboarding Link Result */}
       {onboardingLink && (
         <div className="bg-blue-950/40 border border-blue-800/30 rounded-2xl p-5">
-          <div className="text-white font-black mb-2">✅ Onboarding Link Generated</div>
+          <div className="text-white font-black mb-2"> Onboarding Link Generated</div>
           <p className="text-slate-400 text-sm mb-3">Send this link to your team member. They click it, connect their bank account via Stripe, and they're set up for payroll.</p>
           <div className="flex gap-2">
             <input
@@ -830,7 +830,7 @@ function PayrollPanel() {
       )}
 
       {/* Run Payroll */}
-      <div className="bg-gradient-to-r from-green-950/40 to-slate-900/60 border border-green-800/30 rounded-2xl p-6">
+      <div className="bg-gradient-to-r from-[#00C2FF]/40 to-slate-900/60 border border-[#00C2FF]/30 rounded-2xl p-6">
         <h3 className="text-white font-black text-lg mb-2">Run Payroll</h3>
         <p className="text-slate-400 text-sm mb-4">Enter the net revenue for this billing cycle. AthlynXAI will automatically distribute the correct percentage to each connected team member via Stripe.</p>
         <div className="flex gap-3 items-end">
@@ -841,7 +841,7 @@ function PayrollPanel() {
               value={netRevenue}
               onChange={e => setNetRevenue(e.target.value)}
               placeholder="e.g. 10000"
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-lg font-bold outline-none focus:border-green-500"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-lg font-bold outline-none focus:border-[#00C2FF]"
             />
           </div>
           <button
@@ -850,14 +850,14 @@ function PayrollPanel() {
               processPayroll.mutate({ netRevenue: Number(netRevenue) });
             }}
             disabled={processPayroll.isPending || !netRevenue || connectedCount === 0}
-            className="bg-green-600 hover:bg-green-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-black px-8 py-3 rounded-xl transition-colors flex items-center gap-2"
+            className="bg-[#00C2FF] hover:bg-[#00C2FF] disabled:opacity-40 disabled:cursor-not-allowed text-white font-black px-8 py-3 rounded-xl transition-colors flex items-center gap-2"
           >
             <DollarSign className="w-5 h-5" />
             {processPayroll.isPending ? "Processing..." : "Run Payroll"}
           </button>
         </div>
         {connectedCount === 0 && (
-          <p className="text-sky-400 text-xs mt-2">⚠️ No team members connected yet. Send onboarding links above first.</p>
+          <p className="text-[#00C2FF] text-xs mt-2"> No team members connected yet. Send onboarding links above first.</p>
         )}
 
         {/* Payroll Preview */}
@@ -867,7 +867,7 @@ function PayrollPanel() {
             {team.map((member: any) => (
               <div key={member.email} className="flex items-center justify-between text-sm">
                 <span className="text-slate-300">{member.name} ({member.percentageOfRevenue}%)</span>
-                <span className="text-green-400 font-black">${((Number(netRevenue) * member.percentageOfRevenue) / 100).toFixed(2)}</span>
+                <span className="text-[#00C2FF] font-black">${((Number(netRevenue) * member.percentageOfRevenue) / 100).toFixed(2)}</span>
               </div>
             ))}
             <div className="border-t border-slate-700 pt-2 flex items-center justify-between text-sm font-black">
@@ -881,17 +881,17 @@ function PayrollPanel() {
       {/* Payroll Results */}
       {payrollResult && (
         <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
-          <div className="text-white font-black mb-3">✅ Payroll Processed</div>
+          <div className="text-white font-black mb-3"> Payroll Processed</div>
           <div className="space-y-2">
             {payrollResult.results?.map((r: any, i: number) => (
               <div key={i} className="flex items-center justify-between text-sm">
                 <span className="text-slate-300">{r.name}</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-green-400 font-bold">${(r.amount / 100).toFixed(2)}</span>
+                  <span className="text-[#00C2FF] font-bold">${(r.amount / 100).toFixed(2)}</span>
                   <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                    r.status === "paid" ? "bg-green-900/40 text-green-400" :
-                    r.status === "not_connected" ? "bg-blue-900/40 text-sky-400" :
-                    "bg-red-900/40 text-red-400"
+                    r.status === "paid" ? "bg-[#00C2FF]/40 text-[#00C2FF]" :
+                    r.status === "not_connected" ? "bg-blue-900/40 text-[#00C2FF]" :
+                    "bg-[#1E90FF]/40 text-[#1E90FF]"
                   }`}>{r.status}</span>
                 </div>
               </div>
@@ -899,7 +899,7 @@ function PayrollPanel() {
           </div>
           <div className="border-t border-slate-700 mt-3 pt-3 text-sm">
             <span className="text-slate-400">Total distributed: </span>
-            <span className="text-green-400 font-black">${((payrollResult.totalDistributed ?? 0) / 100).toFixed(2)}</span>
+            <span className="text-[#00C2FF] font-black">${((payrollResult.totalDistributed ?? 0) / 100).toFixed(2)}</span>
           </div>
         </div>
       )}
@@ -932,7 +932,7 @@ export default function AdminDashboard() {
   return <RouteErrorBoundary><AdminDashboardInner /></RouteErrorBoundary>;
 }
 
-// ─── Expiry Warnings Panel ────────────────────────────────────────────────────
+//  Expiry Warnings Panel 
 function ExpiryWarningsPanel() {
   const warnings = trpc.expiration.getWarnings.useQuery(undefined, { retry: false });
   const overdue = trpc.expiration.getOverdue.useQuery(undefined, { retry: false });
@@ -941,18 +941,18 @@ function ExpiryWarningsPanel() {
   const overdueUsers = overdue.data ?? [];
 
   function daysColor(days: number) {
-    if (days <= 0) return "text-red-400";
-    if (days <= 2) return "text-red-300";
-    if (days <= 4) return "text-sky-400";
-    return "text-green-400";
+    if (days <= 0) return "text-[#1E90FF]";
+    if (days <= 2) return "text-[#1E90FF]";
+    if (days <= 4) return "text-[#00C2FF]";
+    return "text-[#00C2FF]";
   }
 
   return (
     <div className="space-y-6">
-      <Card className="bg-[#0d2847] border-red-500/20">
+      <Card className="bg-[#0d2847] border-[#1E90FF]/20">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-red-400" />
+            <AlertCircle className="h-5 w-5 text-[#1E90FF]" />
             Expiring Soon — Warning Emails Active
           </CardTitle>
           <CardDescription className="text-slate-400">
@@ -963,7 +963,7 @@ function ExpiryWarningsPanel() {
           {warnings.isLoading ? (
             <div className="text-slate-400 text-sm">Loading...</div>
           ) : warningUsers.length === 0 ? (
-            <div className="text-green-400 text-sm font-bold">✓ No users expiring in the next 7 days</div>
+            <div className="text-[#00C2FF] text-sm font-bold"> No users expiring in the next 7 days</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -1001,10 +1001,10 @@ function ExpiryWarningsPanel() {
         </CardContent>
       </Card>
 
-      <Card className="bg-[#0d2847] border-red-700/30">
+      <Card className="bg-[#0d2847] border-[#1E90FF]/30">
         <CardHeader>
           <CardTitle className="text-white flex items-center gap-2">
-            <XCircle className="h-5 w-5 text-red-500" />
+            <XCircle className="h-5 w-5 text-[#1E90FF]" />
             Overdue — Expired Trial, No Subscription
           </CardTitle>
           <CardDescription className="text-slate-400">
@@ -1015,7 +1015,7 @@ function ExpiryWarningsPanel() {
           {overdue.isLoading ? (
             <div className="text-slate-400 text-sm">Loading...</div>
           ) : overdueUsers.length === 0 ? (
-            <div className="text-green-400 text-sm font-bold">✓ No overdue accounts</div>
+            <div className="text-[#00C2FF] text-sm font-bold"> No overdue accounts</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -1035,7 +1035,7 @@ function ExpiryWarningsPanel() {
                       <td className="py-2 pr-4 text-slate-400 text-xs">
                         {u.trialEndsAt ? new Date(u.trialEndsAt).toLocaleDateString() : "—"}
                       </td>
-                      <td className="py-2 text-red-400 font-black">{u.expiredDaysAgo}d ago</td>
+                      <td className="py-2 text-[#1E90FF] font-black">{u.expiredDaysAgo}d ago</td>
                     </tr>
                   ))}
                 </tbody>

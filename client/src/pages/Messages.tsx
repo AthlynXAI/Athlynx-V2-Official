@@ -170,8 +170,8 @@ function MessagesInner() {
                 </div>
                 <div>
                   <div className="font-semibold text-white text-sm">{selectedConv?.name ?? "Conversation"}</div>
-                  <div className="text-xs text-green-400 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+                  <div className="text-xs text-[#00C2FF] flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00C2FF] inline-block" />
                     Active
                   </div>
                 </div>

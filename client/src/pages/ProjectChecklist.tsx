@@ -119,9 +119,9 @@ function ProjectChecklistInner() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'done':
-        return <CheckCircle2 className="w-5 h-5 text-green-500" />;
+        return <CheckCircle2 className="w-5 h-5 text-[#00C2FF]" />;
       case 'in-progress':
-        return <Clock className="w-5 h-5 text-red-500" />;
+        return <Clock className="w-5 h-5 text-[#1E90FF]" />;
       default:
         return <Circle className="w-5 h-5 text-gray-500" />;
     }
@@ -141,11 +141,11 @@ function ProjectChecklistInner() {
   return (
     <div className="min-h-screen bg-[#0a1628] text-white">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0a1628] to-[#1a2d4a] border-b border-cyan-500/20">
+      <div className="bg-gradient-to-r from-[#0a1628] to-[#1a2d4a] border-b border-[#1E90FF]/30">
         <div className="container py-6">
           <div className="flex items-center justify-between">
             <div>
-              <Link href="/" className="text-cyan-400 hover:text-cyan-300 text-sm mb-2 inline-block">
+              <Link href="/" className="text-[#00C2FF] hover:text-[#00C2FF] text-sm mb-2 inline-block">
                 ← Back to Platform
               </Link>
               <h1 className="text-3xl font-bold">AthlynX Project Checklist</h1>
@@ -153,15 +153,15 @@ function ProjectChecklistInner() {
             </div>
             <div className="flex items-center gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400">{daysToLaunch}</div>
+                <div className="text-3xl font-bold text-[#00C2FF]">{daysToLaunch}</div>
                 <div className="text-xs text-gray-400">Days to Launch</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">{completedTasks}</div>
+                <div className="text-3xl font-bold text-[#00C2FF]">{completedTasks}</div>
                 <div className="text-xs text-gray-400">Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-400">{inProgressTasks}</div>
+                <div className="text-3xl font-bold text-[#1E90FF]">{inProgressTasks}</div>
                 <div className="text-xs text-gray-400">In Progress</div>
               </div>
               <div className="text-center">
@@ -175,11 +175,11 @@ function ProjectChecklistInner() {
           <div className="mt-6">
             <div className="flex justify-between text-sm mb-2">
               <span>Overall Progress</span>
-              <span className="text-cyan-400">{progress}%</span>
+              <span className="text-[#00C2FF]">{progress}%</span>
             </div>
             <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-cyan-500 to-green-500 transition-all duration-500"
+                className="h-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] transition-all duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -197,15 +197,15 @@ function ProjectChecklistInner() {
             const isExpanded = expandedPhases.includes(phase.id);
 
             return (
-              <div key={phase.id} className="bg-[#0d1e36] border border-cyan-500/20 rounded-lg overflow-hidden">
+              <div key={phase.id} className="bg-[#0d1e36] border border-[#1E90FF]/30 rounded-lg overflow-hidden">
                 <button
                   onClick={() => togglePhase(phase.id)}
                   className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1a2d4a] transition-colors"
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      phaseProgress === 100 ? 'bg-green-500/20 text-green-400' :
-                      phaseProgress > 0 ? 'bg-red-500/20 text-red-400' :
+                      phaseProgress === 100 ? 'bg-[#00C2FF]/20 text-[#00C2FF]' :
+                      phaseProgress > 0 ? 'bg-[#1E90FF]/20 text-[#1E90FF]' :
                       'bg-gray-500/20 text-gray-400'
                     }`}>
                       {phaseProgress === 100 ? <CheckCircle2 className="w-5 h-5" /> :
@@ -221,8 +221,8 @@ function ProjectChecklistInner() {
                     <div className="w-32 h-2 bg-gray-800 rounded-full overflow-hidden">
                       <div 
                         className={`h-full transition-all duration-500 ${
-                          phaseProgress === 100 ? 'bg-green-500' :
-                          phaseProgress > 0 ? 'bg-red-500' :
+                          phaseProgress === 100 ? 'bg-[#00C2FF]' :
+                          phaseProgress > 0 ? 'bg-[#1E90FF]' :
                           'bg-gray-600'
                         }`}
                         style={{ width: `${phaseProgress}%` }}
@@ -241,7 +241,7 @@ function ProjectChecklistInner() {
                 </button>
 
                 {isExpanded && (
-                  <div className="border-t border-cyan-500/10">
+                  <div className="border-t border-[#1E90FF]/30">
                     <div className="divide-y divide-cyan-500/10">
                       {phase.tasks.map((task) => (
                         <div 
@@ -257,7 +257,7 @@ function ProjectChecklistInner() {
                           {task.route && (
                             <Link 
                               href={task.route}
-                              className="text-cyan-400 hover:text-cyan-300 text-sm"
+                              className="text-[#00C2FF] hover:text-[#00C2FF] text-sm"
                             >
                               View →
                             </Link>
@@ -274,22 +274,22 @@ function ProjectChecklistInner() {
 
         {/* Quick Stats */}
         <div className="mt-8 grid grid-cols-4 gap-4">
-          <div className="bg-[#0d1e36] border border-cyan-500/20 rounded-lg p-4 text-center">
-            <Calendar className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+          <div className="bg-[#0d1e36] border border-[#1E90FF]/30 rounded-lg p-4 text-center">
+            <Calendar className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
             <div className="text-2xl font-bold">Feb 1, 2026</div>
             <div className="text-sm text-gray-400">Launch Date</div>
           </div>
-          <div className="bg-[#0d1e36] border border-cyan-500/20 rounded-lg p-4 text-center">
-            <Users className="w-8 h-8 text-green-400 mx-auto mb-2" />
+          <div className="bg-[#0d1e36] border border-[#1E90FF]/30 rounded-lg p-4 text-center">
+            <Users className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
             <div className="text-2xl font-bold">10,000</div>
             <div className="text-sm text-gray-400">Beta Users Target</div>
           </div>
-          <div className="bg-[#0d1e36] border border-cyan-500/20 rounded-lg p-4 text-center">
-            <Target className="w-8 h-8 text-red-400 mx-auto mb-2" />
+          <div className="bg-[#0d1e36] border border-[#1E90FF]/30 rounded-lg p-4 text-center">
+            <Target className="w-8 h-8 text-[#1E90FF] mx-auto mb-2" />
             <div className="text-2xl font-bold">25+</div>
             <div className="text-sm text-gray-400">Pages Built</div>
           </div>
-          <div className="bg-[#0d1e36] border border-cyan-500/20 rounded-lg p-4 text-center">
+          <div className="bg-[#0d1e36] border border-[#1E90FF]/30 rounded-lg p-4 text-center">
             <Rocket className="w-8 h-8 text-blue-500 mx-auto mb-2" />
             <div className="text-2xl font-bold">Diamond Grind</div>
             <div className="text-sm text-gray-400">First Launch App</div>

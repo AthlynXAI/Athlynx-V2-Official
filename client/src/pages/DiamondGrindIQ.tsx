@@ -7,10 +7,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 
-// ───────────────────────────────────────────────────────────────────────────
+// 
 // Pitch Smart — official MLB / USA Baseball pitch count + rest rules by age
 // Source: https://www.mlb.com/pitch-smart/pitching-guidelines
-// ───────────────────────────────────────────────────────────────────────────
+// 
 
 interface PitchSmartRow {
   age: string;
@@ -86,9 +86,9 @@ const PITCH_SMART: PitchSmartRow[] = [
   },
 ];
 
-// ───────────────────────────────────────────────────────────────────────────
+// 
 // Drill Library — 12 drills (6 pitcher, 6 catcher), age-graded, source-cited
-// ───────────────────────────────────────────────────────────────────────────
+// 
 
 interface Drill {
   id: string;
@@ -141,9 +141,9 @@ const DRILLS: Drill[] = [
     desc: "From secondary stance: receive, rise to right foot (flamingo pause), explode to throwdown. Prevents rushing." },
 ];
 
-// ───────────────────────────────────────────────────────────────────────────
+// 
 // IQ Modules by age band — Battery Blueprint
-// ───────────────────────────────────────────────────────────────────────────
+// 
 
 interface IQModule {
   band: string;
@@ -204,9 +204,9 @@ const IQ_MODULES: IQModule[] = [
   },
 ];
 
-// ───────────────────────────────────────────────────────────────────────────
+// 
 // Components
-// ───────────────────────────────────────────────────────────────────────────
+// 
 
 function ArmHealthCalculator() {
   const [age, setAge] = useState("11-12");
@@ -285,7 +285,7 @@ function ArmHealthCalculator() {
         <div className={`border rounded-lg p-4 ${result.overMax ? "border-[#1E90FF] bg-[#1E90FF]/10" : "border-white/15 bg-black/40"}`}>
           {result.overMax ? (
             <>
-              <div className="text-sm font-black text-[#1E90FF] uppercase tracking-widest mb-1">⚠ Over the Pitch Smart Limit</div>
+              <div className="text-sm font-black text-[#1E90FF] uppercase tracking-widest mb-1"> Over the Pitch Smart Limit</div>
               <div className="text-sm text-white mb-2">
                 {pitches} pitches exceeds the recommended max of <span className="font-black">{result.row.maxPerGame}</span> for ages {age}.
               </div>
@@ -607,9 +607,9 @@ function ParentEnrollment() {
   );
 }
 
-// ───────────────────────────────────────────────────────────────────────────
+// 
 // Main page
-// ───────────────────────────────────────────────────────────────────────────
+// 
 
 export default function DiamondGrindIQ() {
   return (

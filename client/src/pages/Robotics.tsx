@@ -8,33 +8,33 @@ import { useAuth } from "@/_core/hooks/useAuth";
 const CDN = "/";
 
 const SCENARIOS = [
-  { id: "training", label: "Training", icon: "🏋️" },
-  { id: "game_day", label: "Game Day", icon: "🏆" },
-  { id: "recovery", label: "Recovery", icon: "💪" },
-  { id: "recruiting", label: "Recruiting", icon: "🎓" },
-  { id: "nil_deals", label: "NIL Deals", icon: "💰" },
-  { id: "in_the_stands", label: "In the Stands", icon: "🏟️" },
-  { id: "locker_room", label: "Locker Room", icon: "🔒" },
-  { id: "film_review", label: "Film Review", icon: "🎬" },
-  { id: "nutrition", label: "Nutrition", icon: "🥗" },
-  { id: "mental_prep", label: "Mental Prep", icon: "🧠" },
-  { id: "social_media", label: "Social Media", icon: "📱" },
-  { id: "academics", label: "Academics", icon: "📚" },
+  { id: "training", label: "Training", icon: "" },
+  { id: "game_day", label: "Game Day", icon: "" },
+  { id: "recovery", label: "Recovery", icon: "" },
+  { id: "recruiting", label: "Recruiting", icon: "" },
+  { id: "nil_deals", label: "NIL Deals", icon: "" },
+  { id: "in_the_stands", label: "In the Stands", icon: "" },
+  { id: "locker_room", label: "Locker Room", icon: "" },
+  { id: "film_review", label: "Film Review", icon: "" },
+  { id: "nutrition", label: "Nutrition", icon: "" },
+  { id: "mental_prep", label: "Mental Prep", icon: "" },
+  { id: "social_media", label: "Social Media", icon: "" },
+  { id: "academics", label: "Academics", icon: "" },
 ];
 
 const USE_CASES = [
-  { icon: "🏟️", title: "In the Stands", subtitle: "Fan & Scout Companion", desc: "Your robot companion navigates the stadium, delivers merchandise, assists scouts with real-time player tracking, and keeps fans engaged with live stats and highlights.", sport: "All Sports", color: "from-blue-900 to-blue-800" },
-  { icon: "🏋️", title: "In Training", subtitle: "Performance Coach", desc: "Acts as a ball machine, resistance partner, rep counter, and form coach. Analyzes your mechanics in real time and gives instant feedback to maximize every rep.", sport: "All Sports", color: "from-green-900 to-green-800" },
-  { icon: "🏈", title: "On the Field", subtitle: "Real-Time Performance Partner", desc: "Tracks your movement patterns, speed, and positioning during practice. Feeds data directly into your AthlynX profile for coaches and recruiters to see.", sport: "Football, Soccer, Lacrosse", color: "from-red-900 to-red-800" },
-  { icon: "⚾", title: "Baseball Diamond", subtitle: "Diamond Grind Robot", desc: "Pitching machine, fielding drill partner, and swing analyzer. Connects directly with Diamond Grind to log every session and track your development over time.", sport: "Baseball, Softball", color: "from-red-900 to-red-800" },
-  { icon: "🏀", title: "On the Court", subtitle: "Shooting & Defense Trainer", desc: "Rebounds your shots, tracks your shooting percentage from every zone, runs defensive drills, and syncs your stats to your AthlynX Warriors Playbook.", sport: "Basketball", color: "from-blue-950 to-blue-900" },
-  { icon: "💪", title: "In Recovery", subtitle: "Wellness & Rehab Companion", desc: "Monitors vitals, guides stretching routines, tracks sleep and hydration, and checks in on mental wellness. Your 24/7 recovery partner that never sleeps.", sport: "All Sports", color: "from-teal-900 to-teal-800" },
-  { icon: "🎓", title: "In Recruiting", subtitle: "Showcase & Highlight Tool", desc: "Records your best moments from every angle, auto-edits highlight reels, and sends them directly to coaches through your AthlynXAI Recruiter profile.", sport: "All Sports", color: "from-red-900 to-red-800" },
-  { icon: "🏆", title: "In the Locker Room", subtitle: "Team Morale & Strategy", desc: "Reviews game film with the team, displays plays on screen, tracks team stats, and keeps morale high with motivational content tailored to your team.", sport: "All Sports", color: "from-indigo-900 to-indigo-800" },
-  { icon: "📊", title: "NIL Deal Assistant", subtitle: "Brand Partnership Robot", desc: "Represents you at brand events, captures content for social media, and helps execute NIL deal obligations — from appearances to product demos.", sport: "All Sports", color: "from-red-900 to-red-800" },
-  { icon: "🌙", title: "After Hours", subtitle: "Study & Mental Prep", desc: "Helps athletes stay on top of academics, reviews game film before bed, runs mental visualization exercises, and keeps your schedule organized.", sport: "All Sports", color: "from-slate-900 to-slate-800" },
-  { icon: "🏊", title: "In the Pool", subtitle: "Aquatic Performance Tracker", desc: "Waterproof poolside companion that tracks lap times, stroke efficiency, and turn technique. Syncs directly with your AthlynX training log.", sport: "Swimming, Water Polo", color: "from-cyan-900 to-cyan-800" },
-  { icon: "🎯", title: "Pre-Game Ritual", subtitle: "Mental & Physical Warmup", desc: "Leads your warmup routine, plays your pre-game playlist, runs through your mental checklist, and gets you locked in before every competition.", sport: "All Sports", color: "from-red-900 to-red-800" },
+  { icon: "", title: "In the Stands", subtitle: "Fan & Scout Companion", desc: "Your robot companion navigates the stadium, delivers merchandise, assists scouts with real-time player tracking, and keeps fans engaged with live stats and highlights.", sport: "All Sports", color: "from-blue-900 to-blue-800" },
+  { icon: "", title: "In Training", subtitle: "Performance Coach", desc: "Acts as a ball machine, resistance partner, rep counter, and form coach. Analyzes your mechanics in real time and gives instant feedback to maximize every rep.", sport: "All Sports", color: "from-[#00C2FF] to-[#0a1628]" },
+  { icon: "", title: "On the Field", subtitle: "Real-Time Performance Partner", desc: "Tracks your movement patterns, speed, and positioning during practice. Feeds data directly into your AthlynX profile for coaches and recruiters to see.", sport: "Football, Soccer, Lacrosse", color: "from-[#1E90FF] to-[#0a1628]" },
+  { icon: "", title: "Baseball Diamond", subtitle: "Diamond Grind Robot", desc: "Pitching machine, fielding drill partner, and swing analyzer. Connects directly with Diamond Grind to log every session and track your development over time.", sport: "Baseball, Softball", color: "from-[#1E90FF] to-[#0a1628]" },
+  { icon: "", title: "On the Court", subtitle: "Shooting & Defense Trainer", desc: "Rebounds your shots, tracks your shooting percentage from every zone, runs defensive drills, and syncs your stats to your AthlynX Warriors Playbook.", sport: "Basketball", color: "from-blue-950 to-blue-900" },
+  { icon: "", title: "In Recovery", subtitle: "Wellness & Rehab Companion", desc: "Monitors vitals, guides stretching routines, tracks sleep and hydration, and checks in on mental wellness. Your 24/7 recovery partner that never sleeps.", sport: "All Sports", color: "from-[#00C2FF] to-teal-800" },
+  { icon: "", title: "In Recruiting", subtitle: "Showcase & Highlight Tool", desc: "Records your best moments from every angle, auto-edits highlight reels, and sends them directly to coaches through your AthlynXAI Recruiter profile.", sport: "All Sports", color: "from-[#1E90FF] to-[#0a1628]" },
+  { icon: "", title: "In the Locker Room", subtitle: "Team Morale & Strategy", desc: "Reviews game film with the team, displays plays on screen, tracks team stats, and keeps morale high with motivational content tailored to your team.", sport: "All Sports", color: "from-[#1E90FF] to-indigo-800" },
+  { icon: "", title: "NIL Deal Assistant", subtitle: "Brand Partnership Robot", desc: "Represents you at brand events, captures content for social media, and helps execute NIL deal obligations — from appearances to product demos.", sport: "All Sports", color: "from-[#1E90FF] to-[#0a1628]" },
+  { icon: "", title: "After Hours", subtitle: "Study & Mental Prep", desc: "Helps athletes stay on top of academics, reviews game film before bed, runs mental visualization exercises, and keeps your schedule organized.", sport: "All Sports", color: "from-slate-900 to-slate-800" },
+  { icon: "", title: "In the Pool", subtitle: "Aquatic Performance Tracker", desc: "Waterproof poolside companion that tracks lap times, stroke efficiency, and turn technique. Syncs directly with your AthlynX training log.", sport: "Swimming, Water Polo", color: "from-[#1E90FF] to-[#0a1628]" },
+  { icon: "", title: "Pre-Game Ritual", subtitle: "Mental & Physical Warmup", desc: "Leads your warmup routine, plays your pre-game playlist, runs through your mental checklist, and gets you locked in before every competition.", sport: "All Sports", color: "from-[#1E90FF] to-[#0a1628]" },
 ];
 
 const QUICK_PROMPTS = [
@@ -54,7 +54,7 @@ function RobotChat({ user }: { user: any }) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      content: "Hey! I'm LYNX — your AthlynXAI Robot Companion. I'm here to help you with training, recruiting, NIL deals, game strategy, recovery, and everything else in your athletic journey. What can I help you with today? 🤖",
+      content: "Hey! I'm LYNX — your AthlynXAI Robot Companion. I'm here to help you with training, recruiting, NIL deals, game strategy, recovery, and everything else in your athletic journey. What can I help you with today? ",
     },
   ]);
   const [input, setInput] = useState("");
@@ -91,7 +91,7 @@ function RobotChat({ user }: { user: any }) {
   if (!user) {
     return (
       <div className="bg-[#1a3a8f] border border-blue-900 rounded-2xl p-6 text-center">
-        <div className="text-4xl mb-3">🤖</div>
+        <div className="text-4xl mb-3"></div>
         <h3 className="text-white font-black text-lg mb-2">Sign In to Chat with LYNX</h3>
         <p className="text-blue-300 text-sm mb-4">Your AI robot companion is waiting. Sign in to start your conversation.</p>
         <a href="/signin" className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-lg transition-colors">
@@ -106,19 +106,19 @@ function RobotChat({ user }: { user: any }) {
       {/* Chat header */}
       <div className="bg-gradient-to-r from-[#0d1b3e] to-[#1530a0] border-b border-blue-900 p-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-xl shrink-0">
-            🤖
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-xl shrink-0">
+            
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <span className="font-black text-white">LYNX</span>
-              <span className="text-xs bg-green-600 text-white px-2 py-0.5 rounded-full font-bold">LIVE AI</span>
+              <span className="text-xs bg-[#00C2FF] text-white px-2 py-0.5 rounded-full font-bold">LIVE AI</span>
             </div>
             <div className="text-blue-400 text-xs">Your AI Robot Companion — Always On</div>
           </div>
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-green-400 text-xs">Online</span>
+            <div className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse" />
+            <span className="text-[#00C2FF] text-xs">Online</span>
           </div>
         </div>
 
@@ -151,7 +151,7 @@ function RobotChat({ user }: { user: any }) {
         {messages.map((msg, i) => (
           <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
             {msg.role === "assistant" && (
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-sm shrink-0 mt-0.5">🤖</div>
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-sm shrink-0 mt-0.5"></div>
             )}
             <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
               msg.role === "user"
@@ -169,7 +169,7 @@ function RobotChat({ user }: { user: any }) {
         ))}
         {chatMutation.isPending && (
           <div className="flex gap-2 justify-start">
-            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-sm shrink-0">🤖</div>
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-sm shrink-0"></div>
             <div className="bg-[#1530a0] border border-blue-800 rounded-2xl rounded-bl-sm px-3 py-2">
               <div className="flex gap-1 items-center h-5">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0ms" }} />
@@ -237,7 +237,7 @@ function RoboticsInner() {
         <div className="relative bg-gradient-to-br from-[#0a1628] via-[#1a3a8f] to-[#0a1628] border border-blue-700 rounded-2xl overflow-hidden">
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, #0066ff 0%, transparent 60%), radial-gradient(circle at 70% 50%, #00ffaa 0%, transparent 60%)" }} />
           <div className="relative p-6 text-center">
-            <div className="text-6xl mb-3">🤖</div>
+            <div className="text-6xl mb-3"></div>
             <div className="text-blue-400 text-xs uppercase tracking-[0.3em] mb-1">Coming Soon</div>
             <h1 className="text-3xl font-black text-white mb-2">AthlynX ROBOTICS</h1>
             <p className="text-blue-300 text-sm font-semibold mb-4">Your AI Robot Companion — In Every Moment of Your Athletic Journey</p>
@@ -246,8 +246,8 @@ function RoboticsInner() {
               The next frontier of athlete performance. An AI-powered robot companion that works alongside you — on the field, in the stands, in training, in recovery, and everywhere in between.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 bg-blue-900/50 border border-blue-600 rounded-full px-4 py-2">
-              <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              <span className="text-red-400 text-xs font-bold uppercase tracking-wider">In Development — Guinness World Record Technology</span>
+              <div className="w-2 h-2 rounded-full bg-[#1E90FF] animate-pulse" />
+              <span className="text-[#1E90FF] text-xs font-bold uppercase tracking-wider">In Development — Guinness World Record Technology</span>
             </div>
           </div>
         </div>
@@ -269,9 +269,9 @@ function RoboticsInner() {
         {/* Tabs */}
         <div className="flex gap-1 bg-[#1a3a8f] border border-blue-900 rounded-xl p-1">
           {[
-            { key: "chat", label: "🤖 Chat with LYNX" },
-            { key: "usecases", label: "📋 Use Cases" },
-            { key: "integration", label: "🔗 App Integration" },
+            { key: "chat", label: " Chat with LYNX" },
+            { key: "usecases", label: " Use Cases" },
+            { key: "integration", label: " App Integration" },
           ].map(tab => (
             <button
               key={tab.key}
@@ -363,7 +363,7 @@ function RoboticsInner() {
 
         {/* CTA */}
         <div className="bg-gradient-to-br from-[#0a1628] to-[#1a3a8f] border border-blue-600 rounded-2xl p-6 text-center">
-          <div className="text-4xl mb-3">🤖</div>
+          <div className="text-4xl mb-3"></div>
           <h3 className="text-white font-black text-xl mb-2">Be First in Line</h3>
           <p className="text-blue-200 text-sm leading-relaxed max-w-sm mx-auto mb-4">
             AthlynX Robotics is in development. Athletes who sign up for Elite or NIL Vault plans get priority access when we launch.

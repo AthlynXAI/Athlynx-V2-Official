@@ -7,19 +7,19 @@ function MusicInner() {
   const [isPlaying, setIsPlaying] = useState<number | null>(null);
 
   const genres = [
-    { id: "all", name: "All Music", icon: "🎵" },
-    { id: "hiphop", name: "Hip Hop", icon: "🎤" },
-    { id: "edm", name: "EDM", icon: "🎧" },
-    { id: "rock", name: "Rock", icon: "🎸" },
-    { id: "motivation", name: "Motivation", icon: "🎵" },
-    { id: "focus", name: "Focus", icon: "🧘" },
+    { id: "all", name: "All Music", icon: "" },
+    { id: "hiphop", name: "Hip Hop", icon: "" },
+    { id: "edm", name: "EDM", icon: "" },
+    { id: "rock", name: "Rock", icon: "" },
+    { id: "motivation", name: "Motivation", icon: "" },
+    { id: "focus", name: "Focus", icon: "" },
   ];
 
   const playlists = [
     { id: 1, name: "Pre-Game Hype", tracks: 45, duration: "2hr 30min", genre: "hiphop", plays: "2.5M", image: "", curator: "AthlynX" },
-    { id: 2, name: "Weightroom Beast Mode", tracks: 60, duration: "3hr 15min", genre: "edm", plays: "1.8M", image: "🏋️", curator: "AthlynX" },
-    { id: 3, name: "Cardio Crusher", tracks: 50, duration: "2hr 45min", genre: "edm", plays: "1.2M", image: "🏃", curator: "AthlynX" },
-    { id: 4, name: "Focus & Flow", tracks: 40, duration: "2hr", genre: "focus", plays: "890K", image: "🧘", curator: "AthlynX" },
+    { id: 2, name: "Weightroom Beast Mode", tracks: 60, duration: "3hr 15min", genre: "edm", plays: "1.8M", image: "", curator: "AthlynX" },
+    { id: 3, name: "Cardio Crusher", tracks: 50, duration: "2hr 45min", genre: "edm", plays: "1.2M", image: "", curator: "AthlynX" },
+    { id: 4, name: "Focus & Flow", tracks: 40, duration: "2hr", genre: "focus", plays: "890K", image: "", curator: "AthlynX" },
     { id: 5, name: "Game Day Anthems", tracks: 35, duration: "1hr 45min", genre: "rock", plays: "1.5M", image: "", curator: "AthlynX" },
     { id: 6, name: "Motivation Monday", tracks: 30, duration: "1hr 30min", genre: "motivation", plays: "2.1M", image: "", curator: "AthlynX" },
     { id: 7, name: "Baseball Walkup Songs", tracks: 100, duration: "5hr", genre: "hiphop", plays: "3.2M", image: "", curator: "Diamond Grind" },
@@ -34,7 +34,7 @@ function MusicInner() {
   ];
 
   const podcasts = [
-    { id: 1, name: "The Athlete Mindset", host: "Dr. Michael Johnson", episodes: 156, rating: 4.9, image: "🧠" },
+    { id: 1, name: "The Athlete Mindset", host: "Dr. Michael Johnson", episodes: 156, rating: 4.9, image: "" },
     { id: 2, name: "NIL Talk", host: "AthlynX Team", episodes: 89, rating: 4.8, image: "" },
     { id: 3, name: "Recruiting Insider", host: "Coach Williams", episodes: 234, rating: 4.7, image: "" },
     { id: 4, name: "Pro Athlete Stories", host: "Marcus Allen", episodes: 178, rating: 4.9, image: "" },
@@ -67,7 +67,7 @@ function MusicInner() {
           {/* Hero */}
           <div className="text-center mb-10">
             <span className="inline-block px-4 py-1 bg-blue-600/20 text-blue-500 rounded-full text-sm font-semibold mb-4">
-              🎵 AthlynX MUSIC
+               AthlynX MUSIC
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
               Fuel Your <span className="text-blue-500">Performance</span>
@@ -78,10 +78,10 @@ function MusicInner() {
           </div>
 
           {/* Now Playing Banner */}
-          <div className="bg-gradient-to-r from-blue-600/20 to-red-500/20 rounded-2xl border border-blue-600/30 p-6 mb-10">
+          <div className="bg-gradient-to-r from-blue-600/20 to-[#0a1628]/20 rounded-2xl border border-blue-600/30 p-6 mb-10">
             <div className="flex items-center gap-6">
-              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center text-4xl animate-pulse">
-                🎵
+              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-blue-600 to-[#0a1628] flex items-center justify-center text-4xl animate-pulse">
+                
               </div>
               <div className="flex-1">
                 <p className="text-gray-400 text-sm">NOW PLAYING</p>
@@ -90,13 +90,13 @@ function MusicInner() {
               </div>
               <div className="flex items-center gap-4">
                 <button className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all">
-                  <span className="text-xl">⏮️</span>
+                  <span className="text-xl"></span>
                 </button>
                 <button className="p-4 bg-blue-600 rounded-full hover:bg-blue-500 transition-all">
-                  <span className="text-2xl">▶️</span>
+                  <span className="text-2xl"></span>
                 </button>
                 <button className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all">
-                  <span className="text-xl">⏭️</span>
+                  <span className="text-xl"></span>
                 </button>
               </div>
             </div>
@@ -132,10 +132,10 @@ function MusicInner() {
                   className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-blue-600/50 transition-all cursor-pointer group"
                   onClick={() => setIsPlaying(isPlaying === playlist.id ? null : playlist.id)}
                 >
-                  <div className="aspect-square bg-gradient-to-br from-blue-600/20 to-red-500/10 flex items-center justify-center text-6xl relative">
+                  <div className="aspect-square bg-gradient-to-br from-blue-600/20 to-[#0a1628]/10 flex items-center justify-center text-6xl relative">
                     {playlist.image}
                     <div className={`absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all ${isPlaying === playlist.id ? 'opacity-100' : ''}`}>
-                      <span className="text-4xl">{isPlaying === playlist.id ? '⏸️' : '▶️'}</span>
+                      <span className="text-4xl">{isPlaying === playlist.id ? '' : ''}</span>
                     </div>
                   </div>
                   <div className="p-4">
@@ -163,7 +163,7 @@ function MusicInner() {
                   className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-5 hover:border-blue-600/50 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600/20 to-red-500/10 flex items-center justify-center text-2xl">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600/20 to-[#0a1628]/10 flex items-center justify-center text-2xl">
                       {playlist.image}
                     </div>
                     <div>
@@ -191,7 +191,7 @@ function MusicInner() {
                   key={podcast.id}
                   className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-5 hover:border-blue-600/50 transition-all cursor-pointer"
                 >
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-red-500/10 flex items-center justify-center text-3xl mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-[#0a1628]/10 flex items-center justify-center text-3xl mb-4">
                     {podcast.image}
                   </div>
                   <h3 className="text-white font-semibold mb-1">{podcast.name}</h3>
@@ -199,7 +199,7 @@ function MusicInner() {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-400">{podcast.episodes} episodes</span>
                     <div className="flex items-center gap-1">
-                      <span className="text-red-400">★</span>
+                      <span className="text-[#1E90FF]"></span>
                       <span className="text-white">{podcast.rating}</span>
                     </div>
                   </div>
@@ -209,8 +209,8 @@ function MusicInner() {
           </div>
 
           {/* Premium Banner */}
-          <div className="bg-gradient-to-r from-blue-700 to-red-600 rounded-2xl p-8 text-center mb-10">
-            <h3 className="text-2xl font-bold text-white mb-2">🎵 AthlynX Music Premium</h3>
+          <div className="bg-gradient-to-r from-blue-700 to-[#0a1628] rounded-2xl p-8 text-center mb-10">
+            <h3 className="text-2xl font-bold text-white mb-2"> AthlynX Music Premium</h3>
             <p className="text-white/80 mb-6">Ad-free listening, offline downloads, and exclusive athlete playlists</p>
             <button className="px-8 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-gray-100 transition-all">
               Upgrade to Premium
@@ -219,7 +219,7 @@ function MusicInner() {
 
           {/* Back Link */}
           <div className="text-center">
-            <Link href="/" className="text-cyan-400 hover:underline">
+            <Link href="/" className="text-[#00C2FF] hover:underline">
               ← Back to Home
             </Link>
           </div>

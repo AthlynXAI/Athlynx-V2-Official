@@ -43,12 +43,12 @@ function FounderInner() {
               className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-slate-700"
             />
           ) : (
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-4xl font-bold">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-4xl font-bold">
               CD
             </div>
           )}
           <div className="flex-1">
-            <div className="text-sky-400 text-xs font-semibold tracking-wider mb-2">FOUNDER</div>
+            <div className="text-[#00C2FF] text-xs font-semibold tracking-wider mb-2">FOUNDER</div>
             <h1 className="text-3xl sm:text-5xl font-bold mb-3">
               {founder?.displayName ?? "Chad A. Dozier"}
             </h1>
@@ -71,7 +71,7 @@ function FounderInner() {
           <Link href="/founder/podcast">
             <Card className="bg-slate-900 border-slate-800 hover:border-blue-600 transition-colors cursor-pointer">
               <CardContent className="p-5">
-                <Mic className="w-6 h-6 text-sky-400 mb-3" />
+                <Mic className="w-6 h-6 text-[#00C2FF] mb-3" />
                 <div className="font-semibold mb-1">The Podcast</div>
                 <div className="text-slate-400 text-sm">Real talk with athletes</div>
               </CardContent>
@@ -79,14 +79,14 @@ function FounderInner() {
           </Link>
           <Card className="bg-slate-900 border-slate-800">
             <CardContent className="p-5">
-              <BookOpen className="w-6 h-6 text-cyan-400 mb-3" />
+              <BookOpen className="w-6 h-6 text-[#00C2FF] mb-3" />
               <div className="font-semibold mb-1">Lessons</div>
               <div className="text-slate-400 text-sm">Things I've learned along the way</div>
             </CardContent>
           </Card>
           <Card className="bg-slate-900 border-slate-800">
             <CardContent className="p-5">
-              <Users className="w-6 h-6 text-emerald-400 mb-3" />
+              <Users className="w-6 h-6 text-[#00C2FF] mb-3" />
               <div className="font-semibold mb-1">Following</div>
               <div className="text-slate-400 text-sm">Athletes who set the standard</div>
             </CardContent>
@@ -98,7 +98,7 @@ function FounderInner() {
       <section className="container mx-auto px-4 py-10 max-w-5xl">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-2xl font-bold">Founder Lessons</h2>
-          <Sparkles className="w-4 h-4 text-sky-400" />
+          <Sparkles className="w-4 h-4 text-[#00C2FF]" />
         </div>
         {lessonsQ.isLoading ? (
           <div className="text-slate-500 text-sm">Loading…</div>
@@ -160,7 +160,7 @@ function FounderInner() {
                       />
                     )}
                     {ep.episodeNumber && (
-                      <div className="text-xs text-sky-400 mb-1">EP {ep.episodeNumber}</div>
+                      <div className="text-xs text-[#00C2FF] mb-1">EP {ep.episodeNumber}</div>
                     )}
                     <h3 className="font-semibold leading-tight mb-1">{ep.title}</h3>
                     {ep.subtitle && (

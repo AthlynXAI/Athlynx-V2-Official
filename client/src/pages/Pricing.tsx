@@ -166,7 +166,7 @@ function PricingInner() {
           <Badge className="mb-4 bg-blue-600/20 text-blue-300 border-blue-500/30 px-4 py-1">
             AthlynX MEMBERSHIP
           </Badge>
-          <h1 className="text-5xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-black mb-4 bg-gradient-to-r from-white via-blue-200 to-[#0a1628] bg-clip-text text-transparent">
             Every MVP Deserves the Best
           </h1>
           <p className="text-xl text-blue-200/70 max-w-2xl mx-auto mb-8">
@@ -184,7 +184,7 @@ function PricingInner() {
             />
             <Label className="text-blue-200">
               Yearly{" "}
-              <span className="ml-1 text-xs bg-green-500/20 text-green-400 border border-green-500/30 rounded-full px-2 py-0.5">
+              <span className="ml-1 text-xs bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30 rounded-full px-2 py-0.5">
                 Save 33%
               </span>
             </Label>
@@ -236,7 +236,7 @@ function PricingInner() {
                     </span>
                     <span className="text-blue-300/60 ml-1">/mo</span>
                     {yearly && (
-                      <div className="text-sm text-green-400 mt-1">
+                      <div className="text-sm text-[#00C2FF] mt-1">
                         Billed {formatPrice(price)}/year
                       </div>
                     )}
@@ -246,7 +246,7 @@ function PricingInner() {
                   <ul className="space-y-2">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm text-blue-100/80">
-                        <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <Check className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -271,7 +271,7 @@ function PricingInner() {
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             {["Social Feed", "Basic Profile", "Transfer Portal (View)", "Community Access"].map(f => (
               <span key={f} className="flex items-center gap-1 text-sm text-blue-200/70">
-                <Check className="w-3 h-3 text-green-400" /> {f}
+                <Check className="w-3 h-3 text-[#00C2FF]" /> {f}
               </span>
             ))}
           </div>
@@ -318,13 +318,13 @@ function PricingInner() {
           <p className="text-blue-400/60 text-xs uppercase tracking-widest mb-5">Accepted Payment Methods</p>
           <div className="flex flex-wrap justify-center items-center gap-3">
             {[
-              { label: "Apple Pay", bg: "bg-black", border: "border-gray-700", text: "text-white", icon: "🍎" },
+              { label: "Apple Pay", bg: "bg-black", border: "border-gray-700", text: "text-white", icon: "" },
               { label: "Google Pay", bg: "bg-white", border: "border-gray-300", text: "text-black", icon: "G" },
               { label: "PayPal", bg: "bg-[#003087]", border: "border-[#003087]", text: "text-white", icon: "P" },
               { label: "Cash App", bg: "bg-[#00d632]", border: "border-[#00d632]", text: "text-black", icon: "$" },
               { label: "Visa", bg: "bg-[#1a1f71]", border: "border-[#1a1f71]", text: "text-white", icon: "VISA" },
               { label: "Mastercard", bg: "bg-[#eb001b]", border: "border-[#eb001b]", text: "text-white", icon: "MC" },
-              { label: "Link", bg: "bg-[#00d4ff]", border: "border-[#00d4ff]", text: "text-black", icon: "⚡" },
+              { label: "Link", bg: "bg-[#00d4ff]", border: "border-[#00d4ff]", text: "text-black", icon: "" },
             ].map(m => (
               <div key={m.label} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold ${m.bg} ${m.border} ${m.text}`}>
                 <span className="text-sm">{m.icon}</span>
@@ -336,10 +336,10 @@ function PricingInner() {
         </div>
 
         {/* Team & School Billing */}
-        <div className="bg-gradient-to-r from-red-900/30 to-red-900/30 border border-red-500/30 rounded-2xl p-8 text-center mb-8">
-          <div className="text-4xl mb-3">🏫</div>
+        <div className="bg-gradient-to-r from-[#1E90FF]/30 to-[#0a1628]/30 border border-[#1E90FF]/30 rounded-2xl p-8 text-center mb-8">
+          <div className="text-4xl mb-3"></div>
           <h2 className="text-2xl font-bold text-white mb-2">Team &amp; School Billing</h2>
-          <p className="text-red-200/70 max-w-xl mx-auto mb-6 text-sm">
+          <p className="text-[#1E90FF]/70 max-w-xl mx-auto mb-6 text-sm">
             Coaches — get AthlynX for your entire roster at a discounted rate. Schools and athletic departments get one invoice, one admin dashboard, and full roster management.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -348,16 +348,16 @@ function PricingInner() {
               { size: "16–50 Athletes", price: "$5.99", label: "per athlete / mo" },
               { size: "51+ Athletes", price: "Custom", label: "contact us" },
             ].map(tier => (
-              <div key={tier.size} className="bg-black/30 border border-red-500/20 rounded-xl px-6 py-4 min-w-[140px]">
-                <div className="text-red-400 font-black text-2xl">{tier.price}</div>
-                <div className="text-red-200/60 text-xs">{tier.label}</div>
+              <div key={tier.size} className="bg-black/30 border border-[#1E90FF]/20 rounded-xl px-6 py-4 min-w-[140px]">
+                <div className="text-[#1E90FF] font-black text-2xl">{tier.price}</div>
+                <div className="text-[#1E90FF]/60 text-xs">{tier.label}</div>
                 <div className="text-white text-xs mt-1 font-semibold">{tier.size}</div>
               </div>
             ))}
           </div>
           <Button
             size="lg"
-            className="bg-red-500 hover:bg-red-400 text-black font-black px-8"
+            className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-black px-8"
             onClick={() => window.open("mailto:contact@athlynx.ai?subject=Team+School+Billing+Inquiry", "_blank")}
           >
             Get Team Pricing
@@ -383,7 +383,7 @@ function PricingInner() {
 
         {/* Dedication */}
         <div className="mt-12 text-center border border-blue-900/30 rounded-2xl p-8 bg-blue-950/20">
-          <div className="text-3xl mb-3">🏆</div>
+          <div className="text-3xl mb-3"></div>
           <p className="text-blue-300/80 text-sm italic max-w-xl mx-auto leading-relaxed">
             "Built for every athlete who was told they weren't good enough. Dedicated to those who fought the hardest battles off the field — and won."
           </p>

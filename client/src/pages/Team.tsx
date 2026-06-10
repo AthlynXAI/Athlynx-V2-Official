@@ -1,15 +1,11 @@
-// /team — Unified, brand-locked AthlynX team page.
-// Four people, one schema, equal billing for the three founders + Tony's
-// "First Athlete Partner & Partner" band below.
+// /team — AthlynX team page. Founders & Executive Team only.
+//  removed 2026-06-10 by Master Admin.
 // Brand: cobalt #1E90FF + true black + white. No gold/yellow/orange.
 
 import { Link } from "wouter";
 import TeamProfileCard, { ATHLYNX_TEAM } from "@/components/TeamProfileCard";
 
 export default function Team() {
-  const founders = ATHLYNX_TEAM.filter((p) => p.slug !== "tony-locey");
-  const athletePartner = ATHLYNX_TEAM.find((p) => p.slug === "tony-locey")!;
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-[#0a1628] to-black text-white">
       <div className="max-w-6xl mx-auto px-5 py-10">
@@ -45,55 +41,21 @@ export default function Team() {
           </h1>
           <p className="text-lg text-white/70 max-w-3xl leading-relaxed">
             AthlynX exists for all sports, all ages, men and women — every athlete.
-            The team building it reflects that. Founders, operators, and the first
-            athlete partner. Equal billing. Equal voice. Every one of us in the lane.
+            The team building it reflects that. Founders, operators, and builders —
+            all in the lane.
           </p>
         </header>
 
-        {/* Founders 3-up */}
+        {/* Founders */}
         <section aria-label="Founders" className="mb-14">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-black text-white tracking-tight">Founders & Executive Team</h2>
-            <span className="text-[10px] uppercase tracking-widest text-white/40">Equal billing</span>
+            <span className="text-[10px] uppercase tracking-widest text-white/40">AthlynXAI OS v1</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {founders.map((p) => (
+            {ATHLYNX_TEAM.map((p) => (
               <TeamProfileCard key={p.slug} profile={p} size="large" />
             ))}
-          </div>
-        </section>
-
-        {/* Athlete Partner band */}
-        <section aria-label="Athlete Partner" className="mb-14">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-black text-white tracking-tight">Athlete Partner</h2>
-            <span className="text-[10px] uppercase tracking-widest text-[#1E90FF]">
-              First Athlete Partner & Partner
-            </span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="md:col-span-1">
-              <TeamProfileCard profile={athletePartner} size="large" />
-            </div>
-            <div className="md:col-span-2 border border-[#1E90FF]/30 rounded-xl bg-gradient-to-b from-[#1E90FF]/10 to-black p-6 md:p-8 flex flex-col justify-center">
-              <div className="text-[10px] font-black uppercase tracking-[0.22em] text-[#1E90FF] mb-3">
-                Why Tony Matters
-              </div>
-              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">
-                The athlete voice that turns a product roadmap into a movement.
-              </h3>
-              <p className="text-sm text-white/70 leading-relaxed mb-3">
-                Tony stood on the mound. He navigated recruiting and the pro pipeline
-                firsthand. He's built a network across SEC baseball and Georgia youth
-                sports. That's the lived experience every athlete-facing platform needs
-                in the room.
-              </p>
-              <p className="text-sm text-white/70 leading-relaxed">
-                As our First Athlete Partner & Partner, Tony helps us pressure-test
-                AthlynX against the realities athletes and families actually face — so
-                the platform we ship is the one they actually use.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -119,7 +81,7 @@ export default function Team() {
           <p className="text-[11px] text-white/50 mb-3">
             One identity. Every athlete. Every platform.
           </p>
-          </footer>
+        </footer>
       </div>
     </div>
   );

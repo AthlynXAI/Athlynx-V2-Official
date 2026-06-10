@@ -243,7 +243,7 @@ export function ContactSalesModal({ isOpen, onClose, productName, inquiryType: d
             <Button
               type="submit"
               disabled={submitInquiry.isPending}
-              className="flex-1 bg-gradient-to-r from-red-500 to-red-500 text-black hover:opacity-90"
+              className="flex-1 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-black hover:opacity-90"
             >
               {submitInquiry.isPending ? "Submitting..." : "Submit Inquiry"}
             </Button>
@@ -253,10 +253,10 @@ export function ContactSalesModal({ isOpen, onClose, productName, inquiryType: d
         {/* Trust Badges */}
         <div className="mt-6 pt-4 border-t border-white/10">
           <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
-            <span>🔒 Secure & Confidential</span>
-            <span>⚡ 24hr Response Time</span>
-            <span>🏆 NVIDIA Elite Partner</span>
-            <span>🇺🇸 USA-Based Support</span>
+            <span> Secure & Confidential</span>
+            <span> 24hr Response Time</span>
+            <span> NVIDIA Elite Partner</span>
+            <span> USA-Based Support</span>
           </div>
         </div>
       </div>

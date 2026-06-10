@@ -46,7 +46,7 @@ const TEMPLATES = [
     description: "Perfect for high school athletes looking to get recruited",
     price: 19.99,
     features: ["Professional layout", "Stats showcase", "Highlight video embed", "Contact form", "Mobile responsive"],
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-500 to-[#0a1628]",
     preview: "/athlynx-icon.png",
   },
   {
@@ -55,7 +55,7 @@ const TEMPLATES = [
     description: "Designed for college athletes monetizing their brand",
     price: 29.99,
     features: ["Brand partnership section", "Social media integration", "NIL deal showcase", "Media kit download", "Analytics dashboard"],
-    color: "from-blue-600 to-red-500",
+    color: "from-blue-600 to-[#0a1628]",
     popular: true,
     preview: "/athlete-basketball.jpg",
   },
@@ -65,7 +65,7 @@ const TEMPLATES = [
     description: "Complete solution for serious athletes",
     price: 49.99,
     features: ["Everything in NIL Ready", "Custom domain", "SEO optimization", "Email marketing", "Priority support", "Unlimited updates"],
-    color: "from-red-500 to-red-500",
+    color: "from-[#1E90FF] to-[#0a1628]",
     preview: "/athlete-football.jpg",
   },
 ];
@@ -117,7 +117,7 @@ function AthleteWebsiteBuilderInner() {
   };
 
   const handlePublish = () => {
-    toast.success("🎉 Your website is being created! You'll receive an email with your link shortly.");
+    toast.success(" Your website is being created! You'll receive an email with your link shortly.");
   };
 
   return (
@@ -127,8 +127,8 @@ function AthleteWebsiteBuilderInner() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <div className="bg-gradient-to-r from-blue-700 to-red-500 rounded-xl p-2">
-                <span className="text-2xl">🌐</span>
+              <div className="bg-gradient-to-r from-blue-700 to-[#0a1628] rounded-xl p-2">
+                <span className="text-2xl"></span>
               </div>
               <div>
                 <h1 className="text-white font-bold text-lg">AthlynX</h1>
@@ -163,19 +163,19 @@ function AthleteWebsiteBuilderInner() {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                   step === s
-                    ? "bg-gradient-to-r from-blue-600 to-red-500 text-white"
+                    ? "bg-gradient-to-r from-blue-600 to-[#0a1628] text-white"
                     : i < ["templates", "profile", "preview"].indexOf(step)
-                    ? "bg-green-500 text-white"
+                    ? "bg-[#00C2FF] text-white"
                     : "bg-slate-700 text-slate-400"
                 }`}
               >
-                {i < ["templates", "profile", "preview"].indexOf(step) ? "✓" : i + 1}
+                {i < ["templates", "profile", "preview"].indexOf(step) ? "" : i + 1}
               </div>
               {i < 2 && (
                 <div
                   className={`w-20 h-1 mx-2 ${
                     i < ["templates", "profile", "preview"].indexOf(step)
-                      ? "bg-green-500"
+                      ? "bg-[#00C2FF]"
                       : "bg-slate-700"
                   }`}
                 />
@@ -194,11 +194,11 @@ function AthleteWebsiteBuilderInner() {
       {step === "templates" && (
         <section className="pb-20 px-4">
           <div className="text-center mb-12">
-            <div className="inline-block bg-gradient-to-r from-blue-600 to-red-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+            <div className="inline-block bg-gradient-to-r from-blue-600 to-[#0a1628] text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
               STEP 1
             </div>
             <h1 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="bg-gradient-to-r from-blue-500 via-red-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-[#1E90FF] to-[#0a1628] bg-clip-text text-transparent">
                 Choose Your Template
               </span>
             </h1>
@@ -217,13 +217,13 @@ function AthleteWebsiteBuilderInner() {
                 onClick={() => handleTemplateSelect(template.id)}
               >
                 {template.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-[#0a1628] text-white text-xs font-bold px-3 py-1 rounded-full">
                     MOST POPULAR
                   </div>
                 )}
                 <CardHeader>
                   <div className={`h-40 rounded-lg bg-gradient-to-br ${template.color} flex items-center justify-center mb-4`}>
-                    <span className="text-6xl">🏆</span>
+                    <span className="text-6xl"></span>
                   </div>
                   <CardTitle className="text-white">{template.name}</CardTitle>
                   <CardDescription className="text-slate-400">{template.description}</CardDescription>
@@ -235,7 +235,7 @@ function AthleteWebsiteBuilderInner() {
                   <ul className="space-y-2 mb-6">
                     {template.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-slate-300 text-sm">
-                        <span className="text-green-400">✓</span>
+                        <span className="text-[#00C2FF]"></span>
                         {feature}
                       </li>
                     ))}
@@ -254,11 +254,11 @@ function AthleteWebsiteBuilderInner() {
       {step === "profile" && (
         <section className="pb-20 px-4">
           <div className="text-center mb-12">
-            <div className="inline-block bg-gradient-to-r from-blue-600 to-red-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+            <div className="inline-block bg-gradient-to-r from-blue-600 to-[#0a1628] text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
               STEP 2
             </div>
             <h1 className="text-4xl font-black mb-4">
-              <span className="bg-gradient-to-r from-blue-500 via-red-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-[#1E90FF] to-[#0a1628] bg-clip-text text-transparent">
                 Build Your Profile
               </span>
             </h1>
@@ -271,7 +271,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Basic Info */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>👤</span> Basic Information
+                    <span></span> Basic Information
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -351,7 +351,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Physical Stats */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>📏</span> Physical Stats
+                    <span></span> Physical Stats
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div>
@@ -387,7 +387,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Bio */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>📝</span> About You
+                    <span></span> About You
                   </h3>
                   <textarea
                     value={profile.bio}
@@ -401,7 +401,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Social Media */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>📱</span> Social Media
+                    <span></span> Social Media
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div>
@@ -437,7 +437,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Contact */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>📧</span> Contact Information
+                    <span></span> Contact Information
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -465,7 +465,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Highlight Video */}
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <span>🎬</span> Highlight Video
+                    <span></span> Highlight Video
                   </h3>
                   <Input
                     value={profile.highlightVideo}
@@ -479,7 +479,7 @@ function AthleteWebsiteBuilderInner() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <span>📊</span> Stats
+                      <span></span> Stats
                     </h3>
                     <textarea
                       value={profile.stats}
@@ -491,7 +491,7 @@ function AthleteWebsiteBuilderInner() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                      <span>🏆</span> Achievements
+                      <span></span> Achievements
                     </h3>
                     <textarea
                       value={profile.achievements}
@@ -505,7 +505,7 @@ function AthleteWebsiteBuilderInner() {
 
                 <Button
                   onClick={handlePreview}
-                  className="w-full py-6 text-lg font-bold bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-500 hover:to-red-400"
+                  className="w-full py-6 text-lg font-bold bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628]"
                 >
                   Preview My Website →
                 </Button>
@@ -519,11 +519,11 @@ function AthleteWebsiteBuilderInner() {
       {step === "preview" && (
         <section className="pb-20 px-4">
           <div className="text-center mb-8">
-            <div className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+            <div className="inline-block bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
               STEP 3
             </div>
             <h1 className="text-4xl font-black mb-4">
-              <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#00C2FF] via-emerald-400 to-[#0a1628] bg-clip-text text-transparent">
                 Preview Your Website
               </span>
             </h1>
@@ -533,9 +533,9 @@ function AthleteWebsiteBuilderInner() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-slate-800 rounded-t-xl p-3 flex items-center gap-2">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
+                <div className="w-3 h-3 rounded-full bg-[#1E90FF]" />
+                <div className="w-3 h-3 rounded-full bg-[#1E90FF]" />
+                <div className="w-3 h-3 rounded-full bg-[#00C2FF]" />
               </div>
               <div className="flex-1 bg-slate-700 rounded-md px-3 py-1 text-sm text-slate-400">
                 {profile.name.toLowerCase().replace(/\s+/g, "-") || "athlete"}.athlynx.ai
@@ -548,9 +548,9 @@ function AthleteWebsiteBuilderInner() {
               <div className="relative h-64 bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">
-                    {profile.sport === "Baseball" ? "⚾" : 
-                     profile.sport === "Basketball" ? "🏀" :
-                     profile.sport === "Football" ? "🏈" : "🏆"}
+                    {profile.sport === "Baseball" ? "" : 
+                     profile.sport === "Basketball" ? "" :
+                     profile.sport === "Football" ? "" : ""}
                   </div>
                   <h1 className="text-4xl font-black text-white">{profile.name || "Your Name"}</h1>
                   <p className="text-xl text-white/80">{profile.position} • {profile.sport}</p>
@@ -563,7 +563,7 @@ function AthleteWebsiteBuilderInner() {
                 {/* Left Column */}
                 <div className="space-y-6">
                   <div className="bg-slate-700/50 rounded-xl p-6">
-                    <h3 className="text-lg font-bold text-white mb-3">📊 Quick Stats</h3>
+                    <h3 className="text-lg font-bold text-white mb-3"> Quick Stats</h3>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div><span className="text-slate-400">Height:</span> <span className="text-white">{profile.height || "N/A"}</span></div>
                       <div><span className="text-slate-400">Weight:</span> <span className="text-white">{profile.weight || "N/A"}</span></div>
@@ -574,14 +574,14 @@ function AthleteWebsiteBuilderInner() {
 
                   {profile.bio && (
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h3 className="text-lg font-bold text-white mb-3">📝 About Me</h3>
+                      <h3 className="text-lg font-bold text-white mb-3"> About Me</h3>
                       <p className="text-slate-300 text-sm">{profile.bio}</p>
                     </div>
                   )}
 
                   {profile.stats && (
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h3 className="text-lg font-bold text-white mb-3">📈 Performance Stats</h3>
+                      <h3 className="text-lg font-bold text-white mb-3"> Performance Stats</h3>
                       <p className="text-slate-300 text-sm whitespace-pre-line">{profile.stats}</p>
                     </div>
                   )}
@@ -591,37 +591,37 @@ function AthleteWebsiteBuilderInner() {
                 <div className="space-y-6">
                   {profile.highlightVideo && (
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h3 className="text-lg font-bold text-white mb-3">🎬 Highlight Reel</h3>
+                      <h3 className="text-lg font-bold text-white mb-3"> Highlight Reel</h3>
                       <div className="aspect-video bg-slate-800 rounded-lg flex items-center justify-center">
-                        <span className="text-4xl">▶️</span>
+                        <span className="text-4xl"></span>
                       </div>
                     </div>
                   )}
 
                   {profile.achievements && (
                     <div className="bg-slate-700/50 rounded-xl p-6">
-                      <h3 className="text-lg font-bold text-white mb-3">🏆 Achievements</h3>
+                      <h3 className="text-lg font-bold text-white mb-3"> Achievements</h3>
                       <p className="text-slate-300 text-sm whitespace-pre-line">{profile.achievements}</p>
                     </div>
                   )}
 
                   <div className="bg-slate-700/50 rounded-xl p-6">
-                    <h3 className="text-lg font-bold text-white mb-3">📱 Connect</h3>
+                    <h3 className="text-lg font-bold text-white mb-3"> Connect</h3>
                     <div className="flex gap-3">
                       {profile.instagram && (
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-red-500 rounded-lg flex items-center justify-center">📷</div>
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-[#0a1628] rounded-lg flex items-center justify-center"></div>
                       )}
                       {profile.twitter && (
-                        <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">𝕏</div>
+                        <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center"></div>
                       )}
                       {profile.tiktok && (
-                        <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">🎵</div>
+                        <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center"></div>
                       )}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-xl p-6">
-                    <h3 className="text-lg font-bold text-white mb-3">📧 Contact Me</h3>
+                  <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/20 border border-[#1E90FF]/30 rounded-xl p-6">
+                    <h3 className="text-lg font-bold text-white mb-3"> Contact Me</h3>
                     <p className="text-slate-300 text-sm mb-2">{profile.email || "email@example.com"}</p>
                     <p className="text-slate-300 text-sm">{profile.phone || "(555) 123-4567"}</p>
                   </div>
@@ -638,12 +638,12 @@ function AthleteWebsiteBuilderInner() {
             <div className="mt-8 text-center">
               <Button
                 onClick={handlePublish}
-                className="px-12 py-6 text-lg font-bold bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400"
+                className="px-12 py-6 text-lg font-bold bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-emerald-400"
               >
-                🚀 Publish My Website
+                 Publish My Website
               </Button>
               <p className="text-slate-400 text-sm mt-4">
-                Your website will be live at <span className="text-cyan-400">{profile.name.toLowerCase().replace(/\s+/g, "-") || "athlete"}.athlynx.ai</span>
+                Your website will be live at <span className="text-[#00C2FF]">{profile.name.toLowerCase().replace(/\s+/g, "-") || "athlete"}.athlynx.ai</span>
               </p>
             </div>
           </div>

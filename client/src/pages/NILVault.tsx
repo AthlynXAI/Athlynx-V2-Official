@@ -35,7 +35,7 @@ function NILVaultInner() {
   const totalValue = (dealsData as any)?.totalValue || 0;
   const activeDeals = deals.filter((d: any) => d.status === "active").length;
 
-  // ─── Encrypted document upload ────────────────────────────────────────────
+  //  Encrypted document upload 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !user) return;
@@ -47,7 +47,7 @@ function NILVaultInner() {
       const encryptedName = await encryptDocument(file.name, user.id, "nil-vault");
       const url = await uploadDocument(user.id, file);
       if (url) {
-        setUploadSuccess(`✅ "${file.name}" uploaded & encrypted (AES-256)`);
+        setUploadSuccess(` "${file.name}" uploaded & encrypted (AES-256)`);
       } else {
         setUploadError("Upload failed. Please try again.");
       }
@@ -88,7 +88,7 @@ function NILVaultInner() {
                 <h2 className="text-2xl font-black text-white">NIL VAULT</h2>
                 <span className="text-xs bg-blue-700 text-white px-2 py-0.5 rounded-full font-bold">ELITE</span>
                 {/* E2E badge */}
-                <span className="flex items-center gap-1 text-[10px] bg-green-900/50 border border-green-700/50 text-green-400 px-2 py-0.5 rounded-full font-bold">
+                <span className="flex items-center gap-1 text-[10px] bg-[#00C2FF]/50 border border-[#00C2FF]/50 text-[#00C2FF] px-2 py-0.5 rounded-full font-bold">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
@@ -113,9 +113,9 @@ function NILVaultInner() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3">
           {[
-            { label: "Active Deals", value: user ? String(activeDeals) : "—", icon: "📝" },
-            { label: "Total Value", value: user ? "$" + totalValue.toLocaleString() : "—", icon: "💰" },
-            { label: "Encrypted", value: "100%", icon: "🔒" },
+            { label: "Active Deals", value: user ? String(activeDeals) : "—", icon: "" },
+            { label: "Total Value", value: user ? "$" + totalValue.toLocaleString() : "—", icon: "" },
+            { label: "Encrypted", value: "100%", icon: "" },
           ].map((s, i) => (
             <div key={i} className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-3 text-center">
               <div className="text-2xl mb-1">{s.icon}</div>
@@ -130,7 +130,7 @@ function NILVaultInner() {
           <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-white font-bold">Stored Documents</h3>
-              <div className="flex items-center gap-1 text-[10px] text-green-400 font-bold">
+              <div className="flex items-center gap-1 text-[10px] text-[#00C2FF] font-bold">
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
@@ -153,12 +153,12 @@ function NILVaultInner() {
                     "Agent Agreement.pdf",
                   ].map((doc, i) => (
                     <div key={i} className="flex items-center gap-3 bg-[#1530a0] rounded-xl p-3">
-                      <svg className="w-7 h-7 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-7 h-7 text-[#1E90FF] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
                       </svg>
                       <span className="flex-1 text-white text-sm truncate">{doc}</span>
                       <div className="flex items-center gap-1 shrink-0">
-                        <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-3 h-3 text-[#00C2FF]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                         </svg>
                         <button className="text-blue-400 hover:text-white text-xs transition-colors ml-1">Download</button>
@@ -169,10 +169,10 @@ function NILVaultInner() {
 
                 {/* Upload feedback */}
                 {uploadSuccess && (
-                  <div className="mb-2 bg-green-900/40 border border-green-700 text-green-400 text-xs rounded-lg px-3 py-2">{uploadSuccess}</div>
+                  <div className="mb-2 bg-[#00C2FF]/40 border border-[#00C2FF] text-[#00C2FF] text-xs rounded-lg px-3 py-2">{uploadSuccess}</div>
                 )}
                 {uploadError && (
-                  <div className="mb-2 bg-red-900/40 border border-red-700 text-red-400 text-xs rounded-lg px-3 py-2">{uploadError}</div>
+                  <div className="mb-2 bg-[#1E90FF]/40 border border-[#1E90FF] text-[#1E90FF] text-xs rounded-lg px-3 py-2">{uploadError}</div>
                 )}
 
                 {/* Upload button */}
@@ -207,7 +207,7 @@ function NILVaultInner() {
             {/* Add Deal Form */}
             {addDealOpen && user && (
               <div className="bg-[#0d1f3c] border border-blue-800 rounded-xl p-4 mb-3 space-y-3">
-                <div className="flex items-center gap-2 text-xs text-green-400 font-bold mb-1">
+                <div className="flex items-center gap-2 text-xs text-[#00C2FF] font-bold mb-1">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
@@ -273,15 +273,15 @@ function NILVaultInner() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
                         <div className="text-white text-sm font-semibold truncate">{deal.brandName}</div>
-                        <svg className="w-3 h-3 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-3 h-3 text-[#00C2FF] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                         </svg>
                       </div>
                       <div className="text-blue-400 text-xs">{deal.category || "NIL Deal"}</div>
                     </div>
                     <div className="text-right shrink-0">
-                      <div className="text-green-400 font-bold text-sm">${(deal.dealValue || 0).toLocaleString()}</div>
-                      <div className={`text-xs ${deal.status === "active" ? "text-green-400" : "text-blue-400"}`}>{deal.status}</div>
+                      <div className="text-[#00C2FF] font-bold text-sm">${(deal.dealValue || 0).toLocaleString()}</div>
+                      <div className={`text-xs ${deal.status === "active" ? "text-[#00C2FF]" : "text-blue-400"}`}>{deal.status}</div>
                     </div>
                   </div>
                 ))}
@@ -308,7 +308,7 @@ function NILVaultInner() {
                       <div className="text-white text-sm">{deal.brandName}</div>
                       <div className="text-blue-400 text-xs">{deal.category || "NIL Deal"}</div>
                     </div>
-                    <span className="text-green-400 font-bold">${(deal.dealValue || 0).toLocaleString()}</span>
+                    <span className="text-[#00C2FF] font-bold">${(deal.dealValue || 0).toLocaleString()}</span>
                   </div>
                 ))}
                 <div className="flex items-center justify-between bg-blue-950/30 border border-blue-800 rounded-xl p-3 mt-2">
@@ -323,7 +323,7 @@ function NILVaultInner() {
         {/* Security info */}
         <div className="bg-[#0d1b3e] border border-blue-900/50 rounded-xl p-4">
           <div className="flex items-start gap-3">
-            <svg className="w-8 h-8 text-green-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-8 h-8 text-[#00C2FF] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
             <div>

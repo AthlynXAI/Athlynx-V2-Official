@@ -8,28 +8,28 @@ const pillars = [
     desc: "A judge-visible training assistant surface for sport-specific plans, preparation questions, NIL review prompts, coach outreach, and burnout support.",
     href: "/ai-trainer",
     cta: "Open AI Trainer",
-    icon: "🤖",
+    icon: "",
   },
   {
     title: "Mental Performance",
     desc: "A safe public doorway for athlete mindset, resilience, pressure management, and support resources without claiming clinical diagnosis or treatment.",
     href: "/mindset",
     cta: "Explore Mindset",
-    icon: "🧠",
+    icon: "",
   },
   {
     title: "Athlete Journey",
     desc: "A lifecycle surface that frames athlete development from high school through college, transfer decisions, professional opportunities, and legacy planning.",
     href: "/athlete-journey",
     cta: "View Journey",
-    icon: "📈",
+    icon: "",
   },
   {
     title: "Wellness Resources",
     desc: "A privacy-first hub for recovery, nutrition, wellness planning, and athlete support workflows that can be wired to deeper data after approval.",
     href: "/wellness",
     cta: "Open Wellness",
-    icon: "💪",
+    icon: "",
   },
 ];
 
@@ -52,7 +52,7 @@ function MedicalInner() {
             <Link href="/home" className="text-gray-400 hover:text-white">Platform</Link>
             <Link href="/ai-trainer" className="text-gray-400 hover:text-white">AI Trainer</Link>
             <Link href="/athlete-journey" className="text-gray-400 hover:text-white">Athlete Journey</Link>
-            <Link href="/medical" className="text-cyan-300 font-semibold">Digital Health</Link>
+            <Link href="/medical" className="text-[#00C2FF] font-semibold">Digital Health</Link>
           </nav>
         </div>
       </header>
@@ -60,11 +60,11 @@ function MedicalInner() {
       <main className="pt-28 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <section className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-cyan-400/10 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-400/20">
+            <span className="inline-block px-4 py-1 bg-[#1E90FF]/20 text-[#00C2FF] rounded-full text-sm font-semibold mb-4 border border-[#1E90FF]/30">
               DIGITAL HEALTH HUB
             </span>
             <h1 className="text-4xl md:text-6xl font-black mb-5">
-              Athlete Health, Wellness, and <span className="text-cyan-300">AI Support</span>
+              Athlete Health, Wellness, and <span className="text-[#00C2FF]">AI Support</span>
             </h1>
             <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               A clean public doorway for Nebius judges and athletes to see how AthlynX connects AI training, mental performance, wellness resources, and the athlete lifecycle without overstating clinical or medical-device claims.
@@ -73,9 +73,9 @@ function MedicalInner() {
 
           <section className="grid md:grid-cols-2 gap-5 mb-12">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:border-cyan-300/50 transition-all">
+              <div key={pillar.title} className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:border-[#1E90FF]/30 transition-all">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-cyan-400/10 flex items-center justify-center text-3xl">
+                  <div className="w-14 h-14 rounded-2xl bg-[#1E90FF]/20 flex items-center justify-center text-3xl">
                     {pillar.icon}
                   </div>
                   <div>
@@ -83,19 +83,19 @@ function MedicalInner() {
                     <p className="text-gray-300 leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
-                <Link href={pillar.href} className="inline-flex items-center justify-center px-5 py-3 bg-cyan-400 text-[#07111f] font-bold rounded-xl hover:bg-cyan-300 transition-colors">
+                <Link href={pillar.href} className="inline-flex items-center justify-center px-5 py-3 bg-[#1E90FF] text-[#07111f] font-bold rounded-xl hover:bg-[#1E90FF] transition-colors">
                   {pillar.cta}
                 </Link>
               </div>
             ))}
           </section>
 
-          <section className="bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-2xl border border-cyan-300/20 p-7 mb-12">
+          <section className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/10 rounded-2xl border border-[#1E90FF]/30 p-7 mb-12">
             <h2 className="text-2xl md:text-3xl font-black mb-4">What is verified today</h2>
             <div className="grid md:grid-cols-2 gap-3">
               {proofPoints.map((point) => (
                 <div key={point} className="flex items-start gap-3 bg-black/20 rounded-xl p-4">
-                  <span className="text-cyan-300 mt-0.5">✓</span>
+                  <span className="text-[#00C2FF] mt-0.5"></span>
                   <p className="text-gray-200">{point}</p>
                 </div>
               ))}
@@ -123,7 +123,7 @@ function MedicalInner() {
               Start with the public AI Trainer or athlete journey, then sign in when you are ready to manage your full AthlynX profile.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/ai-trainer" className="px-6 py-3 bg-cyan-400 text-[#07111f] font-bold rounded-xl hover:bg-cyan-300 transition-colors">Open AI Trainer</Link>
+              <Link href="/ai-trainer" className="px-6 py-3 bg-[#1E90FF] text-[#07111f] font-bold rounded-xl hover:bg-[#1E90FF] transition-colors">Open AI Trainer</Link>
               <Link href="/signup" className="px-6 py-3 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors">Create Account</Link>
             </div>
           </section>

@@ -31,7 +31,7 @@ const SITEWIDE_FALLBACK: BackgroundChoice = {
 // Route → background choice. First matching prefix wins. Keep specific routes
 // above generic ones. Add new routes as the platform grows.
 const ROUTE_BACKGROUNDS: Array<{ match: (p: string) => boolean; bg: BackgroundChoice }> = [
-  // ─── Sports-specific surfaces ───
+  //  Sports-specific surfaces 
   { match: (p) => p.startsWith("/sports/baseball") || p.includes("baseball") || p.includes("diamond-grind"), bg: { src: "/athlete-baseball.jpg" } },
   { match: (p) => p.startsWith("/sports/football") || p.includes("football") || p.includes("gridiron"), bg: { src: "/athlete-football.jpg" } },
   { match: (p) => p.startsWith("/sports/basketball") || p.includes("basketball") || p.includes("court-kings"), bg: { src: "/athlete-basketball.jpg" } },
@@ -43,43 +43,43 @@ const ROUTE_BACKGROUNDS: Array<{ match: (p: string) => boolean; bg: BackgroundCh
   { match: (p) => p.startsWith("/sports/volleyball") || p.includes("net-setters"), bg: { src: "/img-volleyball-hero.jpg" } },
   { match: (p) => p.startsWith("/sports/hockey") || p.includes("ice-breakers"), bg: { src: "/img-hockey-hero.jpg" } },
 
-  // ─── Brackets / championship surfaces ───
+  //  Brackets / championship surfaces 
   { match: (p) => p.startsWith("/brackets") || p.includes("road-to-omaha") || p.includes("college-world-series"), bg: { src: "/brand/championship-ring-1.jpg" } },
   { match: (p) => p.includes("march-madness") || p.includes("draft-2026"), bg: { src: "/champion-hero.jpg" } },
 
-  // ─── Athlete OS — career, journey, profile ───
+  //  Athlete OS — career, journey, profile 
   { match: (p) => p.includes("athlete-journey") || p === "/journey", bg: { src: "/brand/athlete-leap.jpg", objectPosition: "50% 30%" } },
   { match: (p) => p.includes("athlete-card") || p === "/card", bg: { src: "/brand/pantheon-corporation-banner.jpg" } },
   { match: (p) => p.includes("athlete-career") || p.includes("athlete-lifecycle"), bg: { src: "/img-athlete-multisport.jpg" } },
   { match: (p) => p.includes("athlete-health") || p.includes("digital-health") || p.includes("gluco-athlete"), bg: { src: "/athlete-training.jpg" } },
   { match: (p) => p.includes("playbook"), bg: { src: "/brand/athletes-playbook-key-art.jpg" } },
 
-  // ─── NIL surfaces ───
+  //  NIL surfaces 
   { match: (p) => p.includes("nil-vault") || p.includes("nil-portal") || p.includes("nil-calculator") || p.startsWith("/nil"), bg: { src: "/brand/ai-engine-portal.jpg", tintOpacity: 0.78 } },
   { match: (p) => p.includes("transfer-portal"), bg: { src: "/brand/pantheon-hero-1.jpg" } },
   { match: (p) => p.includes("recruiting"), bg: { src: "/brand/ai-engine-pillars.jpg" } },
 
-  // ─── AI / OS surfaces ───
+  //  AI / OS surfaces 
   { match: (p) => p.includes("ai-recruiter"), bg: { src: "/brand/ai-engine-brain.jpg" } },
   { match: (p) => p.includes("ai-sales") || p.includes("ai-content"), bg: { src: "/brand/ai-engine-neural-tree.jpg" } },
   { match: (p) => p.includes("trainer-bot") || p.includes("training"), bg: { src: "/brand/ai-engine-energy.jpg" } },
   { match: (p) => p.includes("operating-layer") || p.includes("athlynxai-os") || p.includes("intelligence-os"), bg: { src: "/brand/ai-engine-pillars.jpg" } },
   { match: (p) => p.includes("connector") || p.includes("layer-cake") || p.includes("full-stack"), bg: { src: "/brand/ai-tsunami-wave.jpg" } },
 
-  // ─── Studio / media surfaces ───
+  //  Studio / media surfaces 
   { match: (p) => p.includes("studio") || p.includes("podcast") || p.includes("highlight-reel") || p.includes("axn"), bg: { src: "/brand/athletes-playbook-stadium.jpg" } },
 
-  // ─── Marketplace / store / gear ───
+  //  Marketplace / store / gear 
   { match: (p) => p.includes("marketplace") || p === "/store" || p.includes("athlete-store") || p.includes("vendor"), bg: { src: "/brand/gear-hoodie-shoes-bottle.jpg" } },
   { match: (p) => p.includes("diamond-grind-store") || p.includes("baseball-equipment"), bg: { src: "/media/championship-brand/episode-2/scene04-baseball-softball.png" } },
   { match: (p) => p.includes("football-store") || p.includes("football-equipment"), bg: { src: "/brand/gear-helmet-pads.jpg" } },
 
-  // ─── Founder / investor / corporate ───
+  //  Founder / investor / corporate 
   { match: (p) => p.includes("founder") || p.includes("about"), bg: { src: "/landing/ecosystem/athlynx-team-walkout.png" } },
   { match: (p) => p.includes("investor") || p.includes("pitch-deck"), bg: { src: "/brand/pantheon-corporation-banner.jpg" } },
   { match: (p) => p.includes("dhg") || p.includes("dozier") || p.includes("doctrine"), bg: { src: "/brand/dhg-empire-hero.png" } },
 
-  // ─── Admin / dashboard / settings ───
+  //  Admin / dashboard / settings 
   { match: (p) => p.startsWith("/admin") || p.includes("master-admin") || p.includes("crm"), bg: { src: "/img-athlete-multisport.jpg", tintOpacity: 0.82 } },
   { match: (p) => p.includes("dashboard") || p === "/feed" || p === "/profile" || p === "/me" || p.includes("settings") || p.includes("notifications") || p.includes("messages"), bg: { src: "/landing/ecosystem/athlynxai-playbook-team.png", tintOpacity: 0.78 } },
 ];

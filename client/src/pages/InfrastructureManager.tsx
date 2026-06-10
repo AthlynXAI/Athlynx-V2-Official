@@ -50,10 +50,10 @@ function persist<T>(key: string, data: T[]): void {
 
 // GPU Types and Pricing
 const GPU_TYPES = {
-  H100: { name: "NVIDIA H100", memory: 80, price: 2.00, color: "bg-green-500" },
+  H100: { name: "NVIDIA H100", memory: 80, price: 2.00, color: "bg-[#00C2FF]" },
   H200: { name: "Advanced Accelerator", memory: 141, price: 2.30, color: "bg-blue-500" },
   B200: { name: "NVIDIA B200", memory: 180, price: 3.00, color: "bg-blue-600" },
-  GB200: { name: "NVIDIA GB200 NVL72", memory: 288, price: 5.00, color: "bg-red-500" },
+  GB200: { name: "NVIDIA GB200 NVL72", memory: 288, price: 5.00, color: "bg-[#1E90FF]" },
 };
 
 const defaultClusters = [
@@ -190,7 +190,7 @@ function InfrastructureManagerInner() {
   });
   const { toast } = useToast();
 
-  // ── Real tRPC data ──────────────────────────────────────────────────────────
+  //  Real tRPC data 
   const { data: platformStats } = trpc.data.getPlatformStats.useQuery();
   const { data: dataSources } = trpc.data.getSources.useQuery();
 
@@ -236,7 +236,7 @@ function InfrastructureManagerInner() {
     setNewCluster({ name: "", gpuType: "H100", gpuCount: 8, region: "us-east-1", provider: "nebius" });
     
     toast({
-      title: "🚀 Cluster Created",
+      title: " Cluster Created",
       description: `${cluster.name} is being provisioned with ${cluster.totalGpus} ${gpuInfo.name} GPUs`,
     });
   };
@@ -246,7 +246,7 @@ function InfrastructureManagerInner() {
       c.id === clusterId ? { ...c, runningGpus: c.totalGpus, status: "running" } : c
     ));
     toast({
-      title: "▶️ Cluster Started",
+      title: " Cluster Started",
       description: "All GPUs are now running",
     });
   };
@@ -256,7 +256,7 @@ function InfrastructureManagerInner() {
       c.id === clusterId ? { ...c, runningGpus: 0, status: "stopped" } : c
     ));
     toast({
-      title: "⏹️ Cluster Stopped",
+      title: " Cluster Stopped",
       description: "All GPUs have been stopped",
     });
   };
@@ -264,23 +264,23 @@ function InfrastructureManagerInner() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "running":
-        return <Badge className="bg-green-500">Running</Badge>;
+        return <Badge className="bg-[#00C2FF]">Running</Badge>;
       case "stopped":
         return <Badge variant="secondary">Stopped</Badge>;
       case "creating":
         return <Badge className="bg-blue-500">Creating</Badge>;
       case "partial":
-        return <Badge className="bg-red-500">Partial</Badge>;
+        return <Badge className="bg-[#1E90FF]">Partial</Badge>;
       case "queued":
         return <Badge variant="outline">Queued</Badge>;
       case "completed":
-        return <Badge className="bg-green-500">Completed</Badge>;
+        return <Badge className="bg-[#00C2FF]">Completed</Badge>;
       case "shipped":
         return <Badge className="bg-blue-500">Shipped</Badge>;
       case "delivered":
-        return <Badge className="bg-green-500">Delivered</Badge>;
+        return <Badge className="bg-[#00C2FF]">Delivered</Badge>;
       case "active":
-        return <Badge className="bg-green-500">Active</Badge>;
+        return <Badge className="bg-[#00C2FF]">Active</Badge>;
       default:
         return <Badge variant="outline">{status}</Badge>;
     }
@@ -293,7 +293,7 @@ function InfrastructureManagerInner() {
         <div className="container py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
+              <div className="p-2 bg-gradient-to-br from-[#1E90FF] to-blue-600 rounded-lg">
                 <Server className="h-6 w-6" />
               </div>
               <div>
@@ -308,7 +308,7 @@ function InfrastructureManagerInner() {
               </Button>
               <Dialog open={isCreatingCluster} onOpenChange={setIsCreatingCluster}>
                 <DialogTrigger asChild>
-                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-600">
+                  <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-600">
                     <Plus className="h-4 w-4 mr-2" />
                     New Cluster
                   </Button>
@@ -403,7 +403,7 @@ function InfrastructureManagerInner() {
                     <div className="p-4 bg-slate-800 rounded-lg">
                       <div className="flex justify-between text-sm">
                         <span className="text-slate-400">Estimated Monthly Cost:</span>
-                        <span className="font-bold text-cyan-400">
+                        <span className="font-bold text-[#00C2FF]">
                           ${(newCluster.gpuCount * GPU_TYPES[newCluster.gpuType as keyof typeof GPU_TYPES].price * 24 * 30).toLocaleString()}
                         </span>
                       </div>
@@ -416,7 +416,7 @@ function InfrastructureManagerInner() {
                     <Button 
                       onClick={handleCreateCluster}
                       disabled={!newCluster.name}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-600"
+                      className="bg-gradient-to-r from-[#1E90FF] to-blue-600"
                     >
                       Create Cluster
                     </Button>
@@ -441,7 +441,7 @@ function InfrastructureManagerInner() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none" />
         <div className="absolute bottom-6 left-0 right-0 text-center">
-          <div className="text-cyan-400 text-xs uppercase tracking-widest font-bold">AI-Powered Infrastructure</div>
+          <div className="text-[#00C2FF] text-xs uppercase tracking-widest font-bold">AI-Powered Infrastructure</div>
           <div className="text-white font-black text-2xl mt-1">BUILT FOR THE FUTURE</div>
         </div>
       </div>
@@ -452,8 +452,8 @@ function InfrastructureManagerInner() {
           <Card className="bg-slate-900/50 border-slate-800">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-cyan-500/20 rounded-lg">
-                  <Cpu className="h-5 w-5 text-cyan-400" />
+                <div className="p-2 bg-[#1E90FF]/20 rounded-lg">
+                  <Cpu className="h-5 w-5 text-[#00C2FF]" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{totalGpus}</p>
@@ -466,8 +466,8 @@ function InfrastructureManagerInner() {
           <Card className="bg-slate-900/50 border-slate-800">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-green-500/20 rounded-lg">
-                  <Activity className="h-5 w-5 text-green-400" />
+                <div className="p-2 bg-[#00C2FF]/20 rounded-lg">
+                  <Activity className="h-5 w-5 text-[#00C2FF]" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{runningGpus}</p>
@@ -494,8 +494,8 @@ function InfrastructureManagerInner() {
           <Card className="bg-slate-900/50 border-slate-800">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-red-500/20 rounded-lg">
-                  <Server className="h-5 w-5 text-red-400" />
+                <div className="p-2 bg-[#1E90FF]/20 rounded-lg">
+                  <Server className="h-5 w-5 text-[#1E90FF]" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{clusters.length}</p>
@@ -522,8 +522,8 @@ function InfrastructureManagerInner() {
           <Card className="bg-slate-900/50 border-slate-800">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-500/20 rounded-lg">
-                  <DollarSign className="h-5 w-5 text-emerald-400" />
+                <div className="p-2 bg-[#1E90FF]/20 rounded-lg">
+                  <DollarSign className="h-5 w-5 text-[#00C2FF]" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">${Math.round(monthlyCloudCost / 1000)}K</p>
@@ -537,23 +537,23 @@ function InfrastructureManagerInner() {
         {/* Main Content Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="bg-slate-800/50 border border-slate-700 mb-6">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-cyan-500/20">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-[#1E90FF]/20">
               <BarChart3 className="h-4 w-4 mr-2" />
               Overview
             </TabsTrigger>
-            <TabsTrigger value="clusters" className="data-[state=active]:bg-cyan-500/20">
+            <TabsTrigger value="clusters" className="data-[state=active]:bg-[#1E90FF]/20">
               <Cloud className="h-4 w-4 mr-2" />
               Clusters
             </TabsTrigger>
-            <TabsTrigger value="jobs" className="data-[state=active]:bg-cyan-500/20">
+            <TabsTrigger value="jobs" className="data-[state=active]:bg-[#1E90FF]/20">
               <Zap className="h-4 w-4 mr-2" />
               Jobs
             </TabsTrigger>
-            <TabsTrigger value="hardware" className="data-[state=active]:bg-cyan-500/20">
+            <TabsTrigger value="hardware" className="data-[state=active]:bg-[#1E90FF]/20">
               <HardDrive className="h-4 w-4 mr-2" />
               Hardware
             </TabsTrigger>
-            <TabsTrigger value="billing" className="data-[state=active]:bg-cyan-500/20">
+            <TabsTrigger value="billing" className="data-[state=active]:bg-[#1E90FF]/20">
               <DollarSign className="h-4 w-4 mr-2" />
               Billing
             </TabsTrigger>
@@ -566,7 +566,7 @@ function InfrastructureManagerInner() {
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Cloud className="h-5 w-5 text-cyan-400" />
+                    <Cloud className="h-5 w-5 text-[#00C2FF]" />
                     Cloud Resources
                   </CardTitle>
                   <CardDescription>Private AI Infrastructure</CardDescription>
@@ -577,7 +577,7 @@ function InfrastructureManagerInner() {
                       <div key={cluster.id} className="p-4 bg-slate-800/50 rounded-lg">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
-                            <div className={`w-2 h-2 rounded-full ${cluster.status === "running" ? "bg-green-500" : "bg-slate-500"}`} />
+                            <div className={`w-2 h-2 rounded-full ${cluster.status === "running" ? "bg-[#00C2FF]" : "bg-slate-500"}`} />
                             <span className="font-medium">{cluster.name}</span>
                           </div>
                           <Badge variant="outline">{cluster.provider}</Badge>
@@ -600,7 +600,7 @@ function InfrastructureManagerInner() {
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-red-400" />
+                    <Zap className="h-5 w-5 text-[#1E90FF]" />
                     Active Jobs
                   </CardTitle>
                   <CardDescription>Currently running workloads</CardDescription>
@@ -633,7 +633,7 @@ function InfrastructureManagerInner() {
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-emerald-400" />
+                    <DollarSign className="h-5 w-5 text-[#00C2FF]" />
                     Cost Summary
                   </CardTitle>
                   <CardDescription>Monthly infrastructure costs</CardDescription>
@@ -655,7 +655,7 @@ function InfrastructureManagerInner() {
                     <div className="border-t border-slate-700 pt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-lg font-medium">Total Monthly</span>
-                        <span className="text-2xl font-bold text-cyan-400">
+                        <span className="text-2xl font-bold text-[#00C2FF]">
                           ${(monthlyCloudCost + monthlyColoCost).toLocaleString()}
                         </span>
                       </div>
@@ -668,7 +668,7 @@ function InfrastructureManagerInner() {
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Database className="h-5 w-5 text-purple-400" />
+                    <Database className="h-5 w-5 text-[#1E90FF]" />
                     Live Platform Stats
                   </CardTitle>
                   <CardDescription>Real-time data from the AthlynX database</CardDescription>
@@ -677,15 +677,15 @@ function InfrastructureManagerInner() {
                   {platformStats ? (
                     <div className="grid grid-cols-2 gap-3">
                       <div className="p-3 bg-slate-800/50 rounded-lg text-center">
-                        <p className="text-2xl font-bold text-purple-400">{platformStats.totalEvents.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-[#1E90FF]">{platformStats.totalEvents.toLocaleString()}</p>
                         <p className="text-xs text-slate-400">Total Events</p>
                       </div>
                       <div className="p-3 bg-slate-800/50 rounded-lg text-center">
-                        <p className="text-2xl font-bold text-cyan-400">{platformStats.aiEvents.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-[#00C2FF]">{platformStats.aiEvents.toLocaleString()}</p>
                         <p className="text-xs text-slate-400">AI Bot Events</p>
                       </div>
                       <div className="p-3 bg-slate-800/50 rounded-lg text-center">
-                        <p className="text-2xl font-bold text-green-400">{platformStats.robotEvents.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-[#00C2FF]">{platformStats.robotEvents.toLocaleString()}</p>
                         <p className="text-xs text-slate-400">Robot Events</p>
                       </div>
                       <div className="p-3 bg-slate-800/50 rounded-lg text-center">
@@ -705,7 +705,7 @@ function InfrastructureManagerInner() {
                             <span className="text-slate-300">{src.name}</span>
                             <div className="flex items-center gap-2">
                               <span className="text-slate-500 text-xs">{src.sourceType}</span>
-                              <div className={`w-2 h-2 rounded-full ${src.isActive ? "bg-green-500" : "bg-slate-600"}`} />
+                              <div className={`w-2 h-2 rounded-full ${src.isActive ? "bg-[#00C2FF]" : "bg-slate-600"}`} />
                             </div>
                           </div>
                         ))}
@@ -727,15 +727,15 @@ function InfrastructureManagerInner() {
                 <CardContent>
                   <div className="grid grid-cols-2 gap-3">
                     <Button variant="outline" className="h-auto py-4 flex-col border-slate-700 hover:bg-slate-800">
-                      <Cpu className="h-6 w-6 mb-2 text-cyan-400" />
+                      <Cpu className="h-6 w-6 mb-2 text-[#00C2FF]" />
                       <span>Scale Cluster</span>
                     </Button>
                     <Button variant="outline" className="h-auto py-4 flex-col border-slate-700 hover:bg-slate-800">
-                      <Zap className="h-6 w-6 mb-2 text-red-400" />
+                      <Zap className="h-6 w-6 mb-2 text-[#1E90FF]" />
                       <span>Submit Job</span>
                     </Button>
                     <Button variant="outline" className="h-auto py-4 flex-col border-slate-700 hover:bg-slate-800">
-                      <Database className="h-6 w-6 mb-2 text-green-400" />
+                      <Database className="h-6 w-6 mb-2 text-[#00C2FF]" />
                       <span>Add Storage</span>
                     </Button>
                     <Button variant="outline" className="h-auto py-4 flex-col border-slate-700 hover:bg-slate-800">
@@ -774,7 +774,7 @@ function InfrastructureManagerInner() {
                           <Button 
                             size="sm" 
                             onClick={() => handleStartCluster(cluster.id)}
-                            className="bg-green-600 hover:bg-green-700"
+                            className="bg-[#00C2FF] hover:bg-[#00C2FF]"
                           >
                             <Play className="h-4 w-4 mr-1" />
                             Start
@@ -802,7 +802,7 @@ function InfrastructureManagerInner() {
                         <p className="text-sm text-slate-400">Total GPUs</p>
                       </div>
                       <div className="p-4 bg-slate-800/50 rounded-lg text-center">
-                        <p className="text-3xl font-bold text-green-400">{cluster.runningGpus}</p>
+                        <p className="text-3xl font-bold text-[#00C2FF]">{cluster.runningGpus}</p>
                         <p className="text-sm text-slate-400">Running</p>
                       </div>
                       <div className="p-4 bg-slate-800/50 rounded-lg text-center">
@@ -810,7 +810,7 @@ function InfrastructureManagerInner() {
                         <p className="text-sm text-slate-400">Memory/GPU</p>
                       </div>
                       <div className="p-4 bg-slate-800/50 rounded-lg text-center">
-                        <p className="text-3xl font-bold text-cyan-400">${Math.round(cluster.monthlyEstimate / 1000)}K</p>
+                        <p className="text-3xl font-bold text-[#00C2FF]">${Math.round(cluster.monthlyEstimate / 1000)}K</p>
                         <p className="text-sm text-slate-400">Monthly Est.</p>
                       </div>
                     </div>
@@ -829,13 +829,13 @@ function InfrastructureManagerInner() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`p-3 rounded-lg ${
-                          job.status === "running" ? "bg-green-500/20" :
-                          job.status === "completed" ? "bg-cyan-500/20" :
-                          job.status === "queued" ? "bg-red-500/20" : "bg-slate-700"
+                          job.status === "running" ? "bg-[#00C2FF]/20" :
+                          job.status === "completed" ? "bg-[#1E90FF]/20" :
+                          job.status === "queued" ? "bg-[#1E90FF]/20" : "bg-slate-700"
                         }`}>
                           {job.status === "running" ? <Loader2 className="h-6 w-6 animate-spin" /> :
-                           job.status === "completed" ? <CheckCircle className="h-6 w-6 text-green-400" /> :
-                           job.status === "queued" ? <Clock className="h-6 w-6 text-red-400" /> :
+                           job.status === "completed" ? <CheckCircle className="h-6 w-6 text-[#00C2FF]" /> :
+                           job.status === "queued" ? <Clock className="h-6 w-6 text-[#1E90FF]" /> :
                            <AlertCircle className="h-6 w-6" />}
                         </div>
                         <div>
@@ -922,7 +922,7 @@ function InfrastructureManagerInner() {
                         </div>
                         <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-700">
                           <span className="text-slate-400">Monthly</span>
-                          <span className="font-bold text-cyan-400">${contract.monthlyPrice.toLocaleString()}</span>
+                          <span className="font-bold text-[#00C2FF]">${contract.monthlyPrice.toLocaleString()}</span>
                         </div>
                       </div>
                     ))}
@@ -941,7 +941,7 @@ function InfrastructureManagerInner() {
             <div className="grid lg:grid-cols-3 gap-6">
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
-                  <CardTitle className="text-cyan-400">Cloud Computing</CardTitle>
+                  <CardTitle className="text-[#00C2FF]">Cloud Computing</CardTitle>
                   <CardDescription>Private infrastructure costs</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -979,7 +979,7 @@ function InfrastructureManagerInner() {
 
               <Card className="bg-slate-900/50 border-slate-800">
                 <CardHeader>
-                  <CardTitle className="text-red-400">Hardware CapEx</CardTitle>
+                  <CardTitle className="text-[#1E90FF]">Hardware CapEx</CardTitle>
                   <CardDescription>One-time purchases</CardDescription>
                 </CardHeader>
                 <CardContent>

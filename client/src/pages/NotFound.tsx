@@ -56,17 +56,17 @@ function NotFoundInner() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/">
             <button className="px-8 py-3 bg-gradient-to-r from-[#00c2ff] to-[#0066ff] text-white font-black rounded-xl hover:from-[#00b0e8] hover:to-[#0055dd] transition-all hover:scale-105 shadow-xl shadow-[#00c2ff]/20 w-full sm:w-auto">
-              🏠 Go Home
+               Go Home
             </button>
           </Link>
           <Link href="/feed">
             <button className="px-8 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 hover:border-[#00c2ff]/30 transition-all w-full sm:w-auto">
-              📰 Go to Feed
+               Go to Feed
             </button>
           </Link>
           <Link href="/signin">
             <button className="px-8 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 hover:border-[#00c2ff]/30 transition-all w-full sm:w-auto">
-              🔑 Sign In
+               Sign In
             </button>
           </Link>
         </div>

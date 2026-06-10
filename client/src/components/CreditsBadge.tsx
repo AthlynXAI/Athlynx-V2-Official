@@ -65,8 +65,8 @@ export function CreditsBadge() {
         onClick={() => setModalOpen(true)}
         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold transition-all border ${
           isLow
-            ? "bg-red-500/20 border-red-500/50 text-red-300 animate-pulse hover:bg-red-500/30"
-            : "bg-blue-500/20 border-blue-500/40 text-sky-300 hover:bg-blue-500/30"
+            ? "bg-[#1E90FF]/20 border-[#1E90FF]/50 text-[#1E90FF] animate-pulse hover:bg-[#1E90FF]/30"
+            : "bg-blue-500/20 border-blue-500/40 text-[#00C2FF] hover:bg-blue-500/30"
         }`}
         title="AI Credits — click to buy more"
       >
@@ -82,7 +82,7 @@ export function CreditsBadge() {
       {/* Low Credit Warning Banner — shown below nav when credits < 50 */}
       {isLow && !modalOpen && (
         <div
-          className="fixed top-16 left-0 right-0 z-40 bg-red-600/90 backdrop-blur text-white text-sm py-2 px-4 flex items-center justify-between cursor-pointer hover:bg-red-600"
+          className="fixed top-16 left-0 right-0 z-40 bg-[#1E90FF]/90 backdrop-blur text-white text-sm py-2 px-4 flex items-center justify-between cursor-pointer hover:bg-[#1E90FF]"
           onClick={() => setModalOpen(true)}
         >
           <div className="flex items-center gap-2">
@@ -108,12 +108,12 @@ export function CreditsBadge() {
             <div className="flex items-center justify-between p-6 border-b border-slate-700">
               <div>
                 <h2 className="text-white text-xl font-bold flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-sky-400" />
+                  <Zap className="w-5 h-5 text-[#00C2FF]" />
                   Buy AI Credits
                 </h2>
                 <p className="text-slate-400 text-sm mt-0.5">
                   Current balance:{" "}
-                  <span className={`font-semibold ${isLow ? "text-red-400" : "text-sky-400"}`}>
+                  <span className={`font-semibold ${isLow ? "text-[#1E90FF]" : "text-[#00C2FF]"}`}>
                     {credits.toLocaleString()} credits
                   </span>
                 </p>
@@ -136,7 +136,7 @@ export function CreditsBadge() {
                   className="w-full flex items-center justify-between bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-blue-500 rounded-xl px-5 py-4 transition-all group disabled:opacity-60"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-[#0a1628] rounded-lg flex items-center justify-center">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <div className="text-left">

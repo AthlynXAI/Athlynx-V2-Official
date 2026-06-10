@@ -49,7 +49,7 @@ export const supabase = createClient(
   },
 );
 
-// ─── Storage Buckets ──────────────────────────────────────────────────────────
+//  Storage Buckets 
 export const BUCKETS = {
   AVATARS: 'avatars',
   MEDIA: 'media',
@@ -58,7 +58,7 @@ export const BUCKETS = {
   NIL_DEALS: 'nil-deal-assets',
 } as const;
 
-// ─── File Upload ──────────────────────────────────────────────────────────────
+//  File Upload 
 export async function uploadFile(
   bucket: string,
   path: string,
@@ -101,7 +101,7 @@ export async function uploadDocument(userId: number, file: File): Promise<string
   return uploadFile(BUCKETS.DOCUMENTS, path, file);
 }
 
-// ─── Real-Time Messaging ──────────────────────────────────────────────────────
+//  Real-Time Messaging 
 export function subscribeToMessages(
   conversationId: number,
   onNewMessage: (msg: any) => void
@@ -123,7 +123,7 @@ export async function broadcastMessage(conversationId: number, message: any) {
   });
 }
 
-// ─── Real-Time Notifications ──────────────────────────────────────────────────
+//  Real-Time Notifications 
 export function subscribeToNotifications(
   userId: number,
   onNotification: (notif: any) => void
@@ -145,7 +145,7 @@ export async function broadcastNotification(userId: number, notification: any) {
   });
 }
 
-// ─── Real-Time Presence (Online Status) ──────────────────────────────────────
+//  Real-Time Presence (Online Status) 
 export function trackUserPresence(userId: number, userName: string) {
   const channel = supabase.channel('online-users', {
     config: { presence: { key: `user-${userId}` } },
@@ -160,7 +160,7 @@ export function trackUserPresence(userId: number, userName: string) {
   return channel;
 }
 
-// ─── Real-Time Feed Updates ───────────────────────────────────────────────────
+//  Real-Time Feed Updates 
 export function subscribeToFeed(onUpdate: (post: any) => void) {
   const channel = supabase
     .channel('global:feed')
@@ -179,7 +179,7 @@ export async function broadcastFeedPost(post: any) {
   });
 }
 
-// ─── Real-Time Transfer Portal Updates ───────────────────────────────────────
+//  Real-Time Transfer Portal Updates 
 export function subscribeToTransferPortal(onUpdate: (entry: any) => void) {
   const channel = supabase
     .channel('transfer-portal:updates')
@@ -190,7 +190,7 @@ export function subscribeToTransferPortal(onUpdate: (entry: any) => void) {
   return () => supabase.removeChannel(channel);
 }
 
-// ─── Real-Time NIL Deal Updates ───────────────────────────────────────────────
+//  Real-Time NIL Deal Updates 
 export function subscribeToNILDeals(onUpdate: (deal: any) => void) {
   const channel = supabase
     .channel('nil-deals:updates')

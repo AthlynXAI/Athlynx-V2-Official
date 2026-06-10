@@ -19,36 +19,36 @@ const CDN = "/athlynx-icon.png";
 const PIPELINE_STAGES = ["New Lead", "Contacted", "Demo Scheduled", "Proposal Sent", "Closed Won", "Closed Lost"] as const;
 const STAGE_COLORS: Record<string, string> = {
   "New Lead": "bg-blue-900/60 border-blue-700",
-  "Contacted": "bg-red-900/60 border-red-700",
+  "Contacted": "bg-[#1E90FF]/60 border-[#1E90FF]",
   "Demo Scheduled": "bg-blue-950/60 border-blue-800",
-  "Proposal Sent": "bg-red-900/60 border-red-700",
-  "Closed Won": "bg-green-900/60 border-green-700",
-  "Closed Lost": "bg-red-900/60 border-red-700",
+  "Proposal Sent": "bg-[#1E90FF]/60 border-[#1E90FF]",
+  "Closed Won": "bg-[#00C2FF]/60 border-[#00C2FF]",
+  "Closed Lost": "bg-[#1E90FF]/60 border-[#1E90FF]",
 };
 const STAGE_BADGE: Record<string, string> = {
   "New Lead": "bg-blue-800 text-blue-200",
-  "Contacted": "bg-red-800 text-red-200",
+  "Contacted": "bg-[#1E90FF] text-[#1E90FF]",
   "Demo Scheduled": "bg-blue-900 text-blue-200",
-  "Proposal Sent": "bg-red-800 text-red-200",
-  "Closed Won": "bg-green-800 text-green-200",
-  "Closed Lost": "bg-red-800 text-red-200",
+  "Proposal Sent": "bg-[#1E90FF] text-[#1E90FF]",
+  "Closed Won": "bg-[#00C2FF] text-[#00C2FF]",
+  "Closed Lost": "bg-[#1E90FF] text-[#1E90FF]",
 };
 const STATUS_BADGE: Record<string, string> = {
   Lead: "bg-blue-900 text-blue-300",
-  Active: "bg-green-900 text-green-300",
-  VIP: "bg-red-900 text-red-300",
-  Churned: "bg-red-900 text-red-300",
+  Active: "bg-[#00C2FF] text-[#00C2FF]",
+  VIP: "bg-[#1E90FF] text-[#1E90FF]",
+  Churned: "bg-[#1E90FF] text-[#1E90FF]",
 };
 const ROLE_BADGE: Record<string, string> = {
-  Athlete: "bg-cyan-900 text-cyan-300",
+  Athlete: "bg-cyan-900 text-[#00C2FF]",
   Coach: "bg-blue-950 text-blue-300",
-  Brand: "bg-red-900 text-red-300",
-  Agent: "bg-teal-900 text-teal-300",
-  Investor: "bg-red-900 text-red-300",
-  Team: "bg-indigo-900 text-indigo-300",
+  Brand: "bg-[#1E90FF] text-[#1E90FF]",
+  Agent: "bg-[#00C2FF] text-[#00C2FF]",
+  Investor: "bg-[#1E90FF] text-[#1E90FF]",
+  Team: "bg-[#1E90FF] text-[#1E90FF]",
 };
 
-// ─── Add Contact Modal ────────────────────────────────────────────────────────
+//  Add Contact Modal 
 function AddContactModal({ onClose, onSuccess }: { onClose: () => void; onSuccess: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", role: "Athlete" as const, status: "Lead" as const, notes: "" });
   const createContact = trpc.crm.createContact.useMutation({
@@ -123,7 +123,7 @@ function AddContactModal({ onClose, onSuccess }: { onClose: () => void; onSucces
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function AdminCRMInner() {
   const { user, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState<"overview" | "contacts" | "pipeline" | "waitlist" | "activity" | "expiry" | "concreator">("overview");
@@ -153,16 +153,16 @@ function AdminCRMInner() {
     onError: (e) => toast.error(e.message),
   });
   const testEmailMutation = trpc.admin.testEmail.useMutation({
-    onSuccess: () => toast.success("✅ Test email sent to contact@athlynx.ai"),
+    onSuccess: () => toast.success(" Test email sent to contact@athlynx.ai"),
     onError: (e) => toast.error("Email failed: " + e.message),
   });
   const testSmsMutation = trpc.admin.testSms.useMutation({
-    onSuccess: () => toast.success("✅ Test SMS sent to Book a call"),
+    onSuccess: () => toast.success(" Test SMS sent to Book a call"),
     onError: (e) => toast.error("SMS failed: " + e.message),
   });
   const revenueQuery = trpc.admin.getRevenueStats.useQuery(undefined, { enabled: activeTab === "overview", refetchInterval: 60000 });
   const sendDailyReportMutation = trpc.admin.sendDailyReport.useMutation({
-    onSuccess: () => toast.success("✅ Daily report sent to contact@athlynx.ai"),
+    onSuccess: () => toast.success(" Daily report sent to contact@athlynx.ai"),
     onError: (e) => toast.error("Report failed: " + e.message),
   });
 
@@ -183,7 +183,7 @@ function AdminCRMInner() {
     return (
       <div className="min-h-screen bg-[#050c1a] flex items-center justify-center px-4">
         <div className="text-center max-w-md">
-          <Shield className="w-16 h-16 text-red-400 mx-auto mb-4" />
+          <Shield className="w-16 h-16 text-[#1E90FF] mx-auto mb-4" />
           <h1 className="text-white text-2xl font-black mb-2">Admin Access Required</h1>
           <p className="text-white/50 mb-6">You need admin privileges to access the CRM dashboard. Contact Chad Dozier to request access.</p>
           <Link href="/feed">
@@ -241,10 +241,10 @@ function AdminCRMInner() {
     { id: "overview", label: "Overview", icon: BarChart3 },
     { id: "contacts", label: "Contacts", icon: Users },
     { id: "pipeline", label: "Pipeline", icon: LayoutGrid },
-    { id: "concreator", label: "🤖 ConCreator™", icon: Building2 },
+    { id: "concreator", label: " ConCreator™", icon: Building2 },
     { id: "waitlist", label: "Waitlist", icon: List },
     { id: "activity", label: "Activity", icon: Activity },
-    { id: "expiry", label: "⏰ Expiring", icon: Clock },
+    { id: "expiry", label: " Expiring", icon: Clock },
   ] as const;
 
   return (
@@ -262,8 +262,8 @@ function AdminCRMInner() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="bg-green-900/50 border border-green-700/50 text-green-300 text-xs px-3 py-1 rounded-full font-semibold">
-              ● Admin: {user.name}
+            <span className="bg-[#00C2FF]/50 border border-[#00C2FF]/50 text-[#00C2FF] text-xs px-3 py-1 rounded-full font-semibold">
+               Admin: {user.name}
             </span>
             <button onClick={() => { statsQuery.refetch(); toast.success("Refreshed"); }} className="p-2 bg-white/5 border border-white/10 rounded-xl text-white/50 hover:text-white hover:bg-white/10 transition-colors">
               <RefreshCw className="w-4 h-4" />
@@ -271,7 +271,7 @@ function AdminCRMInner() {
             <PushNotificationBell />
             <a href="https://calendly.com/cdozier14" target="_blank" rel="noopener noreferrer"
               className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-black rounded-xl transition-colors flex items-center gap-2">
-              📅 Schedule Meeting
+               Schedule Meeting
             </a>
             <Link href="/feed">
               <button className="px-4 py-2 bg-white/5 border border-white/10 text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors">← Platform</button>
@@ -302,15 +302,15 @@ function AdminCRMInner() {
 
       <div className="max-w-7xl mx-auto px-6 py-6">
 
-        {/* ─── OVERVIEW TAB ─────────────────────────────────────────────────── */}
+        {/*  OVERVIEW TAB  */}
         {activeTab === "overview" && (
           <div className="space-y-6">
             {/* Stats grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { label: "Total Users", value: stats?.totalSignups ?? 0, icon: Users, color: "text-[#00c2ff]", sub: `+${stats?.todaySignups ?? 0} today` },
-                { label: "This Week", value: stats?.weekSignups ?? 0, icon: TrendingUp, color: "text-green-400", sub: "new signups" },
-                { label: "Waitlist", value: stats?.waitlistCount ?? 0, icon: List, color: "text-red-400", sub: "pending" },
+                { label: "This Week", value: stats?.weekSignups ?? 0, icon: TrendingUp, color: "text-[#00C2FF]", sub: "new signups" },
+                { label: "Waitlist", value: stats?.waitlistCount ?? 0, icon: List, color: "text-[#1E90FF]", sub: "pending" },
                 { label: "CRM Contacts", value: stats?.contactsCount ?? 0, icon: Star, color: "text-blue-500", sub: "tracked" },
               ].map(({ label, value, icon: Icon, color, sub }) => (
                 <div key={label} className="bg-[#0d1f3c] border border-white/10 rounded-2xl p-5">
@@ -342,7 +342,7 @@ function AdminCRMInner() {
                       <div className="text-white font-bold text-sm truncate">{m.name}</div>
                       <div className="text-white/50 text-xs truncate">{m.title}</div>
                       <div className="text-[#00c2ff] text-xs truncate">{m.email}</div>
-                      <span className={`inline-block mt-1 text-[10px] px-2 py-0.5 rounded-full font-bold ${m.badge === "admin" ? "bg-red-900 text-red-300" : "bg-blue-900 text-blue-300"}`}>
+                      <span className={`inline-block mt-1 text-[10px] px-2 py-0.5 rounded-full font-bold ${m.badge === "admin" ? "bg-[#1E90FF] text-[#1E90FF]" : "bg-blue-900 text-blue-300"}`}>
                         {m.badge.toUpperCase()}
                       </span>
                     </div>
@@ -354,20 +354,20 @@ function AdminCRMInner() {
             {/* Revenue Stats */}
             <div className="bg-[#0d1f3c] border border-white/10 rounded-2xl p-5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-black text-base flex items-center gap-2"><BarChart3 className="w-5 h-5 text-green-400" /> Live Revenue</h3>
+                <h3 className="text-white font-black text-base flex items-center gap-2"><BarChart3 className="w-5 h-5 text-[#00C2FF]" /> Live Revenue</h3>
                 <span className="text-white/30 text-xs">Stripe — Live Mode</span>
               </div>
               {revenueQuery.isLoading ? (
                 <div className="flex items-center justify-center py-6"><Loader2 className="w-6 h-6 text-[#00c2ff] animate-spin" /></div>
               ) : revenueQuery.error ? (
-                <p className="text-red-400 text-sm text-center py-4">Stripe not connected — add STRIPE_SECRET_KEY to Vercel env vars</p>
+                <p className="text-[#1E90FF] text-sm text-center py-4">Stripe not connected — add STRIPE_SECRET_KEY to Vercel env vars</p>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
-                    { label: "MTD Revenue", value: `$${(revenueQuery.data?.mtdRevenue ?? 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}`, color: "text-green-400" },
+                    { label: "MTD Revenue", value: `$${(revenueQuery.data?.mtdRevenue ?? 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}`, color: "text-[#00C2FF]" },
                     { label: "MRR", value: `$${(revenueQuery.data?.mrr ?? 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}`, color: "text-[#00c2ff]" },
                     { label: "ARR", value: `$${(revenueQuery.data?.arr ?? 0).toLocaleString("en-US", { minimumFractionDigits: 2 })}`, color: "text-blue-400" },
-                    { label: "Active Subs", value: String(revenueQuery.data?.activeSubscriptions ?? 0), color: "text-red-400" },
+                    { label: "Active Subs", value: String(revenueQuery.data?.activeSubscriptions ?? 0), color: "text-[#1E90FF]" },
                   ].map(({ label, value, color }) => (
                     <div key={label} className="bg-white/5 border border-white/10 rounded-xl p-4">
                       <div className="text-white/40 text-xs font-semibold uppercase tracking-wide mb-2">{label}</div>
@@ -392,7 +392,7 @@ function AdminCRMInner() {
                 <button
                   onClick={() => testSmsMutation.mutate()}
                   disabled={testSmsMutation.isPending}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white font-black rounded-xl text-sm hover:from-green-500 hover:to-green-400 transition-all disabled:opacity-50"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#00C2FF] to-[#0a1628] text-white font-black rounded-xl text-sm hover:from-[#00C2FF] hover:to-[#0a1628] transition-all disabled:opacity-50"
                 >
                   {testSmsMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Phone className="w-4 h-4" />}
                   Test SMS
@@ -400,7 +400,7 @@ function AdminCRMInner() {
                 <button
                   onClick={() => sendDailyReportMutation.mutate()}
                   disabled={sendDailyReportMutation.isPending}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-red-700 to-red-600 text-white font-black rounded-xl text-sm hover:from-red-600 hover:to-red-500 transition-all disabled:opacity-50"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white font-black rounded-xl text-sm hover:from-[#1E90FF] hover:to-[#0a1628] transition-all disabled:opacity-50"
                 >
                   {sendDailyReportMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <BarChart3 className="w-4 h-4" />}
                   Send Daily Report
@@ -414,7 +414,7 @@ function AdminCRMInner() {
                 <div>
                   <h3 className="text-white font-black text-base flex items-center gap-2">
                     <Users className="w-5 h-5 text-[#00c2ff]" /> Live User Dashboard
-                    <span className="text-[10px] bg-green-900/50 border border-green-700/50 text-green-300 px-2 py-0.5 rounded-full font-semibold">LIVE • 30s refresh</span>
+                    <span className="text-[10px] bg-[#00C2FF]/50 border border-[#00C2FF]/50 text-[#00C2FF] px-2 py-0.5 rounded-full font-semibold">LIVE • 30s refresh</span>
                   </h3>
                   <p className="text-white/30 text-xs mt-0.5">{allUsers.length} total users · Avatar enriched · Real-time</p>
                 </div>
@@ -473,7 +473,7 @@ function AdminCRMInner() {
                                       </svg>
                                     </div>
                                   )}
-                                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-[#0d1f3c] bg-green-400" />
+                                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-[#0d1f3c] bg-[#00C2FF]" />
                                 </div>
                                 <div className="min-w-0">
                                   <div className="text-white font-bold text-sm truncate max-w-[140px]">{u.name ?? "—"}</div>
@@ -489,7 +489,7 @@ function AdminCRMInner() {
                             {/* Plan */}
                             <td className="py-3 pr-4">
                               <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                                hasSubscription ? "bg-green-900/60 text-green-300 border border-green-700/50" :
+                                hasSubscription ? "bg-[#00C2FF]/60 text-[#00C2FF] border border-[#00C2FF]/50" :
                                 isOnTrial ? "bg-blue-900/60 text-blue-300 border border-blue-700/50" :
                                 "bg-white/5 text-white/30 border border-white/10"
                               }`}>
@@ -499,9 +499,9 @@ function AdminCRMInner() {
                             {/* Trial */}
                             <td className="py-3 pr-4">
                               {isOnTrial ? (
-                                <span className="text-xs text-sky-400 font-bold">{trialDaysLeft}d left</span>
+                                <span className="text-xs text-[#00C2FF] font-bold">{trialDaysLeft}d left</span>
                               ) : hasSubscription ? (
-                                <span className="text-xs text-green-400">✓ Active</span>
+                                <span className="text-xs text-[#00C2FF]"> Active</span>
                               ) : (
                                 <span className="text-xs text-white/20">Expired</span>
                               )}
@@ -535,7 +535,7 @@ function AdminCRMInner() {
           </div>
         )}
 
-        {/* ─── CONTACTS TAB ─────────────────────────────────────────────────── */}
+        {/*  CONTACTS TAB  */}
         {activeTab === "contacts" && (
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-4 flex-wrap">
@@ -591,7 +591,7 @@ function AdminCRMInner() {
                         <td className="px-4 py-3">
                           <button
                             onClick={() => { if (confirm(`Delete ${c.name}?`)) deleteContact.mutate({ id: c.id }); }}
-                            className="text-red-400 hover:text-red-300 transition-colors"
+                            className="text-[#1E90FF] hover:text-[#1E90FF] transition-colors"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -605,7 +605,7 @@ function AdminCRMInner() {
           </div>
         )}
 
-        {/* ─── PIPELINE TAB ─────────────────────────────────────────────────── */}
+        {/*  PIPELINE TAB  */}
         {activeTab === "pipeline" && (
           <div>
             <div className="flex items-center justify-between mb-5">
@@ -634,7 +634,7 @@ function AdminCRMInner() {
                           <div key={p.id} className="bg-black/30 border border-white/10 rounded-lg p-2.5">
                             <div className="text-white text-xs font-bold truncate">{contact?.name ?? "Unknown"}</div>
                             <div className="text-white/40 text-[10px] truncate">{contact?.role ?? ""}</div>
-                            {p.dealValue ? <div className="text-green-400 text-[10px] font-bold mt-1">${p.dealValue.toLocaleString()}</div> : null}
+                            {p.dealValue ? <div className="text-[#00C2FF] text-[10px] font-bold mt-1">${p.dealValue.toLocaleString()}</div> : null}
                             <select
                               value={p.stage}
                               onChange={(e) => updateStage.mutate({ id: p.id, stage: e.target.value as typeof p.stage })}
@@ -653,7 +653,7 @@ function AdminCRMInner() {
           </div>
         )}
 
-        {/* ─── WAITLIST TAB ─────────────────────────────────────────────────── */}
+        {/*  WAITLIST TAB  */}
         {activeTab === "waitlist" && (
           <div className="space-y-4">
             <div className="flex items-center justify-between flex-wrap gap-3">
@@ -663,7 +663,7 @@ function AdminCRMInner() {
               </div>
               <button
                 onClick={exportWaitlistCSV}
-                className="flex items-center gap-2 px-4 py-2.5 bg-green-800 hover:bg-green-700 text-white font-bold rounded-xl text-sm transition-colors"
+                className="flex items-center gap-2 px-4 py-2.5 bg-[#00C2FF] hover:bg-[#00C2FF] text-white font-bold rounded-xl text-sm transition-colors"
               >
                 <Download className="w-4 h-4" /> Export CSV
               </button>
@@ -706,7 +706,7 @@ function AdminCRMInner() {
           </div>
         )}
 
-        {/* ─── ACTIVITY TAB ─────────────────────────────────────────────────── */}
+        {/*  ACTIVITY TAB  */}
         {activeTab === "activity" && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -744,16 +744,16 @@ function AdminCRMInner() {
             )}
           </div>
         )}
-        {/* ── EXPIRY WARNINGS TAB ── */}
+        {/*  EXPIRY WARNINGS TAB  */}
         {activeTab === "expiry" && (
           <div className="space-y-6">
             {/* Expiring Soon */}
             <div className="bg-[#0a1628] border border-blue-500/20 rounded-2xl overflow-hidden">
               <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-sky-400" />
+                  <Clock className="w-5 h-5 text-[#00C2FF]" />
                   <span className="text-white font-black text-sm">Expiring Soon (≤5 days)</span>
-                  <span className="bg-blue-500/20 text-sky-400 text-xs font-bold px-2 py-0.5 rounded-full">
+                  <span className="bg-blue-500/20 text-[#00C2FF] text-xs font-bold px-2 py-0.5 rounded-full">
                     {(expiryQuery.data ?? []).filter((u: any) => !u.isExpired && !u.hasPaidSub).length}
                   </span>
                 </div>
@@ -783,8 +783,8 @@ function AdminCRMInner() {
                           <td className="px-4 py-3 text-white/60">{u.email}</td>
                           <td className="px-4 py-3">
                             <span className={`font-black px-2 py-0.5 rounded-full text-xs ${
-                              u.daysLeft <= 1 ? "bg-red-500/20 text-red-400" :
-                              u.daysLeft <= 3 ? "bg-blue-500/20 text-sky-400" :
+                              u.daysLeft <= 1 ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                              u.daysLeft <= 3 ? "bg-blue-500/20 text-[#00C2FF]" :
                               "bg-blue-500/20 text-blue-400"
                             }`}>{u.daysLeft}d</span>
                           </td>
@@ -796,7 +796,7 @@ function AdminCRMInner() {
                             <div className="flex flex-wrap gap-1">
                               {(u.emailLog ?? []).map((e: any, i: number) => (
                                 <span key={i} className={`text-[10px] px-1.5 py-0.5 rounded font-bold ${
-                                  e.status === "sent" ? "bg-green-900/50 text-green-400" : "bg-red-900/50 text-red-400"
+                                  e.status === "sent" ? "bg-[#00C2FF]/50 text-[#00C2FF]" : "bg-[#1E90FF]/50 text-[#1E90FF]"
                                 }`}>{e.emailType}</span>
                               ))}
                             </div>
@@ -810,12 +810,12 @@ function AdminCRMInner() {
             </div>
 
             {/* Overdue / Expired */}
-            <div className="bg-[#0a1628] border border-red-500/20 rounded-2xl overflow-hidden">
+            <div className="bg-[#0a1628] border border-[#1E90FF]/20 rounded-2xl overflow-hidden">
               <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <XCircle className="w-5 h-5 text-red-400" />
+                  <XCircle className="w-5 h-5 text-[#1E90FF]" />
                   <span className="text-white font-black text-sm">Expired — No Subscription</span>
-                  <span className="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-0.5 rounded-full">
+                  <span className="bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-bold px-2 py-0.5 rounded-full">
                     {(overdueQuery.data ?? []).length}
                   </span>
                 </div>
@@ -845,7 +845,7 @@ function AdminCRMInner() {
                           <td className="px-4 py-3 text-white/60">{u.email}</td>
                           <td className="px-4 py-3 text-white/50">{u.trialEndsAt ? new Date(u.trialEndsAt).toLocaleDateString() : "—"}</td>
                           <td className="px-4 py-3">
-                            <span className="bg-red-500/20 text-red-400 font-black px-2 py-0.5 rounded-full text-xs">{u.expiredDaysAgo}d ago</span>
+                            <span className="bg-[#1E90FF]/20 text-[#1E90FF] font-black px-2 py-0.5 rounded-full text-xs">{u.expiredDaysAgo}d ago</span>
                           </td>
                           <td className="px-4 py-3 text-white/40">{u.stripePlanId || "free"}</td>
                           <td className="px-4 py-3">
@@ -864,17 +864,17 @@ function AdminCRMInner() {
           </div>
         )}
 
-        {/* ─── CONCREATOR™ B2B CLIENT TAB ──────────────────────────────────── */}
+        {/*  CONCREATOR™ B2B CLIENT TAB  */}
         {activeTab === "concreator" && (
           <div className="space-y-6">
 
             {/* Header */}
-            <div className="bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#0a1628] border border-cyan-600/40 rounded-2xl p-6">
+            <div className="bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#0a1628] border border-[#1E90FF]/30 rounded-2xl p-6">
               <div className="flex items-center gap-4 mb-4">
-                <img src="/images/logos/athlynx-main-logo.png" alt="ConCreator" className="w-14 h-14 rounded-2xl border border-cyan-500/30" />
+                <img src="/images/logos/athlynx-main-logo.png" alt="ConCreator" className="w-14 h-14 rounded-2xl border border-[#1E90FF]/30" />
                 <div>
                   <h2 className="text-white font-black text-2xl">ConCreator™ B2B Clients</h2>
-                  <p className="text-cyan-400 text-sm">Data Intelligence &amp; AI Credit System · Powered by Softmor Inc. · A Dozier Holdings Group Product</p>
+                  <p className="text-[#00C2FF] text-sm">Data Intelligence &amp; AI Credit System · Powered by Softmor Inc. · A Dozier Holdings Group Product</p>
                 </div>
               </div>
               <p className="text-blue-200 text-sm leading-relaxed max-w-3xl">
@@ -886,9 +886,9 @@ function AdminCRMInner() {
             {/* Revenue Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: "Active Clients", value: "1", sub: "CementCo · Command Tier", color: "text-cyan-400" },
-                { label: "Active Machines", value: "10", sub: "$9,970/mo projected", color: "text-green-400" },
-                { label: "Monthly Revenue", value: "$9,970", sub: "Command × 10 machines", color: "text-sky-400" },
+                { label: "Active Clients", value: "1", sub: "CementCo · Command Tier", color: "text-[#00C2FF]" },
+                { label: "Active Machines", value: "10", sub: "$9,970/mo projected", color: "text-[#00C2FF]" },
+                { label: "Monthly Revenue", value: "$9,970", sub: "Command × 10 machines", color: "text-[#00C2FF]" },
                 { label: "Annual Revenue", value: "$119,640", sub: "Year 1 + license", color: "text-blue-400" },
               ].map(({ label, value, sub, color }) => (
                 <div key={label} className="bg-[#0d1f3c] border border-white/10 rounded-2xl p-5">
@@ -914,24 +914,24 @@ function AdminCRMInner() {
                   <tbody>
                     {[
                       { tier: "Pulse", price: "$297/mo", credits: "500", reports: "Monthly only", priceId: "price_1TTaLKGvvjXZw2uE0j4ZMU9J", color: "text-blue-400" },
-                      { tier: "Insight", price: "$597/mo", credits: "2,000", reports: "Weekly + Monthly", priceId: "price_1TTaLMGvvjXZw2uE8m5Imwtn", color: "text-cyan-400" },
-                      { tier: "Command ★", price: "$997/mo", credits: "5,000", reports: "Daily + Weekly + Monthly", priceId: "price_1TTaLNGvvjXZw2uEVbyQse2H", color: "text-emerald-400", rec: true },
-                      { tier: "Enterprise", price: "$1,997/mo", credits: "Unlimited", reports: "Full Suite + Custom", priceId: "price_1TTaLPGvvjXZw2uEOGZwzZUA", color: "text-purple-400" },
+                      { tier: "Insight", price: "$597/mo", credits: "2,000", reports: "Weekly + Monthly", priceId: "price_1TTaLMGvvjXZw2uE8m5Imwtn", color: "text-[#00C2FF]" },
+                      { tier: "Command ", price: "$997/mo", credits: "5,000", reports: "Daily + Weekly + Monthly", priceId: "price_1TTaLNGvvjXZw2uEVbyQse2H", color: "text-[#00C2FF]", rec: true },
+                      { tier: "Enterprise", price: "$1,997/mo", credits: "Unlimited", reports: "Full Suite + Custom", priceId: "price_1TTaLPGvvjXZw2uEOGZwzZUA", color: "text-[#1E90FF]" },
                     ].map((t) => (
-                      <tr key={t.tier} className={`border-b border-white/5 hover:bg-white/5 transition-colors ${t.rec ? 'bg-emerald-900/10' : ''}`}>
+                      <tr key={t.tier} className={`border-b border-white/5 hover:bg-white/5 transition-colors ${t.rec ? 'bg-[#1E90FF]/10' : ''}`}>
                         <td className="py-3 pr-4">
                           <span className={`font-black ${t.color}`}>{t.tier}</span>
-                          {t.rec && <span className="ml-2 text-[10px] bg-emerald-500 text-white px-2 py-0.5 rounded-full font-bold">RECOMMENDED</span>}
+                          {t.rec && <span className="ml-2 text-[10px] bg-[#1E90FF] text-white px-2 py-0.5 rounded-full font-bold">RECOMMENDED</span>}
                         </td>
                         <td className="py-3 pr-4 text-white font-bold">{t.price}</td>
                         <td className="py-3 pr-4 text-white/70">{t.credits}</td>
                         <td className="py-3 pr-4 text-white/50 text-xs">{t.reports}</td>
                         <td className="py-3 pr-4">
-                          <code className="text-xs text-cyan-400 bg-cyan-900/20 px-2 py-0.5 rounded">{t.priceId}</code>
+                          <code className="text-xs text-[#00C2FF] bg-[#1E90FF]/20 px-2 py-0.5 rounded">{t.priceId}</code>
                         </td>
                         <td className="py-3 pr-4">
                           <a href={`mailto:contact@athlynx.ai?subject=New ConCreator ${t.tier} Client&body=Company:%0AContact:%0AEmail:%0APhone:%0AMachines:%0ATier: ${t.tier}%0APrice ID: ${t.priceId}`}
-                            className="text-xs bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-3 py-1.5 rounded-lg transition-colors">
+                            className="text-xs bg-[#1565C0] hover:bg-[#1E90FF] text-white font-bold px-3 py-1.5 rounded-lg transition-colors">
                             + Add Client
                           </a>
                         </td>
@@ -948,7 +948,7 @@ function AdminCRMInner() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-white font-black text-base">Active B2B Clients</h3>
                 <a href="mailto:contact@athlynx.ai?subject=New ConCreator Client Onboarding"
-                  className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-black rounded-xl transition-colors">
+                  className="flex items-center gap-2 px-4 py-2 bg-[#1565C0] hover:bg-[#1E90FF] text-white text-sm font-black rounded-xl transition-colors">
                   <Plus className="w-4 h-4" /> Onboard New Client
                 </a>
               </div>
@@ -969,13 +969,13 @@ function AdminCRMInner() {
                       </td>
                       <td className="py-3 pr-4">
                         <div className="text-white/70 text-xs">Telly Walsworth</div>
-                        <div className="text-cyan-400 text-xs">CEO</div>
+                        <div className="text-[#00C2FF] text-xs">CEO</div>
                       </td>
                       <td className="py-3 pr-4">
-                        <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 text-xs px-2 py-0.5 rounded-full font-bold">Command</span>
+                        <span className="bg-[#1E90FF]/60 text-[#00C2FF] border border-[#1E90FF]/50 text-xs px-2 py-0.5 rounded-full font-bold">Command</span>
                       </td>
                       <td className="py-3 pr-4 text-white font-bold">10</td>
-                      <td className="py-3 pr-4 text-green-400 font-black">$9,970</td>
+                      <td className="py-3 pr-4 text-[#00C2FF] font-black">$9,970</td>
                       <td className="py-3 pr-4 text-white/70">5,000/mo</td>
                       <td className="py-3 pr-4">
                         <span className="bg-blue-900/60 text-blue-300 border border-blue-700/50 text-xs px-2 py-0.5 rounded-full font-bold">Proposal Sent</span>
@@ -1004,19 +1004,19 @@ function AdminCRMInner() {
               <h3 className="text-white font-black text-base mb-4">AI Credit Actions — What Clients Pay For</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { action: "Standard Report Generation", credits: "50 credits", icon: "📊", desc: "Daily/weekly/monthly auto-reports" },
-                  { action: "AI Anomaly Detection", credits: "25 credits", icon: "🚨", desc: "Flags unusual machine behavior" },
-                  { action: "Predictive Trend Analysis", credits: "150 credits", icon: "📈", desc: "AI forecasts output & maintenance" },
-                  { action: "Custom Data Query", credits: "100 credits", icon: "🤖", desc: "Ask any machine data question" },
-                  { action: "Year-End Summary Report", credits: "FREE", icon: "🏆", desc: "Included with all tiers annually" },
-                  { action: "Extra Credit Block", credits: "$49 / 1,000", icon: "⚡", desc: "Buy more anytime, no tier upgrade" },
-                  { action: "White-Label Branding", credits: "+$99/mo", icon: "🎨", desc: "Client logo on all reports" },
-                  { action: "API Raw Data Feed", credits: "+$199/mo", icon: "🔗", desc: "Build custom dashboards" },
+                  { action: "Standard Report Generation", credits: "50 credits", icon: "", desc: "Daily/weekly/monthly auto-reports" },
+                  { action: "AI Anomaly Detection", credits: "25 credits", icon: "", desc: "Flags unusual machine behavior" },
+                  { action: "Predictive Trend Analysis", credits: "150 credits", icon: "", desc: "AI forecasts output & maintenance" },
+                  { action: "Custom Data Query", credits: "100 credits", icon: "", desc: "Ask any machine data question" },
+                  { action: "Year-End Summary Report", credits: "FREE", icon: "", desc: "Included with all tiers annually" },
+                  { action: "Extra Credit Block", credits: "$49 / 1,000", icon: "", desc: "Buy more anytime, no tier upgrade" },
+                  { action: "White-Label Branding", credits: "+$99/mo", icon: "", desc: "Client logo on all reports" },
+                  { action: "API Raw Data Feed", credits: "+$199/mo", icon: "", desc: "Build custom dashboards" },
                 ].map((item, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
                     <div className="text-2xl mb-2">{item.icon}</div>
                     <div className="text-white text-sm font-semibold mb-1">{item.action}</div>
-                    <div className="text-cyan-400 text-xs font-bold mb-1">{item.credits}</div>
+                    <div className="text-[#00C2FF] text-xs font-bold mb-1">{item.credits}</div>
                     <div className="text-white/40 text-xs">{item.desc}</div>
                   </div>
                 ))}

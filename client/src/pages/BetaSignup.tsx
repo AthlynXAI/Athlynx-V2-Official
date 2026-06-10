@@ -13,21 +13,21 @@ const SPORTS = [
 ];
 
 const ROLES = [
-  { id: "athlete", label: "Athlete", icon: "🏆", desc: "I'm competing or training" },
-  { id: "coach", label: "Coach", icon: "📋", desc: "I coach athletes or teams" },
-  { id: "recruiter", label: "Recruiter / Scout", icon: "🔍", desc: "I evaluate and recruit talent" },
-  { id: "parent", label: "Parent / Guardian", icon: "👨‍👩‍👧", desc: "Supporting my athlete" },
-  { id: "agent", label: "Agent / Advisor", icon: "💼", desc: "I represent athletes" },
-  { id: "brand", label: "Brand / Sponsor", icon: "🤝", desc: "I partner with athletes" },
+  { id: "athlete", label: "Athlete", icon: "", desc: "I'm competing or training" },
+  { id: "coach", label: "Coach", icon: "", desc: "I coach athletes or teams" },
+  { id: "recruiter", label: "Recruiter / Scout", icon: "", desc: "I evaluate and recruit talent" },
+  { id: "parent", label: "Parent / Guardian", icon: "", desc: "Supporting my athlete" },
+  { id: "agent", label: "Agent / Advisor", icon: "", desc: "I represent athletes" },
+  { id: "brand", label: "Brand / Sponsor", icon: "", desc: "I partner with athletes" },
 ];
 
 const BENEFITS = [
-  { icon: "🦉", title: "AthlynXAI OS v1", desc: "The first fully autonomous athlete operating system. Powered by Nebius H200." },
-  { icon: "💰", title: "NIL Portal", desc: "Find deals, track earnings, and manage your NIL brand — all in one place." },
-  { icon: "🎯", title: "AI Recruiting Hub", desc: "AI-powered recruiting tools that match you with the right programs and coaches." },
-  { icon: "📱", title: "iOS & Android App", desc: "Native mobile app with push notifications, offline mode, and biometric auth." },
-  { icon: "🏋️", title: "AI Training Bot", desc: "Personalized training plans built by AI, adapted to your sport and position." },
-  { icon: "📊", title: "Athlete Dashboard", desc: "Track your stats, highlights, and recruiting activity in real time." },
+  { icon: "", title: "AthlynXAI OS v1", desc: "The first fully autonomous athlete operating system. Powered by Nebius H200." },
+  { icon: "", title: "NIL Portal", desc: "Find deals, track earnings, and manage your NIL brand — all in one place." },
+  { icon: "", title: "AI Recruiting Hub", desc: "AI-powered recruiting tools that match you with the right programs and coaches." },
+  { icon: "", title: "iOS & Android App", desc: "Native mobile app with push notifications, offline mode, and biometric auth." },
+  { icon: "", title: "AI Training Bot", desc: "Personalized training plans built by AI, adapted to your sport and position." },
+  { icon: "", title: "Athlete Dashboard", desc: "Track your stats, highlights, and recruiting activity in real time." },
 ];
 
 export default function BetaSignup() {
@@ -68,7 +68,7 @@ export default function BetaSignup() {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
         <div className="max-w-md w-full text-center">
-          <div className="text-6xl mb-6">🦉</div>
+          <div className="text-6xl mb-6"></div>
           <h1 className="text-3xl font-black mb-3">You're In.</h1>
           <p className="text-white/60 mb-8">Welcome to AthlynXAI. You're now part of the first autonomous athlete OS. We'll send your access link to <strong className="text-white">{email}</strong>.</p>
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-6">
@@ -80,21 +80,21 @@ export default function BetaSignup() {
                 rel="noopener noreferrer"
                 className="flex-1 py-2 bg-[#1DA1F2]/20 border border-[#1DA1F2]/30 text-[#1DA1F2] rounded-lg text-sm font-bold hover:bg-[#1DA1F2]/30 transition-colors"
               >
-                𝕏 Share
+                 Share
               </a>
               <a
                 href={`https://www.instagram.com/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2 bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded-lg text-sm font-bold hover:bg-pink-500/30 transition-colors"
+                className="flex-1 py-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 text-[#1E90FF] rounded-lg text-sm font-bold hover:bg-[#1E90FF]/30 transition-colors"
               >
-                📸 Instagram
+                 Instagram
               </a>
               <button
                 onClick={() => { navigator.clipboard.writeText(`${shareText} ${shareUrl}`); }}
                 className="flex-1 py-2 bg-white/10 border border-white/20 text-white rounded-lg text-sm font-bold hover:bg-white/20 transition-colors"
               >
-                📋 Copy
+                 Copy
               </button>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function BetaSignup() {
       {/* Nav */}
       <div className="border-b border-white/10 px-4 py-4 flex items-center justify-between max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🦉</span>
+          <span className="text-2xl"></span>
           <span className="font-black text-lg tracking-tight">AthlynX</span>
         </Link>
         <Link href="/signin" className="text-white/50 hover:text-white text-sm transition-colors">
@@ -149,7 +149,7 @@ export default function BetaSignup() {
             {/* Social proof */}
             <div className="mt-8 flex items-center gap-4">
               <div className="flex -space-x-2">
-                {["🏆", "⚾", "🏀", "⚽", "🏈"].map((e, i) => (
+                {["", "", "", "", ""].map((e, i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-sm">
                     {e}
                   </div>
@@ -229,7 +229,7 @@ export default function BetaSignup() {
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-[#1E90FF] transition-colors"
                     />
                   </div>
-                  {error && <p className="text-red-400 text-sm">{error}</p>}
+                  {error && <p className="text-[#1E90FF] text-sm">{error}</p>}
                   <button
                     onClick={() => { if (email && name) setStep("sport"); else setError("Please fill in your name and email."); }}
                     className="w-full py-3 bg-[#1E90FF] text-white rounded-xl font-bold hover:bg-[#1E90FF]/80 transition-colors"
@@ -259,13 +259,13 @@ export default function BetaSignup() {
                     </button>
                   ))}
                 </div>
-                {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
+                {error && <p className="text-[#1E90FF] text-sm mb-3">{error}</p>}
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
                   className="w-full py-3 bg-[#1E90FF] text-white rounded-xl font-bold hover:bg-[#1E90FF]/80 transition-colors disabled:opacity-50"
                 >
-                  {loading ? "Joining..." : "Join Beta — BE THE LEGACY 🦉"}
+                  {loading ? "Joining..." : "Join Beta — BE THE LEGACY "}
                 </button>
                 <button onClick={() => setStep("info")} className="w-full mt-2 text-center text-white/40 text-sm hover:text-white/60 transition-colors">
                   ← Back

@@ -32,8 +32,8 @@ function FounderPodcastInner() {
 
       <section className="container mx-auto px-4 py-10 max-w-5xl">
         <div className="flex items-center gap-3 mb-2">
-          <Mic className="w-6 h-6 text-sky-400" />
-          <div className="text-sky-400 text-xs font-semibold tracking-wider">FOUNDER PODCAST</div>
+          <Mic className="w-6 h-6 text-[#00C2FF]" />
+          <div className="text-[#00C2FF] text-xs font-semibold tracking-wider">FOUNDER PODCAST</div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold mb-3">Real talk. Real athletes.</h1>
         <p className="text-slate-300 max-w-2xl">
@@ -70,7 +70,7 @@ function FounderPodcastInner() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 text-xs text-slate-500 mb-1">
                         {ep.episodeNumber && (
-                          <span className="text-sky-400">EP {ep.episodeNumber}</span>
+                          <span className="text-[#00C2FF]">EP {ep.episodeNumber}</span>
                         )}
                         {ep.publishedAt && (
                           <span>{new Date(ep.publishedAt).toLocaleDateString()}</span>

@@ -19,12 +19,12 @@ function DataCentersInner() {
       <section className="py-20 px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-500/30 rounded-full px-4 py-2 text-blue-300 text-sm mb-6"><Building2 className="w-4 h-4" /> A DOZIER HOLDINGS GROUP COMPANY</div>
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center"><Server className="w-10 h-10 text-white" /></div>
-          <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight"><span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">VC DATA CENTERS</span></h1>
+          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#00C2FF] to-emerald-600 rounded-2xl flex items-center justify-center"><Server className="w-10 h-10 text-white" /></div>
+          <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight"><span className="bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] bg-clip-text text-transparent">VC DATA CENTERS</span></h1>
           <p className="text-xl text-blue-200 mb-2 font-bold">Next-Generation Infrastructure</p>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">Enterprise-grade data center operations powering the entire DHG ecosystem with 99.99% uptime, geothermal energy initiatives, and AI-optimized compute infrastructure.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/infrastructure"><button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold px-8 py-3 rounded-xl transition-all">View Infrastructure <ChevronRight className="inline w-4 h-4" /></button></Link>
+            <Link href="/infrastructure"><button className="bg-gradient-to-r from-[#00C2FF] to-emerald-600 hover:from-[#00C2FF] hover:to-[#00C2FF] text-white font-bold px-8 py-3 rounded-xl transition-all">View Infrastructure <ChevronRight className="inline w-4 h-4" /></button></Link>
             <Link href="/dhg"><button className="border border-blue-500 text-blue-300 hover:bg-blue-900/40 font-bold px-8 py-3 rounded-xl transition-all">DHG Corporate</button></Link>
           </div>
         </div>
@@ -41,11 +41,11 @@ function DataCentersInner() {
               { icon: Shield, title: 'Security Operations', desc: 'SOC 2 Type II certified, 24/7 monitoring, DDoS protection, and enterprise-grade cybersecurity protocols.', link: '/hipaa' },
               { icon: Wifi, title: 'Network Operations', desc: 'Multi-carrier redundant connectivity with BGP routing and automatic failover for maximum reliability.', link: '/infrastructure-manager' },
             ].map((s, i) => (
-              <Link key={i} href={s.link}><div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 hover:border-green-500/50 hover:bg-slate-800/80 transition-all cursor-pointer group">
-                <s.icon className="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+              <Link key={i} href={s.link}><div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 hover:border-[#00C2FF]/50 hover:bg-slate-800/80 transition-all cursor-pointer group">
+                <s.icon className="w-8 h-8 text-[#00C2FF] mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
                 <p className="text-gray-400 text-sm">{s.desc}</p>
-                <div className="mt-4 flex items-center gap-1 text-green-400 text-sm font-semibold">Learn More <ChevronRight className="w-4 h-4" /></div>
+                <div className="mt-4 flex items-center gap-1 text-[#00C2FF] text-sm font-semibold">Learn More <ChevronRight className="w-4 h-4" /></div>
               </div></Link>
             ))}
           </div>

@@ -10,7 +10,7 @@ import { supabase } from "./supabase";
 
 export const isFirebaseConfigured = true; // Supabase is always configured
 
-// ─── Shared types ──────────────────────────────────────────────────────────
+//  Shared types 
 
 export type FirebaseUser = {
   uid: string;
@@ -21,7 +21,7 @@ export type FirebaseUser = {
 
 type AuthResult = { idToken: string; user: FirebaseUser };
 
-// ─── OAuth helpers ─────────────────────────────────────────────────────────
+//  OAuth helpers 
 
 async function signInWithOAuth(
   provider: "google" | "apple" | "twitter"
@@ -84,7 +84,7 @@ export async function firebaseSignOut(): Promise<void> {
   await supabase.auth.signOut();
 }
 
-// ─── Email/password helpers backed by Supabase ────────────────────────────
+//  Email/password helpers backed by Supabase 
 
 export async function signInWithEmailAndPassword(
   _auth: unknown,

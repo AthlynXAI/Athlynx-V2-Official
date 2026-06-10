@@ -2,7 +2,7 @@
  * /team/:slug \u2014 individual team-member profile page.
  *
  * Renders one TeamProfileCard at full width (large size) so deep-links like
- * /team/tony-locey resolve to a real page instead of 404'ing. Pulls from
+ * /team/ resolve to a real page instead of 404'ing. Pulls from
  * the canonical ATHLYNX_TEAM roster so any roster edit on /team flows
  * straight through here.
  *

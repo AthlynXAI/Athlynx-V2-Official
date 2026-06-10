@@ -156,13 +156,13 @@ function AthleteLegalInner() {
       {/* Hero */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="flex justify-center mb-4">
-          <div className="flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-4 py-2">
-            <Scale className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-300 text-sm font-semibold">AthlynX LEGAL HUB</span>
+          <div className="flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-4 py-2">
+            <Scale className="w-4 h-4 text-[#1E90FF]" />
+            <span className="text-[#1E90FF] text-sm font-semibold">AthlynX LEGAL HUB</span>
           </div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-black text-center mb-3">
-          Athlete Legal <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">Protection</span>
+          Athlete Legal <span className="bg-gradient-to-r from-[#1E90FF] to-violet-400 bg-clip-text text-transparent">Protection</span>
         </h1>
         <p className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-8">
           LegalZoom-style legal services built for athletes. NIL contracts, agent agreements, trademark protection, and eligibility defense — all in one place.
@@ -177,7 +177,7 @@ function AthleteLegalInner() {
             { value: "94%", label: "Win Rate" }
           ].map((s, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-              <div className="text-xl font-black text-purple-400">{s.value}</div>
+              <div className="text-xl font-black text-[#1E90FF]">{s.value}</div>
               <div className="text-xs text-slate-400 mt-1">{s.label}</div>
             </div>
           ))}
@@ -189,7 +189,7 @@ function AthleteLegalInner() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-purple-600 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-[#1E90FF] text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
             >
               {tab}
             </button>
@@ -200,9 +200,9 @@ function AthleteLegalInner() {
         {activeTab === "attorneys" && (
           <div className="space-y-5">
             {ATTORNEYS.map((atty, i) => (
-              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${atty.featured ? "border-purple-400/40" : "border-white/10"}`}>
+              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${atty.featured ? "border-[#1E90FF]/40" : "border-white/10"}`}>
                 {atty.featured && (
-                  <div className="flex items-center gap-1 text-xs text-sky-400 font-semibold mb-3">
+                  <div className="flex items-center gap-1 text-xs text-[#00C2FF] font-semibold mb-3">
                     <Star className="w-3 h-3 fill-blue-400" />
                     FEATURED ATTORNEY
                   </div>
@@ -210,32 +210,32 @@ function AthleteLegalInner() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-black text-white">{atty.name}</h3>
-                    <p className="text-purple-400 text-sm font-semibold">{atty.firm}</p>
+                    <p className="text-[#1E90FF] text-sm font-semibold">{atty.firm}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3 text-slate-400" />
                       <span className="text-slate-400 text-xs">{atty.location}</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${atty.available ? "bg-green-500/20 text-green-400" : "bg-slate-500/20 text-slate-400"}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${atty.available ? "bg-green-400" : "bg-slate-400"}`} />
+                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${atty.available ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-slate-500/20 text-slate-400"}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${atty.available ? "bg-[#00C2FF]" : "bg-slate-400"}`} />
                       {atty.available ? "Available" : "Busy"}
                     </div>
                     <div className="flex items-center gap-1 mt-1 justify-end">
-                      <Star className="w-3 h-3 text-sky-400 fill-blue-400" />
+                      <Star className="w-3 h-3 text-[#00C2FF] fill-blue-400" />
                       <span className="text-white text-sm font-bold">{atty.rating}</span>
                       <span className="text-slate-400 text-xs">({atty.reviews})</span>
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-2 mb-4">
-                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-sm font-black text-purple-400">{atty.cases}</div><div className="text-xs text-slate-400">Cases</div></div>
-                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-green-400">{atty.responseTime}</div><div className="text-xs text-slate-400">Response</div></div>
-                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-sky-400">Free</div><div className="text-xs text-slate-400">Consult</div></div>
+                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-sm font-black text-[#1E90FF]">{atty.cases}</div><div className="text-xs text-slate-400">Cases</div></div>
+                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-[#00C2FF]">{atty.responseTime}</div><div className="text-xs text-slate-400">Response</div></div>
+                  <div className="bg-white/5 rounded-lg p-2 text-center"><div className="text-xs font-black text-[#00C2FF]">Free</div><div className="text-xs text-slate-400">Consult</div></div>
                 </div>
                 <div className="flex flex-wrap gap-1 mb-3">
                   {atty.bar.map((b, j) => (
-                    <span key={j} className="text-xs bg-purple-500/20 text-purple-300 border border-purple-400/30 px-2 py-0.5 rounded-full">Bar: {b}</span>
+                    <span key={j} className="text-xs bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 px-2 py-0.5 rounded-full">Bar: {b}</span>
                   ))}
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">{atty.bio}</p>
@@ -243,7 +243,7 @@ function AthleteLegalInner() {
                   {atty.specialties.map((s, j) => <span key={j} className="text-xs bg-white/10 text-slate-300 px-2 py-0.5 rounded-full">{s}</span>)}
                 </div>
                 <div className="flex gap-2">
-                  <button className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold py-2.5 rounded-xl transition-all">
+                  <button className="flex-1 flex items-center justify-center gap-2 bg-[#1E90FF] hover:bg-[#1E90FF] text-white text-sm font-bold py-2.5 rounded-xl transition-all">
                     <Calendar className="w-4 h-4" />
                     Book Free Consultation
                   </button>
@@ -263,12 +263,12 @@ function AthleteLegalInner() {
             {LEGAL_SERVICES.map((svc, i) => {
               const Icon = svc.icon;
               return (
-                <div key={i} className={`bg-white/5 border rounded-xl p-5 hover:bg-white/10 transition-all cursor-pointer relative ${svc.popular ? "border-purple-400/40" : "border-white/10"}`}>
-                  {svc.popular && <div className="absolute -top-2 left-4 bg-purple-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">MOST POPULAR</div>}
-                  <Icon className="w-8 h-8 text-purple-400 mb-3" />
+                <div key={i} className={`bg-white/5 border rounded-xl p-5 hover:bg-white/10 transition-all cursor-pointer relative ${svc.popular ? "border-[#1E90FF]/40" : "border-white/10"}`}>
+                  {svc.popular && <div className="absolute -top-2 left-4 bg-[#1E90FF] text-white text-xs font-bold px-2 py-0.5 rounded-full">MOST POPULAR</div>}
+                  <Icon className="w-8 h-8 text-[#1E90FF] mb-3" />
                   <h3 className="text-white font-bold mb-1">{svc.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-3">{svc.desc}</p>
-                  <div className="text-purple-400 text-sm font-bold">{svc.price}</div>
+                  <div className="text-[#1E90FF] text-sm font-bold">{svc.price}</div>
                 </div>
               );
             })}
@@ -281,14 +281,14 @@ function AthleteLegalInner() {
             {/* NIL Contract Checklist */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <h2 className="text-xl font-black text-white mb-4 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
+                <CheckCircle className="w-5 h-5 text-[#00C2FF]" />
                 NIL Contract Review Checklist
               </h2>
               <p className="text-slate-400 text-sm mb-4">Before you sign ANY NIL deal, make sure these 8 items are clearly addressed:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {CONTRACT_CHECKLIST.map((item, i) => (
                   <div key={i} className="flex items-start gap-2 bg-white/5 rounded-lg p-3">
-                    <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />
                     <span className="text-slate-300 text-sm">{item}</span>
                   </div>
                 ))}
@@ -308,7 +308,7 @@ function AthleteLegalInner() {
                   placeholder="Search your state..."
                   value={stateSearch}
                   onChange={e => setStateSearch(e.target.value)}
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-10 pr-4 py-2.5 text-white placeholder-slate-400 focus:outline-none focus:border-purple-400 text-sm"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-10 pr-4 py-2.5 text-white placeholder-slate-400 focus:outline-none focus:border-[#1E90FF] text-sm"
                 />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -325,13 +325,13 @@ function AthleteLegalInner() {
         )}
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-purple-900/50 to-violet-900/50 border border-purple-400/20 rounded-2xl p-6 sm:p-8 text-center">
-          <Scale className="w-10 h-10 text-purple-400 mx-auto mb-3" />
+        <div className="mt-12 bg-gradient-to-r from-[#1E90FF]/50 to-violet-900/50 border border-[#1E90FF]/20 rounded-2xl p-6 sm:p-8 text-center">
+          <Scale className="w-10 h-10 text-[#1E90FF] mx-auto mb-3" />
           <h3 className="text-xl font-black text-white mb-2">Are You a Sports Attorney?</h3>
           <p className="text-slate-400 text-sm mb-4 max-w-xl mx-auto">
             Join the AthlynX Legal Network and connect with athletes who need your expertise. Access our NIL deal database and athlete profile system.
           </p>
-          <button className="bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
+          <button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
             Apply to Join the Network
           </button>
         </div>

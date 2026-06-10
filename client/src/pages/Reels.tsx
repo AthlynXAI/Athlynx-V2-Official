@@ -18,13 +18,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/SNHQDsOUVYFJwfUT.mp4`,
     poster: "https://athlynx.ai/athlete-football.jpg",
     athlete: { name: "Marcus Johnson", sport: "Football", position: "QB", school: "Texas A&M", avatar: "https://athlynx.ai/athlete-football.jpg" },
-    caption: "7-on-7 route running — precision routes all day 🏈 #Football #Recruiting #NIL",
+    caption: "7-on-7 route running — precision routes all day  #Football #Recruiting #NIL",
     likes: 1247,
     comments: 89,
     shares: 203,
     saves: 1200,
     audio: "Original Sound · Marcus Johnson",
-    badge: "🏈 FOOTBALL",
+    badge: " FOOTBALL",
     liked: false,
     saved: false,
   },
@@ -33,13 +33,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/ImBnRmTCxfoaENos.mp4`,
     poster: "https://athlynx.ai/athlete-baseball.jpg",
     athlete: { name: "Deon Williams", sport: "Baseball", position: "SS", school: "East Cobb Yankees", avatar: "https://athlynx.ai/athlete-baseball.jpg" },
-    caption: "Positive angle through the ball — Brent Rooker mechanics study ⚾ #Baseball #DiamondGrind #NIL",
+    caption: "Positive angle through the ball — Brent Rooker mechanics study  #Baseball #DiamondGrind #NIL",
     likes: 607,
     comments: 13,
     shares: 35,
     saves: 1200,
     audio: "Zach Bryan · American...",
-    badge: "⚾ BASEBALL",
+    badge: " BASEBALL",
     liked: false,
     saved: false,
   },
@@ -48,13 +48,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/exlwMUmNOQhJjidX.mp4`,
     poster: "https://athlynx.ai/athlete-basketball.jpg",
     athlete: { name: "Jordan Davis", sport: "Basketball", position: "PG", school: "Overtime Elite", avatar: "https://athlynx.ai/athlete-basketball.jpg" },
-    caption: "Court vision + IQ — reading the defense before the pass 🏀 #Basketball #CourtKings #Recruiting",
+    caption: "Court vision + IQ — reading the defense before the pass  #Basketball #CourtKings #Recruiting",
     likes: 3891,
     comments: 247,
     shares: 512,
     saves: 2800,
     audio: "Original Sound · Jordan Davis",
-    badge: "🏀 BASKETBALL",
+    badge: " BASKETBALL",
     liked: false,
     saved: false,
   },
@@ -63,13 +63,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/SyHtmDgqKAycRzBN.mp4`,
     poster: "https://athlynx.ai/athlete-track.jpg",
     athlete: { name: "Aaliyah Thompson", sport: "Track & Field", position: "100m/200m", school: "LSU", avatar: "https://athlynx.ai/athlete-track.jpg" },
-    caption: "Sub-11 training block 🔥 Building toward nationals. AthlynX tracking every rep 🏃‍♀️ #Track #NIL #Recruiting",
+    caption: "Sub-11 training block  Building toward nationals. AthlynX tracking every rep  #Track #NIL #Recruiting",
     likes: 2103,
     comments: 156,
     shares: 289,
     saves: 1900,
     audio: "Original Sound · Aaliyah Thompson",
-    badge: "🏃 TRACK",
+    badge: " TRACK",
     liked: false,
     saved: false,
   },
@@ -78,13 +78,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/ZfMgzTWXcpwXcMCt.mp4`,
     poster: "https://athlynx.ai/athlete-training.jpg",
     athlete: { name: "AthlynXAI", sport: "Platform", position: "AI Coach", school: "athlynx.ai", avatar: "https://athlynx.ai/athlynx-icon.png" },
-    caption: "AthlynXAI — The future of athlete development. Every sport. Every tool. Your edge. 🏆 #AthlynX #NIL #Recruiting",
+    caption: "AthlynXAI — The future of athlete development. Every sport. Every tool. Your edge.  #AthlynX #NIL #Recruiting",
     likes: 8420,
     comments: 634,
     shares: 1203,
     saves: 5600,
     audio: "Original Sound · AthlynXAI",
-    badge: "🏆 AthlynX",
+    badge: " AthlynX",
     liked: false,
     saved: false,
   },
@@ -93,13 +93,13 @@ const SEED_REELS = [
     videoUrl: `${CDN}/SwXAovMVYCnPjnZu.mp4`,
     poster: "https://athlynx.ai/champion-hero.jpg",
     athlete: { name: "Carlos Mendez", sport: "Soccer", position: "CAM", school: "Evoshield Canes", avatar: "https://athlynx.ai/athlete-football.jpg" },
-    caption: "First touch + vision — this is what scouts want to see ⚽ #Soccer #PitchPulse #NIL",
+    caption: "First touch + vision — this is what scouts want to see  #Soccer #PitchPulse #NIL",
     likes: 1876,
     comments: 94,
     shares: 178,
     saves: 1100,
     audio: "Original Sound · Carlos Mendez",
-    badge: "⚽ SOCCER",
+    badge: " SOCCER",
     liked: false,
     saved: false,
   },
@@ -189,7 +189,7 @@ function ReelCard({
       {/* Double-tap heart */}
       {showHeart && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none animate-ping">
-          <span className="text-7xl">❤️</span>
+          <span className="text-7xl"></span>
         </div>
       )}
 
@@ -220,7 +220,7 @@ function ReelCard({
       <div className="absolute right-3 bottom-24 flex flex-col items-center gap-5 z-10">
         {/* Like */}
         <button onClick={(e) => { e.stopPropagation(); onLike(); }} className="flex flex-col items-center gap-1">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center ${reel.liked ? "bg-red-500" : "bg-black/50 backdrop-blur"}`}>
+          <div className={`w-11 h-11 rounded-full flex items-center justify-center ${reel.liked ? "bg-[#1E90FF]" : "bg-black/50 backdrop-blur"}`}>
             <svg className="w-6 h-6 text-white" fill={reel.liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
             </svg>
@@ -302,9 +302,9 @@ function ReelCard({
 
         {/* School + Position */}
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-gray-300 text-xs">🏫 {reel.athlete.school}</span>
+          <span className="text-gray-300 text-xs"> {reel.athlete.school}</span>
           <span className="text-gray-500 text-xs">·</span>
-          <span className="text-gray-300 text-xs">📍 {reel.athlete.position}</span>
+          <span className="text-gray-300 text-xs"> {reel.athlete.position}</span>
         </div>
 
         {/* Audio */}
@@ -469,7 +469,7 @@ function ReelsInner() {
       {user && (
         <Link
           href="/feed"
-          className="absolute bottom-20 right-4 z-30 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
+          className="absolute bottom-20 right-4 z-30 w-12 h-12 bg-gradient-to-br from-blue-600 to-[#0a1628] rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
           style={{ bottom: "calc(72px + env(safe-area-inset-bottom, 0px))" }}
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

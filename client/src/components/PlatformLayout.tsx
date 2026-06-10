@@ -38,7 +38,7 @@ const APPS = [
   { id: "court-kings", label: "Court Kings", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/court-kings" },
   { id: "pitch-pulse", label: "Pitch Pulse Soccer", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/pitch-pulse" },
   { id: "fairway-elite", label: "Fairway Elite Golf", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/fairway-elite" },
-  { id: "x-factor", label: "X-Factor Feed", icon: "/xfactor-logo-dark.png", badge: "HOT", href: "/x-factor" },
+  { id: "epx", label: "Athlete Feed", icon: "/epx-logo-dark.png", badge: "HOT", href: "/epx" },
   { id: "nil-jobs", label: "NIL Jobs", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/nil-jobs" },
   { id: "elite-events", label: "Elite Events", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/elite-events" },
   { id: "wellness", label: "Wellness Portal", icon: "/athlynx-app-icon.png", badge: "NEW", href: "/wellness" },
@@ -64,17 +64,17 @@ const APPS = [
 
 
 const BADGE_COLORS: Record<string, string> = {
-  LIVE: "bg-green-600",
+  LIVE: "bg-[#00C2FF]",
   NEW: "bg-blue-600",
-  HOT: "bg-red-500",
+  HOT: "bg-[#1E90FF]",
   ELITE: "bg-blue-700",
-  AI: "bg-cyan-600",
-  BLEND: "bg-red-600",
+  AI: "bg-[#1565C0]",
+  BLEND: "bg-[#1E90FF]",
   SOON: "bg-gray-600",
-  BIZ: "bg-indigo-600",
+  BIZ: "bg-[#1E90FF]",
   PRO: "bg-blue-700",
-  ADMIN: "bg-red-700",
-  TEAM: "bg-emerald-700",
+  ADMIN: "bg-[#1E90FF]",
+  TEAM: "bg-[#1E90FF]",
 };
 
 interface PlatformLayoutProps {
@@ -82,7 +82,7 @@ interface PlatformLayoutProps {
   title?: string;
 }
 
-// ── Module-level guard — persists across unmount/remount cycles during SPA navigation.
+//  Module-level guard — persists across unmount/remount cycles during SPA navigation.
 // A useRef inside the component resets to false every time wouter mounts a new page
 // component (each page has its own PlatformLayout instance), causing the onboarding
 // splash to re-trigger on every "Your Apps" navigation. Moving this outside the
@@ -131,7 +131,7 @@ function NotificationBell({ user }: { user: any }) {
           <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
         </svg>
         {unread > 0 && (
-          <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-[9px] font-bold text-white">
+          <span className="absolute top-1 right-1 w-4 h-4 bg-[#1E90FF] rounded-full flex items-center justify-center text-[9px] font-bold text-white">
             {unread > 9 ? "9+" : unread}
           </span>
         )}
@@ -272,7 +272,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
         }} />
       )}
       {/* Top announcement bar */}
-      <div className="border-b border-blue-300/20 bg-gradient-to-r from-[#05070f] via-[#101a32] to-[#05070f] text-center text-[10px] py-1.5 tracking-[0.34em] font-black text-sky-200 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+      <div className="border-b border-blue-300/20 bg-gradient-to-r from-[#05070f] via-[#101a32] to-[#05070f] text-center text-[10px] py-1.5 tracking-[0.34em] font-black text-[#00C2FF] shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
         AthlynXAI · THE ATHLETE OPERATING SYSTEM · LIVE
       </div>
       <div className="athlynx-brand-family-ribbon text-center text-[9px] sm:text-[10px] py-1.5 px-3 tracking-[0.26em] font-black uppercase text-white/80">
@@ -282,7 +282,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
       {/* Trial banner */}
       {user && isInTrial && (
         <div className="bg-gradient-to-r from-[#00c2ff]/20 to-[#0066ff]/20 border-b border-[#00c2ff]/30 text-center py-1.5 px-4 flex items-center justify-center gap-3">
-          <span className="text-[#00c2ff] text-xs font-bold">🎯 FREE TRIAL — {trialDaysLeft} day{trialDaysLeft !== 1 ? 's' : ''} remaining</span>
+          <span className="text-[#00c2ff] text-xs font-bold"> FREE TRIAL — {trialDaysLeft} day{trialDaysLeft !== 1 ? 's' : ''} remaining</span>
           <Link href="/billing" className="text-xs bg-[#00c2ff] text-[#0a0f1e] font-black px-3 py-0.5 rounded-full hover:bg-white transition-colors">
             Upgrade Now
           </Link>
@@ -290,23 +290,23 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
       )}
       {/* Trial expired banner */}
       {user && trialExpired && (
-        <div className="bg-gradient-to-r from-red-900/40 to-red-900/40 border-b border-red-700/50 text-center py-1.5 px-4 flex items-center justify-center gap-3">
-          <span className="text-red-300 text-xs font-bold">⚠️ FREE TRIAL ENDED — Upgrade to keep full access</span>
-          <Link href="/billing" className="text-xs bg-red-500 text-white font-black px-3 py-0.5 rounded-full hover:bg-red-400 transition-colors">
+        <div className="bg-gradient-to-r from-[#1E90FF]/40 to-[#0a1628]/40 border-b border-[#1E90FF]/50 text-center py-1.5 px-4 flex items-center justify-center gap-3">
+          <span className="text-[#1E90FF] text-xs font-bold"> FREE TRIAL ENDED — Upgrade to keep full access</span>
+          <Link href="/billing" className="text-xs bg-[#1E90FF] text-white font-black px-3 py-0.5 rounded-full hover:bg-[#1E90FF] transition-colors">
             Upgrade Now
           </Link>
         </div>
       )}
 
       {/* Top Navbar */}
-      <nav className="sticky top-0 z-50 border-b border-cyan-300/15 bg-slate-950/86 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+      <nav className="sticky top-0 z-50 border-b border-[#1E90FF]/30 bg-slate-950/86 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <img src="/athlynx-app-icon.png?v=athlynx-clean-mark-20260526" alt="AthlynX" className="w-9 h-9 rounded-xl object-cover ring-1 ring-cyan-200/35 shadow-[0_0_28px_rgba(34,211,238,0.28)]" />
             <div className="hidden sm:block">
               <div className="text-white font-black text-lg leading-none tracking-wide">AthlynXAI</div>
-              <div className="text-sky-200 text-[9px] tracking-[0.24em] leading-none">THE ATHLETE'S PLAYBOOK</div>
+              <div className="text-[#00C2FF] text-[9px] tracking-[0.24em] leading-none">THE ATHLETE'S PLAYBOOK</div>
             </div>
           </Link>
 
@@ -340,22 +340,22 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                 <Link href="/billing">
                   <span className={`inline-flex items-center gap-0.5 text-[10px] font-bold px-2 py-1 rounded-full cursor-pointer transition-colors ${
                     liveCredits < 50
-                      ? 'bg-red-500/20 text-red-400 border border-red-500/40 animate-pulse'
+                      ? 'bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/40 animate-pulse'
                       : 'bg-[#0066ff]/10 text-[#00c2ff] border border-[#0066ff]/30 hover:bg-[#0066ff]/20'
                   }`}>
-                    ⚡ {liveCredits.toLocaleString()}
+                     {liveCredits.toLocaleString()}
                   </span>
                 </Link>
               </div>
             )}
 
-            <Link href="/feed" className={`p-2 rounded-lg transition-colors ${location === '/feed' ? 'bg-cyan-300/15 text-cyan-100 ring-1 ring-cyan-300/30' : 'hover:bg-white/5 text-slate-200'}`}>
+            <Link href="/feed" className={`p-2 rounded-lg transition-colors ${location === '/feed' ? 'bg-[#1E90FF]/20 text-[#00C2FF] ring-1 ring-cyan-300/30' : 'hover:bg-white/5 text-slate-200'}`}>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
               </svg>
             </Link>
 
-            <Link href="/messenger" className={`p-2 rounded-lg transition-colors relative ${location === '/messenger' ? 'bg-cyan-300/15 text-cyan-100 ring-1 ring-cyan-300/30' : 'hover:bg-white/5 text-slate-200'}`}>
+            <Link href="/messenger" className={`p-2 rounded-lg transition-colors relative ${location === '/messenger' ? 'bg-[#1E90FF]/20 text-[#00C2FF] ring-1 ring-cyan-300/30' : 'hover:bg-white/5 text-slate-200'}`}>
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
               </svg>
@@ -376,7 +376,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
               href="/investor-hub"
               className="hidden sm:inline-flex items-center gap-1 ml-1 text-[10px] font-black px-2.5 py-1.5 rounded-lg transition-all border border-[#0066ff]/50 bg-[#0066ff]/10 text-[#00c2ff] hover:bg-[#0066ff]/20 hover:text-white tracking-widest uppercase whitespace-nowrap"
             >
-              💰 INVESTORS
+               INVESTORS
             </Link>
 
             {user ? (
@@ -386,7 +386,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                 ) : SilhouetteSvg}
               </Link>
             ) : (
-              <Link href="/signup" className="ml-1 text-xs bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-400 hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] font-bold px-3 py-1.5 rounded-lg transition-colors">
+              <Link href="/signup" className="ml-1 text-xs bg-gradient-to-r from-blue-300 via-[#1E90FF] to-violet-400 hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] font-bold px-3 py-1.5 rounded-lg transition-colors">
                 Sign In / Sign Up
               </Link>
             )}
@@ -446,7 +446,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                   { href: '/transfer-portal', label: 'Transfer Portal',  sub: 'Find your next school' },
                   { href: '/ai-recruiter',    label: 'AI Recruiter',     sub: 'Get discovered by coaches' },
                   { href: '/athlete-playbook',label: 'Athlete Playbook', sub: 'Your recruiting blueprint' },
-                  { href: '/x-factor',        label: 'X-Factor Feed',    sub: 'Athlete culture & highlights' },
+                  { href: '/epx',        label: 'Athlete Feed',    sub: 'Athlete culture & highlights' },
                   { href: '/messenger',       label: 'Messenger',        sub: 'Direct messages' },
                   { href: '/pricing',         label: 'Pricing' },
                 ].map(item => (
@@ -473,16 +473,16 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                   <div className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">Sports</div>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                     {[
-                      { href: '/gridiron-nexus', label: '🏈 Football' },
-                      { href: '/diamond-grind',  label: '⚾ Baseball' },
-                      { href: '/court-kings',    label: '🏀 Basketball' },
-                      { href: '/net-setters',    label: '🏐 Volleyball' },
-                      { href: '/fairway-elite',  label: '⛳ Golf' },
-                      { href: '/mat-warriors',   label: '🤼 Wrestling' },
-                      { href: '/swim-surge',     label: '🏊 Swimming' },
-                      { href: '/track-elite',    label: '🏃 Track & Field' },
-                      { href: '/ice-breakers',   label: '🏒 Hockey' },
-                      { href: '/reel-masters',   label: '🎣 Fishing' },
+                      { href: '/gridiron-nexus', label: ' Football' },
+                      { href: '/diamond-grind',  label: ' Baseball' },
+                      { href: '/court-kings',    label: ' Basketball' },
+                      { href: '/net-setters',    label: ' Volleyball' },
+                      { href: '/fairway-elite',  label: ' Golf' },
+                      { href: '/mat-warriors',   label: ' Wrestling' },
+                      { href: '/swim-surge',     label: ' Swimming' },
+                      { href: '/track-elite',    label: ' Track & Field' },
+                      { href: '/ice-breakers',   label: ' Hockey' },
+                      { href: '/reel-masters',   label: ' Fishing' },
                     ].map(s => (
                       <Link key={s.href} href={s.href}
                         onClick={() => setMobileMenuOpen(false)}
@@ -564,7 +564,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
           {/* Sign In CTA — only show when not logged in */}
           {!user && (
             <div className="bg-gradient-to-br from-[#1a3a8f] to-[#0d1b3e] rounded-xl border border-blue-600 p-4 text-center">
-              <div className="text-white font-black text-sm mb-1">⚡ Join AthlynX Free</div>
+              <div className="text-white font-black text-sm mb-1"> Join AthlynX Free</div>
               <div className="text-blue-300 text-xs mb-3">7-day free trial. Card required, not charged until day 8.</div>
               <Link href="/signup" className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-black text-sm py-2.5 rounded-xl transition-all mb-2">
                 Start Free Trial →
@@ -597,11 +597,11 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
           </div>
 
           {/* DHG link */}
-          <Link href="/dhg-empire" className="bg-[#1a3a8f] rounded-xl border border-red-700/40 p-3 flex items-center gap-3 hover:bg-white/5 hover:border-red-500/60 transition-colors">
+          <Link href="/dhg-empire" className="bg-[#1a3a8f] rounded-xl border border-[#1E90FF]/40 p-3 flex items-center gap-3 hover:bg-white/5 hover:border-[#1E90FF]/60 transition-colors">
             <img src="/logos/dhg-crab-logo.png" alt="DHG" className="w-10 h-10 rounded-lg object-cover" />
             <div>
               <div className="text-sm font-bold text-white">DHG Empire</div>
-              <div className="text-red-400/70 text-xs">All 20+ Companies</div>
+              <div className="text-[#1E90FF]/70 text-xs">All 20+ Companies</div>
             </div>
           </Link>
           {/* Parent Company external link */}
@@ -636,9 +636,9 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
           {/* PAYWALL GATE — hard block when trial expired and no active subscription */}
           {user && trialExpired ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 py-12">
-              <div className="max-w-lg w-full bg-gradient-to-br from-[#0a1628] via-[#1a3a8f] to-[#0a1628] border-2 border-red-500/60 rounded-3xl p-8 text-center shadow-2xl">
-                <div className="text-5xl mb-4">🔒</div>
-                <div className="text-red-400 text-xs uppercase tracking-widest font-bold mb-2">Trial Ended</div>
+              <div className="max-w-lg w-full bg-gradient-to-br from-[#0a1628] via-[#1a3a8f] to-[#0a1628] border-2 border-[#1E90FF]/60 rounded-3xl p-8 text-center shadow-2xl">
+                <div className="text-5xl mb-4 hidden"></div>
+                <div className="text-[#1E90FF] text-xs uppercase tracking-widest font-bold mb-2">Trial Ended</div>
                 <h2 className="text-white font-black text-2xl mb-3">Your Free Trial Has Expired</h2>
                 <p className="text-blue-200 text-sm leading-relaxed mb-6">
                   Your 7-day free trial has ended. Choose a plan to keep full access to all 20+ AthlynX apps — NIL Portal, Transfer Portal, Diamond Grind, Warriors Playbook, and more.
@@ -646,13 +646,13 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {([{name:"STARTER",price:"$9.99",color:"#0066ff",id:"athlete_starter"},{name:"PRO",price:"$49.99",color:"#00c2ff",popular:true,id:"athlete_pro"},{name:"ELITE",price:"$99.99",color:"#7c3aed",id:"athlete_elite"}] as any[]).map((p: any) => (
                     <Link key={p.name} href={`/pricing?plan=${p.id}`} className="rounded-xl border p-3 hover:scale-105 transition-all cursor-pointer block" style={{borderColor: p.color + '44', backgroundColor: p.color + '11'}}>
-                      {p.popular && <div className="text-[9px] font-black text-red-400 mb-1">POPULAR</div>}
+                      {p.popular && <div className="text-[9px] font-black text-[#1E90FF] mb-1">POPULAR</div>}
                       <div className="font-black text-white text-sm">{p.name}</div>
                       <div className="font-black text-lg" style={{color: p.color}}>{p.price}<span className="text-xs text-blue-400">/mo</span></div>
                     </Link>
                   ))}
                 </div>
-                <Link href="/pricing" className="block w-full bg-gradient-to-r from-red-400 to-red-500 hover:from-red-300 hover:to-red-400 text-black font-black text-lg py-3 rounded-xl transition-all shadow-xl hover:scale-105">
+                <Link href="/pricing" className="block w-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-black font-black text-lg py-3 rounded-xl transition-all shadow-xl hover:scale-105">
                   CHOOSE YOUR PLAN →
                 </Link>
                 <div className="mt-4 text-blue-400 text-xs">No contracts. Cancel anytime. Instant access.</div>
@@ -679,7 +679,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
               </div>
               <div className="flex items-center justify-between py-1">
                 <span className="text-blue-300 text-sm">Status</span>
-                <span className="text-green-400 font-bold text-sm">🟢 LIVE NOW</span>
+                <span className="text-[#00C2FF] font-bold text-sm"> LIVE NOW</span>
               </div>
             </div>
           </div>
@@ -687,14 +687,14 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
           {/* Countdown */}
           <div className="bg-gradient-to-br from-blue-900 to-[#1530a0] rounded-xl border border-blue-700 p-4 text-center">
             <div className="text-blue-300 text-xs uppercase tracking-widest mb-1">Platform Status</div>
-            <div className="text-green-400 font-black text-2xl">🟢 LIVE NOW</div>
+            <div className="text-[#00C2FF] font-black text-2xl"> LIVE NOW</div>
             <div className="text-blue-400 text-xs mt-1">Dreams Do Come True</div>
               {user ? (
-                <Link href="/billing" className="mt-3 block w-full bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-400 hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] text-sm font-bold py-2 rounded-lg transition-colors text-center">
+                <Link href="/billing" className="mt-3 block w-full bg-gradient-to-r from-blue-300 via-[#1E90FF] to-violet-400 hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] text-sm font-bold py-2 rounded-lg transition-colors text-center">
                   View Plans
                 </Link>
               ) : (
-                <Link href="/signup" className="mt-3 block w-full bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-400 hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] text-sm font-bold py-2 rounded-lg transition-colors text-center">
+                <Link href="/signup" className="mt-3 block w-full bg-gradient-to-r from-blue-300 via-[#1E90FF] to-violet-400 hover:from-white hover:via-[#1E90FF] hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] text-sm font-bold py-2 rounded-lg transition-colors text-center">
                   Start Free Trial
                 </Link>
               )}

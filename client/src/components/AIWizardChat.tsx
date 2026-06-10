@@ -367,7 +367,7 @@ export default function AIWizardChat({
             <div className={`max-w-[80%] ${message.role === "user" ? "order-first" : ""}`}>
               <Card className={`p-4 ${
                 message.role === "user" 
-                  ? "bg-cyan-500/20 border-cyan-500/30" 
+                  ? "bg-[#1E90FF]/20 border-[#1E90FF]/30" 
                   : "bg-slate-800/80 border-slate-700"
               }`}>
                 <div className="text-slate-200 text-sm whitespace-pre-wrap">
@@ -393,7 +393,7 @@ export default function AIWizardChat({
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-slate-400 hover:text-green-400 h-8 px-2"
+                      className="text-slate-400 hover:text-[#00C2FF] h-8 px-2"
                       onClick={() => toast.success("Thanks for the feedback!")}
                     >
                       <ThumbsUp className="w-4 h-4" />
@@ -401,7 +401,7 @@ export default function AIWizardChat({
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-slate-400 hover:text-red-400 h-8 px-2"
+                      className="text-slate-400 hover:text-[#1E90FF] h-8 px-2"
                       onClick={() => toast.info("We'll improve this response")}
                     >
                       <ThumbsDown className="w-4 h-4" />
@@ -409,7 +409,7 @@ export default function AIWizardChat({
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-slate-400 hover:text-cyan-400 h-8 px-2"
+                      className="text-slate-400 hover:text-[#00C2FF] h-8 px-2"
                       onClick={() => handleCopy(message.content)}
                     >
                       <Copy className="w-4 h-4" />
@@ -451,7 +451,7 @@ export default function AIWizardChat({
       {messages.length === 1 && (
         <div className="px-4 pb-4">
           <div className="flex items-center gap-2 mb-3">
-            <Lightbulb className="w-4 h-4 text-sky-400" />
+            <Lightbulb className="w-4 h-4 text-[#00C2FF]" />
             <span className="text-slate-400 text-sm">Suggested questions</span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -460,7 +460,7 @@ export default function AIWizardChat({
                 key={index}
                 variant="outline"
                 size="sm"
-                className="border-slate-600 text-slate-300 hover:border-cyan-400 hover:text-cyan-400"
+                className="border-slate-600 text-slate-300 hover:border-[#1E90FF] hover:text-[#00C2FF]"
                 onClick={() => handleSend(q.text)}
               >
                 {q.icon && <span className="mr-1">{q.icon}</span>}

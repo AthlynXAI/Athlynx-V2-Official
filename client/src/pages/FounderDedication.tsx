@@ -46,7 +46,7 @@ function FounderDedicationInner() {
                 This page is private to the AthlynX founder. If you reached it by accident, head back home.
               </p>
               <Link href="/">
-                <Button className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold">
+                <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-slate-950 font-semibold">
                   Back to AthlynX
                 </Button>
               </Link>
@@ -66,7 +66,7 @@ function FounderDedicationOwnerContent() {
   const timestamp = "December 29, 2025 • 9:36 PM CST";
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-cyan-950/20 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-[#1E90FF]/20 to-slate-950">
       <UnifiedNav />
       
       {/* Hero Section */}
@@ -74,20 +74,20 @@ function FounderDedicationOwnerContent() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
         
         {/* Glowing orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#1E90FF]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
             {/* Historic Timestamp */}
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4 text-sm">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4 text-sm">
               <Clock className="w-3 h-3 mr-1" /> {timestamp} • USER #1 • HISTORIC MOMENT
             </Badge>
             
             {/* Crown Icon */}
             <div className="w-24 h-24 mx-auto mb-6 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-500 rounded-full blur-xl opacity-50 animate-pulse" />
-              <div className="relative w-full h-full bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-full blur-xl opacity-50 animate-pulse" />
+              <div className="relative w-full h-full bg-gradient-to-br from-[#1E90FF] to-[#0a1628] rounded-full flex items-center justify-center">
                 <Crown className="w-12 h-12 text-white" />
               </div>
             </div>
@@ -95,7 +95,7 @@ function FounderDedicationOwnerContent() {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
               Founder's Dedication
             </h1>
-            <p className="text-xl text-cyan-400 mb-2">
+            <p className="text-xl text-[#00C2FF] mb-2">
               "Look Ma and Nanny, I Made It"
             </p>
             <p className="text-white/60 max-w-2xl mx-auto mb-8">
@@ -108,11 +108,11 @@ function FounderDedicationOwnerContent() {
 
       {/* The Number 1 - God */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-red-500/10 to-red-500/10 border-red-500/30 overflow-hidden">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 border-[#1E90FF]/30 overflow-hidden">
           <CardContent className="p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
-              <Cross className="w-16 h-16 text-red-400 mx-auto mb-6" />
-              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+              <Cross className="w-16 h-16 text-[#1E90FF] mx-auto mb-6" />
+              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
                 #1 - ABOVE ALL
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -122,8 +122,8 @@ function FounderDedicationOwnerContent() {
                 The number one is the Good Lord up above that gave me so many chances I didn't deserve. 
                 But now I see His purpose and I will never lose sight.
               </p>
-              <blockquote className="border-l-4 border-red-500 pl-6 py-4 bg-slate-900/50 rounded-r-xl">
-                <p className="text-red-400 text-xl italic mb-4">
+              <blockquote className="border-l-4 border-[#1E90FF] pl-6 py-4 bg-slate-900/50 rounded-r-xl">
+                <p className="text-[#1E90FF] text-xl italic mb-4">
                   "Each of you should use whatever gift you have received to serve others, 
                   as faithful stewards of God's grace."
                 </p>
@@ -136,11 +136,11 @@ function FounderDedicationOwnerContent() {
 
       {/* Nanny - The One Who Saved His Life */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-red-500/10 to-red-500/10 border-red-500/30 overflow-hidden">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 border-[#1E90FF]/30 overflow-hidden">
           <CardContent className="p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
-              <Heart className="w-16 h-16 text-red-400 mx-auto mb-6 animate-pulse" />
-              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+              <Heart className="w-16 h-16 text-[#1E90FF] mx-auto mb-6 animate-pulse" />
+              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
                 THE ONE WHO SAVED MY LIFE
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -151,8 +151,8 @@ function FounderDedicationOwnerContent() {
                 Everything I am today, everything I've built, it all started with her love, her sacrifice, 
                 her belief in me when no one else did.
               </p>
-              <div className="bg-slate-900/50 rounded-xl p-6 border border-red-500/30">
-                <p className="text-red-400 text-2xl font-bold">
+              <div className="bg-slate-900/50 rounded-xl p-6 border border-[#1E90FF]/30">
+                <p className="text-[#1E90FF] text-2xl font-bold">
                   "Look Ma and Nanny, I Made It"
                 </p>
               </div>
@@ -186,30 +186,30 @@ function FounderDedicationOwnerContent() {
       {/* Family */}
       <section className="container px-4 md:px-5 pb-16">
         <h2 className="text-2xl font-bold text-white text-center mb-8">
-          <Users className="w-6 h-6 inline mr-2 text-cyan-400" /> Family Who Believed
+          <Users className="w-6 h-6 inline mr-2 text-[#00C2FF]" /> Family Who Believed
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="bg-white/5 border-cyan-500/20">
+          <Card className="bg-white/5 border-[#1E90FF]/30">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-4 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#1E90FF] to-blue-500 mx-auto mb-4 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Grampa</h3>
               <p className="text-white/60">The foundation of strength</p>
             </CardContent>
           </Card>
-          <Card className="bg-white/5 border-cyan-500/20">
+          <Card className="bg-white/5 border-[#1E90FF]/30">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-4 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#1E90FF] to-blue-500 mx-auto mb-4 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Aunt Jami</h3>
               <p className="text-white/60">Always there when it mattered</p>
             </CardContent>
           </Card>
-          <Card className="bg-white/5 border-cyan-500/20">
+          <Card className="bg-white/5 border-[#1E90FF]/30">
             <CardContent className="p-6 text-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-4 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#1E90FF] to-blue-500 mx-auto mb-4 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Uncle Bill</h3>
@@ -222,7 +222,7 @@ function FounderDedicationOwnerContent() {
       {/* The Team Who Stayed */}
       <section className="container px-4 md:px-5 pb-16">
         <h2 className="text-2xl font-bold text-white text-center mb-4">
-          <Trophy className="w-6 h-6 inline mr-2 text-red-400" /> The Team Who Stayed
+          <Trophy className="w-6 h-6 inline mr-2 text-[#1E90FF]" /> The Team Who Stayed
         </h2>
         <p className="text-white/60 text-center mb-8 max-w-2xl mx-auto">
           After every person let me down and gave me empty promises, these men stood by me.
@@ -234,13 +234,13 @@ function FounderDedicationOwnerContent() {
             { name: 'Glenn Tse', role: 'CFO & COO', initials: 'GT' },
 
           ].map((person, i) => (
-            <Card key={i} className="bg-white/5 border-red-500/20">
+            <Card key={i} className="bg-white/5 border-[#1E90FF]/20">
               <CardContent className="p-4 text-center">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-red-500 to-red-500 mx-auto mb-3 flex items-center justify-center text-white font-bold">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] mx-auto mb-3 flex items-center justify-center text-white font-bold">
                   {person.initials}
                 </div>
                 <h3 className="text-white font-bold text-sm">{person.name}</h3>
-                <p className="text-red-400 text-xs">{person.role}</p>
+                <p className="text-[#1E90FF] text-xs">{person.role}</p>
               </CardContent>
             </Card>
           ))}
@@ -249,11 +249,11 @@ function FounderDedicationOwnerContent() {
 
       {/* Best Friends - Westin & Diesel */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-red-500/10 to-red-500/10 border-red-500/30 overflow-hidden">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 border-[#1E90FF]/30 overflow-hidden">
           <CardContent className="p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
-              <Dog className="w-16 h-16 text-red-400 mx-auto mb-6" />
-              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+              <Dog className="w-16 h-16 text-[#1E90FF] mx-auto mb-6" />
+              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
                 MY BOYS • MY DOGS • MY LIFE
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -271,30 +271,30 @@ function FounderDedicationOwnerContent() {
 
       {/* The Journey */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-white/5 border-cyan-500/20">
+        <Card className="bg-white/5 border-[#1E90FF]/30">
           <CardContent className="p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
-              <GraduationCap className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
+              <GraduationCap className="w-16 h-16 text-[#00C2FF] mx-auto mb-6" />
               <h2 className="text-2xl font-bold text-white mb-6">The Journey</h2>
               <div className="space-y-4 text-left">
                 <p className="text-white/80 leading-relaxed">
-                  From <span className="text-cyan-400 font-bold">RH Watkins High School</span> in Laurel, Mississippi, 
+                  From <span className="text-[#00C2FF] font-bold">RH Watkins High School</span> in Laurel, Mississippi, 
                   where the dream began on the baseball diamond.
                 </p>
                 <p className="text-white/80 leading-relaxed">
-                  To <span className="text-cyan-400 font-bold">Jones County Junior College</span>, 
+                  To <span className="text-[#00C2FF] font-bold">Jones County Junior College</span>, 
                   where the work ethic was forged.
                 </p>
                 <p className="text-white/80 leading-relaxed">
-                  To <span className="text-cyan-400 font-bold">Mississippi State University</span>, 
+                  To <span className="text-[#00C2FF] font-bold">Mississippi State University</span>, 
                   where the dream was cut short by injury.
                 </p>
                 <p className="text-white/80 leading-relaxed">
-                  Through <span className="text-red-400 font-bold">years of poor choices</span> that followed - 
+                  Through <span className="text-[#1E90FF] font-bold">years of poor choices</span> that followed - 
                   the testimony that now helps others avoid the same path.
                 </p>
                 <p className="text-white/80 leading-relaxed">
-                  To <span className="text-red-400 font-bold">TODAY</span> - building an empire not for money, 
+                  To <span className="text-[#1E90FF] font-bold">TODAY</span> - building an empire not for money, 
                   but to help that ONE child who had a childhood like mine never make the same mistakes.
                 </p>
               </div>
@@ -306,27 +306,27 @@ function FounderDedicationOwnerContent() {
       {/* Wisdom */}
       <section className="container px-4 md:px-5 pb-16">
         <h2 className="text-2xl font-bold text-white text-center mb-8">
-          <BookOpen className="w-6 h-6 inline mr-2 text-cyan-400" /> Words to Live By
+          <BookOpen className="w-6 h-6 inline mr-2 text-[#00C2FF]" /> Words to Live By
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="bg-white/5 border-cyan-500/20">
+          <Card className="bg-white/5 border-[#1E90FF]/30">
             <CardContent className="p-6">
-              <Quote className="w-8 h-8 text-cyan-400 mb-4" />
+              <Quote className="w-8 h-8 text-[#00C2FF] mb-4" />
               <p className="text-white/80 italic mb-4">
                 "Dreams without Goals are just dreams and ultimately without Goals they fuel disappointment. 
                 On the Road to Achieving your Dreams you must apply discipline but more importantly Consistency. 
                 Because without Commitment you'll never start but without Consistency You'll never Finish."
               </p>
-              <footer className="text-cyan-400 font-bold">— Chad A. Dozier Sr.</footer>
+              <footer className="text-[#00C2FF] font-bold">— Chad A. Dozier Sr.</footer>
             </CardContent>
           </Card>
-          <Card className="bg-white/5 border-cyan-500/20">
+          <Card className="bg-white/5 border-[#1E90FF]/30">
             <CardContent className="p-6">
-              <Quote className="w-8 h-8 text-cyan-400 mb-4" />
+              <Quote className="w-8 h-8 text-[#00C2FF] mb-4" />
               <p className="text-white/80 italic mb-4">
                 "Logic will get you from A to B. Imagination will take you Everywhere."
               </p>
-              <footer className="text-cyan-400 font-bold">— Albert Einstein</footer>
+              <footer className="text-[#00C2FF] font-bold">— Albert Einstein</footer>
             </CardContent>
           </Card>
         </div>
@@ -334,17 +334,17 @@ function FounderDedicationOwnerContent() {
 
       {/* Signature */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/30">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/10 border-[#1E90FF]/30">
           <CardContent className="p-8 md:p-12 text-center">
-            <Sparkles className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
+            <Sparkles className="w-12 h-12 text-[#00C2FF] mx-auto mb-6" />
             <p className="text-white/80 text-lg mb-6">
               I love all of you.
             </p>
             <p className="text-white text-xl mb-2">Respectfully,</p>
-            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-4">
+            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-400 mb-4">
               Chad Allen Dozier Sr.
             </p>
-            <p className="text-cyan-400">Founder & CEO, Dozier Holdings Group</p>
+            <p className="text-[#00C2FF]">Founder & CEO, Dozier Holdings Group</p>
             <p className="text-white/60 text-sm mt-2">@Cdozier14</p>
             <p className="text-white/40 text-sm mt-4">User #1 • {timestamp}</p>
             
@@ -359,15 +359,15 @@ function FounderDedicationOwnerContent() {
       </section>
 
       {/* CTA */}
-      <section className="container px-4 md:px-5 py-16 border-t border-cyan-500/20">
+      <section className="container px-4 md:px-5 py-16 border-t border-[#1E90FF]/30">
         <div className="text-center">
           <Link href="/founder-story">
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-bold mr-4">
+            <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-500 hover:from-[#1E90FF] hover:to-blue-400 text-white font-bold mr-4">
               Read Full Story
             </Button>
           </Link>
           <Link href="/dhg-empire">
-            <Button variant="outline" className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/20">
+            <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20">
               Explore The Empire
             </Button>
           </Link>

@@ -7,7 +7,7 @@
 
 const APP_SALT = "athlynx-e2e-v1-2026";
 
-// ─── Key Derivation ───────────────────────────────────────────────────────────
+//  Key Derivation 
 // Derives a 256-bit AES-GCM key from a conversation ID.
 // Same conversation always produces the same key (deterministic).
 async function deriveConversationKey(conversationId: number): Promise<CryptoKey> {
@@ -33,7 +33,7 @@ async function deriveConversationKey(conversationId: number): Promise<CryptoKey>
   );
 }
 
-// ─── Derive a key for NIL contracts / documents ───────────────────────────────
+//  Derive a key for NIL contracts / documents 
 async function deriveDocumentKey(userId: number, docType: string): Promise<CryptoKey> {
   const encoder = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey(
@@ -57,7 +57,7 @@ async function deriveDocumentKey(userId: number, docType: string): Promise<Crypt
   );
 }
 
-// ─── Encrypt ──────────────────────────────────────────────────────────────────
+//  Encrypt 
 // Returns base64-encoded string: iv (12 bytes) + ciphertext
 async function encryptWithKey(plaintext: string, key: CryptoKey): Promise<string> {
   const encoder = new TextEncoder();
@@ -74,7 +74,7 @@ async function encryptWithKey(plaintext: string, key: CryptoKey): Promise<string
   return btoa(String.fromCharCode(...Array.from(combined)));
 }
 
-// ─── Decrypt ──────────────────────────────────────────────────────────────────
+//  Decrypt 
 async function decryptWithKey(encryptedBase64: string, key: CryptoKey): Promise<string> {
   const combined = Uint8Array.from(atob(encryptedBase64), c => c.charCodeAt(0));
   const iv = combined.slice(0, 12);
@@ -87,7 +87,7 @@ async function decryptWithKey(encryptedBase64: string, key: CryptoKey): Promise<
   return new TextDecoder().decode(plaintext);
 }
 
-// ─── Public API ───────────────────────────────────────────────────────────────
+//  Public API 
 
 /**
  * Encrypt a message for a conversation.

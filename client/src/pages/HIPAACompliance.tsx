@@ -74,7 +74,7 @@ function HIPAAComplianceInner() {
               <button className="text-slate-300 hover:text-white px-4 py-2">Legal Hub</button>
             </Link>
             <Link href="/competition-readiness">
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-lg font-medium">
+              <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white px-4 py-2 rounded-lg font-medium">
                 Competition Readiness
               </button>
             </Link>
@@ -84,20 +84,20 @@ function HIPAAComplianceInner() {
 
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 text-[#00C2FF] px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
             HIPAA-ALIGNED BY DESIGN
           </div>
           <h1 className="text-4xl md:text-5xl font-black mb-6">
-            <span className="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1E90FF] to-emerald-400 bg-clip-text text-transparent">
               Privacy-first health data readiness
             </span>
           </h1>
           <p className="text-xl text-slate-300 mb-8">
             AthlynX is building athlete health and wellness workflows with HIPAA-aligned safeguards, consent-controlled data access, and audit-ready operating discipline. We do not present public health features as diagnosis, medical-device functionality, FDA approval, or a replacement for licensed clinicians.
           </p>
-          <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-2xl p-6 inline-block text-left">
-            <p className="text-cyan-300 font-semibold">Public compliance position</p>
+          <div className="bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-2xl p-6 inline-block text-left">
+            <p className="text-[#00C2FF] font-semibold">Public compliance position</p>
             <p className="text-slate-300 text-sm mt-2 max-w-2xl">
               General AthlynX operations are athlete-wellness and performance-support workflows. Where covered-entity, provider, institutional, or PHI workflows apply, AthlynX is designed to support BAA review, restricted access, audit trails, and privacy-first implementation before production use.
             </p>
@@ -111,7 +111,7 @@ function HIPAAComplianceInner() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {readinessFeatures.map((feature) => (
               <div key={feature.title} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-                <feature.icon className="w-10 h-10 text-cyan-300 mb-4" />
+                <feature.icon className="w-10 h-10 text-[#00C2FF] mb-4" />
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
                 <p className="text-slate-400 text-sm">{feature.description}</p>
               </div>
@@ -126,11 +126,11 @@ function HIPAAComplianceInner() {
           <div className="grid md:grid-cols-3 gap-8">
             {safeguards.map((safeguard) => (
               <div key={safeguard.category} className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-                <h3 className="text-xl font-bold text-cyan-400 mb-4">{safeguard.category}</h3>
+                <h3 className="text-xl font-bold text-[#00C2FF] mb-4">{safeguard.category}</h3>
                 <ul className="space-y-2">
                   {safeguard.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -161,7 +161,7 @@ function HIPAAComplianceInner() {
                 "Incident-response evidence capture",
               ].map((partner) => (
                 <div key={partner} className="flex items-center gap-2 text-slate-300">
-                  <CheckCircle className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                   {partner}
                 </div>
               ))}
@@ -174,7 +174,7 @@ function HIPAAComplianceInner() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-blue-500/10 border border-blue-500/30 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-              <AlertTriangle className="w-8 h-8 text-sky-300" />
+              <AlertTriangle className="w-8 h-8 text-[#00C2FF]" />
               Responsible health-tech boundary
             </h2>
             <p className="text-slate-300 mb-4">
@@ -194,7 +194,7 @@ function HIPAAComplianceInner() {
             Contact the AthlynXAI team for privacy, BAA-readiness, or health-data workflow questions.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:privacy@athlynx.ai" className="bg-gradient-to-r from-cyan-600 to-emerald-500 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
+            <a href="mailto:privacy@athlynx.ai" className="bg-gradient-to-r from-[#1E90FF] to-[#00C2FF] text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2">
               <FileText className="w-5 h-5" />
               privacy@athlynx.ai
             </a>

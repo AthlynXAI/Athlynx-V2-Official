@@ -1,6 +1,6 @@
 /**
  * AthlynXAI Wizard
- * ─────────────────────────────────────────────────────────────────────────────
+ * 
  * A persistent, floating AI assistant that lives on every page of the platform.
  * Context-aware, tier-aware, and family-aware — it knows where the user is,
  * what career tier they're in, and who came before them in their family.
@@ -26,14 +26,14 @@ import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 
-// ─── Career Tier Definitions ─────────────────────────────────────────────────
+//  Career Tier Definitions 
 export const CAREER_TIERS = [
   {
     id: "youth",
     label: "Youth Athlete",
     emoji: "Y",
     ageRange: "Ages 5–13",
-    color: "from-green-500 to-emerald-400",
+    color: "from-[#00C2FF] to-emerald-400",
     glow: "rgba(16,185,129,0.4)",
     description: "Little League, Pop Warner, AAU — the foundation of greatness.",
     unlocks: ["Basic profile", "Sport tracking", "Parent dashboard", "Youth coaching network"],
@@ -44,7 +44,7 @@ export const CAREER_TIERS = [
     label: "High School Athlete",
     emoji: "HS",
     ageRange: "Ages 14–18",
-    color: "from-blue-500 to-cyan-400",
+    color: "from-blue-500 to-[#0a1628]",
     glow: "rgba(59,130,246,0.4)",
     description: "Varsity level. Coaches are watching. Your recruiting journey starts now.",
     unlocks: ["Recruiting profile", "Coach connections", "Highlight reel hosting", "Academic tracker", "NIL prep"],
@@ -55,7 +55,7 @@ export const CAREER_TIERS = [
     label: "College Athlete",
     emoji: "COL",
     ageRange: "Ages 18–23",
-    color: "from-purple-500 to-violet-400",
+    color: "from-[#1E90FF] to-violet-400",
     glow: "rgba(139,92,246,0.4)",
     description: "D1, D2, D3 — you made it. Now maximize your NIL and build your brand.",
     unlocks: ["NIL deal matching", "Brand partnerships", "Transfer Portal access", "Agent marketplace", "Performance analytics"],
@@ -66,7 +66,7 @@ export const CAREER_TIERS = [
     label: "Transfer Portal",
     emoji: "TP",
     ageRange: "Active window",
-    color: "from-cyan-500 to-blue-400",
+    color: "from-[#1E90FF] to-blue-400",
     glow: "rgba(249,115,22,0.4)",
     description: "In the portal. Every school is watching. Make the right move.",
     unlocks: ["Portal visibility boost", "School comparison tool", "NIL deal negotiation", "Coach direct messaging", "Transfer timeline tracker"],
@@ -88,7 +88,7 @@ export const CAREER_TIERS = [
     label: "Post-Career",
     emoji: "PC",
     ageRange: "Retired athlete",
-    color: "from-pink-500 to-rose-400",
+    color: "from-[#1E90FF] to-[#0a1628]",
     glow: "rgba(236,72,153,0.4)",
     description: "The game ends. Your impact doesn't. Coach, broadcast, build, inspire.",
     unlocks: ["Coaching certification", "Broadcasting tools", "Business incubator", "Speaking platform", "Mentorship network"],
@@ -99,7 +99,7 @@ export const CAREER_TIERS = [
     label: "Legacy Member",
     emoji: "LEG",
     ageRange: "Generational",
-    color: "from-cyan-500-500 to-blue-300",
+    color: "from-[#1E90FF]-500 to-blue-300",
     glow: "rgba(251,191,36,0.6)",
     description: "Your bloodline is athletic royalty. Your children inherit your data, your network, your legend.",
     unlocks: ["Family dynasty dashboard", "Generational data vault", "Legacy NIL deals", "Children's head start profile", "Hall of Fame nomination"],
@@ -109,7 +109,7 @@ export const CAREER_TIERS = [
 
 export type CareerTierId = typeof CAREER_TIERS[number]["id"];
 
-// ─── Page-specific AI context ─────────────────────────────────────────────────
+//  Page-specific AI context 
 const PAGE_CONTEXT: Record<string, { title: string; tips: string[] }> = {
   "/": {
     title: "Welcome to AthlynX",
@@ -201,7 +201,7 @@ const PAGE_CONTEXT: Record<string, { title: string; tips: string[] }> = {
   },
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
+//  Component 
 interface AIWizardProps {
   currentTier?: CareerTierId;
   userName?: string;
@@ -473,7 +473,7 @@ export default function AIWizard({
           {activeTab === "family" && (
             <div className="bg-[#050d1f] p-4 overflow-y-auto" style={{ height: 320 }}>
               <div className="text-center mb-4">
-                <div className="text-2xl mb-2 font-black tracking-widest text-sky-300">LEG</div>
+                <div className="text-2xl mb-2 font-black tracking-widest text-[#00C2FF]">LEG</div>
                 <div className="text-white font-black text-base">Athletic Dynasty</div>
                 <div className="text-blue-300/70 text-xs mt-1">Your family's athletic legacy lives here forever</div>
               </div>
@@ -482,9 +482,9 @@ export default function AIWizard({
                 <div className="space-y-2 mb-4">
                   {familyLegacy.grandparentName && (
                     <div className="bg-blue-900/20 border border-blue-700/30 rounded-xl p-3">
-                      <div className="text-sky-400 text-xs font-bold">GRANDPARENT</div>
+                      <div className="text-[#00C2FF] text-xs font-bold">GRANDPARENT</div>
                       <div className="text-white text-sm font-bold">{familyLegacy.grandparentName}</div>
-                      <div className="text-sky-300/60 text-xs">Legacy Member</div>
+                      <div className="text-[#00C2FF]/60 text-xs">Legacy Member</div>
                     </div>
                   )}
                   <div className="bg-blue-900/20 border border-blue-700/30 rounded-xl p-3">

@@ -158,7 +158,7 @@ function AgentFinderInner() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-[#0a1628]/10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
           <div className="flex justify-center mb-4">
             <div className="flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-2">
@@ -167,7 +167,7 @@ function AgentFinderInner() {
             </div>
           </div>
           <h1 className="text-4xl sm:text-5xl font-black text-center mb-3">
-            Find Your <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Sports Agent</span>
+            Find Your <span className="bg-gradient-to-r from-blue-400 to-[#0a1628] bg-clip-text text-transparent">Sports Agent</span>
           </h1>
           <p className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-8">
             NFLPA, NBPA, MLBPA certified agents and NIL specialists. Find the right rep to negotiate your contracts, maximize your NIL, and protect your career.
@@ -225,7 +225,7 @@ function AgentFinderInner() {
             ))}
             <button
               onClick={() => setShowAvailableOnly(!showAvailableOnly)}
-              className={`ml-auto px-4 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1 ${showAvailableOnly ? "bg-green-600 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+              className={`ml-auto px-4 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1 ${showAvailableOnly ? "bg-[#00C2FF] text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
             >
               <CheckCircle className="w-3 h-3" />
               Available Now
@@ -250,7 +250,7 @@ function AgentFinderInner() {
           {filtered.map(agent => (
             <div key={agent.id} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${agent.featured ? "border-blue-400/40" : "border-white/10"}`}>
               {agent.featured && (
-                <div className="flex items-center gap-1 text-xs text-sky-400 font-semibold mb-3">
+                <div className="flex items-center gap-1 text-xs text-[#00C2FF] font-semibold mb-3">
                   <Star className="w-3 h-3 fill-blue-400" />
                   FEATURED AGENT
                 </div>
@@ -266,12 +266,12 @@ function AgentFinderInner() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${agent.available ? "bg-green-500/20 text-green-400" : "bg-slate-500/20 text-slate-400"}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${agent.available ? "bg-green-400" : "bg-slate-400"}`} />
+                  <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${agent.available ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-slate-500/20 text-slate-400"}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${agent.available ? "bg-[#00C2FF]" : "bg-slate-400"}`} />
                     {agent.available ? "Available" : "Busy"}
                   </div>
                   <div className="flex items-center gap-1 mt-1 justify-end">
-                    <Star className="w-3 h-3 text-sky-400 fill-blue-400" />
+                    <Star className="w-3 h-3 text-[#00C2FF] fill-blue-400" />
                     <span className="text-white text-sm font-bold">{agent.rating}</span>
                     <span className="text-slate-400 text-xs">({agent.reviews})</span>
                   </div>
@@ -285,11 +285,11 @@ function AgentFinderInner() {
                   <div className="text-xs text-slate-400">Clients</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-2 text-center">
-                  <div className="text-sm font-black text-green-400">{agent.deals}</div>
+                  <div className="text-sm font-black text-[#00C2FF]">{agent.deals}</div>
                   <div className="text-xs text-slate-400">Negotiated</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-2 text-center">
-                  <div className="text-xs font-black text-sky-400">{agent.responseTime}</div>
+                  <div className="text-xs font-black text-[#00C2FF]">{agent.responseTime}</div>
                   <div className="text-xs text-slate-400">Response</div>
                 </div>
               </div>
@@ -343,7 +343,7 @@ function AgentFinderInner() {
         </div>
 
         {/* Are You an Agent CTA */}
-        <div className="mt-10 bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-400/20 rounded-2xl p-6 sm:p-8 text-center">
+        <div className="mt-10 bg-gradient-to-r from-blue-900/50 to-[#0a1628]/50 border border-blue-400/20 rounded-2xl p-6 sm:p-8 text-center">
           <Handshake className="w-10 h-10 text-blue-400 mx-auto mb-3" />
           <h3 className="text-xl font-black text-white mb-2">Are You a Certified Sports Agent?</h3>
           <p className="text-slate-400 text-sm mb-4 max-w-xl mx-auto">

@@ -182,15 +182,15 @@ function DHGInner() {
         </div>
 
         {/* ConCreator™ — Softmor's Enterprise AI Product */}
-        <div className="bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#0a1628] border border-cyan-600/50 rounded-2xl p-5">
+        <div className="bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#0a1628] border border-[#1E90FF]/30 rounded-2xl p-5">
           <div className="flex items-center gap-3 mb-3">
-            <img src="/images/logos/athlynx-main-logo.png" alt="ConCreator" className="w-12 h-12 rounded-xl border border-cyan-500/30" />
+            <img src="/images/logos/athlynx-main-logo.png" alt="ConCreator" className="w-12 h-12 rounded-xl border border-[#1E90FF]/30" />
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-white font-black">ConCreator™</h3>
-                <span className="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded-full font-bold">LIVE</span>
+                <span className="text-xs bg-[#00C2FF] text-[#00C2FF] px-2 py-0.5 rounded-full font-bold">LIVE</span>
               </div>
-              <div className="text-cyan-400 text-xs">Data Intelligence &amp; AI Credit System · by Softmor Inc.</div>
+              <div className="text-[#00C2FF] text-xs">Data Intelligence &amp; AI Credit System · by Softmor Inc.</div>
             </div>
           </div>
           <p className="text-blue-200 text-sm leading-relaxed mb-4">
@@ -203,15 +203,15 @@ function DHGInner() {
               { tier: 'Command', price: '$997/mo', credits: '5,000 credits', rec: true },
               { tier: 'Enterprise', price: '$1,997/mo', credits: 'Unlimited' },
             ].map((t, i) => (
-              <div key={i} className={`rounded-lg p-3 text-center border ${t.rec ? 'border-emerald-500/50 bg-emerald-900/20' : 'border-white/10 bg-white/5'}`}>
+              <div key={i} className={`rounded-lg p-3 text-center border ${t.rec ? 'border-[#1E90FF]/50 bg-[#1E90FF]/20' : 'border-white/10 bg-white/5'}`}>
                 <div className="text-white text-xs font-black">{t.tier}</div>
-                <div className="text-cyan-400 text-xs font-bold">{t.price}</div>
+                <div className="text-[#00C2FF] text-xs font-bold">{t.price}</div>
                 <div className="text-gray-500 text-xs">{t.credits}</div>
-                {t.rec && <div className="text-emerald-400 text-xs font-bold mt-1">RECOMMENDED</div>}
+                {t.rec && <div className="text-[#00C2FF] text-xs font-bold mt-1">RECOMMENDED</div>}
               </div>
             ))}
           </div>
-          <a href="/softmor" className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600/20 border border-cyan-500/40 rounded-lg text-cyan-400 text-sm font-semibold hover:bg-cyan-600/30 transition">
+          <a href="/softmor" className="inline-flex items-center gap-2 px-4 py-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-lg text-[#00C2FF] text-sm font-semibold hover:bg-[#1E90FF]/20 transition">
             View Full ConCreator™ Details →
           </a>
         </div>
@@ -240,11 +240,11 @@ function DHGInner() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-black text-white">{co.name}</span>
-                    {co.isCrown && <span className="text-xs bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full font-bold">👑 CROWN</span>}
-                    {co.isEngine && <span className="text-xs bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full font-bold">⚙️ ENGINE</span>}
-                    {(co as any).isRobot && <span className="text-xs bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full font-bold">🤖 ROBOT</span>}
+                    {co.isCrown && <span className="text-xs bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 px-2 py-0.5 rounded-full font-bold"> CROWN</span>}
+                    {co.isEngine && <span className="text-xs bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 px-2 py-0.5 rounded-full font-bold"> ENGINE</span>}
+                    {(co as any).isRobot && <span className="text-xs bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 px-2 py-0.5 rounded-full font-bold"> ROBOT</span>}
                     <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                      co.status === "LIVE" ? "bg-green-900 text-green-400" :
+                      co.status === "LIVE" ? "bg-[#00C2FF] text-[#00C2FF]" :
                       co.status === "BUILDING" ? "bg-blue-900 text-blue-400" :
                       "bg-gray-800 text-gray-400"
                     }`}>{co.status}</span>
@@ -293,15 +293,15 @@ function DHGInner() {
           <h3 className="text-white font-black mb-3">Contact DHG</h3>
           <div className="space-y-2 text-sm">
             <div className="flex items-center gap-3 text-blue-200">
-              <span className="text-blue-500">📍</span>
+              <span className="text-blue-500"></span>
               <span>HQ: 12306 Lake Portal Drive, Houston, TX 77047 | SE: 831 West 28th Street, Laurel, MS 39440</span>
             </div>
             <div className="flex items-center gap-3 text-blue-200">
-              <span className="text-blue-500">✉️</span>
+              <span className="text-blue-500"></span>
               <a href="mailto:contact@athlynx.ai" className="hover:text-white transition-colors">contact@athlynx.ai</a>
             </div>
             <div className="flex items-center gap-3 text-blue-200">
-              <span className="text-blue-500">🌐</span>
+              <span className="text-blue-500"></span>
               <a href="/dhg" className="hover:text-white transition-colors">DHG Corporate Site</a>
             </div>
           </div>

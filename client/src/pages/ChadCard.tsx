@@ -17,7 +17,7 @@ const DOTCODE_IMAGE = "/dotcode/cdozier14_dotcode.png";
 
 const LINKS = [
   {
-    icon: "🔗",
+    icon: "",
     label: "dot.card Profile",
     sub: "dot.cards/cdozier14",
     href: DOTCARD_URL,
@@ -25,15 +25,15 @@ const LINKS = [
     textColor: "text-white",
   },
   {
-    icon: "💬",
+    icon: "",
     label: "Text",
     sub: "Book or request contact",
     href: "/book",
-    color: "bg-green-500",
+    color: "bg-[#00C2FF]",
     textColor: "text-white",
   },
   {
-    icon: "✉️",
+    icon: "",
     label: "Email",
     sub: "contact@athlynx.ai",
     href: "mailto:contact@athlynx.ai",
@@ -41,7 +41,7 @@ const LINKS = [
     textColor: "text-white",
   },
   {
-    icon: "🌐",
+    icon: "",
     label: "Dozier Holdings Group",
     sub: "dozierholdingsgroup.com",
     href: "https://dozierholdingsgroup.com",
@@ -50,7 +50,7 @@ const LINKS = [
     border: true,
   },
   {
-    icon: "🏆",
+    icon: "",
     label: "AthlynX — The Athlete's Playbook",
     sub: "athlynx.ai",
     href: "https://athlynx.ai",
@@ -59,7 +59,7 @@ const LINKS = [
     border: true,
   },
   {
-    icon: "📅",
+    icon: "",
     label: "Schedule a Meeting",
     sub: "calendly.com/cdozier14",
     href: "https://calendly.com/cdozier14",
@@ -68,7 +68,7 @@ const LINKS = [
     border: true,
   },
   {
-    icon: "💼",
+    icon: "",
     label: "LinkedIn",
     sub: "linkedin.com/in/chaddozier",
     href: "https://linkedin.com/in/chaddozier",
@@ -76,16 +76,16 @@ const LINKS = [
     textColor: "text-white",
   },
   {
-    icon: "📸",
+    icon: "",
     label: "Instagram",
     sub: "@chad_dozier",
     href: "https://instagram.com/chad_dozier",
-    color: "bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400",
+    color: "bg-gradient-to-r from-[#1E90FF] via-[#1E90FF] to-[#0a1628]",
     textColor: "text-white",
   },
   {
-    icon: "🐦",
-    label: "X / Twitter",
+    icon: "",
+    label: "Instagram",
     sub: "@ChadADozier2",
     href: "https://x.com/ChadADozier2",
     color: "bg-black",
@@ -225,9 +225,9 @@ END:VCARD`;
             <div className="flex items-center gap-4">
               <img src={DOTCODE_IMAGE} alt="Chad Dozier dot.card QR code" className="w-24 h-32 object-contain rounded-xl bg-white p-1" />
               <div className="min-w-0">
-                <div className="text-[10px] font-black tracking-widest uppercase text-cyan-300">dot.card CRM Entry Point</div>
+                <div className="text-[10px] font-black tracking-widest uppercase text-[#00C2FF]">dot.card CRM Entry Point</div>
                 <div className="text-sm font-black mt-1">Scan, save, and route the relationship back into AthlynXAI OS.</div>
-                <a href={DOTCARD_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-cyan-200 underline break-all mt-2 inline-block">dot.cards/cdozier14</a>
+                <a href={DOTCARD_URL} target="_blank" rel="noopener noreferrer" className="text-xs text-[#00C2FF] underline break-all mt-2 inline-block">dot.cards/cdozier14</a>
               </div>
             </div>
           </div>
@@ -254,7 +254,7 @@ END:VCARD`;
             onClick={handleCopyLink}
             className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors"
           >
-            {copied ? "✓" : "🔗"}
+            {copied ? "" : ""}
           </button>
         </div>
 

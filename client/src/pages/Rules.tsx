@@ -26,8 +26,8 @@ interface RuleRow {
 }
 
 function severityColor(s: RuleRow["severity"]): string {
-  if (s === "critical") return "bg-red-500/10 text-red-300 border-red-500/30";
-  if (s === "high") return "bg-blue-500/10 text-sky-300 border-blue-500/30";
+  if (s === "critical") return "bg-[#1E90FF]/10 text-[#1E90FF] border-[#1E90FF]/30";
+  if (s === "high") return "bg-blue-500/10 text-[#00C2FF] border-blue-500/30";
   return "bg-blue-500/10 text-blue-300 border-blue-500/30";
 }
 
@@ -143,7 +143,7 @@ function RulesInner() {
             })}
 
             <div className="mt-12 p-6 bg-[#0a1628] border border-blue-500/30 rounded-xl">
-              <h3 className="text-sm font-bold text-sky-300 uppercase tracking-wider mb-2">Important Disclaimer</h3>
+              <h3 className="text-sm font-bold text-[#00C2FF] uppercase tracking-wider mb-2">Important Disclaimer</h3>
               <p className="text-white/70 text-sm leading-relaxed">
                 This Rule Book is informational only and is not legal, tax, or compliance advice. Rules change frequently. Athletes are responsible for verifying current rules with their school compliance office, state athletic association, governing body, and qualified professional advisors before acting.
               </p>

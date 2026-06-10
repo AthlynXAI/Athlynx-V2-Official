@@ -6,17 +6,17 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
-// ─── REAL MARKET DATA (sourced from Grand View Research, MarketsandMarkets, Opendorse NIL Report 2025) ───
+//  REAL MARKET DATA (sourced from Grand View Research, MarketsandMarkets, Opendorse NIL Report 2025) 
 const MARKET_DATA = [
-  { label: "Sports Tech TAM", value: "$135.9B", sub: "by 2035 · 21.9% CAGR", src: "Grand View Research 2026", icon: "🌐" },
-  { label: "NIL Market", value: "$2.5B+", sub: "2026 projected revenue", src: "Opendorse NIL Report 2025", icon: "💰" },
-  { label: "Athlete Mgmt Software", value: "$4.2B", sub: "by 2030 · 13.5% CAGR", src: "MarketTrendsAnalysis 2024", icon: "📊" },
-  { label: "AI in Sports", value: "$27.6B", sub: "by 2030 · 3× growth", src: "MarketsandMarkets 2025", icon: "🤖" },
-  { label: "Student Athletes", value: "520K+", sub: "NCAA alone · every sport", src: "NCAA 2025", icon: "🎓" },
-  { label: "Pro Athletes (US)", value: "4,500+", sub: "NFL · NBA · MLB · NHL · MLS", src: "League rosters 2025", icon: "⭐" },
+  { label: "Sports Tech TAM", value: "$135.9B", sub: "by 2035 · 21.9% CAGR", src: "Grand View Research 2026", icon: "" },
+  { label: "NIL Market", value: "$2.5B+", sub: "2026 projected revenue", src: "Opendorse NIL Report 2025", icon: "" },
+  { label: "Athlete Mgmt Software", value: "$4.2B", sub: "by 2030 · 13.5% CAGR", src: "MarketTrendsAnalysis 2024", icon: "" },
+  { label: "AI in Sports", value: "$27.6B", sub: "by 2030 · 3× growth", src: "MarketsandMarkets 2025", icon: "" },
+  { label: "Student Athletes", value: "520K+", sub: "NCAA alone · every sport", src: "NCAA 2025", icon: "" },
+  { label: "Pro Athletes (US)", value: "4,500+", sub: "NFL · NBA · MLB · NHL · MLS", src: "League rosters 2025", icon: "" },
 ];
 
-// ─── 5-YEAR P&L (conservative, numbers verified to add up) ───────────────────
+//  5-YEAR P&L (conservative, numbers verified to add up) 
 // Revenue assumptions:
 // White-Label: 10 schools Y1 @ $1K/mo → 60 Y2 → 200 Y3 → 600 Y4 → 1500 Y5
 // Athlete Subs: 500 paid Y1 @ $10/mo → 3K Y2 → 12K Y3 → 45K Y4 → 120K Y5
@@ -67,14 +67,14 @@ function pct(n: number, total: number) {
   return total === 0 ? "—" : `${Math.round((n / total) * 100)}%`;
 }
 
-// ─── FUNDING ROUNDS ──────────────────────────────────────────────────────────
+//  FUNDING ROUNDS 
 const ROUNDS = [
   {
     round: "Pre-Seed", status: "OPEN NOW", open: true,
     ask: "$500K", equity: "8%", postMoney: "$6.25M",
     use: "Platform completion, first 50 school licenses, core team hire",
     milestone: "50 schools · 5K athletes · $500K ARR",
-    color: "border-red-400", glow: "shadow-red-400/30", badge: "bg-green-500",
+    color: "border-[#1E90FF]", glow: "shadow-red-400/30", badge: "bg-[#00C2FF]",
   },
   {
     round: "Seed", status: "Q4 2025", open: false,
@@ -95,25 +95,25 @@ const ROUNDS = [
     ask: "$50M", equity: "15%", postMoney: "$333M",
     use: "International expansion (EU/LATAM), enterprise Pro Teams, acquisitions",
     milestone: "5K schools · 500K athletes · $75M ARR",
-    color: "border-red-400", glow: "shadow-red-400/20", badge: "bg-red-500",
+    color: "border-[#1E90FF]", glow: "shadow-red-400/20", badge: "bg-[#1E90FF]",
   },
   {
     round: "Series C", status: "2028", open: false,
     ask: "$150M", equity: "12%", postMoney: "$1.25B",
     use: "Global scale, IPO preparation, full sports data ecosystem",
     milestone: "20K schools · 2M athletes · $324M ARR",
-    color: "border-red-400", glow: "shadow-red-400/20", badge: "bg-red-500",
+    color: "border-[#1E90FF]", glow: "shadow-red-400/20", badge: "bg-[#1E90FF]",
   },
   {
     round: "IPO", status: "2029–2030", open: false,
     ask: "NYSE / NASDAQ", equity: "Public Float", postMoney: "$2B–$5B",
     use: "Global liquidity event. Fastest-growing sports tech company in history.",
     milestone: "50K+ schools · 5M+ athletes · $1B+ ARR",
-    color: "border-cyan-400", glow: "shadow-cyan-400/30", badge: "bg-cyan-500",
+    color: "border-[#1E90FF]", glow: "shadow-cyan-400/30", badge: "bg-[#1E90FF]",
   },
 ];
 
-// ─── COMPETITORS ─────────────────────────────────────────────────────────────
+//  COMPETITORS 
 const COMP_COLS = ["NIL", "AI Recruit", "Training", "Store", "Pro Teams", "White-Label", "AI Credits", "Data Moat", "Robots/IoT"];
 const COMPETITORS = [
   { name: "Opendorse",    vals: [true,  false, false, false, false, false, false, false, false] },
@@ -121,10 +121,10 @@ const COMPETITORS = [
   { name: "Hudl",         vals: [false, false, true,  false, true,  false, false, false, false] },
   { name: "MarketPryce",  vals: [true,  false, false, false, false, false, false, false, false] },
   { name: "Teamworks",    vals: [false, false, true,  false, true,  false, false, false, false] },
-  { name: "AthlynX ✦",   vals: [true,  true,  true,  true,  true,  true,  true,  true,  true ] },
+  { name: "AthlynX ",   vals: [true,  true,  true,  true,  true,  true,  true,  true,  true ] },
 ];
 
-// ─── TEAM ─────────────────────────────────────────────────────────────────────
+//  TEAM 
 const TEAM = [
   { name: "Chad A. Dozier", title: "Founder · CEO · Chairman", equity: "51%", role: "Vision, product, strategy, execution. Built AthlynX from zero. Houston, TX.", initials: "CD", highlight: true },
   { name: "Glenn Tse", title: "Co-Founder & CFO", equity: "24%", role: "Financial strategy, investor relations, Asia-Pacific expansion. Co-founded DHG with Chad in Houston, November 2024.", initials: "GT", highlight: true },
@@ -134,7 +134,7 @@ const TEAM = [
 
 const YEARS = ["2025", "2026", "2027", "2028", "2029"];
 
-// ─── Investor Request Gate ───────────────────────────────────────────────────
+//  Investor Request Gate 
 function InvestorRequestGate({ onGranted }: { onGranted: () => void }) {
   const [form, setForm] = useState({
     fullName: "", email: "", phone: "", company: "", title: "",
@@ -150,7 +150,7 @@ function InvestorRequestGate({ onGranted }: { onGranted: () => void }) {
     return (
       <div className="min-h-screen bg-[#040c1a] flex items-center justify-center p-6">
         <div className="max-w-lg w-full text-center">
-          <div className="text-6xl mb-6">🏆</div>
+          <div className="text-6xl mb-6"></div>
           <h1 className="text-4xl font-black text-white mb-4">Request Received</h1>
           <p className="text-white/60 text-lg mb-6">Thank you, {form.fullName}. Our team will reach out within 1–2 business days.</p>
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-6">
@@ -234,7 +234,7 @@ function InvestorHubInner() {
   return (
     <div className="min-h-screen bg-[#040c1a] text-white font-sans">
 
-      {/* ── STICKY NAV ── */}
+      {/*  STICKY NAV  */}
       <nav className="bg-[#040c1a]/95 backdrop-blur border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/">
@@ -250,27 +250,27 @@ function InvestorHubInner() {
             <a href="#moat" className="hover:text-white transition-colors">Moat</a>
             <a href="#team" className="hover:text-white transition-colors">Team</a>
           </div>
-          <a href="mailto:contact@athlynx.ai" className="bg-red-400 hover:bg-red-300 text-black font-black text-xs px-4 py-2 rounded-lg transition-all hover:scale-105">
+          <a href="mailto:contact@athlynx.ai" className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-black text-xs px-4 py-2 rounded-lg transition-all hover:scale-105">
             INVEST NOW →
           </a>
         </div>
       </nav>
 
-      {/* ── HERO ── */}
+      {/*  HERO  */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
         </div>
         <div className="max-w-5xl mx-auto px-4 pt-20 pb-16 text-center relative">
-          <div className="inline-flex items-center gap-2 bg-red-400/10 border border-red-400/30 rounded-full px-5 py-2 mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-red-400 text-xs font-black tracking-widest uppercase">Pre-Seed Round · Now Open · Seeking $500K</span>
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-full px-5 py-2 mb-8">
+            <span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse" />
+            <span className="text-[#1E90FF] text-xs font-black tracking-widest uppercase">Pre-Seed Round · Now Open · Seeking $500K</span>
           </div>
 
           <h1 className="text-5xl sm:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tight">
             NOT A ME-TOO<br />
-            <span className="text-red-400">COMPANY.</span><br />
+            <span className="text-[#1E90FF]">COMPANY.</span><br />
             <span className="text-white/80">THE COMPANY.</span>
           </h1>
 
@@ -290,18 +290,18 @@ function InvestorHubInner() {
               { v: "IPO", l: "End Game · 2029–2030" },
             ].map(k => (
               <div key={k.l} className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                <div className="text-2xl font-black text-red-400">{k.v}</div>
+                <div className="text-2xl font-black text-[#1E90FF]">{k.v}</div>
                 <div className="text-white/50 text-xs mt-1">{k.l}</div>
               </div>
             ))}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="mailto:contact@athlynx.ai" className="bg-red-400 hover:bg-red-300 text-black font-black px-10 py-4 rounded-xl text-lg transition-all shadow-2xl shadow-red-400/25 hover:scale-105">
-              💰 REQUEST INVESTOR DECK
+            <a href="mailto:contact@athlynx.ai" className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-black px-10 py-4 rounded-xl text-lg transition-all shadow-2xl shadow-red-400/25 hover:scale-105">
+               REQUEST INVESTOR DECK
             </a>
             <a href="/book" className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 transition-all">
-              📞 Book a call
+               Book a call
             </a>
           </div>
         </div>
@@ -309,44 +309,44 @@ function InvestorHubInner() {
 
       <div className="max-w-7xl mx-auto px-4 pb-24 space-y-20">
 
-        {/* ── BENCHMARK: FASTEST GROWING ── */}
-        <section className="bg-gradient-to-r from-cyan-900/30 to-blue-900/20 border border-cyan-500/30 rounded-3xl p-8">
+        {/*  BENCHMARK: FASTEST GROWING  */}
+        <section className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-900/20 border border-[#1E90FF]/30 rounded-3xl p-8">
           <div className="text-center mb-8">
-            <p className="text-cyan-400 text-xs font-black tracking-widest uppercase mb-2">The Vision</p>
+            <p className="text-[#00C2FF] text-xs font-black tracking-widest uppercase mb-2">The Vision</p>
             <h2 className="text-3xl font-black text-white">AthlynXAI: $0 → $100M ARR in 8 Months.</h2>
             <p className="text-white/50 mt-2">The fastest startup in history. We are building AthlynX to beat that record in sports.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="bg-white/5 rounded-2xl p-6">
-              <div className="text-4xl font-black text-cyan-400">8 mo</div>
+              <div className="text-4xl font-black text-[#00C2FF]">8 mo</div>
               <div className="text-white font-bold mt-2">AthlynXAI: $0 → $100M ARR</div>
               <div className="text-white/40 text-xs mt-1">Fastest startup ever · AI agent platform</div>
             </div>
-            <div className="bg-red-400/10 border border-red-400/30 rounded-2xl p-6">
-              <div className="text-4xl font-black text-red-400">12 mo</div>
+            <div className="bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-2xl p-6">
+              <div className="text-4xl font-black text-[#1E90FF]">12 mo</div>
               <div className="text-white font-bold mt-2">AthlynX Target: $0 → $100M ARR</div>
               <div className="text-white/40 text-xs mt-1">$135B market · 520K+ athletes · AI-powered</div>
             </div>
             <div className="bg-white/5 rounded-2xl p-6">
-              <div className="text-4xl font-black text-green-400">2029</div>
+              <div className="text-4xl font-black text-[#00C2FF]">2029</div>
               <div className="text-white font-bold mt-2">IPO Target</div>
               <div className="text-white/40 text-xs mt-1">NYSE / NASDAQ · $2B–$5B valuation</div>
             </div>
           </div>
         </section>
 
-        {/* ── MARKET OPPORTUNITY ── */}
+        {/*  MARKET OPPORTUNITY  */}
         <section id="opportunity">
           <div className="text-center mb-10">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Market Opportunity</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Market Opportunity</p>
             <h2 className="text-4xl font-black text-white">$135 Billion. Barely Touched by AI.</h2>
             <p className="text-white/50 mt-3 text-base max-w-2xl mx-auto">AthlynX sits at the intersection of every major growth vector in sports — and no one has ever connected them all.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {MARKET_DATA.map(m => (
-              <div key={m.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-red-400/30 transition-all group">
+              <div key={m.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#1E90FF]/30 transition-all group">
                 <div className="text-3xl mb-3">{m.icon}</div>
-                <div className="text-2xl font-black text-red-400 group-hover:text-red-300 transition-colors">{m.value}</div>
+                <div className="text-2xl font-black text-[#1E90FF] group-hover:text-[#1E90FF] transition-colors">{m.value}</div>
                 <div className="text-white font-bold text-sm mt-1">{m.label}</div>
                 <div className="text-white/40 text-xs mt-1">{m.sub}</div>
                 <div className="text-white/20 text-xs mt-2 italic">Source: {m.src}</div>
@@ -355,7 +355,7 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── AI DATA MOAT ── */}
+        {/*  AI DATA MOAT  */}
         <section className="bg-gradient-to-br from-blue-950/30 to-blue-900/20 border border-blue-600/30 rounded-3xl p-8">
           <div className="text-center mb-8">
             <p className="text-blue-500 text-xs font-black tracking-widest uppercase mb-2">The Unfair Advantage</p>
@@ -364,10 +364,10 @@ function InvestorHubInner() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: "🤖", title: "AI Bot Sessions", desc: "Every AI Recruiter, Trainer, Coach, and Content session logs structured performance data — responses, metrics, engagement patterns." },
-              { icon: "🦾", title: "Sideline Robots", desc: "Camera tracking, biometric sensors, motion capture — all stream to AthlynX servers via secure real-time API." },
-              { icon: "⌚", title: "Wearables Integration", desc: "Heart rate, GPS, acceleration, recovery scores, sleep data — all piped in, timestamped, athlete-attributed." },
-              { icon: "🏆", title: "Proprietary Dataset", desc: "The largest real athlete performance dataset in the world. Licensed to brands, scouts, and leagues. Valued in the hundreds of millions." },
+              { icon: "", title: "AI Bot Sessions", desc: "Every AI Recruiter, Trainer, Coach, and Content session logs structured performance data — responses, metrics, engagement patterns." },
+              { icon: "", title: "Sideline Robots", desc: "Camera tracking, biometric sensors, motion capture — all stream to AthlynX servers via secure real-time API." },
+              { icon: "", title: "Wearables Integration", desc: "Heart rate, GPS, acceleration, recovery scores, sleep data — all piped in, timestamped, athlete-attributed." },
+              { icon: "", title: "Proprietary Dataset", desc: "The largest real athlete performance dataset in the world. Licensed to brands, scouts, and leagues. Valued in the hundreds of millions." },
             ].map(d => (
               <div key={d.title} className="bg-white/5 border border-blue-600/20 rounded-2xl p-5">
                 <div className="text-3xl mb-3">{d.icon}</div>
@@ -395,18 +395,18 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── 5-YEAR P&L ── */}
+        {/*  5-YEAR P&L  */}
         <section id="financials">
           <div className="text-center mb-8">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Financial Projections</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Financial Projections</p>
             <h2 className="text-4xl font-black text-white">5-Year P&L Proforma</h2>
             <p className="text-white/50 mt-2 text-sm">Conservative projections. Numbers verified to add up. Based on real SaaS benchmarks and NIL market data.</p>
           </div>
 
           {/* Tab Toggle */}
           <div className="flex justify-center gap-2 mb-6">
-            <button onClick={() => setActiveTab("revenue")} className={`px-5 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === "revenue" ? "bg-red-400 text-black" : "bg-white/10 text-white/60 hover:bg-white/20"}`}>Revenue Streams</button>
-            <button onClick={() => setActiveTab("pl")} className={`px-5 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === "pl" ? "bg-red-400 text-black" : "bg-white/10 text-white/60 hover:bg-white/20"}`}>P&L Summary</button>
+            <button onClick={() => setActiveTab("revenue")} className={`px-5 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === "revenue" ? "bg-[#1E90FF] text-black" : "bg-white/10 text-white/60 hover:bg-white/20"}`}>Revenue Streams</button>
+            <button onClick={() => setActiveTab("pl")} className={`px-5 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === "pl" ? "bg-[#1E90FF] text-black" : "bg-white/10 text-white/60 hover:bg-white/20"}`}>P&L Summary</button>
           </div>
 
           {activeTab === "revenue" && (
@@ -425,13 +425,13 @@ function InvestorHubInner() {
                       {row.y.map((v, j) => <td key={j} className="px-4 py-3 text-right text-white/70 font-mono text-xs">{v === 0 ? "—" : fmt(v)}</td>)}
                     </tr>
                   ))}
-                  <tr className="bg-red-400/10 border-t-2 border-red-400/40">
-                    <td className="px-5 py-4 text-red-400 font-black">TOTAL REVENUE</td>
-                    {TOTAL_REV.map((v, i) => <td key={i} className="px-4 py-4 text-right text-red-400 font-black font-mono">{fmt(v)}</td>)}
+                  <tr className="bg-[#1E90FF]/10 border-t-2 border-[#1E90FF]/40">
+                    <td className="px-5 py-4 text-[#1E90FF] font-black">TOTAL REVENUE</td>
+                    {TOTAL_REV.map((v, i) => <td key={i} className="px-4 py-4 text-right text-[#1E90FF] font-black font-mono">{fmt(v)}</td>)}
                   </tr>
-                  <tr className="bg-cyan-400/5 border-t border-cyan-400/20">
-                    <td className="px-5 py-3 text-cyan-400 font-bold text-xs">Valuation (7× Revenue)</td>
-                    {VALUATION.map((v, i) => <td key={i} className="px-4 py-3 text-right text-cyan-400 font-bold font-mono text-xs">{fmt(v)}</td>)}
+                  <tr className="bg-[#1E90FF]/20 border-t border-[#1E90FF]/30">
+                    <td className="px-5 py-3 text-[#00C2FF] font-bold text-xs">Valuation (7× Revenue)</td>
+                    {VALUATION.map((v, i) => <td key={i} className="px-4 py-3 text-right text-[#00C2FF] font-bold font-mono text-xs">{fmt(v)}</td>)}
                   </tr>
                 </tbody>
               </table>
@@ -450,14 +450,14 @@ function InvestorHubInner() {
                 <tbody>
                   {[
                     { label: "Gross Revenue", vals: TOTAL_REV, color: "text-white", bold: false },
-                    { label: "Cost of Revenue (COGS)", vals: COGS, color: "text-red-400", bold: false, prefix: "−" },
-                    { label: "Gross Profit", vals: GROSS, color: "text-green-400", bold: true },
-                    { label: `Gross Margin`, vals: GROSS.map((g, i) => g / TOTAL_REV[i]), color: "text-green-400/70", bold: false, isPct: true },
-                    { label: "Operating Expenses", vals: OPEX, color: "text-red-400", bold: false, prefix: "−" },
-                    { label: "EBITDA", vals: EBITDA, color: "text-cyan-400", bold: true },
-                    { label: "EBITDA Margin", vals: EBITDA.map((e, i) => e / TOTAL_REV[i]), color: "text-cyan-400/70", bold: false, isPct: true },
-                    { label: "Income Tax (21%)", vals: TAX, color: "text-red-400/70", bold: false, prefix: "−" },
-                    { label: "Net Income", vals: NET, color: "text-red-400", bold: true },
+                    { label: "Cost of Revenue (COGS)", vals: COGS, color: "text-[#1E90FF]", bold: false, prefix: "−" },
+                    { label: "Gross Profit", vals: GROSS, color: "text-[#00C2FF]", bold: true },
+                    { label: `Gross Margin`, vals: GROSS.map((g, i) => g / TOTAL_REV[i]), color: "text-[#00C2FF]/70", bold: false, isPct: true },
+                    { label: "Operating Expenses", vals: OPEX, color: "text-[#1E90FF]", bold: false, prefix: "−" },
+                    { label: "EBITDA", vals: EBITDA, color: "text-[#00C2FF]", bold: true },
+                    { label: "EBITDA Margin", vals: EBITDA.map((e, i) => e / TOTAL_REV[i]), color: "text-[#00C2FF]/70", bold: false, isPct: true },
+                    { label: "Income Tax (21%)", vals: TAX, color: "text-[#1E90FF]/70", bold: false, prefix: "−" },
+                    { label: "Net Income", vals: NET, color: "text-[#1E90FF]", bold: true },
                   ].map((row, ri) => (
                     <tr key={row.label} className={`border-b border-white/5 ${ri % 2 === 0 ? "" : "bg-white/[0.02]"} ${row.bold ? "bg-white/5" : ""}`}>
                       <td className={`px-5 py-3 font-${row.bold ? "black" : "medium"} ${row.color}`}>{row.label}</td>
@@ -478,10 +478,10 @@ function InvestorHubInner() {
           <p className="text-white/25 text-xs mt-3 text-center">* Forward-looking projections. Based on SaaS Capital 2025 benchmarks, NIL market data (Opendorse 2025), and comparable platform growth rates. Actual results may vary.</p>
         </section>
 
-        {/* ── FUNDING ROADMAP ── */}
+        {/*  FUNDING ROADMAP  */}
         <section id="roadmap">
           <div className="text-center mb-10">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Funding Roadmap</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Funding Roadmap</p>
             <h2 className="text-4xl font-black text-white">Pre-Seed → IPO</h2>
             <p className="text-white/50 mt-2">Every dollar has a purpose. Every milestone is measurable. End game: NYSE or NASDAQ.</p>
           </div>
@@ -490,7 +490,7 @@ function InvestorHubInner() {
               <div key={r.round} className={`bg-white/5 border-2 ${r.color} rounded-2xl p-6 shadow-xl ${r.glow} relative`}>
                 {r.open && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-green-500 text-black text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-lg shadow-green-500/40">● OPEN NOW</span>
+                    <span className="bg-[#00C2FF] text-black text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-lg shadow-green-500/40"> OPEN NOW</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between mb-4 mt-2">
@@ -503,27 +503,27 @@ function InvestorHubInner() {
                     <div className="text-white/40 text-xs">Raise</div>
                   </div>
                   <div>
-                    <div className="text-lg font-black text-red-400">{r.equity}</div>
+                    <div className="text-lg font-black text-[#1E90FF]">{r.equity}</div>
                     <div className="text-white/40 text-xs">Equity</div>
                   </div>
                   <div>
-                    <div className="text-lg font-black text-cyan-400">{r.postMoney}</div>
+                    <div className="text-lg font-black text-[#00C2FF]">{r.postMoney}</div>
                     <div className="text-white/40 text-xs">Post-Money</div>
                   </div>
                 </div>
                 <p className="text-white/60 text-xs mb-3 leading-relaxed">{r.use}</p>
                 <div className="bg-white/5 rounded-xl px-3 py-2">
-                  <p className="text-white/80 text-xs font-semibold">🎯 {r.milestone}</p>
+                  <p className="text-white/80 text-xs font-semibold"> {r.milestone}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── COMPETITIVE MOAT ── */}
+        {/*  COMPETITIVE MOAT  */}
         <section id="moat">
           <div className="text-center mb-8">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Competitive Moat</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Competitive Moat</p>
             <h2 className="text-4xl font-black text-white">Everyone Else Solves One Problem.</h2>
             <p className="text-white/50 mt-2">AthlynX solves all of them. That has never been done before in the history of sports.</p>
           </div>
@@ -539,12 +539,12 @@ function InvestorHubInner() {
                 {COMPETITORS.map((c, i) => {
                   const isAthlynX = c.name.includes("AthlynX");
                   return (
-                    <tr key={c.name} className={`border-b border-white/5 ${isAthlynX ? "bg-red-400/10" : i % 2 === 0 ? "" : "bg-white/[0.02]"}`}>
-                      <td className={`px-4 py-3 font-bold ${isAthlynX ? "text-red-400" : "text-white/70"}`}>{c.name}</td>
+                    <tr key={c.name} className={`border-b border-white/5 ${isAthlynX ? "bg-[#1E90FF]/10" : i % 2 === 0 ? "" : "bg-white/[0.02]"}`}>
+                      <td className={`px-4 py-3 font-bold ${isAthlynX ? "text-[#1E90FF]" : "text-white/70"}`}>{c.name}</td>
                       {c.vals.map((v, j) => (
                         <td key={j} className="px-3 py-3 text-center">
-                          {v ? <span className={`text-base ${isAthlynX ? "text-red-400" : "text-green-400"}`}>✓</span>
-                             : <span className="text-white/15 text-base">✗</span>}
+                          {v ? <span className={`text-base ${isAthlynX ? "text-[#1E90FF]" : "text-[#00C2FF]"}`}></span>
+                             : <span className="text-white/15 text-base"></span>}
                         </td>
                       ))}
                     </tr>
@@ -555,9 +555,9 @@ function InvestorHubInner() {
           </div>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { n: "9/9", l: "AthlynX checks all boxes", c: "text-red-400" },
+              { n: "9/9", l: "AthlynX checks all boxes", c: "text-[#1E90FF]" },
               { n: "2/9", l: "Best competitor (Hudl)", c: "text-white/50" },
-              { n: "0", l: "Competitors with full stack", c: "text-red-400" },
+              { n: "0", l: "Competitors with full stack", c: "text-[#1E90FF]" },
             ].map(s => (
               <div key={s.l} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <div className={`text-3xl font-black ${s.c}`}>{s.n}</div>
@@ -567,10 +567,10 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── FOUNDING STORY ── */}
+        {/*  FOUNDING STORY  */}
         <section className="bg-gradient-to-r from-slate-900/80 to-blue-950/40 border border-white/10 rounded-3xl p-10">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-4">Our Story</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-4">Our Story</p>
             <h2 className="text-3xl font-black text-white mb-6">Built from Nothing. Funded by Belief.</h2>
             <p className="text-white/70 text-base leading-relaxed mb-4">
               AthlynX was founded by <span className="text-white font-bold">Chad A. Dozier</span> in Houston, Texas, alongside co-founder <span className="text-white font-bold">Glenn Tse</span>. The company has been built through founder discipline, operator commitment, and pure sweat equity.
@@ -578,29 +578,29 @@ function InvestorHubInner() {
             <p className="text-white/70 text-base leading-relaxed mb-4">
               One person. One AI. One vision. Sam Altman said a one-person, AI-powered billion-dollar company is coming. AthlynX is positioned to be the first in sports.
             </p>
-            <blockquote className="border-l-4 border-red-400 pl-5 text-left mt-6">
+            <blockquote className="border-l-4 border-[#1E90FF] pl-5 text-left mt-6">
               <p className="text-white/60 text-sm italic leading-relaxed">"We are not building one of a kind. We are building the only one. No one has ever put all of this under one roof — NIL, recruiting, training, store, pro teams, AI bots, robot data collection — for athletes at every level from youth to retirement."</p>
               <footer className="text-white/40 text-xs mt-2">— Chad A. Dozier, Founder · CEO · Chairman, AthlynX</footer>
             </blockquote>
           </div>
         </section>
 
-        {/* ── TEAM ── */}
+        {/*  TEAM  */}
         <section id="team">
           <div className="text-center mb-10">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Leadership</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Leadership</p>
             <h2 className="text-4xl font-black text-white">The Team Behind AthlynX</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             {TEAM.map(m => (
-              <div key={m.name} className={`rounded-2xl p-6 border ${m.highlight ? "bg-red-400/10 border-red-400/40" : "bg-white/5 border-white/10"}`}>
-                <div className={`w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl font-black ${m.highlight ? "bg-red-400 text-black" : "bg-white/10 text-white"}`}>
+              <div key={m.name} className={`rounded-2xl p-6 border ${m.highlight ? "bg-[#1E90FF]/10 border-[#1E90FF]/40" : "bg-white/5 border-white/10"}`}>
+                <div className={`w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center text-2xl font-black ${m.highlight ? "bg-[#1E90FF] text-black" : "bg-white/10 text-white"}`}>
                   {m.initials}
                 </div>
-                <div className={`font-black text-center ${m.highlight ? "text-red-400" : "text-white"}`}>{m.name}</div>
+                <div className={`font-black text-center ${m.highlight ? "text-[#1E90FF]" : "text-white"}`}>{m.name}</div>
                 <div className="text-white/60 text-xs font-semibold text-center mt-1">{m.title}</div>
                 <div className="text-center mt-2">
-                  <span className={`text-xs font-black px-2 py-0.5 rounded-full ${m.highlight ? "bg-red-400/20 text-red-400" : "bg-white/10 text-white/50"}`}>{m.equity} equity</span>
+                  <span className={`text-xs font-black px-2 py-0.5 rounded-full ${m.highlight ? "bg-[#1E90FF]/20 text-[#1E90FF]" : "bg-white/10 text-white/50"}`}>{m.equity} equity</span>
                 </div>
                 <div className="text-white/40 text-xs mt-3 text-center leading-relaxed">{m.role}</div>
               </div>
@@ -608,22 +608,22 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── USE OF FUNDS ── */}
+        {/*  USE OF FUNDS  */}
         <section>
           <div className="text-center mb-8">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Use of Funds</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Use of Funds</p>
             <h2 className="text-3xl font-black text-white">Pre-Seed $500K — Every Dollar Allocated</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { pct: "35%", amt: "$175K", label: "Platform Development", sub: "Complete all modules, mobile PWA, AI integrations", color: "border-red-400" },
+              { pct: "35%", amt: "$175K", label: "Platform Development", sub: "Complete all modules, mobile PWA, AI integrations", color: "border-[#1E90FF]" },
               { pct: "25%", amt: "$125K", label: "Sales & Marketing", sub: "First 50 school licenses, brand partnerships", color: "border-blue-400" },
               { pct: "25%", amt: "$125K", label: "Operations & Team", sub: "First hires: sales rep, customer success, dev", color: "border-blue-500" },
-              { pct: "15%", amt: "$75K", label: "Legal & Infrastructure", sub: "IP protection, server infrastructure, compliance", color: "border-green-400" },
+              { pct: "15%", amt: "$75K", label: "Legal & Infrastructure", sub: "IP protection, server infrastructure, compliance", color: "border-[#00C2FF]" },
             ].map(f => (
               <div key={f.label} className={`bg-white/5 border-2 ${f.color} rounded-2xl p-5 text-center`}>
                 <div className="text-3xl font-black text-white">{f.pct}</div>
-                <div className="text-red-400 font-black text-lg">{f.amt}</div>
+                <div className="text-[#1E90FF] font-black text-lg">{f.amt}</div>
                 <div className="text-white font-bold text-sm mt-2">{f.label}</div>
                 <div className="text-white/40 text-xs mt-1 leading-relaxed">{f.sub}</div>
               </div>
@@ -631,7 +631,7 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── GTC SAN JOSE 2026 GALLERY ── */}
+        {/*  GTC SAN JOSE 2026 GALLERY  */}
         <section>
           <div className="text-center mb-8">
             <p className="text-blue-400 text-xs font-black tracking-widest uppercase mb-2">GTC San Jose · March 2026</p>
@@ -663,22 +663,22 @@ function InvestorHubInner() {
             <p className="text-blue-400 text-xs font-black tracking-widest uppercase mb-4">Investor Documents</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="/docs/tlwCMeumMsxRCBVr.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white/10 hover:bg-blue-900/40 border border-white/20 hover:border-blue-400/50 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
-                <span>📊</span> DHG 5-Year Valuation Report
+                <span></span> DHG 5-Year Valuation Report
               </a>
               <a href="/docs/RPJQxygywzFpIYhy.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white/10 hover:bg-blue-900/40 border border-white/20 hover:border-blue-400/50 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
-                <span>📄</span> Partner &amp; Investor Presentation
+                <span></span> Partner &amp; Investor Presentation
               </a>
               <a href="/docs/RuxYyWLKsDRQRvLr.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white/10 hover:bg-blue-900/40 border border-white/20 hover:border-blue-400/50 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
-                <span>🏈</span> The Athlete Playbook
+                <span></span> The Athlete Playbook
               </a>
             </div>
           </div>
         </section>
 
-        {/* ── REAL ATHLETES ── */}
+        {/*  REAL ATHLETES  */}
         <section>
           <div className="text-center mb-8">
-            <p className="text-red-400 text-xs font-black tracking-widest uppercase mb-2">Proof of Concept</p>
+            <p className="text-[#1E90FF] text-xs font-black tracking-widest uppercase mb-2">Proof of Concept</p>
             <h2 className="text-4xl font-black text-white">Real Athletes. Real Results.</h2>
             <p className="text-white/50 mt-2 max-w-2xl mx-auto">
               AthlynX is already in the hands of real athletes — from youth to college to pro. These are the people we built this for.
@@ -695,7 +695,7 @@ function InvestorHubInner() {
               { src: "/athlete-baseball.jpg", label: "Baseball" },
               { src: "/athlete-track.jpg", label: "Track & Field" },
             ].map((item, i) => (
-              <div key={i} className="aspect-square rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-red-400/50 transition-all group relative">
+              <div key={i} className="aspect-square rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#1E90FF]/50 transition-all group relative">
                 <img src={item.src} alt={item.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <p className="text-white text-xs font-bold">{item.label}</p>
@@ -708,16 +708,16 @@ function InvestorHubInner() {
           </div>
         </section>
 
-        {/* ── CONTACT CTA ── */}
-        <section className="bg-gradient-to-r from-red-500/20 via-red-400/10 to-red-500/20 border-2 border-red-400/50 rounded-3xl p-12 text-center">
-          <div className="text-6xl mb-5">🏆</div>
+        {/*  CONTACT CTA  */}
+        <section className="bg-gradient-to-r from-[#1E90FF]/20 via-[#0a1628] to-black border-2 border-[#1E90FF]/50 rounded-3xl p-12 text-center">
+          <div className="text-6xl mb-5"></div>
           <h2 className="text-5xl font-black text-white mb-3">Ready to Own a Piece of History?</h2>
           <p className="text-white/60 text-xl mb-2">Pre-Seed round is open. We are building the $1B+ athlete platform.</p>
-          <p className="text-red-400 font-bold text-lg mb-10">$135B market. Zero full-stack competitors. One team. One shot. IPO end game.</p>
+          <p className="text-[#1E90FF] font-bold text-lg mb-10">$135B market. Zero full-stack competitors. One team. One shot. IPO end game.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
             <div className="bg-black/40 rounded-2xl p-5">
-              <div className="text-red-400 font-black">Chad A. Dozier</div>
+              <div className="text-[#1E90FF] font-black">Chad A. Dozier</div>
               <div className="text-white/60 text-xs mt-1">Founder · CEO · Chairman</div>
             </div>
             <div className="bg-black/40 rounded-2xl p-5">
@@ -731,11 +731,11 @@ function InvestorHubInner() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="mailto:contact@athlynx.ai" className="bg-red-400 hover:bg-red-300 text-black font-black px-12 py-5 rounded-2xl text-xl transition-all shadow-2xl shadow-red-400/30 hover:scale-105">
-              📧 EMAIL US NOW
+            <a href="mailto:contact@athlynx.ai" className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-black px-12 py-5 rounded-2xl text-xl transition-all shadow-2xl shadow-red-400/30 hover:scale-105">
+               EMAIL US NOW
             </a>
             <a href="/book" className="bg-white/10 hover:bg-white/20 text-white font-bold px-10 py-5 rounded-2xl border border-white/20 transition-all text-lg">
-              📞 CALL NOW
+               CALL NOW
             </a>
           </div>
 

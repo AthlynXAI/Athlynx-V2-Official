@@ -69,7 +69,7 @@ const starRatings = [
     title: "Elite Veteran",
     description: "Special Forces, Medal of Honor recipients, Distinguished Service",
     benefits: "Premium brand deals, executive speaking, VIP access to all programs",
-    color: "from-red-400 to-red-500"
+    color: "from-[#1E90FF] to-[#0a1628]"
   },
   {
     stars: 4,
@@ -90,7 +90,7 @@ const starRatings = [
     title: "Valued Veteran",
     description: "4-10 years service, honorable discharge, skilled trades",
     benefits: "Local partnerships, community features, job matching",
-    color: "from-green-400 to-green-600"
+    color: "from-[#00C2FF] to-[#0a1628]"
   },
   {
     stars: 1,
@@ -125,7 +125,7 @@ function VeteransInner() {
             </Button>
           </Link>
           <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5 text-red-400" />
+            <Shield className="w-5 h-5 text-[#1E90FF]" />
             <span className="font-semibold text-white">Veterans Heroes</span>
           </div>
         </div>
@@ -135,17 +135,17 @@ function VeteransInner() {
       <section className="pt-24 pb-16 px-4 relative overflow-hidden">
         {/* American flag overlay */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-red-600 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-[#1E90FF] to-transparent" />
         </div>
         
         <div className="container mx-auto max-w-6xl relative">
           <div className="text-center mb-12">
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-6">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-6">
               <Flag className="w-3 h-3 mr-1" />
               Honoring Those Who Served
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Veterans <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500">Heroes</span>
+              Veterans <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">Heroes</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
               You served your country. Now let us serve you. The first NIL marketplace 
@@ -162,15 +162,15 @@ function VeteransInner() {
               { value: "100%", label: "Respect & Honor" }
             ].map((stat, index) => (
               <div key={index} className="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-700">
-                <div className="text-3xl font-bold text-red-400">{stat.value}</div>
+                <div className="text-3xl font-bold text-[#1E90FF]">{stat.value}</div>
                 <div className="text-slate-400 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Mission Statement */}
-          <div className="bg-gradient-to-r from-red-500/10 to-red-500/10 rounded-3xl border border-red-500/30 p-8 text-center">
-            <Medal className="w-12 h-12 text-red-400 mx-auto mb-4" />
+          <div className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 rounded-3xl border border-[#1E90FF]/30 p-8 text-center">
+            <Medal className="w-12 h-12 text-[#1E90FF] mx-auto mb-4" />
             <blockquote className="text-2xl font-medium text-white italic mb-4">
               "Faith. Country. Family. Leadership."
             </blockquote>
@@ -204,7 +204,7 @@ function VeteransInner() {
                         {[...Array(5)].map((_, i) => (
                           <Star 
                             key={i} 
-                            className={`w-5 h-5 ${i < rating.stars ? 'text-red-400 fill-red-400' : 'text-slate-600'}`} 
+                            className={`w-5 h-5 ${i < rating.stars ? 'text-[#1E90FF] fill-red-400' : 'text-slate-600'}`} 
                           />
                         ))}
                       </div>
@@ -212,7 +212,7 @@ function VeteransInner() {
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-white mb-1">{rating.title}</h3>
                       <p className="text-slate-400 text-sm mb-2">{rating.description}</p>
-                      <p className="text-red-400 text-sm">{rating.benefits}</p>
+                      <p className="text-[#1E90FF] text-sm">{rating.benefits}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -232,10 +232,10 @@ function VeteransInner() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {veteranBenefits.map((benefit, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-red-500/50 transition-all duration-300">
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-[#1E90FF]/50 transition-all duration-300">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500/20 to-red-500/20 flex items-center justify-center mb-4">
-                    <benefit.icon className="w-6 h-6 text-red-400" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 flex items-center justify-center mb-4">
+                    <benefit.icon className="w-6 h-6 text-[#1E90FF]" />
                   </div>
                   <CardTitle className="text-white">{benefit.title}</CardTitle>
                   <p className="text-slate-400 text-sm">{benefit.description}</p>
@@ -244,7 +244,7 @@ function VeteransInner() {
                   <div className="space-y-2">
                     {benefit.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />
                         {feature}
                       </div>
                     ))}
@@ -257,11 +257,11 @@ function VeteransInner() {
       </section>
 
       {/* NIL Opportunities */}
-      <section className="py-16 px-4 bg-gradient-to-r from-red-500/10 to-red-500/10">
+      <section className="py-16 px-4 bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-6">
+              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-6">
                 <DollarSign className="w-3 h-3 mr-1" />
                 Monetize Your Service
               </Badge>
@@ -278,7 +278,7 @@ function VeteransInner() {
                 <div className="grid grid-cols-1 gap-2">
                   {partnerBrands.map((brand, index) => (
                     <div key={index} className="flex items-center gap-2 text-slate-300 text-sm">
-                      <Target className="w-4 h-4 text-red-400 flex-shrink-0" />
+                      <Target className="w-4 h-4 text-[#1E90FF] flex-shrink-0" />
                       {brand}
                     </div>
                   ))}
@@ -297,10 +297,10 @@ function VeteransInner() {
                 ].map((opp, index) => (
                   <div key={index} className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 border border-slate-700">
                     <div className="flex items-center gap-3">
-                      <opp.icon className="w-5 h-5 text-red-400" />
+                      <opp.icon className="w-5 h-5 text-[#1E90FF]" />
                       <span className="text-white font-medium">{opp.type}</span>
                     </div>
-                    <span className="text-green-400 font-semibold">{opp.range}</span>
+                    <span className="text-[#00C2FF] font-semibold">{opp.range}</span>
                   </div>
                 ))}
               </div>
@@ -313,11 +313,11 @@ function VeteransInner() {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
           <Card className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 overflow-hidden">
-            <div className="h-2 bg-gradient-to-r from-red-400 to-red-500" />
+            <div className="h-2 bg-gradient-to-r from-[#1E90FF] to-[#0a1628]" />
             <CardContent className="p-8 md:p-12">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-red-500/20 to-red-500/20 flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-red-400" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 flex items-center justify-center">
+                  <Heart className="w-8 h-8 text-[#1E90FF]" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-white">Villa Agape for Veterans</h2>
@@ -339,7 +339,7 @@ function VeteransInner() {
                   { label: "Health Monitoring", icon: Stethoscope }
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2 p-3 rounded-lg bg-slate-800/50 border border-slate-700">
-                    <item.icon className="w-5 h-5 text-red-400" />
+                    <item.icon className="w-5 h-5 text-[#1E90FF]" />
                     <span className="text-white text-sm">{item.label}</span>
                   </div>
                 ))}
@@ -347,7 +347,7 @@ function VeteransInner() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/robot-companions">
-                  <Button className="bg-gradient-to-r from-red-500 to-red-500 hover:from-red-600 hover:to-red-600 text-white">
+                  <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white">
                     <Bot className="w-4 h-4 mr-2" />
                     Learn About Robot Companions
                   </Button>
@@ -366,7 +366,7 @@ function VeteransInner() {
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-blue-900 to-slate-900">
         <div className="container mx-auto max-w-4xl text-center">
-          <Flag className="w-16 h-16 text-red-400 mx-auto mb-6" />
+          <Flag className="w-16 h-16 text-[#1E90FF] mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Thank You for Your Service
           </h2>
@@ -376,7 +376,7 @@ function VeteransInner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/early-access">
-              <Button size="lg" className="bg-gradient-to-r from-red-500 to-red-500 hover:from-red-600 hover:to-red-600 text-white px-8">
+              <Button size="lg" className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white px-8">
                 <Shield className="w-5 h-5 mr-2" />
                 Join Veterans Program
               </Button>
@@ -388,7 +388,7 @@ function VeteransInner() {
             </Link>
           </div>
           
-          <p className="text-red-400 font-semibold mt-8">
+          <p className="text-[#1E90FF] font-semibold mt-8">
             100% Free for All Veterans. Always.
           </p>
         </div>
@@ -399,7 +399,7 @@ function VeteransInner() {
         <p className="text-slate-500">
           © 2026 Dozier Holdings Group, LLC. All rights reserved.
         </p>
-        <p className="text-red-400 font-medium mt-2">
+        <p className="text-[#1E90FF] font-medium mt-2">
           Faith. Country. Family. Leadership.
         </p>
       </footer>

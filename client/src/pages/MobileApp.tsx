@@ -3,18 +3,18 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { Link } from "wouter";
 
 const appFeatures = [
-  { icon: "🤖", title: "FUEL Bot AI", desc: "Your personal AI coach in your pocket. Training plans, recruiting advice, NIL guidance — 24/7." },
-  { icon: "📱", title: "Social Feed", desc: "Stay connected with athletes worldwide. Share highlights, training clips, and recruiting updates." },
-  { icon: "🏆", title: "Live Tournaments", desc: "Real-time tournament brackets, scores, and standings. Never miss a moment of the action." },
-  { icon: "💰", title: "NIL Deals", desc: "Browse, apply, and manage NIL deals directly from your phone. Your brand, your business." },
-  { icon: "🎬", title: "Film Review", desc: "Upload, tag, and share game film instantly. Get AI-powered breakdowns on the go." },
-  { icon: "🔔", title: "Smart Alerts", desc: "Recruiting windows, coach views, deal deadlines — get notified before it's too late." },
+  { icon: "", title: "FUEL Bot AI", desc: "Your personal AI coach in your pocket. Training plans, recruiting advice, NIL guidance — 24/7." },
+  { icon: "", title: "Social Feed", desc: "Stay connected with athletes worldwide. Share highlights, training clips, and recruiting updates." },
+  { icon: "", title: "Live Tournaments", desc: "Real-time tournament brackets, scores, and standings. Never miss a moment of the action." },
+  { icon: "", title: "NIL Deals", desc: "Browse, apply, and manage NIL deals directly from your phone. Your brand, your business." },
+  { icon: "", title: "Film Review", desc: "Upload, tag, and share game film instantly. Get AI-powered breakdowns on the go." },
+  { icon: "", title: "Smart Alerts", desc: "Recruiting windows, coach views, deal deadlines — get notified before it's too late." },
 ];
 
 const screenshots = [
-  { label: "Dashboard", bg: "from-blue-900 to-cyan-900" },
-  { label: "NIL Portal", bg: "from-green-900 to-emerald-900" },
-  { label: "FUEL Bot", bg: "from-red-900 to-red-900" },
+  { label: "Dashboard", bg: "from-blue-900 to-[#0a1628]" },
+  { label: "NIL Portal", bg: "from-[#00C2FF] to-emerald-900" },
+  { label: "FUEL Bot", bg: "from-[#1E90FF] to-[#0a1628]" },
   { label: "Tournaments", bg: "from-blue-950 to-indigo-900" },
 ];
 
@@ -66,15 +66,15 @@ function MobileAppInner() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-[#060d1a] to-blue-950 opacity-60" />
         <div className="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 bg-green-900/40 border border-green-700/50 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs font-bold tracking-widest">NATIVE APPS IN TESTING</span>
+            <div className="inline-flex items-center gap-2 bg-[#00C2FF]/40 border border-[#00C2FF]/50 rounded-full px-4 py-1.5 mb-6">
+              <span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse" />
+              <span className="text-[#00C2FF] text-xs font-bold tracking-widest">NATIVE APPS IN TESTING</span>
               <span className="bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">iOS TestFlight · Google Play</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-black text-white mb-4 leading-none">
               AthlynX<br />
               <span className="text-blue-400">IN YOUR</span><br />
-              <span className="text-cyan-400">POCKET</span>
+              <span className="text-[#00C2FF]">POCKET</span>
             </h1>
             <p className="text-gray-300 text-xl mb-8">
               The full power of AthlynX — FUEL Bot AI, NIL deals, recruiting tools, tournaments — all in one mobile app.
@@ -89,11 +89,11 @@ function MobileAppInner() {
                     : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
-                <span className="text-2xl">🍎</span>
+                <span className="text-2xl"></span>
                 <div className="text-left">
                   <div className="text-xs opacity-70">Testing on</div>
                   <div className="font-black">App Store</div>
-                  <div className="text-[10px] text-cyan-400 font-bold">TESTFLIGHT LIVE</div>
+                  <div className="text-[10px] text-[#00C2FF] font-bold">TESTFLIGHT LIVE</div>
                 </div>
               </button>
               <button
@@ -104,18 +104,18 @@ function MobileAppInner() {
                     : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
-                <span className="text-2xl">🤖</span>
+                <span className="text-2xl"></span>
                 <div className="text-left">
                   <div className="text-xs opacity-70">Review on</div>
                   <div className="font-black">Google Play</div>
-                  <div className="text-[10px] text-green-400 font-bold">CLOSED TESTING</div>
+                  <div className="text-[10px] text-[#00C2FF] font-bold">CLOSED TESTING</div>
                 </div>
               </button>
             </div>
 
-            <div className="bg-green-900/30 border border-green-700/40 rounded-xl p-4">
-              <p className="text-green-300 text-sm">
-                <span className="font-bold">🚀 AthlynX native apps are in store testing now.</span> iOS is on TestFlight and Google Play closed testing has been sent for review. The public download pages use the black and white A/X app icon.
+            <div className="bg-[#00C2FF]/30 border border-[#00C2FF]/40 rounded-xl p-4">
+              <p className="text-[#00C2FF] text-sm">
+                <span className="font-bold"> AthlynX native apps are in store testing now.</span> iOS is on TestFlight and Google Play closed testing has been sent for review. The public download pages use the black and white A/X app icon.
               </p>
             </div>
           </div>
@@ -123,36 +123,36 @@ function MobileAppInner() {
           {/* Approved mobile app-store promo artwork */}
           <div className="flex justify-center">
             <img
-              src="/brand/athlynxai-xfactor-app-mark.png"
-              alt="AthlynXAI X-Factor all-in-one app mark"
-              className="w-72 max-w-full rounded-[2rem] border border-cyan-400/30 bg-black/40 object-contain shadow-2xl shadow-cyan-500/20"
+              src="/brand/athlynxai-epx-app-mark.png"
+              alt="AthlynXAI EPX all-in-one app mark"
+              className="w-72 max-w-full rounded-[2rem] border border-[#1E90FF]/30 bg-black/40 object-contain shadow-2xl shadow-cyan-500/20"
             />
           </div>
         </div>
       </section>
 
-      {/* X-Factor App Standard */}
-      <section className="py-16 px-4 border-y border-cyan-400/20 bg-gradient-to-b from-black via-[#061226] to-black">
+      {/* EPX App Standard */}
+      <section className="py-16 px-4 border-y border-[#1E90FF]/30 bg-gradient-to-b from-black via-[#061226] to-black">
         <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-cyan-300/30 bg-black shadow-2xl shadow-cyan-500/20">
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-[#1E90FF]/30 bg-black shadow-2xl shadow-cyan-500/20">
             <img
-              src="/brand/athlynxai-xfactor-app-card.png"
-              alt="AthlynXAI X-Factor app icon and brand card"
+              src="/brand/athlynxai-epx-app-card.png"
+              alt="AthlynXAI EPX app icon and brand card"
               className="h-[520px] w-full object-cover object-center"
               loading="lazy"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-6">
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-cyan-200">AthlynXAI X-Factor</p>
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00C2FF]">AthlynXAI EPX</p>
               <h2 className="mt-2 text-3xl font-black text-white">One app standard. Every sport.</h2>
             </div>
           </div>
 
           <div>
-            <div className="mb-5 inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-cyan-100">
+            <div className="mb-5 inline-flex rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">
               App Store · Google Play · Web
             </div>
             <h2 className="text-4xl font-black leading-tight text-white md:text-5xl">
-              The X-Factor mark becomes the master app template.
+              The EPX mark becomes the master app template.
             </h2>
             <p className="mt-5 text-base leading-8 text-gray-300">
               AthlynXAI uses this mark as the mobile icon direction for the all-in-one athlete app, Diamond Grind baseball, and every future sport service. Each sport receives its own proof profile, film room, scorecard, calendar, training plan, messaging path, and recruiting or NIL lane while staying inside one connected account.
@@ -166,7 +166,7 @@ function MobileAppInner() {
                 "Facebook and LinkedIn funnels",
                 "Reusable 50+ app service map",
               ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-sm font-bold text-cyan-50">
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-sm font-bold text-[#00C2FF]">
                   {item}
                 </div>
               ))}
@@ -175,10 +175,10 @@ function MobileAppInner() {
         </div>
 
         <div className="mx-auto mt-12 max-w-6xl rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-cyan-300">50+ sport and service apps</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00C2FF]">50+ sport and service apps</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {xFactorSportApps.map((sport) => (
-              <span key={sport} className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-xs font-bold text-cyan-50">
+              <span key={sport} className="rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-3 py-1.5 text-xs font-bold text-[#00C2FF]">
                 {sport}
               </span>
             ))}
@@ -206,10 +206,10 @@ function MobileAppInner() {
       <section className="py-10 px-4 border-y border-blue-900/20 bg-black/20">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
-            { value: "PWA Live", label: "Available Now", icon: "✅" },
-            { value: "<2s", label: "Load Time", icon: "⚡" },
-            { value: "iOS & Android", label: "PWA Platforms", icon: "📱" },
-            { value: "Free", label: "Install", icon: "🎁" },
+            { value: "PWA Live", label: "Available Now", icon: "" },
+            { value: "<2s", label: "Load Time", icon: "" },
+            { value: "iOS & Android", label: "PWA Platforms", icon: "" },
+            { value: "Free", label: "Install", icon: "" },
           ].map((s) => (
             <div key={s.label}>
               <div className="text-2xl mb-1">{s.icon}</div>
@@ -223,14 +223,14 @@ function MobileAppInner() {
       {/* Early Access Form */}
       <section id="notify" className="py-16 px-4">
         <div className="max-w-lg mx-auto text-center">
-          <div className="text-5xl mb-4">🚀</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <h2 className="text-3xl font-black text-white mb-3">Get Early Access</h2>
           <p className="text-gray-300 mb-8">
             Be among the first to experience AthlynX on mobile. Early access members get exclusive perks and lifetime discounts.
           </p>
           {notified ? (
-            <div className="bg-green-900/30 border border-green-700/40 rounded-2xl p-8">
-              <div className="text-5xl mb-3">🎉</div>
+            <div className="bg-[#00C2FF]/30 border border-[#00C2FF]/40 rounded-2xl p-8">
+              <div className="text-5xl mb-3"></div>
               <h3 className="text-white font-black text-xl mb-2">You're on the list!</h3>
               <p className="text-gray-300 text-sm">We'll notify you the moment the app drops. Get ready to level up.</p>
             </div>
@@ -266,7 +266,7 @@ function MobileAppInner() {
                 <tr>
                   <th className="text-left text-gray-400 text-sm font-bold pb-3 pr-4">Feature</th>
                   <th className="text-center text-blue-400 text-sm font-bold pb-3 px-4">Web App</th>
-                  <th className="text-center text-cyan-400 text-sm font-bold pb-3 px-4">Mobile App</th>
+                  <th className="text-center text-[#00C2FF] text-sm font-bold pb-3 px-4">Mobile App</th>
                 </tr>
               </thead>
               <tbody className="space-y-2">
@@ -283,10 +283,10 @@ function MobileAppInner() {
                   <tr key={row.feature} className="border-b border-blue-900/20">
                     <td className="text-gray-300 text-sm py-3 pr-4">{row.feature}</td>
                     <td className="text-center py-3 px-4">
-                      {row.web ? <span className="text-green-400">✓</span> : <span className="text-gray-700">—</span>}
+                      {row.web ? <span className="text-[#00C2FF]"></span> : <span className="text-gray-700">—</span>}
                     </td>
                     <td className="text-center py-3 px-4">
-                      {row.mobile ? <span className="text-green-400">✓</span> : <span className="text-gray-700">—</span>}
+                      {row.mobile ? <span className="text-[#00C2FF]"></span> : <span className="text-gray-700">—</span>}
                     </td>
                   </tr>
                 ))}
@@ -296,9 +296,9 @@ function MobileAppInner() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
+      {/* 
            FUTURISTIC APP SCREENSHOT GALLERY — REAL SCREENS
-      ═══════════════════════════════════════════════════════ */}
+       */}
       <section className="py-20 px-4 bg-black overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}

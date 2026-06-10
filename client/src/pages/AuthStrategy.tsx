@@ -38,7 +38,7 @@ function AuthStrategyInner() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0066ff]/10 via-transparent to-[#00c2ff]/5" />
         <div className="max-w-5xl mx-auto px-4 py-14 relative z-10 text-center">
           <Badge className="bg-[#0066ff]/20 text-[#00c2ff] border-[#0066ff]/30 mb-4 text-sm px-4 py-1">
-            🔐 ENTERPRISE AUTH STRATEGY — S38
+             ENTERPRISE AUTH STRATEGY — S38
           </Badge>
           <h1 className="text-4xl md:text-5xl font-black mb-4">AUTH0 vs OKTA vs FIREBASE</h1>
           <p className="text-[#00c2ff] text-lg font-bold mb-2">Board Meeting Decision — May 5, 2026</p>
@@ -51,17 +51,17 @@ function AuthStrategyInner() {
       <div className="max-w-5xl mx-auto px-4 py-12 space-y-12">
 
         {/* Current Status */}
-        <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-6">
+        <div className="bg-[#00C2FF]/10 border border-[#00C2FF]/30 rounded-2xl p-6">
           <div className="flex items-start gap-4">
-            <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+            <CheckCircle className="w-6 h-6 text-[#00C2FF] flex-shrink-0 mt-1" />
             <div>
-              <h2 className="text-green-400 font-black text-lg mb-1">CURRENT STACK — LIVE & WORKING</h2>
-              <p className="text-green-200/80 text-sm">
+              <h2 className="text-[#00C2FF] font-black text-lg mb-1">CURRENT STACK — LIVE & WORKING</h2>
+              <p className="text-[#00C2FF]/80 text-sm">
                 Supabase Auth + Custom JWT is live, stable, and handling all social logins (Google, Apple, Twitter). All partner accounts have full access. Chad A. Dozier Sr. is the only Master Admin. The current stack is production-ready for the July 1, 2026 public launch.
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
-                {["Supabase Auth", "Custom JWT", "Google Sign-In ✅", "Apple Sign-In ✅", "X Sign-In ✅", "Email + Password ✅"].map(t => (
-                  <Badge key={t} className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">{t}</Badge>
+                {["Supabase Auth", "Custom JWT", "Google Sign-In ", "Apple Sign-In ", "X Sign-In ", "Email + Password "].map(t => (
+                  <Badge key={t} className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 text-xs">{t}</Badge>
                 ))}
               </div>
             </div>
@@ -91,7 +91,7 @@ function AuthStrategyInner() {
                   <th className="text-left py-3 px-4 text-blue-300 font-bold">Feature</th>
                   <th className="text-center py-3 px-4 text-[#00c2ff] font-black">Auth0</th>
                   <th className="text-center py-3 px-4 text-[#0066ff] font-black">Okta</th>
-                  <th className="text-center py-3 px-4 text-green-400 font-black">Supabase (Current)</th>
+                  <th className="text-center py-3 px-4 text-[#00C2FF] font-black">Supabase (Current)</th>
                 </tr>
               </thead>
               <tbody>
@@ -99,13 +99,13 @@ function AuthStrategyInner() {
                   <tr key={row.feature} className={`border-b border-blue-900/20 ${i % 2 === 0 ? "bg-white/2" : ""}`}>
                     <td className="py-3 px-4 text-white text-sm">{row.feature}</td>
                     <td className="py-3 px-4 text-center">
-                      {row.auth0 ? <CheckCircle className="w-4 h-4 text-green-400 mx-auto" /> : <XCircle className="w-4 h-4 text-red-400/60 mx-auto" />}
+                      {row.auth0 ? <CheckCircle className="w-4 h-4 text-[#00C2FF] mx-auto" /> : <XCircle className="w-4 h-4 text-[#1E90FF]/60 mx-auto" />}
                     </td>
                     <td className="py-3 px-4 text-center">
-                      {row.okta ? <CheckCircle className="w-4 h-4 text-green-400 mx-auto" /> : <XCircle className="w-4 h-4 text-red-400/60 mx-auto" />}
+                      {row.okta ? <CheckCircle className="w-4 h-4 text-[#00C2FF] mx-auto" /> : <XCircle className="w-4 h-4 text-[#1E90FF]/60 mx-auto" />}
                     </td>
                     <td className="py-3 px-4 text-center">
-                      {row.firebase ? <CheckCircle className="w-4 h-4 text-green-400 mx-auto" /> : <XCircle className="w-4 h-4 text-red-400/60 mx-auto" />}
+                      {row.firebase ? <CheckCircle className="w-4 h-4 text-[#00C2FF] mx-auto" /> : <XCircle className="w-4 h-4 text-[#1E90FF]/60 mx-auto" />}
                     </td>
                   </tr>
                 ))}
@@ -157,12 +157,12 @@ function AuthStrategyInner() {
                 <p className="text-sm mb-4" style={{ color: c }}>{opt.subtitle}</p>
                 <div className="space-y-1 mb-4">
                   {opt.pros.map(p => (
-                    <div key={p} className="flex items-start gap-2 text-xs text-green-300">
+                    <div key={p} className="flex items-start gap-2 text-xs text-[#00C2FF]">
                       <CheckCircle className="w-3 h-3 mt-0.5 flex-shrink-0" /> {p}
                     </div>
                   ))}
                   {opt.cons.map(c => (
-                    <div key={c} className="flex items-start gap-2 text-xs text-red-300/70">
+                    <div key={c} className="flex items-start gap-2 text-xs text-[#1E90FF]/70">
                       <XCircle className="w-3 h-3 mt-0.5 flex-shrink-0" /> {c}
                     </div>
                   ))}
@@ -183,8 +183,8 @@ function AuthStrategyInner() {
             No migration risk. Platform is stable. Auth0 migration scheduled for post-launch (S42-S45) once we have stable revenue and a dedicated engineering sprint. Okta to be evaluated at Series A.
           </p>
           <div className="mt-4">
-            <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-sm px-4 py-1">
-              ✅ DECISION LOCKED — S38 MAY 6, 2026
+            <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 text-sm px-4 py-1">
+               DECISION LOCKED — S38 MAY 6, 2026
             </Badge>
           </div>
         </div>

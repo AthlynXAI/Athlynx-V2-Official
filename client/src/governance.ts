@@ -70,8 +70,8 @@ export const THE_FOUR: readonly DoctrineMember[] = [
     role: "Full Admin",
     label: "Glenn — CFO / COO",
   },
-  // SUSPENDED 2026-06-09: Tony Locey access suspended by Master Admin.
-  // { primary: "tlockey24@athlynx.ai", signIn: ["tlockey24@athlynx.ai", "tlocey@athlynx.ai", "tonyloceybaseball@gmail.com"], role: "Full Admin", label: "Tony — First Athlete Partner & Partner" },
+  // SUSPENDED 2026-06-09:  access suspended by Master Admin.
+  // { primary: "tlockey24@athlynx.ai", signIn: ["tlockey24@athlynx.ai", "tlocey@athlynx.ai", "tonyloceybaseball@gmail.com"], role: "Full Admin", label: "Tony —  & Partner" },
 ] as const;
 
 /**
@@ -127,7 +127,7 @@ export function shouldSkipCreditThrottling(email: string | null | undefined): bo
   return isBillingExempt(email);
 }
 
-// ─── COMPUTE DOCTRINE ────────────────────────────────────────────────────────
+//  COMPUTE DOCTRINE 
 // Added May 29, 2026 · NVIDIA / Nebius alignment per Chad's strategic direction.
 // Source: NVIDIA Ising launch (April 14, 2026) + NVIDIA-Nebius full-stack AI
 // cloud partnership (March 11, 2026). Build 27 LayerCake handoff confirms
@@ -137,7 +137,7 @@ export function shouldSkipCreditThrottling(email: string | null | undefined): bo
 // AthlynX positioning: vertical-AI workload generator for sports — the
 // demand-side counterpart to NVIDIA's silicon + cloud + open-model stack.
 // Not a chip play, not a cloud play — a workload-creator play.
-// ──────────────────────────────────────────────────────────────────────────────
+// 
 
 /** AthlynXAI OS compute stack — public-safe declarations (no API keys, no endpoints). */
 export const COMPUTE_DOCTRINE = {
@@ -151,7 +151,7 @@ export const COMPUTE_DOCTRINE = {
   },
   fallback_2: {
     family: "Nebius Llama-3.3-70B on NVIDIA H200",
-    role: "Open-weight production fallback — scouting reports, X-Factor score",
+    role: "Open-weight production fallback — scouting reports, EPX score",
     hardware: "NVIDIA H200 GPU cluster (Nebius AI Cloud)",
   },
   open_model_alignment: {
@@ -166,12 +166,12 @@ export const COMPUTE_DOCTRINE = {
 
 export type ComputeDoctrine = typeof COMPUTE_DOCTRINE;
 
-// ─── LIFETIME ATHLETE IDENTITY DOCTRINE (Innovation F · May 30, 2026) ─────────
+//  LIFETIME ATHLETE IDENTITY DOCTRINE (Innovation F · May 30, 2026) 
 // First in sports tech: one athlete identity from birth to retirement.
 // Diamond Grind (8-14) → High School (14-18) → College (18-22+) → Pro → Post-Career.
 // Same user_id. Same profile. Same audit trail. Same brand history.
 // No competitor owns this arc. This is the moat.
-// ──────────────────────────────────────────────────────────────────────────────
+// 
 
 /** Five-stage athlete career arc. Stage shifts trigger feature unlocks + compliance gates. */
 export type LifetimeStage =
@@ -197,11 +197,11 @@ export const LIFETIME_ATHLETE_IDENTITY = {
 
 export type LifetimeAthleteIdentity = typeof LIFETIME_ATHLETE_IDENTITY;
 
-// ─── AI RECRUITING CONCIERGE DOCTRINE (Innovation B · May 30, 2026) ───────────
+//  AI RECRUITING CONCIERGE DOCTRINE (Innovation B · May 30, 2026) 
 // Every Pro / Elite / Champion athlete gets a dedicated AI agent running on
 // NVIDIA Nemotron Ultra 253B (H200 via Nebius). Daily briefing on recruiting
 // interest, NIL opportunities, transfer windows, eligibility status.
-// ──────────────────────────────────────────────────────────────────────────────
+// 
 
 export const AI_RECRUITING_CONCIERGE = {
   doctrine: "Every athlete gets a personal AI recruiting agent — not a chatbot, a concierge.",
@@ -219,11 +219,11 @@ export const AI_RECRUITING_CONCIERGE = {
 
 export type AIRecruitingConcierge = typeof AI_RECRUITING_CONCIERGE;
 
-// ─── REAL-TIME NIL VALUATION SPIKES (Innovation D · May 30, 2026) ─────────────
+//  REAL-TIME NIL VALUATION SPIKES (Innovation D · May 30, 2026) 
 // When a player has a breakout game, their NIL value gets re-scored in real time.
 // Brands see a "Top NIL Value Gainers This Hour" feed.
 // Athletes get push notifications when their valuation jumps.
-// ──────────────────────────────────────────────────────────────────────────────
+// 
 
 export const NIL_VALUATION_SPIKES = {
   doctrine: "Performance drives valuation in real time, not next quarter.",

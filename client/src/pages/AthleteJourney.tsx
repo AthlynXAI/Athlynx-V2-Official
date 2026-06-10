@@ -19,7 +19,7 @@ const STAGES = [
     label: "High School",
     subtitle: "Grades 9–12",
     icon: GraduationCap,
-    color: "from-green-500 to-emerald-600",
+    color: "from-[#00C2FF] to-emerald-600",
     accent: "#10b981",
     badge: "START HERE",
     description: "Build your foundation, get discovered, and set yourself up for a full ride.",
@@ -73,7 +73,7 @@ const STAGES = [
     label: "Professional",
     subtitle: "NFL · NBA · MLB · NHL · MLS & More",
     icon: Crown,
-    color: "from-red-500 to-red-500",
+    color: "from-[#1E90FF] to-[#0a1628]",
     accent: "#dc2626",
     badge: "ELITE",
     description: "From draft day to your first contract — manage your professional career like a business.",
@@ -91,7 +91,7 @@ const STAGES = [
     label: "Retirement & Legacy",
     subtitle: "Life After the Game",
     icon: Heart,
-    color: "from-red-500 to-red-600",
+    color: "from-[#1E90FF] to-[#0a1628]",
     accent: "#dc2626",
     badge: "LEGACY",
     description: "Your career doesn't end when the game does. Build your legacy, protect your wealth, and thrive.",
@@ -128,8 +128,8 @@ function AthleteJourneyInner() {
             THE COMPLETE ATHLETE LIFECYCLE PLATFORM
           </Badge>
           <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
-            From <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">High School</span>
-            <br />to <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-400">Legacy</span>
+            From <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-blue-400">High School</span>
+            <br />to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">Legacy</span>
           </h1>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
             AthlynX manages every stage of your athletic career — recruiting, NIL deals, transfer portal, pro contracts, endorsements, and retirement planning. One platform. Your entire career.
@@ -258,7 +258,7 @@ function AthleteJourneyInner() {
                   >
                     <Icon className={`w-5 h-5 ${isActive ? "text-white" : isPast ? "text-blue-400" : "text-blue-600"}`} />
                     <span className={`text-[10px] font-bold ${isActive ? "text-white" : "text-blue-400"}`}>{s.label}</span>
-                    {isPast && <CheckCircle className="w-3 h-3 text-green-400" />}
+                    {isPast && <CheckCircle className="w-3 h-3 text-[#00C2FF]" />}
                   </button>
                   {i < STAGES.length - 1 && (
                     <ChevronRight className="w-4 h-4 text-blue-700 shrink-0" />

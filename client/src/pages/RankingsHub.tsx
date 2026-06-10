@@ -24,19 +24,19 @@ import {
   Dumbbell, Gauge, Radio, Activity
 } from "lucide-react";
 
-// ─── Live Activity Feed ───────────────────────────────────────────────────────
+//  Live Activity Feed 
 const LIVE_EVENTS = [
-  { icon: "🏈", text: "Marcus Williams (QB, TX) just received offer from Alabama", time: "2m ago", color: "text-red-400" },
-  { icon: "💰", text: "Aaliyah Thompson signed $12,500 NIL deal with Nike", time: "5m ago", color: "text-green-400" },
-  { icon: "🔄", text: "Devon Carter entered Transfer Portal from Klein HS", time: "8m ago", color: "text-sky-400" },
-  { icon: "⚡", text: "Jordan Davis X-Factor score jumped to 94 (+3)", time: "11m ago", color: "text-cyan-400" },
-  { icon: "🎓", text: "Tyler Brooks committed to Ohio State", time: "14m ago", color: "text-blue-400" },
-  { icon: "📹", text: "New highlight reel uploaded: Keisha Moore, WR, GA", time: "17m ago", color: "text-purple-400" },
-  { icon: "🏆", text: "Westlake HS Football ranked #1 in Texas 6A", time: "22m ago", color: "text-sky-400" },
-  { icon: "🤝", text: "Coach Williams (LSU) viewed 4 profiles today", time: "25m ago", color: "text-green-400" },
+  { icon: "", text: "Marcus Williams (QB, TX) just received offer from Alabama", time: "2m ago", color: "text-[#1E90FF]" },
+  { icon: "", text: "Aaliyah Thompson signed $12,500 NIL deal with Nike", time: "5m ago", color: "text-[#00C2FF]" },
+  { icon: "", text: "Devon Carter entered Transfer Portal from Klein HS", time: "8m ago", color: "text-[#00C2FF]" },
+  { icon: "", text: "Jordan Davis EPX score jumped to 94 (+3)", time: "11m ago", color: "text-[#00C2FF]" },
+  { icon: "", text: "Tyler Brooks committed to Ohio State", time: "14m ago", color: "text-blue-400" },
+  { icon: "", text: "New highlight reel uploaded: Keisha Moore, WR, GA", time: "17m ago", color: "text-[#1E90FF]" },
+  { icon: "", text: "Westlake HS Football ranked #1 in Texas 6A", time: "22m ago", color: "text-[#00C2FF]" },
+  { icon: "", text: "Coach Williams (LSU) viewed 4 profiles today", time: "25m ago", color: "text-[#00C2FF]" },
 ];
 
-// ─── Leaderboard ──────────────────────────────────────────────────────────────
+//  Leaderboard 
 const LEADERBOARD_SPORTS = ["All Sports", "Football", "Basketball", "Baseball", "Soccer", "Track", "Wrestling", "Swimming", "Volleyball", "Golf"];
 
 const LEADERBOARD_ATHLETES = [
@@ -54,7 +54,7 @@ const LEADERBOARD_ATHLETES = [
   { rank: 12, prev: 11, name: "Zach Powell", sport: "Baseball", pos: "SS", school: "Cypress Ranch HS", state: "TX", year: "2027", xScore: 85, nilValue: 20000, offers: 10, verified: true, avatar: "ZP" },
 ];
 
-// ─── Combine Stats ────────────────────────────────────────────────────────────
+//  Combine Stats 
 const COMBINE_ATHLETES = [
   { name: "Marcus Williams", sport: "Football", pos: "QB", school: "Westlake HS", fortyYd: "4.52", vertical: "38.5", bench: 22, shuttle: "4.12", xScore: 98, pct40: 94, pctVert: 91, pctBench: 78, pctShuttle: 96 },
   { name: "Tyler Brooks", sport: "Football", pos: "LB", school: "Mater Dei HS", fortyYd: "4.61", vertical: "36.0", bench: 28, shuttle: "4.18", xScore: 92, pct40: 88, pctVert: 85, pctBench: 92, pctShuttle: 90 },
@@ -63,7 +63,7 @@ const COMBINE_ATHLETES = [
   { name: "Caleb Torres", sport: "Basketball", pos: "SF", school: "IMG Academy", fortyYd: "4.55", vertical: "42.0", bench: 18, shuttle: "4.09", xScore: 89, pct40: 92, pctVert: 99, pctBench: 65, pctShuttle: 93 },
 ];
 
-// ─── Mock Draft ───────────────────────────────────────────────────────────────
+//  Mock Draft 
 const MOCK_DRAFTS: Record<string, { league: string; picks: { pick: number; team: string; player: string; pos: string; school: string; xScore: number }[] }> = {
   mlb: {
     league: "MLB Draft 2027",
@@ -97,32 +97,32 @@ const MOCK_DRAFTS: Record<string, { league: string; picks: { pick: number; team:
   },
 };
 
-// ─── College Top 25 ───────────────────────────────────────────────────────────
+//  College Top 25 
 const COLLEGE_TOP25: Record<string, { rank: number; school: string; conf: string; record: string; trend: string }[]> = {
   football: [
-    { rank: 1, school: "Georgia Bulldogs", conf: "SEC", record: "14-1", trend: "▲" },
-    { rank: 2, school: "Ohio State Buckeyes", conf: "Big Ten", record: "13-2", trend: "▼" },
-    { rank: 3, school: "Alabama Crimson Tide", conf: "SEC", record: "13-1", trend: "▲" },
-    { rank: 4, school: "Texas Longhorns", conf: "SEC", record: "12-2", trend: "▲" },
+    { rank: 1, school: "Georgia Bulldogs", conf: "SEC", record: "14-1", trend: "" },
+    { rank: 2, school: "Ohio State Buckeyes", conf: "Big Ten", record: "13-2", trend: "" },
+    { rank: 3, school: "Alabama Crimson Tide", conf: "SEC", record: "13-1", trend: "" },
+    { rank: 4, school: "Texas Longhorns", conf: "SEC", record: "12-2", trend: "" },
     { rank: 5, school: "Penn State Nittany Lions", conf: "Big Ten", record: "13-2", trend: "—" },
   ],
   basketball: [
-    { rank: 1, school: "Duke Blue Devils", conf: "ACC", record: "32-5", trend: "▲" },
-    { rank: 2, school: "Kansas Jayhawks", conf: "Big 12", record: "30-6", trend: "▼" },
-    { rank: 3, school: "Houston Cougars", conf: "Big 12", record: "31-5", trend: "▲" },
-    { rank: 4, school: "Auburn Tigers", conf: "SEC", record: "29-7", trend: "▲" },
+    { rank: 1, school: "Duke Blue Devils", conf: "ACC", record: "32-5", trend: "" },
+    { rank: 2, school: "Kansas Jayhawks", conf: "Big 12", record: "30-6", trend: "" },
+    { rank: 3, school: "Houston Cougars", conf: "Big 12", record: "31-5", trend: "" },
+    { rank: 4, school: "Auburn Tigers", conf: "SEC", record: "29-7", trend: "" },
     { rank: 5, school: "Tennessee Volunteers", conf: "SEC", record: "28-8", trend: "—" },
   ],
   baseball: [
-    { rank: 1, school: "Texas Longhorns", conf: "SEC", record: "45-14", trend: "▲" },
-    { rank: 2, school: "LSU Tigers", conf: "SEC", record: "44-15", trend: "▼" },
-    { rank: 3, school: "Florida Gators", conf: "SEC", record: "43-16", trend: "▲" },
+    { rank: 1, school: "Texas Longhorns", conf: "SEC", record: "45-14", trend: "" },
+    { rank: 2, school: "LSU Tigers", conf: "SEC", record: "44-15", trend: "" },
+    { rank: 3, school: "Florida Gators", conf: "SEC", record: "43-16", trend: "" },
     { rank: 4, school: "Vanderbilt Commodores", conf: "SEC", record: "42-16", trend: "—" },
-    { rank: 5, school: "Arkansas Razorbacks", conf: "SEC", record: "41-17", trend: "▲" },
+    { rank: 5, school: "Arkansas Razorbacks", conf: "SEC", record: "41-17", trend: "" },
   ],
 };
 
-// ─── Percentile Bar ───────────────────────────────────────────────────────────
+//  Percentile Bar 
 function PercentileBar({ pct, label, value }: { pct: number; label: string; value: string }) {
   return (
     <div className="mb-2">
@@ -130,7 +130,7 @@ function PercentileBar({ pct, label, value }: { pct: number; label: string; valu
         <span className="text-blue-400 text-[10px] font-bold">{label}</span>
         <div className="flex items-center gap-2">
           <span className="text-white text-xs font-black">{value}</span>
-          <span className="text-cyan-400 text-[10px] font-bold">{pct}th %ile</span>
+          <span className="text-[#00C2FF] text-[10px] font-bold">{pct}th %ile</span>
         </div>
       </div>
       <div className="h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
@@ -140,15 +140,15 @@ function PercentileBar({ pct, label, value }: { pct: number; label: string; valu
   );
 }
 
-// ─── Rank Change Badge ────────────────────────────────────────────────────────
+//  Rank Change Badge 
 function RankBadge({ current, prev }: { current: number; prev: number }) {
   const diff = prev - current;
-  if (diff > 0) return <div className="flex items-center gap-0.5 text-green-400 text-[10px] font-black"><ArrowUp size={10} /><span>{diff}</span></div>;
-  if (diff < 0) return <div className="flex items-center gap-0.5 text-red-400 text-[10px] font-black"><ArrowDown size={10} /><span>{Math.abs(diff)}</span></div>;
+  if (diff > 0) return <div className="flex items-center gap-0.5 text-[#00C2FF] text-[10px] font-black"><ArrowUp size={10} /><span>{diff}</span></div>;
+  if (diff < 0) return <div className="flex items-center gap-0.5 text-[#1E90FF] text-[10px] font-black"><ArrowDown size={10} /><span>{Math.abs(diff)}</span></div>;
   return <Minus size={10} className="text-blue-700" />;
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function RankingsHubInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<"leaderboard" | "combine" | "rankings" | "draft" | "activity">("leaderboard");
@@ -181,8 +181,8 @@ function RankingsHubInner() {
         {/* Live Ticker */}
         <div className="bg-[#0a1628] border-b border-blue-900/40 px-4 py-2 flex items-center gap-2 overflow-hidden">
           <div className="flex items-center gap-1.5 shrink-0">
-            <Radio size={10} className="text-red-400 animate-pulse" />
-            <span className="text-[10px] font-black text-red-400 tracking-widest">LIVE</span>
+            <Radio size={10} className="text-[#1E90FF] animate-pulse" />
+            <span className="text-[10px] font-black text-[#1E90FF] tracking-widest">LIVE</span>
           </div>
           <div className="flex-1 overflow-hidden">
             <div key={tickerIndex} className="flex items-center gap-2">
@@ -197,16 +197,16 @@ function RankingsHubInner() {
         <div className="bg-gradient-to-b from-[#0a1628] to-[#040c1a] px-4 pt-5 pb-4">
           <div className="max-w-2xl mx-auto">
             <div className="flex items-center gap-2 mb-1">
-              <Trophy size={18} className="text-sky-400" />
-              <div className="text-[10px] font-black tracking-[0.3em] text-sky-400 uppercase">AthlynX Rankings</div>
+              <Trophy size={18} className="text-[#00C2FF]" />
+              <div className="text-[10px] font-black tracking-[0.3em] text-[#00C2FF] uppercase">AthlynX Rankings</div>
             </div>
             <h1 className="text-2xl font-black text-white">Rankings Hub™</h1>
             <p className="text-blue-400 text-sm mt-1">Live leaderboards, combine stats, AI scouting scores, mock drafts. Beats 247Sports, On3, Rivals, MaxPreps.</p>
             <div className="flex gap-2 mt-3 flex-wrap">
               {[
-                { label: "⚡ Nebius H200 AI", color: "bg-purple-900/40 border-purple-700/40 text-purple-300" },
-                { label: "📡 Live Updates", color: "bg-red-900/40 border-red-700/40 text-red-300" },
-                { label: `👥 ${LEADERBOARD_ATHLETES.length} Athletes Ranked`, color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
+                { label: " Nebius H200 AI", color: "bg-[#1E90FF]/40 border-[#1E90FF]/40 text-[#1E90FF]" },
+                { label: " Live Updates", color: "bg-[#1E90FF]/40 border-[#1E90FF]/40 text-[#1E90FF]" },
+                { label: ` ${LEADERBOARD_ATHLETES.length} Athletes Ranked`, color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
               ].map((b, i) => (
                 <span key={i} className={`text-[10px] font-bold px-2 py-1 rounded-full border ${b.color}`}>{b.label}</span>
               ))}
@@ -218,11 +218,11 @@ function RankingsHubInner() {
         <div className="sticky top-0 z-20 bg-[#040c1a]/95 backdrop-blur border-b border-blue-900/30 px-4 py-2">
           <div className="max-w-2xl mx-auto flex gap-1.5 overflow-x-auto scrollbar-hide">
             {[
-              { id: "leaderboard", label: "🏆 Leaderboard" },
-              { id: "combine", label: "⚡ Combine" },
-              { id: "rankings", label: "🎓 College Top 25" },
-              { id: "draft", label: "📋 Mock Draft" },
-              { id: "activity", label: "📡 Activity" },
+              { id: "leaderboard", label: " Leaderboard" },
+              { id: "combine", label: " Combine" },
+              { id: "rankings", label: " College Top 25" },
+              { id: "draft", label: " Mock Draft" },
+              { id: "activity", label: " Activity" },
             ].map(tab => (
               <button key={tab.id} onClick={() => setActiveTab(tab.id as any)}
                 className={`shrink-0 text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
@@ -236,7 +236,7 @@ function RankingsHubInner() {
 
         <div className="max-w-2xl mx-auto px-4 py-4 space-y-4">
 
-          {/* ══ LEADERBOARD ══ */}
+          {/*  LEADERBOARD  */}
           {activeTab === "leaderboard" && (
             <>
               <div className="flex gap-2">
@@ -264,9 +264,9 @@ function RankingsHubInner() {
                     <div className="text-[10px] font-black text-[#00c2ff] tracking-widest uppercase">AthlynX Live Leaderboard</div>
                     <div className="text-white font-black text-sm mt-0.5">{activeSport === "All Sports" ? "Top Prospects Nationwide" : `Top ${activeSport} Prospects`}</div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-red-500/20 border border-red-500/30 rounded-full px-2 py-1">
-                    <Activity size={10} className="text-red-400 animate-pulse" />
-                    <span className="text-[10px] font-black text-red-400">LIVE</span>
+                  <div className="flex items-center gap-1.5 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-2 py-1">
+                    <Activity size={10} className="text-[#1E90FF] animate-pulse" />
+                    <span className="text-[10px] font-black text-[#1E90FF]">LIVE</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-12 gap-1 px-4 py-2 border-b border-blue-900/30">
@@ -280,14 +280,14 @@ function RankingsHubInner() {
                   <div key={athlete.rank} onClick={() => setSelectedAthlete(selectedAthlete === i ? null : i)}
                     className={`grid grid-cols-12 gap-1 px-4 py-3 border-b border-blue-900/20 cursor-pointer transition-colors ${selectedAthlete === i ? "bg-[#0066ff]/10" : "hover:bg-blue-900/10"}`}>
                     <div className="col-span-1 flex flex-col items-center justify-center gap-0.5">
-                      <span className={`text-sm font-black ${athlete.rank <= 3 ? "text-sky-400" : "text-white"}`}>
-                        {athlete.rank <= 3 ? ["🥇","🥈","🥉"][athlete.rank - 1] : `#${athlete.rank}`}
+                      <span className={`text-sm font-black ${athlete.rank <= 3 ? "text-[#00C2FF]" : "text-white"}`}>
+                        {athlete.rank <= 3 ? ["","",""][athlete.rank - 1] : `#${athlete.rank}`}
                       </span>
                       <RankBadge current={athlete.rank} prev={athlete.prev} />
                     </div>
                     <div className="col-span-5 flex items-center gap-2">
                       <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-xs shrink-0 ${
-                        athlete.rank === 1 ? "bg-gradient-to-br from-blue-500 to-cyan-500" :
+                        athlete.rank === 1 ? "bg-gradient-to-br from-blue-500 to-[#0a1628]" :
                         athlete.rank === 2 ? "bg-gradient-to-br from-slate-400 to-slate-600" :
                         athlete.rank === 3 ? "bg-gradient-to-br from-blue-600 to-blue-800" :
                         "bg-gradient-to-br from-[#0066ff] to-[#00c2ff]"
@@ -295,7 +295,7 @@ function RankingsHubInner() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-1">
                           <span className="text-white font-black text-xs truncate">{athlete.name}</span>
-                          {athlete.verified && <span className="text-[#00c2ff] text-[10px]">✓</span>}
+                          {athlete.verified && <span className="text-[#00c2ff] text-[10px]"></span>}
                         </div>
                         <div className="text-blue-400 text-[10px] truncate">{athlete.pos} · {athlete.sport}</div>
                         <div className="text-blue-600 text-[9px] truncate">{athlete.school}, {athlete.state}</div>
@@ -306,7 +306,7 @@ function RankingsHubInner() {
                       <div className="text-blue-600 text-[9px]">X-Score</div>
                     </div>
                     <div className="col-span-2 flex flex-col items-center justify-center">
-                      <div className="text-green-400 font-black text-xs">${(athlete.nilValue / 1000).toFixed(0)}K</div>
+                      <div className="text-[#00C2FF] font-black text-xs">${(athlete.nilValue / 1000).toFixed(0)}K</div>
                       <div className="text-blue-600 text-[9px]">NIL</div>
                     </div>
                     <div className="col-span-2 flex flex-col items-center justify-center">
@@ -319,7 +319,7 @@ function RankingsHubInner() {
                           {[
                             { label: "Class", val: athlete.year },
                             { label: "State", val: athlete.state },
-                            { label: "Rank Change", val: athlete.prev > athlete.rank ? `📈 +${athlete.prev - athlete.rank}` : athlete.prev < athlete.rank ? `📉 ${athlete.prev - athlete.rank}` : "➡️ Steady" },
+                            { label: "Rank Change", val: athlete.prev > athlete.rank ? ` +${athlete.prev - athlete.rank}` : athlete.prev < athlete.rank ? ` ${athlete.prev - athlete.rank}` : " Steady" },
                           ].map((s, si) => (
                             <div key={si} className="bg-blue-900/30 rounded-xl p-2 text-center">
                               <div className="text-white font-black text-xs">{s.val}</div>
@@ -347,7 +347,7 @@ function RankingsHubInner() {
             </>
           )}
 
-          {/* ══ COMBINE STATS ══ */}
+          {/*  COMBINE STATS  */}
           {activeTab === "combine" && (
             <>
               <div className="bg-gradient-to-r from-[#0066ff]/10 to-[#00c2ff]/5 border border-[#0066ff]/20 rounded-2xl p-4">
@@ -375,10 +375,10 @@ function RankingsHubInner() {
                   </div>
                   <div className="grid grid-cols-4 gap-0 border-b border-blue-900/30">
                     {[
-                      { label: "40-Yd", val: athlete.fortyYd + "s", icon: "⚡" },
+                      { label: "40-Yd", val: athlete.fortyYd + "s", icon: "" },
                       { label: "Vertical", val: athlete.vertical + '"', icon: "↑" },
-                      { label: "Bench", val: athlete.bench + " reps", icon: "💪" },
-                      { label: "Shuttle", val: athlete.shuttle + "s", icon: "🔄" },
+                      { label: "Bench", val: athlete.bench + " reps", icon: "" },
+                      { label: "Shuttle", val: athlete.shuttle + "s", icon: "" },
                     ].map((s, si) => (
                       <div key={si} className={`p-3 text-center ${si < 3 ? "border-r border-blue-900/30" : ""}`}>
                         <div className="text-base mb-0.5">{s.icon}</div>
@@ -416,7 +416,7 @@ function RankingsHubInner() {
             </>
           )}
 
-          {/* ══ COLLEGE TOP 25 ══ */}
+          {/*  COLLEGE TOP 25  */}
           {activeTab === "rankings" && (
             <>
               <div className="flex gap-2">
@@ -425,13 +425,13 @@ function RankingsHubInner() {
                     className={`flex-1 text-xs font-bold py-2 rounded-xl transition-colors capitalize ${
                       activeCollegeSport === s ? "bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white" : "bg-[#0d1e3c] border border-blue-800/50 text-blue-400"
                     }`}>
-                    {s === "football" ? "🏈" : s === "basketball" ? "🏀" : "⚾"} {s.charAt(0).toUpperCase() + s.slice(1)}
+                    {s === "football" ? "" : s === "basketball" ? "" : ""} {s.charAt(0).toUpperCase() + s.slice(1)}
                   </button>
                 ))}
               </div>
               <div className="bg-[#0d1e3c] border border-blue-800/50 rounded-2xl overflow-hidden">
-                <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/10 px-4 py-3 border-b border-blue-500/20">
-                  <div className="text-xs font-black text-sky-400 tracking-widest uppercase">AthlynX College Top 25</div>
+                <div className="bg-gradient-to-r from-blue-500/20 to-[#0a1628]/10 px-4 py-3 border-b border-blue-500/20">
+                  <div className="text-xs font-black text-[#00C2FF] tracking-widest uppercase">AthlynX College Top 25</div>
                   <div className="text-white font-black text-sm capitalize">{activeCollegeSport} — 2025-26 Season</div>
                 </div>
                 {top25.map((team, i) => (
@@ -443,14 +443,14 @@ function RankingsHubInner() {
                       <div className="text-white font-black text-sm">{team.school}</div>
                       <div className="text-blue-500 text-xs">{team.conf} · {team.record}</div>
                     </div>
-                    <div className={`text-sm font-black ${team.trend === "▲" ? "text-green-400" : team.trend === "▼" ? "text-red-400" : "text-blue-600"}`}>{team.trend}</div>
+                    <div className={`text-sm font-black ${team.trend === "" ? "text-[#00C2FF]" : team.trend === "" ? "text-[#1E90FF]" : "text-blue-600"}`}>{team.trend}</div>
                   </div>
                 ))}
               </div>
             </>
           )}
 
-          {/* ══ MOCK DRAFT ══ */}
+          {/*  MOCK DRAFT  */}
           {activeTab === "draft" && (
             <>
               <div className="flex gap-2">
@@ -459,7 +459,7 @@ function RankingsHubInner() {
                     className={`flex-1 text-xs font-bold py-2 rounded-xl uppercase transition-colors ${
                       activeDraft === d ? "bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white" : "bg-[#0d1e3c] border border-blue-800/50 text-blue-400"
                     }`}>
-                    {d === "nfl" ? "🏈" : d === "mlb" ? "⚾" : "🏀"} {d.toUpperCase()}
+                    {d === "nfl" ? "" : d === "mlb" ? "" : ""} {d.toUpperCase()}
                   </button>
                 ))}
               </div>
@@ -484,9 +484,9 @@ function RankingsHubInner() {
                 ))}
               </div>
               <div className="bg-gradient-to-r from-[#0066ff]/10 to-[#00c2ff]/5 border border-dashed border-[#0066ff]/40 rounded-2xl p-5 text-center">
-                <Trophy size={24} className="text-sky-400 mx-auto mb-2" />
+                <Trophy size={24} className="text-[#00C2FF] mx-auto mb-2" />
                 <div className="text-white font-black text-sm mb-1">AI Draft Projection</div>
-                <p className="text-blue-400 text-xs mb-3">Get your personalized AI-generated draft projection based on your stats, combine results, and X-Factor score.</p>
+                <p className="text-blue-400 text-xs mb-3">Get your personalized AI-generated draft projection based on your stats, combine results, and EPX score.</p>
                 <button onClick={() => toast.success("AI Draft Projection — coming in S40!")}
                   className="bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white text-xs font-black px-6 py-2.5 rounded-xl">
                   Get My Projection
@@ -495,13 +495,13 @@ function RankingsHubInner() {
             </>
           )}
 
-          {/* ══ LIVE ACTIVITY ══ */}
+          {/*  LIVE ACTIVITY  */}
           {activeTab === "activity" && (
             <>
-              <div className="bg-gradient-to-r from-red-900/20 to-red-900/5 border border-red-800/30 rounded-2xl p-4">
+              <div className="bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/5 border border-[#1E90FF]/30 rounded-2xl p-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <Activity size={16} className="text-red-400 animate-pulse" />
-                  <div className="text-[10px] font-black text-red-400 tracking-widest uppercase">Platform Activity</div>
+                  <Activity size={16} className="text-[#1E90FF] animate-pulse" />
+                  <div className="text-[10px] font-black text-[#1E90FF] tracking-widest uppercase">Platform Activity</div>
                 </div>
                 <div className="text-white font-black text-lg">Live Feed</div>
                 <p className="text-blue-400 text-xs mt-1">Real-time events happening across the AthlynX platform right now.</p>
@@ -523,8 +523,8 @@ function RankingsHubInner() {
               <div className="grid grid-cols-3 gap-3">
                 {[
                   { label: "Active Users", val: "2,847", Icon: Users, color: "text-[#00c2ff]" },
-                  { label: "NIL Deals Today", val: "14", Icon: TrendingUp, color: "text-green-400" },
-                  { label: "New Offers", val: "38", Icon: Award, color: "text-sky-400" },
+                  { label: "NIL Deals Today", val: "14", Icon: TrendingUp, color: "text-[#00C2FF]" },
+                  { label: "New Offers", val: "38", Icon: Award, color: "text-[#00C2FF]" },
                 ].map((s, i) => (
                   <div key={i} className="bg-[#0d1e3c] border border-blue-800/40 rounded-2xl p-3 text-center">
                     <s.Icon size={18} className={`${s.color} mx-auto mb-1`} />

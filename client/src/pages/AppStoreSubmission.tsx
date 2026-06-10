@@ -124,12 +124,12 @@ function AppStoreSubmissionInner() {
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 mb-4">
+            <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 mb-4">
               <Smartphone className="w-3 h-3 mr-1" /> AVAILABLE ON ALL PLATFORMS
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
               Download
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-500">
                 AthlynX
               </span>
             </h1>
@@ -178,7 +178,7 @@ function AppStoreSubmissionInner() {
         <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
           {screenshots.map((screen, i) => (
             <div key={i} className="flex-shrink-0 w-64 snap-center">
-              <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl aspect-[9/16] flex items-center justify-center border border-white/10 mb-2">
+              <div className="bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/20 rounded-2xl aspect-[9/16] flex items-center justify-center border border-white/10 mb-2">
                 <div className="text-center p-4">
                   <Camera className="w-12 h-12 text-white/30 mx-auto mb-2" />
                   <p className="text-white/50 text-sm">{screen.title}</p>
@@ -197,8 +197,8 @@ function AppStoreSubmissionInner() {
           {features.map((feature, i) => (
             <Card key={i} className="bg-white/5 border-white/10">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-[#00C2FF]" />
                 </div>
                 <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
                 <p className="text-white/60 text-sm">{feature.desc}</p>
@@ -212,16 +212,16 @@ function AppStoreSubmissionInner() {
       <section className="container px-4 md:px-5 pb-16">
         <Tabs defaultValue="description" className="w-full">
           <TabsList className="flex flex-wrap justify-center bg-white/5 border border-white/10 rounded-xl p-1 mb-8 gap-1">
-            <TabsTrigger value="description" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="description" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               Description
             </TabsTrigger>
-            <TabsTrigger value="reviews" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="reviews" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               Reviews
             </TabsTrigger>
-            <TabsTrigger value="whats-new" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="whats-new" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               What's New
             </TabsTrigger>
-            <TabsTrigger value="privacy" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="privacy" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               Privacy
             </TabsTrigger>
           </TabsList>
@@ -284,12 +284,12 @@ function AppStoreSubmissionInner() {
                     <p className="text-4xl font-bold text-white">4.9</p>
                     <div className="flex gap-1 my-2">
                       {[1,2,3,4,5].map(i => (
-                        <Star key={i} className="w-5 h-5 fill-red-400 text-red-400" />
+                        <Star key={i} className="w-5 h-5 fill-red-400 text-[#1E90FF]" />
                       ))}
                     </div>
                     <p className="text-white/50 text-sm">Based on 2,847 reviews</p>
                   </div>
-                  <Button className="bg-cyan-500 hover:bg-cyan-400 text-white">
+                  <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white">
                     Write a Review
                   </Button>
                 </CardContent>
@@ -305,7 +305,7 @@ function AppStoreSubmissionInner() {
                       </div>
                       <div className="flex gap-0.5">
                         {[...Array(review.rating)].map((_, j) => (
-                          <Star key={j} className="w-4 h-4 fill-red-400 text-red-400" />
+                          <Star key={j} className="w-4 h-4 fill-red-400 text-[#1E90FF]" />
                         ))}
                       </div>
                     </div>
@@ -324,7 +324,7 @@ function AppStoreSubmissionInner() {
                 <Card key={i} className="bg-white/5 border-white/10">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <Badge className="bg-cyan-500/20 text-cyan-400">v{release.version}</Badge>
+                      <Badge className="bg-[#1E90FF]/20 text-[#00C2FF]">v{release.version}</Badge>
                       <span className="text-white/50 text-sm">{release.date}</span>
                     </div>
                     <p className="text-white/70">{release.notes}</p>
@@ -348,7 +348,7 @@ function AppStoreSubmissionInner() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                      <Lock className="w-5 h-5 text-cyan-400" />
+                      <Lock className="w-5 h-5 text-[#00C2FF]" />
                       Data Used to Track You
                     </h4>
                     <p className="text-white/50 text-sm mb-2">The following data may be used to track you across apps and websites owned by other companies:</p>
@@ -359,7 +359,7 @@ function AppStoreSubmissionInner() {
 
                   <div>
                     <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                      <Users className="w-5 h-5 text-cyan-400" />
+                      <Users className="w-5 h-5 text-[#00C2FF]" />
                       Data Linked to You
                     </h4>
                     <p className="text-white/50 text-sm mb-2">The following data may be collected and linked to your identity:</p>
@@ -382,7 +382,7 @@ function AppStoreSubmissionInner() {
                       { icon: Heart, label: "HIPAA Compliant" }
                     ].map((badge, i) => (
                       <div key={i} className="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1.5">
-                        <badge.icon className="w-4 h-4 text-green-400" />
+                        <badge.icon className="w-4 h-4 text-[#00C2FF]" />
                         <span className="text-white/70 text-sm">{badge.label}</span>
                       </div>
                     ))}
@@ -391,7 +391,7 @@ function AppStoreSubmissionInner() {
 
                 <div className="mt-6">
                   <Link href="/legal">
-                    <Button variant="outline" className="border-cyan-500/50 text-cyan-400">
+                    <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF]">
                       View Full Privacy Policy <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -417,11 +417,11 @@ function AppStoreSubmissionInner() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/50">Website</span>
-                  <a href={appInfo.website} className="text-cyan-400 hover:underline">{appInfo.website}</a>
+                  <a href={appInfo.website} className="text-[#00C2FF] hover:underline">{appInfo.website}</a>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-white/50">Support</span>
-                  <a href={`mailto:${appInfo.support}`} className="text-cyan-400 hover:underline">{appInfo.support}</a>
+                  <a href={`mailto:${appInfo.support}`} className="text-[#00C2FF] hover:underline">{appInfo.support}</a>
                 </div>
               </div>
               <div className="space-y-3">
@@ -445,7 +445,7 @@ function AppStoreSubmissionInner() {
 
       {/* CTA Section */}
       <section className="container px-4 md:px-5 py-16 border-t border-white/10">
-        <div className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-[#1E90FF] to-blue-700 rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Athletic Career?
           </h2>
@@ -454,10 +454,10 @@ function AppStoreSubmissionInner() {
             training, and career opportunities.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-white text-cyan-600 font-bold px-8 py-3 hover:bg-gray-100">
+            <Button className="bg-white text-[#00C2FF] font-bold px-8 py-3 hover:bg-gray-100">
               <Apple className="w-5 h-5 mr-2" /> Download for iOS
             </Button>
-            <Button className="bg-white text-cyan-600 font-bold px-8 py-3 hover:bg-gray-100">
+            <Button className="bg-white text-[#00C2FF] font-bold px-8 py-3 hover:bg-gray-100">
               <Smartphone className="w-5 h-5 mr-2" /> Download for Android
             </Button>
           </div>

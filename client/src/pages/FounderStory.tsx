@@ -38,7 +38,7 @@ function FounderStoryInner() {
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-red-50/30">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-[#0a1628]/30">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -49,7 +49,7 @@ function FounderStoryInner() {
             </Button>
           </Link>
           <div className="flex items-center gap-2">
-            <Heart className="w-5 h-5 text-red-500 fill-red-500" />
+            <Heart className="w-5 h-5 text-[#1E90FF] fill-red-500" />
             <span className="font-semibold text-slate-800">Our Story</span>
           </div>
         </div>
@@ -59,12 +59,12 @@ function FounderStoryInner() {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#1E90FF] text-[#1E90FF] px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Home className="w-4 h-4" />
               This is Home
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Family is <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-500">Everything</span>
+              Family is <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">Everything</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Behind every line of code, every feature, every dream we chase — there's a family. 
@@ -73,11 +73,11 @@ function FounderStoryInner() {
           </div>
 
           {/* Featured Family Photo */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-16 bg-gradient-to-br from-red-900/30 to-slate-900 h-[500px] flex items-center justify-center">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-16 bg-gradient-to-br from-[#1E90FF]/30 to-slate-900 h-[500px] flex items-center justify-center">
             <div className="text-center p-8">
-              <div className="text-7xl mb-6">👨‍👩‍👧‍👦</div>
+              <div className="text-7xl mb-6"></div>
               <h2 className="text-3xl font-bold text-white mb-2">The Dozier Family</h2>
-              <p className="text-red-300/80 text-lg">The foundation of everything we build</p>
+              <p className="text-[#1E90FF]/80 text-lg">The foundation of everything we build</p>
             </div>
           </div>
         </div>
@@ -87,9 +87,9 @@ function FounderStoryInner() {
       <section className="py-16 px-4 bg-gradient-to-b from-slate-900 to-blue-950">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-8">
-            <span className="text-red-400 text-4xl">🎬</span>
+            <span className="text-[#1E90FF] text-4xl"></span>
             <h2 className="text-3xl font-bold text-white mt-4 mb-2">The Vision</h2>
-            <p className="text-cyan-400 tracking-wider">DREAMS DO TRULY COME TRUE</p>
+            <p className="text-[#00C2FF] tracking-wider">DREAMS DO TRULY COME TRUE</p>
           </div>
           
           {/* Founder story key art — cobalt brand-locked owl mark */}
@@ -102,7 +102,7 @@ function FounderStoryInner() {
           </div>
           
           <p className="text-slate-400 text-center mt-6">
-            <span className="text-cyan-400">★</span> The Founder's Journey <span className="text-cyan-400">★</span>
+            <span className="text-[#00C2FF]"></span> The Founder's Journey <span className="text-[#00C2FF]"></span>
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ function FounderStoryInner() {
         <div className="container mx-auto max-w-4xl">
           <div className="prose prose-lg prose-slate mx-auto">
             <div className="flex items-start gap-4 mb-8">
-              <Quote className="w-12 h-12 text-red-500 flex-shrink-0 mt-2" />
+              <Quote className="w-12 h-12 text-[#1E90FF] flex-shrink-0 mt-2" />
               <blockquote className="text-2xl font-medium text-slate-700 italic border-none p-0 m-0">
                 "Two of our founders are cancer patients in remission. The mom of another founder is also a cancer patient in remission. 
                 This isn't just business. This is personal. This is our legacy."
@@ -120,7 +120,7 @@ function FounderStoryInner() {
             </div>
 
             <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6 flex items-center gap-3">
-              <Heart className="w-8 h-8 text-red-500" />
+              <Heart className="w-8 h-8 text-[#1E90FF]" />
               Why We Built This
             </h2>
             
@@ -164,7 +164,7 @@ function FounderStoryInner() {
             {familyPhotos.map((photo, index) => (
               <div 
                 key={index}
-                className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-red-900/20 to-slate-800"
+                className="group relative aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-[#1E90FF]/20 to-slate-800"
                 onClick={photo.src ? () => setSelectedPhoto(index) : undefined}
                 style={{ cursor: photo.src ? 'pointer' : 'default' }}
               >
@@ -177,8 +177,8 @@ function FounderStoryInner() {
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="text-center p-3">
-                      <div className="text-3xl mb-1">📸</div>
-                      <p className="text-red-300/60 text-xs">{photo.caption}</p>
+                      <div className="text-3xl mb-1"></div>
+                      <p className="text-[#1E90FF]/60 text-xs">{photo.caption}</p>
                     </div>
                   </div>
                 )}
@@ -213,28 +213,28 @@ function FounderStoryInner() {
               className="absolute top-4 right-4 text-white/80 hover:text-white text-2xl"
               onClick={() => setSelectedPhoto(null)}
             >
-              ✕
+              
             </button>
           </div>
         </div>
       )}
 
       {/* Mom's Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-red-50 to-red-50">
+      <section className="py-16 px-4 bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-red-200 rounded-full opacity-50 blur-2xl" />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-red-200 rounded-full opacity-50 blur-2xl" />
-              <div className="relative rounded-2xl shadow-xl w-full aspect-square bg-gradient-to-br from-red-900/30 to-red-900/30 flex items-center justify-center">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#1E90FF] rounded-full opacity-50 blur-2xl" />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#1E90FF] rounded-full opacity-50 blur-2xl" />
+              <div className="relative rounded-2xl shadow-xl w-full aspect-square bg-gradient-to-br from-[#1E90FF]/30 to-[#0a1628]/30 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <div className="text-6xl mb-4">❤️</div>
-                  <p className="text-red-300 text-sm">Photo coming soon</p>
+                  <div className="text-6xl mb-4"></div>
+                  <p className="text-[#1E90FF] text-sm">Photo coming soon</p>
                 </div>
               </div>
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#1E90FF] text-[#1E90FF] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Heart className="w-4 h-4 fill-red-500" />
                 For Mom
               </div>
@@ -280,20 +280,20 @@ function FounderStoryInner() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-green-100 hover:border-green-300 transition-colors">
+            <Card className="border-2 border-[#00C2FF] hover:border-[#00C2FF] transition-colors">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Home className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-[#00C2FF] rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Home className="w-6 h-6 text-[#00C2FF]" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">Real Estate</h3>
                 <p className="text-sm text-slate-600">Villa Agape, Pisces Resort, Venus Venue, Pomodoro</p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-red-100 hover:border-red-300 transition-colors">
+            <Card className="border-2 border-[#1E90FF] hover:border-[#1E90FF] transition-colors">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-6 h-6 text-red-600" />
+                <div className="w-12 h-12 bg-[#1E90FF] rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-6 h-6 text-[#1E90FF]" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">Sports Tech</h3>
                 <p className="text-sm text-slate-600">AthlynXAI - One Identity, Every Athlete, Every Platform</p>
@@ -323,8 +323,8 @@ function FounderStoryInner() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-red-400" />
+              <div className="w-16 h-16 bg-[#1E90FF]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-[#1E90FF]" />
               </div>
               <h3 className="text-xl font-bold mb-2">Faith</h3>
               <p className="text-slate-400">
@@ -345,8 +345,8 @@ function FounderStoryInner() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-green-400" />
+              <div className="w-16 h-16 bg-[#00C2FF]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-[#00C2FF]" />
               </div>
               <h3 className="text-xl font-bold mb-2">Family</h3>
               <p className="text-slate-400">
@@ -357,7 +357,7 @@ function FounderStoryInner() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-2xl font-bold text-red-400">
+            <p className="text-2xl font-bold text-[#1E90FF]">
               "Faith. Country. Family. Leadership."
             </p>
             <p className="text-slate-500 mt-2">— Chad A. Dozier</p>
@@ -366,7 +366,7 @@ function FounderStoryInner() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-red-500 to-red-500">
+      <section className="py-16 px-4 bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Join Our Family
@@ -377,7 +377,7 @@ function FounderStoryInner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/early-access">
-              <Button size="lg" className="bg-white text-red-600 hover:bg-white/90 px-8">
+              <Button size="lg" className="bg-white text-[#1E90FF] hover:bg-white/90 px-8">
                 Get Early Access
               </Button>
             </Link>
@@ -395,7 +395,7 @@ function FounderStoryInner() {
         <p className="text-slate-400">
           © 2026 Dozier Holdings Group, LLC. All rights reserved.
         </p>
-        <p className="text-red-400 font-medium mt-2">
+        <p className="text-[#1E90FF] font-medium mt-2">
           MIC DROP. FOCKER OUT.
         </p>
       </footer>

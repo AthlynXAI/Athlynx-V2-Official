@@ -94,8 +94,8 @@ function AITrainingBotInner() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#0a0a1a] via-[#0d1b2a] to-[#0f3460] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-cyan-400 font-semibold">Loading your AI Trainer...</p>
+          <div className="w-16 h-16 border-2 border-[#1E90FF] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-[#00C2FF] font-semibold">Loading your AI Trainer...</p>
         </div>
       </div>
     );
@@ -111,23 +111,23 @@ function AITrainingBotInner() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/portal" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1E90FF] to-blue-600 flex items-center justify-center">
               <span className="text-white font-black text-sm">AI</span>
             </div>
             <div>
               <div className="text-white font-black text-sm leading-none">AthlynXAI</div>
-              <div className="text-cyan-400 text-xs leading-none">Personal Trainer Bot</div>
+              <div className="text-[#00C2FF] text-xs leading-none">Personal Trainer Bot</div>
             </div>
           </Link>
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1.5 rounded-full">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              <span className="text-cyan-400 text-xs font-semibold">Online</span>
+            <div className="flex items-center gap-1.5 bg-[#1E90FF]/20 border border-[#1E90FF]/30 px-3 py-1.5 rounded-full">
+              <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse" />
+              <span className="text-[#00C2FF] text-xs font-semibold">Online</span>
             </div>
             {localMessages.length > 0 && (
               <button
                 onClick={() => clearMutation.mutate()}
-                className="text-gray-500 hover:text-red-400 text-xs transition-colors px-2 py-1 rounded"
+                className="text-gray-500 hover:text-[#1E90FF] text-xs transition-colors px-2 py-1 rounded"
               >
                 Clear Chat
               </button>
@@ -143,8 +143,8 @@ function AITrainingBotInner() {
         <div className="container mx-auto max-w-3xl px-4">
           {isFirstVisit && (
             <div className="py-12 text-center">
-              <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-cyan-500/30">
-                <span className="text-4xl">🤖</span>
+              <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-[#1E90FF] to-blue-600 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-cyan-500/30">
+                <span className="text-4xl"></span>
               </div>
               <h1 className="text-3xl font-black text-white mb-3">Your Personal AI Trainer</h1>
               <p className="text-gray-400 text-lg mb-2">
@@ -158,7 +158,7 @@ function AITrainingBotInner() {
                   <button
                     key={prompt}
                     onClick={() => { setInput(prompt); inputRef.current?.focus(); }}
-                    className="p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-500/40 rounded-xl text-left text-sm text-gray-300 hover:text-white transition-all"
+                    className="p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#1E90FF]/30 rounded-xl text-left text-sm text-gray-300 hover:text-white transition-all"
                   >
                     {prompt}
                   </button>
@@ -171,7 +171,7 @@ function AITrainingBotInner() {
             {localMessages.map((msg, i) => (
               <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
                 <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold
-                  ${msg.role === "user" ? "bg-gradient-to-br from-blue-600 to-blue-800 text-white" : "bg-gradient-to-br from-cyan-500 to-blue-600 text-white"}`}>
+                  ${msg.role === "user" ? "bg-gradient-to-br from-blue-600 to-blue-800 text-white" : "bg-gradient-to-br from-[#1E90FF] to-blue-600 text-white"}`}>
                   {msg.role === "user" ? (user.name?.[0]?.toUpperCase() ?? "A") : "AI"}
                 </div>
                 <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap
@@ -182,11 +182,11 @@ function AITrainingBotInner() {
             ))}
             {isTyping && (
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-sm font-bold text-white">AI</div>
+                <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gradient-to-br from-[#1E90FF] to-blue-600 flex items-center justify-center text-sm font-bold text-white">AI</div>
                 <div className="bg-white/8 border border-white/10 px-4 py-3 rounded-2xl rounded-tl-sm flex items-center gap-1.5">
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                  <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                  <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                  <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
               </div>
             )}
@@ -198,7 +198,7 @@ function AITrainingBotInner() {
       <div className="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-xl border-t border-white/10 p-4">
         <div className="container mx-auto max-w-3xl">
           <div className="flex gap-3 items-end">
-            <div className="flex-1 bg-white/8 border border-white/15 rounded-2xl overflow-hidden focus-within:border-cyan-500/60 transition-colors">
+            <div className="flex-1 bg-white/8 border border-white/15 rounded-2xl overflow-hidden focus-within:border-[#1E90FF]/30 transition-colors">
               <textarea
                 ref={inputRef}
                 value={input}
@@ -218,7 +218,7 @@ function AITrainingBotInner() {
             <button
               onClick={handleSend}
               disabled={chatMutation.isPending || !input.trim()}
-              className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 shadow-lg shadow-cyan-500/30"
+              className="w-12 h-12 bg-gradient-to-br from-[#1E90FF] to-blue-600 rounded-2xl flex items-center justify-center hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 shadow-lg shadow-cyan-500/30"
             >
               {chatMutation.isPending ? (
                 <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

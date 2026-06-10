@@ -119,17 +119,17 @@ function CareersInner() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #0a1628 0%, #0d1f3c 50%, #061424 100%)' }}>
       {/* Header */}
-      <div className="text-center py-12 border-b border-cyan-500/20">
+      <div className="text-center py-12 border-b border-[#1E90FF]/30">
         <Link href="/dhg">
-          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-cyan-500/30 rounded-full px-4 py-2 mb-6 cursor-pointer hover:bg-slate-800/80 transition-colors">
+          <div className="inline-flex items-center gap-2 bg-slate-900/80 border border-[#1E90FF]/30 rounded-full px-4 py-2 mb-6 cursor-pointer hover:bg-slate-800/80 transition-colors">
             <span className="text-white/60 text-sm">← Back to DHG</span>
           </div>
         </Link>
         <div className="flex items-center justify-center gap-4 mb-4">
-          <img src="/athlynxai-icon.png" alt="DHG" className="w-16 h-16 rounded-full border-4 border-cyan-400/50" />
+          <img src="/athlynxai-icon.png" alt="DHG" className="w-16 h-16 rounded-full border-4 border-[#1E90FF]/30" />
         </div>
         <h1 className="text-5xl font-black text-white mb-2">JOIN OUR TEAM</h1>
-        <p className="text-cyan-400 text-xl font-bold uppercase tracking-wider mb-4">Dozier Holdings Group</p>
+        <p className="text-[#00C2FF] text-xl font-bold uppercase tracking-wider mb-4">Dozier Holdings Group</p>
         <p className="text-white/60 max-w-2xl mx-auto px-4">
           We're building the future of athlete success. Join us at the ground floor and help shape the next generation of sports technology.
         </p>
@@ -139,8 +139,8 @@ function CareersInner() {
         {/* Benefits */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {benefits.map((benefit, i) => (
-            <div key={i} className="bg-slate-900/50 border border-cyan-500/20 rounded-xl p-4 text-center">
-              <benefit.icon className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+            <div key={i} className="bg-slate-900/50 border border-[#1E90FF]/30 rounded-xl p-4 text-center">
+              <benefit.icon className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
               <h3 className="text-white font-bold text-sm mb-1">{benefit.title}</h3>
               <p className="text-white/50 text-xs">{benefit.desc}</p>
             </div>
@@ -148,24 +148,24 @@ function CareersInner() {
         </div>
 
         {/* Job Listings */}
-        <h2 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-6">Open Positions</h2>
+        <h2 className="text-sm font-semibold text-[#00C2FF] uppercase tracking-wider mb-6">Open Positions</h2>
         <div className="space-y-4 mb-12">
           {dhgJobs.map((job) => (
             <div
               key={job.id}
-              className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 hover:border-cyan-500/50 transition-all"
+              className="bg-slate-900/80 border border-white/10 rounded-2xl p-6 hover:border-[#1E90FF]/30 transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="text-xl font-bold text-white">{job.title}</h3>
                     {job.urgent && (
-                      <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs font-semibold rounded-full">
+                      <span className="px-2 py-0.5 bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-semibold rounded-full">
                         Urgent
                       </span>
                     )}
                     {job.equity && (
-                      <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs font-semibold rounded-full">
+                      <span className="px-2 py-0.5 bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-semibold rounded-full">
                         Equity
                       </span>
                     )}
@@ -181,14 +181,14 @@ function CareersInner() {
                     <span className="flex items-center gap-1 text-white/50">
                       <Clock className="w-4 h-4" /> {job.type}
                     </span>
-                    <span className="flex items-center gap-1 text-cyan-400">
+                    <span className="flex items-center gap-1 text-[#00C2FF]">
                       <DollarSign className="w-4 h-4" /> {job.salary}
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={() => handleApply(job)}
-                  className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
+                  className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold px-6 py-3 rounded-xl transition-colors flex items-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   Apply Now
@@ -199,23 +199,23 @@ function CareersInner() {
         </div>
 
         {/* Why Join DHG */}
-        <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-2xl p-8 mb-12">
+        <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/10 border border-[#1E90FF]/30 rounded-2xl p-8 mb-12">
           <h2 className="text-2xl font-black text-white mb-4 text-center">Why Join Dozier Holdings Group?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-cyan-400 font-bold mb-2">Startup Energy</h3>
+              <h3 className="text-[#00C2FF] font-bold mb-2">Startup Energy</h3>
               <p className="text-white/60 text-sm">We're a lean team moving fast. Your ideas matter and your work ships quickly.</p>
             </div>
             <div>
-              <h3 className="text-cyan-400 font-bold mb-2">Equity Ownership</h3>
+              <h3 className="text-[#00C2FF] font-bold mb-2">Equity Ownership</h3>
               <p className="text-white/60 text-sm">Most positions include equity. When we win, you win.</p>
             </div>
             <div>
-              <h3 className="text-cyan-400 font-bold mb-2">Athletes Welcome</h3>
+              <h3 className="text-[#00C2FF] font-bold mb-2">Athletes Welcome</h3>
               <p className="text-white/60 text-sm">Former athletes understand our mission. Your experience is valued here.</p>
             </div>
             <div>
-              <h3 className="text-cyan-400 font-bold mb-2">🌍 Remote-First</h3>
+              <h3 className="text-[#00C2FF] font-bold mb-2"> Remote-First</h3>
               <p className="text-white/60 text-sm">Work from anywhere. We care about results, not where you sit.</p>
             </div>
           </div>
@@ -225,7 +225,7 @@ function CareersInner() {
         <div className="text-center bg-slate-900/50 border border-white/10 rounded-2xl p-8">
           <h2 className="text-xl font-bold text-white mb-2">Don't See Your Role?</h2>
           <p className="text-white/60 mb-4">We're always looking for talented people. Send us your resume anyway.</p>
-          <a href="mailto:contact@athlynx.ai" className="text-cyan-400 hover:underline">
+          <a href="mailto:contact@athlynx.ai" className="text-[#00C2FF] hover:underline">
             contact@athlynx.ai
           </a>
         </div>
@@ -234,7 +234,7 @@ function CareersInner() {
       {/* Application Modal */}
       {showApplication && selectedJob && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-cyan-500/30 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-slate-900 border border-[#1E90FF]/30 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-white/10">
               <div className="flex items-center justify-between">
                 <div>
@@ -252,14 +252,14 @@ function CareersInner() {
 
             {submitted ? (
               <div className="p-8 text-center">
-                <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                <CheckCircle className="w-16 h-16 text-[#00C2FF] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-2">Application Submitted!</h3>
                 <p className="text-white/60 mb-6">
                   Thank you for your interest in joining DHG. We'll review your application and get back to you soon.
                 </p>
                 <button
                   onClick={() => setShowApplication(false)}
-                  className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-6 py-3 rounded-xl"
+                  className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold px-6 py-3 rounded-xl"
                 >
                   Close
                 </button>
@@ -274,7 +274,7 @@ function CareersInner() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                       placeholder="Your name"
                     />
                   </div>
@@ -285,7 +285,7 @@ function CareersInner() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -298,7 +298,7 @@ function CareersInner() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -308,7 +308,7 @@ function CareersInner() {
                       type="url"
                       value={formData.linkedin}
                       onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                       placeholder="linkedin.com/in/yourprofile"
                     />
                   </div>
@@ -321,7 +321,7 @@ function CareersInner() {
                     required
                     value={formData.resume}
                     onChange={(e) => setFormData({ ...formData, resume: e.target.value })}
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                     placeholder="Link to your resume (Google Drive, Dropbox, etc.)"
                   />
                 </div>
@@ -333,7 +333,7 @@ function CareersInner() {
                     rows={4}
                     value={formData.coverLetter}
                     onChange={(e) => setFormData({ ...formData, coverLetter: e.target.value })}
-                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none resize-none"
+                    className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none resize-none"
                     placeholder="Tell us about yourself and why you're interested in this role..."
                   />
                 </div>
@@ -344,7 +344,7 @@ function CareersInner() {
                     id="formerAthlete"
                     checked={formData.formerAthlete}
                     onChange={(e) => setFormData({ ...formData, formerAthlete: e.target.checked })}
-                    className="w-5 h-5 rounded border-white/20 bg-black/30 text-cyan-500"
+                    className="w-5 h-5 rounded border-white/20 bg-black/30 text-[#00C2FF]"
                   />
                   <label htmlFor="formerAthlete" className="text-white/70">
                     I am a former athlete
@@ -358,7 +358,7 @@ function CareersInner() {
                       type="text"
                       value={formData.sport}
                       onChange={(e) => setFormData({ ...formData, sport: e.target.value })}
-                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 bg-black/30 border border-white/20 rounded-xl text-white focus:border-[#1E90FF] focus:outline-none"
                       placeholder="e.g., Baseball at Mississippi State"
                     />
                   </div>
@@ -374,7 +374,7 @@ function CareersInner() {
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
                     Submit Application

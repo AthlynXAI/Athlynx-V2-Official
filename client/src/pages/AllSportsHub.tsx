@@ -39,12 +39,12 @@ function GenderBadge({ sport }: { sport: Sport }) {
     </span>
   );
   if (mensOnly) return (
-    <span className="text-[9px] font-black tracking-widest uppercase text-sky-400/80 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
+    <span className="text-[9px] font-black tracking-widest uppercase text-[#00C2FF]/80 bg-[#1E90FF]/10 px-2 py-0.5 rounded-full border border-[#1E90FF]/20">
       Men's
     </span>
   );
   if (womensOnly) return (
-    <span className="text-[9px] font-black tracking-widest uppercase text-pink-400/80 bg-pink-500/10 px-2 py-0.5 rounded-full border border-pink-500/20">
+    <span className="text-[9px] font-black tracking-widest uppercase text-[#1E90FF]/80 bg-[#1E90FF]/10 px-2 py-0.5 rounded-full border border-[#1E90FF]/20">
       Women's
     </span>
   );
@@ -72,7 +72,7 @@ function SportCard({ sport }: { sport: Sport }) {
       <p className="text-xs text-white/65 leading-snug mb-3">{sport.tagline}</p>
       {sport.avgNILValue && (
         <div className="flex items-center gap-1.5 mt-auto">
-          <span className="text-[9px] font-black uppercase tracking-wider text-green-400/70">NIL</span>
+          <span className="text-[9px] font-black uppercase tracking-wider text-[#00C2FF]/70">NIL</span>
           <span className="text-[9px] text-white/50">{sport.avgNILValue}</span>
         </div>
       )}
@@ -89,7 +89,7 @@ function SportDetailView({ sport }: { sport: Sport }) {
     "Highlight Studio": "/highlight-reel-studio",
     "Athlete Profile": "/profile",
     "Transfer Portal": "/transfer-portal",
-    "X-Factor": "/x-factor",
+    "EPX": "/epx",
     "Brackets": "/brackets",
     "Diamond Grind IQ": "/diamond-grind-iq",
     "Pitch Pulse": "/baseball",
@@ -102,7 +102,7 @@ function SportDetailView({ sport }: { sport: Sport }) {
     "Highlight Studio": "Auto-cut, captioned, and distribution-ready clips.",
     "Athlete Profile": "One identity that travels with the athlete for life.",
     "Transfer Portal": "Every portal entry, every school, every offer.",
-    "X-Factor": "Your competitive edge — tracked and amplified.",
+    "EPX": "Your competitive edge — tracked and amplified.",
     "Brackets": "Every regional, every super, every championship.",
     "Diamond Grind IQ": "Position-specific baseball analytics and film.",
     "Pitch Pulse": "Live pitch tracking and arm health monitoring.",
@@ -134,7 +134,7 @@ function SportDetailView({ sport }: { sport: Sport }) {
             <Link href="/dashboard" className="border border-white/20 hover:border-blue-500 text-white font-black text-sm px-6 py-3 rounded-xl uppercase tracking-wider transition-colors">
               Open Dashboard
             </Link>
-            <Link href="/nil-portal" className="border border-green-500/40 hover:border-green-400 text-green-400 font-black text-sm px-6 py-3 rounded-xl uppercase tracking-wider transition-colors">
+            <Link href="/nil-portal" className="border border-[#00C2FF]/40 hover:border-[#00C2FF] text-[#00C2FF] font-black text-sm px-6 py-3 rounded-xl uppercase tracking-wider transition-colors">
               NIL Portal
             </Link>
           </div>
@@ -145,7 +145,7 @@ function SportDetailView({ sport }: { sport: Sport }) {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {sport.avgNILValue && (
               <div className="text-center">
-                <p className="text-2xl font-black text-green-400">{sport.avgNILValue}</p>
+                <p className="text-2xl font-black text-[#00C2FF]">{sport.avgNILValue}</p>
                 <p className="text-xs font-bold uppercase tracking-wider text-white/50 mt-1">Avg NIL Value</p>
               </div>
             )}
@@ -260,17 +260,17 @@ export default function AllSportsHub() {
           </p>
           <div className="flex flex-wrap gap-3 items-center">
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse" />
               <span className="text-sm font-black text-white">{SPORTS.length} Sports</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
               <span className="text-sm font-black text-blue-400">{MENS_SPORTS.length} Men's</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
-              <span className="text-sm font-black text-pink-400">{WOMENS_SPORTS.length} Women's</span>
+              <span className="text-sm font-black text-[#1E90FF]">{WOMENS_SPORTS.length} Women's</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
-              <span className="text-sm font-black text-green-400">{COED_SPORTS.length} Co-ed</span>
+              <span className="text-sm font-black text-[#00C2FF]">{COED_SPORTS.length} Co-ed</span>
             </div>
           </div>
         </div>

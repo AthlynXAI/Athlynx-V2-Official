@@ -34,8 +34,8 @@ function AthlynXNetworkInner() {
 
       <section className="container mx-auto px-4 py-10 max-w-6xl">
         <div className="flex items-center gap-3 mb-2">
-          <Tv className="w-6 h-6 text-cyan-400" />
-          <div className="text-cyan-400 text-xs font-semibold tracking-wider">AthlynX NETWORK</div>
+          <Tv className="w-6 h-6 text-[#00C2FF]" />
+          <div className="text-[#00C2FF] text-xs font-semibold tracking-wider">AthlynX NETWORK</div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold mb-3">Every game. Every athlete. One network.</h1>
         <p className="text-slate-300 max-w-2xl">
@@ -49,14 +49,14 @@ function AthlynXNetworkInner() {
         <section className="container mx-auto px-4 pb-10 max-w-6xl">
           <div className="flex items-center gap-2 mb-4">
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1E90FF] opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#1E90FF]" />
             </span>
             <h2 className="text-2xl font-bold">Live now</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {live.map((e: any) => (
-              <Card key={e.id} className="bg-slate-900 border-red-900/40 hover:border-red-600 transition-colors">
+              <Card key={e.id} className="bg-slate-900 border-[#1E90FF]/40 hover:border-[#1E90FF] transition-colors">
                 <CardContent className="p-4">
                   <div className="aspect-video bg-slate-800 rounded mb-3 flex items-center justify-center relative">
                     {e.thumbnailUrl ? (
@@ -64,7 +64,7 @@ function AthlynXNetworkInner() {
                     ) : (
                       <Radio className="w-8 h-8 text-slate-600" />
                     )}
-                    <span className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded font-semibold">
+                    <span className="absolute top-2 left-2 bg-[#1E90FF] text-white text-xs px-2 py-0.5 rounded font-semibold">
                       LIVE
                     </span>
                     <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-0.5 rounded">
@@ -88,7 +88,7 @@ function AthlynXNetworkInner() {
       {upcoming.length > 0 && (
         <section className="container mx-auto px-4 pb-10 max-w-6xl">
           <div className="flex items-center gap-2 mb-4">
-            <Calendar className="w-5 h-5 text-sky-400" />
+            <Calendar className="w-5 h-5 text-[#00C2FF]" />
             <h2 className="text-2xl font-bold">Upcoming</h2>
           </div>
           <div className="space-y-2">
@@ -124,7 +124,7 @@ function AthlynXNetworkInner() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {channels.map((c: any) => (
               <Link key={c.id} href={`/network/${c.slug}`}>
-                <Card className="bg-slate-900 border-slate-800 hover:border-cyan-600 transition-colors cursor-pointer h-full">
+                <Card className="bg-slate-900 border-slate-800 hover:border-[#1E90FF] transition-colors cursor-pointer h-full">
                   <CardContent className="p-4">
                     {c.logoUrl ? (
                       <img
@@ -133,7 +133,7 @@ function AthlynXNetworkInner() {
                         className="w-12 h-12 rounded mb-3 object-cover"
                       />
                     ) : (
-                      <div className="w-12 h-12 rounded mb-3 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold">
+                      <div className="w-12 h-12 rounded mb-3 bg-gradient-to-br from-[#1E90FF] to-blue-600 flex items-center justify-center font-bold">
                         {c.name.slice(0, 2).toUpperCase()}
                       </div>
                     )}

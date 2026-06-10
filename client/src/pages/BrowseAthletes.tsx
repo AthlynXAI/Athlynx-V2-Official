@@ -20,20 +20,20 @@ const SPORTS = [
 ];
 
 const SPORT_ICONS: Record<string, string> = {
-  Football: "🏈", Basketball: "🏀", Baseball: "⚾", Soccer: "⚽",
-  "Track & Field": "🏃", Swimming: "🏊", Tennis: "🎾", Volleyball: "🏐",
-  Wrestling: "🤼", Golf: "⛳", Lacrosse: "🥍", Hockey: "🏒",
-  Softball: "🥎", "Cross Country": "🏃‍♂️", Gymnastics: "🤸", Rugby: "🏉",
-  Fishing: "🎣", Rowing: "🚣", "Water Polo": "🤽", "Field Hockey": "🏑",
-  Cheerleading: "📣", "Multi-Sport": "🏆",
+  Football: "", Basketball: "", Baseball: "", Soccer: "",
+  "Track & Field": "", Swimming: "", Tennis: "", Volleyball: "",
+  Wrestling: "", Golf: "", Lacrosse: "", Hockey: "",
+  Softball: "", "Cross Country": "", Gymnastics: "", Rugby: "",
+  Fishing: "", Rowing: "", "Water Polo": "", "Field Hockey": "",
+  Cheerleading: "", "Multi-Sport": "",
 };
 
 const STATUS_FILTERS = [
   { id: "all", label: "All Athletes" },
-  { id: "available", label: "🟢 Available" },
-  { id: "committed", label: "🔵 Committed" },
-  { id: "transferred", label: "🟡 Transfer Portal" },
-  { id: "signed", label: "🟣 Signed" },
+  { id: "available", label: " Available" },
+  { id: "committed", label: " Committed" },
+  { id: "transferred", label: " Transfer Portal" },
+  { id: "signed", label: " Signed" },
 ];
 
 // Showcase athletes — displayed when DB has no athletes yet
@@ -93,7 +93,7 @@ function BrowseAthletesInner() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h1 className="text-2xl font-black text-white flex items-center gap-2">
-                  🏆 Browse Athletes
+                   Browse Athletes
                   {dbAthletes.length === 0 && (
                     <span className="text-xs font-normal text-white/30 bg-white/5 px-2 py-0.5 rounded-full">Showcase Mode</span>
                   )}
@@ -105,14 +105,14 @@ function BrowseAthletesInner() {
               <div className="flex gap-2">
                 <button
                   onClick={() => setView("featured")}
-                  className={`p-2 rounded-lg text-sm transition-all ${view === "featured" ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30" : "bg-white/5 text-white/40 border border-white/10"}`}
+                  className={`p-2 rounded-lg text-sm transition-all ${view === "featured" ? "bg-[#1E90FF]/20 text-[#00C2FF] border border-[#1E90FF]/30" : "bg-white/5 text-white/40 border border-white/10"}`}
                   title="Featured view"
                 >
-                  ⭐
+                  
                 </button>
                 <button
                   onClick={() => setView("grid")}
-                  className={`p-2 rounded-lg text-sm transition-all ${view === "grid" ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30" : "bg-white/5 text-white/40 border border-white/10"}`}
+                  className={`p-2 rounded-lg text-sm transition-all ${view === "grid" ? "bg-[#1E90FF]/20 text-[#00C2FF] border border-[#1E90FF]/30" : "bg-white/5 text-white/40 border border-white/10"}`}
                   title="Grid view"
                 >
                   ⊞
@@ -122,13 +122,13 @@ function BrowseAthletesInner() {
 
             {/* Search */}
             <div className="relative mb-3">
-              <span className="absolute left-3.5 top-3 text-white/30 text-sm">🔍</span>
+              <span className="absolute left-3.5 top-3 text-white/30 text-sm"></span>
               <input
                 type="text"
                 placeholder="Search by name, school, sport, position..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/25 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-cyan-500/50 transition-colors"
+                className="w-full bg-white/5 border border-white/10 text-white placeholder:text-white/25 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#1E90FF]/30 transition-colors"
               />
             </div>
 
@@ -140,7 +140,7 @@ function BrowseAthletesInner() {
                   onClick={() => setSelectedStatus(f.id)}
                   className={`flex-shrink-0 text-xs font-bold px-3 py-1.5 rounded-full border transition-all ${
                     selectedStatus === f.id
-                      ? "bg-cyan-500 text-black border-cyan-500"
+                      ? "bg-[#1E90FF] text-black border-[#1E90FF]"
                       : "bg-white/5 text-white/50 border-white/10 hover:text-white"
                   }`}
                 >
@@ -161,7 +161,7 @@ function BrowseAthletesInner() {
                       : "bg-white/5 text-white/40 border-white/10 hover:text-white"
                   }`}
                 >
-                  {sport !== "All" && <span>{SPORT_ICONS[sport] || "🏆"}</span>}
+                  {sport !== "All" && <span>{SPORT_ICONS[sport] || ""}</span>}
                   <span>{sport}</span>
                 </button>
               ))}
@@ -186,7 +186,7 @@ function BrowseAthletesInner() {
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent to-blue-500/30" />
                 <h2 className="text-white font-black text-sm flex items-center gap-2">
-                  <span className="text-sky-400">⭐</span> TOP RECRUITS
+                  <span className="text-[#00C2FF]"></span> TOP RECRUITS
                   <span className="text-white/30 font-normal">Score 90+</span>
                 </h2>
                 <div className="h-px flex-1 bg-gradient-to-l from-transparent to-blue-500/30" />
@@ -211,10 +211,10 @@ function BrowseAthletesInner() {
               )}
               {filtered.length === 0 ? (
                 <div className="text-center py-16">
-                  <div className="text-5xl mb-4">🔍</div>
+                  <div className="text-5xl mb-4 hidden"></div>
                   <p className="text-white/40 text-base">No athletes found for "{search}"</p>
                   <button onClick={() => { setSearch(""); setSelectedSport("All"); setSelectedStatus("all"); }}
-                    className="mt-3 text-cyan-400 text-sm hover:text-cyan-300">Clear filters</button>
+                    className="mt-3 text-[#00C2FF] text-sm hover:text-[#00C2FF]">Clear filters</button>
                 </div>
               ) : (
                 <div className={`grid gap-4 ${view === "featured" ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : "grid-cols-2 md:grid-cols-4 lg:grid-cols-6"}`}>
@@ -228,13 +228,13 @@ function BrowseAthletesInner() {
 
           {/* CTA for non-logged-in users */}
           {!user && (
-            <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 rounded-2xl border border-cyan-700/30 p-6 text-center">
-              <div className="text-3xl mb-2">🏆</div>
+            <div className="bg-gradient-to-r from-blue-900/40 to-[#0a1628]/40 rounded-2xl border border-[#1E90FF]/30 p-6 text-center">
+              <div className="text-3xl mb-2"></div>
               <h3 className="text-white font-black text-lg mb-2">Create Your Athlete Profile</h3>
               <p className="text-blue-300 text-sm mb-4">Join thousands of athletes building their recruiting profiles, NIL deals, and careers on AthlynX.</p>
               <div className="flex gap-3 justify-center">
                 <Link href="/signup">
-                  <button className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black rounded-xl text-sm hover:opacity-90 transition-all">
+                  <button className="px-6 py-2.5 bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white font-black rounded-xl text-sm hover:opacity-90 transition-all">
                     Join Free — 7 Days
                   </button>
                 </Link>

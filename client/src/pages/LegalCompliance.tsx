@@ -39,8 +39,8 @@ function LegalComplianceInner() {
       name: "NCAA Compliant",
       description: "Full compliance with NCAA NIL rules and regulations",
       status: "Certified",
-      color: "text-green-400",
-      bgColor: "bg-green-500/20"
+      color: "text-[#00C2FF]",
+      bgColor: "bg-[#00C2FF]/20"
     },
     {
       icon: Lock,
@@ -63,24 +63,24 @@ function LegalComplianceInner() {
       name: "FERPA Compliant",
       description: "Student education records protection for all users",
       status: "Certified",
-      color: "text-cyan-400",
-      bgColor: "bg-cyan-500/20"
+      color: "text-[#00C2FF]",
+      bgColor: "bg-[#1E90FF]/20"
     },
     {
       icon: Heart,
       name: "You Own Your Data",
       description: "Athletes retain full ownership of their personal data",
       status: "Guaranteed",
-      color: "text-red-400",
-      bgColor: "bg-red-500/20"
+      color: "text-[#1E90FF]",
+      bgColor: "bg-[#1E90FF]/20"
     },
     {
       icon: Building,
       name: "HIPAA Compliant",
       description: "Healthcare data protection for Medical Records Vault",
       status: "Certified",
-      color: "text-red-400",
-      bgColor: "bg-red-500/20"
+      color: "text-[#1E90FF]",
+      bgColor: "bg-[#1E90FF]/20"
     }
   ];
 
@@ -198,12 +198,12 @@ function LegalComplianceInner() {
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="bg-green-500/20 text-green-400 border-green-500/30 mb-4">
+            <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 mb-4">
               <Shield className="w-3 h-3 mr-1" /> TRUST & TRANSPARENCY
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
               Legal & Compliance
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00C2FF] to-[#0a1628]">
                 Center
               </span>
             </h1>
@@ -236,22 +236,22 @@ function LegalComplianceInner() {
       <section className="container px-4 md:px-5 pb-16">
         <Tabs defaultValue="ncaa" className="w-full">
           <TabsList className="flex flex-wrap justify-center bg-white/5 border border-white/10 rounded-xl p-1 mb-8 gap-1">
-            <TabsTrigger value="ncaa" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="ncaa" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Trophy className="w-4 h-4 mr-1 md:mr-2" /> NCAA Compliance
             </TabsTrigger>
-            <TabsTrigger value="security" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="security" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Lock className="w-4 h-4 mr-1 md:mr-2" /> Security
             </TabsTrigger>
-            <TabsTrigger value="privacy" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="privacy" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Eye className="w-4 h-4 mr-1 md:mr-2" /> Privacy
             </TabsTrigger>
-            <TabsTrigger value="documents" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="documents" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <FileText className="w-4 h-4 mr-1 md:mr-2" /> Documents
             </TabsTrigger>
-            <TabsTrigger value="faq" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="faq" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <BookOpen className="w-4 h-4 mr-1 md:mr-2" /> FAQ
             </TabsTrigger>
-            <TabsTrigger value="government" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="government" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Gavel className="w-4 h-4 mr-1 md:mr-2" /> Government Rules
             </TabsTrigger>
           </TabsList>
@@ -271,8 +271,8 @@ function LegalComplianceInner() {
                   {ncaaRules.map((rule, i) => (
                     <Card key={i} className="bg-white/5 border-white/10">
                       <CardContent className="p-4 flex items-start gap-4">
-                        <div className="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <rule.icon className="w-5 h-5 text-cyan-400" />
+                        <div className="w-10 h-10 bg-[#1E90FF]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <rule.icon className="w-5 h-5 text-[#00C2FF]" />
                         </div>
                         <div>
                           <h3 className="text-white font-semibold mb-1">{rule.title}</h3>
@@ -285,10 +285,10 @@ function LegalComplianceInner() {
               </div>
 
               <div>
-                <Card className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border-cyan-500/30 mb-6">
+                <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/20 border-[#1E90FF]/30 mb-6">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <Gavel className="w-5 h-5 text-cyan-400" />
+                      <Gavel className="w-5 h-5 text-[#00C2FF]" />
                       State NIL Laws
                     </CardTitle>
                   </CardHeader>
@@ -298,7 +298,7 @@ function LegalComplianceInner() {
                       regulations based on your institution's location and provides 
                       state-specific guidance.
                     </p>
-                    <Button className="bg-cyan-500 hover:bg-cyan-400 text-white w-full">
+                    <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white w-full">
                       View State-by-State Guide
                     </Button>
                   </CardContent>
@@ -318,19 +318,19 @@ function LegalComplianceInner() {
                     </p>
                     <ul className="space-y-2 text-white/60 text-sm">
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         Automatic disclosure notifications
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         Compliance dashboard for administrators
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         Real-time violation alerts
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         Audit-ready documentation
                       </li>
                     </ul>
@@ -367,15 +367,15 @@ function LegalComplianceInner() {
                     </p>
                     <ul className="space-y-2 text-white/60">
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         99.99% uptime SLA
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         24/7 security monitoring
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
+                        <CheckCircle className="w-4 h-4 text-[#00C2FF]" />
                         Incident response team
                       </li>
                     </ul>
@@ -413,7 +413,7 @@ function LegalComplianceInner() {
                   ].map((right, i) => (
                     <Card key={i} className="bg-white/5 border-white/10">
                       <CardContent className="p-4 flex items-center gap-4">
-                        <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
+                        <CheckCircle className="w-6 h-6 text-[#00C2FF] flex-shrink-0" />
                         <div>
                           <h3 className="text-white font-semibold">{right.title}</h3>
                           <p className="text-white/60 text-sm">{right.desc}</p>
@@ -447,9 +447,9 @@ function LegalComplianceInner() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-red-500/20 border-red-500/30">
+                <Card className="bg-[#1E90FF]/20 border-[#1E90FF]/30">
                   <CardContent className="p-6">
-                    <Heart className="w-8 h-8 text-red-400 mb-3" />
+                    <Heart className="w-8 h-8 text-[#1E90FF] mb-3" />
                     <h3 className="text-white font-bold text-lg mb-2">We Never Sell Your Data</h3>
                     <p className="text-white/70 text-sm">
                       Your personal information is never sold to third parties. Our business 
@@ -465,11 +465,11 @@ function LegalComplianceInner() {
           <TabsContent value="documents">
             <div className="grid md:grid-cols-2 gap-4">
               {legalDocuments.map((doc, i) => (
-                <Card key={i} className="bg-white/5 border-white/10 hover:border-cyan-500/50 transition-all cursor-pointer">
+                <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/30 transition-all cursor-pointer">
                   <CardContent className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-cyan-400" />
+                      <div className="w-10 h-10 bg-[#1E90FF]/20 rounded-lg flex items-center justify-center">
+                        <FileText className="w-5 h-5 text-[#00C2FF]" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold">{doc.name}</h3>
@@ -478,7 +478,7 @@ function LegalComplianceInner() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Badge className="bg-white/10 text-white/60">{doc.type}</Badge>
-                      <Button variant="ghost" size="sm" className="text-cyan-400 hover:text-cyan-300">
+                      <Button variant="ghost" size="sm" className="text-[#00C2FF] hover:text-[#00C2FF]">
                         <Download className="w-4 h-4" />
                       </Button>
                     </div>
@@ -494,7 +494,7 @@ function LegalComplianceInner() {
               <Accordion type="single" collapsible className="space-y-4">
                 {faqItems.map((item, i) => (
                   <AccordionItem key={i} value={`item-${i}`} className="bg-white/5 border border-white/10 rounded-lg px-4">
-                    <AccordionTrigger className="text-white hover:text-cyan-400 text-left">
+                    <AccordionTrigger className="text-white hover:text-[#00C2FF] text-left">
                       {item.question}
                     </AccordionTrigger>
                     <AccordionContent className="text-white/70">
@@ -529,8 +529,8 @@ function LegalComplianceInner() {
                   {
                     icon: Briefcase,
                     title: "IRS — Athlete NIL Income & Tax Compliance",
-                    color: "text-green-400",
-                    bg: "bg-green-500/10 border-green-500/20",
+                    color: "text-[#00C2FF]",
+                    bg: "bg-[#00C2FF]/10 border-[#00C2FF]/20",
                     rules: [
                       "All NIL compensation is taxable income under IRS rules",
                       "Athletes earning $600+ from a single source receive a 1099-NEC",
@@ -542,8 +542,8 @@ function LegalComplianceInner() {
                   {
                     icon: Scale,
                     title: "Title IX — Gender Equity in Athletics",
-                    color: "text-purple-400",
-                    bg: "bg-purple-500/10 border-purple-500/20",
+                    color: "text-[#1E90FF]",
+                    bg: "bg-[#1E90FF]/10 border-[#1E90FF]/20",
                     rules: [
                       "AthlynX provides equal NIL opportunity access to all athletes regardless of gender",
                       "Platform algorithms do not discriminate by sport, gender, or scholarship status",
@@ -554,8 +554,8 @@ function LegalComplianceInner() {
                   {
                     icon: Gavel,
                     title: "NLRB — National Labor Relations Board",
-                    color: "text-cyan-400",
-                    bg: "bg-cyan-500/10 border-cyan-500/20",
+                    color: "text-[#00C2FF]",
+                    bg: "bg-[#1E90FF]/20 border-[#1E90FF]/30",
                     rules: [
                       "Following evolving NLRB guidance on college athlete employment status",
                       "AthlynX does not classify athletes as employees of the platform",
@@ -566,8 +566,8 @@ function LegalComplianceInner() {
                   {
                     icon: Globe,
                     title: "FTC — Federal Trade Commission Endorsement Rules",
-                    color: "text-cyan-400",
-                    bg: "bg-cyan-500/10 border-cyan-500/20",
+                    color: "text-[#00C2FF]",
+                    bg: "bg-[#1E90FF]/20 border-[#1E90FF]/30",
                     rules: [
                       "All brand endorsements must include clear disclosure (\"#ad\", \"#sponsored\", \"#partner\")",
                       "AthlynX NIL deal templates include mandatory FTC disclosure language",
@@ -578,8 +578,8 @@ function LegalComplianceInner() {
                   {
                     icon: Shield,
                     title: "State NIL Laws — All 50 States",
-                    color: "text-red-400",
-                    bg: "bg-red-500/10 border-red-500/20",
+                    color: "text-[#1E90FF]",
+                    bg: "bg-[#1E90FF]/10 border-[#1E90FF]/20",
                     rules: [
                       "AthlynX monitors NIL legislation across all 50 states in real-time",
                       "State-specific restrictions automatically applied based on athlete's school location",
@@ -591,8 +591,8 @@ function LegalComplianceInner() {
                   {
                     icon: Heart,
                     title: "HIPAA — Health Insurance Portability & Accountability",
-                    color: "text-pink-400",
-                    bg: "bg-pink-500/10 border-pink-500/20",
+                    color: "text-[#1E90FF]",
+                    bg: "bg-[#1E90FF]/10 border-[#1E90FF]/20",
                     rules: [
                       "Athlete health and medical data stored in HIPAA-compliant Medical Vault",
                       "AES-256 encryption at rest and in transit for all health records",
@@ -604,7 +604,7 @@ function LegalComplianceInner() {
                   {
                     icon: Building,
                     title: "Federal Executive Orders — College Sports",
-                    color: "text-sky-400",
+                    color: "text-[#00C2FF]",
                     bg: "bg-blue-500/10 border-blue-500/20",
                     rules: [
                       "AthlynX monitors all Executive Orders affecting college athletics and NIL",
@@ -625,7 +625,7 @@ function LegalComplianceInner() {
                       <ul className="space-y-2">
                         {section.rules.map((rule, j) => (
                           <li key={j} className="flex items-start gap-2 text-white/70 text-sm">
-                            <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-[#00C2FF] mt-0.5 flex-shrink-0" />
                             {rule}
                           </li>
                         ))}
@@ -636,7 +636,7 @@ function LegalComplianceInner() {
               </div>
               <Card className="bg-white/5 border-white/10">
                 <CardContent className="p-6 text-center">
-                  <AlertTriangle className="w-8 h-8 text-sky-400 mx-auto mb-3" />
+                  <AlertTriangle className="w-8 h-8 text-[#00C2FF] mx-auto mb-3" />
                   <h3 className="text-white font-bold mb-2">Disclaimer</h3>
                   <p className="text-white/60 text-sm max-w-2xl mx-auto">
                     AthlynX provides compliance tools and information as a technology platform. This content does not constitute legal advice. Athletes, schools, and brands should consult qualified legal counsel for guidance specific to their situation. Laws and regulations change frequently — always verify current requirements with your institution's compliance office.
@@ -657,7 +657,7 @@ function LegalComplianceInner() {
             about data privacy, NCAA compliance, or security.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-cyan-500 hover:bg-cyan-400 text-white">
+            <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white">
               Contact Compliance Team
             </Button>
             <Link href="/contact">

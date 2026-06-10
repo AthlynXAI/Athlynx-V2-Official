@@ -20,33 +20,33 @@ import {
   Activity, Flame
 } from "lucide-react";
 
-// ─── Notification Type Config ─────────────────────────────────────────────────
+//  Notification Type Config 
 const NOTIF_CONFIG: Record<string, { icon: React.ElementType; color: string; bg: string; label: string }> = {
-  welcome:             { icon: Star,         color: "text-sky-400", bg: "bg-blue-500/20",  label: "Welcome" },
-  vip_approved:        { icon: Shield,       color: "text-purple-400", bg: "bg-purple-500/20", label: "VIP" },
+  welcome:             { icon: Star,         color: "text-[#00C2FF]", bg: "bg-blue-500/20",  label: "Welcome" },
+  vip_approved:        { icon: Shield,       color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/20", label: "VIP" },
   system_announcement: { icon: Megaphone,    color: "text-blue-400",   bg: "bg-blue-500/20",   label: "System" },
   custom:              { icon: Bell,         color: "text-[#00c2ff]",  bg: "bg-[#0066ff]/20",  label: "Update" },
-  credit_added:        { icon: Zap,          color: "text-green-400",  bg: "bg-green-500/20",  label: "Credits" },
-  new_feature:         { icon: Flame,        color: "text-cyan-400", bg: "bg-cyan-500/20", label: "New" },
-  promotion:           { icon: Gift,         color: "text-pink-400",   bg: "bg-pink-500/20",   label: "Promo" },
-  reminder:            { icon: Clock,        color: "text-sky-400", bg: "bg-blue-500/20", label: "Reminder" },
-  achievement:         { icon: Trophy,       color: "text-sky-400", bg: "bg-blue-500/20", label: "Achievement" },
-  message:             { icon: MessageSquare,color: "text-cyan-400",   bg: "bg-cyan-500/20",   label: "Message" },
+  credit_added:        { icon: Zap,          color: "text-[#00C2FF]",  bg: "bg-[#00C2FF]/20",  label: "Credits" },
+  new_feature:         { icon: Flame,        color: "text-[#00C2FF]", bg: "bg-[#1E90FF]/20", label: "New" },
+  promotion:           { icon: Gift,         color: "text-[#1E90FF]",   bg: "bg-[#1E90FF]/20",   label: "Promo" },
+  reminder:            { icon: Clock,        color: "text-[#00C2FF]", bg: "bg-blue-500/20", label: "Reminder" },
+  achievement:         { icon: Trophy,       color: "text-[#00C2FF]", bg: "bg-blue-500/20", label: "Achievement" },
+  message:             { icon: MessageSquare,color: "text-[#00C2FF]",   bg: "bg-[#1E90FF]/20",   label: "Message" },
 };
 
-// ─── Demo Notifications (shown when DB is empty or loading) ──────────────────
+//  Demo Notifications (shown when DB is empty or loading) 
 const DEMO_NOTIFICATIONS = [
-  { id: 1, type: "achievement", title: "🏆 X-Factor Score Updated!", message: "Your X-Factor score jumped to 87 — up 3 points this week. You're now in the top 15% of athletes in your sport.", isRead: false, createdAt: new Date(Date.now() - 2 * 60000).toISOString(), link: "/rankings-hub" },
-  { id: 2, type: "credit_added", title: "⚡ 250 Credits Added", message: "Your monthly Starter subscription credits have been added to your account. Use them to generate scouting reports, coach emails, and NIL pitches.", isRead: false, createdAt: new Date(Date.now() - 15 * 60000).toISOString(), link: "/token-factory" },
-  { id: 3, type: "message", title: "📬 Coach Williams Viewed Your Profile", message: "A D1 recruiting coordinator from LSU viewed your profile and highlight reel. This is your moment — send a follow-up email now.", isRead: false, createdAt: new Date(Date.now() - 45 * 60000).toISOString(), link: "/ai-recruiter" },
-  { id: 4, type: "new_feature", title: "🔥 AI Scouting Report is LIVE", message: "Generate a professional AI scouting report for any athlete in seconds. Powered by Nebius H200 AI — 10 credits per report.", isRead: true, createdAt: new Date(Date.now() - 2 * 3600000).toISOString(), link: "/ai-scouting-report" },
-  { id: 5, type: "promotion", title: "🎁 Limited Time: 2x Credits on Champion Pack", message: "For the next 48 hours, the Champion Pack (7,500 credits) includes a 2x bonus. That's 15,000 credits for $49.99.", isRead: true, createdAt: new Date(Date.now() - 5 * 3600000).toISOString(), link: "/token-factory" },
-  { id: 6, type: "system_announcement", title: "📡 Live Leaderboard Now Active", message: "The AthlynX Live Leaderboard is now tracking 12 top prospects in real-time. Check your ranking and see where you stand nationally.", isRead: true, createdAt: new Date(Date.now() - 24 * 3600000).toISOString(), link: "/rankings-hub" },
-  { id: 7, type: "achievement", title: "🎓 Profile 80% Complete", message: "You're almost there! Add your highlight reel URL and combine stats to reach 100% profile completion and earn 50 free credits.", isRead: true, createdAt: new Date(Date.now() - 2 * 24 * 3600000).toISOString(), link: "/profile" },
-  { id: 8, type: "welcome", title: "👋 Welcome to AthlynX!", message: "You're now part of the most powerful athlete platform in the country. Complete your profile to start getting noticed by coaches and brands.", isRead: true, createdAt: new Date(Date.now() - 7 * 24 * 3600000).toISOString(), link: "/profile" },
+  { id: 1, type: "achievement", title: " EPX Score Updated!", message: "Your EPX score jumped to 87 — up 3 points this week. You're now in the top 15% of athletes in your sport.", isRead: false, createdAt: new Date(Date.now() - 2 * 60000).toISOString(), link: "/rankings-hub" },
+  { id: 2, type: "credit_added", title: " 250 Credits Added", message: "Your monthly Starter subscription credits have been added to your account. Use them to generate scouting reports, coach emails, and NIL pitches.", isRead: false, createdAt: new Date(Date.now() - 15 * 60000).toISOString(), link: "/token-factory" },
+  { id: 3, type: "message", title: " Coach Williams Viewed Your Profile", message: "A D1 recruiting coordinator from LSU viewed your profile and highlight reel. This is your moment — send a follow-up email now.", isRead: false, createdAt: new Date(Date.now() - 45 * 60000).toISOString(), link: "/ai-recruiter" },
+  { id: 4, type: "new_feature", title: " AI Scouting Report is LIVE", message: "Generate a professional AI scouting report for any athlete in seconds. Powered by Nebius H200 AI — 10 credits per report.", isRead: true, createdAt: new Date(Date.now() - 2 * 3600000).toISOString(), link: "/ai-scouting-report" },
+  { id: 5, type: "promotion", title: " Limited Time: 2x Credits on Champion Pack", message: "For the next 48 hours, the Champion Pack (7,500 credits) includes a 2x bonus. That's 15,000 credits for $49.99.", isRead: true, createdAt: new Date(Date.now() - 5 * 3600000).toISOString(), link: "/token-factory" },
+  { id: 6, type: "system_announcement", title: " Live Leaderboard Now Active", message: "The AthlynX Live Leaderboard is now tracking 12 top prospects in real-time. Check your ranking and see where you stand nationally.", isRead: true, createdAt: new Date(Date.now() - 24 * 3600000).toISOString(), link: "/rankings-hub" },
+  { id: 7, type: "achievement", title: " Profile 80% Complete", message: "You're almost there! Add your highlight reel URL and combine stats to reach 100% profile completion and earn 50 free credits.", isRead: true, createdAt: new Date(Date.now() - 2 * 24 * 3600000).toISOString(), link: "/profile" },
+  { id: 8, type: "welcome", title: " Welcome to AthlynX!", message: "You're now part of the most powerful athlete platform in the country. Complete your profile to start getting noticed by coaches and brands.", isRead: true, createdAt: new Date(Date.now() - 7 * 24 * 3600000).toISOString(), link: "/profile" },
 ];
 
-// ─── Time Formatter ───────────────────────────────────────────────────────────
+//  Time Formatter 
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
@@ -59,7 +59,7 @@ function timeAgo(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString();
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function NotificationCenterInner() {
   const { user } = useAuth();
   const [filter, setFilter] = useState<"all" | "unread" | "credits" | "achievements" | "messages">("all");
@@ -235,8 +235,8 @@ function NotificationCenterInner() {
             <div className="text-[10px] font-black text-[#00c2ff] tracking-widest uppercase mb-3">Platform Activity Today</div>
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: "New Offers", val: "38", icon: Award, color: "text-sky-400" },
-                { label: "NIL Deals", val: "14", icon: DollarSign, color: "text-green-400" },
+                { label: "New Offers", val: "38", icon: Award, color: "text-[#00C2FF]" },
+                { label: "NIL Deals", val: "14", icon: DollarSign, color: "text-[#00C2FF]" },
                 { label: "Active Users", val: "2,847", icon: Activity, color: "text-[#00c2ff]" },
               ].map((s, i) => (
                 <div key={i} className="text-center">

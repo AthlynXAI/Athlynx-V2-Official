@@ -8,7 +8,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 
-// ─── OWL MARK ────────────────────────────────────────────────────────────────
+//  OWL MARK 
 function OwlMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -22,14 +22,14 @@ function OwlMark({ className = "" }: { className?: string }) {
   );
 }
 
-// ─── WORKSPACE APPS ──────────────────────────────────────────────────────────
+//  WORKSPACE APPS 
 const WORKSPACE_APPS = [
   {
     id: "gmail",
     name: "Gmail",
-    icon: "✉️",
-    color: "from-red-600 to-red-700",
-    border: "border-red-500/30",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]/30",
     url: "https://mail.google.com",
     desc: "Athlete communications, NIL deal threads, recruiting outreach",
     features: ["Smart Compose", "AI Summaries", "Label Automation", "Bulk Outreach"],
@@ -38,9 +38,9 @@ const WORKSPACE_APPS = [
   {
     id: "drive",
     name: "Google Drive",
-    icon: "📁",
-    color: "from-yellow-500 to-orange-500",
-    border: "border-yellow-500/30",
+    icon: "",
+    color: "from-[#1E90FF] to-orange-500",
+    border: "border-[#1E90FF]/30",
     url: "https://drive.google.com",
     desc: "All AthlynXAI assets, contracts, media, and documents",
     features: ["Shared Drives", "AI Search", "Version Control", "Team Folders"],
@@ -49,7 +49,7 @@ const WORKSPACE_APPS = [
   {
     id: "docs",
     name: "Google Docs",
-    icon: "📄",
+    icon: "",
     color: "from-blue-500 to-blue-600",
     border: "border-blue-500/30",
     url: "https://docs.google.com",
@@ -60,9 +60,9 @@ const WORKSPACE_APPS = [
   {
     id: "sheets",
     name: "Google Sheets",
-    icon: "📊",
-    color: "from-green-500 to-green-600",
-    border: "border-green-500/30",
+    icon: "",
+    color: "from-[#00C2FF] to-[#0a1628]",
+    border: "border-[#00C2FF]/30",
     url: "https://sheets.google.com",
     desc: "Athlete databases, NIL deal tracking, revenue dashboards",
     features: ["AI Formulas", "Live Data", "Charts", "API Integration"],
@@ -71,9 +71,9 @@ const WORKSPACE_APPS = [
   {
     id: "slides",
     name: "Google Slides",
-    icon: "🎨",
-    color: "from-yellow-400 to-yellow-500",
-    border: "border-yellow-400/30",
+    icon: "",
+    color: "from-[#1E90FF] to-yellow-500",
+    border: "border-[#1E90FF]/30",
     url: "https://slides.google.com",
     desc: "Investor decks, brand proposals, recruiting presentations",
     features: ["AI Layouts", "Brand Templates", "Presenter Mode", "Export"],
@@ -82,9 +82,9 @@ const WORKSPACE_APPS = [
   {
     id: "calendar",
     name: "Google Calendar",
-    icon: "📅",
-    color: "from-blue-400 to-cyan-500",
-    border: "border-cyan-500/30",
+    icon: "",
+    color: "from-blue-400 to-[#0a1628]",
+    border: "border-[#1E90FF]/30",
     url: "https://calendar.google.com",
     desc: "All athlete events, recruiting visits, NIL meetings, camps",
     features: ["Calendly Sync", "Team Calendars", "Smart Scheduling", "Reminders"],
@@ -93,9 +93,9 @@ const WORKSPACE_APPS = [
   {
     id: "meet",
     name: "Google Meet",
-    icon: "🎥",
-    color: "from-green-400 to-teal-500",
-    border: "border-teal-500/30",
+    icon: "",
+    color: "from-[#00C2FF] to-[#00C2FF]",
+    border: "border-[#00C2FF]/30",
     url: "https://meet.google.com",
     desc: "Virtual recruiting visits, NIL brand calls, team meetings",
     features: ["HD Video", "AI Transcripts", "Recording", "Breakout Rooms"],
@@ -104,9 +104,9 @@ const WORKSPACE_APPS = [
   {
     id: "forms",
     name: "Google Forms",
-    icon: "📋",
-    color: "from-purple-500 to-purple-600",
-    border: "border-purple-500/30",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]/30",
     url: "https://forms.google.com",
     desc: "Athlete intake, NIL applications, recruiting questionnaires",
     features: ["Auto-Collect", "Conditional Logic", "Sheets Integration", "AI Analysis"],
@@ -115,9 +115,9 @@ const WORKSPACE_APPS = [
   {
     id: "chat",
     name: "Google Chat",
-    icon: "💬",
+    icon: "",
     color: "from-blue-500 to-indigo-600",
-    border: "border-indigo-500/30",
+    border: "border-[#1E90FF]/30",
     url: "https://chat.google.com",
     desc: "Team communication, athlete support, brand partnerships",
     features: ["Spaces", "Bots", "File Sharing", "Meet Integration"],
@@ -125,45 +125,45 @@ const WORKSPACE_APPS = [
   },
 ];
 
-// ─── GEMINI CAPABILITIES ─────────────────────────────────────────────────────
+//  GEMINI CAPABILITIES 
 const GEMINI_CAPABILITIES = [
   {
-    icon: "🧠",
+    icon: "",
     title: "Gemini 2.5 Flash",
     desc: "Ultra-fast AI for real-time athlete analysis, NIL valuations, and recruiting insights",
     action: "Ask Gemini",
     href: "https://gemini.google.com",
   },
   {
-    icon: "📝",
+    icon: "",
     title: "AI Document Writer",
     desc: "Generate NIL contracts, recruiting letters, press releases, and playbooks in seconds",
     action: "Write Now",
     href: "https://docs.google.com",
   },
   {
-    icon: "📊",
+    icon: "",
     title: "AI Data Analysis",
     desc: "Analyze athlete performance data, NIL deal pipelines, and revenue forecasts",
     action: "Analyze",
     href: "https://sheets.google.com",
   },
   {
-    icon: "🎯",
+    icon: "",
     title: "AI Recruiting Intel",
     desc: "Gemini-powered prospect matching, school fit analysis, and offer comparisons",
     action: "Scout Now",
     href: "/ai-recruiter",
   },
   {
-    icon: "💰",
+    icon: "",
     title: "NIL Valuation Engine",
     desc: "AI-powered NIL deal valuation based on sport, school, social reach, and performance",
     action: "Calculate",
     href: "/nil-calculator",
   },
   {
-    icon: "📡",
+    icon: "",
     title: "AI Content Generator",
     desc: "Auto-generate social posts, highlight captions, and press kit content",
     action: "Create",
@@ -171,7 +171,7 @@ const GEMINI_CAPABILITIES = [
   },
 ];
 
-// ─── INTEGRATION STATUS ───────────────────────────────────────────────────────
+//  INTEGRATION STATUS 
 const INTEGRATIONS = [
   { name: "Gmail → CRM", status: "LIVE", desc: "New emails auto-create CRM contacts" },
   { name: "Drive → Media Vault", status: "LIVE", desc: "Drive assets sync to AthlynX media vault" },
@@ -214,7 +214,7 @@ export default function GoogleWorkspaceOS() {
             {[
               { label: "9 Workspace Apps", color: "text-white" },
               { label: "Gemini 2.5 Flash", color: "text-blue-400" },
-              { label: "10 Live Integrations", color: "text-green-400" },
+              { label: "10 Live Integrations", color: "text-[#00C2FF]" },
               { label: "Google Cloud", color: "text-white" },
             ].map((badge) => (
               <div key={badge.label} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
@@ -266,7 +266,7 @@ export default function GoogleWorkspaceOS() {
                   <OwlMark className="absolute bottom-3 right-3 w-8 h-8 text-white/5 group-hover:text-white/10 transition-colors" />
                   <div className="flex items-start justify-between mb-3">
                     <span className="text-3xl">{app.icon}</span>
-                    <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                    <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30">
                       {app.badge}
                     </span>
                   </div>
@@ -310,8 +310,8 @@ export default function GoogleWorkspaceOS() {
         {activeTab === "gemini" && (
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl">
-                🧠
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-2xl">
+                
               </div>
               <div>
                 <h2 className="text-2xl font-black uppercase tracking-wide">Gemini AI</h2>
@@ -352,7 +352,7 @@ export default function GoogleWorkspaceOS() {
                   <div key={m.model} className="bg-white/5 border border-white/10 rounded-xl p-4">
                     <p className="text-blue-400 font-black text-sm mb-1">{m.model}</p>
                     <p className="text-white/60 text-xs mb-2">{m.use}</p>
-                    <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                    <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30">
                       {m.speed}
                     </span>
                   </div>
@@ -372,12 +372,12 @@ export default function GoogleWorkspaceOS() {
                   key={intg.name}
                   className="flex items-center gap-4 bg-gradient-to-r from-[#07111F] to-black border border-white/10 rounded-xl p-4 hover:border-blue-500/30 transition-colors"
                 >
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                  <div className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse flex-shrink-0" />
                   <div className="flex-1">
                     <p className="text-white font-black text-sm">{intg.name}</p>
                     <p className="text-white/50 text-xs">{intg.desc}</p>
                   </div>
-                  <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex-shrink-0">
+                  <span className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30 flex-shrink-0">
                     {intg.status}
                   </span>
                 </div>
@@ -385,7 +385,7 @@ export default function GoogleWorkspaceOS() {
             </div>
 
             {/* Add Integration CTA */}
-            <div className="mt-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-6 text-center">
+            <div className="mt-8 bg-gradient-to-r from-blue-500/10 to-[#0a1628]/10 border border-blue-500/20 rounded-2xl p-6 text-center">
               <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-2">Connector OS</p>
               <h3 className="text-xl font-black text-white mb-2">Add More Integrations</h3>
               <p className="text-white/50 text-sm mb-4">Connect Zapier, Slack, Stripe, Supabase, and 50+ more services through the Connector OS</p>
@@ -402,12 +402,12 @@ export default function GoogleWorkspaceOS() {
             <h2 className="text-2xl font-black uppercase tracking-wide mb-6">Google Admin Console</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {[
-                { icon: "👥", title: "User Management", desc: "Manage all AthlynXAI Google Workspace users", href: "https://admin.google.com/ac/users" },
-                { icon: "🔐", title: "Security Center", desc: "2FA, access controls, and security alerts", href: "https://admin.google.com/ac/security" },
-                { icon: "📊", title: "Usage Reports", desc: "Workspace usage analytics and audit logs", href: "https://admin.google.com/ac/reporting" },
-                { icon: "⚙️", title: "Apps Configuration", desc: "Configure all Workspace app settings", href: "https://admin.google.com/ac/apps" },
-                { icon: "💳", title: "Billing", desc: "Workspace subscription and billing management", href: "https://admin.google.com/ac/billing" },
-                { icon: "🏢", title: "Organization", desc: "Organizational units and group management", href: "https://admin.google.com/ac/orgunits" },
+                { icon: "", title: "User Management", desc: "Manage all AthlynXAI Google Workspace users", href: "https://admin.google.com/ac/users" },
+                { icon: "", title: "Security Center", desc: "2FA, access controls, and security alerts", href: "https://admin.google.com/ac/security" },
+                { icon: "", title: "Usage Reports", desc: "Workspace usage analytics and audit logs", href: "https://admin.google.com/ac/reporting" },
+                { icon: "", title: "Apps Configuration", desc: "Configure all Workspace app settings", href: "https://admin.google.com/ac/apps" },
+                { icon: "", title: "Billing", desc: "Workspace subscription and billing management", href: "https://admin.google.com/ac/billing" },
+                { icon: "", title: "Organization", desc: "Organizational units and group management", href: "https://admin.google.com/ac/orgunits" },
               ].map((item) => (
                 <a
                   key={item.title}

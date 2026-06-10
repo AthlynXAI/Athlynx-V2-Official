@@ -127,22 +127,22 @@ function NILCalculatorInner() {
       // Generate recommendations
       const recommendations: string[] = [];
       if (totalFollowers < 10000) {
-        recommendations.push("🚀 Grow your social media presence to 10K+ followers to significantly increase your NIL value");
+        recommendations.push(" Grow your social media presence to 10K+ followers to significantly increase your NIL value");
       }
       if (engagement < 3) {
-        recommendations.push("💬 Improve engagement by posting consistently and interacting with followers");
+        recommendations.push(" Improve engagement by posting consistently and interacting with followers");
       }
       if (!formData.hasMediaTraining) {
-        recommendations.push("🎤 Consider media training to improve brand partnership opportunities");
+        recommendations.push(" Consider media training to improve brand partnership opportunities");
       }
       if (!formData.isAllConference && formData.isStarter) {
-        recommendations.push("🏆 Aim for All-Conference honors to boost your value by $15K+");
+        recommendations.push(" Aim for All-Conference honors to boost your value by $15K+");
       }
       if (parseFloat(formData.gpa) < 3.5) {
-        recommendations.push("📚 Maintain a 3.5+ GPA to unlock academic-focused brand deals");
+        recommendations.push(" Maintain a 3.5+ GPA to unlock academic-focused brand deals");
       }
-      recommendations.push("📱 Create content showcasing your personality - brands want authentic athletes");
-      recommendations.push("🤝 Partner with AthlynX to connect with verified brand opportunities");
+      recommendations.push(" Create content showcasing your personality - brands want authentic athletes");
+      recommendations.push(" Partner with AthlynX to connect with verified brand opportunities");
       
       setResult({
         estimatedValue: Math.round(estimatedValue),
@@ -159,7 +159,7 @@ function NILCalculatorInner() {
       });
       
       setIsCalculating(false);
-      toast.success("NIL Valuation Complete! 🎉");
+      toast.success("NIL Valuation Complete! ");
     }, 2000);
   };
 
@@ -170,17 +170,17 @@ function NILCalculatorInner() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <div className="bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl p-2">
-                <span className="text-2xl">💰</span>
+              <div className="bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] rounded-xl p-2">
+                <span className="text-2xl"></span>
               </div>
               <div>
                 <h1 className="text-white font-bold text-lg">AthlynX</h1>
-                <p className="text-green-400 text-xs">NIL CALCULATOR</p>
+                <p className="text-[#00C2FF] text-xs">NIL CALCULATOR</p>
               </div>
             </div>
           </Link>
           <Link href="/">
-            <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
+            <Button variant="outline" className="border-[#00C2FF] text-[#00C2FF] hover:bg-[#00C2FF]/10">
               Back to Home
             </Button>
           </Link>
@@ -189,11 +189,11 @@ function NILCalculatorInner() {
 
       {/* Hero */}
       <section className="py-12 text-center px-4">
-        <div className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+        <div className="inline-block bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
           POWERED BY AthlynXAI
         </div>
         <h1 className="text-4xl md:text-5xl font-black mb-4">
-          <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#00C2FF] via-emerald-400 to-[#0a1628] bg-clip-text text-transparent">
             NIL Valuation Calculator
           </span>
         </h1>
@@ -208,7 +208,7 @@ function NILCalculatorInner() {
           <Card className="bg-slate-800/50 border-slate-700">
             <CardHeader>
               <CardTitle className="text-white flex items-center gap-2">
-                <span className="text-2xl">📊</span> Your Information
+                <span className="text-2xl"></span> Your Information
               </CardTitle>
               <CardDescription className="text-slate-400">
                 Enter your details for an accurate valuation
@@ -269,7 +269,7 @@ function NILCalculatorInner() {
 
               {/* Social Media */}
               <div>
-                <Label className="text-slate-300 text-lg mb-2 block">📱 Social Media Following</Label>
+                <Label className="text-slate-300 text-lg mb-2 block"> Social Media Following</Label>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label className="text-slate-400 text-sm">Instagram</Label>
@@ -327,7 +327,7 @@ function NILCalculatorInner() {
 
               {/* Performance */}
               <div>
-                <Label className="text-slate-300 text-lg mb-2 block">🏆 Performance</Label>
+                <Label className="text-slate-300 text-lg mb-2 block"> Performance</Label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -390,14 +390,14 @@ function NILCalculatorInner() {
               <Button
                 onClick={calculateNILValue}
                 disabled={isCalculating}
-                className="w-full py-6 text-lg font-bold bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400"
+                className="w-full py-6 text-lg font-bold bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] hover:from-[#00C2FF] hover:to-emerald-400"
               >
                 {isCalculating ? (
                   <span className="flex items-center gap-2">
-                    <span className="animate-spin">⚙️</span> Calculating...
+                    <span className="animate-spin"></span> Calculating...
                   </span>
                 ) : (
-                  "Calculate My NIL Value 💰"
+                  "Calculate My NIL Value "
                 )}
               </Button>
             </CardContent>
@@ -408,9 +408,9 @@ function NILCalculatorInner() {
             {result ? (
               <>
                 {/* Main Value */}
-                <Card className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border-green-500/50">
+                <Card className="bg-gradient-to-br from-[#00C2FF]/50 to-emerald-900/50 border-[#00C2FF]/50">
                   <CardContent className="p-8 text-center">
-                    <p className="text-green-400 text-sm font-bold mb-2">YOUR ESTIMATED NIL VALUE</p>
+                    <p className="text-[#00C2FF] text-sm font-bold mb-2">YOUR ESTIMATED NIL VALUE</p>
                     <h2 className="text-6xl font-black text-white mb-2">
                       ${result.estimatedValue.toLocaleString()}
                     </h2>
@@ -423,16 +423,16 @@ function NILCalculatorInner() {
                 {/* Breakdown */}
                 <Card className="bg-slate-800/50 border-slate-700">
                   <CardHeader>
-                    <CardTitle className="text-white">📊 Value Breakdown</CardTitle>
+                    <CardTitle className="text-white"> Value Breakdown</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex justify-between items-center">
                       <span className="text-slate-300">Social Media Value</span>
-                      <span className="text-green-400 font-bold">${result.breakdown.socialMedia.toLocaleString()}</span>
+                      <span className="text-[#00C2FF] font-bold">${result.breakdown.socialMedia.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-slate-300">Performance Bonus</span>
-                      <span className="text-cyan-400 font-bold">${result.breakdown.performance.toLocaleString()}</span>
+                      <span className="text-[#00C2FF] font-bold">${result.breakdown.performance.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-slate-300">Marketability</span>
@@ -440,7 +440,7 @@ function NILCalculatorInner() {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-slate-300">Sport Premium</span>
-                      <span className="text-red-400 font-bold">${result.breakdown.sport.toLocaleString()}</span>
+                      <span className="text-[#1E90FF] font-bold">${result.breakdown.sport.toLocaleString()}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -448,7 +448,7 @@ function NILCalculatorInner() {
                 {/* Recommendations */}
                 <Card className="bg-slate-800/50 border-slate-700">
                   <CardHeader>
-                    <CardTitle className="text-white">🚀 Recommendations to Increase Value</CardTitle>
+                    <CardTitle className="text-white"> Recommendations to Increase Value</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
@@ -460,12 +460,12 @@ function NILCalculatorInner() {
                 </Card>
 
                 {/* CTA */}
-                <Card className="bg-gradient-to-r from-cyan-900/50 to-blue-900/50 border-cyan-500/30">
+                <Card className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-900/50 border-[#1E90FF]/30">
                   <CardContent className="p-6 text-center">
                     <h3 className="text-xl font-bold text-white mb-2">Ready to Monetize Your Value?</h3>
                     <p className="text-slate-400 mb-4">Join AthlynX and connect with brands looking for athletes like you.</p>
                     <Link href="/pricing">
-                      <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400">
+                      <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-500 hover:from-[#1E90FF] hover:to-blue-400">
                         Get Started Now
                       </Button>
                     </Link>
@@ -475,7 +475,7 @@ function NILCalculatorInner() {
             ) : (
               <Card className="bg-slate-800/50 border-slate-700 h-full flex items-center justify-center">
                 <CardContent className="text-center py-20">
-                  <span className="text-6xl mb-4 block">💰</span>
+                  <span className="text-6xl mb-4 block"></span>
                   <h3 className="text-2xl font-bold text-white mb-2">Enter Your Details</h3>
                   <p className="text-slate-400">Fill out the form to see your estimated NIL value</p>
                 </CardContent>

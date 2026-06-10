@@ -86,7 +86,7 @@ function CRMCommandCenterInner() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-12 h-12 border-2 border-[#1E90FF] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-white/50 text-sm">Loading Command Center...</p>
         </div>
       </div>
@@ -96,13 +96,13 @@ function CRMCommandCenterInner() {
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
-        <Card className="w-full max-w-md bg-slate-800/90 border-red-500/30">
+        <Card className="w-full max-w-md bg-slate-800/90 border-[#1E90FF]/30">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 w-24 h-24 bg-gradient-to-r from-red-500 to-red-700 rounded-2xl flex items-center justify-center">
-              <span className="text-5xl">🚫</span>
+            <div className="mx-auto mb-4 w-24 h-24 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-2xl flex items-center justify-center">
+              <span className="text-5xl"></span>
             </div>
             <CardTitle className="text-3xl text-white">Access Denied</CardTitle>
-            <CardDescription className="text-red-400">
+            <CardDescription className="text-[#1E90FF]">
               Admin access required. Contact Chad Dozier.
             </CardDescription>
           </CardHeader>
@@ -120,12 +120,12 @@ function CRMCommandCenterInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-cyan-500/30">
+      <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-[#1E90FF]/30">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/">
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl px-4 py-2 flex items-center gap-2 cursor-pointer hover:opacity-90">
-                <span className="text-3xl">🎯</span>
+              <div className="bg-gradient-to-r from-[#1E90FF] to-blue-500 rounded-xl px-4 py-2 flex items-center gap-2 cursor-pointer hover:opacity-90">
+                <span className="text-3xl"></span>
                 <div>
                   <h1 className="text-white font-bold text-xl">COMMAND CENTER</h1>
                   <p className="text-blue-100 text-[10px]">AthlynX CRM</p>
@@ -133,14 +133,14 @@ function CRMCommandCenterInner() {
               </div>
             </Link>
             <div className="hidden md:block">
-              <p className="text-cyan-400 font-semibold">{partnerName}</p>
+              <p className="text-[#00C2FF] font-semibold">{partnerName}</p>
               <p className="text-slate-400 text-xs">{partnerRole}</p>
             </div>
           </div>
           
           <div className="flex items-center gap-3">
-            <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-              ● Online
+            <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30">
+               Online
             </Badge>
             <Button
               onClick={handleLogout}
@@ -157,32 +157,32 @@ function CRMCommandCenterInner() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-2 bg-slate-800/50 p-2 rounded-xl h-auto">
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-cyan-500 py-3">
-              📊 Dashboard
+            <TabsTrigger value="dashboard" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Dashboard
             </TabsTrigger>
-            <TabsTrigger value="companies" className="data-[state=active]:bg-cyan-500 py-3">
-              🏢 Companies
+            <TabsTrigger value="companies" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Companies
             </TabsTrigger>
-            <TabsTrigger value="partners" className="data-[state=active]:bg-cyan-500 py-3">
-              👥 Partners
+            <TabsTrigger value="partners" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Partners
             </TabsTrigger>
-            <TabsTrigger value="connectors" className="data-[state=active]:bg-cyan-500 py-3">
-              🔌 Connectors
+            <TabsTrigger value="connectors" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Connectors
             </TabsTrigger>
-            <TabsTrigger value="emails" className="data-[state=active]:bg-cyan-500 py-3">
-              📧 Emails
+            <TabsTrigger value="emails" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Emails
             </TabsTrigger>
-            <TabsTrigger value="documents" className="data-[state=active]:bg-cyan-500 py-3">
-              📁 Documents
+            <TabsTrigger value="documents" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Documents
             </TabsTrigger>
-            <TabsTrigger value="compliance" className="data-[state=active]:bg-cyan-500 py-3">
-              ✅ Compliance
+            <TabsTrigger value="compliance" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Compliance
             </TabsTrigger>
-            <TabsTrigger value="hosting" className="data-[state=active]:bg-cyan-500 py-3">
-              🌐 Hosting
+            <TabsTrigger value="hosting" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Hosting
             </TabsTrigger>
-            <TabsTrigger value="athletes" className="data-[state=active]:bg-cyan-500 py-3">
-              ⭐ Athletes
+            <TabsTrigger value="athletes" className="data-[state=active]:bg-[#1E90FF] py-3">
+               Athletes
             </TabsTrigger>
           </TabsList>
 
@@ -243,22 +243,22 @@ function DashboardModule() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-        📊 Command Center Dashboard
+         Command Center Dashboard
       </h2>
       
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <QuickStatCard title="Companies" value="12+" icon="🏢" color="cyan" />
-        <QuickStatCard title="Partners" value="6" icon="👥" color="blue" />
-        <QuickStatCard title="Connectors" value="8" icon="🔌" color="green" />
-        <QuickStatCard title="Documents" value="50+" icon="📁" color="blue" />
+        <QuickStatCard title="Companies" value="12+" icon="" color="cyan" />
+        <QuickStatCard title="Partners" value="6" icon="" color="blue" />
+        <QuickStatCard title="Connectors" value="8" icon="" color="green" />
+        <QuickStatCard title="Documents" value="50+" icon="" color="blue" />
       </div>
 
       {/* dot.card Intake Rail */}
-      <Card className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border-cyan-500/30">
+      <Card className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border-[#1E90FF]/30">
         <CardHeader>
-          <CardTitle className="text-white">🔗 dot.card → CRM → AthlynXAI OS</CardTitle>
-          <CardDescription className="text-cyan-200">
+          <CardTitle className="text-white"> dot.card → CRM → AthlynXAI OS</CardTitle>
+          <CardDescription className="text-[#00C2FF]">
             Chad’s dot.card and dot.code are now treated as field contact-capture rails. The OS remains the source of truth for relationship state, follow-up, approval gates, and audit proof.
           </CardDescription>
         </CardHeader>
@@ -269,21 +269,21 @@ function DashboardModule() {
             </div>
             <div className="space-y-3">
               <div className="grid sm:grid-cols-3 gap-3">
-                <div className="bg-slate-800/70 border border-cyan-500/20 rounded-xl p-4">
-                  <p className="text-cyan-300 text-xs font-black uppercase tracking-widest">Entry</p>
+                <div className="bg-slate-800/70 border border-[#1E90FF]/30 rounded-xl p-4">
+                  <p className="text-[#00C2FF] text-xs font-black uppercase tracking-widest">Entry</p>
                   <p className="text-white font-bold">AthlynXAI canonical dot-card</p>
                 </div>
-                <div className="bg-slate-800/70 border border-cyan-500/20 rounded-xl p-4">
-                  <p className="text-cyan-300 text-xs font-black uppercase tracking-widest">Capture</p>
+                <div className="bg-slate-800/70 border border-[#1E90FF]/30 rounded-xl p-4">
+                  <p className="text-[#00C2FF] text-xs font-black uppercase tracking-widest">Capture</p>
                   <p className="text-white font-bold">Scan, save, tag, follow up</p>
                 </div>
-                <div className="bg-slate-800/70 border border-cyan-500/20 rounded-xl p-4">
-                  <p className="text-cyan-300 text-xs font-black uppercase tracking-widest">Control</p>
+                <div className="bg-slate-800/70 border border-[#1E90FF]/30 rounded-xl p-4">
+                  <p className="text-[#00C2FF] text-xs font-black uppercase tracking-widest">Control</p>
                   <p className="text-white font-bold">CRM owner approval before outbound</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
-                <a href="/dot-card" className="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-lg font-bold">Open AthlynXAI dot.card</a>
+                <a href="/dot-card" className="bg-[#1565C0] hover:bg-[#1E90FF] text-white px-4 py-2 rounded-lg font-bold">Open AthlynXAI dot.card</a>
               </div>
             </div>
           </div>
@@ -293,24 +293,24 @@ function DashboardModule() {
       {/* Quick Actions */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">⚡ Quick Actions</CardTitle>
+          <CardTitle className="text-white"> Quick Actions</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Button className="bg-cyan-600 hover:bg-cyan-500 h-20 flex-col gap-2">
-              <span className="text-2xl">📧</span>
+            <Button className="bg-[#1565C0] hover:bg-[#1E90FF] h-20 flex-col gap-2">
+              <span className="text-2xl"></span>
               <span>Send Email</span>
             </Button>
             <Button className="bg-blue-600 hover:bg-blue-500 h-20 flex-col gap-2">
-              <span className="text-2xl">📄</span>
+              <span className="text-2xl"></span>
               <span>New Document</span>
             </Button>
-            <Button className="bg-green-600 hover:bg-green-500 h-20 flex-col gap-2">
-              <span className="text-2xl">🏢</span>
+            <Button className="bg-[#00C2FF] hover:bg-[#00C2FF] h-20 flex-col gap-2">
+              <span className="text-2xl"></span>
               <span>Add Company</span>
             </Button>
             <Button className="bg-blue-700 hover:bg-blue-600 h-20 flex-col gap-2">
-              <span className="text-2xl">👤</span>
+              <span className="text-2xl"></span>
               <span>Add Partner</span>
             </Button>
           </div>
@@ -320,32 +320,32 @@ function DashboardModule() {
       {/* Recent Activity */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">📋 Recent Activity</CardTitle>
+          <CardTitle className="text-white"> Recent Activity</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             <ActivityItem 
-              icon="📄" 
+              icon="" 
               text="IP Portfolio Master Report created" 
               time="Today, 3:15 PM" 
             />
             <ActivityItem 
-              icon="📧" 
+              icon="" 
               text="Team email sent to David Ford Sr." 
               time="Today, 3:10 PM" 
             />
             <ActivityItem 
-              icon="🏢" 
+              icon="" 
               text="Softmor acquisition agreement drafted" 
               time="Today, 2:45 PM" 
             />
             <ActivityItem 
-              icon="✅" 
+              icon="" 
               text="NCNDA Partner Agreement completed" 
               time="Today, 2:30 PM" 
             />
             <ActivityItem 
-              icon="💰" 
+              icon="" 
               text="Stripe payment connector verified" 
               time="Today, 1:00 PM" 
             />
@@ -373,9 +373,9 @@ function CompaniesModule() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-          🏢 Company Registry
+           Company Registry
         </h2>
-        <Button className="bg-cyan-600 hover:bg-cyan-500">
+        <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
           + Add Company
         </Button>
       </div>
@@ -392,13 +392,13 @@ function CompaniesModule() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-700">
-                  <th className="text-left py-3 px-4 text-cyan-400">Company Name</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Type</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">State</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">EIN</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Status</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Annual Report Due</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Actions</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Company Name</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Type</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">State</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">EIN</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Status</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Annual Report Due</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -409,13 +409,13 @@ function CompaniesModule() {
                     <td className="py-3 px-4 text-slate-300">{company.state}</td>
                     <td className="py-3 px-4 text-slate-300">{company.ein}</td>
                     <td className="py-3 px-4">
-                      <Badge className={company.status === "Active" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
+                      <Badge className={company.status === "Active" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
                         {company.status}
                       </Badge>
                     </td>
                     <td className="py-3 px-4 text-slate-300">{company.annualReportDue}</td>
                     <td className="py-3 px-4">
-                      <Button size="sm" variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/20">
+                      <Button size="sm" variant="outline" className="border-[#1E90FF] text-[#00C2FF] hover:bg-[#1E90FF]/20">
                         View
                       </Button>
                     </td>
@@ -430,7 +430,7 @@ function CompaniesModule() {
       {/* Compliance Calendar */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">📅 Compliance Calendar</CardTitle>
+          <CardTitle className="text-white"> Compliance Calendar</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -478,30 +478,30 @@ function PartnersModule() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-          👥 Partner Management
+           Partner Management
         </h2>
-        <Button className="bg-cyan-600 hover:bg-cyan-500">
+        <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
           + Add Partner
         </Button>
       </div>
 
       <div className="grid gap-4">
         {partners.map((partner) => (
-          <Card key={partner.id} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-colors">
+          <Card key={partner.id} className="bg-slate-800/50 border-slate-700 hover:border-[#1E90FF]/30 transition-colors">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-xl font-bold">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-500 rounded-full flex items-center justify-center text-xl font-bold">
                     {partner.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                   </div>
                   <div>
                     <h3 className="text-white font-semibold">{partner.name}</h3>
-                    <p className="text-cyan-400 text-sm">{partner.role}</p>
+                    <p className="text-[#00C2FF] text-sm">{partner.role}</p>
                     <p className="text-slate-400 text-xs">{partner.email}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <Badge className="bg-cyan-500/20 text-cyan-400 mb-2">
+                  <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] mb-2">
                     {partner.equity} Equity
                   </Badge>
                   <p className="text-slate-500 text-xs">Code: {partner.accessCode}</p>
@@ -515,7 +515,7 @@ function PartnersModule() {
       {/* NCNDA Status */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">📝 NCNDA Status</CardTitle>
+          <CardTitle className="text-white"> NCNDA Status</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -536,41 +536,41 @@ function PartnersModule() {
 function ConnectorsModule() {
   const connectors: Connector[] = [
     // CORE AI INFRASTRUCTURE
-    { id: "nebius", name: "Nebius AI — $5K Credits ACTIVE", type: "AI Engine (Secondary)", status: "connected", lastSync: "Live — Llama-3.3-70B", icon: "🧠" },
+    { id: "nebius", name: "Nebius AI — $5K Credits ACTIVE", type: "AI Engine (Secondary)", status: "connected", lastSync: "Live — Llama-3.3-70B", icon: "" },
     // STRATEGIC PARTNERSHIPS
-    { id: "infrastructure-review", name: "Infrastructure Review", type: "Hardware / Cloud Rail", status: "pending", lastSync: "Gated until agreement is finalized", icon: "🖥️" },
-    { id: "international-review", name: "International Expansion Review", type: "Strategic Review", status: "pending", lastSync: "Discussion-only; no public partner claim", icon: "🌏" },
-    { id: "softmor", name: "Softmor Inc.", type: "Data Center", status: "connected", lastSync: "Active", icon: "🏢" },
+    { id: "infrastructure-review", name: "Infrastructure Review", type: "Hardware / Cloud Rail", status: "pending", lastSync: "Gated until agreement is finalized", icon: "" },
+    { id: "international-review", name: "International Expansion Review", type: "Strategic Review", status: "pending", lastSync: "Discussion-only; no public partner claim", icon: "" },
+    { id: "softmor", name: "Softmor Inc.", type: "Data Center", status: "connected", lastSync: "Active", icon: "" },
     // PAYMENTS & COMMUNICATION
-    { id: "stripe", name: "Stripe Payments", type: "Payment", status: "connected", lastSync: "Just now", icon: "💳" },
-    { id: "twilio-sms", name: "SMS/MFA", type: "Communication", status: "connected", lastSync: "Live", icon: "📱" },
-    { id: "resend", name: "Resend Email", type: "Communication", status: "connected", lastSync: "Live", icon: "📧" },
+    { id: "stripe", name: "Stripe Payments", type: "Payment", status: "connected", lastSync: "Just now", icon: "" },
+    { id: "twilio-sms", name: "SMS/MFA", type: "Communication", status: "connected", lastSync: "Live", icon: "" },
+    { id: "resend", name: "Resend Email", type: "Communication", status: "connected", lastSync: "Live", icon: "" },
     // HOSTING & DEPLOYMENT
-    { id: "vercel", name: "Vercel Hosting", type: "Production Hosting", status: "connected", lastSync: "Live", icon: "▲" },
-    { id: "cloudflare-cdn", name: "Cloudflare CDN", type: "CDN & Security", status: "connected", lastSync: "Live", icon: "▲" },
+    { id: "vercel", name: "Vercel Hosting", type: "Production Hosting", status: "connected", lastSync: "Live", icon: "" },
+    { id: "cloudflare-cdn", name: "Cloudflare CDN", type: "CDN & Security", status: "connected", lastSync: "Live", icon: "" },
     // PRODUCTIVITY
-    { id: "calendar", name: "Google Calendar", type: "Productivity", status: "pending", lastSync: "Not configured", icon: "📅" },
-    { id: "docusign", name: "DocuSign", type: "Documents", status: "pending", lastSync: "Not configured", icon: "✍️" },
+    { id: "calendar", name: "Google Calendar", type: "Productivity", status: "pending", lastSync: "Not configured", icon: "" },
+    { id: "docusign", name: "DocuSign", type: "Documents", status: "pending", lastSync: "Not configured", icon: "" },
     // GOVERNMENT FILINGS
-    { id: "texas-sos", name: "Texas SOS", type: "State Filing", status: "pending", lastSync: "Manual", icon: "🏛️" },
-    { id: "delaware-sos", name: "Delaware SOS", type: "State Filing", status: "pending", lastSync: "Manual", icon: "🏛️" },
-    { id: "irs", name: "IRS (EIN)", type: "Federal", status: "pending", lastSync: "Manual", icon: "🏛️" },
+    { id: "texas-sos", name: "Texas SOS", type: "State Filing", status: "pending", lastSync: "Manual", icon: "" },
+    { id: "delaware-sos", name: "Delaware SOS", type: "State Filing", status: "pending", lastSync: "Manual", icon: "" },
+    { id: "irs", name: "IRS (EIN)", type: "Federal", status: "pending", lastSync: "Manual", icon: "" },
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-          🔌 Connectors Hub
+           Connectors Hub
         </h2>
-        <Button className="bg-cyan-600 hover:bg-cyan-500">
+        <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
           + Add Connector
         </Button>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {connectors.map((connector) => (
-          <Card key={connector.id} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-colors">
+          <Card key={connector.id} className="bg-slate-800/50 border-slate-700 hover:border-[#1E90FF]/30 transition-colors">
             <CardContent className="p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
@@ -581,18 +581,18 @@ function ConnectorsModule() {
                   </div>
                 </div>
                 <Badge className={
-                  connector.status === "connected" ? "bg-green-500/20 text-green-400" :
-                  connector.status === "pending" ? "bg-red-500/20 text-red-400" :
-                  "bg-red-500/20 text-red-400"
+                  connector.status === "connected" ? "bg-[#00C2FF]/20 text-[#00C2FF]" :
+                  connector.status === "pending" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                  "bg-[#1E90FF]/20 text-[#1E90FF]"
                 }>
-                  {connector.status === "connected" ? "● Connected" :
-                   connector.status === "pending" ? "○ Pending" : "○ Disconnected"}
+                  {connector.status === "connected" ? " Connected" :
+                   connector.status === "pending" ? " Pending" : " Disconnected"}
                 </Badge>
               </div>
               <p className="text-slate-500 text-xs mb-3">Last sync: {connector.lastSync}</p>
               <Button 
                 size="sm" 
-                className={connector.status === "connected" ? "bg-slate-600" : "bg-cyan-600 hover:bg-cyan-500"}
+                className={connector.status === "connected" ? "bg-slate-600" : "bg-[#1565C0] hover:bg-[#1E90FF]"}
                 disabled={connector.status === "connected"}
               >
                 {connector.status === "connected" ? "Configured" : "Configure"}
@@ -605,7 +605,7 @@ function ConnectorsModule() {
       {/* API Keys Management */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">🔑 API Keys & Credentials</CardTitle>
+          <CardTitle className="text-white"> API Keys & Credentials</CardTitle>
           <CardDescription className="text-slate-400">
             Securely manage all authentication credentials
           </CardDescription>
@@ -643,7 +643,7 @@ function EmailsModule() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-        📧 Email Hub
+         Email Hub
       </h2>
 
       <div className="grid lg:grid-cols-3 gap-6">
@@ -651,7 +651,7 @@ function EmailsModule() {
         <div className="lg:col-span-2">
           <Card className="bg-slate-800/50 border-slate-700">
             <CardHeader>
-              <CardTitle className="text-white">✉️ Compose Email</CardTitle>
+              <CardTitle className="text-white"> Compose Email</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -682,11 +682,11 @@ function EmailsModule() {
                 />
               </div>
               <div className="flex gap-3">
-                <Button className="bg-cyan-600 hover:bg-cyan-500">
-                  📤 Send Email
+                <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
+                   Send Email
                 </Button>
                 <Button variant="outline" className="border-slate-600 text-slate-300">
-                  📎 Attach Files
+                   Attach Files
                 </Button>
               </div>
             </CardContent>
@@ -697,7 +697,7 @@ function EmailsModule() {
         <div>
           <Card className="bg-slate-800/50 border-slate-700">
             <CardHeader>
-              <CardTitle className="text-white">📋 Templates</CardTitle>
+              <CardTitle className="text-white"> Templates</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {templates.map((template) => (
@@ -719,17 +719,17 @@ function EmailsModule() {
           {/* Quick Send */}
           <Card className="bg-slate-800/50 border-slate-700 mt-4">
             <CardHeader>
-              <CardTitle className="text-white">⚡ Quick Send</CardTitle>
+              <CardTitle className="text-white"> Quick Send</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               <Button className="w-full bg-blue-600 hover:bg-blue-500">
-                📧 Email All Partners
+                 Email All Partners
               </Button>
-              <Button className="w-full bg-green-600 hover:bg-green-500">
-                📧 Email David Ford Sr.
+              <Button className="w-full bg-[#00C2FF] hover:bg-[#00C2FF]">
+                 Email David Ford Sr.
               </Button>
               <Button className="w-full bg-blue-700 hover:bg-blue-600">
-                📧 Email Legal Team
+                 Email Legal Team
               </Button>
             </CardContent>
           </Card>
@@ -739,13 +739,13 @@ function EmailsModule() {
       {/* Recent Emails */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">📬 Recent Emails</CardTitle>
+          <CardTitle className="text-white"> Recent Emails</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             <EmailItem 
               to="Chad Dozier, Lee Marshall, Glenn Tse"
-              subject="🔥 PHASE 11 COMPLETE - AthlynX 2026 - ALL DOCUMENTS READY"
+              subject=" PHASE 11 COMPLETE - AthlynX 2026 - ALL DOCUMENTS READY"
               time="Today, 3:15 PM"
               status="sent"
             />
@@ -789,16 +789,16 @@ function DocumentsModule() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-          📁 Document Vault
+           Document Vault
         </h2>
-        <Button className="bg-cyan-600 hover:bg-cyan-500">
+        <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
           + Upload Document
         </Button>
       </div>
 
       {/* Category Filter */}
       <div className="flex gap-2">
-        <Badge className="bg-cyan-500/20 text-cyan-400 cursor-pointer hover:bg-cyan-500/30">All</Badge>
+        <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] cursor-pointer hover:bg-[#1E90FF]/20">All</Badge>
         <Badge className="bg-slate-700 text-slate-300 cursor-pointer hover:bg-slate-600">Legal</Badge>
         <Badge className="bg-slate-700 text-slate-300 cursor-pointer hover:bg-slate-600">Reports</Badge>
         <Badge className="bg-slate-700 text-slate-300 cursor-pointer hover:bg-slate-600">Contracts</Badge>
@@ -812,11 +812,11 @@ function DocumentsModule() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-700">
-                  <th className="text-left py-3 px-4 text-cyan-400">Document Name</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Category</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Size</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Uploaded</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Actions</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Document Name</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Category</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Size</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Uploaded</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -824,7 +824,7 @@ function DocumentsModule() {
                   <tr key={doc.id} className="border-b border-slate-700/50 hover:bg-slate-700/30">
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-red-400">📄</span>
+                        <span className="text-[#1E90FF]"></span>
                         <span className="text-white">{doc.name}</span>
                       </div>
                     </td>
@@ -835,10 +835,10 @@ function DocumentsModule() {
                     <td className="py-3 px-4 text-slate-300">{doc.uploadedAt}</td>
                     <td className="py-3 px-4">
                       <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/20">
+                        <Button size="sm" variant="outline" className="border-[#1E90FF] text-[#00C2FF] hover:bg-[#1E90FF]/20">
                           View
                         </Button>
-                        <Button size="sm" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/20">
+                        <Button size="sm" variant="outline" className="border-[#00C2FF] text-[#00C2FF] hover:bg-[#00C2FF]/20">
                           Download
                         </Button>
                       </div>
@@ -861,30 +861,30 @@ function ComplianceModule() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-        ✅ Compliance Center
+         Compliance Center
       </h2>
 
       {/* Compliance Overview */}
       <div className="grid md:grid-cols-3 gap-4">
-        <Card className="bg-green-900/30 border-green-500/30">
+        <Card className="bg-[#00C2FF]/30 border-[#00C2FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-4xl">✅</span>
-            <h3 className="text-green-400 font-bold text-2xl mt-2">3</h3>
-            <p className="text-green-300">Compliant</p>
+            <span className="text-4xl"></span>
+            <h3 className="text-[#00C2FF] font-bold text-2xl mt-2">3</h3>
+            <p className="text-[#00C2FF]">Compliant</p>
           </CardContent>
         </Card>
-        <Card className="bg-red-900/30 border-red-500/30">
+        <Card className="bg-[#1E90FF]/30 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-4xl">⚠️</span>
-            <h3 className="text-red-400 font-bold text-2xl mt-2">2</h3>
-            <p className="text-red-300">Upcoming</p>
+            <span className="text-4xl"></span>
+            <h3 className="text-[#1E90FF] font-bold text-2xl mt-2">2</h3>
+            <p className="text-[#1E90FF]">Upcoming</p>
           </CardContent>
         </Card>
-        <Card className="bg-red-900/30 border-red-500/30">
+        <Card className="bg-[#1E90FF]/30 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-4xl">🚨</span>
-            <h3 className="text-red-400 font-bold text-2xl mt-2">0</h3>
-            <p className="text-red-300">Overdue</p>
+            <span className="text-4xl"></span>
+            <h3 className="text-[#1E90FF] font-bold text-2xl mt-2">0</h3>
+            <p className="text-[#1E90FF]">Overdue</p>
           </CardContent>
         </Card>
       </div>
@@ -892,7 +892,7 @@ function ComplianceModule() {
       {/* Compliance Tasks */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">📋 Compliance Tasks</CardTitle>
+          <CardTitle className="text-white"> Compliance Tasks</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -938,7 +938,7 @@ function ComplianceModule() {
       {/* IP Filing Status */}
       <Card className="bg-slate-800/50 border-slate-700">
         <CardHeader>
-          <CardTitle className="text-white">🏆 IP Filing Status</CardTitle>
+          <CardTitle className="text-white"> IP Filing Status</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
@@ -960,10 +960,10 @@ function ComplianceModule() {
 
 function QuickStatCard({ title, value, icon, color }: { title: string; value: string | number; icon: string; color: string }) {
   const colorClasses = {
-    cyan: "from-cyan-500 to-blue-500",
+    cyan: "from-[#1E90FF] to-blue-500",
     blue: "from-blue-500 to-indigo-500",
-    green: "from-green-500 to-emerald-500",
-    blue2: "from-blue-600 to-red-500",
+    green: "from-[#00C2FF] to-[#00C2FF]",
+    blue2: "from-blue-600 to-[#0a1628]",
   };
   
   return (
@@ -1003,8 +1003,8 @@ function ComplianceItem({ company, task, dueDate, daysLeft, status }: { company:
         <p className="text-slate-400 text-sm">{company}</p>
       </div>
       <div className="text-right">
-        <p className="text-cyan-400">{dueDate}</p>
-        <Badge className={daysLeft < 30 ? "bg-red-500/20 text-red-400" : "bg-green-500/20 text-green-400"}>
+        <p className="text-[#00C2FF]">{dueDate}</p>
+        <Badge className={daysLeft < 30 ? "bg-[#1E90FF]/20 text-[#1E90FF]" : "bg-[#00C2FF]/20 text-[#00C2FF]"}>
           {daysLeft} days left
         </Badge>
       </div>
@@ -1016,8 +1016,8 @@ function NCNDAStatus({ name, status }: { name: string; status: "signed" | "pendi
   return (
     <div className="flex items-center justify-between p-3 bg-slate-700/30 rounded-lg">
       <span className="text-white">{name}</span>
-      <Badge className={status === "signed" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
-        {status === "signed" ? "✅ Signed" : "⏳ Pending"}
+      <Badge className={status === "signed" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
+        {status === "signed" ? " Signed" : " Pending"}
       </Badge>
     </div>
   );
@@ -1027,14 +1027,14 @@ function APIKeyItem({ name, status, lastUsed }: { name: string; status: string; 
   return (
     <div className="flex items-center justify-between p-3 bg-slate-700/30 rounded-lg">
       <div className="flex items-center gap-3">
-        <span className="text-xl">🔑</span>
+        <span className="text-xl"></span>
         <div>
           <p className="text-white">{name}</p>
           <p className="text-slate-400 text-xs">Last used: {lastUsed}</p>
         </div>
       </div>
-      <Badge className={status === "configured" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
-        {status === "configured" ? "● Configured" : "○ Not Configured"}
+      <Badge className={status === "configured" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
+        {status === "configured" ? " Configured" : " Not Configured"}
       </Badge>
     </div>
   );
@@ -1049,7 +1049,7 @@ function EmailItem({ to, subject, time, status }: { to: string; subject: string;
       </div>
       <div className="text-right">
         <p className="text-slate-400 text-sm">{time}</p>
-        <Badge className="bg-green-500/20 text-green-400">✓ Sent</Badge>
+        <Badge className="bg-[#00C2FF]/20 text-[#00C2FF]"> Sent</Badge>
       </div>
     </div>
   );
@@ -1066,7 +1066,7 @@ function ComplianceTask({ task, company, dueDate, priority, status }: { task: st
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <Badge className={priority === "high" ? "bg-red-500/20 text-red-400" : "bg-red-500/20 text-red-400"}>
+        <Badge className={priority === "high" ? "bg-[#1E90FF]/20 text-[#1E90FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
           {priority}
         </Badge>
         <span className="text-slate-300">{dueDate}</span>
@@ -1083,8 +1083,8 @@ function IPFilingItem({ name, type, status, cost }: { name: string; type: string
         <p className="text-slate-400 text-sm">{type}</p>
       </div>
       <div className="flex items-center gap-3">
-        <span className="text-cyan-400">{cost}</span>
-        <Badge className="bg-red-500/20 text-red-400">⏳ {status}</Badge>
+        <span className="text-[#00C2FF]">{cost}</span>
+        <Badge className="bg-[#1E90FF]/20 text-[#1E90FF]"> {status}</Badge>
       </div>
     </div>
   );
@@ -1115,15 +1115,15 @@ function WebHostingModule() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            🌐 Web Hosting & Domains
+             Web Hosting & Domains
           </h2>
-          <p className="text-cyan-400">One Stop Shop For All Your Needs</p>
+          <p className="text-[#00C2FF]">One Stop Shop For All Your Needs</p>
         </div>
         <div className="flex gap-2">
-          <Button className="bg-green-600 hover:bg-green-500">
+          <Button className="bg-[#00C2FF] hover:bg-[#00C2FF]">
             + Register Domain
           </Button>
-          <Button className="bg-cyan-600 hover:bg-cyan-500">
+          <Button className="bg-[#1565C0] hover:bg-[#1E90FF]">
             + New Hosting Plan
           </Button>
         </div>
@@ -1131,31 +1131,31 @@ function WebHostingModule() {
 
       {/* Stats */}
       <div className="grid md:grid-cols-4 gap-4">
-        <Card className="bg-slate-800/50 border-cyan-500/30">
+        <Card className="bg-slate-800/50 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">🌐</span>
-            <h3 className="text-cyan-400 font-bold text-2xl mt-2">5</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#00C2FF] font-bold text-2xl mt-2">5</h3>
             <p className="text-slate-300">Domains</p>
           </CardContent>
         </Card>
-        <Card className="bg-slate-800/50 border-green-500/30">
+        <Card className="bg-slate-800/50 border-[#00C2FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">🖥️</span>
-            <h3 className="text-green-400 font-bold text-2xl mt-2">4</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#00C2FF] font-bold text-2xl mt-2">4</h3>
             <p className="text-slate-300">Active Sites</p>
           </CardContent>
         </Card>
         <Card className="bg-slate-800/50 border-blue-600/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">🔒</span>
+            <span className="text-3xl"></span>
             <h3 className="text-blue-500 font-bold text-2xl mt-2">4</h3>
             <p className="text-slate-300">SSL Certs</p>
           </CardContent>
         </Card>
-        <Card className="bg-slate-800/50 border-red-500/30">
+        <Card className="bg-slate-800/50 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">📧</span>
-            <h3 className="text-red-400 font-bold text-2xl mt-2">12</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#1E90FF] font-bold text-2xl mt-2">12</h3>
             <p className="text-slate-300">Email Accounts</p>
           </CardContent>
         </Card>
@@ -1172,12 +1172,12 @@ function WebHostingModule() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-700">
-                  <th className="text-left py-3 px-4 text-cyan-400">Domain</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Status</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Expires</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">SSL</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Hosting</th>
-                  <th className="text-left py-3 px-4 text-cyan-400">Actions</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Domain</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Status</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Expires</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">SSL</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Hosting</th>
+                  <th className="text-left py-3 px-4 text-[#00C2FF]">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -1187,24 +1187,24 @@ function WebHostingModule() {
                       <span className="text-white font-medium">{d.domain}</span>
                     </td>
                     <td className="py-3 px-4">
-                      <Badge className={d.status === "active" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
-                        {d.status === "active" ? "● Active" : "○ Pending"}
+                      <Badge className={d.status === "active" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
+                        {d.status === "active" ? " Active" : " Pending"}
                       </Badge>
                     </td>
                     <td className="py-3 px-4 text-slate-300">{d.expires}</td>
                     <td className="py-3 px-4">
                       {d.ssl ? (
-                        <Badge className="bg-green-500/20 text-green-400">🔒 Secure</Badge>
+                        <Badge className="bg-[#00C2FF]/20 text-[#00C2FF]"> Secure</Badge>
                       ) : (
-                        <Badge className="bg-red-500/20 text-red-400">⚠️ Not Secure</Badge>
+                        <Badge className="bg-[#1E90FF]/20 text-[#1E90FF]"> Not Secure</Badge>
                       )}
                     </td>
                     <td className="py-3 px-4">
-                      <Badge className="bg-cyan-500/20 text-cyan-400">{d.hosting}</Badge>
+                      <Badge className="bg-[#1E90FF]/20 text-[#00C2FF]">{d.hosting}</Badge>
                     </td>
                     <td className="py-3 px-4">
                       <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="border-cyan-500 text-cyan-400">
+                        <Button size="sm" variant="outline" className="border-[#1E90FF] text-[#00C2FF]">
                           Manage
                         </Button>
                         <Button size="sm" variant="outline" className="border-slate-500 text-slate-400">
@@ -1225,26 +1225,26 @@ function WebHostingModule() {
         <h3 className="text-xl font-bold text-white mb-4">Hosting Plans</h3>
         <div className="grid md:grid-cols-4 gap-4">
           {hostingPlans.map((plan) => (
-            <Card key={plan.name} className={`bg-slate-800/50 border-slate-700 ${plan.name === "Premium" ? "border-cyan-500 ring-2 ring-cyan-500/30" : ""}`}>
+            <Card key={plan.name} className={`bg-slate-800/50 border-slate-700 ${plan.name === "Premium" ? "border-[#1E90FF] ring-2 ring-cyan-500/30" : ""}`}>
               <CardHeader>
                 {plan.name === "Premium" && (
-                  <Badge className="w-fit bg-cyan-500 text-white mb-2">MOST POPULAR</Badge>
+                  <Badge className="w-fit bg-[#1E90FF] text-white mb-2">MOST POPULAR</Badge>
                 )}
                 <CardTitle className="text-white">{plan.name}</CardTitle>
-                <CardDescription className="text-2xl font-bold text-cyan-400">{plan.price}</CardDescription>
+                <CardDescription className="text-2xl font-bold text-[#00C2FF]">{plan.price}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="text-slate-300 text-sm space-y-1">
-                  <p>💾 Storage: {plan.storage}</p>
-                  <p>📡 Bandwidth: {plan.bandwidth}</p>
-                  <p>🌐 Domains: {plan.domains}</p>
+                  <p> Storage: {plan.storage}</p>
+                  <p> Bandwidth: {plan.bandwidth}</p>
+                  <p> Domains: {plan.domains}</p>
                 </div>
                 <div className="border-t border-slate-700 pt-3">
                   {plan.features.slice(0, 4).map((f, i) => (
-                    <p key={i} className="text-green-400 text-xs">✓ {f}</p>
+                    <p key={i} className="text-[#00C2FF] text-xs"> {f}</p>
                   ))}
                 </div>
-                <Button className="w-full bg-cyan-600 hover:bg-cyan-500 mt-2">
+                <Button className="w-full bg-[#1565C0] hover:bg-[#1E90FF] mt-2">
                   Select Plan
                 </Button>
               </CardContent>
@@ -1278,42 +1278,42 @@ function AthleteSitesModule() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            ⭐ Athlete Website Builder
+             Athlete Website Builder
           </h2>
-          <p className="text-cyan-400">Different by Design — Build Your Brand, Own Your Future</p>
+          <p className="text-[#00C2FF]">Different by Design — Build Your Brand, Own Your Future</p>
         </div>
-        <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400">
+        <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-500 hover:from-[#1E90FF] hover:to-blue-400">
           + Create Athlete Site
         </Button>
       </div>
 
       {/* Stats */}
       <div className="grid md:grid-cols-4 gap-4">
-        <Card className="bg-gradient-to-br from-cyan-900/50 to-blue-900/50 border-cyan-500/30">
+        <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-blue-900/50 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">⭐</span>
-            <h3 className="text-cyan-400 font-bold text-2xl mt-2">3</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#00C2FF] font-bold text-2xl mt-2">3</h3>
             <p className="text-slate-300">Athlete Sites</p>
           </CardContent>
         </Card>
-        <Card className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 border-green-500/30">
+        <Card className="bg-gradient-to-br from-[#00C2FF]/50 to-emerald-900/50 border-[#00C2FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">👁️</span>
-            <h3 className="text-green-400 font-bold text-2xl mt-2">2,140</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#00C2FF] font-bold text-2xl mt-2">2,140</h3>
             <p className="text-slate-300">Total Views</p>
           </CardContent>
         </Card>
-        <Card className="bg-gradient-to-br from-blue-950/50 to-red-900/50 border-blue-600/30">
+        <Card className="bg-gradient-to-br from-blue-950/50 to-[#0a1628]/50 border-blue-600/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">🏈</span>
+            <span className="text-3xl"></span>
             <h3 className="text-blue-500 font-bold text-2xl mt-2">3</h3>
             <p className="text-slate-300">Sports</p>
           </CardContent>
         </Card>
-        <Card className="bg-gradient-to-br from-red-900/50 to-red-900/50 border-red-500/30">
+        <Card className="bg-gradient-to-br from-[#1E90FF]/50 to-[#0a1628]/50 border-[#1E90FF]/30">
           <CardContent className="p-4 text-center">
-            <span className="text-3xl">🎯</span>
-            <h3 className="text-red-400 font-bold text-2xl mt-2">47</h3>
+            <span className="text-3xl"></span>
+            <h3 className="text-[#1E90FF] font-bold text-2xl mt-2">47</h3>
             <p className="text-slate-300">Coach Views</p>
           </CardContent>
         </Card>
@@ -1330,7 +1330,7 @@ function AthleteSitesModule() {
             {athleteSites.map((site) => (
               <div key={site.id} className="flex items-center justify-between p-4 bg-slate-700/30 rounded-lg">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
                     {site.name.charAt(0)}
                   </div>
                   <div>
@@ -1340,16 +1340,16 @@ function AthleteSitesModule() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-cyan-400 font-medium">{site.views.toLocaleString()} views</p>
-                    <Badge className={site.status === "live" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}>
-                      {site.status === "live" ? "● Live" : "🛠️ Building"}
+                    <p className="text-[#00C2FF] font-medium">{site.views.toLocaleString()} views</p>
+                    <Badge className={site.status === "live" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-[#1E90FF]"}>
+                      {site.status === "live" ? " Live" : " Building"}
                     </Badge>
                   </div>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="border-cyan-500 text-cyan-400">
+                    <Button size="sm" variant="outline" className="border-[#1E90FF] text-[#00C2FF]">
                       Edit
                     </Button>
-                    <Button size="sm" variant="outline" className="border-green-500 text-green-400">
+                    <Button size="sm" variant="outline" className="border-[#00C2FF] text-[#00C2FF]">
                       View
                     </Button>
                   </div>
@@ -1365,7 +1365,7 @@ function AthleteSitesModule() {
         <h3 className="text-xl font-bold text-white mb-4">Athlete Site Templates</h3>
         <div className="grid md:grid-cols-3 gap-4">
           {siteTemplates.map((template) => (
-            <Card key={template.id} className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-colors">
+            <Card key={template.id} className="bg-slate-800/50 border-slate-700 hover:border-[#1E90FF]/30 transition-colors">
               <CardHeader>
                 <CardTitle className="text-white">{template.name}</CardTitle>
                 <CardDescription className="text-slate-400">{template.description}</CardDescription>
@@ -1373,13 +1373,13 @@ function AthleteSitesModule() {
               <CardContent className="space-y-3">
                 <div className="space-y-1">
                   {template.features.map((f, i) => (
-                    <p key={i} className="text-green-400 text-sm">✓ {f}</p>
+                    <p key={i} className="text-[#00C2FF] text-sm"> {f}</p>
                   ))}
                 </div>
                 <div className="border-t border-slate-700 pt-3">
-                  <p className="text-2xl font-bold text-cyan-400">{template.price}</p>
+                  <p className="text-2xl font-bold text-[#00C2FF]">{template.price}</p>
                 </div>
-                <Button className="w-full bg-cyan-600 hover:bg-cyan-500">
+                <Button className="w-full bg-[#1565C0] hover:bg-[#1E90FF]">
                   Use Template
                 </Button>
               </CardContent>
@@ -1389,20 +1389,20 @@ function AthleteSitesModule() {
       </div>
 
       {/* Target Market Info */}
-      <Card className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border-cyan-500/30">
+      <Card className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-900/30 border-[#1E90FF]/30">
         <CardContent className="p-6">
-          <h3 className="text-xl font-bold text-white mb-4">🏆 The AthlynX Advantage</h3>
+          <h3 className="text-xl font-bold text-white mb-4"> The AthlynX Advantage</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <h4 className="text-cyan-400 font-bold mb-2">For Parents</h4>
+              <h4 className="text-[#00C2FF] font-bold mb-2">For Parents</h4>
               <p className="text-slate-300 text-sm">Give your child the recruiting edge. Professional websites that showcase their talent to college coaches.</p>
             </div>
             <div>
-              <h4 className="text-cyan-400 font-bold mb-2">For Athletes</h4>
+              <h4 className="text-[#00C2FF] font-bold mb-2">For Athletes</h4>
               <p className="text-slate-300 text-sm">Own your brand from day one. Build your NIL empire before you even sign your first deal.</p>
             </div>
             <div>
-              <h4 className="text-cyan-400 font-bold mb-2">For Coaches</h4>
+              <h4 className="text-[#00C2FF] font-bold mb-2">For Coaches</h4>
               <p className="text-slate-300 text-sm">Find the perfect recruits. Our platform connects you directly with verified athlete profiles.</p>
             </div>
           </div>

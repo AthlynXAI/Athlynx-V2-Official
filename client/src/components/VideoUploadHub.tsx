@@ -78,7 +78,7 @@ function VideoPlayerFrame({ video, playing, onPlay }: { video: any; playing: boo
         </div>
       )}
       {isVimeo && (
-        <div className="absolute top-2 right-2 bg-black/70 text-cyan-300 text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 z-10">
+        <div className="absolute top-2 right-2 bg-black/70 text-[#00C2FF] text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 z-10">
           <Shield className="w-3 h-3" /> Vimeo Secure
         </div>
       )}
@@ -278,7 +278,7 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
   };
 
   const typeEmoji: Record<string, string> = {
-    highlight: "🏆", recruiting: "🎯", game_film: "🎬", training: "💪", other: "📹",
+    highlight: "", recruiting: "", game_film: "", training: "", other: "",
   };
 
   return (
@@ -340,7 +340,7 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setUploadProvider("vimeo")}
-                className={`text-left p-3 rounded-xl border text-xs transition-all ${uploadProvider === "vimeo" ? "border-cyan-400 bg-cyan-950/40 text-white" : "border-slate-700 text-slate-400 hover:border-slate-600"}`}
+                className={`text-left p-3 rounded-xl border text-xs transition-all ${uploadProvider === "vimeo" ? "border-[#1E90FF] bg-[#1E90FF]/20 text-white" : "border-slate-700 text-slate-400 hover:border-slate-600"}`}
               >
                 <div className="font-black flex items-center gap-1"><Shield className="w-3 h-3" /> Vimeo Recruiter Player</div>
                 <div className="text-slate-500 text-[10px] mt-1">Ad-free, domain-whitelisted embeds</div>
@@ -414,7 +414,7 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
               </div>
               <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-blue-600 to-[#0a1628] rounded-full transition-all duration-300"
                   style={{ width: `${uploadProgress}%` }}
                 />
               </div>
@@ -454,7 +454,7 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
                   }}
                 />
                 <div className="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-full">
-                  {typeEmoji[video.type] || "📹"} {video.type?.replace("_", " ")}
+                  {typeEmoji[video.type] || ""} {video.type?.replace("_", " ")}
                 </div>
               </div>
 
@@ -468,14 +468,14 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
                     <span className="flex items-center gap-1"><Eye className="w-3 h-3" /> {video.views || 0}</span>
                     <span>{new Date(video.uploadedAt).toLocaleDateString()}</span>
                     {video.processingStatus && video.processingStatus !== "ready" && (
-                      <span className="text-cyan-400 flex items-center gap-1"><RefreshCw className="w-3 h-3" /> {video.processingStatus}</span>
+                      <span className="text-[#00C2FF] flex items-center gap-1"><RefreshCw className="w-3 h-3" /> {video.processingStatus}</span>
                     )}
                   </div>
                   <div className="flex items-center gap-1.5">
                     {video.provider === "vimeo" && !readOnly && video.vimeoUri && (
                       <button
                         onClick={() => syncVimeoVideo.mutate({ videoId: video.id, vimeoUri: video.vimeoUri })}
-                        className="text-slate-500 hover:text-cyan-400 transition-colors p-1"
+                        className="text-slate-500 hover:text-[#00C2FF] transition-colors p-1"
                         title="Sync Vimeo status"
                       >
                         <RefreshCw className="w-3.5 h-3.5" />
@@ -491,7 +491,7 @@ export default function VideoUploadHub({ userId, readOnly = false }: VideoUpload
                     {!readOnly && (
                       <button
                         onClick={() => deleteVideo.mutate({ videoId: video.id, key: video.key || video.vimeoUri || video.id })}
-                        className="text-slate-600 hover:text-red-400 transition-colors p-1"
+                        className="text-slate-600 hover:text-[#1E90FF] transition-colors p-1"
                         title="Delete"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

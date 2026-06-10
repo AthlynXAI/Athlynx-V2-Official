@@ -17,15 +17,15 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
 
-// ─── Hero Video (CDN) ─────────────────────────────────────────────────────────
+//  Hero Video (CDN) 
 const HERO_VIDEO = "https://pub-e4ffb4c8e08a4770a064090220a8e31d.r2.dev/videos/SyHtmDgqKAycRzBN.mp4";
 
-// ─── Platform Screenshots (real athlynx.ai UI) ───────────────────────────────
+//  Platform Screenshots (real athlynx.ai UI) 
 const SCREENS = {
   feed:       "/landing/IMG_7176.PNG",
   diamond:    "/landing/IMG_7148.PNG",
   messenger:  "/landing/IMG_7147.PNG",
-  xfactor:    "/landing/IMG_7120.PNG",
+  epx:    "/landing/IMG_7120.PNG",
   cfactor:    "/landing/IMG_7134.PNG",
   calendar:   "/landing/IMG_7136.PNG",
   rankings:   "/landing/IMG_7135.PNG",
@@ -63,14 +63,14 @@ const ECOSYSTEM_LEGS = [
   { code: "AVN", title: "Athlete Vision Network", desc: "Video, computer vision, highlights, film, clips, and visual athlete intelligence." },
 ];
 
-// ─── Sports — Men's & Women's ─────────────────────────────────────────────────
+//  Sports — Men's & Women's 
 const SPORTS = [
   // Men's
   { gender:"Men's", sport:"Football",     img:"/sports/football.png", href:"/gridiron-nexus",   badge:"LIVE" },
   { gender:"Men's", sport:"Basketball",   img:"/landing/IMG_4073.PNG", href:"/court-kings",      badge:"LIVE" },
   { gender:"Men's", sport:"Baseball",     img:"/landing/IMG_4074.PNG", href:"/diamond-grind",    badge:"NEW"  },
   { gender:"Men's", sport:"Soccer",       img:"/landing/IMG_4075.PNG", href:"/pitch-pulse",      badge:"LIVE" },
-  { gender:"Men's", sport:"Track & Field",img:"/landing/IMG_4077.PNG", href:"/x-factor",         badge:"HOT"  },
+  { gender:"Men's", sport:"Track & Field",img:"/landing/IMG_4077.PNG", href:"/epx",         badge:"HOT"  },
   { gender:"Men's", sport:"Wrestling",    img:"/landing/IMG_4079.PNG", href:"/warriors-playbook",badge:"HOT"  },
   { gender:"Men's", sport:"Swimming",     img:"/landing/IMG_4080.PNG", href:"/swim-surge",       badge:"LIVE" },
   { gender:"Men's", sport:"Tennis",       img:"/landing/IMG_4081.PNG", href:"/racket-kings",     badge:"LIVE" },
@@ -91,7 +91,7 @@ const SPORTS = [
   { gender:"Women's", sport:"Volleyball",   img:"/landing/IMG_4088.PNG", href:"/net-setters",      badge:"LIVE" },
   { gender:"Women's", sport:"Softball",     img:"/landing/IMG_4093.PNG", href:"/softball-nation",  badge:"LIVE" },
   { gender:"Women's", sport:"Gymnastics",   img:"/landing/IMG_4089.PNG", href:"/gymnastics",       badge:"LIVE" },
-  { gender:"Women's", sport:"Track & Field",img:"/landing/IMG_4077.PNG", href:"/x-factor",         badge:"HOT"  },
+  { gender:"Women's", sport:"Track & Field",img:"/landing/IMG_4077.PNG", href:"/epx",         badge:"HOT"  },
   { gender:"Women's", sport:"Swimming",     img:"/landing/IMG_4080.PNG", href:"/swim-surge",       badge:"LIVE" },
   { gender:"Women's", sport:"Tennis",       img:"/landing/IMG_4081.PNG", href:"/racket-kings",     badge:"LIVE" },
   { gender:"Women's", sport:"Lacrosse",     img:"/landing/IMG_4091.PNG", href:"/lacrosse",         badge:"LIVE" },
@@ -107,19 +107,19 @@ const SPORTS = [
   { gender:"Women's", sport:"Cycling",      img:"/landing/IMG_4095.PNG", href:"/cycling",          badge:"LIVE" },
 ];
 
-// ─── Platform Features ────────────────────────────────────────────────────────
+//  Platform Features 
 const FEATURES = [
   {
-    icon: "⚡",
-    name: "X-Factor™",
+    icon: "",
+    name: "EPX™",
     tagline: "STOP WAITING TO BE DISCOVERED.",
-    desc: "Your X-Factor score (0–100) is your AI-powered athlete rating — built from combine metrics, game film, stats, recruiting interest, and intangibles. It grows as you perform. 90–100 is Elite Pro Prospect. Coaches see it. Brands pay for it.",
-    cta: "Get Your X-Factor Score",
-    href: "/x-factor",
+    desc: "Your EPX score (0–100) is your AI-powered athlete rating — built from combine metrics, game film, stats, recruiting interest, and intangibles. It grows as you perform. 90–100 is Elite Pro Prospect. Coaches see it. Brands pay for it.",
+    cta: "Get Your EPX Score",
+    href: "/epx",
     color: "#0066ff",
   },
   {
-    icon: "🎯",
+    icon: "",
     name: "C-Factor Hub™",
     tagline: "THE OPERATING SYSTEM OF YOUR SPORTS LIFE.",
     desc: "C-Factor is your daily command center — NIL opportunities, recruiting pulse, today's agenda, film room, podcast, vendor marketplace, and your complete athlete intelligence dashboard. Everything you need to manage your career in one place. Mobile-first. Built for champions.",
@@ -128,16 +128,16 @@ const FEATURES = [
     color: "#00c2ff",
   },
   {
-    icon: "💰",
+    icon: "",
     name: "NIL Portal™",
     tagline: "YOUR NAME. YOUR BRAND. YOUR MONEY.",
-    desc: "Connect directly with brands, negotiate deals, sign contracts, and track your NIL income — all inside AthlynXAI. No agents required. No middlemen. From local car dealerships to national sponsorships. Your NIL value grows with your X-Factor score.",
+    desc: "Connect directly with brands, negotiate deals, sign contracts, and track your NIL income — all inside AthlynXAI. No agents required. No middlemen. From local car dealerships to national sponsorships. Your NIL value grows with your EPX score.",
     cta: "Open NIL Portal",
     href: "/nil-portal",
     color: "#0066ff",
   },
   {
-    icon: "🚪",
+    icon: "",
     name: "Transfer Portal™",
     tagline: "FIND YOUR NEXT SCHOOL. LEVEL UP.",
     desc: "The AthlynXAI Transfer Portal guides athletes from smaller programs to bigger opportunities. Build your profile, get discovered by D1 coaches, compare scholarship offers, and make the move that maximizes your NIL value. The journey from small school to big stage starts here.",
@@ -146,7 +146,7 @@ const FEATURES = [
     color: "#00c2ff",
   },
   {
-    icon: "⚾",
+    icon: "",
     name: "Diamond Grind™",
     tagline: "ELITE BASEBALL. BUILT DIFFERENT.",
     desc: "Programs, Stats, Tracker, Leaderboard, and AI Coach — all purpose-built for baseball and softball athletes. Velocity tracking, exit velocity, fielding metrics, showcase prep for Perfect Game and Area Code. The most complete baseball platform ever built.",
@@ -155,7 +155,7 @@ const FEATURES = [
     color: "#0066ff",
   },
   {
-    icon: "🏈",
+    icon: "",
     name: "Warriors Playbook™",
     tagline: "PLAYS. FILM. STRATEGY. AI COACH.",
     desc: "The complete football intelligence platform — playbook library, film study, team management, and an AI coach that analyzes your film and gives you a personalized improvement plan. For players, coaches, and programs at every level.",
@@ -210,7 +210,7 @@ const NATIONAL_SEEDS = [
   "Southern Miss", "Florida State", "Oregon", "Texas A&M", "Nebraska", "Mississippi State", "Kansas", "West Virginia",
 ];
 
-// ─── Sport Card Component ─────────────────────────────────────────────────────
+//  Sport Card Component 
 function SportCard({ sport, gender, img, href, badge, size = "md" }: {
   sport: string; gender: string; img: string; href: string; badge: string; size?: "lg" | "md" | "sm";
 }) {
@@ -233,7 +233,7 @@ function SportCard({ sport, gender, img, href, badge, size = "md" }: {
   );
 }
 
-// ─── Screen Mockup Component ──────────────────────────────────────────────────
+//  Screen Mockup Component 
 function ScreenMockup({ title, badge, img, href, color }: {
   title: string; badge: string; img: string; href: string; color: string;
 }) {
@@ -254,7 +254,7 @@ function ScreenMockup({ title, badge, img, href, color }: {
   );
 }
 
-// ─── Main Landing Page ────────────────────────────────────────────────────────
+//  Main Landing Page 
 function LandingPageInner() {
   const [genderFilter, setGenderFilter] = useState<"All" | "Men's" | "Women's">("All");
   const [headline, setHeadline] = useState(0);
@@ -278,7 +278,7 @@ function LandingPageInner() {
   return (
     <div className="min-h-screen bg-[#050d1a] text-white overflow-x-hidden" style={{ fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif" }}>
 
-      {/* ── NAV ── */}
+      {/*  NAV  */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/95 backdrop-blur-xl border-b border-[#0066ff]/20">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <Link href="/">
@@ -291,7 +291,7 @@ function LandingPageInner() {
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#8ba3c7]">
-            <Link href="/x-factor"><span className="hover:text-white transition-colors cursor-pointer">X-Factor</span></Link>
+            <Link href="/epx"><span className="hover:text-white transition-colors cursor-pointer">EPX</span></Link>
             <Link href="/cfactor"><span className="hover:text-white transition-colors cursor-pointer">C-Factor</span></Link>
             <Link href="/nil-portal"><span className="hover:text-white transition-colors cursor-pointer">NIL Portal</span></Link>
             <Link href="/diamond-grind"><span className="hover:text-white transition-colors cursor-pointer">Diamond Grind</span></Link>
@@ -309,7 +309,7 @@ function LandingPageInner() {
         </div>
       </nav>
 
-      {/* ── HERO VIDEO BANNER ── */}
+      {/*  HERO VIDEO BANNER  */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden">
         {/* Video background */}
         <video
@@ -345,7 +345,7 @@ function LandingPageInner() {
           </div>
 
           <p className="text-lg text-[#8ba3c7] mb-10 max-w-2xl mx-auto leading-relaxed">
-            The first and only complete athlete empowerment platform. NIL deals, transfer portal, AI recruiting, X-Factor scoring, C-Factor intelligence — all in one login. Built by athletes. Built for athletes.
+            The first and only complete athlete empowerment platform. NIL deals, transfer portal, AI recruiting, EPX scoring, C-Factor intelligence — all in one login. Built by athletes. Built for athletes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -378,7 +378,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── CHAMPIONSHIP ROAD: ALL SPORTS SUPPORT ── */}
+      {/*  CHAMPIONSHIP ROAD: ALL SPORTS SUPPORT  */}
       <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(255,79,216,0.16),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.10),transparent_55%)]" />
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
@@ -456,7 +456,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── AthlynX ECOSYSTEM BRAND WALL ── */}
+      {/*  AthlynX ECOSYSTEM BRAND WALL  */}
       <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,194,255,0.18),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(0,102,255,0.24),transparent_35%)]" />
         <div className="absolute -right-24 top-10 h-80 w-80 rounded-full border border-[#00c2ff]/20 bg-[#0066ff]/10 blur-2xl" />
@@ -502,7 +502,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── X-FACTOR & C-FACTOR HERO FEATURES ── */}
+      {/*  X-FACTOR & C-FACTOR HERO FEATURES  */}
       <section className="py-24 px-5 bg-[#050d1a]">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">AthlynXAI Originals</p>
@@ -550,7 +550,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── PLATFORM SCREENS ── */}
+      {/*  PLATFORM SCREENS  */}
       <section className="py-24 px-5 bg-[#030810]">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">The Full Platform</p>
@@ -563,7 +563,7 @@ function LandingPageInner() {
           <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
             {[
               { title:"The Feed",        badge:"LIVE",  img:SCREENS.feed,      href:"/portal",          color:"#22c55e" },
-              { title:"X-Factor™",       badge:"HOT",   img:SCREENS.xfactor,   href:"/x-factor",        color:"#0066ff" },
+              { title:"EPX™",       badge:"HOT",   img:SCREENS.epx,   href:"/epx",        color:"#0066ff" },
               { title:"C-Factor Hub™",   badge:"NEW",   img:SCREENS.cfactor,   href:"/cfactor",         color:"#00c2ff" },
               { title:"Diamond Grind™",  badge:"NEW",   img:SCREENS.diamond,   href:"/diamond-grind",   color:"#0066ff" },
               { title:"NIL Messenger™",  badge:"LIVE",  img:SCREENS.messenger, href:"/messenger",       color:"#22c55e" },
@@ -584,7 +584,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── MEN'S & WOMEN'S SPORTS ── */}
+      {/*  MEN'S & WOMEN'S SPORTS  */}
       <section className="py-24 px-5 bg-[#050d1a]">
         <div className="max-w-7xl mx-auto">
           <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">Every Sport. Every Level.</p>
@@ -630,7 +630,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── SIGNUP ── */}
+      {/*  SIGNUP  */}
       <section className="py-24 px-5 bg-[#030810]">
         <div className="max-w-lg mx-auto">
           <div className="flex justify-center mb-8">
@@ -696,7 +696,7 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+      {/*  FOOTER  */}
       <footer className="bg-[#030810] border-t border-[#0066ff]/10 py-12 px-5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">

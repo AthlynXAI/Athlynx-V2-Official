@@ -79,8 +79,8 @@ const defaultPacket: IntakePacket = {
   verificationStatus: "Draft intake packet",
 };
 
-const textInput = "w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-400";
-const labelStyle = "mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-cyan-200";
+const textInput = "w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none transition focus:border-[#1E90FF]";
+const labelStyle = "mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-[#00C2FF]";
 const helpStyle = "mt-2 text-xs leading-relaxed text-white/45";
 
 export default function AthleteNILIntake() {
@@ -118,8 +118,8 @@ export default function AthleteNILIntake() {
       <UnifiedNav />
       <main className="px-4 pb-16 pt-24 md:px-6">
         <section className="mx-auto max-w-6xl">
-          <div className="mb-8 rounded-[2rem] border border-cyan-400/20 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
-            <Badge className="mb-4 border-cyan-400/30 bg-cyan-400/10 text-cyan-200">
+          <div className="mb-8 rounded-[2rem] border border-[#1E90FF]/30 bg-white/[0.04] p-6 shadow-2xl shadow-cyan-950/30 md:p-10">
+            <Badge className="mb-4 border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]">
               <Shield className="mr-2 h-3.5 w-3.5" /> Real NIL intake. Consent first.
             </Badge>
             <h1 className="max-w-4xl text-4xl font-black leading-tight md:text-6xl">
@@ -130,10 +130,10 @@ export default function AthleteNILIntake() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/athlynxai-os">
-                <Button className="bg-cyan-400 text-slate-950 hover:bg-cyan-300">Open AthlynXAI OS</Button>
+                <Button className="bg-[#1E90FF] text-slate-950 hover:bg-[#1E90FF]">Open AthlynXAI OS</Button>
               </Link>
               <Link href="/founder/chad-dozier">
-                <Button variant="outline" className="border-cyan-400/40 text-cyan-200 hover:bg-cyan-400/10">View proof profile</Button>
+                <Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20">View proof profile</Button>
               </Link>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function AthleteNILIntake() {
             <Card className="border-white/10 bg-white/[0.04]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center gap-3">
-                  <UserCheck className="h-6 w-6 text-cyan-300" />
+                  <UserCheck className="h-6 w-6 text-[#00C2FF]" />
                   <div>
                     <h2 className="text-2xl font-black text-white">Athlete identity</h2>
                     <p className="text-sm text-white/55">Name, contact lane, age band, and guardian review when required.</p>
@@ -160,10 +160,10 @@ export default function AthleteNILIntake() {
               </CardContent>
             </Card>
 
-            <Card className="border-cyan-400/20 bg-cyan-400/[0.06]">
+            <Card className="border-[#1E90FF]/30 bg-[#1E90FF]/[0.06]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-5 flex items-center gap-3">
-                  <Lock className="h-6 w-6 text-cyan-300" />
+                  <Lock className="h-6 w-6 text-[#00C2FF]" />
                   <div>
                     <h2 className="text-2xl font-black text-white">Privacy gate</h2>
                     <p className="text-sm text-white/55">Public profile only after consent and verification.</p>
@@ -175,7 +175,7 @@ export default function AthleteNILIntake() {
                 <ConsentRow label="Guardian review is required if athlete is a minor." checked={packet.consent.guardianIfMinor} onChange={(v) => update("consent", "guardianIfMinor", v)} />
                 <ConsentRow label="Sensitive topics stay private unless the athlete approves public use." checked={packet.consent.sensitivePrivate} onChange={(v) => update("consent", "sensitivePrivate", v)} />
                 <ConsentRow label="No serial numbers, device identifiers, account details, or private IDs belong in the public profile." checked={packet.consent.noPrivateIdentifiers} onChange={(v) => update("consent", "noPrivateIdentifiers", v)} />
-                <div className={`mt-5 rounded-xl border px-4 py-3 text-sm font-bold ${requiredConsentComplete ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-100" : "border-blue-400/40 bg-blue-400/10 text-sky-100"}`}>
+                <div className={`mt-5 rounded-xl border px-4 py-3 text-sm font-bold ${requiredConsentComplete ? "border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]" : "border-blue-400/40 bg-blue-400/10 text-[#00C2FF]"}`}>
                   {requiredConsentComplete ? "Consent gate ready for secure review." : "Consent gate incomplete. Do not publish."}
                 </div>
               </CardContent>
@@ -186,7 +186,7 @@ export default function AthleteNILIntake() {
             <Card className="border-white/10 bg-white/[0.04]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center gap-3">
-                  <FileCheck className="h-6 w-6 text-cyan-300" />
+                  <FileCheck className="h-6 w-6 text-[#00C2FF]" />
                   <div>
                     <h2 className="text-2xl font-black text-white">Sport profile</h2>
                     <p className="text-sm text-white/55">Sport, position, school, measurables, and source status.</p>
@@ -207,7 +207,7 @@ export default function AthleteNILIntake() {
             <Card className="border-white/10 bg-white/[0.04]">
               <CardContent className="p-6 md:p-8">
                 <div className="mb-6 flex items-center gap-3">
-                  <ClipboardCheck className="h-6 w-6 text-cyan-300" />
+                  <ClipboardCheck className="h-6 w-6 text-[#00C2FF]" />
                   <div>
                     <h2 className="text-2xl font-black text-white">Media and proof</h2>
                     <p className="text-sm text-white/55">Source media status and story notes before public use.</p>
@@ -227,7 +227,7 @@ export default function AthleteNILIntake() {
             </Card>
           </div>
 
-          <Card className="mt-5 border-cyan-400/20 bg-slate-950/70">
+          <Card className="mt-5 border-[#1E90FF]/30 bg-slate-950/70">
             <CardContent className="p-6 md:p-8">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
@@ -236,12 +236,12 @@ export default function AthleteNILIntake() {
                     This creates a review packet in the browser for owner, athlete, or guardian approval. Secure server submission will be enabled only after database and media storage proof pass.
                   </p>
                 </div>
-                <Button onClick={copyPacket} className="bg-cyan-400 px-6 font-black text-slate-950 hover:bg-cyan-300">
+                <Button onClick={copyPacket} className="bg-[#1E90FF] px-6 font-black text-slate-950 hover:bg-[#1E90FF]">
                   Copy review packet <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
               {showPacket && (
-                <pre className="mt-6 max-h-96 overflow-auto rounded-2xl border border-white/10 bg-black/40 p-4 text-xs leading-relaxed text-cyan-100">
+                <pre className="mt-6 max-h-96 overflow-auto rounded-2xl border border-white/10 bg-black/40 p-4 text-xs leading-relaxed text-[#00C2FF]">
                   {packetText}
                 </pre>
               )}

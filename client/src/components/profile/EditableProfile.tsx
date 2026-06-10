@@ -22,7 +22,7 @@ const C = {
   elevated: "#142544",
 };
 
-// ── Owner gate: only show pencil buttons to the profile owner ─────────────────
+//  Owner gate: only show pencil buttons to the profile owner 
 export function useIsOwner(profileUserId: number | null | undefined): boolean {
   const meQ = trpc.profile.getMyProfile.useQuery(undefined, {
     staleTime: 60_000,
@@ -32,7 +32,7 @@ export function useIsOwner(profileUserId: number | null | undefined): boolean {
   return !!meId && Number(meId) === Number(profileUserId);
 }
 
-// ── Pencil button ─────────────────────────────────────────────────────────────
+//  Pencil button 
 export function PencilButton({
   onClick,
   label,
@@ -68,7 +68,7 @@ export function PencilButton({
   );
 }
 
-// ── Inline text field (click to edit, Enter to save, Esc to cancel) ──────────
+//  Inline text field (click to edit, Enter to save, Esc to cancel) 
 export function InlineField({
   field,
   value,
@@ -180,7 +180,7 @@ export function InlineField({
   );
 }
 
-// ── Pencil sheet — per-section drawer with multiple fields ────────────────────
+//  Pencil sheet — per-section drawer with multiple fields 
 type SheetField = {
   field: string;
   label: string;
@@ -295,7 +295,7 @@ export function PencilSheet({
   );
 }
 
-// ── Avatar / cover photo picker (curated library OR upload) ───────────────────
+//  Avatar / cover photo picker (curated library OR upload) 
 export function PhotoPicker({
   trigger,
   kind,

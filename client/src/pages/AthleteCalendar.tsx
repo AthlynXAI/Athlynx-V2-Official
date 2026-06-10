@@ -19,23 +19,23 @@ type EventType =
   | "endorsement" | "league" | "tournament" | "highlight" | "life";
 
 const EVENT_CONFIG: Record<EventType, { color: string; bg: string; border: string; icon: string; label: string }> = {
-  game:        { color: "text-red-300",    bg: "bg-red-900/40",     border: "border-red-500/50",     icon: "🏆", label: "Game" },
-  practice:    { color: "text-blue-300",   bg: "bg-blue-900/40",    border: "border-blue-500/50",    icon: "🏋️", label: "Practice" },
-  nil:         { color: "text-sky-300", bg: "bg-blue-900/40",  border: "border-blue-500/50",  icon: "💰", label: "NIL Deal" },
-  recruiting:  { color: "text-green-300",  bg: "bg-green-900/40",   border: "border-green-500/50",   icon: "🎓", label: "Recruiting" },
-  team:        { color: "text-purple-300", bg: "bg-purple-900/40",  border: "border-purple-500/50",  icon: "👥", label: "Team" },
-  personal:    { color: "text-slate-300",  bg: "bg-slate-800/60",   border: "border-slate-600/50",   icon: "📅", label: "Personal" },
-  training:    { color: "text-cyan-300",   bg: "bg-cyan-900/40",    border: "border-cyan-500/50",    icon: "⚡", label: "Training" },
-  media:       { color: "text-pink-300",   bg: "bg-pink-900/40",    border: "border-pink-500/50",    icon: "📸", label: "Media" },
-  camp:        { color: "text-cyan-300", bg: "bg-cyan-900/40",  border: "border-cyan-500/50",  icon: "⛺", label: "Camp" },
-  showcase:    { color: "text-indigo-300", bg: "bg-indigo-900/40",  border: "border-indigo-500/50",  icon: "🌟", label: "Showcase" },
-  signing:     { color: "text-emerald-300",bg: "bg-emerald-900/40", border: "border-emerald-500/50", icon: "✍️", label: "Signing Day" },
-  scholarship: { color: "text-sky-300",  bg: "bg-blue-900/40",   border: "border-blue-500/50",   icon: "🎓", label: "Scholarship" },
-  endorsement: { color: "text-rose-300",   bg: "bg-rose-900/40",    border: "border-rose-500/50",    icon: "🤝", label: "Endorsement" },
-  league:      { color: "text-teal-300",   bg: "bg-teal-900/40",    border: "border-teal-500/50",    icon: "🏅", label: "League" },
-  tournament:  { color: "text-violet-300", bg: "bg-violet-900/40",  border: "border-violet-500/50",  icon: "🥇", label: "Tournament" },
-  highlight:   { color: "text-lime-300",   bg: "bg-lime-900/40",    border: "border-lime-500/50",    icon: "🎬", label: "Highlight" },
-  life:        { color: "text-fuchsia-300",bg: "bg-fuchsia-900/40", border: "border-fuchsia-500/50", icon: "🌟", label: "Life Event" },
+  game:        { color: "text-[#1E90FF]",    bg: "bg-[#1E90FF]/40",     border: "border-[#1E90FF]/50",     icon: "", label: "Game" },
+  practice:    { color: "text-blue-300",   bg: "bg-blue-900/40",    border: "border-blue-500/50",    icon: "", label: "Practice" },
+  nil:         { color: "text-[#00C2FF]", bg: "bg-blue-900/40",  border: "border-blue-500/50",  icon: "", label: "NIL Deal" },
+  recruiting:  { color: "text-[#00C2FF]",  bg: "bg-[#00C2FF]/40",   border: "border-[#00C2FF]/50",   icon: "", label: "Recruiting" },
+  team:        { color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/40",  border: "border-[#1E90FF]/50",  icon: "", label: "Team" },
+  personal:    { color: "text-slate-300",  bg: "bg-slate-800/60",   border: "border-slate-600/50",   icon: "", label: "Personal" },
+  training:    { color: "text-[#00C2FF]",   bg: "bg-[#1E90FF]/20",    border: "border-[#1E90FF]/30",    icon: "", label: "Training" },
+  media:       { color: "text-[#1E90FF]",   bg: "bg-[#1E90FF]/40",    border: "border-[#1E90FF]/50",    icon: "", label: "Media" },
+  camp:        { color: "text-[#00C2FF]", bg: "bg-[#1E90FF]/20",  border: "border-[#1E90FF]/30",  icon: "", label: "Camp" },
+  showcase:    { color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/40",  border: "border-[#1E90FF]/50",  icon: "", label: "Showcase" },
+  signing:     { color: "text-[#00C2FF]",bg: "bg-[#1E90FF]/40", border: "border-[#1E90FF]/50", icon: "", label: "Signing Day" },
+  scholarship: { color: "text-[#00C2FF]",  bg: "bg-blue-900/40",   border: "border-blue-500/50",   icon: "", label: "Scholarship" },
+  endorsement: { color: "text-[#1E90FF]",   bg: "bg-[#1E90FF]/40",    border: "border-[#1E90FF]/50",    icon: "", label: "Endorsement" },
+  league:      { color: "text-[#00C2FF]",   bg: "bg-[#00C2FF]/40",    border: "border-[#00C2FF]/50",    icon: "", label: "League" },
+  tournament:  { color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/40",  border: "border-[#1E90FF]/50",  icon: "", label: "Tournament" },
+  highlight:   { color: "text-[#00C2FF]",   bg: "bg-[#1E90FF]/40",    border: "border-[#1E90FF]/50",    icon: "", label: "Highlight" },
+  life:        { color: "text-fuchsia-300",bg: "bg-fuchsia-900/40", border: "border-fuchsia-500/50", icon: "", label: "Life Event" },
 };
 
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -44,16 +44,16 @@ const DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 // Server only accepts: "game"|"practice"|"nil"|"recruiting"|"team"|"personal"|"training"|"media"
 type ServerEventType = "game" | "practice" | "nil" | "recruiting" | "team" | "personal" | "training" | "media";
 const QUICK_EVENT_TEMPLATES: Array<{ type: ServerEventType; label: string; title: string; icon: string; desc: string }> = [
-  { type: "game",       label: "Game",       title: "Game vs. ",          icon: "🏆", desc: "Add a game" },
-  { type: "training",  label: "Camp",       title: "Camp — ",             icon: "⛺", desc: "Training camp" },
-  { type: "recruiting",label: "Showcase",   title: "Showcase — ",         icon: "🌟", desc: "Recruiting showcase" },
-  { type: "nil",       label: "NIL",        title: "NIL Meeting — ",       icon: "💰", desc: "NIL deal/meeting" },
-  { type: "personal",  label: "Signing",    title: "Signing Day",         icon: "✍️", desc: "Sign your letter" },
-  { type: "media",     label: "Scholarship",title: "Scholarship — ",       icon: "🎓", desc: "Scholarship event" },
-  { type: "team",      label: "Brand Deal", title: "Brand Deal — ",        icon: "🤝", desc: "Endorsement" },
-  { type: "practice",  label: "Tournament", title: "Tournament — ",        icon: "🥇", desc: "Tournament" },
-  { type: "media",     label: "Highlight",  title: "Highlight Reel Drop", icon: "🎬", desc: "Share highlight" },
-  { type: "personal",  label: "Life Event", title: "Life Event — ",        icon: "🌟", desc: "Personal milestone" },
+  { type: "game",       label: "Game",       title: "Game vs. ",          icon: "", desc: "Add a game" },
+  { type: "training",  label: "Camp",       title: "Camp — ",             icon: "", desc: "Training camp" },
+  { type: "recruiting",label: "Showcase",   title: "Showcase — ",         icon: "", desc: "Recruiting showcase" },
+  { type: "nil",       label: "NIL",        title: "NIL Meeting — ",       icon: "", desc: "NIL deal/meeting" },
+  { type: "personal",  label: "Signing",    title: "Signing Day",         icon: "", desc: "Sign your letter" },
+  { type: "media",     label: "Scholarship",title: "Scholarship — ",       icon: "", desc: "Scholarship event" },
+  { type: "team",      label: "Brand Deal", title: "Brand Deal — ",        icon: "", desc: "Endorsement" },
+  { type: "practice",  label: "Tournament", title: "Tournament — ",        icon: "", desc: "Tournament" },
+  { type: "media",     label: "Highlight",  title: "Highlight Reel Drop", icon: "", desc: "Share highlight" },
+  { type: "personal",  label: "Life Event", title: "Life Event — ",        icon: "", desc: "Personal milestone" },
 ];
 
 function AthleteCalendarInner() {
@@ -131,7 +131,7 @@ function AthleteCalendarInner() {
     return (
       <PlatformLayout title="Athlete Calendar">
         <div className="text-center py-12">
-          <div className="text-5xl mb-4">📅</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <div className="text-white font-bold text-lg mb-2">Sign in to manage your calendar</div>
           <a href="/signin" className="inline-block bg-blue-600 text-white font-bold px-6 py-2.5 rounded-xl">Sign In</a>
         </div>
@@ -147,7 +147,7 @@ function AthleteCalendarInner() {
         <div className="bg-gradient-to-r from-[#1a3a8f] to-[#1a2a4a] border border-blue-700 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-black text-white">📅 Athlete Calendar</h2>
+              <h2 className="text-xl font-black text-white"> Athlete Calendar</h2>
               <p className="text-blue-300 text-xs mt-0.5">Games · Camps · Showcases · Signings · NIL · Scholarships · Endorsements · Life Events</p>
             </div>
             <button onClick={() => setShowAddModal(true)}
@@ -246,17 +246,17 @@ function AthleteCalendarInner() {
                       <div className="flex items-center gap-2 mb-1 flex-wrap">
                         <span className="font-bold text-white text-sm">{event.title}</span>
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-800 ${cfg.color}`}>{cfg.label}</span>
-                        {event.priority === "high" && <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded-full font-bold">HIGH</span>}
+                        {event.priority === "high" && <span className="text-[10px] bg-[#1E90FF] text-white px-1.5 py-0.5 rounded-full font-bold">HIGH</span>}
                       </div>
                       <div className={`flex items-center gap-3 text-xs ${cfg.color} flex-wrap`}>
-                        {event.time && <span>🕐 {event.time}</span>}
-                        {event.location && <span>📍 {event.location}</span>}
+                        {event.time && <span> {event.time}</span>}
+                        {event.location && <span> {event.location}</span>}
                       </div>
                       {event.description && <p className="text-blue-200 text-xs mt-1">{event.description}</p>}
                     </div>
                     <div className="flex gap-1 shrink-0">
-                      <button onClick={() => setEditingEvent(event)} className="w-7 h-7 bg-blue-900/50 hover:bg-blue-700 rounded-lg flex items-center justify-center text-blue-300 text-xs transition-colors">✏️</button>
-                      <button onClick={() => deleteEvent.mutate({ id: event.id })} className="w-7 h-7 bg-red-900/50 hover:bg-red-700 rounded-lg flex items-center justify-center text-red-300 text-xs transition-colors">🗑️</button>
+                      <button onClick={() => setEditingEvent(event)} className="w-7 h-7 bg-blue-900/50 hover:bg-blue-700 rounded-lg flex items-center justify-center text-blue-300 text-xs transition-colors"></button>
+                      <button onClick={() => deleteEvent.mutate({ id: event.id })} className="w-7 h-7 bg-[#1E90FF]/50 hover:bg-[#1E90FF] rounded-lg flex items-center justify-center text-[#1E90FF] text-xs transition-colors"></button>
                     </div>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ function AthleteCalendarInner() {
           {isLoading && <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4 animate-pulse h-16" />}
           {!isLoading && upcomingEvents.length === 0 && (
             <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-3">📅</div>
+              <div className="text-4xl mb-3"></div>
               <div className="text-white font-bold mb-1">No upcoming events</div>
               <div className="text-blue-400 text-sm mb-3">Add your games, camps, showcases, NIL meetings, and life events</div>
               <button onClick={() => setShowAddModal(true)} className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2 rounded-xl text-sm">Add First Event</button>
@@ -290,11 +290,11 @@ function AthleteCalendarInner() {
                   <div className={`text-xs ${cfg.color} flex items-center gap-2 flex-wrap`}>
                     <span>{new Date(event.date + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span>
                     {event.time && <span>· {event.time}</span>}
-                    {event.location && <span>· 📍 {event.location}</span>}
+                    {event.location && <span>·  {event.location}</span>}
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {event.priority === "high" && <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded-full font-bold">HIGH</span>}
+                  {event.priority === "high" && <span className="text-[10px] bg-[#1E90FF] text-white px-2 py-0.5 rounded-full font-bold">HIGH</span>}
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-900 ${cfg.color}`}>{cfg.label}</span>
                 </div>
               </div>
@@ -308,10 +308,10 @@ function AthleteCalendarInner() {
             <div className="text-white font-bold text-sm mb-3">Your Athletic Journey</div>
             <div className="grid grid-cols-4 gap-2">
               {[
-                { label: "Games", count: (events as any[]).filter((e: any) => e.type === "game").length, icon: "🏆" },
-                { label: "Camps", count: (events as any[]).filter((e: any) => e.type === "camp").length, icon: "⛺" },
-                { label: "NIL Events", count: (events as any[]).filter((e: any) => e.type === "nil" || e.type === "endorsement").length, icon: "💰" },
-                { label: "Milestones", count: (events as any[]).filter((e: any) => ["signing", "scholarship", "life"].includes(e.type)).length, icon: "🌟" },
+                { label: "Games", count: (events as any[]).filter((e: any) => e.type === "game").length, icon: "" },
+                { label: "Camps", count: (events as any[]).filter((e: any) => e.type === "camp").length, icon: "" },
+                { label: "NIL Events", count: (events as any[]).filter((e: any) => e.type === "nil" || e.type === "endorsement").length, icon: "" },
+                { label: "Milestones", count: (events as any[]).filter((e: any) => ["signing", "scholarship", "life"].includes(e.type)).length, icon: "" },
               ].map(s => (
                 <div key={s.label} className="bg-[#0d1f3c] rounded-xl p-2 text-center">
                   <div className="text-xl mb-1">{s.icon}</div>
@@ -326,7 +326,7 @@ function AthleteCalendarInner() {
         {/* Calendly Integration */}
         <div className="bg-[#0d1b3e] border border-blue-700 rounded-xl p-4 mb-3">
           <div className="flex items-center gap-3 mb-3">
-            <div className="text-2xl">📆</div>
+            <div className="text-2xl"></div>
             <div className="flex-1">
               <div className="text-white font-bold text-sm">Calendly — Book a Meeting</div>
               <div className="text-blue-400 text-xs">Schedule with coaches, scouts, and brands instantly</div>
@@ -352,7 +352,7 @@ function AthleteCalendarInner() {
         </div>
         {/* Google Calendar sync */}
         <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4 flex items-center gap-3">
-          <div className="text-2xl">📅</div>
+          <div className="text-2xl"></div>
           <div className="flex-1">
             <div className="text-white font-bold text-sm">Sync with Google Calendar</div>
             <div className="text-blue-400 text-xs">Keep all your AthlynX events in sync</div>
@@ -371,7 +371,7 @@ function AthleteCalendarInner() {
             <div className="flex items-center justify-between">
               <h3 className="text-white font-black text-lg">{editingEvent ? "Edit Event" : "Add Event"}</h3>
               <button onClick={() => { setShowAddModal(false); setEditingEvent(null); }}
-                className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-700 text-white transition-colors">✕</button>
+                className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-700 text-white transition-colors"></button>
             </div>
 
             {/* Event type selector */}
@@ -425,12 +425,12 @@ function AthleteCalendarInner() {
                     : setNewEvent(ev => ({ ...ev, priority: p }))}
                     className={`flex-1 py-2 text-xs font-bold rounded-xl border transition-colors capitalize ${
                       (editingEvent ? editingEvent.priority : newEvent.priority) === p
-                        ? p === "high" ? "bg-red-600 border-red-500 text-white"
+                        ? p === "high" ? "bg-[#1E90FF] border-[#1E90FF] text-white"
                           : p === "medium" ? "bg-blue-600 border-blue-500 text-white"
                           : "bg-slate-600 border-slate-500 text-white"
                         : "bg-[#1a3a8f] border-blue-800 text-blue-400 hover:border-blue-600"
                     }`}>
-                    {p === "high" ? "🔴 High" : p === "medium" ? "🟡 Medium" : "🟢 Low"}
+                    {p === "high" ? " High" : p === "medium" ? " Medium" : " Low"}
                   </button>
                 ))}
               </div>

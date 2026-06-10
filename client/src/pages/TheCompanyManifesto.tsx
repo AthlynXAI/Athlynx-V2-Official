@@ -6,12 +6,12 @@ function TheCompanyManifestoInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-[#06142b] to-[#020711] text-white">
       <main className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-5 py-20">
-        <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-400/10 px-5 py-2 text-xs font-black uppercase tracking-[0.28em] text-cyan-200">
+        <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-5 py-2 text-xs font-black uppercase tracking-[0.28em] text-[#00C2FF]">
           Chosen to build differently
         </div>
         <h1 className="max-w-5xl text-5xl font-black leading-[0.95] tracking-tighter md:text-8xl">
           Not a me-too company.<br />
-          <span className="text-cyan-300">The Company.</span>
+          <span className="text-[#00C2FF]">The Company.</span>
         </h1>
         <p className="mt-8 max-w-4xl text-xl font-bold leading-relaxed text-white/75 md:text-2xl">
           AthlynXAI is founder-led, faith-forward, and different by design. We do not build to be accepted by the old category. We build the operating system that makes the old category answer to athletes, families, teams, brands, and every season of an athlete's life.

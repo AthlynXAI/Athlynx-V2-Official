@@ -11,7 +11,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import AthletePageBackground from "./components/AthletePageBackground";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-// ── Core ──
+//  Core 
 import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import Sports from "./pages/Sports";
@@ -47,7 +47,7 @@ import EarlyAccessUpdated from "./pages/EarlyAccessUpdated";
 import Success from "./pages/Success";
 import ComingSoon from "./pages/ComingSoon";
 
-// ── Platform Apps ──
+//  Platform Apps 
 import MessengerApp from "./pages/MessengerApp";
 import Messages from "./pages/Messages";
 import NILPortal from "./pages/NILPortal";
@@ -57,7 +57,7 @@ import NILJobs from "./pages/NILJobs";
 import AthleteCalendar from "./pages/AthleteCalendar";
 import AthleteDataDashboard from "./pages/AthleteDataDashboard";
 import EliteEvents from "./pages/EliteEvents";
-import XFactor from "./pages/XFactor";
+import EPX from "./pages/EPX";
 import NILCalculator from "./pages/NILCalculator";
 import TransferPortal from "./pages/TransferPortal";
 import TransferPortalFOS from "./pages/TransferPortalFOS";
@@ -104,7 +104,7 @@ import AdminCRM from "./pages/AdminCRM";
 import AdminUsers from "./pages/AdminUsers";
 import AdminBroadcast from "./pages/AdminBroadcast";
 
-// ── Sport Platforms ──
+//  Sport Platforms 
 import GridironNexus from "./pages/GridironNexus";
 import PitchPulse from "./pages/PitchPulse";
 import CourtKings from "./pages/CourtKings";
@@ -130,7 +130,7 @@ import CheerElite from "./pages/CheerElite";
 import SigningDay from "./pages/SigningDay";
 import Training from "./pages/Training";
 
-// ── Commerce & Infrastructure ──
+//  Commerce & Infrastructure 
 import Marketplace from "./pages/Marketplace";
 import Store from "./pages/Store";
 import AthleteStore from "./pages/AthleteStore";
@@ -166,7 +166,7 @@ import Apps from "./pages/Apps";
 import BookingHub from "./pages/BookingHub";
 import MobileApp from "./pages/MobileApp";
 
-// ── DHG Corporate ──
+//  DHG Corporate 
 import DHG from "./pages/DHG";
 import DHGHome from "./pages/DHGHome";
 import DHGCorporate from "./pages/DHGCorporate";
@@ -191,7 +191,7 @@ import Implementation from "./pages/Implementation";
 import Capabilities from "./pages/Capabilities";
 import CommunityFeedback from "./pages/CommunityFeedback";
 
-// ── People & Culture ──
+//  People & Culture 
 import Founders from "./pages/Founders";
 import TeamProfilePage from "./pages/TeamProfilePage";
 import FounderStory from "./pages/FounderStory";
@@ -209,13 +209,13 @@ import { AITrainerGate, FuelBotsGate, MedicalGate, MentalHealthGate, MindsetGate
 import SerenityMemorial from "./pages/SerenityMemorial";
 import SchoolPage from "./pages/SchoolPage";
 
-// ── Media & Content ──
+//  Media & Content 
 import Music from "./pages/Music";
 import Studio from "./pages/Studio";
 import MediaShowcase from "./pages/MediaShowcase";
 import Portal from "./pages/Portal";
 
-// ── Legal & Compliance ──
+//  Legal & Compliance 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Rules from "./pages/Rules";
@@ -224,11 +224,11 @@ import SocialOS from "./pages/SocialOS";
 import LegalCompliance from "./pages/LegalCompliance";
 import SchoolBranding from "./pages/SchoolBranding";
 
-// ── PWA ──
+//  PWA 
 import PWAInstallBanner from "./components/PWAInstallBanner";
 import TrialExpired from "./pages/TrialExpired";
 
-// ── Utility ──
+//  Utility 
 import Notifications from "./pages/Notifications";
 import Contact from "./pages/Contact";
 import ChadCard from "./pages/ChadCard";
@@ -237,21 +237,21 @@ import ProjectManagement from "./pages/ProjectManagement";
 import ProjectChecklist from "./pages/ProjectChecklist";
 import ProjectPlaybook from "./pages/ProjectPlaybook";
 
-// ── Partners ──
+//  Partners 
 import ICCUSAPartner from "./pages/ICCUSAPartner";
 import LandingPage from "./pages/LandingPage";
 import ComponentShowcase from "./pages/ComponentShowcase";
 
-// ── Session 38 New Pages ──
+//  Session 38 New Pages 
 import TokenFactory from "./pages/TokenFactory";
 import AuthStrategy from "./pages/AuthStrategy";
 
-// ── Session 32 New Pages ──
+//  Session 32 New Pages 
 import CFactorHub from "./pages/CFactorHub";
 import RankingsHub from "./pages/RankingsHub";
 import AthleteCard from "./pages/AthleteCard";
 
-// ── Wizards ──
+//  Wizards 
 import AgentWizard from "./pages/wizards/AgentWizard";
 import CareerWizard from "./pages/wizards/CareerWizard";
 import FinancialWizard from "./pages/wizards/FinancialWizard";
@@ -307,7 +307,7 @@ import BetaSignup from "./pages/BetaSignup";
 function Router() {
   return (
     <Switch>
-      {/* ── Core ── */}
+      {/*  Core  */}
       <Route path="/" component={Home} />
       <Route path="/sports" component={Sports} />
       <Route path="/all-sports-hub" component={AllSportsHub} />
@@ -355,7 +355,7 @@ function Router() {
       <Route path="/highlights" component={Reels} />
       <Route path="/profile/:id?" component={Profile} />
 
-      {/* ── Platform Apps ── */}
+      {/*  Platform Apps  */}
       <Route path="/messenger" component={MessengerApp} />
       <Route path="/nil-messenger" component={MessengerApp} />
       <Route path="/messages" component={Messages} />
@@ -367,8 +367,8 @@ function Router() {
       <Route path="/calendar" component={AthleteCalendar} />
       <Route path="/elite-events" component={EliteEvents} />
       <Route path="/events" component={EliteEvents} />
-      <Route path="/x-factor" component={XFactor} />
-      <Route path="/xfactor" component={XFactor} />
+      <Route path="/epx" component={EPX} />
+      <Route path="/epx" component={EPX} />
       <Route path="/nil-calculator" component={NILCalculator} />
       <Route path="/transfer-portal" component={TransferPortalFOS} />
       <Route path="/transfer-portal-fos" component={TransferPortalFOS} />
@@ -502,7 +502,7 @@ function Router() {
       <Route path="/admin/users" component={AdminUsers} />
       <Route path="/admin/broadcast" component={AdminBroadcast} />
 
-      {/* ── Sport Platforms ── */}
+      {/*  Sport Platforms  */}
       <Route path="/gridiron-nexus" component={GridironNexus} />
       <Route path="/football" component={GridironNexus} />
       <Route path="/pitch-pulse" component={PitchPulse} />
@@ -554,7 +554,7 @@ function Router() {
       <Route path="/cheer" component={CheerElite} />
       <Route path="/cheerleading" component={CheerElite} />
 
-      {/* ── Commerce & Infrastructure ── */}
+      {/*  Commerce & Infrastructure  */}
       <Route path="/marketplace" component={Marketplace} />
       <Route path="/store" component={Store} />
       <Route path="/shop" component={Store} />
@@ -594,7 +594,7 @@ function Router() {
       <Route path="/schedule" component={BookingHub} />
       <Route path="/mobile-app" component={MobileApp} />
 
-      {/* ── DHG Corporate ── */}
+      {/*  DHG Corporate  */}
       <Route path="/dhg" component={DHGCorporate} />
       <Route path="/dhg-corporate" component={DHG} />
       <Route path="/dhg-home" component={DHGHome} />
@@ -622,7 +622,7 @@ function Router() {
       <Route path="/community" component={CommunitySoon} />
       <Route path="/platform" component={Platform} />
 
-      {/* ── People & Culture ── */}
+      {/*  People & Culture  */}
       <Route path="/founders" component={Founders} />
       <Route path="/founder-story" component={FounderStory} />
       <Route path="/founder-dedication" component={FounderDedication} />
@@ -647,14 +647,14 @@ function Router() {
       <Route path="/serenity-memorial" component={SerenityMemorial} />
       <Route path="/school" component={SchoolPage} />
 
-      {/* ── Media & Content ── */}
+      {/*  Media & Content  */}
       <Route path="/podcast" component={Podcast} />
       <Route path="/music" component={Music} />
       <Route path="/studio" component={Studio} />
       <Route path="/media-showcase" component={MediaShowcase} />
       <Route path="/portal" component={Portal} />
 
-      {/* ── Legal ── */}
+      {/*  Legal  */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
@@ -665,12 +665,12 @@ function Router() {
       <Route path="/social-os" component={SocialOS} />
       <Route path="/legal-compliance" component={LegalCompliance} />
 
-      {/* ── School Branding & Licensing ── */}
+      {/*  School Branding & Licensing  */}
       <Route path="/school-branding" component={SchoolBranding} />
       <Route path="/school-licensing" component={SchoolBranding} />
       <Route path="/nil-foundation" component={SchoolBranding} />
 
-      {/* ── Utility ── */}
+      {/*  Utility  */}
       {/* Alias routes to fix broken links across the platform */}
       <Route path="/home" component={Home} />
       <Route path="/our-story" component={About} />
@@ -691,7 +691,7 @@ function Router() {
       <Route path="/project-checklist" component={ProjectChecklist} />
       <Route path="/project-playbook" component={ProjectPlaybook} />
 
-      {/* ── Wizards ── */}
+      {/*  Wizards  */}
       <Route path="/wizards" component={WizardHub} />
       <Route path="/ai-wizards" component={WizardHub} />
       <Route path="/wizards/agent" component={AgentWizard} />
@@ -703,7 +703,7 @@ function Router() {
       <Route path="/wizards/scout" component={ScoutWizard} />
       <Route path="/wizards/transfer" component={TransferWizard} />
 
-      {/* ── Build 3: Founder, Podcast, Network, Brand Wall ── */}
+      {/*  Build 3: Founder, Podcast, Network, Brand Wall  */}
       <Route path="/founder" component={Founder} />
       <Route path="/the-first" component={TheFirst} />
       <Route path="/build-decisions" component={BuildDecisions} />
@@ -723,7 +723,7 @@ function Router() {
       <Route path="/brand-wall" component={BrandWall} />
       <Route path="/endorsement-board" component={BrandWall} />
 
-      {/* ── Session 32: C-Factor Hub, Rankings, AthleteCard ── */}
+      {/*  Session 32: C-Factor Hub, Rankings, AthleteCard  */}
       <Route path="/cfactor" component={CFactorHub} />
       <Route path="/c-factor" component={CFactorHub} />
       <Route path="/command-center" component={CFactorHub} />
@@ -737,14 +737,14 @@ function Router() {
       <Route path="/card/:id" component={AthleteCard} />
       <Route path="/athlete-card/:id" component={AthleteCard} />
 
-      {/* ── 404 ── */}
-      {/* ── Founder's Legacy ── */}
+      {/*  404  */}
+      {/*  Founder's Legacy  */}
       <Route path="/legacy" component={DozierLegacy} />
       <Route path="/dozier-legacy" component={DozierLegacy} />
 
       <Route path="/landing" component={LandingPage} />
       <Route path="/components" component={ComponentShowcase} />
-      {/* ── Session 38 ── */}
+      {/*  Session 38  */}
       <Route path="/token-factory" component={TokenFactory} />
       <Route path="/credits" component={TokenFactory} />
       <Route path="/ai-credits" component={TokenFactory} />

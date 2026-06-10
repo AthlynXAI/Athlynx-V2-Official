@@ -53,7 +53,7 @@ export default function ScoutWizard() {
             <Button
               onClick={handleAsk}
               disabled={wizardMutation.isPending || !question.trim()}
-              className="w-full bg-gradient-to-r from-red-600 to-red-500 text-white font-black py-3">
+              className="w-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white font-black py-3">
               {wizardMutation.isPending ? "Getting Your Answer..." : "Get AI Advice "}
             </Button>
           </CardContent>

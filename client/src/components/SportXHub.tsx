@@ -1,5 +1,5 @@
 /**
- * SportXHub — Universal All-in-One X-Factor Sport App Engine
+ * SportXHub — Universal All-in-One EPX Sport App Engine
  * Session 33 — May 5, 2026
  * 44 Sports · Profile Tab · Lucide Icons · E2EE Badges · Premium Content
  * Powers every sport on AthlynXAI with the full X-style experience.
@@ -22,7 +22,7 @@ import {
   GraduationCap, Weight, Flag, Phone, Mail, Verified
 } from "lucide-react";
 
-// ─── Sport Config ─────────────────────────────────────────────────────────────
+//  Sport Config 
 export interface SportConfig {
   id: string;
   name: string;
@@ -39,10 +39,10 @@ export interface SportConfig {
   seedPosts: { user: string; handle: string; pos: string; content: string; highlight: string; likes: number; xScore: number }[];
 }
 
-// ─── All 44 Sports ────────────────────────────────────────────────────────────
+//  All 44 Sports 
 export const ALL_SPORTS: SportConfig[] = [
   {
-    id: "football", name: "Football", emoji: "🏈", tagline: "DOMINATE THE FIELD",
+    id: "football", name: "Football", emoji: "", tagline: "DOMINATE THE FIELD",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "8M+", label: "Players" }, { value: "14K+", label: "Programs" }, { value: "3,200+", label: "College Programs" }, { value: "$2B+", label: "NIL Market" }],
     nilDeals: [
@@ -62,7 +62,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "basketball", name: "Basketball", emoji: "🏀", tagline: "RISE ABOVE",
+    id: "basketball", name: "Basketball", emoji: "", tagline: "RISE ABOVE",
     accentColor: "orange", coverImg: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "26M+", label: "Players" }, { value: "8,000+", label: "Programs" }, { value: "1,800+", label: "College Programs" }, { value: "$1.5B+", label: "NIL Market" }],
     nilDeals: [
@@ -81,7 +81,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "baseball", name: "Baseball", emoji: "⚾", tagline: "PLAY BALL",
+    id: "baseball", name: "Baseball", emoji: "", tagline: "PLAY BALL",
     accentColor: "red", coverImg: "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "15M+", label: "Players" }, { value: "10K+", label: "Programs" }, { value: "2,000+", label: "College Programs" }, { value: "$800M+", label: "NIL Market" }],
     nilDeals: [
@@ -100,7 +100,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "soccer", name: "Soccer", emoji: "⚽", tagline: "THE BEAUTIFUL GAME",
+    id: "soccer", name: "Soccer", emoji: "", tagline: "THE BEAUTIFUL GAME",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "265M+", label: "Players Worldwide" }, { value: "50K+", label: "Clubs" }, { value: "2,500+", label: "College Programs" }, { value: "$1B+", label: "NIL Market" }],
     nilDeals: [
@@ -119,7 +119,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "track", name: "Track & Field", emoji: "🏃", tagline: "FASTER. HIGHER. STRONGER.",
+    id: "track", name: "Track & Field", emoji: "", tagline: "FASTER. HIGHER. STRONGER.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "57M+", label: "Athletes" }, { value: "3,000+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$500M+", label: "NIL Market" }],
     nilDeals: [
@@ -138,7 +138,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "swimming", name: "Swimming", emoji: "🏊", tagline: "MAKE WAVES",
+    id: "swimming", name: "Swimming", emoji: "", tagline: "MAKE WAVES",
     accentColor: "cyan", coverImg: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "3.5M+", label: "Competitive Swimmers" }, { value: "2,500+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$300M+", label: "NIL Market" }],
     nilDeals: [
@@ -157,7 +157,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "wrestling", name: "Wrestling", emoji: "🤼", tagline: "DOMINATE THE MAT",
+    id: "wrestling", name: "Wrestling", emoji: "", tagline: "DOMINATE THE MAT",
     accentColor: "red", coverImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "280K+", label: "HS Wrestlers" }, { value: "1,000+", label: "College Programs" }, { value: "90+", label: "Countries" }, { value: "$150M+", label: "NIL Market" }],
     nilDeals: [
@@ -176,7 +176,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "tennis", name: "Tennis", emoji: "🎾", tagline: "ACE YOUR FUTURE",
+    id: "tennis", name: "Tennis", emoji: "", tagline: "ACE YOUR FUTURE",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "87M+", label: "Players Worldwide" }, { value: "1,200+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$400M+", label: "NIL Market" }],
     nilDeals: [
@@ -195,7 +195,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "volleyball", name: "Volleyball", emoji: "🏐", tagline: "SPIKE YOUR FUTURE",
+    id: "volleyball", name: "Volleyball", emoji: "", tagline: "SPIKE YOUR FUTURE",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "800M+", label: "Players Worldwide" }, { value: "2,000+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$600M+", label: "NIL Market" }],
     nilDeals: [
@@ -214,7 +214,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "hockey", name: "Hockey", emoji: "🏒", tagline: "BREAK THE ICE",
+    id: "hockey", name: "Hockey", emoji: "", tagline: "BREAK THE ICE",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "3M+", label: "Players" }, { value: "1,500+", label: "Programs" }, { value: "75+", label: "Countries" }, { value: "$400M+", label: "NIL Market" }],
     nilDeals: [
@@ -233,7 +233,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "lacrosse", name: "Lacrosse", emoji: "🥍", tagline: "DOMINATE THE FIELD",
+    id: "lacrosse", name: "Lacrosse", emoji: "", tagline: "DOMINATE THE FIELD",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "825K+", label: "Players" }, { value: "1,200+", label: "College Programs" }, { value: "60+", label: "Countries" }, { value: "$250M+", label: "NIL Market" }],
     nilDeals: [
@@ -252,7 +252,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "softball", name: "Softball", emoji: "🥎", tagline: "HIT DIFFERENT",
+    id: "softball", name: "Softball", emoji: "", tagline: "HIT DIFFERENT",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1607743386760-88f10dbb4151?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "7.5M+", label: "Players" }, { value: "1,800+", label: "College Programs" }, { value: "130+", label: "Countries" }, { value: "$500M+", label: "NIL Market" }],
     nilDeals: [
@@ -271,7 +271,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "gymnastics", name: "Gymnastics", emoji: "🤸", tagline: "STICK THE LANDING",
+    id: "gymnastics", name: "Gymnastics", emoji: "", tagline: "STICK THE LANDING",
     accentColor: "purple", coverImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "5M+", label: "Athletes" }, { value: "800+", label: "College Programs" }, { value: "150+", label: "Countries" }, { value: "$200M+", label: "NIL Market" }],
     nilDeals: [
@@ -290,7 +290,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "golf", name: "Golf", emoji: "⛳", tagline: "PLAY YOUR BEST ROUND",
+    id: "golf", name: "Golf", emoji: "", tagline: "PLAY YOUR BEST ROUND",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "66M+", label: "Players Worldwide" }, { value: "1,200+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$600M+", label: "NIL Market" }],
     nilDeals: [
@@ -309,7 +309,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "rugby", name: "Rugby", emoji: "🏉", tagline: "NO MERCY",
+    id: "rugby", name: "Rugby", emoji: "", tagline: "NO MERCY",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "9M+", label: "Players" }, { value: "400+", label: "College Programs" }, { value: "120+", label: "Countries" }, { value: "$150M+", label: "NIL Market" }],
     nilDeals: [
@@ -328,7 +328,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "cricket", name: "Cricket", emoji: "🏏", tagline: "BAT. BOWL. WIN.",
+    id: "cricket", name: "Cricket", emoji: "", tagline: "BAT. BOWL. WIN.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "1B+", label: "Fans Worldwide" }, { value: "120+", label: "Member Nations" }, { value: "300+", label: "Pro Teams" }, { value: "$1B+", label: "NIL/Sponsorship Market" }],
     nilDeals: [
@@ -347,7 +347,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "cross-country", name: "Cross Country", emoji: "🏃", tagline: "MILES MAKE CHAMPIONS",
+    id: "cross-country", name: "Cross Country", emoji: "", tagline: "MILES MAKE CHAMPIONS",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "500K+", label: "HS Runners" }, { value: "2,000+", label: "College Programs" }, { value: "100+", label: "Countries" }, { value: "$200M+", label: "NIL Market" }],
     nilDeals: [
@@ -366,7 +366,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "rowing", name: "Rowing", emoji: "🚣", tagline: "PULL HARDER",
+    id: "rowing", name: "Rowing", emoji: "", tagline: "PULL HARDER",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "200K+", label: "Competitive Rowers" }, { value: "400+", label: "College Programs" }, { value: "150+", label: "Countries" }, { value: "$150M+", label: "NIL Market" }],
     nilDeals: [
@@ -385,7 +385,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "water-polo", name: "Water Polo", emoji: "🤽", tagline: "MAKE A SPLASH",
+    id: "water-polo", name: "Water Polo", emoji: "", tagline: "MAKE A SPLASH",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "250K+", label: "Players" }, { value: "300+", label: "College Programs" }, { value: "80+", label: "Countries" }, { value: "$100M+", label: "NIL Market" }],
     nilDeals: [
@@ -404,7 +404,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "field-hockey", name: "Field Hockey", emoji: "🏑", tagline: "CONTROL THE FIELD",
+    id: "field-hockey", name: "Field Hockey", emoji: "", tagline: "CONTROL THE FIELD",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "3M+", label: "Players" }, { value: "400+", label: "College Programs" }, { value: "100+", label: "Countries" }, { value: "$150M+", label: "NIL Market" }],
     nilDeals: [
@@ -423,7 +423,7 @@ export const ALL_SPORTS: SportConfig[] = [
     ],
   },
   {
-    id: "cheer", name: "Cheerleading", emoji: "📣", tagline: "STUNT. TUMBLE. WIN.",
+    id: "cheer", name: "Cheerleading", emoji: "", tagline: "STUNT. TUMBLE. WIN.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "4.5M+", label: "Athletes" }, { value: "2,000+", label: "Competitions" }, { value: "500+", label: "College Programs" }, { value: "$100M+", label: "Scholarships" }],
     nilDeals: [
@@ -441,9 +441,9 @@ export const ALL_SPORTS: SportConfig[] = [
       { user: "Brianna Lee", handle: "@bri_cheer", pos: "Flyer · Top Gun All Stars", content: "UCA All-American selection confirmed. Alabama offer on the table. #UCANationals", highlight: "UCA All-American", likes: 2891, xScore: 90 },
     ],
   },
-  // ─── Sports 22–44 ─────────────────────────────────────────────────────────────
+  //  Sports 22–44 
   {
-    id: "boxing", name: "Boxing", emoji: "🥊", tagline: "FIGHT FOR YOUR FUTURE",
+    id: "boxing", name: "Boxing", emoji: "", tagline: "FIGHT FOR YOUR FUTURE",
     accentColor: "red", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "35M+", label: "Boxers" }, { value: "500+", label: "Gyms" }, { value: "200+", label: "Countries" }, { value: "$500M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Everlast", type: "Gear Partner", value: "$2K–$50K/yr", req: "National qualifier" }, { brand: "Cleto Reyes", type: "Glove Partner", value: "$2K–$30K/yr", req: "Elite amateur" }, { brand: "Nike", type: "Apparel Partner", value: "$3K–$40K/yr", req: "National team" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Hayabusa", type: "Gear Sponsor", value: "$1K–$20K/yr", req: "Any level" }],
@@ -454,7 +454,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Marcus King", handle: "@marcus_boxing", pos: "Welterweight · Colorado Springs OTC", content: "Gold medal at USA Boxing Nationals. Olympic Trials next. #USABoxing", highlight: "USA Boxing National Champion", likes: 3102, xScore: 94 }],
   },
   {
-    id: "mma", name: "MMA", emoji: "🥋", tagline: "TRAIN. COMPETE. DOMINATE.",
+    id: "mma", name: "MMA", emoji: "", tagline: "TRAIN. COMPETE. DOMINATE.",
     accentColor: "red", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "450M+", label: "Fans Worldwide" }, { value: "5,000+", label: "Gyms" }, { value: "150+", label: "Countries" }, { value: "$1B+", label: "Market" }],
     nilDeals: [{ brand: "Hayabusa", type: "Gear Partner", value: "$2K–$30K/yr", req: "Regional champion" }, { brand: "Venum", type: "Apparel Partner", value: "$2K–$25K/yr", req: "Any pro level" }, { brand: "Reebok", type: "Brand Ambassador", value: "$3K–$40K/yr", req: "UFC contract" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Monster Energy", type: "Sponsor", value: "$5K–$100K/yr", req: "Pro fighter" }],
@@ -465,7 +465,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Javier Cruz", handle: "@javier_mma", pos: "Welterweight · AKA", content: "Submitted my opponent in round 1 at the regional championships. UFC scouts in attendance. #UFC", highlight: "R1 Submission Win", likes: 4102, xScore: 92 }],
   },
   {
-    id: "badminton", name: "Badminton", emoji: "🏸", tagline: "SMASH YOUR LIMITS",
+    id: "badminton", name: "Badminton", emoji: "", tagline: "SMASH YOUR LIMITS",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "220M+", label: "Players" }, { value: "500+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$200M+", label: "Market" }],
     nilDeals: [{ brand: "Yonex", type: "Racket & Gear", value: "$2K–$30K/yr", req: "National ranked" }, { brand: "Li-Ning", type: "Apparel Partner", value: "$2K–$20K/yr", req: "Any college level" }, { brand: "Victor", type: "Gear Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Adidas", type: "Brand Ambassador", value: "$2K–$20K/yr", req: "Any college level" }],
@@ -476,7 +476,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Kevin Zhang", handle: "@kevin_badminton", pos: "Singles · USA Badminton", content: "Won the US Open Grand Prix. BWF ranking climbed to top 100 worldwide. #USABadminton", highlight: "US Open Grand Prix Champion", likes: 1892, xScore: 91 }],
   },
   {
-    id: "table-tennis", name: "Table Tennis", emoji: "🏓", tagline: "SPIN TO WIN",
+    id: "table-tennis", name: "Table Tennis", emoji: "", tagline: "SPIN TO WIN",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "300M+", label: "Players" }, { value: "400+", label: "College Programs" }, { value: "200+", label: "Countries" }, { value: "$150M+", label: "Market" }],
     nilDeals: [{ brand: "Butterfly", type: "Equipment Partner", value: "$2K–$20K/yr", req: "National ranked" }, { brand: "Stiga", type: "Gear Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "DHS", type: "Ball & Gear", value: "$1K–$10K/yr", req: "Any level" }, { brand: "Joola", type: "Equipment Partner", value: "$1K–$12K/yr", req: "Any level" }, { brand: "Adidas", type: "Apparel Partner", value: "$1K–$15K/yr", req: "Any college level" }],
@@ -487,7 +487,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Lin Wei", handle: "@lin_tt", pos: "Singles · USA TT", content: "ITTF ranking cracked top 200 worldwide. Olympic Trials next year. #USATTableTennis", highlight: "ITTF Top 200 Worldwide", likes: 1541, xScore: 90 }],
   },
   {
-    id: "archery", name: "Archery", emoji: "🏹", tagline: "AIM. RELEASE. SCORE.",
+    id: "archery", name: "Archery", emoji: "", tagline: "AIM. RELEASE. SCORE.",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "60M+", label: "Archers" }, { value: "300+", label: "College Programs" }, { value: "150+", label: "Countries" }, { value: "$100M+", label: "Market" }],
     nilDeals: [{ brand: "Hoyt", type: "Bow Partner", value: "$2K–$20K/yr", req: "National qualifier" }, { brand: "Easton", type: "Arrow Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Win&Win", type: "Gear Partner", value: "$1K–$12K/yr", req: "Any level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Under Armour", type: "Apparel Partner", value: "$1K–$15K/yr", req: "Any college level" }],
@@ -498,7 +498,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Sarah Kim", handle: "@sarah_archery", pos: "Recurve · USA Archery", content: "Perfect 300 round at USA Indoor Nationals. Olympic Trials qualification secured. #USAArchery", highlight: "Perfect 300 Round", likes: 1892, xScore: 93 }],
   },
   {
-    id: "fencing", name: "Fencing", emoji: "🤺", tagline: "TOUCH. SCORE. WIN.",
+    id: "fencing", name: "Fencing", emoji: "", tagline: "TOUCH. SCORE. WIN.",
     accentColor: "silver", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "1M+", label: "Fencers" }, { value: "300+", label: "College Programs" }, { value: "150+", label: "Countries" }, { value: "$80M+", label: "Market" }],
     nilDeals: [{ brand: "Leon Paul", type: "Equipment Partner", value: "$2K–$20K/yr", req: "National qualifier" }, { brand: "Absolute Fencing", type: "Gear Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Nike", type: "Apparel Partner", value: "$2K–$20K/yr", req: "D1 or national team" }, { brand: "Adidas", type: "Brand Ambassador", value: "$1K–$15K/yr", req: "Any college level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }],
@@ -509,7 +509,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Isabelle Dumont", handle: "@isabelle_fencing", pos: "Foil · New York Athletic Club", content: "FIE World Cup silver medal. Columbia and Princeton both offered. #USAFencing", highlight: "FIE World Cup Silver", likes: 1541, xScore: 92 }],
   },
   {
-    id: "weightlifting", name: "Weightlifting", emoji: "🏋️", tagline: "LIFT HEAVY. LIFT OFTEN.",
+    id: "weightlifting", name: "Weightlifting", emoji: "", tagline: "LIFT HEAVY. LIFT OFTEN.",
     accentColor: "red", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "2M+", label: "Competitive Lifters" }, { value: "200+", label: "Programs" }, { value: "180+", label: "Countries" }, { value: "$100M+", label: "Market" }],
     nilDeals: [{ brand: "Eleiko", type: "Equipment Partner", value: "$2K–$20K/yr", req: "National qualifier" }, { brand: "Nike", type: "Apparel Partner", value: "$2K–$25K/yr", req: "National team" }, { brand: "Adidas", type: "Shoe Partner", value: "$2K–$20K/yr", req: "Any elite level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Rogue", type: "Equipment Partner", value: "$1K–$15K/yr", req: "Any level" }],
@@ -520,7 +520,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Darius Johnson", handle: "@darius_lifts", pos: "89kg · USOTC", content: "Clean & Jerk PR of 185kg at USA Nationals. Olympic Trials qualification confirmed. #USAWeightlifting", highlight: "185kg C&J — National Record", likes: 3102, xScore: 95 }],
   },
   {
-    id: "cycling", name: "Cycling", emoji: "🚴", tagline: "RIDE FASTER. GO FURTHER.",
+    id: "cycling", name: "Cycling", emoji: "", tagline: "RIDE FASTER. GO FURTHER.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "1B+", label: "Cyclists Worldwide" }, { value: "500+", label: "Pro Teams" }, { value: "200+", label: "Countries" }, { value: "$500M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Trek", type: "Bike Partner", value: "$5K–$100K/yr", req: "National team or pro" }, { brand: "Specialized", type: "Bike & Gear", value: "$5K–$80K/yr", req: "Elite amateur or pro" }, { brand: "Rapha", type: "Kit Partner", value: "$2K–$30K/yr", req: "Any elite level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Garmin", type: "Tech Partner", value: "$2K–$20K/yr", req: "Any elite level" }],
@@ -531,7 +531,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Tyler Evans", handle: "@tyler_cycling", pos: "Road · USA Cycling U23", content: "Stage win at the Redlands Classic. WorldTour team interest confirmed. #USACycling", highlight: "Redlands Classic Stage Win", likes: 2341, xScore: 93 }],
   },
   {
-    id: "equestrian", name: "Equestrian", emoji: "🏇", tagline: "RIDE TO WIN",
+    id: "equestrian", name: "Equestrian", emoji: "", tagline: "RIDE TO WIN",
     accentColor: "brown", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "110M+", label: "Riders Worldwide" }, { value: "400+", label: "College Programs" }, { value: "130+", label: "Countries" }, { value: "$300M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Ariat", type: "Boot & Apparel", value: "$2K–$25K/yr", req: "National qualifier" }, { brand: "Pikeur", type: "Apparel Partner", value: "$2K–$20K/yr", req: "Any elite level" }, { brand: "Horseware", type: "Equipment Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "SmartPak", type: "Supplement Partner", value: "$1K–$10K/yr", req: "Any level" }],
@@ -542,7 +542,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Emma Hartley", handle: "@emma_equestrian", pos: "Hunter/Jumper · Beacon Hill", content: "Champion in the USEF Pony Finals. Oklahoma and Auburn both offered. #USAEquestrian", highlight: "USEF Pony Finals Champion", likes: 1892, xScore: 91 }],
   },
   {
-    id: "skiing", name: "Skiing", emoji: "⛷️", tagline: "CARVE YOUR PATH",
+    id: "skiing", name: "Skiing", emoji: "", tagline: "CARVE YOUR PATH",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "200M+", label: "Skiers Worldwide" }, { value: "300+", label: "College Programs" }, { value: "100+", label: "Countries" }, { value: "$400M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Head", type: "Ski & Gear", value: "$3K–$50K/yr", req: "National team or FIS" }, { brand: "Rossignol", type: "Ski Partner", value: "$3K–$40K/yr", req: "Elite amateur" }, { brand: "Atomic", type: "Equipment Partner", value: "$2K–$30K/yr", req: "Any elite level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Elite/pro level" }],
@@ -553,7 +553,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Jackson Reed", handle: "@jackson_ski", pos: "GS/SL · US Ski Team Dev", content: "FIS points ranking cracked top 50 in GS. Colorado and Vermont both offered. #USSkiTeam", highlight: "FIS Top 50 Giant Slalom", likes: 2102, xScore: 92 }],
   },
   {
-    id: "snowboarding", name: "Snowboarding", emoji: "🏂", tagline: "RIDE THE MOUNTAIN",
+    id: "snowboarding", name: "Snowboarding", emoji: "", tagline: "RIDE THE MOUNTAIN",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "25M+", label: "Snowboarders" }, { value: "200+", label: "Programs" }, { value: "80+", label: "Countries" }, { value: "$250M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Burton", type: "Board & Gear", value: "$3K–$50K/yr", req: "National team or FIS" }, { brand: "Lib Tech", type: "Board Partner", value: "$2K–$30K/yr", req: "Elite amateur" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Elite/pro level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Nike", type: "Apparel Partner", value: "$3K–$40K/yr", req: "National team" }],
@@ -564,7 +564,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Zoe Parker", handle: "@zoe_snowboard", pos: "Halfpipe · US Snowboard Team", content: "X Games bronze in halfpipe. Olympic Trials next. #XGames", highlight: "X Games Bronze Medal", likes: 3892, xScore: 94 }],
   },
   {
-    id: "triathlon", name: "Triathlon", emoji: "🏊", tagline: "SWIM. BIKE. RUN.",
+    id: "triathlon", name: "Triathlon", emoji: "", tagline: "SWIM. BIKE. RUN.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "3.5M+", label: "Triathletes" }, { value: "300+", label: "Programs" }, { value: "150+", label: "Countries" }, { value: "$200M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Cervelo", type: "Bike Partner", value: "$3K–$30K/yr", req: "Elite amateur or pro" }, { brand: "Speedo", type: "Swim Gear", value: "$1K–$15K/yr", req: "Any elite level" }, { brand: "Hoka", type: "Run Shoe Partner", value: "$2K–$20K/yr", req: "Any college level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Garmin", type: "Tech Partner", value: "$2K–$20K/yr", req: "Any elite level" }],
@@ -575,7 +575,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Mia Torres", handle: "@mia_tri", pos: "Olympic Distance · USA Triathlon", content: "World Triathlon Series top 10 finish. Olympic Trials qualification confirmed. #USATriathlon", highlight: "WTS Top 10 Finish", likes: 2341, xScore: 93 }],
   },
   {
-    id: "beach-volleyball", name: "Beach Volleyball", emoji: "🏖️", tagline: "SAND. SUN. SPIKE.",
+    id: "beach-volleyball", name: "Beach Volleyball", emoji: "", tagline: "SAND. SUN. SPIKE.",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "500M+", label: "Fans Worldwide" }, { value: "500+", label: "College Programs" }, { value: "150+", label: "Countries" }, { value: "$300M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Mizuno", type: "Gear Partner", value: "$2K–$25K/yr", req: "AVP or D1" }, { brand: "Nike", type: "Apparel Partner", value: "$3K–$35K/yr", req: "D1 or elite" }, { brand: "Oakley", type: "Eyewear Partner", value: "$2K–$20K/yr", req: "Any elite level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Asics", type: "Shoe Partner", value: "$2K–$20K/yr", req: "Any college level" }],
@@ -586,7 +586,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Jade Williams", handle: "@jade_beach", pos: "Blocker · AVP Pro", content: "AVP Gold Series win in Hermosa Beach. Olympic Trials qualification confirmed. #AVPTour", highlight: "AVP Gold Series Champion", likes: 3102, xScore: 94 }],
   },
   {
-    id: "dance", name: "Dance", emoji: "💃", tagline: "MOVE. PERFORM. WIN.",
+    id: "dance", name: "Dance", emoji: "", tagline: "MOVE. PERFORM. WIN.",
     accentColor: "purple", coverImg: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "5M+", label: "Competitive Dancers" }, { value: "1,000+", label: "College Programs" }, { value: "100+", label: "Countries" }, { value: "$150M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Capezio", type: "Shoe & Apparel", value: "$1K–$15K/yr", req: "National qualifier" }, { brand: "Nike", type: "Apparel Partner", value: "$2K–$20K/yr", req: "D1 or elite" }, { brand: "Bloch", type: "Shoe Partner", value: "$1K–$12K/yr", req: "Any level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Varsity Brands", type: "Uniform Partner", value: "$1K–$10K/yr", req: "Any college level" }],
@@ -597,7 +597,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Alexis Monroe", handle: "@alexis_dance", pos: "Jazz/Hip Hop · Top Gun", content: "NDA All-American selection. UCLA and Alabama both offered full rides. #NDANationals", highlight: "NDA All-American", likes: 2891, xScore: 91 }],
   },
   {
-    id: "esports", name: "Esports", emoji: "🎮", tagline: "GAME. WIN. REPEAT.",
+    id: "esports", name: "Esports", emoji: "", tagline: "GAME. WIN. REPEAT.",
     accentColor: "purple", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "3.2B+", label: "Gamers Worldwide" }, { value: "200+", label: "College Programs" }, { value: "100+", label: "Countries" }, { value: "$2B+", label: "NIL Market" }],
     nilDeals: [{ brand: "Razer", type: "Peripheral Partner", value: "$3K–$50K/yr", req: "Collegiate or pro" }, { brand: "HyperX", type: "Gear Sponsor", value: "$2K–$30K/yr", req: "Any college level" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Pro/streaming" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Logitech G", type: "Equipment Partner", value: "$2K–$25K/yr", req: "Any college level" }],
@@ -608,7 +608,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Ryan Chen", handle: "@ryan_esports", pos: "Mid Lane · Ohio State Esports", content: "NACE Starleague champion. Riot Games scouting call confirmed. #CollegiateEsports", highlight: "NACE Starleague Champion", likes: 5102, xScore: 93 }],
   },
   {
-    id: "pickleball", name: "Pickleball", emoji: "🏓", tagline: "DINK. DRIVE. WIN.",
+    id: "pickleball", name: "Pickleball", emoji: "", tagline: "DINK. DRIVE. WIN.",
     accentColor: "green", coverImg: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "36M+", label: "Players" }, { value: "200+", label: "Programs" }, { value: "70+", label: "Countries" }, { value: "$500M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Selkirk", type: "Paddle Partner", value: "$2K–$30K/yr", req: "Pro or elite amateur" }, { brand: "Franklin", type: "Ball & Gear", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Nike", type: "Apparel Partner", value: "$2K–$25K/yr", req: "Pro level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Joola", type: "Equipment Partner", value: "$2K–$20K/yr", req: "Pro or elite" }],
@@ -619,7 +619,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Anna Lee", handle: "@anna_pickle", pos: "Pro · PPA Tour", content: "PPA Tour gold medal in singles. MLP draft pick #3 overall. #MLP", highlight: "PPA Tour Gold · MLP #3 Pick", likes: 4102, xScore: 95 }],
   },
   {
-    id: "paddle-tennis", name: "Paddle Tennis", emoji: "🎾", tagline: "POWER THE COURT",
+    id: "paddle-tennis", name: "Paddle Tennis", emoji: "", tagline: "POWER THE COURT",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "25M+", label: "Players" }, { value: "100+", label: "Programs" }, { value: "50+", label: "Countries" }, { value: "$100M+", label: "Market" }],
     nilDeals: [{ brand: "Head", type: "Paddle & Gear", value: "$1K–$15K/yr", req: "National ranked" }, { brand: "Adidas", type: "Apparel Partner", value: "$1K–$12K/yr", req: "Any level" }, { brand: "Wilson", type: "Gear Partner", value: "$1K–$10K/yr", req: "Any level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }, { brand: "Nike", type: "Apparel Partner", value: "$1K–$15K/yr", req: "Any college level" }],
@@ -630,7 +630,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Carlos Ruiz", handle: "@carlos_paddle", pos: "Doubles · World Padel Tour", content: "World Padel Tour top 50 ranking achieved. Sponsorship calls coming in. #USAPaddleTennis", highlight: "World Padel Tour Top 50", likes: 1541, xScore: 90 }],
   },
   {
-    id: "surfing", name: "Surfing", emoji: "🏄", tagline: "RIDE THE WAVE",
+    id: "surfing", name: "Surfing", emoji: "", tagline: "RIDE THE WAVE",
     accentColor: "blue", coverImg: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "35M+", label: "Surfers Worldwide" }, { value: "100+", label: "Programs" }, { value: "80+", label: "Countries" }, { value: "$400M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Quiksilver", type: "Apparel & Gear", value: "$3K–$50K/yr", req: "CT or elite QS" }, { brand: "Rip Curl", type: "Wetsuit & Gear", value: "$3K–$40K/yr", req: "Elite amateur" }, { brand: "Billabong", type: "Apparel Partner", value: "$2K–$30K/yr", req: "Any elite level" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Elite/pro level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }],
@@ -641,7 +641,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Kai Nakamura", handle: "@kai_surf", pos: "Shortboard · WSL QS", content: "QS 10,000 event win in Portugal. CT qualification within reach. #WSLChampionship", highlight: "QS 10,000 Event Win", likes: 4892, xScore: 95 }],
   },
   {
-    id: "skateboarding", name: "Skateboarding", emoji: "🛹", tagline: "SKATE. CREATE. DOMINATE.",
+    id: "skateboarding", name: "Skateboarding", emoji: "", tagline: "SKATE. CREATE. DOMINATE.",
     accentColor: "purple", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "85M+", label: "Skaters Worldwide" }, { value: "100+", label: "Programs" }, { value: "80+", label: "Countries" }, { value: "$300M+", label: "NIL Market" }],
     nilDeals: [{ brand: "Nike SB", type: "Shoe & Apparel", value: "$5K–$100K/yr", req: "Pro or elite amateur" }, { brand: "Vans", type: "Shoe Partner", value: "$3K–$50K/yr", req: "Elite amateur" }, { brand: "Element", type: "Board & Gear", value: "$2K–$25K/yr", req: "Any elite level" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Elite/pro level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }],
@@ -652,7 +652,7 @@ export const ALL_SPORTS: SportConfig[] = [
     seedPosts: [{ user: "Nyjah Williams", handle: "@nyjah_skate", pos: "Street · USA Skateboarding", content: "X Games gold in street. Olympic Trials qualification confirmed. #XGames", highlight: "X Games Gold Medal", likes: 6102, xScore: 97 }],
   },
   {
-    id: "climbing", name: "Rock Climbing", emoji: "🧗", tagline: "REACH THE TOP",
+    id: "climbing", name: "Rock Climbing", emoji: "", tagline: "REACH THE TOP",
     accentColor: "orange", coverImg: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=300&fit=crop&q=80",
     stats: [{ value: "35M+", label: "Climbers Worldwide" }, { value: "200+", label: "Programs" }, { value: "100+", label: "Countries" }, { value: "$200M+", label: "NIL Market" }],
     nilDeals: [{ brand: "La Sportiva", type: "Shoe & Gear", value: "$2K–$25K/yr", req: "National qualifier" }, { brand: "Black Diamond", type: "Equipment Partner", value: "$2K–$20K/yr", req: "Elite amateur" }, { brand: "Petzl", type: "Gear Partner", value: "$1K–$15K/yr", req: "Any level" }, { brand: "Red Bull", type: "Energy Partner", value: "$5K–$100K/yr", req: "Elite/pro level" }, { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any level" }],
@@ -664,20 +664,20 @@ export const ALL_SPORTS: SportConfig[] = [
   },
 ];
 
-// ─── SportXHub Component ───────────────────────────────────────────────────────
+//  SportXHub Component 
 type SportTab = "feed" | "events" | "nil" | "transfer" | "scouts" | "profile";
 
 export default function SportXHub({ sport }: { sport: SportConfig }) {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<SportTab>("feed");
   const [postText, setPostText] = useState("");
-  const [xScoreResult, setXScoreResult] = useState<{ score: number; breakdown: string; tier: string } | null>(null);
+  const [epxScoreResult, setXScoreResult] = useState<{ score: number; breakdown: string; tier: string } | null>(null);
 
   const utils = trpc.useUtils();
   const { data: feedData, isLoading: feedLoading } = trpc.feed.getFeed.useQuery({ limit: 20 }, { refetchInterval: 30000, retry: 1 });
   const likePost = trpc.feed.likePost.useMutation({ onSuccess: () => utils.feed.getFeed.invalidate() });
   const createPost = trpc.feed.createPost.useMutation({ onSuccess: () => { setPostText(""); utils.feed.getFeed.invalidate(); } });
-  const calcXFactor = trpc.ai.calculateXFactor.useMutation({ onSuccess: (data) => setXScoreResult(data) });
+  const calcEPX = trpc.ai.calculateEPX.useMutation({ onSuccess: (data) => setXScoreResult(data) });
 
   const dbPosts = feedData?.posts ?? [];
   const sportPosts = dbPosts.filter((p: any) =>
@@ -708,7 +708,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
 
   return (
     <div className="min-h-screen bg-[#000a1a] text-white">
-      {/* ── Top Nav ── */}
+      {/*  Top Nav  */}
       <header className="sticky top-0 z-50 bg-[#000a1a]/95 backdrop-blur border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -740,7 +740,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
         </div>
       </header>
 
-      {/* ── Tab Nav ── */}
+      {/*  Tab Nav  */}
       <div className="sticky top-[57px] z-40 bg-[#000a1a]/95 backdrop-blur border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 flex gap-0 overflow-x-auto">
           {TABS.map(tab => (
@@ -757,7 +757,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
         </div>
       </div>
 
-      {/* ── Hero Banner — Less-Is-More: media, one sentence, one CTA, corner badge ── */}
+      {/*  Hero Banner — Less-Is-More: media, one sentence, one CTA, corner badge  */}
       <div className="relative min-h-[48vh] overflow-hidden bg-[#000a1a]">
         <img src={sport.coverImg} alt={`${sport.name} athlete`} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#000a1a] via-[#000a1a]/45 to-[#000a1a]/20" />
@@ -778,33 +778,33 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
         </div>
       </div>
 
-      {/* ── Main 3-Column Layout ── */}
+      {/*  Main 3-Column Layout  */}
       <div className="max-w-7xl mx-auto flex gap-0">
 
         {/* Left Sidebar */}
         <div className="hidden lg:block w-64 flex-shrink-0 sticky top-[105px] h-[calc(100vh-105px)] overflow-y-auto border-r border-slate-800 px-4 py-4">
-          {/* X-Factor Score Widget */}
+          {/* EPX Score Widget */}
           <div className="bg-gradient-to-br from-blue-950 to-slate-900 border border-blue-800/50 rounded-2xl p-4 mb-4">
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-blue-400" />
-              <h3 className="font-black text-white text-sm">Your X-Factor Score</h3>
+              <h3 className="font-black text-white text-sm">Your EPX Score</h3>
             </div>
-            {xScoreResult ? (
+            {epxScoreResult ? (
               <div className="text-center py-2">
-                <div className={`text-5xl font-black mb-1 ${xScoreResult.score >= 90 ? "text-blue-400" : xScoreResult.score >= 80 ? "text-blue-400" : "text-green-400"}`}>{xScoreResult.score}</div>
-                <div className="text-blue-300 text-xs font-bold mb-2">{xScoreResult.tier}</div>
-                <p className="text-slate-400 text-xs leading-relaxed">{xScoreResult.breakdown}</p>
+                <div className={`text-5xl font-black mb-1 ${epxScoreResult.score >= 90 ? "text-blue-400" : epxScoreResult.score >= 80 ? "text-blue-400" : "text-[#00C2FF]"}`}>{epxScoreResult.score}</div>
+                <div className="text-blue-300 text-xs font-bold mb-2">{epxScoreResult.tier}</div>
+                <p className="text-slate-400 text-xs leading-relaxed">{epxScoreResult.breakdown}</p>
               </div>
             ) : (
               <>
                 <p className="text-slate-400 text-xs mb-3">AI-powered rating based on your stats, film, recruiting interest and intangibles. Powered by Gemini 2.5 Flash + Nebius.</p>
                 <button
-                  onClick={() => calcXFactor.mutate({ sport: sport.name })}
-                  disabled={!user || calcXFactor.isPending}
+                  onClick={() => calcEPX.mutate({ sport: sport.name })}
+                  disabled={!user || calcEPX.isPending}
                   className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white text-xs font-black py-2.5 rounded-full transition-colors flex items-center justify-center gap-1.5"
                 >
                   <Zap className="w-3.5 h-3.5" />
-                  {calcXFactor.isPending ? "Calculating..." : user ? "Get My X-Factor Score" : "Sign In to Score"}
+                  {calcEPX.isPending ? "Calculating..." : user ? "Get My EPX Score" : "Sign In to Score"}
                 </button>
               </>
             )}
@@ -859,7 +859,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                       <textarea
                         value={postText}
                         onChange={e => setPostText(e.target.value)}
-                        placeholder={`Share your ${sport.name} X-Factor moment...`}
+                        placeholder={`Share your ${sport.name} EPX moment...`}
                         className="w-full bg-transparent text-white placeholder-slate-600 text-base resize-none outline-none min-h-[60px]"
                         rows={2}
                       />
@@ -869,8 +869,8 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                           <button className="hover:text-blue-300"><BarChart2 className="w-5 h-5" /></button>
                           <button className="hover:text-blue-300"><MapPin className="w-5 h-5" /></button>
                           <div className="flex items-center gap-1 ml-2">
-                            <Lock className="w-3 h-3 text-emerald-400" />
-                            <span className="text-emerald-400 text-[10px] font-black">E2EE</span>
+                            <Lock className="w-3 h-3 text-[#00C2FF]" />
+                            <span className="text-[#00C2FF] text-[10px] font-black">E2EE</span>
                           </div>
                         </div>
                         <button
@@ -918,7 +918,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                           </div>
                         )}
                         <div className="flex items-center gap-5 text-slate-600 text-sm">
-                          <button onClick={() => post.id && likePost.mutate({ postId: post.id })} className="flex items-center gap-1.5 hover:text-red-400 transition-colors">
+                          <button onClick={() => post.id && likePost.mutate({ postId: post.id })} className="flex items-center gap-1.5 hover:text-[#1E90FF] transition-colors">
                             <Heart className="w-4 h-4" />
                             <span className="text-xs">{post.stats?.likes ?? post.likes ?? post.likesCount ?? 0}</span>
                           </button>
@@ -926,7 +926,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                             <MessageCircle className="w-4 h-4" />
                             <span className="text-xs">{post.stats?.comments ?? post.commentsCount ?? 0}</span>
                           </button>
-                          <button className="flex items-center gap-1.5 hover:text-green-400 transition-colors">
+                          <button className="flex items-center gap-1.5 hover:text-[#00C2FF] transition-colors">
                             <Repeat2 className="w-4 h-4" />
                             <span className="text-xs">{post.stats?.reposts ?? 0}</span>
                           </button>
@@ -946,10 +946,10 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
               {!user && (
                 <div className="p-6 border-b border-slate-800 bg-blue-950/20">
                   <div className="flex items-center gap-2 mb-2">
-                    <Lock className="w-4 h-4 text-emerald-400" />
-                    <span className="text-emerald-400 text-xs font-black">E2EE PROTECTED FEED</span>
+                    <Lock className="w-4 h-4 text-[#00C2FF]" />
+                    <span className="text-[#00C2FF] text-xs font-black">E2EE PROTECTED FEED</span>
                   </div>
-                  <p className="text-slate-400 text-sm mb-3">Join AthlynXAI to post your {sport.name} moments and get your X-Factor score.</p>
+                  <p className="text-slate-400 text-sm mb-3">Join AthlynXAI to post your {sport.name} moments and get your EPX score.</p>
                   <div className="flex gap-3">
                     <Link href="/signup"><button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-6 py-2.5 rounded-full text-sm transition-colors flex items-center gap-1.5"><Zap className="w-4 h-4" />Join Free</button></Link>
                     <Link href="/signin"><button className="border border-slate-600 hover:border-blue-500 text-slate-300 hover:text-white font-bold px-6 py-2.5 rounded-full text-sm transition-colors">Sign In</button></Link>
@@ -972,7 +972,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1 flex-wrap">
                         <h3 className="text-white font-black">{e.name}</h3>
-                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${e.level === "Elite" ? "bg-blue-700/40 text-blue-400 border border-blue-700/40" : e.level === "International" ? "bg-purple-700/40 text-purple-400 border border-purple-700/40" : e.level === "National" ? "bg-blue-700/40 text-blue-400 border border-blue-700/40" : "bg-slate-700/40 text-slate-400 border border-slate-700/40"}`}>{e.level}</span>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${e.level === "Elite" ? "bg-blue-700/40 text-blue-400 border border-blue-700/40" : e.level === "International" ? "bg-[#1E90FF]/40 text-[#1E90FF] border border-[#1E90FF]/40" : e.level === "National" ? "bg-blue-700/40 text-blue-400 border border-blue-700/40" : "bg-slate-700/40 text-slate-400 border border-slate-700/40"}`}>{e.level}</span>
                       </div>
                       <div className="flex flex-wrap gap-3 text-sm text-slate-500">
                         <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{e.location}</span>
@@ -1001,7 +1001,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
           {activeTab === "nil" && (
             <div className="p-4 space-y-3">
               <h2 className="text-xl font-black text-white mb-4 flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-emerald-400" />
+                <DollarSign className="w-5 h-5 text-[#00C2FF]" />
                 {sport.name} NIL Deals
               </h2>
               {sport.nilDeals.map((deal, i) => (
@@ -1017,7 +1017,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-emerald-400 font-black text-sm">{deal.value}</div>
+                    <div className="text-[#00C2FF] font-black text-sm">{deal.value}</div>
                     <Link href={user ? "/nil-portal" : "/signup"}>
                       <button className="text-xs text-blue-400 hover:text-white transition-colors mt-1 flex items-center gap-1">Apply <ChevronRight className="w-3 h-3" /></button>
                     </Link>
@@ -1025,7 +1025,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                 </div>
               ))}
               <div className="bg-gradient-to-r from-blue-950/40 to-slate-900/40 border border-blue-800/30 rounded-2xl p-5 text-center mt-4">
-                <DollarSign className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
+                <DollarSign className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
                 <p className="text-slate-300 text-sm mb-3">The NIL Portal connects you with brands, secures contracts, and manages your deals — all in one place.</p>
                 <Link href="/nil-portal"><button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-6 py-2.5 rounded-full text-sm transition-colors flex items-center gap-2 mx-auto">
                   <DollarSign className="w-4 h-4" /> Open NIL Portal
@@ -1113,9 +1113,9 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                 <div className="space-y-2">
                   {[
                     "Complete your athlete profile with stats and highlights",
-                    "Post your X-Factor moments to the feed",
+                    "Post your EPX moments to the feed",
                     "Enter your sport's showcases and events",
-                    "Get your AI X-Factor score to stand out",
+                    "Get your AI EPX score to stand out",
                   ].map((tip, i) => (
                     <div key={i} className="flex items-center gap-2 text-slate-400 text-sm">
                       <CheckCircle className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
@@ -1152,8 +1152,8 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                           <Trophy className="w-3.5 h-3.5" /> {sport.name} Athlete
                         </div>
                         <div className="flex items-center gap-1 mt-1">
-                          <Lock className="w-3 h-3 text-emerald-400" />
-                          <span className="text-emerald-400 text-[10px] font-black">E2EE SECURED PROFILE</span>
+                          <Lock className="w-3 h-3 text-[#00C2FF]" />
+                          <span className="text-[#00C2FF] text-[10px] font-black">E2EE SECURED PROFILE</span>
                         </div>
                       </div>
                     </div>
@@ -1161,9 +1161,9 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                     {/* Quick stats */}
                     <div className="grid grid-cols-3 gap-3 mb-4">
                       {[
-                        { label: "X-Factor", value: "—", icon: Zap, color: "text-blue-400" },
-                        { label: "EPX Rating", value: "—", icon: Flame, color: "text-cyan-400" },
-                        { label: "NIL Value", value: "$0", icon: DollarSign, color: "text-emerald-400" },
+                        { label: "EPX", value: "—", icon: Zap, color: "text-blue-400" },
+                        { label: "EPX Rating", value: "—", icon: Flame, color: "text-[#00C2FF]" },
+                        { label: "NIL Value", value: "$0", icon: DollarSign, color: "text-[#00C2FF]" },
                       ].map(s => (
                         <div key={s.label} className="bg-[#000a1a] rounded-xl p-3 text-center">
                           <s.icon className={`w-4 h-4 ${s.color} mx-auto mb-1`} />
@@ -1202,9 +1202,9 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                   </div>
 
                   {/* E2EE security info */}
-                  <div className="bg-gradient-to-br from-emerald-950/40 to-slate-900/40 border border-emerald-500/20 rounded-2xl p-4">
+                  <div className="bg-gradient-to-br from-[#00C2FF]/40 to-slate-900/40 border border-[#1E90FF]/20 rounded-2xl p-4">
                     <div className="flex items-center gap-3 mb-2">
-                      <Shield className="w-5 h-5 text-emerald-400" />
+                      <Shield className="w-5 h-5 text-[#00C2FF]" />
                       <div>
                         <div className="text-white font-black text-sm">End-to-End Encrypted</div>
                         <div className="text-white/40 text-xs">AES-256-GCM · Your data is protected</div>
@@ -1218,10 +1218,10 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                   {/* Quick links */}
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { href: "/nil-portal", label: "NIL Portal", icon: DollarSign, color: "text-emerald-400" },
+                      { href: "/nil-portal", label: "NIL Portal", icon: DollarSign, color: "text-[#00C2FF]" },
                       { href: "/recruiting-hub", label: "Recruiting Hub", icon: School, color: "text-blue-400" },
                       { href: "/transfer-portal", label: "Transfer Portal", icon: RefreshCw, color: "text-blue-400" },
-                      { href: "/warrior-playbook", label: "Film Room", icon: Film, color: "text-violet-400" },
+                      { href: "/warrior-playbook", label: "Film Room", icon: Film, color: "text-[#1E90FF]" },
                     ].map((link, i) => (
                       <Link key={i} href={link.href}>
                         <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-3 hover:border-blue-700/50 transition-all cursor-pointer flex items-center gap-2">
@@ -1239,7 +1239,7 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
                   </div>
                   <h3 className="text-white font-black text-xl mb-2">Create Your {sport.name} Profile</h3>
                   <p className="text-slate-400 text-sm mb-6 max-w-sm mx-auto">
-                    Join AthlynX to build your scouting profile, get your X-Factor score, and connect with coaches and scouts.
+                    Join AthlynX to build your scouting profile, get your EPX score, and connect with coaches and scouts.
                   </p>
                   <div className="flex gap-3 justify-center">
                     <Link href="/signup">
@@ -1261,16 +1261,16 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
 
         {/* Right Sidebar */}
         <div className="hidden xl:block w-72 flex-shrink-0 sticky top-[105px] h-[calc(100vh-105px)] overflow-y-auto px-4 py-4">
-          {/* X-Factor Score Tiers */}
+          {/* EPX Score Tiers */}
           <div className="bg-gradient-to-br from-blue-950 to-slate-900 border border-blue-800/50 rounded-2xl p-4 mb-4">
             <div className="flex items-center gap-2 mb-3">
               <Zap className="w-5 h-5 text-blue-400" />
-              <h3 className="font-black text-white text-sm">X-Factor Tiers</h3>
+              <h3 className="font-black text-white text-sm">EPX Tiers</h3>
             </div>
             {[
               { label: "90–100", desc: "Elite — Pro Prospect", color: "text-blue-400" },
               { label: "80–89", desc: "High Major D1", color: "text-blue-400" },
-              { label: "70–79", desc: "Mid Major D1", color: "text-green-400" },
+              { label: "70–79", desc: "Mid Major D1", color: "text-[#00C2FF]" },
               { label: "60–69", desc: "D2 / D3 Prospect", color: "text-slate-400" },
             ].map((tier, i) => (
               <div key={i} className="flex items-center justify-between text-xs py-1 border-b border-slate-800/50 last:border-0">
@@ -1279,12 +1279,12 @@ export default function SportXHub({ sport }: { sport: SportConfig }) {
               </div>
             ))}
             <button
-              onClick={() => calcXFactor.mutate({ sport: sport.name })}
-              disabled={!user || calcXFactor.isPending}
+              onClick={() => calcEPX.mutate({ sport: sport.name })}
+              disabled={!user || calcEPX.isPending}
               className="mt-3 w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-40 text-white text-xs font-black py-2 rounded-full transition-colors flex items-center justify-center gap-1.5"
             >
               <Zap className="w-3.5 h-3.5" />
-              {calcXFactor.isPending ? "Calculating..." : user ? "Get My Score" : "Sign In to Score"}
+              {calcEPX.isPending ? "Calculating..." : user ? "Get My Score" : "Sign In to Score"}
             </button>
           </div>
 

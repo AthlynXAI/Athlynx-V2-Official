@@ -2,7 +2,7 @@
  * AthletePublicProfile — /athlete/:id
  * Session 33 — May 5, 2026
  * PlayerProfiler + MLB.com level design.
- * X-Factor ring · EPX dial · Sport metrics bars · Comparable player
+ * EPX ring · EPX dial · Sport metrics bars · Comparable player
  * Tabs: Profile · Stats · Bio · News · Contract · Film · NIL · Recruiting
  * College database · E2EE badge · Lucide icons only (no generic emojis in UI)
  */
@@ -27,7 +27,7 @@ import {
   UserCheck, Handshake, School, Search, Filter, SlidersHorizontal
 } from "lucide-react";
 
-// ─── Sport-specific metric definitions ───────────────────────────────────────
+//  Sport-specific metric definitions 
 const SPORT_METRICS: Record<string, { label: string; key: string; unit: string; icon: any; max: number }[]> = {
   Football: [
     { label: "40-Yard Dash", key: "fortyYard", unit: "s", icon: Timer, max: 5.0 },
@@ -71,7 +71,7 @@ const SPORT_METRICS: Record<string, { label: string; key: string; unit: string; 
   ],
 };
 
-// ─── Comparable player database ───────────────────────────────────────────────
+//  Comparable player database 
 const COMPARABLES: Record<string, { name: string; team: string; position: string; img: string; score: number }[]> = {
   Football: [
     { name: "Patrick Mahomes", team: "Kansas City Chiefs", position: "QB", img: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=80&h=80&fit=crop&q=80", score: 99 },
@@ -93,7 +93,7 @@ const COMPARABLES: Record<string, { name: string; team: string; position: string
   ],
 };
 
-// ─── College database (D1/D2/D3/NAIA/JUCO) ───────────────────────────────────
+//  College database (D1/D2/D3/NAIA/JUCO) 
 const COLLEGE_DB = [
   { name: "Alabama", conf: "SEC", div: "D1", state: "AL", sports: ["Football","Basketball","Baseball","Soccer"] },
   { name: "Ohio State", conf: "Big Ten", div: "D1", state: "OH", sports: ["Football","Basketball","Baseball","Soccer"] },
@@ -143,14 +143,14 @@ const COLLEGE_DB = [
 ];
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; icon: any }> = {
-  available: { label: "Available for Recruiting", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/30", icon: UserCheck },
+  available: { label: "Available for Recruiting", color: "text-[#00C2FF]", bg: "bg-[#1E90FF]/10 border-[#1E90FF]/30", icon: UserCheck },
   committed: { label: "Committed", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/30", icon: CheckCircle },
-  signed: { label: "Signed", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30", icon: Award },
-  transferred: { label: "Transfer Portal", color: "text-sky-400", bg: "bg-blue-500/10 border-blue-500/30", icon: RefreshCw },
+  signed: { label: "Signed", color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/10 border-[#1E90FF]/30", icon: Award },
+  transferred: { label: "Transfer Portal", color: "text-[#00C2FF]", bg: "bg-blue-500/10 border-blue-500/30", icon: RefreshCw },
 };
 
-// ─── X-Factor Score Ring (SVG animated) ──────────────────────────────────────
-function XFactorRing({ score }: { score: number }) {
+//  EPX Score Ring (SVG animated) 
+function EPXRing({ score }: { score: number }) {
   const radius = 54;
   const circumference = 2 * Math.PI * radius;
   const progress = (score / 100) * circumference;
@@ -181,7 +181,7 @@ function XFactorRing({ score }: { score: number }) {
   );
 }
 
-// ─── EPX Dial ─────────────────────────────────────────────────────────────────
+//  EPX Dial 
 function EPXDial({ score }: { score: number }) {
   const angle = -135 + (score / 100) * 270;
   const color = score >= 80 ? "#f97316" : score >= 60 ? "#facc15" : "#94a3b8";
@@ -213,14 +213,14 @@ function EPXDial({ score }: { score: number }) {
         </div>
       </div>
       <div className="flex items-center gap-1 mt-0.5">
-        <Flame className="w-3 h-3 text-cyan-400" />
+        <Flame className="w-3 h-3 text-[#00C2FF]" />
         <span className="text-white/40 text-[10px] font-black tracking-widest">EPX RATING</span>
       </div>
     </div>
   );
 }
 
-// ─── Metric Bar ───────────────────────────────────────────────────────────────
+//  Metric Bar 
 function MetricBar({ label, value, unit, max, percentile, icon: Icon }: {
   label: string; value: number; unit: string; max: number; percentile: number; icon: any;
 }) {
@@ -254,7 +254,7 @@ function MetricBar({ label, value, unit, max, percentile, icon: Icon }: {
   );
 }
 
-// ─── Comparable Player Card ───────────────────────────────────────────────────
+//  Comparable Player Card 
 function ComparableCard({ sport, xScore }: { sport: string; xScore: number }) {
   const comps = COMPARABLES[sport] || COMPARABLES.default;
   const best = comps.reduce((a, b) => Math.abs(a.score - xScore) < Math.abs(b.score - xScore) ? a : b);
@@ -276,8 +276,8 @@ function ComparableCard({ sport, xScore }: { sport: string; xScore: number }) {
           <div className="text-white font-black text-base leading-tight">{best.name}</div>
           <div className="text-white/50 text-xs mt-0.5">{best.position} · {best.team}</div>
           <div className="flex items-center gap-1.5 mt-1.5">
-            <Star className="w-3 h-3 text-sky-400" />
-            <span className="text-sky-400 text-xs font-black">{best.score} X-Factor</span>
+            <Star className="w-3 h-3 text-[#00C2FF]" />
+            <span className="text-[#00C2FF] text-xs font-black">{best.score} EPX</span>
           </div>
         </div>
         <div className="text-right">
@@ -291,7 +291,7 @@ function ComparableCard({ sport, xScore }: { sport: string; xScore: number }) {
   );
 }
 
-// ─── College Database Panel ───────────────────────────────────────────────────
+//  College Database Panel 
 function CollegeDatabase({ sport }: { sport: string }) {
   const [search, setSearch] = useState("");
   const [divFilter, setDivFilter] = useState("All");
@@ -351,9 +351,9 @@ function CollegeDatabase({ sport }: { sport: string }) {
             <div className="flex items-center gap-2">
               <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
                 c.div === "D1" ? "bg-blue-500/10 text-blue-400 border-blue-500/30" :
-                c.div === "D2" ? "bg-green-500/10 text-green-400 border-green-500/30" :
-                c.div === "D3" ? "bg-purple-500/10 text-purple-400 border-purple-500/30" :
-                c.div === "NAIA" ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/30" :
+                c.div === "D2" ? "bg-[#00C2FF]/10 text-[#00C2FF] border-[#00C2FF]/30" :
+                c.div === "D3" ? "bg-[#1E90FF]/10 text-[#1E90FF] border-[#1E90FF]/30" :
+                c.div === "NAIA" ? "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30" :
                 "bg-slate-500/10 text-slate-400 border-slate-500/30"
               }`}>{c.div}</span>
               <ChevronRight className="w-4 h-4 text-white/20 group-hover:text-[#00c2ff] transition-colors" />
@@ -365,7 +365,7 @@ function CollegeDatabase({ sport }: { sport: string }) {
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 type TabId = "profile" | "stats" | "bio" | "news" | "contract" | "film" | "nil" | "recruiting";
 
 function AthletePublicProfileInner() {
@@ -470,7 +470,7 @@ function AthletePublicProfileInner() {
   return (
     <div className="min-h-screen bg-[#040c1a] text-white pb-20">
 
-      {/* ── Top Nav ── */}
+      {/*  Top Nav  */}
       <div className="sticky top-0 z-50 bg-[#040c1a]/95 backdrop-blur border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/browse-athletes">
@@ -485,9 +485,9 @@ function AthletePublicProfileInner() {
           </div>
           <div className="flex items-center gap-2">
             {/* E2EE Badge */}
-            <div className="flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-1">
-              <Lock className="w-3 h-3 text-emerald-400" />
-              <span className="text-emerald-400 text-[10px] font-black">E2EE</span>
+            <div className="flex items-center gap-1 bg-[#1E90FF]/10 border border-[#1E90FF]/20 rounded-full px-2 py-1">
+              <Lock className="w-3 h-3 text-[#00C2FF]" />
+              <span className="text-[#00C2FF] text-[10px] font-black">E2EE</span>
             </div>
             {isOwnProfile ? (
               <Link href="/profile">
@@ -509,7 +509,7 @@ function AthletePublicProfileInner() {
 
       <div className="max-w-4xl mx-auto">
 
-        {/* ── MLB.COM STYLE HERO ── */}
+        {/*  MLB.COM STYLE HERO  */}
         <div className="relative">
           {/* Full-width action/cover photo */}
           <div className="relative h-56 sm:h-72 overflow-hidden">
@@ -608,7 +608,7 @@ function AthletePublicProfileInner() {
                 <button
                   onClick={() => sendConnection.mutate({ targetUserId: athleteId })}
                   disabled={connected || sendConnection.isPending}
-                  className={`flex-1 text-sm font-black py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 ${connected ? "bg-emerald-600/30 border border-emerald-600/50 text-emerald-400" : "bg-white text-black hover:bg-white/90"}`}
+                  className={`flex-1 text-sm font-black py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 ${connected ? "bg-[#1E90FF]/30 border border-[#1E90FF]/50 text-[#00C2FF]" : "bg-white text-black hover:bg-white/90"}`}
                 >
                   {connected ? <CheckCircle className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
                   {connected ? "Connected" : "Follow"}
@@ -625,11 +625,11 @@ function AthletePublicProfileInner() {
             )}
           </div>
 
-          {/* Quick stats bar — position, X-Factor, NIL, offers */}
+          {/* Quick stats bar — position, EPX, NIL, offers */}
           <div className="grid grid-cols-4 gap-0 bg-[#0a1628] border-b border-[#0066ff]/20">
             {[
               { label: "Position", value: profile.position || "—" },
-              { label: "X-Factor", value: `${xScore}` },
+              { label: "EPX", value: `${xScore}` },
               { label: "NIL Value", value: profile.nilValue && Number(profile.nilValue) > 0 ? `$${(Number(profile.nilValue)/1000).toFixed(0)}K` : "—" },
               { label: "Class", value: profile.classYear ? `'${String(profile.classYear).slice(-2)}` : "—" },
             ].map((s, i) => (
@@ -643,11 +643,11 @@ function AthletePublicProfileInner() {
       </div>
       <div className="max-w-4xl mx-auto">
         <div className="px-4 py-4">
-          {/* ── Score Cards Row ── */}
+          {/*  Score Cards Row  */}
           <div className="grid grid-cols-3 gap-3 mb-5">
-            {/* X-Factor Ring */}
+            {/* EPX Ring */}
             <div className="col-span-1 bg-[#0d1b3e] border border-white/10 rounded-2xl p-4 flex items-center justify-center">
-              <XFactorRing score={xScore} />
+              <EPXRing score={xScore} />
             </div>
             {/* EPX Dial */}
             <div className="bg-[#0d1b3e] border border-white/10 rounded-2xl p-4 flex items-center justify-center">
@@ -671,35 +671,35 @@ function AthletePublicProfileInner() {
             </div>
           </div>
 
-          {/* ── Comparable Player ── */}
+          {/*  Comparable Player  */}
           <div className="mb-5">
             <ComparableCard sport={sport} xScore={xScore} />
           </div>
 
-          {/* ── Social Links ── */}
+          {/*  Social Links  */}
           {(profile.instagram || profile.twitter || profile.youtubeUrl || profile.linkedinUrl) && (
             <div className="flex flex-wrap gap-2 mb-5">
               {profile.instagram && (
                 <a href={`https://instagram.com/${profile.instagram}`} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-pink-400 hover:text-pink-300 bg-pink-500/10 border border-pink-500/20 px-3 py-1.5 rounded-full transition-all">
+                  className="flex items-center gap-1.5 text-xs text-[#1E90FF] hover:text-[#1E90FF] bg-[#1E90FF]/10 border border-[#1E90FF]/20 px-3 py-1.5 rounded-full transition-all">
                   <Camera className="w-3.5 h-3.5" /> @{profile.instagram}
                 </a>
               )}
               {profile.twitter && (
                 <a href={`https://twitter.com/${profile.twitter}`} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 bg-sky-500/10 border border-sky-500/20 px-3 py-1.5 rounded-full transition-all">
+                  className="flex items-center gap-1.5 text-xs text-[#00C2FF] hover:text-[#00C2FF] bg-[#1E90FF]/10 border border-[#1E90FF]/20 px-3 py-1.5 rounded-full transition-all">
                   <Share2 className="w-3.5 h-3.5" /> @{profile.twitter}
                 </a>
               )}
               {profile.youtubeUrl && (
                 <a href={profile.youtubeUrl} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-red-400 hover:text-red-300 bg-red-500/10 border border-red-500/20 px-3 py-1.5 rounded-full transition-all">
+                  className="flex items-center gap-1.5 text-xs text-[#1E90FF] hover:text-[#1E90FF] bg-[#1E90FF]/10 border border-[#1E90FF]/20 px-3 py-1.5 rounded-full transition-all">
                   <Play className="w-3.5 h-3.5" /> YouTube
                 </a>
               )}
               {profile.highlightUrl && (
                 <a href={profile.highlightUrl} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-violet-400 hover:text-violet-300 bg-violet-500/10 border border-violet-500/20 px-3 py-1.5 rounded-full transition-all">
+                  className="flex items-center gap-1.5 text-xs text-[#1E90FF] hover:text-[#1E90FF] bg-[#1E90FF]/10 border border-[#1E90FF]/20 px-3 py-1.5 rounded-full transition-all">
                   <PlayCircle className="w-3.5 h-3.5" /> Highlights
                 </a>
               )}
@@ -707,7 +707,7 @@ function AthletePublicProfileInner() {
           )}
         </div>
 
-        {/* ── Tab Navigation ── */}
+        {/*  Tab Navigation  */}
         <div className="border-b border-white/10 px-2 overflow-x-auto">
           <div className="flex gap-0 min-w-max">
             {TABS.map(tab => (
@@ -727,7 +727,7 @@ function AthletePublicProfileInner() {
           </div>
         </div>
 
-        {/* ── Tab Content ── */}
+        {/*  Tab Content  */}
         <div className="px-4 py-5">
 
           {/* PROFILE TAB */}
@@ -766,7 +766,7 @@ function AthletePublicProfileInner() {
                     <Newspaper className="w-10 h-10 text-white/20 mx-auto mb-3" />
                     <p className="text-white/40 text-sm">No posts yet.</p>
                     {isOwnProfile && (
-                      <Link href="/x-factor">
+                      <Link href="/epx">
                         <button className="mt-4 bg-[#00c2ff]/10 border border-[#00c2ff]/30 text-[#00c2ff] text-sm font-black px-5 py-2.5 rounded-xl flex items-center gap-2 mx-auto">
                           <Zap className="w-4 h-4" /> Create Your First Post
                         </button>
@@ -788,13 +788,13 @@ function AthletePublicProfileInner() {
                         </div>
                         <p className="text-white/80 text-sm leading-relaxed">{post.content}</p>
                         <div className="flex items-center gap-4 mt-3 pt-3 border-t border-white/5">
-                          <button className="flex items-center gap-1.5 text-white/40 hover:text-red-400 transition-colors text-xs">
+                          <button className="flex items-center gap-1.5 text-white/40 hover:text-[#1E90FF] transition-colors text-xs">
                             <Heart className="w-4 h-4" /> {post.likesCount || 0}
                           </button>
                           <button className="flex items-center gap-1.5 text-white/40 hover:text-[#00c2ff] transition-colors text-xs">
                             <MessageCircle className="w-4 h-4" /> {post.commentsCount || 0}
                           </button>
-                          <button className="flex items-center gap-1.5 text-white/40 hover:text-emerald-400 transition-colors text-xs ml-auto">
+                          <button className="flex items-center gap-1.5 text-white/40 hover:text-[#00C2FF] transition-colors text-xs ml-auto">
                             <Share2 className="w-4 h-4" /> Share
                           </button>
                         </div>
@@ -842,7 +842,7 @@ function AthletePublicProfileInner() {
                     { label: "Height", value: profile.height, icon: Ruler },
                     { label: "Weight", value: profile.weight ? `${profile.weight} lbs` : null, icon: Weight },
                     { label: "GPA", value: profile.gpa ? Number(profile.gpa).toFixed(2) : null, icon: GraduationCap },
-                    { label: "X-Factor Score", value: `${xScore}/100`, icon: Zap },
+                    { label: "EPX Score", value: `${xScore}/100`, icon: Zap },
                     { label: "EPX Rating", value: `${epxScore}/100`, icon: Flame },
                     { label: "NIL Value", value: profile.nilValue ? `$${Number(profile.nilValue).toLocaleString()}` : null, icon: DollarSign },
                   ].filter(s => s.value).map(s => (
@@ -911,11 +911,11 @@ function AthletePublicProfileInner() {
                 </div>
                 <div className="space-y-3">
                   {[
-                    { label: "Camera", value: profile.instagram, href: `https://instagram.com/${profile.instagram}`, icon: Camera, color: "text-pink-400" },
-                    { label: "Share2 / X", value: profile.twitter, href: `https://twitter.com/${profile.twitter}`, icon: Share2, color: "text-sky-400" },
-                    { label: "YouTube", value: profile.youtubeUrl, href: profile.youtubeUrl, icon: Play, color: "text-red-400" },
+                    { label: "Camera", value: profile.instagram, href: `https://instagram.com/${profile.instagram}`, icon: Camera, color: "text-[#1E90FF]" },
+                    { label: "Share2 / X", value: profile.twitter, href: `https://twitter.com/${profile.twitter}`, icon: Share2, color: "text-[#00C2FF]" },
+                    { label: "YouTube", value: profile.youtubeUrl, href: profile.youtubeUrl, icon: Play, color: "text-[#1E90FF]" },
                     { label: "LinkedIn", value: profile.linkedinUrl, href: profile.linkedinUrl, icon: ExternalLink, color: "text-blue-400" },
-                    { label: "Highlight Reel", value: profile.highlightUrl, href: profile.highlightUrl, icon: PlayCircle, color: "text-violet-400" },
+                    { label: "Highlight Reel", value: profile.highlightUrl, href: profile.highlightUrl, icon: PlayCircle, color: "text-[#1E90FF]" },
                   ].filter(s => s.value).map(s => (
                     <a key={s.label} href={s.href || "#"} target="_blank" rel="noopener noreferrer"
                       className="flex items-center justify-between bg-[#040c1a] border border-white/10 rounded-xl px-4 py-3 hover:border-white/20 transition-all group">
@@ -974,15 +974,15 @@ function AthletePublicProfileInner() {
               <div className="flex items-center gap-2 mb-4">
                 <FileText className="w-5 h-5 text-[#00c2ff]" />
                 <h3 className="text-white font-black text-lg">Contract & Agreements</h3>
-                <div className="ml-auto flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2.5 py-1">
-                  <Lock className="w-3 h-3 text-emerald-400" />
-                  <span className="text-emerald-400 text-[10px] font-black">E2EE PROTECTED</span>
+                <div className="ml-auto flex items-center gap-1.5 bg-[#1E90FF]/10 border border-[#1E90FF]/20 rounded-full px-2.5 py-1">
+                  <Lock className="w-3 h-3 text-[#00C2FF]" />
+                  <span className="text-[#00C2FF] text-[10px] font-black">E2EE PROTECTED</span>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-emerald-950/40 to-[#040c1a] border border-emerald-500/20 rounded-2xl p-5">
+              <div className="bg-gradient-to-br from-[#00C2FF]/40 to-[#040c1a] border border-[#1E90FF]/20 rounded-2xl p-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <Shield className="w-6 h-6 text-emerald-400" />
+                  <Shield className="w-6 h-6 text-[#00C2FF]" />
                   <div>
                     <div className="text-white font-black">End-to-End Encrypted</div>
                     <div className="text-white/40 text-xs">AES-256-GCM · All contract data is encrypted at rest and in transit</div>
@@ -1071,20 +1071,20 @@ function AthletePublicProfileInner() {
               </div>
 
               {/* NIL value card */}
-              <div className="bg-gradient-to-br from-emerald-950/40 to-[#040c1a] border border-emerald-500/20 rounded-2xl p-5">
+              <div className="bg-gradient-to-br from-[#00C2FF]/40 to-[#040c1a] border border-[#1E90FF]/20 rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-emerald-400" />
+                    <DollarSign className="w-5 h-5 text-[#00C2FF]" />
                     <span className="text-white font-black">NIL Valuation</span>
                   </div>
                   {(profile as any)?.nilVerified && (
-                    <div className="flex items-center gap-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full px-2 py-0.5">
-                      <CheckCircle className="w-3 h-3 text-emerald-400" />
-                      <span className="text-emerald-400 text-[10px] font-black">VERIFIED</span>
+                    <div className="flex items-center gap-1 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-2 py-0.5">
+                      <CheckCircle className="w-3 h-3 text-[#00C2FF]" />
+                      <span className="text-[#00C2FF] text-[10px] font-black">VERIFIED</span>
                     </div>
                   )}
                 </div>
-                <div className="text-4xl font-black text-emerald-400 mb-1">
+                <div className="text-4xl font-black text-[#00C2FF] mb-1">
                   ${profile.nilValue ? Number(profile.nilValue).toLocaleString() : "—"}
                 </div>
                 <div className="text-white/40 text-xs">Estimated annual NIL value based on followers, sport, and platform activity</div>
@@ -1094,9 +1094,9 @@ function AthletePublicProfileInner() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: "Brand Deals", desc: "Apparel, equipment, supplements", icon: Briefcase, color: "text-blue-400" },
-                  { label: "Social Media", desc: "Sponsored posts & content", icon: Camera, color: "text-pink-400" },
-                  { label: "Appearances", desc: "Events, camps, clinics", icon: Users, color: "text-violet-400" },
-                  { label: "Licensing", desc: "Name, image, likeness rights", icon: FileText, color: "text-sky-400" },
+                  { label: "Social Media", desc: "Sponsored posts & content", icon: Camera, color: "text-[#1E90FF]" },
+                  { label: "Appearances", desc: "Events, camps, clinics", icon: Users, color: "text-[#1E90FF]" },
+                  { label: "Licensing", desc: "Name, image, likeness rights", icon: FileText, color: "text-[#00C2FF]" },
                 ].map((cat, i) => (
                   <div key={i} className="bg-[#0d1b3e] border border-white/10 rounded-xl p-4 hover:border-[#00c2ff]/30 transition-all cursor-pointer">
                     <cat.icon className={`w-6 h-6 ${cat.color} mb-2`} />
@@ -1167,8 +1167,8 @@ function AthletePublicProfileInner() {
               <div className="grid grid-cols-3 gap-3">
                 {[
                   { label: "Coach Views", value: (profile as any)?.coachViews || 0, icon: Eye, color: "text-[#00c2ff]" },
-                  { label: "X-Factor Score", value: xScore, icon: Zap, color: "text-sky-400" },
-                  { label: "NIL Value", value: profile.nilValue ? `$${Number(profile.nilValue).toLocaleString()}` : "$0", icon: DollarSign, color: "text-emerald-400" },
+                  { label: "EPX Score", value: xScore, icon: Zap, color: "text-[#00C2FF]" },
+                  { label: "NIL Value", value: profile.nilValue ? `$${Number(profile.nilValue).toLocaleString()}` : "$0", icon: DollarSign, color: "text-[#00C2FF]" },
                 ].map(s => (
                   <div key={s.label} className="bg-[#0d1b3e] border border-white/10 rounded-xl p-3 text-center">
                     <s.icon className={`w-5 h-5 ${s.color} mx-auto mb-1.5`} />
@@ -1199,7 +1199,7 @@ function AthletePublicProfileInner() {
           )}
         </div>
 
-        {/* ── Bottom CTA Bar ── */}
+        {/*  Bottom CTA Bar  */}
         <div className="fixed bottom-0 left-0 right-0 bg-[#040c1a]/95 backdrop-blur border-t border-white/10 px-4 py-3 z-40">
           <div className="max-w-4xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -1207,8 +1207,8 @@ function AthletePublicProfileInner() {
               <div>
                 <div className="text-white font-black text-xs leading-none">AthlynX</div>
                 <div className="flex items-center gap-1 mt-0.5">
-                  <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                  <span className="text-emerald-400 text-[9px] font-black">E2EE SECURED</span>
+                  <Lock className="w-2.5 h-2.5 text-[#00C2FF]" />
+                  <span className="text-[#00C2FF] text-[9px] font-black">E2EE SECURED</span>
                 </div>
               </div>
             </div>

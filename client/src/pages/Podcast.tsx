@@ -17,14 +17,14 @@ const SHOW_INFO = {
 };
 
 const PLATFORMS = [
-  { name: "Apple Podcasts", icon: "🎧", url: "https://podcasts.apple.com", color: "from-blue-700 to-blue-900" },
-  { name: "Spotify", icon: "🎵", url: "https://open.spotify.com", color: "from-green-600 to-green-800" },
-  { name: "YouTube", icon: "▶️", url: "https://youtube.com/@athlynxai", color: "from-red-600 to-red-800" },
-  { name: "Amazon Music", icon: "🎶", url: "https://music.amazon.com", color: "from-cyan-600 to-cyan-800" },
-  { name: "iHeart Radio", icon: "📻", url: "https://iheart.com", color: "from-red-500 to-red-700" },
-  { name: "Pocket Casts", icon: "🎙️", url: "https://pocketcasts.com", color: "from-cyan-600 to-cyan-800" },
-  { name: "TikTok", icon: "📱", url: "https://tiktok.com/@athlynxai", color: "from-pink-600 to-purple-800" },
-  { name: "Instagram", icon: "📸", url: "https://instagram.com/athlynxai", color: "from-purple-600 to-pink-700" },
+  { name: "Apple Podcasts", icon: "", url: "https://podcasts.apple.com", color: "from-blue-700 to-blue-900" },
+  { name: "Spotify", icon: "", url: "https://open.spotify.com", color: "from-[#00C2FF] to-[#0a1628]" },
+  { name: "YouTube", icon: "", url: "https://youtube.com/@athlynxai", color: "from-[#1E90FF] to-[#0a1628]" },
+  { name: "Amazon Music", icon: "", url: "https://music.amazon.com", color: "from-[#1E90FF] to-[#0a1628]" },
+  { name: "iHeart Radio", icon: "", url: "https://iheart.com", color: "from-[#1E90FF] to-[#0a1628]" },
+  { name: "Pocket Casts", icon: "", url: "https://pocketcasts.com", color: "from-[#1E90FF] to-[#0a1628]" },
+  { name: "TikTok", icon: "", url: "https://tiktok.com/@athlynxai", color: "from-[#1E90FF] to-[#0a1628]" },
+  { name: "Instagram", icon: "", url: "https://instagram.com/athlynxai", color: "from-[#1E90FF] to-[#0a1628]" },
 ];
 
 const EPISODES = [
@@ -209,7 +209,7 @@ function PodcastInner() {
     <div className="min-h-screen bg-[#0a1628] text-white">
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/40 via-[#0a1628] to-cyan-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/40 via-[#0a1628] to-[#0a1628]/30" />
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(0,212,255,0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(147,51,234,0.3) 0%, transparent 50%)' }} />
         
         <div className="container relative py-16 md:py-24">
@@ -222,7 +222,7 @@ function PodcastInner() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-[#0a1628] flex items-center justify-center">
                   <Mic className="w-6 h-6" />
                 </div>
                 <div className="px-3 py-1 bg-blue-600/20 border border-blue-600/30 rounded-full text-xs text-blue-300 font-semibold">
@@ -232,7 +232,7 @@ function PodcastInner() {
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
                 The Athlete's<br />
-                <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-500 via-[#1E90FF] to-blue-400 bg-clip-text text-transparent">
                   Playbook Podcast
                 </span>
               </h1>
@@ -247,11 +247,11 @@ function PodcastInner() {
                   <span>{EPISODES.length} Episodes</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Clock className="w-4 h-4 text-cyan-400" />
+                  <Clock className="w-4 h-4 text-[#00C2FF]" />
                   <span>{SHOW_INFO.frequency}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Star className="w-4 h-4 text-red-400" />
+                  <Star className="w-4 h-4 text-[#1E90FF]" />
                   <span>Season 1</span>
                 </div>
               </div>
@@ -259,7 +259,7 @@ function PodcastInner() {
               <div className="flex flex-wrap gap-3">
                 <Button 
                   onClick={() => setPlayingEpisode(1)}
-                  className="bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white px-6 py-3 rounded-xl font-bold"
+                  className="bg-gradient-to-r from-blue-700 to-[#0a1628] hover:from-blue-800 hover:to-[#0a1628] text-white px-6 py-3 rounded-xl font-bold"
                 >
                   <Play className="w-5 h-5 mr-2" /> Play Latest Episode
                 </Button>
@@ -272,7 +272,7 @@ function PodcastInner() {
             {/* Podcast Cover Art */}
             <div className="flex justify-center">
               <div className="relative w-80 h-80 md:w-96 md:h-96">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-700 to-cyan-600 rounded-3xl shadow-2xl shadow-blue-600/30 transform rotate-3" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-700 to-[#0a1628] rounded-3xl shadow-2xl shadow-blue-600/30 transform rotate-3" />
                 <img
                   src="/media/podcast/athletes-playbook-spotify-card.png"
                   alt="The Athlete's Playbook Podcast cover art with AthlynXAI branding"
@@ -305,13 +305,13 @@ function PodcastInner() {
       <div className="container py-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
           <div>
-            <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">Media OS Vault</p>
+            <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">Media OS Vault</p>
             <h2 className="text-3xl font-black mt-2">Episode 1 Video Package</h2>
             <p className="text-gray-400 mt-2 max-w-3xl">
               These podcast assets are staged inside AthlynXAI OS first. Episode 1 keeps Lee’s voice as the lead track, uses a controlled professional music bed, and feeds Spotify for Creators, AXN, Suno-backed soundtrack lanes, and social distribution only after approval and connector proof.
             </p>
           </div>
-          <Link href="/media-os" className="inline-flex items-center gap-2 px-5 py-3 bg-cyan-500 text-[#061426] rounded-xl font-black hover:bg-cyan-400 transition">
+          <Link href="/media-os" className="inline-flex items-center gap-2 px-5 py-3 bg-[#1E90FF] text-[#061426] rounded-xl font-black hover:bg-[#1E90FF] transition">
             Open Media OS <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -329,7 +329,7 @@ function PodcastInner() {
                 />
               </div>
               <div className="p-5">
-                <div className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">{asset.label}</div>
+                <div className="text-[#00C2FF] text-xs font-bold uppercase tracking-wider mb-2">{asset.label}</div>
                 <h3 className="text-xl font-black mb-2">{asset.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{asset.description}</p>
               </div>
@@ -341,26 +341,26 @@ function PodcastInner() {
 
       {/* Championship Visual Rollout */}
       <div className="container py-12">
-        <div className="bg-gradient-to-br from-[#031021] via-[#0a2347] to-[#020712] border border-cyan-400/20 rounded-3xl p-6 md:p-8 shadow-2xl shadow-blue-950/40">
+        <div className="bg-gradient-to-br from-[#031021] via-[#0a2347] to-[#020712] border border-[#1E90FF]/30 rounded-3xl p-6 md:p-8 shadow-2xl shadow-blue-950/40">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8">
             <div>
-              <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">Championship Visual System</p>
+              <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">Championship Visual System</p>
               <h2 className="text-3xl md:text-4xl font-black mt-3 mb-4">The sharp, clean look for the apps, website, and platform.</h2>
               <p className="text-blue-100 leading-relaxed max-w-4xl">
                 These ten new approved AthlynXAI visuals are now staged for the website, app surfaces, podcast rail, AXN/AVN programming, sportswear/equipment, vendor marketplace, athlete profiles, and daily motivation lanes. Existing assets stay in place; this package adds the championship dark-blue visual system on top.
               </p>
             </div>
-            <Link href="/athlynxai-os" className="inline-flex items-center gap-2 px-5 py-3 bg-cyan-500 text-[#061426] rounded-xl font-black hover:bg-cyan-400 transition whitespace-nowrap">
+            <Link href="/athlynxai-os" className="inline-flex items-center gap-2 px-5 py-3 bg-[#1E90FF] text-[#061426] rounded-xl font-black hover:bg-[#1E90FF] transition whitespace-nowrap">
               Open AthlynXAI OS <ExternalLink className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {CHAMPIONSHIP_VISUALS.map((visual) => (
-              <article key={visual.src} className="bg-black/35 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-300/40 transition">
+              <article key={visual.src} className="bg-black/35 border border-white/10 rounded-2xl overflow-hidden hover:border-[#1E90FF]/30 transition">
                 <img src={visual.src} alt={`${visual.title} AthlynXAI championship visual`} className="w-full aspect-[4/5] object-cover" loading="lazy" />
                 <div className="p-4">
                   <h3 className="font-black text-white text-sm">{visual.title}</h3>
-                  <p className="text-cyan-200 text-xs mt-1 leading-relaxed">{visual.lane}</p>
+                  <p className="text-[#00C2FF] text-xs mt-1 leading-relaxed">{visual.lane}</p>
                 </div>
               </article>
             ))}
@@ -371,7 +371,7 @@ function PodcastInner() {
       {/* Marketplace Doctrine Expansion */}
       <div className="container py-12">
         <div className="bg-[#07111f] border border-blue-400/20 rounded-3xl p-6 md:p-8">
-          <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">All-In-One Layer Cake</p>
+          <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">All-In-One Layer Cake</p>
           <h2 className="text-3xl md:text-4xl font-black mt-3 mb-4">Everything belongs in one governed AthlynXAI OS.</h2>
           <p className="text-gray-300 leading-relaxed max-w-4xl mb-6">
             The platform is positioned as one operating system for athletes, media, marketplace commerce, professional services, advisors, Faith/FCA/devotions, and founder motivation. External tools and service providers are rails; AthlynXAI OS owns the source of truth, approvals, proof logs, and relationship record.
@@ -386,10 +386,10 @@ function PodcastInner() {
 
       {/* Full Stack Layer Cake */}
       <div className="container py-12">
-        <div className="bg-gradient-to-br from-[#061426] via-[#0b2a55] to-[#061426] border border-cyan-400/20 rounded-3xl p-6 md:p-8">
+        <div className="bg-gradient-to-br from-[#061426] via-[#0b2a55] to-[#061426] border border-[#1E90FF]/30 rounded-3xl p-6 md:p-8">
           <div className="grid lg:grid-cols-2 gap-8 items-start">
             <div>
-              <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">Full Stack Layer Cake</p>
+              <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">Full Stack Layer Cake</p>
               <h2 className="text-3xl md:text-4xl font-black mt-3 mb-4">Podcast, AXN, Suno, Spotify, live data, and Nebius H200 in one owned loop.</h2>
               <p className="text-blue-100 leading-relaxed">
                 The Athlete’s Playbook is more than a podcast page. It is the front door into AthlynXAI’s owned Media OS: creation, vault, quality scoring, Lee review, Chad approval, queue, connector check, distribution, proof, analytics, and the next-content loop. Episode 1 uses Lee’s voice, professional background music, and multi-sport visuals while Nebius H200 becomes the compute lane for future live-data and AI inference workflows; AthlynXAI owns the source code and traffic routes.
@@ -406,8 +406,8 @@ function PodcastInner() {
 
       {/* Episode 2 Teaser */}
       <div className="container py-12">
-        <div className="bg-white/5 border border-cyan-400/20 rounded-3xl p-6 md:p-8">
-          <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">Next Episode</p>
+        <div className="bg-white/5 border border-[#1E90FF]/30 rounded-3xl p-6 md:p-8">
+          <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">Next Episode</p>
           <h2 className="text-3xl md:text-4xl font-black mt-3 mb-4">Episode 2 — Chad and Lee live.</h2>
           <p className="text-gray-300 leading-relaxed max-w-4xl">
             The next episode brings Chad Allen Dozier Sr. and Lee Marshall together live: best friends, former teammates, classmates, and now business partners building The Athlete’s Playbook, AXN, and AthlynXAI OS for the athletes they represent. The tone is sports-native, bold, and entertaining, but cleaner, athlete-first, and fully owned by AthlynXAI.
@@ -417,8 +417,8 @@ function PodcastInner() {
 
       {/* Access Model */}
       <div className="container py-12">
-        <div className="bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent border border-cyan-400/20 rounded-3xl p-6 md:p-8">
-          <p className="text-cyan-300 text-xs font-black tracking-[0.25em] uppercase">Access Model</p>
+        <div className="bg-gradient-to-br from-[#1E90FF]/20 via-blue-500/5 to-transparent border border-[#1E90FF]/30 rounded-3xl p-6 md:p-8">
+          <p className="text-[#00C2FF] text-xs font-black tracking-[0.25em] uppercase">Access Model</p>
           <h2 className="text-3xl font-black mt-3 mb-4">Free to enter. Powerful when you need more.</h2>
           <p className="text-gray-300 leading-relaxed max-w-4xl">
             AthlynXAI is built so athletes can enter the network without being denied access by cost. The free layer opens the door to profiles, discovery, and the athlete community. Paid tiers and credits then power the operating-system layers: Media OS, AI content, recruiting intelligence, premium video and audio, NIL campaigns, brand kits, analytics, and hands-on services.
@@ -448,8 +448,8 @@ function PodcastInner() {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {QUALITY_ALGORITHMS.map((item) => (
-            <div key={item.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-cyan-400/30 transition">
-              <h3 className="font-black text-cyan-300 mb-2">{item.label}</h3>
+            <div key={item.label} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-[#1E90FF]/30 transition">
+              <h3 className="font-black text-[#00C2FF] mb-2">{item.label}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{item.rule}</p>
             </div>
           ))}
@@ -459,10 +459,10 @@ function PodcastInner() {
       {/* Featured Episode */}
       {EPISODES.filter(e => e.featured).map(ep => (
         <div key={ep.id} className="container py-8">
-          <div className="bg-gradient-to-r from-blue-950/50 to-cyan-900/50 border border-blue-600/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-blue-950/50 to-[#0a1628]/50 border border-blue-600/30 rounded-2xl p-8">
             <div className="flex items-center gap-2 mb-4">
-              <Star className="w-5 h-5 text-red-400" />
-              <span className="text-red-400 text-sm font-bold">FEATURED EPISODE</span>
+              <Star className="w-5 h-5 text-[#1E90FF]" />
+              <span className="text-[#1E90FF] text-sm font-bold">FEATURED EPISODE</span>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-2">
@@ -472,7 +472,7 @@ function PodcastInner() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Button 
                     onClick={() => setPlayingEpisode(playingEpisode === ep.id ? null : ep.id)}
-                    className="bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-xl"
+                    className="bg-gradient-to-r from-blue-700 to-[#0a1628] hover:from-blue-800 hover:to-[#0a1628] text-white rounded-xl"
                   >
                     {playingEpisode === ep.id ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
                     {playingEpisode === ep.id ? 'Pause' : 'Play Episode'}
@@ -517,7 +517,7 @@ function PodcastInner() {
                   onClick={(e) => { e.stopPropagation(); setPlayingEpisode(playingEpisode === ep.id ? null : ep.id); }}
                   className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition ${
                     playingEpisode === ep.id 
-                      ? 'bg-gradient-to-br from-blue-600 to-cyan-500' 
+                      ? 'bg-gradient-to-br from-blue-600 to-[#0a1628]' 
                       : 'bg-white/10 hover:bg-white/20'
                   }`}
                 >
@@ -561,7 +561,7 @@ function PodcastInner() {
           {UPCOMING_GUESTS.map((guest, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-blue-600/30 transition">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/30 to-cyan-500/30 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/30 to-[#0a1628]/30 flex items-center justify-center">
                   <Mic className="w-5 h-5 text-blue-500" />
                 </div>
                 <div className="text-xs text-gray-500">{guest.date}</div>
@@ -578,13 +578,13 @@ function PodcastInner() {
         <div className="bg-gradient-to-r from-[#0f1f3a] to-[#1a2a4a] border border-white/10 rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             <div className="flex justify-center">
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-700 to-cyan-600 flex items-center justify-center text-6xl font-black">
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-700 to-[#0a1628] flex items-center justify-center text-6xl font-black">
                 CD
               </div>
             </div>
             <div className="md:col-span-2">
               <h2 className="text-3xl font-bold mb-2">About the Host</h2>
-              <h3 className="text-xl text-cyan-400 font-semibold mb-4">{SHOW_INFO.host}</h3>
+              <h3 className="text-xl text-[#00C2FF] font-semibold mb-4">{SHOW_INFO.host}</h3>
               <p className="text-gray-300 mb-4 leading-relaxed">
                 {SHOW_INFO.hostTitle}. Chad built AthlynX from the ground up to give every athlete — 
                 from youth sports to retirement — the tools they need to succeed on and off the field. 
@@ -609,7 +609,7 @@ function PodcastInner() {
             Subscribe to The Athlete's Playbook Podcast on your favorite platform and get new episodes every Tuesday.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/signup" className="px-8 py-3 bg-gradient-to-r from-blue-700 to-cyan-600 rounded-xl font-bold hover:opacity-90 transition">
+            <Link href="/signup" className="px-8 py-3 bg-gradient-to-r from-blue-700 to-[#0a1628] rounded-xl font-bold hover:opacity-90 transition">
               Join AthlynX Free
             </Link>
             <Link href="/" className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl font-bold hover:bg-white/20 transition">
@@ -623,7 +623,7 @@ function PodcastInner() {
       {playingEpisode && (
         <div className="fixed bottom-0 left-0 right-0 bg-[#0f1729]/95 backdrop-blur-xl border-t border-blue-600/30 px-4 py-3 z-50">
           <div className="container flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-700 to-cyan-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-700 to-[#0a1628] flex items-center justify-center flex-shrink-0">
               <Headphones className="w-5 h-5" />
             </div>
             <div className="flex-1 min-w-0">
@@ -636,7 +636,7 @@ function PodcastInner() {
               <button className="text-gray-400 hover:text-white transition"><SkipBack className="w-5 h-5" /></button>
               <button 
                 onClick={() => setPlayingEpisode(null)}
-                className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center"
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-[#0a1628] flex items-center justify-center"
               >
                 <Pause className="w-5 h-5" />
               </button>
@@ -647,7 +647,7 @@ function PodcastInner() {
           {/* Progress bar */}
           <div className="container mt-2">
             <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full w-1/3 transition-all" />
+              <div className="h-full bg-gradient-to-r from-blue-600 to-[#0a1628] rounded-full w-1/3 transition-all" />
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ function EnterPortalToggle() {
   return (
     <a
       href={dest}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-cyan-500 hover:to-blue-600 text-white font-black text-sm px-5 py-3.5 rounded-2xl shadow-2xl shadow-blue-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-black text-sm px-5 py-3.5 rounded-2xl shadow-2xl shadow-blue-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
       aria-label="Enter the Portal"
       data-testid="floating-enter-portal"
     >
@@ -126,23 +126,23 @@ const APPS = [
 ];
 
 const BADGE_COLORS: Record<string, string> = {
-  LIVE: "bg-green-600",
+  LIVE: "bg-[#00C2FF]",
   NEW: "bg-blue-600",
-  HOT: "bg-red-500",
+  HOT: "bg-[#1E90FF]",
   ELITE: "bg-blue-700",
-  AI: "bg-cyan-600",
-  BLEND: "bg-red-600",
-  SOON: "bg-red-600",
-  TECH: "bg-emerald-700",
-  FOOTBALL: "bg-red-700",
-  SOCCER: "bg-green-700",
+  AI: "bg-[#1565C0]",
+  BLEND: "bg-[#1E90FF]",
+  SOON: "bg-[#1E90FF]",
+  TECH: "bg-[#1E90FF]",
+  FOOTBALL: "bg-[#1E90FF]",
+  SOCCER: "bg-[#00C2FF]",
   HOOPS: "bg-blue-800",
   FISHING: "bg-cyan-700",
   SHOP: "bg-blue-700",
-  PERSONAL: "bg-indigo-700",
-  VOICE: "bg-red-700",
-  BETA: "bg-red-700",
-  SEASON: "bg-cyan-600",
+  PERSONAL: "bg-[#1E90FF]",
+  VOICE: "bg-[#1E90FF]",
+  BETA: "bg-[#1E90FF]",
+  SEASON: "bg-[#1565C0]",
   CALLS: "bg-blue-600",
 };
 
@@ -165,10 +165,10 @@ const ECOSYSTEM_BRAND_IMAGES = [
 ];
 
 const ECOSYSTEM_BRAND_STACK = [
-  { code: "AthlynX", name: "Parent Athlete OS", tone: "from-blue-500/25 to-cyan-400/10" },
-  { code: "AthlynXAI", name: "AI Operating Core", tone: "from-cyan-400/25 to-blue-500/10" },
-  { code: "AXN", name: "Athlete Network", tone: "from-indigo-400/25 to-cyan-400/10" },
-  { code: "AVN", name: "Athlete Vision Network", tone: "from-sky-400/25 to-blue-500/10" },
+  { code: "AthlynX", name: "Parent Athlete OS", tone: "from-blue-500/25 to-[#0a1628]/10" },
+  { code: "AthlynXAI", name: "AI Operating Core", tone: "from-[#1E90FF]/20 to-blue-500/10" },
+  { code: "AXN", name: "Athlete Network", tone: "from-[#1E90FF]/25 to-[#0a1628]/10" },
+  { code: "AVN", name: "Athlete Vision Network", tone: "from-[#1E90FF]/25 to-blue-500/10" },
 ];
 
 const DEMO_VIDEO_URL = "https://pub-e4ffb4c8e08a4770a064090220a8e31d.r2.dev/videos/kmXGpMmslwPdeWYO.mp4";
@@ -186,7 +186,7 @@ const VIDEOS = [
   { file: "https://pub-e4ffb4c8e08a4770a064090220a8e31d.r2.dev/videos/eGLqGNCLommoTHsR.mp4", title: "DHG Empire II", badge: "ELITE" },
 ];
 
-// ─── Mobile Nav Menu ────────────────────────────────────────────────────────
+//  Mobile Nav Menu 
 type MobileSection = { label: string; links: { href: string; label: string }[] };
 const MOBILE_NAV_SECTIONS: MobileSection[] = [
   {
@@ -367,18 +367,18 @@ function MobileNavMenu({ onClose, onInstall }: { onClose: () => void; onInstall:
           {openSection === 'Sports' && (
             <div className="px-5 pb-4 grid grid-cols-2 gap-x-4 gap-y-1">
               {[
-                { href: '/gridiron-nexus', label: '🏈 Football' },
-                { href: '/diamond-grind', label: '⚾ Baseball' },
-                { href: '/softball', label: '🥎 Softball' },
-                { href: '/season-engine', label: '🏆 Fan Calls' },
-                { href: '/court-kings', label: '🏀 Basketball' },
-                { href: '/net-setters', label: '🏐 Volleyball' },
-                { href: '/fairway-elite', label: '⛳ Golf' },
-                { href: '/mat-warriors', label: '🤼 Wrestling' },
-                { href: '/swim-surge', label: '🏊 Swimming' },
-                { href: '/track-elite', label: '🏃 Track' },
-                { href: '/reel-masters', label: '🎣 Fishing' },
-                { href: '/ice-breakers', label: '🏒 Hockey' },
+                { href: '/gridiron-nexus', label: ' Football' },
+                { href: '/diamond-grind', label: ' Baseball' },
+                { href: '/softball', label: ' Softball' },
+                { href: '/season-engine', label: ' Fan Calls' },
+                { href: '/court-kings', label: ' Basketball' },
+                { href: '/net-setters', label: ' Volleyball' },
+                { href: '/fairway-elite', label: ' Golf' },
+                { href: '/mat-warriors', label: ' Wrestling' },
+                { href: '/swim-surge', label: ' Swimming' },
+                { href: '/track-elite', label: ' Track' },
+                { href: '/reel-masters', label: ' Fishing' },
+                { href: '/ice-breakers', label: ' Hockey' },
               ].map(s => (
                 <Link key={s.href} href={s.href} onClick={onClose}
                   className="py-2.5 text-white/70 hover:text-white text-base font-medium transition-colors">
@@ -597,34 +597,34 @@ function HomeInner() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* ═══ CHAMPIONSHIP BRACKETS · TOP OF PAGE · ABOVE DIAMOND GRIND ═══
+      {/*  CHAMPIONSHIP BRACKETS · TOP OF PAGE · ABOVE DIAMOND GRIND 
            Both MCWS (men) + WCWS (women) with live ESPN data. WCWS is
            already underway. Regionals end Mon Jun 1; Super Regionals start
            Fri Jun 5 — same components auto-roll. Diamond Grind covers both
            sports below. Locked by Chad 2026-05-31. */}
-      {/* ═══ BRACKET BANNERS — premium AthlynX-branded MCWS + WCWS art at the very top.
+      {/*  BRACKET BANNERS — premium AthlynX-branded MCWS + WCWS art at the very top.
            Locked by Chad 2026-06-01 06:01 CDT: "All I want is the bracket banners live and at top."
-           "Brand it for AthlynX. Best them at their own game." ═══ */}
+           "Brand it for AthlynX. Best them at their own game."  */}
       <BracketBannerStrip />
 
-      {/* ═══ ATHLETE ENTRY BANNER — right under the brackets so athletes can skip straight to the platform. Locked by Chad 2026-06-01. ═══ */}
+      {/*  ATHLETE ENTRY BANNER — right under the brackets so athletes can skip straight to the platform. Locked by Chad 2026-06-01.  */}
       <AthleteEntryBanner />
       <LiveGamesStrip />
       <ChampionshipBracketsTop />
 
-      {/* ═══ ROAD TO OMAHA HERO — live regional bracket + Diamond Grind IQ launch. Locked May 29, 2026. ═══ */}
+      {/*  ROAD TO OMAHA HERO — live regional bracket + Diamond Grind IQ launch. Locked May 29, 2026.  */}
       <RoadToOmahaHero />
 
-      {/* ═══ LIVE HIGHLIGHTS FEED — official WCWS/MCWS clips + AthlynX originals. Auto-refreshes. Added May 31, 2026 for S1E2 launch weekend. ═══ */}
+      {/*  LIVE HIGHLIGHTS FEED — official WCWS/MCWS clips + AthlynX originals. Auto-refreshes. Added May 31, 2026 for S1E2 launch weekend.  */}
       <LiveHighlightsFeed mode="auto" />
 
-      {/* ═══ SOVEREIGNTY MANIFESTO — AthlynX Doctrine. Chad Dozier's response to HUMAIN. Added June 2026. ═══ */}
+      {/*  SOVEREIGNTY MANIFESTO — AthlynX Doctrine. Chad Dozier's response to HUMAIN. Added June 2026.  */}
       <SovereigntyManifesto />
 
-      {/* ═══ SEASONAL HERO STRIP — rotates with the championship season. All sports. All ages. Men & women. ═══ */}
+      {/*  SEASONAL HERO STRIP — rotates with the championship season. All sports. All ages. Men & women.  */}
       <SeasonalHeroStrip />
 
-      {/* ═══ ATHLETE-FIRST ACQUISITION BAR ═══ */}
+      {/*  ATHLETE-FIRST ACQUISITION BAR  */}
       <div className="relative overflow-hidden border-b border-[#1E90FF]/30 bg-black">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="text-center md:text-left">
@@ -659,7 +659,7 @@ function HomeInner() {
           </div>
           {/* Desktop nav buttons */}
           <div className="hidden md:flex items-center gap-2">
-            <Link href="/demo" className="text-xs border border-red-600 text-red-300 hover:bg-red-900 px-3 py-1.5 rounded-lg transition-colors font-bold">
+            <Link href="/demo" className="text-xs border border-[#1E90FF] text-[#1E90FF] hover:bg-[#1E90FF] px-3 py-1.5 rounded-lg transition-colors font-bold">
               HOW IT WORKS
             </Link>
             <Link href="/pricing" className="text-xs border border-blue-700 text-blue-300 hover:bg-blue-800 px-3 py-1.5 rounded-lg transition-colors">
@@ -701,7 +701,7 @@ function HomeInner() {
       {/* Status bar */}
       <div className="bg-[#0a1628] border-b border-[#1E90FF]/25 py-1.5">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-6 text-xs">
-          <span className="flex items-center gap-1.5 text-green-400"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>LIVE PLATFORM</span>
+          <span className="flex items-center gap-1.5 text-[#00C2FF]"><span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse"></span>LIVE PLATFORM</span>
           <span className="text-[#1E90FF]">|</span>
           <span className="text-white/80">HIPAA-ALIGNED</span>
           <span className="text-[#1E90FF]">|</span>
@@ -715,7 +715,7 @@ function HomeInner() {
       </div>
 
 
-      {/* ═══ SEASONAL WORLD SERIES BRACKETS FIRST ═══ */}
+      {/*  SEASONAL WORLD SERIES BRACKETS FIRST  */}
       <section className="relative overflow-hidden border-y border-[#1E90FF]/30 bg-black px-4 py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(30,144,255,0.28),transparent_32%),radial-gradient(circle_at_88%_18%,rgba(0,128,255,0.18),transparent_34%)]" />
         <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="" aria-hidden="true" className="pointer-events-none absolute -right-16 top-6 hidden w-[520px] opacity-[0.075] drop-shadow-[0_0_46px_rgba(30,144,255,0.55)] lg:block" />
@@ -809,7 +809,7 @@ function HomeInner() {
             <span className="text-sm md:text-base font-black uppercase tracking-widest text-white/60">ENTER THE PORTAL</span>
           </div>
 
-          {/* ═══ RECOGNITION ═══ */}
+          {/*  RECOGNITION  */}
           <div className="mt-10 w-full max-w-5xl">
             <div className="text-[10px] font-black uppercase tracking-[0.45em] text-[#1E90FF]">Recognition</div>
             <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -851,14 +851,14 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ AthlynX ECOSYSTEM BRAND WALL ═══ */}
-      <section className="relative overflow-hidden bg-[#020713] px-4 py-14 border-y border-cyan-400/20">
+      {/*  AthlynX ECOSYSTEM BRAND WALL  */}
+      <section className="relative overflow-hidden bg-[#020713] px-4 py-14 border-y border-[#1E90FF]/30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(0,194,255,0.22),transparent_32%),radial-gradient(circle_at_85%_0%,rgba(30,75,184,0.35),transparent_38%)]" />
-        <div className="absolute -right-20 top-6 h-72 w-72 rounded-full border border-cyan-300/20 bg-blue-500/10 blur-2xl" />
+        <div className="absolute -right-20 top-6 h-72 w-72 rounded-full border border-[#1E90FF]/30 bg-blue-500/10 blur-2xl" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-cyan-200">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-[#00C2FF]">
                 Official Branded Ecosystem
               </div>
               <h2 className="mt-5 text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
@@ -871,7 +871,7 @@ function HomeInner() {
                 {ECOSYSTEM_BRAND_STACK.map((item) => (
                   <div key={item.code} className={`rounded-2xl border border-white/10 bg-gradient-to-br ${item.tone} p-4 shadow-xl shadow-black/20`}>
                     <p className="text-xl font-black text-white">{item.code}</p>
-                    <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-cyan-200">{item.name}</p>
+                    <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#00C2FF]">{item.name}</p>
                   </div>
                 ))}
               </div>
@@ -884,7 +884,7 @@ function HomeInner() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/5 to-transparent" />
                   <div className="absolute left-0 right-0 bottom-0 p-5">
                     <p className="text-3xl font-black tracking-tight text-white drop-shadow-2xl">{asset.title}</p>
-                    <p className="mt-1 text-xs font-black uppercase tracking-[0.18em] text-cyan-200">{asset.label}</p>
+                    <p className="mt-1 text-xs font-black uppercase tracking-[0.18em] text-[#00C2FF]">{asset.label}</p>
                   </div>
                   <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-black/45 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur">
                     Approved Mark
@@ -896,13 +896,13 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ AthlynX Medical / LIBRE LINK PROOF ═══ */}
-      <section className="relative overflow-hidden bg-[#061226] px-4 py-12 border-y border-cyan-400/20">
+      {/*  AthlynX Medical / LIBRE LINK PROOF  */}
+      <section className="relative overflow-hidden bg-[#061226] px-4 py-12 border-y border-[#1E90FF]/30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(0,194,255,0.18),transparent_34%),radial-gradient(circle_at_90%_10%,rgba(30,75,184,0.35),transparent_36%)]" />
         <div className="absolute -left-20 bottom-0 text-[9rem] md:text-[13rem] font-black tracking-tight text-white/[0.025] select-none">AthlynX Medical</div>
         <div className="relative z-10 max-w-7xl mx-auto grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-emerald-200">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-[#00C2FF]">
               Founder-Tested · Libre Link Proof Path
             </div>
             <h2 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-none text-white">
@@ -914,8 +914,8 @@ function HomeInner() {
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { title: "Libre Link", desc: "LibreView / LibreLinkUp / Data Share proof path", tone: "border-emerald-300/30 bg-emerald-400/10" },
-              { title: "BioSignal Channel", desc: "Glucose, oxygen, cardiac, hydration, brain, heat, and recovery signals", tone: "border-cyan-300/30 bg-cyan-400/10" },
+              { title: "Libre Link", desc: "LibreView / LibreLinkUp / Data Share proof path", tone: "border-[#1E90FF]/30 bg-[#1E90FF]/10" },
+              { title: "BioSignal Channel", desc: "Glucose, oxygen, cardiac, hydration, brain, heat, and recovery signals", tone: "border-[#1E90FF]/30 bg-[#1E90FF]/20" },
               { title: "IP Protected", desc: "Founder-owned proprietary concept, code, strategy, and evidence trail", tone: "border-blue-300/30 bg-blue-400/10" },
             ].map((card) => (
               <div key={card.title} className={`rounded-3xl border ${card.tone} p-5 shadow-2xl shadow-black/20 backdrop-blur`}>
@@ -927,7 +927,7 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ SCROLLING TICKER ═══ */}
+      {/*  SCROLLING TICKER  */}
       <div className="bg-[#0066ff] overflow-hidden py-4">
         <div className="flex animate-[marquee_40s_linear_infinite] whitespace-nowrap" style={{gap: '3rem'}}>
           {[
@@ -938,14 +938,14 @@ function HomeInner() {
             "RECRUITING", "DIAMOND GRIND", "COURT KINGS", "X-FACTOR",
           ].map((item, i) => (
             <span key={i} className="text-white font-black text-base tracking-[0.15em] uppercase flex items-center shrink-0" style={{marginRight: '2rem'}}>
-              {item}&nbsp;&nbsp;<span className="text-white/60 text-lg">⚡</span>
+              {item}&nbsp;&nbsp;<span className="text-white/60 text-lg"></span>
             </span>
           ))}
         </div>
       </div>
 
 
-      {/* ═══ AthlynXAI INTRODUCTION ═══ */}
+      {/*  AthlynXAI INTRODUCTION  */}
       <section className="bg-[#040c1a] py-14 px-4 border-b border-[#0066ff]/20">
         <div className="max-w-5xl mx-auto">
 
@@ -968,8 +968,8 @@ function HomeInner() {
             {[
               { value: "44", label: "Sports Covered", sub: "Every level. Both genders.", color: "text-[#0066ff]" },
               { value: "213+", label: "Platform Features", sub: "Built from scratch", color: "text-[#00c2ff]" },
-              { value: "$135B", label: "Market Opportunity", sub: "Sports tech TAM by 2035 · 21.9% CAGR", color: "text-green-400" },
-              { value: "4", label: "AI Engines", sub: "Private multi-engine architecture", color: "text-purple-400" },
+              { value: "$135B", label: "Market Opportunity", sub: "Sports tech TAM by 2035 · 21.9% CAGR", color: "text-[#00C2FF]" },
+              { value: "4", label: "AI Engines", sub: "Private multi-engine architecture", color: "text-[#1E90FF]" },
             ].map((s, i) => (
               <div key={i} className="bg-[#0a1628] border border-[#0066ff]/20 rounded-2xl p-5 text-center hover:border-[#0066ff]/50 transition-all">
                 <div className={`font-black text-4xl md:text-5xl ${s.color} mb-1`}>{s.value}</div>
@@ -979,11 +979,11 @@ function HomeInner() {
             ))}
           </div>
 
-          {/* X-Factor Demo Scores */}
+          {/* EPX Demo Scores */}
           <div className="bg-[#0a1628] border border-[#0066ff]/20 rounded-3xl p-6 mb-8">
             <div className="flex items-center justify-between mb-5">
               <div>
-                <div className="text-[#00c2ff] text-xs font-black uppercase tracking-widest mb-1">X-Factor™ — Demo Preview</div>
+                <div className="text-[#00c2ff] text-xs font-black uppercase tracking-widest mb-1">EPX™ — Demo Preview</div>
                 <div className="text-white font-black text-xl">Sample Top Prospects</div>
                 <div className="text-[#4a6080] text-[10px] mt-1">Illustrative example · not real users · live leaderboard launches with public release</div>
               </div>
@@ -1002,7 +1002,7 @@ function HomeInner() {
                 <div key={i} className="flex items-center gap-3 bg-[#040c1a] rounded-2xl px-4 py-3">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-sm shrink-0 ${
                     i === 0 ? "bg-gradient-to-br from-[#0066ff] to-[#00c2ff]" :
-                    i === 1 ? "bg-gradient-to-br from-[#0066ff] to-purple-600" :
+                    i === 1 ? "bg-gradient-to-br from-[#0066ff] to-[#0a1628]" :
                     "bg-gradient-to-br from-[#0a1628] to-[#0066ff]"
                   }`}>
                     #{i + 1}
@@ -1013,10 +1013,10 @@ function HomeInner() {
                   </div>
                   <div className="text-right shrink-0">
                     <div className="text-[#00c2ff] font-black text-xl">{a.score}</div>
-                    <div className="text-green-400 text-xs font-bold">{a.trend} this week</div>
+                    <div className="text-[#00C2FF] text-xs font-bold">{a.trend} this week</div>
                   </div>
                   <div className="text-right shrink-0 hidden sm:block">
-                    <div className="text-green-400 font-black text-sm">{a.nil}</div>
+                    <div className="text-[#00C2FF] font-black text-sm">{a.nil}</div>
                     <div className="text-[#4a6080] text-xs">NIL Value</div>
                   </div>
                   <div className="text-right shrink-0 hidden sm:block">
@@ -1035,16 +1035,16 @@ function HomeInner() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               {
-                icon: "💰",
+                icon: "",
                 title: "NIL Deals",
                 stat: "$2.1B+",
                 statLabel: "Total NIL market tracked",
                 desc: "Connect with brands, manage contracts, track earnings. The complete NIL ecosystem in one place.",
-                color: "border-green-500/30 hover:border-green-500/60",
-                statColor: "text-green-400",
+                color: "border-[#00C2FF]/30 hover:border-[#00C2FF]/60",
+                statColor: "text-[#00C2FF]",
               },
               {
-                icon: "🔄",
+                icon: "",
                 title: "Transfer Portal",
                 stat: "847",
                 statLabel: "Athletes in portal today",
@@ -1053,13 +1053,13 @@ function HomeInner() {
                 statColor: "text-[#00c2ff]",
               },
               {
-                icon: "⚡",
-                title: "X-Factor Score",
+                icon: "",
+                title: "EPX Score",
                 stat: "0–100",
                 statLabel: "AI-powered athlete rating",
-                desc: "Your X-Factor score grows as you perform. Coaches see it. Scouts track it. Brands pay for it.",
-                color: "border-purple-500/30 hover:border-purple-500/60",
-                statColor: "text-purple-400",
+                desc: "Your EPX score grows as you perform. Coaches see it. Scouts track it. Brands pay for it.",
+                color: "border-[#1E90FF]/30 hover:border-[#1E90FF]/60",
+                statColor: "text-[#1E90FF]",
               },
             ].map((p, i) => (
               <div key={i} className={`bg-[#0a1628] border rounded-2xl p-6 transition-all ${p.color}`}>
@@ -1085,7 +1085,7 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ SPORT CARDS — EVERY SPORT COVERED ═══ */}
+      {/*  SPORT CARDS — EVERY SPORT COVERED  */}
       <section className="bg-[#040c1a] py-10 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6">
@@ -1097,7 +1097,7 @@ function HomeInner() {
               {
                 sport: "Basketball",
                 tag: "NIL Deals",
-                tagColor: "bg-green-500 text-white",
+                tagColor: "bg-[#00C2FF] text-white",
                 href: "/court-kings",
                 img: "/media/site-theme/exact-episode2/03-IMG_0130.JPG",
                 desc: "Court Kings™ — AAU, NIL, Recruiting"
@@ -1105,7 +1105,7 @@ function HomeInner() {
               {
                 sport: "Football",
                 tag: "Transfer Portal",
-                tagColor: "bg-red-500 text-white",
+                tagColor: "bg-[#1E90FF] text-white",
                 href: "/gridiron-nexus",
                 img: "/media/site-theme/exact-episode2/21-IMG_0246.JPG",
                 desc: "Gridiron Nexus™ — Elite Football Platform"
@@ -1128,16 +1128,16 @@ function HomeInner() {
               },
               {
                 sport: "Track & Field",
-                tag: "X-Factor",
+                tag: "EPX",
                 tagColor: "bg-[#00c2ff] text-[#050d1a]",
-                href: "/x-factor",
+                href: "/epx",
                 img: "/media/site-theme/exact-episode2/06-IMG_0132.JPG",
-                desc: "X-Factor™ — Performance Analytics"
+                desc: "EPX™ — Performance Analytics"
               },
               {
                 sport: "Wrestling",
                 tag: "Warriors Playbook",
-                tagColor: "bg-purple-500 text-white",
+                tagColor: "bg-[#1E90FF] text-white",
                 href: "/warriors-playbook",
                 img: "/media/site-theme/exact-episode2/07-IMG_0133.JPG",
                 desc: "Warriors Playbook™ — Plays, Film & Strategy"
@@ -1164,7 +1164,7 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ PRIVATE AthlynXAI OS INFRASTRUCTURE ═══ */}
+      {/*  PRIVATE AthlynXAI OS INFRASTRUCTURE  */}
       <section className="bg-[#060e24] border-t border-blue-900 py-12 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
@@ -1174,15 +1174,15 @@ function HomeInner() {
           </div>
           <div className="space-y-3">
             {[
-              { layer: "Intelligence", name: "Athlete Intelligence", desc: "Recruiting, NIL, training, and career tools working together in one secure platform", color: "from-blue-600 to-cyan-500", icon: "⚡" },
-              { layer: "Experience", name: "Unified Athlete OS", desc: "Profiles, media, messaging, recruiting, and monetization connected in one flow", color: "from-purple-600 to-indigo-600", icon: "🧠" },
-              { layer: "Reliability", name: "Production-Ready Platform", desc: "Built for uptime, fast access, secure routing, and long-term scale", color: "from-green-600 to-teal-600", icon: "💻" },
-              { layer: "Data", name: "Secure Data Foundation", desc: "Athlete information, content, and business records protected behind controlled access", color: "from-blue-700 to-blue-900", icon: "🗄️" },
-              { layer: "Commerce", name: "Payments & Licensing Ready", desc: "Designed for memberships, credits, licensing, and brand partnerships", color: "from-indigo-600 to-violet-700", icon: "💳" },
-              { layer: "Communication", name: "Messaging & Alerts", desc: "Built to keep athletes, teams, parents, brands, and operators connected", color: "from-blue-600 to-cyan-600", icon: "💬" },
-              { layer: "Media", name: "Video, Profiles & Content", desc: "A home for athlete stories, highlights, recruiting material, and media presence", color: "from-[#0066ff] to-[#00c2ff]", icon: "☁️" },
-              { layer: "Operations", name: "Automation-Ready Workflows", desc: "Internal systems support intake, follow-up, reporting, and platform operations", color: "from-[#0066ff] to-[#00c2ff]", icon: "⚡" },
-              { layer: "Security", name: "Protected Architecture", desc: "The revolutionary system is visible; the blueprint stays confidential", color: "from-gray-700 to-gray-900", icon: "🔒" },
+              { layer: "Intelligence", name: "Athlete Intelligence", desc: "Recruiting, NIL, training, and career tools working together in one secure platform", color: "from-blue-600 to-[#0a1628]", icon: "" },
+              { layer: "Experience", name: "Unified Athlete OS", desc: "Profiles, media, messaging, recruiting, and monetization connected in one flow", color: "from-[#1E90FF] to-indigo-600", icon: "" },
+              { layer: "Reliability", name: "Production-Ready Platform", desc: "Built for uptime, fast access, secure routing, and long-term scale", color: "from-[#00C2FF] to-teal-600", icon: "" },
+              { layer: "Data", name: "Secure Data Foundation", desc: "Athlete information, content, and business records protected behind controlled access", color: "from-blue-700 to-blue-900", icon: "" },
+              { layer: "Commerce", name: "Payments & Licensing Ready", desc: "Designed for memberships, credits, licensing, and brand partnerships", color: "from-[#1E90FF] to-violet-700", icon: "" },
+              { layer: "Communication", name: "Messaging & Alerts", desc: "Built to keep athletes, teams, parents, brands, and operators connected", color: "from-blue-600 to-[#0a1628]", icon: "" },
+              { layer: "Media", name: "Video, Profiles & Content", desc: "A home for athlete stories, highlights, recruiting material, and media presence", color: "from-[#0066ff] to-[#00c2ff]", icon: "" },
+              { layer: "Operations", name: "Automation-Ready Workflows", desc: "Internal systems support intake, follow-up, reporting, and platform operations", color: "from-[#0066ff] to-[#00c2ff]", icon: "" },
+              { layer: "Security", name: "Protected Architecture", desc: "The revolutionary system is visible; the blueprint stays confidential", color: "from-gray-700 to-gray-900", icon: "" },
             ].map((item) => (
               <div key={item.name} className="flex items-center gap-4 bg-[#0d1b3e] border border-blue-900 rounded-xl px-4 py-3 hover:border-blue-600 transition-colors">
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-lg shrink-0`}>{item.icon}</div>
@@ -1193,13 +1193,13 @@ function HomeInner() {
                   <div className="text-white font-black text-sm">{item.name}</div>
                   <div className="text-blue-400 text-xs truncate">{item.desc}</div>
                 </div>
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shrink-0"></div>
+                <div className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse shrink-0"></div>
               </div>
             ))}
           </div>
           <div className="mt-6 text-center space-y-3">
-            <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700 text-green-400 text-xs font-black px-4 py-2 rounded-full">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 bg-[#00C2FF]/30 border border-[#00C2FF] text-[#00C2FF] text-xs font-black px-4 py-2 rounded-full">
+              <span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse"></span>
               REVOLUTIONARY PLATFORM LIVE — BLUEPRINT PROTECTED
             </div>
             <div>
@@ -1214,34 +1214,34 @@ function HomeInner() {
       {/* === FOUR ACCESS PORTALS — ONE PLACE === */}
       <section className="bg-gradient-to-b from-[#060e24] to-[#0d1b3e] py-12 px-4 border-b border-blue-900">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500 text-red-300 text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest">
-            <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF] text-[#1E90FF] text-xs font-black px-4 py-1.5 rounded-full mb-4 tracking-widest">
+            <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse"></span>
             FREE 7-DAY ACCESS — NOT CHARGED UNTIL DAY 8
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-2">ACCESS THE PLATFORM</h2>
           <p className="text-blue-300 text-base mb-8">Choose your portal below. All in one platform.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Users — Athletes, Parents, Coaches, Brands */}
-            <a href="/feed" className="flex flex-col items-center gap-2 bg-gradient-to-br from-blue-600 to-cyan-600 hover:from-cyan-600 hover:to-blue-600 text-white font-bold text-base py-5 px-4 rounded-2xl transition-all shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98] border-2 border-cyan-400/40">
-              <span className="text-2xl">🏆</span>
+            <a href="/feed" className="flex flex-col items-center gap-2 bg-gradient-to-br from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-bold text-base py-5 px-4 rounded-2xl transition-all shadow-lg shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98] border-2 border-[#1E90FF]/30">
+              <span className="text-2xl"></span>
               <span className="font-black text-lg">ENTER THE PORTAL</span>
               <span className="text-blue-100 text-xs font-normal">Athletes · Parents · Coaches · Brands</span>
             </a>
             {/* Founders / Investors */}
             <a href="/investor-hub" className="flex flex-col items-center gap-2 bg-[#1a3a8f] hover:bg-[#1e4aaa] text-white font-bold text-base py-5 px-4 rounded-2xl transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30">
-              <span className="text-2xl">💼</span>
+              <span className="text-2xl"></span>
               <span className="font-black text-lg">Founders</span>
               <span className="text-blue-200 text-xs font-normal">Investors · Partners · DHG Team</span>
             </a>
             {/* Portal — White Label / Partner */}
             <a href="/portal" className="flex flex-col items-center gap-2 bg-[#0d2151] hover:bg-[#112d6b] text-white font-bold text-base py-5 px-4 rounded-2xl transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30">
-              <span className="text-2xl">🔗</span>
+              <span className="text-2xl"></span>
               <span className="font-black text-lg">Portal</span>
               <span className="text-blue-200 text-xs font-normal">White Label · Partner Access</span>
             </a>
             {/* CRM — Internal Team */}
             <a href="/crm" className="flex flex-col items-center gap-2 bg-[#0a1628] hover:bg-[#0d1e3a] text-white font-bold text-base py-5 px-4 rounded-2xl transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98] border border-blue-400/30">
-              <span className="text-2xl">⚙️</span>
+              <span className="text-2xl"></span>
               <span className="font-black text-lg">CRM</span>
               <span className="text-blue-200 text-xs font-normal">Internal Team · Admin</span>
             </a>
@@ -1317,10 +1317,10 @@ function HomeInner() {
       <section className="py-16 px-4 bg-gradient-to-b from-[#1a3a8f] to-[#1530a0]">
         <div className="max-w-2xl mx-auto text-center">
           <div className="text-blue-400 text-xs uppercase tracking-widest mb-2">Platform Status</div>
-          <h2 className="text-4xl font-black text-green-400 mb-4">🟢 WE ARE LIVE</h2>
+          <h2 className="text-4xl font-black text-[#00C2FF] mb-4"> WE ARE LIVE</h2>
           <p className="text-blue-200 text-lg mb-8">The platform is open. Join thousands of athletes building their careers.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/signup" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-cyan-500 hover:to-blue-600 text-white font-black text-lg px-8 py-4 rounded-xl transition-all shadow-xl hover:scale-105">
+            <a href="/signup" className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-black text-lg px-8 py-4 rounded-xl transition-all shadow-xl hover:scale-105">
               Start Free Trial
             </a>
             <a href="/pricing" className="bg-[#1a3a8f] border border-blue-600 hover:bg-blue-800 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all">
@@ -1344,33 +1344,33 @@ function HomeInner() {
             </p>
           </div>
 
-          {/* ═══ FOUNDER'S MANIFESTO — The Grinder's Creed ═══ */}
+          {/*  FOUNDER'S MANIFESTO — The Grinder's Creed  */}
           <article className="max-w-3xl mx-auto mb-14 relative scroll-mt-24" aria-labelledby="grinders-creed-title" style={{ scrollMarginTop: '6rem' }}>
-            <div className="relative rounded-3xl overflow-hidden border border-cyan-400/15 shadow-2xl shadow-blue-950/60 ring-1 ring-cyan-400/10" style={{ background: 'linear-gradient(160deg, #0a1c4d 0%, #0d2a8a 45%, #0a1c4d 100%)' }}>
+            <div className="relative rounded-3xl overflow-hidden border border-[#1E90FF]/30 shadow-2xl shadow-blue-950/60 ring-1 ring-cyan-400/10" style={{ background: 'linear-gradient(160deg, #0a1c4d 0%, #0d2a8a 45%, #0a1c4d 100%)' }}>
               {/* corner registration marks — echo of the original card's design language */}
-              <span aria-hidden className="absolute top-3 left-3 w-3 h-3 rounded-full border border-cyan-300/40" />
-              <span aria-hidden className="absolute top-3 right-3 w-3 h-3 rounded-full border border-cyan-300/40" />
-              <span aria-hidden className="absolute bottom-3 left-3 w-3 h-3 rounded-full border border-cyan-300/40" />
-              <span aria-hidden className="absolute bottom-3 right-3 w-3 h-3 rounded-full border border-cyan-300/40" />
-              <span aria-hidden className="absolute top-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent" />
-              <span aria-hidden className="absolute bottom-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent" />
+              <span aria-hidden className="absolute top-3 left-3 w-3 h-3 rounded-full border border-[#1E90FF]/30" />
+              <span aria-hidden className="absolute top-3 right-3 w-3 h-3 rounded-full border border-[#1E90FF]/30" />
+              <span aria-hidden className="absolute bottom-3 left-3 w-3 h-3 rounded-full border border-[#1E90FF]/30" />
+              <span aria-hidden className="absolute bottom-3 right-3 w-3 h-3 rounded-full border border-[#1E90FF]/30" />
+              <span aria-hidden className="absolute top-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#1E90FF]/40 to-transparent" />
+              <span aria-hidden className="absolute bottom-5 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#1E90FF]/40 to-transparent" />
 
               {/* Author byline */}
-              <header className="relative px-6 sm:px-10 pt-14 sm:pt-16 pb-6 flex items-center gap-4 border-b border-cyan-400/10">
+              <header className="relative px-6 sm:px-10 pt-14 sm:pt-16 pb-6 flex items-center gap-4 border-b border-[#1E90FF]/30">
                 <img
                   src="/images/team/chad-dozier-headshot.png"
                   alt="Chad A. Dozier"
-                  className="w-16 h-16 rounded-full object-cover object-top border-2 border-cyan-400/40 shadow-lg shadow-cyan-500/20 flex-shrink-0"
+                  className="w-16 h-16 rounded-full object-cover object-top border-2 border-[#1E90FF]/30 shadow-lg shadow-cyan-500/20 flex-shrink-0"
                   style={{ minWidth: '64px', minHeight: '64px' }}
                   onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                 />
                 <div className="flex-1">
                   <div className="text-white font-black text-base leading-tight">Chad A. Dozier</div>
-                  <div className="text-cyan-300 text-[11px] tracking-widest uppercase">Founder · CEO · Chairman · AthlynX</div>
+                  <div className="text-[#00C2FF] text-[11px] tracking-widest uppercase">Founder · CEO · Chairman · AthlynX</div>
                 </div>
                 <div className="hidden sm:flex flex-col items-end text-[10px] tracking-widest uppercase text-blue-300/70">
                   <span>A Founder's Letter</span>
-                  <span className="text-cyan-300/80">No. 001</span>
+                  <span className="text-[#00C2FF]/80">No. 001</span>
                 </div>
               </header>
 
@@ -1382,9 +1382,9 @@ function HomeInner() {
                     <path d="M9 21h6v-1H9v1zm3-19a7 7 0 00-4 12.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26A7 7 0 0012 2z" />
                   </svg>
                 </div>
-                <p className="text-cyan-200/80 text-[11px] tracking-[0.3em] uppercase mb-3">The Grinder's Creed</p>
+                <p className="text-[#00C2FF]/80 text-[11px] tracking-[0.3em] uppercase mb-3">The Grinder's Creed</p>
                 <h3 id="grinders-creed-title" className="text-white font-black leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(1.75rem, 4.2vw, 2.75rem)' }}>
-                  Genius is <span className="text-cyan-300">1%</span> inspiration<br/>and <span className="text-cyan-300">99%</span> perspiration.
+                  Genius is <span className="text-[#00C2FF]">1%</span> inspiration<br/>and <span className="text-[#00C2FF]">99%</span> perspiration.
                 </h3>
                 <p className="text-blue-300/80 text-sm mt-3 italic">— Thomas A. Edison</p>
               </div>
@@ -1399,7 +1399,7 @@ function HomeInner() {
                 </p>
                 <p className="text-white font-bold text-lg leading-tight pt-2">
                   Inspiration is the spark.<br/>
-                  <span className="text-cyan-300">Perspiration is the engine.</span>
+                  <span className="text-[#00C2FF]">Perspiration is the engine.</span>
                 </p>
                 <p>
                   So the next time you feel stuck, tired, or ready to give up — remember: you're probably in the 99%. Keep going. That's where greatness is made.
@@ -1411,12 +1411,12 @@ function HomeInner() {
 
               {/* Lineage stamp */}
               <footer className="relative px-6 sm:px-10 pb-10 pt-2">
-                <div className="border-t border-cyan-400/15 pt-6 text-center">
+                <div className="border-t border-[#1E90FF]/30 pt-6 text-center">
                   <p className="text-blue-300/70 text-[10px] tracking-[0.3em] uppercase mb-3">The Lineage</p>
                   <p className="text-white font-bold text-sm sm:text-base tracking-wide">
-                    Edison <span className="text-cyan-400">·</span> Tesla <span className="text-cyan-400">·</span> Da Vinci <span className="text-cyan-400">·</span> Newton <span className="text-cyan-400">·</span> Curie <span className="text-cyan-400">·</span> Einstein
+                    Edison <span className="text-[#00C2FF]">·</span> Tesla <span className="text-[#00C2FF]">·</span> Da Vinci <span className="text-[#00C2FF]">·</span> Newton <span className="text-[#00C2FF]">·</span> Curie <span className="text-[#00C2FF]">·</span> Einstein
                   </p>
-                  <p className="text-cyan-300 font-black text-lg sm:text-xl tracking-[0.2em] mt-2">AthlynX.AI</p>
+                  <p className="text-[#00C2FF] font-black text-lg sm:text-xl tracking-[0.2em] mt-2">AthlynX.AI</p>
                   <p className="text-blue-400/60 text-[10px] tracking-widest uppercase mt-4">
                     Signed · Chad A. Dozier · Houston, TX · May 2026
                   </p>
@@ -1429,10 +1429,10 @@ function HomeInner() {
           {/* Live Platform Stats — Eye-Popping Numbers */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { value: "44", label: "Sports Covered", sub: "Every sport. Every level.", color: "text-cyan-400", icon: "🏆" },
-              { value: "213+", label: "Platform Routes", sub: "Features & tools built", color: "text-green-400", icon: "⚡" },
-              { value: "4", label: "AI Engines", sub: "Private multi-engine architecture", color: "text-purple-400", icon: "🧠" },
-              { value: "$135B", label: "Market Opportunity", sub: "Sports tech TAM by 2035 · 21.9% CAGR", color: "text-[#00c2ff]", icon: "💰" },
+              { value: "44", label: "Sports Covered", sub: "Every sport. Every level.", color: "text-[#00C2FF]", icon: "" },
+              { value: "213+", label: "Platform Routes", sub: "Features & tools built", color: "text-[#00C2FF]", icon: "" },
+              { value: "4", label: "AI Engines", sub: "Private multi-engine architecture", color: "text-[#1E90FF]", icon: "" },
+              { value: "$135B", label: "Market Opportunity", sub: "Sports tech TAM by 2035 · 21.9% CAGR", color: "text-[#00c2ff]", icon: "" },
             ].map((stat, i) => (
               <div key={i} className="bg-gradient-to-br from-[#0d1b3e] to-[#1a3a8f] border border-blue-800 rounded-2xl p-5 text-center hover:border-blue-600 transition-all">
                 <div className="text-3xl mb-1">{stat.icon}</div>
@@ -1445,18 +1445,18 @@ function HomeInner() {
           {/* Athlete Showcase Row */}
           <div className="mb-8">
             <div className="text-center mb-4">
-              <div className="text-blue-400 text-xs uppercase tracking-widest mb-1">🏆 Featured Athletes</div>
+              <div className="text-blue-400 text-xs uppercase tracking-widest mb-1"> Featured Athletes</div>
               <h3 className="text-white font-black text-xl">REAL ATHLETES. REAL RESULTS.</h3>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { name: "Marcus Johnson", sport: "Football", pos: "QB", school: "UT", score: 94, nil: "$85K", status: "Available", statusColor: "text-green-400", photo: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&q=80" },
+                { name: "Marcus Johnson", sport: "Football", pos: "QB", school: "UT", score: 94, nil: "$85K", status: "Available", statusColor: "text-[#00C2FF]", photo: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&q=80" },
                 { name: "Destiny Williams", sport: "Basketball", pos: "PG", school: "LSU", score: 91, nil: "$62K", status: "Committed", statusColor: "text-blue-400", photo: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&h=200&fit=crop&q=80" },
-                { name: "Isaiah Carter", sport: "Basketball", pos: "SF", school: "Duke", score: 97, nil: "$210K", status: "Available", statusColor: "text-green-400", photo: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=200&h=200&fit=crop&q=80" },
+                { name: "Isaiah Carter", sport: "Basketball", pos: "SF", school: "Duke", score: 97, nil: "$210K", status: "Available", statusColor: "text-[#00C2FF]", photo: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=200&h=200&fit=crop&q=80" },
                 { name: "Aaliyah Torres", sport: "Soccer", pos: "FW", school: "Stanford", score: 92, nil: "$38K", status: "Committed", statusColor: "text-blue-400", photo: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&h=200&fit=crop&q=80" },
               ].map((a, i) => (
-                <a key={i} href="/browse-athletes" className="block bg-[#0d1b3e] border border-blue-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all group">
-                  <div className="relative h-28 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-cyan-950">
+                <a key={i} href="/browse-athletes" className="block bg-[#0d1b3e] border border-blue-800 rounded-2xl overflow-hidden hover:border-[#1E90FF]/30 hover:shadow-lg hover:shadow-cyan-500/10 transition-all group">
+                  <div className="relative h-28 overflow-hidden bg-gradient-to-br from-blue-950 via-slate-900 to-[#0a1628]">
                     <img
                       src={a.photo}
                       alt={a.name}
@@ -1474,8 +1474,8 @@ function HomeInner() {
                     <div className="text-white font-black text-sm mb-0.5">{a.name}</div>
                     <div className="text-blue-400 text-[10px] mb-2">{a.pos} · {a.school}</div>
                     <div className="grid grid-cols-3 gap-1">
-                      <div className="text-center"><div className="text-cyan-400 font-black text-xs">{a.score}</div><div className="text-white/30 text-[8px]">SCORE</div></div>
-                      <div className="text-center"><div className="text-green-400 font-black text-xs">{a.nil}</div><div className="text-white/30 text-[8px]">NIL</div></div>
+                      <div className="text-center"><div className="text-[#00C2FF] font-black text-xs">{a.score}</div><div className="text-white/30 text-[8px]">SCORE</div></div>
+                      <div className="text-center"><div className="text-[#00C2FF] font-black text-xs">{a.nil}</div><div className="text-white/30 text-[8px]">NIL</div></div>
                       <div className="text-center"><div className={`font-black text-[9px] ${a.statusColor}`}>{a.status}</div><div className="text-white/30 text-[8px]">STATUS</div></div>
                     </div>
                   </div>
@@ -1483,7 +1483,7 @@ function HomeInner() {
               ))}
             </div>
             <div className="text-center mt-4">
-              <a href="/browse-athletes" className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black px-8 py-3 rounded-xl text-sm hover:opacity-90 transition-all">
+              <a href="/browse-athletes" className="inline-block bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white font-black px-8 py-3 rounded-xl text-sm hover:opacity-90 transition-all">
                 Browse All Athletes →
               </a>
             </div>
@@ -1521,15 +1521,15 @@ function HomeInner() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {[
-              { label: "Dozier Holdings Group", url: "/dhg", tag: "PARENT CO", color: "border-red-600 text-red-400", tagColor: "bg-red-700", domain: "dozierholdingsgroup.com" },
+              { label: "Dozier Holdings Group", url: "/dhg", tag: "PARENT CO", color: "border-[#1E90FF] text-[#1E90FF]", tagColor: "bg-[#1E90FF]", domain: "dozierholdingsgroup.com" },
               { label: "AthlynX Platform", url: "/portal", tag: "LIVE", color: "border-[#0066ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "athlynx.ai" },
               { label: "AthlynX Pro", url: "/pro-teams", tag: "LIVE", color: "border-[#0066ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "athlynx.pro" },
               { label: "AthlynX Net", url: "/portal", tag: "LIVE", color: "border-[#0066ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "athlynx.net" },
               { label: "AthlynX IO", url: "/portal", tag: "LIVE", color: "border-[#0066ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "athlynx.io" },
-              { label: "NIL Portal", url: "/nil-portal", tag: "LIVE", color: "border-green-600 text-green-400", tagColor: "bg-green-700", domain: "nilportals.com" },
-              { label: "NIL Portal AI", url: "/nil-portal", tag: "LIVE", color: "border-green-600 text-green-400", tagColor: "bg-green-700", domain: "nilportal.ai" },
-              { label: "NIL Gateway", url: "/nil-marketplace", tag: "LIVE", color: "border-green-600 text-green-400", tagColor: "bg-green-700", domain: "nilgateway.com" },
-              { label: "NIL Gateway Org", url: "/nil-marketplace", tag: "LIVE", color: "border-green-600 text-green-400", tagColor: "bg-green-700", domain: "nilgateway.org" },
+              { label: "NIL Portal", url: "/nil-portal", tag: "LIVE", color: "border-[#00C2FF] text-[#00C2FF]", tagColor: "bg-[#00C2FF]", domain: "nilportals.com" },
+              { label: "NIL Portal AI", url: "/nil-portal", tag: "LIVE", color: "border-[#00C2FF] text-[#00C2FF]", tagColor: "bg-[#00C2FF]", domain: "nilportal.ai" },
+              { label: "NIL Gateway", url: "/nil-marketplace", tag: "LIVE", color: "border-[#00C2FF] text-[#00C2FF]", tagColor: "bg-[#00C2FF]", domain: "nilgateway.com" },
+              { label: "NIL Gateway Org", url: "/nil-marketplace", tag: "LIVE", color: "border-[#00C2FF] text-[#00C2FF]", tagColor: "bg-[#00C2FF]", domain: "nilgateway.org" },
               { label: "Transfer Portal", url: "/transfer-portal", tag: "LIVE", color: "border-[#00c2ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "transferportal.live" },
               { label: "Transfer Portal 360", url: "/transfer-portal", tag: "LIVE", color: "border-[#00c2ff] text-[#00c2ff]", tagColor: "bg-[#0066ff]", domain: "transferportal360.com" },
             ].map((site) => site.url.startsWith('/') ? (
@@ -1566,35 +1566,20 @@ function HomeInner() {
         </div>
       </section>
 
-      {/* ═══ UNIFIED TEAM BAND — 4 profiles, equal billing for founders, Tony as First Athlete Partner ═══ */}
+      {/*  UNIFIED TEAM BAND — 4 profiles, equal billing for founders, Tony as   */}
       <section className="py-16 px-4 bg-gradient-to-b from-black via-[#0a1628] to-black border-t border-[#1E90FF]/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <div className="text-[10px] uppercase tracking-[0.32em] text-[#1E90FF] font-black mb-3">THE TEAM</div>
             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">One team. One mission.</h2>
-            <p className="text-white/60 text-sm mt-3 max-w-2xl mx-auto">Founders, operators, and our First Athlete Partner. Equal billing. Equal voice.</p>
+            <p className="text-white/60 text-sm mt-3 max-w-2xl mx-auto">The founders and operators behind AthlynXAI OS v1.</p>
           </div>
 
-          {/* Founders 3-up */}
+          {/* Founders */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            {ATHLYNX_TEAM.filter((p) => p.slug !== "tony-locey").map((p) => (
+            {ATHLYNX_TEAM.filter((p) => !['','','',''].includes(p.slug)).map((p) => (
               <TeamProfileCard key={p.slug} profile={p} size="default" />
             ))}
-          </div>
-
-          {/* Tony — Athlete Partner band */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            <div className="md:col-span-1">
-              {(() => {
-                const tony = ATHLYNX_TEAM.find((p) => p.slug === "tony-locey")!;
-                return <TeamProfileCard profile={tony} size="default" />;
-              })()}
-            </div>
-            <div className="md:col-span-2 border border-[#1E90FF]/30 rounded-xl bg-gradient-to-b from-[#1E90FF]/10 to-black p-6 md:p-7 flex flex-col justify-center">
-              <div className="text-[10px] font-black uppercase tracking-[0.22em] text-[#1E90FF] mb-3">First Athlete Partner</div>
-              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3 leading-tight">The athlete voice that turns a product roadmap into a movement.</h3>
-              <p className="text-sm text-white/70 leading-relaxed">Tony stood on the mound. He navigated recruiting and the pro pipeline firsthand. He's built a network across SEC baseball and Georgia youth sports. As our First Athlete Partner & Partner, he helps us pressure-test AthlynX against the realities athletes and families actually face.</p>
-            </div>
           </div>
 
           <div className="text-center mt-8">
@@ -1608,8 +1593,8 @@ function HomeInner() {
       {/* ===== APP STORE + GOOGLE PLAY COMING SOON ===== */}
       <section className="py-16 px-4 bg-gradient-to-b from-[#080d1a] to-[#0a1020] border-t border-blue-900">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500 text-red-300 text-xs font-black px-4 py-1.5 rounded-full mb-6 tracking-widest">
-            <span className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF] text-[#1E90FF] text-xs font-black px-4 py-1.5 rounded-full mb-6 tracking-widest">
+            <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse"></span>
 APP STORE + GOOGLE PLAY TESTING
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-3 tracking-tight">
@@ -1650,7 +1635,7 @@ APP STORE + GOOGLE PLAY TESTING
                     <div className="text-white font-black text-sm leading-tight">App Store</div>
                   </div>
                 </div>
-                <div className="text-cyan-400 text-xs font-bold tracking-widest">TESTFLIGHT BUILD 19 LIVE</div>
+                <div className="text-[#00C2FF] text-xs font-bold tracking-widest">TESTFLIGHT BUILD 19 LIVE</div>
               </div>
             </div>
 
@@ -1681,21 +1666,21 @@ APP STORE + GOOGLE PLAY TESTING
                     <div className="text-white font-black text-sm leading-tight">Google Play</div>
                   </div>
                 </div>
-                <div className="text-green-400 text-xs font-bold tracking-widest">CLOSED TESTING IN REVIEW</div>
+                <div className="text-[#00C2FF] text-xs font-bold tracking-widest">CLOSED TESTING IN REVIEW</div>
               </div>
             </div>
           </div>
 
           {/* PWA Install CTA */}
           <div className="bg-[#1a3a8f]/60 border border-blue-700 rounded-2xl p-6 max-w-xl mx-auto">
-            <div className="text-cyan-300 text-xs uppercase tracking-widest mb-2">Available Right Now</div>
+            <div className="text-[#00C2FF] text-xs uppercase tracking-widest mb-2">Available Right Now</div>
             <h3 className="text-white font-black text-xl mb-2">Install the AthlynX Ecosystem</h3>
             <p className="text-blue-300 text-sm mb-4">Add AthlynX, AthlynXAI, AXN, AVN, and AthlynX Medical to your home screen with the new branded app prompt. Native feel. Watermark look. One OS.</p>
             <button
               onClick={() => { localStorage.removeItem('athlynx_pwa_dismissed_v3_brand_ecosystem'); window.dispatchEvent(new Event('athlynx-show-pwa')); }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00D4FF] to-blue-500 text-[#0a1628] font-black text-base px-8 py-3 rounded-xl shadow-lg shadow-blue-500/30 hover:opacity-90 transition-opacity"
             >
-              <span className="text-lg">📲</span>
+              <span className="text-lg"></span>
               Install Ecosystem Now
             </button>
           </div>
@@ -1738,8 +1723,8 @@ APP STORE + GOOGLE PLAY TESTING
               <Link href="/mobile-app" className="hover:text-white transition-colors">Mobile App</Link>
             </div>
           </div>
-          <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/5 p-4 text-center">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-cyan-200">Copyright · Trademark · Proprietary IP Notice</p>
+          <div className="mt-6 rounded-2xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 p-4 text-center">
+            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#00C2FF]">Copyright · Trademark · Proprietary IP Notice</p>
             <p className="mt-2 text-xs leading-relaxed text-blue-200">
               © 2026 Chad A. Dozier Sr. and affiliated Dozier Holdings Group / AthlynX entities. All rights reserved. AthlynX™, AthlynXAI™, AXN™, AVN™, AthlynX Medical™, Medical BioSignal OS™, GlucoAthlete OS™, BioSignal Channel™, and related names, logos, source code, workflows, product concepts, founder-tested Libre Link proof paths, and evidence packages are proprietary intellectual property. Formal trademark and copyright filings may be handled by counsel; this notice preserves public claim, authorship, ownership, and evidence of use.
             </p>
@@ -1748,12 +1733,12 @@ APP STORE + GOOGLE PLAY TESTING
           {/* AthlynXAI Credit */}
           <div className="mt-6 pt-5 border-t border-blue-900/40 flex flex-col sm:flex-row items-center justify-center gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-gradient-to-br from-violet-500 to-purple-700 rounded-lg flex items-center justify-center shadow-lg">
+              <div className="w-7 h-7 bg-gradient-to-br from-[#1E90FF] to-[#0a1628] rounded-lg flex items-center justify-center shadow-lg">
                 <span className="text-white text-xs font-black">M</span>
               </div>
               <p className="text-slate-400 text-xs">
                 Proudly built with{" "}
-                <a href="https://manus.im" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 font-bold transition-colors">AthlynXAI</a>
+                <a href="https://manus.im" target="_blank" rel="noopener noreferrer" className="text-[#1E90FF] hover:text-[#1E90FF] font-bold transition-colors">AthlynXAI</a>
                 {" "}— a development partner on the early platform. Full receipts on{" "}
                 <a href="/build-decisions" className="text-white/80 hover:text-white font-bold transition-colors underline">Build Decisions</a>.
               </p>
@@ -1767,10 +1752,10 @@ APP STORE + GOOGLE PLAY TESTING
 
       {/* PWAInstallBanner renders globally in App.tsx */}
 
-      {/* ═══ STICKY FLOATING ENTER THE PORTAL BUTTON ═══ */}
+      {/*  STICKY FLOATING ENTER THE PORTAL BUTTON  */}
       <EnterPortalToggle />
 
-      {/* ═══ REVERSE FUNNEL — Exit-intent + time-based lead capture ═══ */}
+      {/*  REVERSE FUNNEL — Exit-intent + time-based lead capture  */}
       <ReverseFunnel trigger="exit-intent" source="homepage" variant="athlete" />
     </div>
   );

@@ -24,7 +24,7 @@ function DHGHomeInner() {
       name: "AthlynXAI Corporation", 
       description: "The Athlete's Playbook - NIL Platform",
       status: "FLAGSHIP",
-      color: "from-cyan-500 to-blue-600",
+      color: "from-[#1E90FF] to-blue-600",
       link: "/"
     },
     { 
@@ -38,49 +38,49 @@ function DHGHomeInner() {
       name: "VC Data Centers, LLC", 
       description: "Private AI Infrastructure",
       status: "EXPANDING",
-      color: "from-green-500 to-emerald-600",
+      color: "from-[#00C2FF] to-emerald-600",
       link: "/data-centers"
     },
     { 
       name: "The VIRT, LLC", 
       description: "Cryptocurrency & Blockchain",
       status: "ACTIVE",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/virt"
     },
     { 
       name: "VC Energy, LLC", 
       description: "Renewable Energy & Sustainability",
       status: "ACTIVE",
-      color: "from-red-500 to-red-500",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/energy"
     },
     { 
       name: "Uma Real Estate Investment, LLC", 
       description: "Commercial & Residential Properties",
       status: "ACTIVE",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/real-estate"
     },
     { 
       name: "Villa Agape, LLC", 
       description: "Healthcare & Assisted Living",
       status: "ACTIVE",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/villa-agape"
     },
     { 
       name: "Compassionate Care, LLC", 
       description: "Home Healthcare Services",
       status: "ACTIVE",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/compassionate-care"
     },
     { 
       name: "Pisces Resort, LLC", 
       description: "Luxury Hospitality & Entertainment",
       status: "DEVELOPMENT",
-      color: "from-blue-500 to-cyan-600",
+      color: "from-blue-500 to-[#0a1628]",
       link: "/pisces-resort"
     },
     { 
@@ -94,7 +94,7 @@ function DHGHomeInner() {
       name: "Pomodoro Restaurant, LLC", 
       description: "Fine Dining & Culinary Excellence",
       status: "DEVELOPMENT",
-      color: "from-red-600 to-red-500",
+      color: "from-[#1E90FF] to-[#0a1628]",
       link: "/pomodoro"
     },
     { 
@@ -128,22 +128,22 @@ function DHGHomeInner() {
       <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-2 px-4">
         <div className="container mx-auto flex items-center justify-center gap-8 text-xs md:text-sm font-semibold tracking-wide">
           <span className="flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-cyan-400" />
+            <Building2 className="w-4 h-4 text-[#00C2FF]" />
             12 COMPANIES
           </span>
           <span className="hidden md:inline text-gray-500">|</span>
           <span className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-cyan-400" />
+            <Globe className="w-4 h-4 text-[#00C2FF]" />
             GLOBAL REACH
           </span>
           <span className="hidden md:inline text-gray-500">|</span>
           <span className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
+            <TrendingUp className="w-4 h-4 text-[#00C2FF]" />
             $168M+ CAPITAL TARGET
           </span>
           <span className="hidden md:inline text-gray-500">|</span>
           <span className="flex items-center gap-2">
-            <Trophy className="w-4 h-4 text-red-400" />
+            <Trophy className="w-4 h-4 text-[#1E90FF]" />
             BUILDING EMPIRES
           </span>
         </div>
@@ -212,25 +212,25 @@ function DHGHomeInner() {
             {/* Left Content */}
             <div className="flex-1 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <Crown className="w-5 h-5 text-red-400" />
+                <Crown className="w-5 h-5 text-[#1E90FF]" />
                 <span className="text-sm font-semibold">DOZIER HOLDINGS GROUP</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
                 DOZIER<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-400">
                   HOLDINGS GROUP
                 </span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl">
                 Building dynasties and empires through innovation, technology, and unwavering determination.
-                <span className="text-cyan-400 font-semibold"> Dreams Do Come True.</span>
+                <span className="text-[#00C2FF] font-semibold"> Dreams Do Come True.</span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link href="/">
-                  <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/30">
+                  <button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/30">
                     <Rocket className="w-5 h-5" />
                     EXPLORE AthlynX
                     <ChevronRight className="w-5 h-5" />
@@ -247,7 +247,7 @@ function DHGHomeInner() {
             <div className="flex-1 flex justify-center">
               <div className="relative">
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-cyan-500/30 blur-3xl rounded-full scale-75" />
+                <div className="absolute inset-0 bg-[#1E90FF]/20 blur-3xl rounded-full scale-75" />
                 
                 {/* Logo */}
                 <img 
@@ -257,7 +257,7 @@ function DHGHomeInner() {
                 />
                 
                 {/* Badge */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-500 to-red-500 text-slate-900 px-6 py-2 rounded-full font-black text-sm shadow-lg">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-slate-900 px-6 py-2 rounded-full font-black text-sm shadow-lg">
                   THE KING
                 </div>
               </div>
@@ -300,9 +300,9 @@ function DHGHomeInner() {
                   <div className="flex items-center gap-2 mb-2">
                     <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{company.name}</h3>
                     <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
-                      company.status === "FLAGSHIP" ? "bg-cyan-100 text-cyan-700" :
-                      company.status === "EXPANDING" ? "bg-green-100 text-green-700" :
-                      company.status === "DEVELOPMENT" ? "bg-red-100 text-red-700" :
+                      company.status === "FLAGSHIP" ? "bg-cyan-100 text-[#00C2FF]" :
+                      company.status === "EXPANDING" ? "bg-[#00C2FF] text-[#00C2FF]" :
+                      company.status === "DEVELOPMENT" ? "bg-[#1E90FF] text-[#1E90FF]" :
                       "bg-gray-100 text-gray-700"
                     }`}>
                       {company.status}
@@ -321,14 +321,14 @@ function DHGHomeInner() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 bg-cyan-500/20 rounded-full px-4 py-2 mb-6">
-                <Star className="w-5 h-5 text-cyan-400" />
-                <span className="text-sm font-semibold text-cyan-400">FLAGSHIP PRODUCT</span>
+              <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 rounded-full px-4 py-2 mb-6">
+                <Star className="w-5 h-5 text-[#00C2FF]" />
+                <span className="text-sm font-semibold text-[#00C2FF]">FLAGSHIP PRODUCT</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl font-black mb-6">
                 AthlynX
-                <span className="block text-2xl md:text-3xl text-cyan-400 font-bold mt-2">
+                <span className="block text-2xl md:text-3xl text-[#00C2FF] font-bold mt-2">
                   THE ATHLETE'S PLAYBOOK
                 </span>
               </h2>
@@ -340,25 +340,25 @@ function DHGHomeInner() {
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-black text-cyan-400">10</div>
+                  <div className="text-2xl font-black text-[#00C2FF]">10</div>
                   <div className="text-sm text-gray-400">Powerful Apps</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-black text-cyan-400">$50M+</div>
+                  <div className="text-2xl font-black text-[#00C2FF]">$50M+</div>
                   <div className="text-sm text-gray-400">NIL Deals Tracked</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-black text-cyan-400">24/7</div>
+                  <div className="text-2xl font-black text-[#00C2FF]">24/7</div>
                   <div className="text-sm text-gray-400">AI Support</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl font-black text-cyan-400">HIPAA</div>
+                  <div className="text-2xl font-black text-[#00C2FF]">HIPAA</div>
                   <div className="text-sm text-gray-400">Compliant</div>
                 </div>
               </div>
 
               <Link href="/">
-                <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/30">
+                <button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/30">
                   LAUNCH AthlynX
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -406,7 +406,7 @@ function DHGHomeInner() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
             {leadership.map((person, index) => (
               <div key={index} className="text-center">
-                <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center text-white text-2xl font-bold">
                   {person.image ? (
                     <img src={person.image} alt={person.name} className="w-full h-full rounded-full object-cover object-top" />
                   ) : (
@@ -422,7 +422,7 @@ function DHGHomeInner() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-[#0a1628] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-black mb-4">JOIN THE EMPIRE</h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">

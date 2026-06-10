@@ -18,7 +18,7 @@ import {
   Trophy, DollarSign, Users, Radio
 } from "lucide-react";
 
-// ─── Breaking News ────────────────────────────────────────────────────────────
+//  Breaking News 
 const BREAKING_NEWS = [
   { id: 1, headline: "Travis Hunter Declares for NFL Draft", school: "Colorado", player: "Travis Hunter", position: "CB/WR", nilValue: "$4.5M", time: "2h ago", hot: true, type: "nfl", summary: "Two-way Heisman winner heads to the league after historic season in Boulder." },
   { id: 2, headline: "AJ Swann Commits to Mississippi State", school: "Mississippi State", player: "AJ Swann", position: "QB", nilValue: "$850K", time: "4h ago", hot: true, type: "commitment", summary: "Former Vanderbilt starter brings SEC experience to Starkville." },
@@ -27,7 +27,7 @@ const BREAKING_NEWS = [
   { id: 5, headline: "Alabama RB Enters Transfer Portal", school: "Alabama", player: "Jam Miller", position: "RB", nilValue: "$680K", time: "12h ago", hot: false, type: "portal", summary: "Seeking starting role after splitting carries in Tuscaloosa." },
 ];
 
-// ─── Top Available Players ────────────────────────────────────────────────────
+//  Top Available Players 
 const TOP_AVAILABLE = [
   { rank: 1, name: "Jalen Milroe", pos: "QB", school: "Alabama", nil: "$2.8M", xScore: 96 },
   { rank: 2, name: "Quinshon Judkins", pos: "RB", school: "Ohio State", nil: "$1.9M", xScore: 94 },
@@ -36,33 +36,33 @@ const TOP_AVAILABLE = [
   { rank: 5, name: "Kelvin Banks Jr.", pos: "OT", school: "Texas", nil: "$1.6M", xScore: 90 },
 ];
 
-// ─── School Activity ──────────────────────────────────────────────────────────
+//  School Activity 
 const SCHOOL_ACTIVITY = [
-  { school: "Colorado", emoji: "🦬", in: 24, out: 8, net: "+$12.4M", conf: "Big 12" },
-  { school: "USC", emoji: "✌️", in: 18, out: 12, net: "+$8.2M", conf: "Big Ten" },
-  { school: "Texas", emoji: "🤘", in: 15, out: 6, net: "+$6.8M", conf: "SEC" },
-  { school: "Alabama", emoji: "🅰️", in: 12, out: 14, net: "-$2.1M", conf: "SEC" },
-  { school: "Ohio State", emoji: "🌰", in: 11, out: 9, net: "+$4.5M", conf: "Big Ten" },
+  { school: "Colorado", emoji: "", in: 24, out: 8, net: "+$12.4M", conf: "Big 12" },
+  { school: "USC", emoji: "", in: 18, out: 12, net: "+$8.2M", conf: "Big Ten" },
+  { school: "Texas", emoji: "", in: 15, out: 6, net: "+$6.8M", conf: "SEC" },
+  { school: "Alabama", emoji: "", in: 12, out: 14, net: "-$2.1M", conf: "SEC" },
+  { school: "Ohio State", emoji: "", in: 11, out: 9, net: "+$4.5M", conf: "Big Ten" },
 ];
 
-// ─── Live Ticker ──────────────────────────────────────────────────────────────
+//  Live Ticker 
 const TICKER_ITEMS = [
-  "🔥 Travis Hunter declares for NFL Draft",
-  "📢 AJ Swann commits to Mississippi State",
-  "⚡ 847 players currently in portal",
-  "💰 $2.1B total NIL value in portal",
-  "🏈 Jalen Milroe tops available QB rankings",
-  "🔄 5-star edge rusher enters portal from Georgia",
+  " Travis Hunter declares for NFL Draft",
+  " AJ Swann commits to Mississippi State",
+  " 847 players currently in portal",
+  " $2.1B total NIL value in portal",
+  " Jalen Milroe tops available QB rankings",
+  " 5-star edge rusher enters portal from Georgia",
 ];
 
-// ─── Type Badge ───────────────────────────────────────────────────────────────
+//  Type Badge 
 function TypeBadge({ type }: { type: string }) {
-  if (type === "commitment") return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">COMMITMENT</span>;
-  if (type === "portal") return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30">IN PORTAL</span>;
-  return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">NFL DRAFT</span>;
+  if (type === "commitment") return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#00C2FF]/20 text-[#00C2FF] border border-[#00C2FF]/30">COMMITMENT</span>;
+  if (type === "portal") return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30">IN PORTAL</span>;
+  return <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30">NFL DRAFT</span>;
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function TransferPortalFOSInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<"news" | "players" | "schools">("news");
@@ -82,7 +82,7 @@ function TransferPortalFOSInner() {
           <div className="flex animate-[marquee_35s_linear_infinite] whitespace-nowrap" style={{ gap: "3rem" }}>
             {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
               <span key={i} className="text-white font-black text-sm tracking-wide flex items-center shrink-0" style={{ marginRight: "2rem" }}>
-                {item}&nbsp;&nbsp;<span className="text-white/50">⚡</span>
+                {item}&nbsp;&nbsp;<span className="text-white/50"></span>
               </span>
             ))}
           </div>
@@ -99,9 +99,9 @@ function TransferPortalFOSInner() {
             <p className="text-[#8ba3c7] text-sm mt-1">Breaking news, top available players, school activity, and NIL values — all in real time.</p>
             <div className="flex gap-2 mt-3 flex-wrap">
               {[
-                { label: "📡 Live Updates", color: "bg-red-900/40 border-red-700/40 text-red-300" },
-                { label: `🔄 847 In Portal`, color: "bg-[#0066ff]/20 border-[#0066ff]/30 text-[#00c2ff]" },
-                { label: "💰 $2.1B NIL Value", color: "bg-green-900/40 border-green-700/40 text-green-300" },
+                { label: " Live Updates", color: "bg-[#1E90FF]/40 border-[#1E90FF]/40 text-[#1E90FF]" },
+                { label: ` 847 In Portal`, color: "bg-[#0066ff]/20 border-[#0066ff]/30 text-[#00c2ff]" },
+                { label: " $2.1B NIL Value", color: "bg-[#00C2FF]/40 border-[#00C2FF]/40 text-[#00C2FF]" },
               ].map((b, i) => (
                 <span key={i} className={`text-[10px] font-bold px-2 py-1 rounded-full border ${b.color}`}>{b.label}</span>
               ))}
@@ -113,9 +113,9 @@ function TransferPortalFOSInner() {
         <div className="sticky top-0 z-20 bg-[#040c1a]/95 backdrop-blur border-b border-blue-900/30 px-4 py-2">
           <div className="max-w-2xl mx-auto flex gap-1.5">
             {[
-              { id: "news", label: "📰 Breaking News" },
-              { id: "players", label: "⭐ Top Available" },
-              { id: "schools", label: "🏫 School Activity" },
+              { id: "news", label: " Breaking News" },
+              { id: "players", label: " Top Available" },
+              { id: "schools", label: " School Activity" },
             ].map(tab => (
               <button key={tab.id} onClick={() => setActiveTab(tab.id as any)}
                 className={`flex-1 text-xs font-bold py-2 rounded-xl transition-colors ${
@@ -129,7 +129,7 @@ function TransferPortalFOSInner() {
 
         <div className="max-w-2xl mx-auto px-4 py-4 space-y-4">
 
-          {/* ══ BREAKING NEWS ══ */}
+          {/*  BREAKING NEWS  */}
           {activeTab === "news" && (
             <>
               <div className="relative">
@@ -146,7 +146,7 @@ function TransferPortalFOSInner() {
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         {news.hot && (
-                          <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 flex items-center gap-1">
+                          <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 flex items-center gap-1">
                             <Flame size={10} /> HOT
                           </span>
                         )}
@@ -170,7 +170,7 @@ function TransferPortalFOSInner() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-green-400 font-black text-sm">{news.nilValue}</div>
+                        <div className="text-[#00C2FF] font-black text-sm">{news.nilValue}</div>
                         <div className="text-[#4a6080] text-[10px]">NIL Value</div>
                       </div>
                     </div>
@@ -189,16 +189,16 @@ function TransferPortalFOSInner() {
             </>
           )}
 
-          {/* ══ TOP AVAILABLE ══ */}
+          {/*  TOP AVAILABLE  */}
           {activeTab === "players" && (
             <>
               <div className="bg-gradient-to-r from-[#0066ff]/10 to-[#00c2ff]/5 border border-[#0066ff]/20 rounded-2xl p-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <Activity size={14} className="text-red-400 animate-pulse" />
-                  <div className="text-[10px] font-black text-red-400 tracking-widest uppercase">Live Rankings</div>
+                  <Activity size={14} className="text-[#1E90FF] animate-pulse" />
+                  <div className="text-[10px] font-black text-[#1E90FF] tracking-widest uppercase">Live Rankings</div>
                 </div>
                 <div className="text-white font-black text-lg">Top Available Players</div>
-                <p className="text-[#8ba3c7] text-xs mt-1">Ranked by AthlynX X-Factor Score™</p>
+                <p className="text-[#8ba3c7] text-xs mt-1">Ranked by AthlynX EPX Score™</p>
               </div>
 
               {TOP_AVAILABLE.map((player, i) => (
@@ -217,7 +217,7 @@ function TransferPortalFOSInner() {
                     <div className="text-[#4a6080] text-[10px]">X-Score</div>
                   </div>
                   <div className="text-right shrink-0">
-                    <div className="text-green-400 font-black text-sm">{player.nil}</div>
+                    <div className="text-[#00C2FF] font-black text-sm">{player.nil}</div>
                     <div className="text-[#4a6080] text-[10px]">NIL</div>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ function TransferPortalFOSInner() {
 
               <div className="bg-gradient-to-r from-[#0066ff]/10 to-[#00c2ff]/5 border border-dashed border-[#0066ff]/30 rounded-2xl p-5 text-center">
                 <Trophy size={24} className="text-[#00c2ff] mx-auto mb-2" />
-                <div className="text-white font-black text-sm mb-1">Get Your X-Factor Score</div>
+                <div className="text-white font-black text-sm mb-1">Get Your EPX Score</div>
                 <p className="text-[#8ba3c7] text-xs mb-3">Complete your profile to get ranked alongside the top transfer portal prospects nationwide.</p>
                 <Link href="/profile">
                   <button className="bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white text-xs font-black px-6 py-2.5 rounded-xl">
@@ -236,7 +236,7 @@ function TransferPortalFOSInner() {
             </>
           )}
 
-          {/* ══ SCHOOL ACTIVITY ══ */}
+          {/*  SCHOOL ACTIVITY  */}
           {activeTab === "schools" && (
             <>
               <div className="bg-gradient-to-r from-[#0066ff]/10 to-[#00c2ff]/5 border border-[#0066ff]/20 rounded-2xl p-4">
@@ -254,19 +254,19 @@ function TransferPortalFOSInner() {
                       <div className="text-white font-black text-sm">{s.school}</div>
                       <div className="text-[#4a6080] text-xs">{s.conf}</div>
                     </div>
-                    <div className={`font-black text-sm ${s.net.startsWith("+") ? "text-green-400" : "text-red-400"}`}>{s.net}</div>
+                    <div className={`font-black text-sm ${s.net.startsWith("+") ? "text-[#00C2FF]" : "text-[#1E90FF]"}`}>{s.net}</div>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
-                    <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-2 text-center">
-                      <div className="text-green-400 font-black text-lg">{s.in}</div>
+                    <div className="bg-[#00C2FF]/10 border border-[#00C2FF]/20 rounded-xl p-2 text-center">
+                      <div className="text-[#00C2FF] font-black text-lg">{s.in}</div>
                       <div className="text-[#4a6080] text-[10px]">IN</div>
                     </div>
-                    <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-2 text-center">
-                      <div className="text-red-400 font-black text-lg">{s.out}</div>
+                    <div className="bg-[#1E90FF]/10 border border-[#1E90FF]/20 rounded-xl p-2 text-center">
+                      <div className="text-[#1E90FF] font-black text-lg">{s.out}</div>
                       <div className="text-[#4a6080] text-[10px]">OUT</div>
                     </div>
-                    <div className={`${s.net.startsWith("+") ? "bg-green-500/10 border-green-500/20" : "bg-red-500/10 border-red-500/20"} border rounded-xl p-2 text-center`}>
-                      <div className={`font-black text-sm ${s.net.startsWith("+") ? "text-green-400" : "text-red-400"}`}>{s.net}</div>
+                    <div className={`${s.net.startsWith("+") ? "bg-[#00C2FF]/10 border-[#00C2FF]/20" : "bg-[#1E90FF]/10 border-[#1E90FF]/20"} border rounded-xl p-2 text-center`}>
+                      <div className={`font-black text-sm ${s.net.startsWith("+") ? "text-[#00C2FF]" : "text-[#1E90FF]"}`}>{s.net}</div>
                       <div className="text-[#4a6080] text-[10px]">NET NIL</div>
                     </div>
                   </div>

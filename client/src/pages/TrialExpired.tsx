@@ -134,7 +134,7 @@ function TrialExpiredInner() {
             <ul style={{ margin: "0 0 20px", padding: "0", listStyle: "none" }}>
               {plan.features.map((f, i) => (
                 <li key={i} style={{ color: "#cbd5e1", fontSize: "14px", padding: "4px 0", display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: plan.color, fontSize: "16px" }}>✓</span> {f}
+                  <span style={{ color: plan.color, fontSize: "16px" }}></span> {f}
                 </li>
               ))}
             </ul>

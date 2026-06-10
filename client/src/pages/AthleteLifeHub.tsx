@@ -30,7 +30,7 @@ const LIFE_SERVICES = [
     title: "Financial Advisors",
     subtitle: "Build Your Wealth",
     icon: DollarSign,
-    color: "from-green-600 to-green-800",
+    color: "from-[#00C2FF] to-[#0a1628]",
     accent: "green",
     href: "/athlete-financial",
     description: "Athlete-specialized financial advisors, CPAs, and wealth managers. Build generational wealth from day one.",
@@ -43,7 +43,7 @@ const LIFE_SERVICES = [
     title: "Legal Services",
     subtitle: "LegalZoom for Athletes",
     icon: Scale,
-    color: "from-purple-600 to-purple-800",
+    color: "from-[#1E90FF] to-[#0a1628]",
     accent: "purple",
     href: "/athlete-legal",
     description: "Sports attorneys, NIL lawyers, contract reviewers. Know your rights in every state. Never sign blind again.",
@@ -56,7 +56,7 @@ const LIFE_SERVICES = [
     title: "Health & Medical",
     subtitle: "Peak Performance Care",
     icon: Heart,
-    color: "from-red-600 to-red-800",
+    color: "from-[#1E90FF] to-[#0a1628]",
     accent: "red",
     href: "/athlete-health",
     description: "Team physicians, orthopedic surgeons, physical therapists, sports psychologists, and nutritionists — all in one place.",
@@ -69,7 +69,7 @@ const LIFE_SERVICES = [
     title: "Career Development",
     subtitle: "Life After the Game",
     icon: Briefcase,
-    color: "from-cyan-600 to-cyan-800",
+    color: "from-[#1E90FF] to-[#0a1628]",
     accent: "orange",
     href: "/athlete-career",
     description: "Career coaches, resume builders, corporate partnerships, and post-sports transition planning. Your career does not end when the game does.",
@@ -95,7 +95,7 @@ const LIFE_SERVICES = [
     title: "Mental Performance",
     subtitle: "Win the Mind Game",
     icon: Brain,
-    color: "from-teal-600 to-teal-800",
+    color: "from-[#00C2FF] to-teal-800",
     accent: "teal",
     href: "/athlete-health",
     description: "Sports psychologists, mindset coaches, and mental performance specialists. The mental game separates good from great.",
@@ -121,7 +121,7 @@ const LIFE_SERVICES = [
     title: "Education & Scholarships",
     subtitle: "Your Degree Matters",
     icon: GraduationCap,
-    color: "from-indigo-600 to-indigo-800",
+    color: "from-[#1E90FF] to-indigo-800",
     accent: "indigo",
     href: "/wizard-hub",
     description: "Academic advisors, scholarship finders, tutoring services, and transfer academic planning. Education is your foundation.",
@@ -161,9 +161,9 @@ function AthleteLifeHubInner() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
       {/* Hero */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-[#0a1628]/20 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
           {/* Badge */}
@@ -177,7 +177,7 @@ function AthleteLifeHubInner() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-center mb-4 leading-tight">
             We Take Care of You
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-[#1E90FF] to-[#0a1628] bg-clip-text text-transparent">
               From Life to Retirement
             </span>
           </h1>
@@ -218,7 +218,7 @@ function AthleteLifeHubInner() {
       </div>
 
       {/* Mission Statement */}
-      <div className="bg-gradient-to-r from-blue-900/40 to-purple-900/40 border-y border-white/10 py-8">
+      <div className="bg-gradient-to-r from-blue-900/40 to-[#0a1628]/40 border-y border-white/10 py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-lg text-slate-200 italic leading-relaxed">
             "If they fail, it's on them — they tried. But we are going to give every athlete the best possible chance to make it to the league, the show, or wherever their dream takes them. 
@@ -303,7 +303,7 @@ function AthleteLifeHubInner() {
 
       {/* The Promise Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-400/20 rounded-3xl p-8 sm:p-12">
+        <div className="bg-gradient-to-r from-blue-900/50 to-[#0a1628]/50 border border-blue-400/20 rounded-3xl p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -359,17 +359,17 @@ function AthleteLifeHubInner() {
       <div className="py-10 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-black text-white mb-2">⚡ Quick Resources</h2>
+            <h2 className="text-2xl font-black text-white mb-2"> Quick Resources</h2>
             <p className="text-slate-400 text-sm">Essential tools and information every athlete needs to know</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: "📋", title: "NIL State Laws", desc: "All 50 states have different NIL rules. Know yours before you sign anything.", link: "/athlete-legal", cta: "Check Your State" },
-              { icon: "💰", title: "NIL Value Calculator", desc: "Estimate your NIL market value based on your sport, school, and social following.", link: "/nil-calculator", cta: "Calculate My Value" },
-              { icon: "🤝", title: "Find an Agent", desc: "Browse NFLPA, NBPA, and MLB-certified agents who specialize in your sport.", link: "/agent-finder", cta: "Find My Agent" },
-              { icon: "⚖️", title: "Contract Review", desc: "Never sign a NIL deal without legal review. Our attorneys review contracts fast.", link: "/athlete-legal", cta: "Get Review" },
-              { icon: "🏦", title: "Athlete Banking", desc: "Special banking products designed for athletes — NIL income management, tax prep, and more.", link: "/athlete-financial", cta: "Open Account" },
-              { icon: "🎓", title: "Scholarship Wizard", desc: "AI-powered scholarship matching across all sports and academic levels.", link: "/wizard-hub", cta: "Find Scholarships" },
+              { icon: "", title: "NIL State Laws", desc: "All 50 states have different NIL rules. Know yours before you sign anything.", link: "/athlete-legal", cta: "Check Your State" },
+              { icon: "", title: "NIL Value Calculator", desc: "Estimate your NIL market value based on your sport, school, and social following.", link: "/nil-calculator", cta: "Calculate My Value" },
+              { icon: "", title: "Find an Agent", desc: "Browse NFLPA, NBPA, and MLB-certified agents who specialize in your sport.", link: "/agent-finder", cta: "Find My Agent" },
+              { icon: "", title: "Contract Review", desc: "Never sign a NIL deal without legal review. Our attorneys review contracts fast.", link: "/athlete-legal", cta: "Get Review" },
+              { icon: "", title: "Athlete Banking", desc: "Special banking products designed for athletes — NIL income management, tax prep, and more.", link: "/athlete-financial", cta: "Open Account" },
+              { icon: "", title: "Scholarship Wizard", desc: "AI-powered scholarship matching across all sports and academic levels.", link: "/wizard-hub", cta: "Find Scholarships" },
             ].map((r, i) => (
               <div key={i} className="bg-white/5 border border-white/10 hover:border-blue-400/50 rounded-xl p-4 transition-all group">
                 <div className="text-3xl mb-3">{r.icon}</div>
@@ -388,25 +388,25 @@ function AthleteLifeHubInner() {
       <div className="py-10 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-black text-white mb-2">⚖️ NIL Laws — Know Your State</h2>
+            <h2 className="text-2xl font-black text-white mb-2"> NIL Laws — Know Your State</h2>
             <p className="text-slate-400 text-sm">Every state has different NIL rules. These are the key states for college athletes.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
-              { state: "Texas", status: "✅ Open", key: "No restrictions on NIL deals. Athletes can sign with agents. No school approval required.", color: "border-green-600" },
-              { state: "California", status: "✅ Open", key: "SB 206 — first state to pass NIL law. Athletes can hire agents and earn from endorsements.", color: "border-green-600" },
-              { state: "Florida", status: "✅ Open", key: "Comprehensive NIL law. Athletes can earn from social media, appearances, and endorsements.", color: "border-green-600" },
-              { state: "Alabama", status: "✅ Open", key: "NIL allowed. Athletes must disclose deals to their school. No pay-for-play.", color: "border-green-600" },
-              { state: "Mississippi", status: "✅ Open", key: "NIL allowed. Athletes must report deals. School cannot restrict deals with competing brands.", color: "border-green-600" },
-              { state: "Georgia", status: "✅ Open", key: "NIL allowed. Athletes can earn from autographs, appearances, and social media.", color: "border-green-600" },
-              { state: "Ohio", status: "✅ Open", key: "NIL allowed. Athletes can hire agents. Schools cannot prevent athletes from earning NIL.", color: "border-green-600" },
-              { state: "Pennsylvania", status: "✅ Open", key: "NIL allowed. Athletes can earn from any legal source. School approval not required.", color: "border-green-600" },
-              { state: "New York", status: "✅ Open", key: "NIL allowed. Comprehensive protections for athletes. Agents permitted.", color: "border-green-600" },
+              { state: "Texas", status: " Open", key: "No restrictions on NIL deals. Athletes can sign with agents. No school approval required.", color: "border-[#00C2FF]" },
+              { state: "California", status: " Open", key: "SB 206 — first state to pass NIL law. Athletes can hire agents and earn from endorsements.", color: "border-[#00C2FF]" },
+              { state: "Florida", status: " Open", key: "Comprehensive NIL law. Athletes can earn from social media, appearances, and endorsements.", color: "border-[#00C2FF]" },
+              { state: "Alabama", status: " Open", key: "NIL allowed. Athletes must disclose deals to their school. No pay-for-play.", color: "border-[#00C2FF]" },
+              { state: "Mississippi", status: " Open", key: "NIL allowed. Athletes must report deals. School cannot restrict deals with competing brands.", color: "border-[#00C2FF]" },
+              { state: "Georgia", status: " Open", key: "NIL allowed. Athletes can earn from autographs, appearances, and social media.", color: "border-[#00C2FF]" },
+              { state: "Ohio", status: " Open", key: "NIL allowed. Athletes can hire agents. Schools cannot prevent athletes from earning NIL.", color: "border-[#00C2FF]" },
+              { state: "Pennsylvania", status: " Open", key: "NIL allowed. Athletes can earn from any legal source. School approval not required.", color: "border-[#00C2FF]" },
+              { state: "New York", status: " Open", key: "NIL allowed. Comprehensive protections for athletes. Agents permitted.", color: "border-[#00C2FF]" },
             ].map((state, si) => (
               <div key={si} className={`bg-white/5 border ${state.color} rounded-xl p-4`}>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white font-black text-sm">{state.state}</span>
-                  <span className="text-xs font-bold text-green-400">{state.status}</span>
+                  <span className="text-xs font-bold text-[#00C2FF]">{state.status}</span>
                 </div>
                 <p className="text-slate-400 text-xs leading-relaxed">{state.key}</p>
               </div>

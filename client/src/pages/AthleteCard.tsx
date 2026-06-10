@@ -25,10 +25,10 @@ const Twitter = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}
 const Youtube = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M21.58 7.19a2.51 2.51 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42a2.51 2.51 0 0 0-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81a2.51 2.51 0 0 0 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42a2.51 2.51 0 0 0 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81ZM10 15.02V8.98L15.5 12 10 15.02Z"/></svg>);
 
 const SPORT_ICONS: Record<string, string> = {
-  Football: "🏈", Basketball: "🏀", Baseball: "⚾", Soccer: "⚽",
-  "Track & Field": "🏃", Swimming: "🏊", Tennis: "🎾", Volleyball: "🏐",
-  Wrestling: "🤼", Golf: "⛳", Lacrosse: "🥍", Hockey: "🏒",
-  Softball: "🥎", "Cross Country": "🏃", Gymnastics: "🤸", "Multi-Sport": "🏆",
+  Football: "", Basketball: "", Baseball: "", Soccer: "",
+  "Track & Field": "", Swimming: "", Tennis: "", Volleyball: "",
+  Wrestling: "", Golf: "", Lacrosse: "", Hockey: "",
+  Softball: "", "Cross Country": "", Gymnastics: "", "Multi-Sport": "",
 };
 
 function AthleteCardInner() {
@@ -58,7 +58,7 @@ function AthleteCardInner() {
     return (
       <div className="min-h-screen bg-[#040c1a] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-4 border-[#1E90FF]/30 border-t-cyan-400 rounded-full animate-spin mx-auto mb-4" />
           <p className="text-white/40 text-sm">Loading AthleteCard...</p>
         </div>
       </div>
@@ -74,19 +74,19 @@ function AthleteCardInner() {
   const xScore = profile?.xFactorScore ? Number(profile.xFactorScore) : 88;
   const nilValue = profile?.nilValue ? Number(profile.nilValue) : 50000;
   const initials = displayName.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
-  const sportIcon = SPORT_ICONS[sport] || "🏆";
+  const sportIcon = SPORT_ICONS[sport] || "";
 
   const statusConfig: Record<string, { label: string; color: string; bg: string }> = {
-    available: { label: "Available for Recruiting", color: "text-green-400", bg: "bg-green-500/10 border-green-500/30" },
+    available: { label: "Available for Recruiting", color: "text-[#00C2FF]", bg: "bg-[#00C2FF]/10 border-[#00C2FF]/30" },
     committed: { label: "Committed", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/30" },
-    signed: { label: "Signed", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/30" },
-    transferred: { label: "Transfer Portal", color: "text-sky-400", bg: "bg-blue-500/10 border-blue-500/30" },
+    signed: { label: "Signed", color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/10 border-[#1E90FF]/30" },
+    transferred: { label: "Transfer Portal", color: "text-[#00C2FF]", bg: "bg-blue-500/10 border-blue-500/30" },
   };
   const statusInfo = statusConfig[status] || statusConfig.available;
 
   return (
     <div className="min-h-screen bg-[#040c1a]">
-      {/* ── Header Bar ── */}
+      {/*  Header Bar  */}
       <div className="sticky top-0 z-20 bg-[#040c1a]/95 backdrop-blur border-b border-blue-900/30 px-4 py-3">
         <div className="max-w-lg mx-auto flex items-center justify-between">
           <Link href="/">
@@ -112,10 +112,10 @@ function AthleteCardInner() {
 
       <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
 
-        {/* ── Hero Card ── */}
+        {/*  Hero Card  */}
         <div className="bg-gradient-to-br from-[#0d1e3c] via-[#0a1628] to-[#040c1a] border border-blue-700/50 rounded-3xl overflow-hidden">
           {/* Cover */}
-          <div className="h-24 bg-gradient-to-r from-blue-900 via-cyan-900 to-blue-900 relative">
+          <div className="h-24 bg-gradient-to-r from-blue-900 via-[#1E90FF] to-blue-900 relative">
             <div className="absolute inset-0 opacity-20" style={{
               backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,194,255,0.1) 10px, rgba(0,194,255,0.1) 11px)"
             }} />
@@ -133,8 +133,8 @@ function AthleteCardInner() {
                 )}
               </div>
               <div className="flex items-center gap-1.5 mb-2">
-                <div className="text-xs font-black px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
-                  ⚡ {xScore} X-Factor
+                <div className="text-xs font-black px-2 py-1 rounded-full bg-[#1E90FF]/20 text-[#00C2FF] border border-[#1E90FF]/30">
+                   {xScore} EPX
                 </div>
               </div>
             </div>
@@ -162,8 +162,8 @@ function AthleteCardInner() {
             {/* Key Stats Row */}
             <div className="grid grid-cols-3 gap-3 mt-4">
               {[
-                { label: "NIL Value", val: `$${(nilValue / 1000).toFixed(0)}K`, icon: "💰", color: "text-green-400" },
-                { label: "X-Factor", val: xScore.toString(), icon: "⚡", color: "text-cyan-400" },
+                { label: "NIL Value", val: `$${(nilValue / 1000).toFixed(0)}K`, icon: "", color: "text-[#00C2FF]" },
+                { label: "EPX", val: xScore.toString(), icon: "", color: "text-[#00C2FF]" },
                 { label: "Sport", val: sportIcon, icon: "", color: "text-white" },
               ].map((stat, i) => (
                 <div key={i} className="bg-blue-900/30 rounded-xl p-3 text-center">
@@ -175,7 +175,7 @@ function AthleteCardInner() {
           </div>
         </div>
 
-        {/* ── Tab Nav ── */}
+        {/*  Tab Nav  */}
         <div className="flex gap-2">
           {[
             { id: "overview", label: "Overview" },
@@ -192,7 +192,7 @@ function AthleteCardInner() {
           ))}
         </div>
 
-        {/* ── OVERVIEW TAB ── */}
+        {/*  OVERVIEW TAB  */}
         {activeTab === "overview" && (
           <div className="space-y-4">
             {/* Bio */}
@@ -229,10 +229,10 @@ function AthleteCardInner() {
               <div className="text-xs font-black text-blue-400 tracking-widest uppercase mb-3">Connect</div>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { label: "AthlynX Profile", href: `/athlete/${athleteId}`, icon: "🏆", color: "bg-blue-600" },
-                  { label: "Send Message", href: "/messenger", icon: "💬", color: "bg-green-600" },
-                  { label: "View NIL Deals", href: "/nil-portal", icon: "💰", color: "bg-blue-600" },
-                  { label: "Watch Highlights", href: "/studio", icon: "🎬", color: "bg-purple-600" },
+                  { label: "AthlynX Profile", href: `/athlete/${athleteId}`, icon: "", color: "bg-blue-600" },
+                  { label: "Send Message", href: "/messenger", icon: "", color: "bg-[#00C2FF]" },
+                  { label: "View NIL Deals", href: "/nil-portal", icon: "", color: "bg-blue-600" },
+                  { label: "Watch Highlights", href: "/studio", icon: "", color: "bg-[#1E90FF]" },
                 ].map((link, i) => (
                   <Link key={i} href={link.href}>
                     <button className={`w-full ${link.color} hover:opacity-90 text-white text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-opacity`}>
@@ -245,7 +245,7 @@ function AthleteCardInner() {
           </div>
         )}
 
-        {/* ── STATS / SCOUTING REPORT TAB ── */}
+        {/*  STATS / SCOUTING REPORT TAB  */}
         {activeTab === "stats" && (
           <div className="space-y-4">
             {/* Scouting Report Header */}
@@ -257,9 +257,9 @@ function AthleteCardInner() {
                   <div className="text-blue-400 text-xs">{position} · {sport} · {school}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-cyan-400 font-black text-2xl">⚡ {xScore}</div>
-                  <div className="text-blue-500 text-[10px]">X-Factor Score</div>
-                  <div className="text-green-400 text-[10px] font-bold">
+                  <div className="text-[#00C2FF] font-black text-2xl"> {xScore}</div>
+                  <div className="text-blue-500 text-[10px]">EPX Score</div>
+                  <div className="text-[#00C2FF] text-[10px] font-bold">
                     {xScore >= 90 ? "ELITE PROSPECT" : xScore >= 75 ? "HIGH PROSPECT" : xScore >= 60 ? "SOLID PROSPECT" : "DEVELOPING"}
                   </div>
                 </div>
@@ -281,11 +281,11 @@ function AthleteCardInner() {
                 </div>
               ) : (
                 <div className="text-center py-6">
-                  <div className="text-3xl mb-2">📊</div>
+                  <div className="text-3xl mb-2"></div>
                   <div className="text-white font-bold text-sm mb-1">Stats Not Yet Added</div>
                   <div className="text-blue-400 text-xs mb-3">This athlete hasn't entered their stats yet.</div>
-                  <Link href="/x-factor">
-                    <button className="bg-blue-600 text-white text-xs font-black px-4 py-2 rounded-xl">⚡ Add Stats with AI</button>
+                  <Link href="/epx">
+                    <button className="bg-blue-600 text-white text-xs font-black px-4 py-2 rounded-xl"> Add Stats with AI</button>
                   </Link>
                 </div>
               )}
@@ -312,11 +312,11 @@ function AthleteCardInner() {
             </div>
 
             {/* AI Scouting Summary */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-indigo-900/20 border border-purple-700/40 rounded-2xl p-4">
-              <div className="text-xs font-black text-purple-400 tracking-widest uppercase mb-2">🤖 AI Scouting Summary</div>
+            <div className="bg-gradient-to-br from-[#1E90FF]/30 to-indigo-900/20 border border-[#1E90FF]/40 rounded-2xl p-4">
+              <div className="text-xs font-black text-[#1E90FF] tracking-widest uppercase mb-2"> AI Scouting Summary</div>
               <p className="text-blue-200 text-sm leading-relaxed">
                 {displayName} is a {position} competing in {sport} at {school}. 
-                With an X-Factor score of {xScore}, this athlete ranks as a {xScore >= 90 ? "top-tier elite" : xScore >= 75 ? "high-value"  : "developing"} prospect. 
+                With an EPX score of {xScore}, this athlete ranks as a {xScore >= 90 ? "top-tier elite" : xScore >= 75 ? "high-value"  : "developing"} prospect. 
                 NIL value estimated at ${(nilValue / 1000).toFixed(0)}K based on profile metrics, social reach, and sport market data.
                 {status === "available" ? " Currently available for recruiting — coaches and brands should act now." : 
                  status === "committed" ? " Committed — watch for future opportunities." :
@@ -335,15 +335,15 @@ function AthleteCardInner() {
           </div>
         )}
 
-        {/* ── HIGHLIGHTS TAB ── */}
+        {/*  HIGHLIGHTS TAB  */}
         {activeTab === "highlights" && (
           <div className="space-y-3">
             <div className="bg-[#0d1e3c] border border-blue-800/50 rounded-2xl p-4 text-center">
-              <div className="text-4xl mb-3">🎬</div>
+              <div className="text-4xl mb-3"></div>
               <div className="text-white font-bold mb-1">Highlight Reel</div>
               <div className="text-blue-400 text-sm mb-3">Upload your best plays, training clips, and game film.</div>
               <Link href="/studio">
-                <button className="bg-purple-600 hover:bg-purple-500 text-white text-xs font-black px-5 py-2.5 rounded-xl">
+                <button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white text-xs font-black px-5 py-2.5 rounded-xl">
                   Upload Highlights →
                 </button>
               </Link>
@@ -351,27 +351,27 @@ function AthleteCardInner() {
           </div>
         )}
 
-        {/* ── NIL TAB ── */}
+        {/*  NIL TAB  */}
         {activeTab === "nil" && (
           <div className="space-y-3">
-            <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/20 border border-green-700/40 rounded-2xl p-4">
-              <div className="text-xs font-black text-green-400 tracking-widest uppercase mb-2">💰 NIL Profile</div>
+            <div className="bg-gradient-to-br from-[#00C2FF]/30 to-emerald-900/20 border border-[#00C2FF]/40 rounded-2xl p-4">
+              <div className="text-xs font-black text-[#00C2FF] tracking-widest uppercase mb-2"> NIL Profile</div>
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <div className="text-white font-black text-2xl">${(nilValue / 1000).toFixed(0)}K</div>
-                  <div className="text-green-400 text-xs">Estimated NIL Value</div>
+                  <div className="text-[#00C2FF] text-xs">Estimated NIL Value</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-cyan-400 font-black text-xl">⚡ {xScore}</div>
-                  <div className="text-blue-400 text-xs">X-Factor Score</div>
+                  <div className="text-[#00C2FF] font-black text-xl"> {xScore}</div>
+                  <div className="text-blue-400 text-xs">EPX Score</div>
                 </div>
               </div>
-              <div className="bg-green-900/20 rounded-xl p-3 mb-3">
-                <div className="text-green-300 text-xs font-semibold mb-1">Open to Brand Partnerships</div>
+              <div className="bg-[#00C2FF]/20 rounded-xl p-3 mb-3">
+                <div className="text-[#00C2FF] text-xs font-semibold mb-1">Open to Brand Partnerships</div>
                 <div className="text-blue-400 text-xs">This athlete is available for NIL deals, sponsorships, appearances, and social media partnerships.</div>
               </div>
               <Link href="/nil-portal">
-                <button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs font-black py-2.5 rounded-xl">
+                <button className="w-full bg-[#00C2FF] hover:bg-[#00C2FF] text-white text-xs font-black py-2.5 rounded-xl">
                   Propose a Deal →
                 </button>
               </Link>
@@ -379,11 +379,11 @@ function AthleteCardInner() {
           </div>
         )}
 
-        {/* ── Footer ── */}
+        {/*  Footer  */}
         <div className="text-center py-4 border-t border-blue-900/30">
           <div className="text-blue-600 text-xs mb-1">Powered by AthlynX · ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM</div>
           <Link href="/signup">
-            <button className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs font-black px-5 py-2.5 rounded-xl">
+            <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] text-white text-xs font-black px-5 py-2.5 rounded-xl">
               Create Your AthleteCard — Free →
             </button>
           </Link>

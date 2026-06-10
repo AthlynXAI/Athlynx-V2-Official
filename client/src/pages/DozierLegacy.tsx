@@ -127,10 +127,10 @@ function DozierLegacyInner() {
         }}
       >
         {[
-          { icon: "⚔️", title: "STRENGTH", desc: "Built through every battle. Forged in fire. Unbreakable." },
-          { icon: "🕊️", title: "PEACE", desc: "The calm of a man who knows who he is and whose he is." },
-          { icon: "👨‍👩‍👧‍👦", title: "FAMILY", desc: "The reason for every sacrifice. The legacy that outlives us all." },
-          { icon: "👏", title: "HUMBLE", desc: "Quietly confident. Loudly grateful. Never above the work or the people who do it." },
+          { icon: "", title: "STRENGTH", desc: "Built through every battle. Forged in fire. Unbreakable." },
+          { icon: "", title: "PEACE", desc: "The calm of a man who knows who he is and whose he is." },
+          { icon: "", title: "FAMILY", desc: "The reason for every sacrifice. The legacy that outlives us all." },
+          { icon: "", title: "HUMBLE", desc: "Quietly confident. Loudly grateful. Never above the work or the people who do it." },
         ].map((pillar) => (
           <div
             key={pillar.title}

@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 
-// ─── Sample Athletes for Quick-Generate ──────────────────────────────────────
+//  Sample Athletes for Quick-Generate 
 const SAMPLE_ATHLETES = [
   { name: "Marcus Williams", sport: "Football", position: "QB", school: "Westlake HS", state: "TX", year: "2027", xScore: 98, fortyYd: "4.52", vertical: "38.5", bench: 22, gpa: 3.8, offers: 24, nilValue: 85000 },
   { name: "Aaliyah Thompson", sport: "Basketball", position: "PG", school: "Cy-Fair HS", state: "TX", year: "2027", xScore: 96, fortyYd: "4.61", vertical: "40.0", bench: 14, gpa: 4.0, offers: 22, nilValue: 62000 },
@@ -29,7 +29,7 @@ const SAMPLE_ATHLETES = [
   { name: "Keisha Moore", sport: "Football", position: "WR", school: "North Shore HS", state: "GA", year: "2027", xScore: 93, fortyYd: "4.38", vertical: "40.5", bench: 14, gpa: 3.5, offers: 19, nilValue: 38000 },
 ];
 
-// ─── Report Section Parser ────────────────────────────────────────────────────
+//  Report Section Parser 
 function parseReportSections(report: string): { title: string; content: string }[] {
   const sections: { title: string; content: string }[] = [];
   const lines = report.split("\n");
@@ -49,7 +49,7 @@ function parseReportSections(report: string): { title: string; content: string }
   return sections;
 }
 
-// ─── Section Icons ────────────────────────────────────────────────────────────
+//  Section Icons 
 const SECTION_ICONS: Record<string, React.ElementType> = {
   "EXECUTIVE SUMMARY": Sparkles,
   "ATHLETIC PROFILE": User,
@@ -61,7 +61,7 @@ const SECTION_ICONS: Record<string, React.ElementType> = {
   "SCOUT RECOMMENDATION": Award,
 };
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function AIScoutingReportInner() {
   const { user } = useAuth();
   const [mode, setMode] = useState<"select" | "custom" | "report">("select");
@@ -145,9 +145,9 @@ function AIScoutingReportInner() {
             <p className="text-blue-400 text-sm mt-1">One-click professional scouting reports powered by Nebius H200 AI. Used by D1 programs and pro scouts.</p>
             <div className="flex gap-2 mt-3 flex-wrap">
               {[
-                { label: "⚡ Nebius H200 Llama-3.3-70B", color: "bg-purple-900/40 border-purple-700/40 text-purple-300" },
-                { label: "💎 10 AI Credits per report", color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
-                { label: "📄 8-Section Professional Report", color: "bg-green-900/40 border-green-700/40 text-green-300" },
+                { label: " Nebius H200 Llama-3.3-70B", color: "bg-[#1E90FF]/40 border-[#1E90FF]/40 text-[#1E90FF]" },
+                { label: " 10 AI Credits per report", color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
+                { label: " 8-Section Professional Report", color: "bg-[#00C2FF]/40 border-[#00C2FF]/40 text-[#00C2FF]" },
               ].map((b, i) => (
                 <span key={i} className={`text-[10px] font-bold px-2 py-1 rounded-full border ${b.color}`}>{b.label}</span>
               ))}
@@ -157,7 +157,7 @@ function AIScoutingReportInner() {
 
         <div className="max-w-2xl mx-auto px-4 py-4 space-y-4">
 
-          {/* ══ LOADING STATE ══ */}
+          {/*  LOADING STATE  */}
           {generateReport.isPending && (
             <div className="bg-gradient-to-r from-[#0066ff]/20 to-[#00c2ff]/10 border border-[#0066ff]/30 rounded-2xl p-8 text-center">
               <Loader2 size={40} className="text-[#00c2ff] mx-auto mb-4 animate-spin" />
@@ -174,7 +174,7 @@ function AIScoutingReportInner() {
             </div>
           )}
 
-          {/* ══ SELECT / GENERATE MODE ══ */}
+          {/*  SELECT / GENERATE MODE  */}
           {!generateReport.isPending && mode !== "report" && (
             <>
               {/* Mode Toggle */}
@@ -183,13 +183,13 @@ function AIScoutingReportInner() {
                   className={`flex-1 text-xs font-bold py-2.5 rounded-xl transition-colors ${
                     mode === "select" ? "bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white" : "bg-[#0d1e3c] border border-blue-800/50 text-blue-400"
                   }`}>
-                  🏆 Quick Generate
+                   Quick Generate
                 </button>
                 <button onClick={() => setMode("custom")}
                   className={`flex-1 text-xs font-bold py-2.5 rounded-xl transition-colors ${
                     mode === "custom" ? "bg-gradient-to-r from-[#0066ff] to-[#00c2ff] text-white" : "bg-[#0d1e3c] border border-blue-800/50 text-blue-400"
                   }`}>
-                  ✏️ Custom Athlete
+                   Custom Athlete
                 </button>
               </div>
 
@@ -300,7 +300,7 @@ function AIScoutingReportInner() {
             </>
           )}
 
-          {/* ══ REPORT VIEW ══ */}
+          {/*  REPORT VIEW  */}
           {!generateReport.isPending && mode === "report" && generatedReport && (
             <>
               {/* Report Header */}
@@ -313,9 +313,9 @@ function AIScoutingReportInner() {
                       Generated {new Date(generatedReport.generatedAt).toLocaleString()} · Powered by Nebius H200 AI
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-green-500/20 border border-green-500/30 rounded-full px-2 py-1 shrink-0">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                    <span className="text-[10px] font-black text-green-400">COMPLETE</span>
+                  <div className="flex items-center gap-1.5 bg-[#00C2FF]/20 border border-[#00C2FF]/30 rounded-full px-2 py-1 shrink-0">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#00C2FF]" />
+                    <span className="text-[10px] font-black text-[#00C2FF]">COMPLETE</span>
                   </div>
                 </div>
                 <div className="flex gap-2 mt-3">

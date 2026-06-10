@@ -53,7 +53,7 @@ const ATHLETE_PROFILES = [
   },
 ];
 
-export default function XFactorPhoneMockup() {
+export default function EPXPhoneMockup() {
   const [profileIdx, setProfileIdx] = useState(0);
   const [coachCount, setCoachCount] = useState(ATHLETE_PROFILES[0].coachViews);
   const [playing, setPlaying] = useState(false);
@@ -118,7 +118,7 @@ export default function XFactorPhoneMockup() {
             <div className="w-10 h-10 rounded-full bg-blue-900/60 border border-blue-700 flex items-center justify-center mx-auto mb-1">
               <Eye className="w-5 h-5 text-[#00c2ff]" />
             </div>
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black rounded-full w-5 h-5 flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 bg-[#1E90FF] text-white text-[10px] font-black rounded-full w-5 h-5 flex items-center justify-center">
               {coachCount > 99 ? "99+" : coachCount}
             </span>
           </div>
@@ -180,7 +180,7 @@ export default function XFactorPhoneMockup() {
             <div className="flex items-center justify-between mb-3">
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map(i => (
-                  <Star key={i} className={`w-3 h-3 ${i <= profile.rating ? "text-sky-400 fill-blue-400" : "text-white/20"}`} />
+                  <Star key={i} className={`w-3 h-3 ${i <= profile.rating ? "text-[#00C2FF] fill-blue-400" : "text-white/20"}`} />
                 ))}
               </div>
               <div className="flex items-center gap-1">

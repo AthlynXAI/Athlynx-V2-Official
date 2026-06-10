@@ -23,9 +23,9 @@ type ConnectorHealthStatus = "ok" | "degraded" | "blocked" | "manual_review";
 
 function statusBadge(status: ConnectorHealthStatus | string) {
   const map: Record<string, { label: string; cls: string }> = {
-    ok: { label: "OK", cls: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
-    degraded: { label: "Degraded", cls: "bg-blue-500/20 text-sky-300 border-blue-500/30" },
-    blocked: { label: "Blocked", cls: "bg-red-500/20 text-red-300 border-red-500/30" },
+    ok: { label: "OK", cls: "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30" },
+    degraded: { label: "Degraded", cls: "bg-blue-500/20 text-[#00C2FF] border-blue-500/30" },
+    blocked: { label: "Blocked", cls: "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30" },
     manual_review: { label: "Same-Session Proof", cls: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
   };
   const m = map[status] ?? { label: status, cls: "bg-slate-500/20 text-slate-300 border-slate-500/30" };
@@ -73,7 +73,7 @@ function ConnectorHealthOSInner() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
-              <Satellite className="h-7 w-7 text-cyan-400" />
+              <Satellite className="h-7 w-7 text-[#00C2FF]" />
               AthlynXAI Connector Health OS
             </h1>
             <p className="text-sm text-slate-400 mt-1 max-w-3xl">
@@ -133,7 +133,7 @@ function ConnectorHealthOSInner() {
                 <CheckCircle2 className="h-4 w-4" /> OK
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-3xl font-black text-emerald-300">
+            <CardContent className="text-3xl font-black text-[#00C2FF]">
               {summary?.ok ?? "—"}
             </CardContent>
           </Card>
@@ -143,7 +143,7 @@ function ConnectorHealthOSInner() {
                 <AlertTriangle className="h-4 w-4" /> Blocked
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-3xl font-black text-red-300">
+            <CardContent className="text-3xl font-black text-[#1E90FF]">
               {summary?.blocked ?? "—"}
             </CardContent>
           </Card>
@@ -160,8 +160,8 @@ function ConnectorHealthOSInner() {
         </div>
 
         {summary?.criticalBlocked ? (
-          <Card className="border-red-500/40 bg-red-950/20">
-            <CardContent className="p-4 text-red-200 flex items-start gap-3">
+          <Card className="border-[#1E90FF]/40 bg-[#1E90FF]/20">
+            <CardContent className="p-4 text-[#1E90FF] flex items-start gap-3">
               <AlertTriangle className="h-5 w-5 mt-0.5" />
               <div>
                 <div className="font-semibold">Critical connector blocker detected</div>
@@ -174,23 +174,23 @@ function ConnectorHealthOSInner() {
           </Card>
         ) : null}
 
-        <Card className="border-cyan-500/30 bg-cyan-950/10">
+        <Card className="border-[#1E90FF]/30 bg-[#1E90FF]/20">
           <CardHeader>
             <CardTitle className="text-base text-white flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-cyan-400" /> Watchdog Reality Check
+              <ShieldCheck className="h-5 w-5 text-[#00C2FF]" /> Watchdog Reality Check
             </CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-slate-300">
-            <div className="rounded-xl border border-cyan-500/20 bg-slate-950/40 p-4">
-              <div className="text-cyan-300 font-black mb-1">Detection, not magic</div>
+            <div className="rounded-xl border border-[#1E90FF]/30 bg-slate-950/40 p-4">
+              <div className="text-[#00C2FF] font-black mb-1">Detection, not magic</div>
               OAuth sessions can expire or be revoked by third-party apps. The OS detects proof gaps and blocks unsafe actions; it cannot force external providers to stay connected forever.
             </div>
             <div className="rounded-xl border border-blue-500/20 bg-slate-950/40 p-4">
               <div className="text-blue-300 font-black mb-1">Cron watchdog</div>
               The cloud-computer sweep runs on a schedule and may report blocked/manual-review when secure env or OAuth proof is missing. That is expected fail-closed behavior.
             </div>
-            <div className="rounded-xl border border-emerald-500/20 bg-slate-950/40 p-4">
-              <div className="text-emerald-300 font-black mb-1">Sentry proof</div>
+            <div className="rounded-xl border border-[#1E90FF]/20 bg-slate-950/40 p-4">
+              <div className="text-[#00C2FF] font-black mb-1">Sentry proof</div>
               Sentry proof sends sanitized summary counts and connector IDs only. Secret values, tokens, cookies, and mailbox data are never emitted.
             </div>
           </CardContent>
@@ -199,7 +199,7 @@ function ConnectorHealthOSInner() {
         <Card>
           <CardHeader>
             <CardTitle className="text-base text-white flex items-center gap-2">
-              <LockKeyhole className="h-5 w-5 text-cyan-400" /> Doctrine Lock
+              <LockKeyhole className="h-5 w-5 text-[#00C2FF]" /> Doctrine Lock
             </CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-300">
@@ -225,7 +225,7 @@ function ConnectorHealthOSInner() {
         <Card>
           <CardHeader>
             <CardTitle className="text-base text-white flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Self-Test
+              <CheckCircle2 className="h-5 w-5 text-[#00C2FF]" /> Self-Test
               {selfTest?.ok ? statusBadge("ok") : statusBadge("degraded")}
             </CardTitle>
           </CardHeader>
@@ -234,9 +234,9 @@ function ConnectorHealthOSInner() {
               {selfTest?.checks.map((check) => (
                 <li key={check.name} className="flex items-center gap-2 text-slate-200">
                   {check.pass ? (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                    <CheckCircle2 className="h-4 w-4 text-[#00C2FF]" />
                   ) : (
-                    <AlertTriangle className="h-4 w-4 text-sky-400" />
+                    <AlertTriangle className="h-4 w-4 text-[#00C2FF]" />
                   )}
                   {check.name}
                 </li>
@@ -280,7 +280,7 @@ function ConnectorHealthOSInner() {
                       </div>
                     ) : null}
                     {connector.status === "blocked" ? (
-                      <div className="mt-1 text-[11px] text-red-300">
+                      <div className="mt-1 text-[11px] text-[#1E90FF]">
                         Fail-closed: do not push, send, post, charge, migrate, or automate this rail until restored.
                       </div>
                     ) : null}

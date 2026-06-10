@@ -6,8 +6,8 @@ function AppsInner() {
     {
       name: "AthlynX",
       tagline: "The Athlete's Playbook",
-      icon: "🏆",
-      color: "from-blue-600 to-cyan-500",
+      icon: "",
+      color: "from-blue-600 to-[#0a1628]",
       description: "The all-in-one platform for athletes. Profiles, recruiting, NIL, training, and more.",
       features: ["Athlete Profiles", "AI Coaching", "NIL Marketplace", "Recruiting", "Messaging"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -17,7 +17,7 @@ function AppsInner() {
     {
       name: "Diamond Grind",
       tagline: "Elite Baseball Platform",
-      icon: "⚾",
+      icon: "",
       color: "from-blue-500 to-blue-700",
       description: "The #1 baseball app for rankings, recruiting, tournaments, and training.",
       features: ["Player Rankings", "Tournament Finder", "Video Analysis", "Recruiting Database"],
@@ -28,8 +28,8 @@ function AppsInner() {
     {
       name: "Court Kings",
       tagline: "Basketball Dominance",
-      icon: "🏀",
-      color: "from-cyan-500 to-red-600",
+      icon: "",
+      color: "from-[#1E90FF] to-[#0a1628]",
       description: "Basketball recruiting, training, and exposure platform.",
       features: ["Hoops Rankings", "Camp Finder", "Highlight Reels", "College Connections"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -39,8 +39,8 @@ function AppsInner() {
     {
       name: "Gridiron Nexus",
       tagline: "Football Excellence",
-      icon: "🏈",
-      color: "from-green-600 to-green-800",
+      icon: "",
+      color: "from-[#00C2FF] to-[#0a1628]",
       description: "Football recruiting, film analysis, and combine prep.",
       features: ["Prospect Rankings", "Film Room", "Combine Training", "Recruiting Board"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -50,8 +50,8 @@ function AppsInner() {
     {
       name: "Pitch Pulse",
       tagline: "Soccer Intelligence",
-      icon: "⚽",
-      color: "from-emerald-500 to-teal-600",
+      icon: "",
+      color: "from-[#00C2FF] to-teal-600",
       description: "Soccer recruiting, club connections, and international opportunities.",
       features: ["Club Finder", "International Scouts", "Training Programs", "Showcase Events"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -61,8 +61,8 @@ function AppsInner() {
     {
       name: "Reel Masters",
       tagline: "Fishing Community",
-      icon: "🎣",
-      color: "from-cyan-500 to-blue-600",
+      icon: "",
+      color: "from-[#1E90FF] to-blue-600",
       description: "Find fishing spots, log catches, and compete in tournaments.",
       features: ["Spot Finder", "Catch Log", "Tournaments", "Gear Reviews"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -72,8 +72,8 @@ function AppsInner() {
     {
       name: "Fairway Elite",
       tagline: "Golf Excellence",
-      icon: "⛳",
-      color: "from-green-500 to-emerald-600",
+      icon: "",
+      color: "from-[#00C2FF] to-emerald-600",
       description: "Golf handicap tracking, course finder, and tournament play.",
       features: ["Handicap Tracker", "Course Finder", "Tee Times", "Tournament Entry"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -83,8 +83,8 @@ function AppsInner() {
     {
       name: "Hunt Pro",
       tagline: "Hunting Community",
-      icon: "🦌",
-      color: "from-red-600 to-red-700",
+      icon: "",
+      color: "from-[#1E90FF] to-[#0a1628]",
       description: "Hunting spots, harvest tracking, and license management.",
       features: ["Land Finder", "Harvest Log", "License Manager", "Gear Marketplace"],
       ios: "https://apps.apple.com/us/app/athlynx/id6742985965",
@@ -111,7 +111,7 @@ function AppsInner() {
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link href="/home" className="text-gray-400 hover:text-white">Platform</Link>
             <Link href="/store" className="text-gray-400 hover:text-white">Store</Link>
-            <Link href="/apps" className="text-cyan-400 font-semibold">Apps</Link>
+            <Link href="/apps" className="text-[#00C2FF] font-semibold">Apps</Link>
             <Link href="/pricing" className="text-gray-400 hover:text-white">Pricing</Link>
           </nav>
         </div>
@@ -123,14 +123,14 @@ function AppsInner() {
           <div className="text-center mb-12">
             <div className="flex justify-center gap-3 mb-4">
               <span className="text-4xl"></span>
-              <span className="text-4xl">🍎</span>
-              <span className="text-4xl">🤖</span>
+              <span className="text-4xl"></span>
+              <span className="text-4xl"></span>
             </div>
-            <span className="inline-block px-4 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1 bg-[#1E90FF]/20 text-[#00C2FF] rounded-full text-sm font-semibold mb-4">
               MOBILE APPS
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-              Download Our <span className="text-cyan-400">Apps</span>
+              Download Our <span className="text-[#00C2FF]">Apps</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               The full AthlynX platform is live now as a Progressive Web App (PWA). Native apps are on the way — Google Play is in internal testing pending APK upload, Apple App Store is pending developer account enrollment.
@@ -140,19 +140,19 @@ function AppsInner() {
           {/* App Store Badges */}
           <div className="flex justify-center gap-4 mb-12">
             <div className="flex items-center gap-3 bg-black border border-white/20 rounded-xl px-6 py-3 opacity-70">
-              <span className="text-3xl">🍎</span>
+              <span className="text-3xl"></span>
               <div className="text-left">
                 <p className="text-gray-400 text-xs">Coming soon to</p>
                 <p className="text-white font-semibold">App Store</p>
-                <p className="text-sky-400 text-[10px] font-bold tracking-wider">PENDING APPLE DEV ACCOUNT</p>
+                <p className="text-[#00C2FF] text-[10px] font-bold tracking-wider">PENDING APPLE DEV ACCOUNT</p>
               </div>
             </div>
             <div className="flex items-center gap-3 bg-black border border-white/20 rounded-xl px-6 py-3 opacity-90">
-              <span className="text-3xl">▶️</span>
+              <span className="text-3xl"></span>
               <div className="text-left">
                 <p className="text-gray-400 text-xs">In testing on</p>
                 <p className="text-white font-semibold">Google Play</p>
-                <p className="text-cyan-400 text-[10px] font-bold tracking-wider">INTERNAL TESTING · APK UPLOAD PENDING</p>
+                <p className="text-[#00C2FF] text-[10px] font-bold tracking-wider">INTERNAL TESTING · APK UPLOAD PENDING</p>
               </div>
             </div>
           </div>
@@ -160,13 +160,13 @@ function AppsInner() {
           {/* Apps Grid */}
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              Our <span className="text-cyan-400">App Family</span>
+              Our <span className="text-[#00C2FF]">App Family</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {apps.map((app, i) => (
                 <div
                   key={i}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-cyan-500/50 transition-all"
+                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#1E90FF]/30 transition-all"
                 >
                   <div className={`h-24 bg-gradient-to-br ${app.color} flex items-center justify-center`}>
                     <span className="text-5xl">{app.icon}</span>
@@ -174,11 +174,11 @@ function AppsInner() {
                   <div className="p-4">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="text-white font-bold">{app.name}</h3>
-                      <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs font-semibold rounded">
+                      <span className="px-2 py-0.5 bg-[#1E90FF]/20 text-[#1E90FF] text-xs font-semibold rounded">
                         {app.status}
                       </span>
                     </div>
-                    <p className="text-cyan-400 text-xs mb-2">{app.tagline}</p>
+                    <p className="text-[#00C2FF] text-xs mb-2">{app.tagline}</p>
                     <p className="text-gray-500 text-sm mb-3 line-clamp-2">{app.description}</p>
                     <div className="flex flex-wrap gap-1 mb-4">
                       {app.features.slice(0, 3).map((feature, j) => (
@@ -189,10 +189,10 @@ function AppsInner() {
                     </div>
                     <div className="flex gap-2">
                       <button className="flex-1 py-2 bg-white/10 text-white rounded-lg text-xs font-semibold hover:bg-white/20 transition-all flex items-center justify-center gap-1">
-                        <span>🍎</span> iOS
+                        <span></span> iOS
                       </button>
                       <button className="flex-1 py-2 bg-white/10 text-white rounded-lg text-xs font-semibold hover:bg-white/20 transition-all flex items-center justify-center gap-1">
-                        <span>🤖</span> Android
+                        <span></span> Android
                       </button>
                     </div>
                   </div>
@@ -204,11 +204,11 @@ function AppsInner() {
           {/* In-App Subscriptions */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <span className="inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold mb-4">
-                💳 POWERED BY STRIPE
+              <span className="inline-block px-4 py-1 bg-[#00C2FF]/20 text-[#00C2FF] rounded-full text-sm font-semibold mb-4">
+                 POWERED BY STRIPE
               </span>
               <h2 className="text-2xl font-bold text-white mb-2">
-                In-App <span className="text-green-400">Subscriptions</span>
+                In-App <span className="text-[#00C2FF]">Subscriptions</span>
               </h2>
               <p className="text-gray-400">Secure payments processed through Stripe</p>
             </div>
@@ -217,20 +217,20 @@ function AppsInner() {
                 <div
                   key={i}
                   className={`bg-white/5 backdrop-blur-sm rounded-xl border p-6 text-center ${
-                    tier.name === "Elite" ? "border-green-500" : "border-white/10"
+                    tier.name === "Elite" ? "border-[#00C2FF]" : "border-white/10"
                   }`}
                 >
                   {tier.name === "Elite" && (
-                    <span className="inline-block px-3 py-1 bg-green-500 text-black text-xs font-bold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#00C2FF] text-black text-xs font-bold rounded-full mb-3">
                       BEST VALUE
                     </span>
                   )}
                   <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
-                  <p className="text-2xl font-black text-green-400 mb-4">{tier.price}</p>
+                  <p className="text-2xl font-black text-[#00C2FF] mb-4">{tier.price}</p>
                   <ul className="space-y-2 text-sm text-gray-400">
                     {tier.features.map((feature, j) => (
                       <li key={j} className="flex items-center gap-2">
-                        <span className="text-green-400"></span>
+                        <span className="text-[#00C2FF]"></span>
                         {feature}
                       </li>
                     ))}
@@ -245,10 +245,10 @@ function AppsInner() {
             <h3 className="text-xl font-bold text-white mb-6 text-center">Why Download Our Apps?</h3>
             <div className="grid md:grid-cols-4 gap-6">
               {[
-                { icon: "📱", title: "Native Experience", desc: "Optimized for iOS & Android" },
-                { icon: "🔔", title: "Push Notifications", desc: "Never miss an opportunity" },
-                { icon: "📴", title: "Offline Mode", desc: "Access key features offline" },
-                { icon: "💳", title: "Secure Payments", desc: "Stripe-powered transactions" },
+                { icon: "", title: "Native Experience", desc: "Optimized for iOS & Android" },
+                { icon: "", title: "Push Notifications", desc: "Never miss an opportunity" },
+                { icon: "", title: "Offline Mode", desc: "Access key features offline" },
+                { icon: "", title: "Secure Payments", desc: "Stripe-powered transactions" },
               ].map((feature, i) => (
                 <div key={i} className="text-center">
                   <span className="text-4xl block mb-2">{feature.icon}</span>
@@ -260,7 +260,7 @@ function AppsInner() {
           </div>
 
           {/* Notify Me */}
-          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-2">Get Notified When We Launch </h3>
             <p className="text-white/80 mb-6">Be the first to download our mobile apps</p>
             <div className="flex justify-center gap-2 max-w-md mx-auto">
@@ -269,7 +269,7 @@ function AppsInner() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-white"
               />
-              <button className="px-6 py-3 bg-white text-cyan-600 font-bold rounded-xl hover:bg-gray-100 transition-all">
+              <button className="px-6 py-3 bg-white text-[#00C2FF] font-bold rounded-xl hover:bg-gray-100 transition-all">
                 Notify Me
               </button>
             </div>
@@ -277,7 +277,7 @@ function AppsInner() {
 
           {/* Back Link */}
           <div className="text-center mt-10">
-            <Link href="/" className="text-cyan-400 hover:underline">
+            <Link href="/" className="text-[#00C2FF] hover:underline">
               ← Back to Home
             </Link>
           </div>

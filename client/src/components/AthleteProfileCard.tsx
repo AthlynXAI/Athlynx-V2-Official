@@ -26,19 +26,19 @@ const SPORT_COLORS: Record<string, { from: string; to: string; accent: string }>
 };
 
 const SPORT_ICONS: Record<string, string> = {
-  Football: "🏈", Basketball: "🏀", Baseball: "⚾", Soccer: "⚽",
-  "Track & Field": "🏃", Swimming: "🏊", Tennis: "🎾", Volleyball: "🏐",
-  Wrestling: "🤼", Golf: "⛳", Lacrosse: "🥍", Hockey: "🏒",
-  Softball: "🥎", "Cross Country": "🏃‍♂️", Gymnastics: "🤸", Rugby: "🏉",
-  Cricket: "🏏", Rowing: "🚣", "Water Polo": "🤽", "Field Hockey": "🏑",
-  Cheerleading: "📣", Fishing: "🎣", "Multi-Sport": "🏆",
+  Football: "", Basketball: "", Baseball: "", Soccer: "",
+  "Track & Field": "", Swimming: "", Tennis: "", Volleyball: "",
+  Wrestling: "", Golf: "", Lacrosse: "", Hockey: "",
+  Softball: "", "Cross Country": "", Gymnastics: "", Rugby: "",
+  Cricket: "", Rowing: "", "Water Polo": "", "Field Hockey": "",
+  Cheerleading: "", Fishing: "", "Multi-Sport": "",
 };
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; dot: string }> = {
-  available: { label: "Available", color: "text-green-400", bg: "bg-green-500/15 border-green-500/30", dot: "bg-green-400" },
+  available: { label: "Available", color: "text-[#00C2FF]", bg: "bg-[#00C2FF]/15 border-[#00C2FF]/30", dot: "bg-[#00C2FF]" },
   committed: { label: "Committed", color: "text-blue-400", bg: "bg-blue-500/15 border-blue-500/30", dot: "bg-blue-400" },
-  signed: { label: "Signed", color: "text-purple-400", bg: "bg-purple-500/15 border-purple-500/30", dot: "bg-purple-400" },
-  transferred: { label: "Transfer Portal", color: "text-sky-400", bg: "bg-blue-500/15 border-blue-500/30", dot: "bg-blue-400" },
+  signed: { label: "Signed", color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/15 border-[#1E90FF]/30", dot: "bg-[#1E90FF]" },
+  transferred: { label: "Transfer Portal", color: "text-[#00C2FF]", bg: "bg-blue-500/15 border-blue-500/30", dot: "bg-blue-400" },
 };
 
 // Showcase athlete photos from CDN — used when no real photo exists
@@ -91,7 +91,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
 
   const sport = athlete.sport || "Multi-Sport";
   const sportColor = SPORT_COLORS[sport] || SPORT_COLORS.Football;
-  const sportIcon = SPORT_ICONS[sport] || "🏆";
+  const sportIcon = SPORT_ICONS[sport] || "";
   const statusConfig = STATUS_CONFIG[athlete.recruitingStatus || "available"] || STATUS_CONFIG.available;
   const initials = (athlete.name || "AT").split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
   const photoUrl = (!imgError && athlete.avatarUrl) ? athlete.avatarUrl : getShowcasePhoto(athlete.userId);
@@ -114,7 +114,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
 
   if (variant === "featured") {
     return (
-      <div className="relative bg-[#0a0f1e] rounded-3xl overflow-hidden border border-white/10 hover:border-cyan-500/40 transition-all group shadow-xl">
+      <div className="relative bg-[#0a0f1e] rounded-3xl overflow-hidden border border-white/10 hover:border-[#1E90FF]/30 transition-all group shadow-xl">
         {/* Background sport gradient */}
         <div className="absolute inset-0 opacity-30" style={{ background: `linear-gradient(135deg, ${sportColor.from}, ${sportColor.to})` }} />
 
@@ -148,15 +148,15 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
             <div className="flex items-center gap-2 mb-0.5">
               <h3 className="text-white font-black text-lg leading-tight">{athlete.name || "Athlete"}</h3>
               {athlete.recruitingScore && Number(athlete.recruitingScore) >= 80 && (
-                <span className="text-sky-400 text-sm">⭐</span>
+                <span className="text-[#00C2FF] text-sm"></span>
               )}
             </div>
-            <p className="text-cyan-400 text-sm font-bold">
+            <p className="text-[#00C2FF] text-sm font-bold">
               {[athlete.position, athlete.classYear ? `Class of ${athlete.classYear}` : null].filter(Boolean).join(" · ")}
             </p>
             {athlete.school && (
               <p className="text-white/50 text-xs mt-0.5 flex items-center gap-1">
-                <span>🏫</span> {athlete.school}
+                <span></span> {athlete.school}
                 {athlete.state && <span className="text-white/30">· {athlete.state}</span>}
               </p>
             )}
@@ -165,10 +165,10 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-2 mb-3">
             {[
-              { label: "SCORE", value: athlete.recruitingScore ? `${athlete.recruitingScore}` : "—", color: "text-cyan-400" },
-              { label: "NIL", value: nilDisplay || "—", color: "text-green-400" },
-              keyStat ? { label: keyStat.label, value: `${keyStat.value}`, color: "text-sky-400" } :
-              { label: "GPA", value: athlete.gpa ? athlete.gpa.toFixed(1) : "—", color: "text-purple-400" },
+              { label: "SCORE", value: athlete.recruitingScore ? `${athlete.recruitingScore}` : "—", color: "text-[#00C2FF]" },
+              { label: "NIL", value: nilDisplay || "—", color: "text-[#00C2FF]" },
+              keyStat ? { label: keyStat.label, value: `${keyStat.value}`, color: "text-[#00C2FF]" } :
+              { label: "GPA", value: athlete.gpa ? athlete.gpa.toFixed(1) : "—", color: "text-[#1E90FF]" },
             ].map((stat, i) => (
               <div key={i} className="bg-white/5 rounded-xl p-2 text-center border border-white/5">
                 <div className={`text-sm font-black ${stat.color}`}>{stat.value}</div>
@@ -181,7 +181,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
           {showConnect && (
             <div className="flex gap-2">
               <Link href={`/athlete/${athlete.userId}`} className="flex-1">
-                <button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-black py-2.5 rounded-xl text-xs hover:opacity-90 transition-all">
+                <button className="w-full bg-gradient-to-r from-[#1E90FF] to-blue-600 text-white font-black py-2.5 rounded-xl text-xs hover:opacity-90 transition-all">
                   View Profile →
                 </button>
               </Link>
@@ -190,10 +190,10 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
                   onClick={() => sendConnection.mutate({ targetUserId: athlete.userId })}
                   disabled={connected || sendConnection.isPending}
                   className={`px-3 py-2.5 rounded-xl text-xs font-black border transition-all ${
-                    connected ? "bg-green-900/30 text-green-400 border-green-700" : "bg-white/5 text-white/70 border-white/10 hover:border-cyan-500/50 hover:text-cyan-400"
+                    connected ? "bg-[#00C2FF]/30 text-[#00C2FF] border-[#00C2FF]" : "bg-white/5 text-white/70 border-white/10 hover:border-[#1E90FF]/30 hover:text-[#00C2FF]"
                   }`}
                 >
-                  {connected ? "✓" : "👥"}
+                  {connected ? "" : ""}
                 </button>
               )}
             </div>
@@ -205,7 +205,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
 
   // Grid variant (default)
   return (
-    <div className="bg-[#0d1b3e] border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/10 transition-all group">
+    <div className="bg-[#0d1b3e] border border-white/10 rounded-2xl overflow-hidden hover:border-[#1E90FF]/30 hover:shadow-lg hover:shadow-cyan-500/10 transition-all group">
       <Link href={`/athlete/${athlete.userId}`}>
         <div className="cursor-pointer">
           {/* Photo header */}
@@ -231,7 +231,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
           <div className="p-3">
             <div className="flex items-start justify-between mb-1">
               <div>
-                <h3 className="text-white font-black text-sm leading-tight group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-white font-black text-sm leading-tight group-hover:text-[#00C2FF] transition-colors">
                   {athlete.name || "Athlete"}
                 </h3>
                 <p className="text-white/50 text-[10px]">
@@ -239,7 +239,7 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
                 </p>
               </div>
               {athlete.recruitingScore && Number(athlete.recruitingScore) >= 80 && (
-                <span className="text-sky-400 text-xs">⭐</span>
+                <span className="text-[#00C2FF] text-xs"></span>
               )}
             </div>
             {athlete.school && (
@@ -271,15 +271,15 @@ export function AthleteProfileCard({ athlete, variant = "grid", showConnect = tr
               onClick={() => sendConnection.mutate({ targetUserId: athlete.userId })}
               disabled={connected || sendConnection.isPending}
               className={`w-full text-[10px] font-black py-1.5 rounded-full transition-all ${
-                connected ? "bg-green-900/30 text-green-400 border border-green-800/30" :
-                "bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 text-cyan-400"
+                connected ? "bg-[#00C2FF]/30 text-[#00C2FF] border border-[#00C2FF]/30" :
+                "bg-[#1E90FF]/20 hover:bg-[#1E90FF]/20 border border-[#1E90FF]/30 text-[#00C2FF]"
               }`}
             >
-              {connected ? "✓ Connected" : sendConnection.isPending ? "..." : "👥 Connect"}
+              {connected ? " Connected" : sendConnection.isPending ? "..." : " Connect"}
             </button>
           ) : (
             <Link href="/signup">
-              <button className="w-full text-[10px] font-black py-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 text-cyan-400 transition-all">
+              <button className="w-full text-[10px] font-black py-1.5 rounded-full bg-[#1E90FF]/20 hover:bg-[#1E90FF]/20 border border-[#1E90FF]/30 text-[#00C2FF] transition-all">
                 Sign Up to Connect
               </button>
             </Link>

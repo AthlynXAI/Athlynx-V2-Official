@@ -88,7 +88,7 @@ function TransferPortalIntelligenceInner() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-                <Trophy className="h-8 w-8 text-red-400" />
+                <Trophy className="h-8 w-8 text-[#1E90FF]" />
                 Transfer Portal Intelligence
               </h1>
               <p className="text-blue-200 mt-1">
@@ -100,7 +100,7 @@ function TransferPortalIntelligenceInner() {
                 <Bell className="h-4 w-4 mr-2" />
                 Set Alerts
               </Button>
-              <Button className="bg-red-500 hover:bg-red-600 text-black font-semibold">
+              <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-semibold">
                 <Download className="h-4 w-4 mr-2" />
                 Export Data
               </Button>
@@ -121,7 +121,7 @@ function TransferPortalIntelligenceInner() {
                 </div>
                 <Users className="h-10 w-10 text-blue-400" />
               </div>
-              <p className="text-green-400 text-sm mt-2 flex items-center">
+              <p className="text-[#00C2FF] text-sm mt-2 flex items-center">
                 <ArrowUpRight className="h-4 w-4 mr-1" />
                 +{stats?.enteredToday || 45} today
               </p>
@@ -135,7 +135,7 @@ function TransferPortalIntelligenceInner() {
                   <p className="text-blue-200 text-sm">Committed This Week</p>
                   <p className="text-3xl font-bold text-white">{formatNumber(stats?.committedThisWeek || 312)}</p>
                 </div>
-                <TrendingUp className="h-10 w-10 text-green-400" />
+                <TrendingUp className="h-10 w-10 text-[#00C2FF]" />
               </div>
               <p className="text-blue-200 text-sm mt-2">
                 11% commitment rate
@@ -150,9 +150,9 @@ function TransferPortalIntelligenceInner() {
                   <p className="text-blue-200 text-sm">Avg NIL Value</p>
                   <p className="text-3xl font-bold text-white">{formatCurrency(stats?.avgNilValue || 125000)}</p>
                 </div>
-                <DollarSign className="h-10 w-10 text-red-400" />
+                <DollarSign className="h-10 w-10 text-[#1E90FF]" />
               </div>
-              <p className="text-green-400 text-sm mt-2 flex items-center">
+              <p className="text-[#00C2FF] text-sm mt-2 flex items-center">
                 <ArrowUpRight className="h-4 w-4 mr-1" />
                 +15% vs last month
               </p>
@@ -177,19 +177,19 @@ function TransferPortalIntelligenceInner() {
 
         <Tabs defaultValue="search" className="space-y-6">
           <TabsList className="bg-white/5 border border-white/10">
-            <TabsTrigger value="search" className="data-[state=active]:bg-red-500 data-[state=active]:text-black">
+            <TabsTrigger value="search" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-black">
               <Search className="h-4 w-4 mr-2" />
               Search Athletes
             </TabsTrigger>
-            <TabsTrigger value="trending" className="data-[state=active]:bg-red-500 data-[state=active]:text-black">
+            <TabsTrigger value="trending" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-black">
               <TrendingUp className="h-4 w-4 mr-2" />
               Trending
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-red-500 data-[state=active]:text-black">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-black">
               <BarChart3 className="h-4 w-4 mr-2" />
               Analytics
             </TabsTrigger>
-            <TabsTrigger value="pricing" className="data-[state=active]:bg-red-500 data-[state=active]:text-black">
+            <TabsTrigger value="pricing" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-black">
               <DollarSign className="h-4 w-4 mr-2" />
               School Pricing
             </TabsTrigger>
@@ -245,7 +245,7 @@ function TransferPortalIntelligenceInner() {
                     </SelectContent>
                   </Select>
 
-                  <Button className="bg-red-500 hover:bg-red-600 text-black font-semibold">
+                  <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-semibold">
                     <Search className="h-4 w-4 mr-2" />
                     Search
                   </Button>
@@ -257,7 +257,7 @@ function TransferPortalIntelligenceInner() {
             <div className="space-y-4">
               {searchLoading ? (
                 <div className="text-center py-12">
-                  <div className="animate-spin h-8 w-8 border-2 border-red-400 border-t-transparent rounded-full mx-auto"></div>
+                  <div className="animate-spin h-8 w-8 border-2 border-[#1E90FF] border-t-transparent rounded-full mx-auto"></div>
                   <p className="text-blue-200 mt-4">Searching athletes...</p>
                 </div>
               ) : searchResults?.athletes.length === 0 ? (
@@ -273,21 +273,21 @@ function TransferPortalIntelligenceInner() {
                     <CardContent className="py-4">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-400 to-red-500 flex items-center justify-center text-2xl font-bold text-black">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E90FF] to-[#0a1628] flex items-center justify-center text-2xl font-bold text-black">
                             {athlete.name.split(" ").map(n => n[0]).join("")}
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
                               <h3 className="text-xl font-bold text-white">{athlete.name}</h3>
-                              <Badge className="bg-red-500/20 text-red-400 border-red-500/30">
-                                {athlete.stars}★
+                              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">
+                                {athlete.stars}
                               </Badge>
                               <Badge 
                                 className={
                                   athlete.portalStatus === "entered" 
                                     ? "bg-blue-500/20 text-blue-400 border-blue-500/30"
                                     : athlete.portalStatus === "committed"
-                                    ? "bg-green-500/20 text-green-400 border-green-500/30"
+                                    ? "bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30"
                                     : "bg-gray-500/20 text-gray-400 border-gray-500/30"
                                 }
                               >
@@ -311,7 +311,7 @@ function TransferPortalIntelligenceInner() {
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-red-400">
+                          <div className="text-2xl font-bold text-[#1E90FF]">
                             {formatCurrency(athlete.nilValuation || 0)}
                           </div>
                           <div className="text-blue-200 text-sm">NIL Value</div>
@@ -347,7 +347,7 @@ function TransferPortalIntelligenceInner() {
             <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5 text-red-400" />
+                  <TrendingUp className="h-5 w-5 text-[#1E90FF]" />
                   Highest NIL Value Athletes in Portal
                 </CardTitle>
                 <CardDescription className="text-blue-200">
@@ -359,8 +359,8 @@ function TransferPortalIntelligenceInner() {
                   {trending.map((athlete, index) => (
                     <div key={athlete.id} className="flex items-center justify-between p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                       <div className="flex items-center gap-4">
-                        <div className="text-2xl font-bold text-red-400 w-8">#{index + 1}</div>
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-red-500 flex items-center justify-center text-lg font-bold text-black">
+                        <div className="text-2xl font-bold text-[#1E90FF] w-8">#{index + 1}</div>
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E90FF] to-[#0a1628] flex items-center justify-center text-lg font-bold text-black">
                           {athlete.name.split(" ").map(n => n[0]).join("")}
                         </div>
                         <div>
@@ -369,8 +369,8 @@ function TransferPortalIntelligenceInner() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xl font-bold text-red-400">{formatCurrency(athlete.nilValuation || 0)}</div>
-                        <div className="text-blue-200 text-sm">{athlete.stars}★ | {athlete.compositeRating} rating</div>
+                        <div className="text-xl font-bold text-[#1E90FF]">{formatCurrency(athlete.nilValuation || 0)}</div>
+                        <div className="text-blue-200 text-sm">{athlete.stars} | {athlete.compositeRating} rating</div>
                       </div>
                     </div>
                   ))}
@@ -394,7 +394,7 @@ function TransferPortalIntelligenceInner() {
                         <div className="flex items-center gap-3">
                           <div className="w-32 h-2 bg-white/10 rounded-full overflow-hidden">
                             <div 
-                              className="h-full bg-red-400 rounded-full"
+                              className="h-full bg-[#1E90FF] rounded-full"
                               style={{ width: `${(sport.count / 1245) * 100}%` }}
                             />
                           </div>
@@ -442,7 +442,7 @@ function TransferPortalIntelligenceInner() {
                       <p className="text-blue-200 text-sm">{new Date(day.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</p>
                       <p className="text-2xl font-bold text-white mt-2">{day.entered}</p>
                       <p className="text-blue-200 text-xs">entered</p>
-                      <p className="text-lg font-semibold text-green-400 mt-1">{day.committed}</p>
+                      <p className="text-lg font-semibold text-[#00C2FF] mt-1">{day.committed}</p>
                       <p className="text-blue-200 text-xs">committed</p>
                     </div>
                   ))}
@@ -464,13 +464,13 @@ function TransferPortalIntelligenceInner() {
                   key={key} 
                   className={`border backdrop-blur-sm ${
                     key === "elite" 
-                      ? "bg-red-500/10 border-red-500/50" 
+                      ? "bg-[#1E90FF]/10 border-[#1E90FF]/50" 
                       : "bg-white/5 border-white/10"
                   }`}
                 >
                   <CardHeader>
                     {key === "elite" && (
-                      <Badge className="w-fit mb-2 bg-red-500 text-black">Most Popular</Badge>
+                      <Badge className="w-fit mb-2 bg-[#1E90FF] text-black">Most Popular</Badge>
                     )}
                     <CardTitle className="text-white">{tier.name}</CardTitle>
                     <div className="mt-4">
@@ -488,7 +488,7 @@ function TransferPortalIntelligenceInner() {
                     <ul className="space-y-3">
                       {tier.features.map((feature, i) => (
                         <li key={i} className="flex items-center gap-2 text-blue-200">
-                          <Star className="h-4 w-4 text-red-400" />
+                          <Star className="h-4 w-4 text-[#1E90FF]" />
                           {feature}
                         </li>
                       ))}
@@ -496,7 +496,7 @@ function TransferPortalIntelligenceInner() {
                     <Button 
                       className={`w-full mt-6 ${
                         key === "elite"
-                          ? "bg-red-500 hover:bg-red-600 text-black"
+                          ? "bg-[#1E90FF] hover:bg-[#1E90FF] text-black"
                           : "bg-white/10 hover:bg-white/20 text-white"
                       }`}
                     >

@@ -10,11 +10,11 @@
 
 import { useState, useEffect, useMemo } from "react";
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // Hand-curated featured clips — refreshed for S1E2 launch weekend
 // These are the most relevant active-tournament videos. The YouTube search
 // fallback below picks up newer clips automatically.
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 interface HighlightClip {
   id: string;             // YouTube video ID, OR "athlynx:<slug>" for our own
@@ -26,7 +26,7 @@ interface HighlightClip {
 }
 
 export const FEATURED_HIGHLIGHTS: HighlightClip[] = [
-  // ─── AthlynX original content (anchor the feed) ───
+  //  AthlynX original content (anchor the feed) 
   {
     id: "QDKXVmbEcsg",
     title: "The Athlete Leap Is Here — AthlynXAI Named Nebius Semifinalist",
@@ -34,7 +34,7 @@ export const FEATURED_HIGHLIGHTS: HighlightClip[] = [
     category: "athlynx",
     badge: "ATHLYNX ORIGINAL",
   },
-  // ─── WCWS coverage (auto-refreshes via API search below) ───
+  //  WCWS coverage (auto-refreshes via API search below) 
   {
     id: "wcws-search",
     title: "WCWS 2026 · Live Highlights",
@@ -42,7 +42,7 @@ export const FEATURED_HIGHLIGHTS: HighlightClip[] = [
     category: "wcws",
     badge: "WCWS · LIVE WINDOW",
   },
-  // ─── MCWS coverage ───
+  //  MCWS coverage 
   {
     id: "mcws-search",
     title: "Road to Omaha · Regional Highlights",
@@ -52,12 +52,12 @@ export const FEATURED_HIGHLIGHTS: HighlightClip[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // YouTube search — pulls latest official highlight uploads in the last 24h
 // Uses YouTube Data API v3 search.list. Public read endpoint — no OAuth needed
 // when using a server-side proxy or a public-quota API key. We use the same
 // pattern as the existing /api/youtube proxy in this app.
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 interface YouTubeSearchItem {
   videoId: string;
@@ -211,9 +211,9 @@ function useYouTubeHighlights(query: string, enabled: boolean) {
   return { items, loading, err };
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // HighlightCard — single video tile
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 function HighlightCard({
   videoId,
@@ -272,9 +272,9 @@ function HighlightCard({
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // VideoModal — IFrame embed player
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void }) {
   useEffect(() => {
@@ -310,16 +310,16 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
           className="absolute -top-2 -right-2 md:top-4 md:right-4 w-10 h-10 rounded-full bg-white text-black font-black text-lg shadow-xl flex items-center justify-center hover:scale-110 transition"
           aria-label="Close video"
         >
-          ✕
+          
         </button>
       </div>
     </div>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 // LiveHighlightsFeed — main component
-// ─────────────────────────────────────────────────────────────────────────────
+// 
 
 interface LiveHighlightsFeedProps {
   /** Which tournament to feature first. "auto" picks based on CT time. */
@@ -397,8 +397,8 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-[10px] uppercase tracking-[0.32em] text-red-400 font-black">LIVE GAMES · HIGHLIGHTS FEED</span>
+              <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse" />
+              <span className="text-[10px] uppercase tracking-[0.32em] text-[#1E90FF] font-black">LIVE GAMES · HIGHLIGHTS FEED</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight leading-tight">
               Every play. Every game. <span className="text-[#00C2FF]">One feed.</span>

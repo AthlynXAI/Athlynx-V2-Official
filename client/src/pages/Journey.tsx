@@ -45,7 +45,7 @@ function JourneyInner() {
       emoji: "",
       icon: Trophy,
       tagline: "Your success is our mission",
-      color: "from-cyan-500 to-blue-600",
+      color: "from-[#1E90FF] to-blue-600",
       description: "From youth sports to professional leagues, we're here to support your entire athletic journey. Build your brand, maximize your NIL potential, and connect with opportunities that matter.",
       features: [
         { title: "Profile & Portfolio", desc: "Showcase your stats, highlights, and achievements" },
@@ -61,7 +61,7 @@ function JourneyInner() {
     {
       id: "parents",
       title: "Parents",
-      emoji: "👨‍👩‍👧‍👦",
+      emoji: "",
       icon: Users,
       tagline: "Supporting your athlete, supporting you",
       color: "from-blue-600 to-indigo-600",
@@ -80,10 +80,10 @@ function JourneyInner() {
     {
       id: "coaches",
       title: "Coaches",
-      emoji: "📋",
+      emoji: "",
       icon: Clipboard,
       tagline: "Elevate your program",
-      color: "from-green-500 to-emerald-600",
+      color: "from-[#00C2FF] to-emerald-600",
       description: "Great coaches build great athletes. Access recruiting tools, player development resources, and program management features designed to help you build championship-caliber teams.",
       features: [
         { title: "Recruiting Dashboard", desc: "Find and evaluate talent efficiently" },
@@ -102,7 +102,7 @@ function JourneyInner() {
       emoji: "",
       icon: Briefcase,
       tagline: "Represent the best",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       description: "Connect with top athletic talent and manage your client relationships effectively. Our platform provides the tools you need to represent athletes at the highest level.",
       features: [
         { title: "Talent Discovery", desc: "Find emerging athletes before anyone else" },
@@ -118,7 +118,7 @@ function JourneyInner() {
     {
       id: "lawyers",
       title: "Lawyers",
-      emoji: "⚖️",
+      emoji: "",
       icon: Scale,
       tagline: "Protect athlete interests",
       color: "from-slate-500 to-gray-600",
@@ -140,7 +140,7 @@ function JourneyInner() {
       emoji: "",
       icon: Dumbbell,
       tagline: "Build champions",
-      color: "from-red-500 to-red-600",
+      color: "from-[#1E90FF] to-[#0a1628]",
       description: "Whether you're a strength coach, skills trainer, or performance specialist, connect with athletes who need your expertise and grow your training business.",
       features: [
         { title: "Client Acquisition", desc: "Connect with athletes seeking training" },
@@ -156,10 +156,10 @@ function JourneyInner() {
     {
       id: "counselors",
       title: "Counselors",
-      emoji: "🧠",
+      emoji: "",
       icon: Brain,
       tagline: "Mental game matters",
-      color: "from-teal-500 to-cyan-600",
+      color: "from-[#00C2FF] to-[#0a1628]",
       description: "The mental game is often the difference between good and great. Provide mental performance coaching, sports psychology, and wellness support to athletes who need it.",
       features: [
         { title: "Client Matching", desc: "Connect with athletes seeking support" },
@@ -178,7 +178,7 @@ function JourneyInner() {
       emoji: "",
       icon: Heart,
       tagline: "Faith in the game",
-      color: "from-indigo-500 to-blue-700",
+      color: "from-[#1E90FF] to-blue-700",
       description: "Spiritual support is a vital part of many athletes' lives. Connect with athletes and teams who value faith-based guidance and support.",
       features: [
         { title: "Team Connections", desc: "Connect with teams seeking chaplaincy" },
@@ -196,21 +196,21 @@ function JourneyInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-cyan-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-[#1E90FF]/30">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/">
-            <span className="text-cyan-400 font-bold text-sm tracking-widest cursor-pointer hover:text-cyan-300 transition-colors">
+            <span className="text-[#00C2FF] font-bold text-sm tracking-widest cursor-pointer hover:text-[#00C2FF] transition-colors">
               THE FUTURE OF ATHLETE SUCCESS
             </span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/mindset">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer">
                 Mindset
               </span>
             </Link>
             <Link href="/">
-              <span className="text-white/80 hover:text-cyan-400 transition-colors cursor-pointer">
+              <span className="text-white/80 hover:text-[#00C2FF] transition-colors cursor-pointer">
                 AthlynX
               </span>
             </Link>
@@ -221,8 +221,8 @@ function JourneyInner() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1E90FF]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto text-center relative z-10">
@@ -232,17 +232,17 @@ function JourneyInner() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/20 to-red-500/20 border border-cyan-500/30">
-                <Target className="w-12 h-12 text-cyan-400" />
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/20 border border-[#1E90FF]/30">
+                <Target className="w-12 h-12 text-[#00C2FF]" />
               </div>
             </motion.div>
             
-            <motion.p variants={fadeInUp} className="text-cyan-400 tracking-[0.3em] text-sm mb-4">
+            <motion.p variants={fadeInUp} className="text-[#00C2FF] tracking-[0.3em] text-sm mb-4">
               THE COMPLETE ECOSYSTEM
             </motion.p>
             
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black text-white mb-6">
-              THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-red-400">JOURNEY</span>
+              THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-[#0a1628]">JOURNEY</span>
             </motion.h1>
             
             <motion.p variants={fadeInUp} className="text-xl text-white/70 max-w-3xl mx-auto mb-8">
@@ -255,7 +255,7 @@ function JourneyInner() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="px-4 py-2 bg-[#1a3a5c]/50 rounded-full border border-cyan-500/20 hover:border-cyan-500/50 transition-all text-white/80 hover:text-cyan-400"
+                  className="px-4 py-2 bg-[#1a3a5c]/50 rounded-full border border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all text-white/80 hover:text-[#00C2FF]"
                 >
                   <span className="mr-2">{s.emoji}</span>
                   {s.title}
@@ -309,7 +309,7 @@ function JourneyInner() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="bg-[#1a3a5c]/30 rounded-xl p-6 border border-cyan-500/10 hover:border-cyan-500/30 transition-all"
+                    className="bg-[#1a3a5c]/30 rounded-xl p-6 border border-[#1E90FF]/30 hover:border-[#1E90FF]/30 transition-all"
                   >
                     <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${stakeholder.color} flex items-center justify-center mb-4`}>
                       <Zap className="w-5 h-5 text-white" />
@@ -335,23 +335,23 @@ function JourneyInner() {
       ))}
 
       {/* The Vision */}
-      <section className="py-20 px-4 bg-gradient-to-r from-cyan-500/10 to-red-500/10">
+      <section className="py-20 px-4 bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/10">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Star className="w-16 h-16 text-red-400 mx-auto mb-6" />
+            <Star className="w-16 h-16 text-[#1E90FF] mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-              ONE PLATFORM. <span className="text-cyan-400">INFINITE POSSIBILITIES.</span>
+              ONE PLATFORM. <span className="text-[#00C2FF]">INFINITE POSSIBILITIES.</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto mb-8">
               We're not just building an app. We're building an ecosystem where every stakeholder in an athlete's journey has the tools, resources, and connections they need to succeed. Together, we're revolutionizing sports.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/">
-                <Button className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-white px-10 py-6 text-lg rounded-full">
+                <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white px-10 py-6 text-lg rounded-full">
                   Get Started
                 </Button>
               </Link>

@@ -98,7 +98,7 @@ export default function InstallAppModal({ open, onClose }: InstallAppModalProps)
           {installed ? (
             /* Already installed */
             <div className="text-center py-6">
-              <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-3" />
+              <CheckCircle className="w-16 h-16 text-[#00C2FF] mx-auto mb-3" />
               <h3 className="text-white font-black text-xl mb-1">AthlynXAI is Installed!</h3>
               <p className="text-blue-300 text-sm">Open it from your home screen anytime.</p>
             </div>
@@ -146,7 +146,7 @@ export default function InstallAppModal({ open, onClose }: InstallAppModalProps)
                     <p className="text-white font-bold text-sm">Tap "Add" in the top right</p>
                     <p className="text-white/50 text-xs mt-0.5">AthlynX icon appears on your home screen!</p>
                   </div>
-                  <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-[#00C2FF] rounded-xl flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                 </div>
@@ -185,15 +185,15 @@ export default function InstallAppModal({ open, onClose }: InstallAppModalProps)
               </p>
               <div className="flex flex-col gap-3">
                 <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
-                  <p className="text-white font-bold text-sm mb-1">📱 On iPhone (Safari)</p>
+                  <p className="text-white font-bold text-sm mb-1"> On iPhone (Safari)</p>
                   <p className="text-white/60 text-xs">Tap Share → Add to Home Screen → Add</p>
                 </div>
                 <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
-                  <p className="text-white font-bold text-sm mb-1">🤖 On Android (Chrome)</p>
+                  <p className="text-white font-bold text-sm mb-1"> On Android (Chrome)</p>
                   <p className="text-white/60 text-xs">Tap the 3-dot menu → Add to Home Screen → Install</p>
                 </div>
                 <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
-                  <p className="text-white font-bold text-sm mb-1">💻 On Desktop (Chrome)</p>
+                  <p className="text-white font-bold text-sm mb-1"> On Desktop (Chrome)</p>
                   <p className="text-white/60 text-xs">Click the install icon (⊕) in the address bar</p>
                 </div>
               </div>

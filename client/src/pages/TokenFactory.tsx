@@ -109,7 +109,7 @@ function TokenFactoryInner() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0066ff]/10 via-transparent to-[#00c2ff]/5" />
         <div className="max-w-6xl mx-auto px-4 py-16 relative z-10 text-center">
           <Badge className="bg-[#0066ff]/20 text-[#00c2ff] border-[#0066ff]/30 mb-4 text-sm px-4 py-1">
-            ⚡ AI CREDITS ECONOMY
+             AI CREDITS ECONOMY
           </Badge>
           <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight">
             TOKEN FACTORY™
@@ -126,7 +126,7 @@ function TokenFactoryInner() {
             <div className="inline-block bg-white/5 border border-blue-500/20 rounded-2xl p-6 text-left min-w-[320px]">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-blue-300 text-sm font-bold">YOUR CREDIT BALANCE</span>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/30">ACTIVE</Badge>
+                <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30">ACTIVE</Badge>
               </div>
               <div className="text-5xl font-black text-white mb-1">{mockCredits.toLocaleString()}</div>
               <div className="text-blue-400 text-sm mb-3">of {mockMaxCredits.toLocaleString()} credits</div>
@@ -185,7 +185,7 @@ function TokenFactoryInner() {
                   <ul className="space-y-1 mb-4">
                     {pkg.features.map((f, i) => (
                       <li key={i} className="flex items-center gap-2 text-xs text-blue-200/70">
-                        <CheckCircle className="w-3 h-3 text-green-400 flex-shrink-0" />
+                        <CheckCircle className="w-3 h-3 text-[#00C2FF] flex-shrink-0" />
                         {f}
                       </li>
                     ))}

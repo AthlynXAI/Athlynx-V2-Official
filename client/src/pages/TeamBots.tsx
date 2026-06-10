@@ -13,7 +13,7 @@ function TeamBotsInner() {
       id: "executive",
       name: "Executive Command Center",
       role: "Chad A. Dozier - Founder · CEO · Chairman",
-      icon: "👔",
+      icon: "",
       color: "bg-blue-500",
       description: "The Executive Command Center serves as Chad's personal AI assistant, functioning as a comprehensive management hub that consolidates information from across all business units and provides real-time decision support.",
       capabilities: [
@@ -44,7 +44,7 @@ function TeamBotsInner() {
       id: "presentation",
       name: "Presentation Intelligence Suite",
       role: "Glenn Tse - Presenter & Strategic Partner",
-      icon: "👥",
+      icon: "",
       color: "bg-blue-600",
       description: "The Presentation Intelligence Suite empowers Glenn with AI-driven content creation, research support, and audience engagement tools that elevate every presentation to professional excellence.",
       capabilities: [
@@ -75,8 +75,8 @@ function TeamBotsInner() {
       id: "operations",
       name: "Operations Command Hub",
       role: "Athlete Partner Feedback",
-      icon: "⚙️",
-      color: "bg-green-500",
+      icon: "",
+      color: "bg-[#00C2FF]",
       description: "The Athlete Partner Feedback Hub keeps platform decisions grounded in real athlete needs, sports relationships, and trust-building signals.",
       capabilities: [
         {
@@ -106,8 +106,8 @@ function TeamBotsInner() {
       id: "marketing",
       name: "Marketing Intelligence Engine",
       role: "Lee Marshall - Partnerships Director",
-      icon: "👥",
-      color: "bg-red-500",
+      icon: "",
+      color: "bg-[#1E90FF]",
       description: "The Marketing Intelligence Engine provides Andy with AI-powered tools for campaign management, lead generation, content distribution, and performance analytics.",
       capabilities: [
         {
@@ -137,8 +137,8 @@ function TeamBotsInner() {
       id: "sales",
       name: "Sales Acceleration Platform",
       role: "Lee Marshall - Sales Director",
-      icon: "👥",
-      color: "bg-red-500",
+      icon: "",
+      color: "bg-[#1E90FF]",
       description: "The Sales Acceleration Platform equips Lee with AI-powered tools for CRM management, sales outreach, deal tracking, and customer relationship development.",
       capabilities: [
         {

@@ -109,12 +109,12 @@ const INNOVATIONS: Innovation[] = [
 
 function StatusPill({ status }: { status: Innovation["status"] }) {
   if (status === "LIVE") {
-    return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded">● LIVE</span>;
+    return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded"> LIVE</span>;
   }
   if (status === "ACTIVE") {
-    return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-[#1E90FF] border border-[#1E90FF]/60 px-2 py-1 rounded">▸ ACTIVE</span>;
+    return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-[#1E90FF] border border-[#1E90FF]/60 px-2 py-1 rounded"> ACTIVE</span>;
   }
-  return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white/55 border border-white/30 px-2 py-1 rounded">○ ROADMAP</span>;
+  return <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white/55 border border-white/30 px-2 py-1 rounded"> ROADMAP</span>;
 }
 
 function InnovationCard({ ix }: { ix: Innovation }) {
@@ -141,7 +141,7 @@ function InnovationCard({ ix }: { ix: Innovation }) {
         <ul className="space-y-1">
           {ix.proof.map((p, i) => (
             <li key={i} className="text-xs text-white/75 leading-snug flex items-start gap-2">
-              <span className="text-[#1E90FF] font-black mt-0.5">▸</span>
+              <span className="text-[#1E90FF] font-black mt-0.5"></span>
               <span>{p}</span>
             </li>
           ))}

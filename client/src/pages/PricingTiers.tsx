@@ -36,8 +36,8 @@ function PricingTiersInner() {
       name: "The Foundation",
       tagline: "Ages 3-13",
       icon: Heart,
-      color: "from-red-500 to-red-500",
-      borderColor: "border-red-500/50",
+      color: "from-[#1E90FF] to-[#0a1628]",
+      borderColor: "border-[#1E90FF]/50",
       price: "$49.99",
       priceNote: "One-Time Family Fee",
       focus: "For parents to track progress, save memories, and connect with other sports families.",
@@ -57,7 +57,7 @@ function PricingTiersInner() {
       name: "The Prospect",
       tagline: "High School (Ages 14-18)",
       icon: GraduationCap,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-500 to-[#0a1628]",
       borderColor: "border-blue-500/50",
       price: billingCycle === "monthly" ? "$9.99" : "$99",
       priceNote: billingCycle === "monthly" ? "/month" : "/year (Save $20)",
@@ -103,8 +103,8 @@ function PricingTiersInner() {
       name: "The Pro",
       tagline: "Professional Athlete",
       icon: Crown,
-      color: "from-red-500 to-red-500",
-      borderColor: "border-red-500/50",
+      color: "from-[#1E90FF] to-[#0a1628]",
+      borderColor: "border-[#1E90FF]/50",
       price: "$499",
       priceNote: "/month",
       focus: "Professional brand management and wealth growth.",
@@ -126,8 +126,8 @@ function PricingTiersInner() {
       name: "The Legacy",
       tagline: "Retired Athlete",
       icon: Award,
-      color: "from-emerald-500 to-teal-500",
-      borderColor: "border-emerald-500/50",
+      color: "from-[#00C2FF] to-[#00C2FF]",
+      borderColor: "border-[#1E90FF]/50",
       price: "$29.99",
       priceNote: "/month",
       focus: "Staying relevant and finding post-career opportunities.",
@@ -193,12 +193,12 @@ function PricingTiersInner() {
   ];
 
   const complianceBadges = [
-    { icon: Shield, label: "NCAA Compliant", color: "text-green-400" },
+    { icon: Shield, label: "NCAA Compliant", color: "text-[#00C2FF]" },
     { icon: Lock, label: "AES-256 Encryption", color: "text-blue-400" },
     { icon: FileText, label: "SOC 2 Type II", color: "text-blue-500" },
-    { icon: Users, label: "FERPA Compliant", color: "text-cyan-400" },
-    { icon: Heart, label: "You Own Your Data", color: "text-red-400" },
-    { icon: Building, label: "HIPAA Compliant", color: "text-red-400" },
+    { icon: Users, label: "FERPA Compliant", color: "text-[#00C2FF]" },
+    { icon: Heart, label: "You Own Your Data", color: "text-[#1E90FF]" },
+    { icon: Building, label: "HIPAA Compliant", color: "text-[#1E90FF]" },
   ];
 
   return (
@@ -211,12 +211,12 @@ function PricingTiersInner() {
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 mb-4">
+            <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 mb-4">
               FROM PLAYGROUND TO PRO
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
               One Platform.
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-red-400">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] via-blue-500 to-[#0a1628]">
                 Lifetime Value.
               </span>
             </h1>
@@ -242,10 +242,10 @@ function PricingTiersInner() {
       <section className="container px-4 md:px-5 pb-16">
         <Tabs defaultValue="athletes" className="w-full">
           <TabsList className="grid grid-cols-2 max-w-md mx-auto bg-white/5 border border-white/10 rounded-xl p-1 mb-8">
-            <TabsTrigger value="athletes" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="athletes" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               <Users className="w-4 h-4 mr-2" /> For Athletes
             </TabsTrigger>
-            <TabsTrigger value="business" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+            <TabsTrigger value="business" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white">
               <Building className="w-4 h-4 mr-2" /> For Business
             </TabsTrigger>
           </TabsList>
@@ -258,7 +258,7 @@ function PricingTiersInner() {
                 <button
                   onClick={() => setBillingCycle("monthly")}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    billingCycle === "monthly" ? "bg-cyan-500 text-white" : "text-white/60 hover:text-white"
+                    billingCycle === "monthly" ? "bg-[#1E90FF] text-white" : "text-white/60 hover:text-white"
                   }`}
                 >
                   Monthly
@@ -266,17 +266,17 @@ function PricingTiersInner() {
                 <button
                   onClick={() => setBillingCycle("yearly")}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    billingCycle === "yearly" ? "bg-cyan-500 text-white" : "text-white/60 hover:text-white"
+                    billingCycle === "yearly" ? "bg-[#1E90FF] text-white" : "text-white/60 hover:text-white"
                   }`}
                 >
-                  Yearly <Badge className="ml-1 bg-green-500/20 text-green-400 text-xs">Save 17%</Badge>
+                  Yearly <Badge className="ml-1 bg-[#00C2FF]/20 text-[#00C2FF] text-xs">Save 17%</Badge>
                 </button>
               </div>
             </div>
 
             {/* Lifetime Journey Visual */}
             <div className="relative mb-12">
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-blue-600 to-emerald-500 transform -translate-y-1/2 hidden md:block" />
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#1E90FF] via-blue-600 to-[#00C2FF] transform -translate-y-1/2 hidden md:block" />
               <div className="grid grid-cols-5 gap-2 relative">
                 {lifetimeTiers.map((tier, i) => (
                   <div key={i} className="text-center">
@@ -294,7 +294,7 @@ function PricingTiersInner() {
               {lifetimeTiers.map((tier, i) => (
                 <Card key={i} className={`bg-white/5 ${tier.borderColor} border-2 overflow-hidden ${tier.popular ? 'ring-2 ring-cyan-500' : ''}`}>
                   {tier.popular && (
-                    <div className="bg-cyan-500 text-white text-center py-1 text-sm font-bold">
+                    <div className="bg-[#1E90FF] text-white text-center py-1 text-sm font-bold">
                       MOST POPULAR
                     </div>
                   )}
@@ -325,7 +325,7 @@ function PricingTiersInner() {
                         <ul className="space-y-2">
                           {tier.features.map((feature, j) => (
                             <li key={j} className="flex items-start gap-2 text-white/70 text-sm">
-                              <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                              <Check className="w-4 h-4 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                               {feature}
                             </li>
                           ))}
@@ -336,7 +336,7 @@ function PricingTiersInner() {
                       <div className="flex flex-col justify-between">
                         <div className="bg-white/5 rounded-lg p-4 mb-4">
                           <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
-                            <Zap className="w-4 h-4 text-red-400" /> Why This Works
+                            <Zap className="w-4 h-4 text-[#1E90FF]" /> Why This Works
                           </h4>
                           <p className="text-white/60 text-sm">{tier.why}</p>
                         </div>
@@ -355,9 +355,9 @@ function PricingTiersInner() {
           <TabsContent value="business">
             <div className="grid md:grid-cols-3 gap-6">
               {businessTiers.map((tier, i) => (
-                <Card key={i} className={`bg-white/5 border-white/10 ${tier.popular ? 'border-cyan-500 ring-2 ring-cyan-500' : ''}`}>
+                <Card key={i} className={`bg-white/5 border-white/10 ${tier.popular ? 'border-[#1E90FF] ring-2 ring-cyan-500' : ''}`}>
                   {tier.popular && (
-                    <div className="bg-cyan-500 text-white text-center py-1 text-sm font-bold">
+                    <div className="bg-[#1E90FF] text-white text-center py-1 text-sm font-bold">
                       MOST POPULAR
                     </div>
                   )}
@@ -373,12 +373,12 @@ function PricingTiersInner() {
                     <ul className="space-y-3 mb-6">
                       {tier.features.map((feature, j) => (
                         <li key={j} className="flex items-start gap-2 text-white/70 text-sm">
-                          <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                           {feature}
                         </li>
                       ))}
                     </ul>
-                    <Button className={`w-full ${tier.popular ? 'bg-cyan-500 hover:bg-cyan-400' : 'bg-white/10 hover:bg-white/20'} text-white`}>
+                    <Button className={`w-full ${tier.popular ? 'bg-[#1E90FF] hover:bg-[#1E90FF]' : 'bg-white/10 hover:bg-white/20'} text-white`}>
                       {tier.price === "Custom" ? "Contact Sales" : "Get Started"}
                     </Button>
                   </CardContent>
@@ -387,7 +387,7 @@ function PricingTiersInner() {
             </div>
 
             {/* Enterprise CTA */}
-            <Card className="mt-8 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 border-cyan-500/30">
+            <Card className="mt-8 bg-gradient-to-r from-[#1E90FF]/20 to-blue-600/20 border-[#1E90FF]/30">
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-3">White-Label Licensing</h3>
                 <p className="text-white/70 mb-6 max-w-2xl mx-auto">
@@ -428,8 +428,8 @@ function PricingTiersInner() {
           ].map((item, i) => (
             <Card key={i} className="bg-white/5 border-white/10">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <item.icon className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-6 h-6 text-[#00C2FF]" />
                 </div>
                 <p className="text-2xl font-bold text-white mb-1">{item.pct}</p>
                 <h3 className="text-white font-semibold mb-1">{item.label}</h3>
@@ -442,7 +442,7 @@ function PricingTiersInner() {
 
       {/* CTA Section */}
       <section className="container px-4 md:px-5 py-16">
-        <div className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-[#1E90FF] to-blue-700 rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Join the Ecosystem?
           </h2>

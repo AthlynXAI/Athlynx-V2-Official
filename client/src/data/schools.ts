@@ -16,7 +16,7 @@ export type School = {
 };
 
 export const SCHOOLS: School[] = [
-  // ── SEC ──
+  //  SEC 
   { abbr: "MSU",  name: "Mississippi State", conference: "SEC", primary: "#660000", secondary: "#FFFFFF", espnId: 344, state: "MS" },
   { abbr: "BAMA", name: "Alabama",           conference: "SEC", primary: "#9E1B32", secondary: "#FFFFFF", espnId: 333, state: "AL" },
   { abbr: "LSU",  name: "LSU",               conference: "SEC", primary: "#461D7C", secondary: "#FDD023", espnId: 99,  state: "LA" },
@@ -34,7 +34,7 @@ export const SCHOOLS: School[] = [
   { abbr: "TAMU", name: "Texas A&M",         conference: "SEC", primary: "#500000", secondary: "#FFFFFF", espnId: 245, state: "TX" },
   { abbr: "OU",   name: "Oklahoma",          conference: "SEC", primary: "#841617", secondary: "#FDF9D8", espnId: 201, state: "OK" },
 
-  // ── Big Ten ──
+  //  Big Ten 
   { abbr: "OSU",  name: "Ohio State",        conference: "B1G", primary: "#BB0000", secondary: "#666666", espnId: 194, state: "OH" },
   { abbr: "UM",   name: "Michigan",          conference: "B1G", primary: "#00274C", secondary: "#1E90FF", espnId: 130, state: "MI" },
   { abbr: "PSU",  name: "Penn State",        conference: "B1G", primary: "#041E42", secondary: "#FFFFFF", espnId: 213, state: "PA" },
@@ -42,13 +42,13 @@ export const SCHOOLS: School[] = [
   { abbr: "USC",  name: "USC",               conference: "B1G", primary: "#990000", secondary: "#1E90FF", espnId: 30,  state: "CA" },
   { abbr: "UCLA", name: "UCLA",              conference: "B1G", primary: "#2774AE", secondary: "#1E90FF", espnId: 26,  state: "CA" },
 
-  // ── ACC & Independent ──
+  //  ACC & Independent 
   { abbr: "ND",   name: "Notre Dame",        conference: "IND", primary: "#0C2340", secondary: "#C99700", espnId: 87,  state: "IN" },
   { abbr: "CLEM", name: "Clemson",           conference: "ACC", primary: "#F66733", secondary: "#522D80", espnId: 228, state: "SC" },
   { abbr: "FSU",  name: "Florida State",     conference: "ACC", primary: "#782F40", secondary: "#CEB888", espnId: 52,  state: "FL" },
   { abbr: "MIA",  name: "Miami",             conference: "ACC", primary: "#F47321", secondary: "#005030", espnId: 2390,state: "FL" },
 
-  // ── Mississippi & Local ──
+  //  Mississippi & Local 
   { abbr: "USM",  name: "Southern Miss",     conference: "SBC", primary: "#1E90FF", secondary: "#000000", espnId: 2572,state: "MS" },
   { abbr: "MEM",  name: "Memphis",           conference: "AAC", primary: "#0C2340", secondary: "#8E9295", espnId: 235, state: "TN" },
 ];

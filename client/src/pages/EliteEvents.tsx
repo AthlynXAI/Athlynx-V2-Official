@@ -41,7 +41,7 @@ interface EliteEvent {
 }
 
 const EVENTS: EliteEvent[] = [
-  // ── FOOTBALL ──
+  //  FOOTBALL 
   {
     id: 1, name: "Elite 11 QB Competition", category: "Elite Camp", sport: "Football",
     date: "2026-06-15", location: "Los Angeles, CA", state: "CA", tier: "National",
@@ -115,7 +115,7 @@ const EVENTS: EliteEvent[] = [
     registrationOpen: false, featured: false, price: "Invite Only", organizer: "Polynesian Football Hall of Fame",
   },
 
-  // ── BASKETBALL ──
+  //  BASKETBALL 
   {
     id: 13, name: "Nike EYBL Peach Jam", category: "Tournament", sport: "Basketball",
     date: "2026-07-08", location: "North Augusta, SC", state: "SC", tier: "National",
@@ -153,7 +153,7 @@ const EVENTS: EliteEvent[] = [
     registrationOpen: false, featured: false, price: "Invite Only", organizer: "Under Armour Association",
   },
 
-  // ── BASEBALL ──
+  //  BASEBALL 
   {
     id: 19, name: "Perfect Game National Showcase", category: "Showcase", sport: "Baseball",
     date: "2026-06-18", location: "Fort Myers, FL", state: "FL", tier: "National",
@@ -179,7 +179,7 @@ const EVENTS: EliteEvent[] = [
     registrationOpen: false, featured: true, price: "Invite Only", organizer: "Perfect Game", scoutsAttending: true,
   },
 
-  // ── SOCCER ──
+  //  SOCCER 
   {
     id: 23, name: "US Soccer Development Academy Showcase", category: "Showcase", sport: "Soccer",
     date: "2026-06-25", location: "Frisco, TX", state: "TX", tier: "National",
@@ -193,7 +193,7 @@ const EVENTS: EliteEvent[] = [
     registrationOpen: false, featured: false, price: "Invite Only", organizer: "MLS / Generation Adidas",
   },
 
-  // ── TRACK ──
+  //  TRACK 
   {
     id: 25, name: "New Balance Nationals Outdoor", category: "Tournament", sport: "Track",
     date: "2026-06-19", location: "Philadelphia, PA", state: "PA", tier: "National",
@@ -207,7 +207,7 @@ const EVENTS: EliteEvent[] = [
     registrationOpen: true, featured: false, price: "$45/event", organizer: "Brooks Running",
   },
 
-  // ── MULTI-SPORT ──
+  //  MULTI-SPORT 
   {
     id: 27, name: "AthlynX Elite Combine", category: "Combine", sport: "Multi-Sport",
     date: "2026-08-01", location: "Houston, TX", state: "TX", tier: "National",
@@ -235,20 +235,20 @@ const EVENTS: EliteEvent[] = [
 ];
 
 const CATEGORY_COLORS: Record<EventCategory, { bg: string; border: string; text: string; badge: string }> = {
-  "7v7 Tournament": { bg: "bg-red-900/30",    border: "border-red-500/40",    text: "text-red-300",    badge: "bg-red-600" },
+  "7v7 Tournament": { bg: "bg-[#1E90FF]/30",    border: "border-[#1E90FF]/40",    text: "text-[#1E90FF]",    badge: "bg-[#1E90FF]" },
   "Elite Camp":     { bg: "bg-blue-900/30",   border: "border-blue-500/40",   text: "text-blue-300",   badge: "bg-blue-600" },
-  "All-Star Game":  { bg: "bg-blue-900/30", border: "border-blue-500/40", text: "text-sky-300", badge: "bg-blue-600" },
-  "Combine":        { bg: "bg-green-900/30",  border: "border-green-500/40",  text: "text-green-300",  badge: "bg-green-600" },
-  "Showcase":       { bg: "bg-purple-900/30", border: "border-purple-500/40", text: "text-purple-300", badge: "bg-purple-600" },
-  "Tournament":     { bg: "bg-cyan-900/30",   border: "border-cyan-500/40",   text: "text-cyan-300",   badge: "bg-cyan-600" },
-  "Invitational":   { bg: "bg-cyan-900/30", border: "border-cyan-500/40", text: "text-cyan-300", badge: "bg-cyan-600" },
+  "All-Star Game":  { bg: "bg-blue-900/30", border: "border-blue-500/40", text: "text-[#00C2FF]", badge: "bg-blue-600" },
+  "Combine":        { bg: "bg-[#00C2FF]/30",  border: "border-[#00C2FF]/40",  text: "text-[#00C2FF]",  badge: "bg-[#00C2FF]" },
+  "Showcase":       { bg: "bg-[#1E90FF]/30", border: "border-[#1E90FF]/40", text: "text-[#1E90FF]", badge: "bg-[#1E90FF]" },
+  "Tournament":     { bg: "bg-[#1E90FF]/20",   border: "border-[#1E90FF]/30",   text: "text-[#00C2FF]",   badge: "bg-[#1565C0]" },
+  "Invitational":   { bg: "bg-[#1E90FF]/20", border: "border-[#1E90FF]/30", text: "text-[#00C2FF]", badge: "bg-[#1565C0]" },
   "Clinic":         { bg: "bg-slate-800/60",  border: "border-slate-600/40",  text: "text-slate-300",  badge: "bg-slate-600" },
 };
 
 const TIER_BADGE: Record<string, string> = {
-  National: "bg-blue-500/20 border border-blue-500/40 text-sky-300",
+  National: "bg-blue-500/20 border border-blue-500/40 text-[#00C2FF]",
   Regional: "bg-blue-500/20 border border-blue-500/40 text-blue-300",
-  State:    "bg-green-500/20 border border-green-500/40 text-green-300",
+  State:    "bg-[#00C2FF]/20 border border-[#00C2FF]/40 text-[#00C2FF]",
 };
 
 const SPORT_ICONS: Record<string, React.ElementType> = {
@@ -292,18 +292,18 @@ function EliteEventsInner() {
     <PlatformLayout>
       <div className="max-w-7xl mx-auto space-y-6 pb-12 px-2">
 
-        {/* ── Hero Header ── */}
+        {/*  Hero Header  */}
         <div className="bg-gradient-to-r from-[#0d1b3e] via-[#1a3a8f] to-[#0d1b3e] border border-blue-700 rounded-2xl p-6 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "20px 20px" }} />
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-[#0a1628] flex items-center justify-center shadow-lg shadow-blue-500/20">
                 <Trophy className="w-8 h-8 text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-blue-500/20 border border-blue-500/40 text-sky-300 text-xs font-bold px-2 py-0.5 rounded-full">ELITE EVENTS</span>
-                  <span className="bg-red-500/20 border border-red-500/40 text-red-300 text-xs font-bold px-2 py-0.5 rounded-full">∞ INFINITY</span>
+                  <span className="bg-blue-500/20 border border-blue-500/40 text-[#00C2FF] text-xs font-bold px-2 py-0.5 rounded-full">ELITE EVENTS</span>
+                  <span className="bg-[#1E90FF]/20 border border-[#1E90FF]/40 text-[#1E90FF] text-xs font-bold px-2 py-0.5 rounded-full">∞ INFINITY</span>
                 </div>
                 <h1 className="text-3xl font-black text-white">Elite Camps, Tournaments & All-Stars</h1>
                 <p className="text-blue-300 text-sm mt-1">7v7 · Elite 11 · All-American Games · Combines · Showcases · Invitationals</p>
@@ -336,7 +336,7 @@ function EliteEventsInner() {
           </div>
         </div>
 
-        {/* ── Search + Filters ── */}
+        {/*  Search + Filters  */}
         <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-4 space-y-4">
           {/* Search */}
           <div className="relative">
@@ -380,7 +380,7 @@ function EliteEventsInner() {
                   key={c}
                   onClick={() => setCategoryFilter(c as EventCategory | "All")}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                    categoryFilter === c ? "bg-cyan-600 text-white" : "bg-slate-900/60 text-slate-400 border border-slate-700 hover:text-white"
+                    categoryFilter === c ? "bg-[#1565C0] text-white" : "bg-slate-900/60 text-slate-400 border border-slate-700 hover:text-white"
                   }`}
                 >
                   {c}
@@ -408,7 +408,7 @@ function EliteEventsInner() {
               <label className="flex items-center gap-2 cursor-pointer">
                 <div
                   onClick={() => setShowOpenOnly(!showOpenOnly)}
-                  className={`w-9 h-5 rounded-full transition-all relative ${showOpenOnly ? "bg-green-600" : "bg-slate-700"}`}
+                  className={`w-9 h-5 rounded-full transition-all relative ${showOpenOnly ? "bg-[#00C2FF]" : "bg-slate-700"}`}
                 >
                   <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-all ${showOpenOnly ? "left-4" : "left-0.5"}`} />
                 </div>
@@ -427,7 +427,7 @@ function EliteEventsInner() {
           </div>
         </div>
 
-        {/* ── Results Count ── */}
+        {/*  Results Count  */}
         <div className="flex items-center justify-between">
           <div className="text-slate-400 text-sm">
             Showing <span className="text-white font-bold">{filtered.length}</span> events
@@ -435,11 +435,11 @@ function EliteEventsInner() {
           <div className="text-slate-500 text-xs">Sorted by date</div>
         </div>
 
-        {/* ── Featured Events ── */}
+        {/*  Featured Events  */}
         {featured.length > 0 && (
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-sky-400" />
+              <Star className="w-4 h-4 text-[#00C2FF]" />
               <h2 className="text-white font-black text-lg">Featured Events</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -448,7 +448,7 @@ function EliteEventsInner() {
           </div>
         )}
 
-        {/* ── All Events ── */}
+        {/*  All Events  */}
         {regular.length > 0 && (
           <div className="space-y-3">
             <h2 className="text-white font-black text-lg">All Events</h2>
@@ -469,13 +469,13 @@ function EliteEventsInner() {
           </div>
         )}
 
-        {/* ── Host Your Event CTA ── */}
+        {/*  Host Your Event CTA  */}
         <div className="bg-gradient-to-r from-[#1a3a8f]/60 to-slate-800/60 border border-blue-700/40 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-white font-black text-lg">Host an Elite Event on AthlynX</h3>
             <p className="text-slate-400 text-sm mt-1">List your camp, tournament, combine, or showcase and reach thousands of athletes and families on the AthlynX platform.</p>
           </div>
-          <button className="bg-gradient-to-r from-blue-600 to-red-600 hover:from-blue-500 hover:to-red-500 text-white font-black px-6 py-3 rounded-xl text-sm transition-all whitespace-nowrap flex items-center gap-2 shadow-lg">
+          <button className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-black px-6 py-3 rounded-xl text-sm transition-all whitespace-nowrap flex items-center gap-2 shadow-lg">
             <Plus className="w-4 h-4" /> List Your Event
           </button>
         </div>
@@ -485,7 +485,7 @@ function EliteEventsInner() {
   );
 }
 
-// ── Event Card Component ──
+//  Event Card Component 
 function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean }) {
   const colors = CATEGORY_COLORS[event.category];
   const Icon = SPORT_ICONS[event.sport] || Trophy;
@@ -501,7 +501,7 @@ function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean 
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
-              {featured && <Star className="w-3 h-3 text-sky-400 shrink-0" />}
+              {featured && <Star className="w-3 h-3 text-[#00C2FF] shrink-0" />}
               <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.badge} text-white`}>{event.category}</span>
               <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${TIER_BADGE[event.tier]}`}>{event.tier}</span>
             </div>
@@ -509,8 +509,8 @@ function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean 
           </div>
         </div>
         {event.scoutsAttending && (
-          <div className="shrink-0 bg-green-500/20 border border-green-500/40 rounded-lg px-2 py-1">
-            <div className="text-green-300 text-xs font-bold whitespace-nowrap">Scouts ✓</div>
+          <div className="shrink-0 bg-[#00C2FF]/20 border border-[#00C2FF]/40 rounded-lg px-2 py-1">
+            <div className="text-[#00C2FF] text-xs font-bold whitespace-nowrap">Scouts </div>
           </div>
         )}
       </div>
@@ -537,11 +537,11 @@ function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean 
         <div>
           <div className="flex justify-between text-xs mb-1">
             <span className="text-slate-400">{event.spotsLeft} spots left</span>
-            <span className={`font-bold ${spotsPercent >= 80 ? "text-red-400" : spotsPercent >= 50 ? "text-sky-400" : "text-green-400"}`}>{spotsPercent}% full</span>
+            <span className={`font-bold ${spotsPercent >= 80 ? "text-[#1E90FF]" : spotsPercent >= 50 ? "text-[#00C2FF]" : "text-[#00C2FF]"}`}>{spotsPercent}% full</span>
           </div>
           <div className="h-1.5 bg-slate-700 rounded-full overflow-hidden">
             <div
-              className={`h-full rounded-full transition-all ${spotsPercent >= 80 ? "bg-red-500" : spotsPercent >= 50 ? "bg-blue-500" : "bg-green-500"}`}
+              className={`h-full rounded-full transition-all ${spotsPercent >= 80 ? "bg-[#1E90FF]" : spotsPercent >= 50 ? "bg-blue-500" : "bg-[#00C2FF]"}`}
               style={{ width: `${spotsPercent}%` }}
             />
           </div>
@@ -552,7 +552,7 @@ function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean 
       <div className="flex items-center justify-between gap-2 pt-1 border-t border-white/5">
         <div className="flex items-center gap-2">
           <span className="text-slate-500 text-xs">{event.organizer}</span>
-          {event.price && <span className={`text-xs font-bold ${event.price === "Invite Only" ? "text-sky-400" : "text-green-400"}`}>{event.price}</span>}
+          {event.price && <span className={`text-xs font-bold ${event.price === "Invite Only" ? "text-[#00C2FF]" : "text-[#00C2FF]"}`}>{event.price}</span>}
         </div>
         <button
           className={`flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-xl transition-all ${
@@ -569,7 +569,7 @@ function EventCard({ event, featured }: { event: EliteEvent; featured?: boolean 
   );
 }
 
-// ── Plus icon for CTA ──
+//  Plus icon for CTA 
 function Plus({ className }: { className?: string }) {
   return <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>;
 }

@@ -237,7 +237,7 @@ function HeroBar({
                       fontWeight: 800,
                     }}
                   >
-                    ✎
+                    
                   </button>
                 }
               />
@@ -487,7 +487,7 @@ function SummaryTab({ profile }: { profile: any }) {
           <Value>{profile?.state ?? "—"}</Value>
           <Label>Instagram</Label>
           <Value>{profile?.instagram ?? "—"}</Value>
-          <Label>X / Twitter</Label>
+          <Label>Instagram</Label>
           <Value>{profile?.twitter ?? "—"}</Value>
         </div>
       </Card>
@@ -625,7 +625,7 @@ function Td({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Recruiting tab ───────────────────────────────────────────────────────────────────────────────────
+//  Recruiting tab 
 function RecruitingTab({
   athleteId,
   isOwner,
@@ -809,7 +809,7 @@ function InterestBadge({ level }: { level: string }) {
   );
 }
 
-// ─── Awards tab ─────────────────────────────────────────────────────────────────────────────────────
+//  Awards tab 
 function AwardsTab({ athleteId }: { athleteId?: number | null }) {
   if (!athleteId) return <TabPlaceholder build="2" sectionLabel="Awards" />;
   const awardsQuery = trpc.recruiting.getAwards.useQuery({ athleteId });
@@ -1049,7 +1049,7 @@ function HeroEditBar({ profile }: { profile: any }) {
           currentValues={profile}
           fields={[
             { field: "instagram", label: "Instagram handle" },
-            { field: "twitter", label: "X / Twitter handle" },
+            { field: "twitter", label: "Instagram handle" },
             { field: "tiktokHandle", label: "TikTok handle" },
             { field: "youtubeUrl", label: "YouTube URL" },
             { field: "linkedinUrl", label: "LinkedIn URL" },

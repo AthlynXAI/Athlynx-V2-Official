@@ -25,7 +25,7 @@ import {
 const Instagram = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.43A4.41 4.41 0 1 0 16.41 12 4.41 4.41 0 0 0 12 7.59Zm0 7.27A2.86 2.86 0 1 1 14.86 12 2.86 2.86 0 0 1 12 14.86Zm5.6-7.45a1.03 1.03 0 1 1-1.03-1.03 1.03 1.03 0 0 1 1.03 1.03Z"/></svg>);
 const Twitter = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M18.244 2H21l-6.51 7.43L22 22h-6.84l-4.65-6.07L4.93 22H2.17l6.96-7.95L2 2h7.04l4.18 5.55L18.244 2Zm-2.4 18h1.86L7.27 4H5.3l10.55 16Z"/></svg>);
 
-// ─── Sample Reels ─────────────────────────────────────────────────────────────
+//  Sample Reels 
 const SAMPLE_REELS = [
   {
     id: 1,
@@ -74,20 +74,20 @@ const SAMPLE_REELS = [
   },
 ];
 
-// ─── AI Caption Templates ─────────────────────────────────────────────────────
+//  AI Caption Templates 
 const AI_CAPTIONS = [
-  "Built different. Every rep, every route, every rep. The grind doesn't stop. 🏈⚡ #AthlynX #Recruiting #Football",
-  "When the lights come on, I deliver. 4.52 and climbing. D1 or bust. 🔥 #QB #40YardDash #ClassOf2027",
-  "This is what 5am looks like. This is what commitment looks like. This is what I look like. 💪 #Grind #Football #Westlake",
+  "Built different. Every rep, every route, every rep. The grind doesn't stop.  #AthlynX #Recruiting #Football",
+  "When the lights come on, I deliver. 4.52 and climbing. D1 or bust.  #QB #40YardDash #ClassOf2027",
+  "This is what 5am looks like. This is what commitment looks like. This is what I look like.  #Grind #Football #Westlake",
 ];
 
-// ─── Stat Formatter ───────────────────────────────────────────────────────────
+//  Stat Formatter 
 function formatStat(n: number): string {
   if (n >= 1000) return (n / 1000).toFixed(1) + "K";
   return String(n);
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+//  Main Component 
 function HighlightReelStudioInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<"my-reels" | "upload" | "analytics">("my-reels");
@@ -177,9 +177,9 @@ function HighlightReelStudioInner() {
             <p className="text-blue-400 text-sm mt-1">Upload, caption, and share your highlights. AI-powered titles and captions. Get seen by D1 coaches and brands.</p>
             <div className="flex gap-2 mt-3 flex-wrap">
               {[
-                { label: "🎬 AI Captions", color: "bg-purple-900/40 border-purple-700/40 text-purple-300" },
-                { label: "📡 Coach Visibility", color: "bg-green-900/40 border-green-700/40 text-green-300" },
-                { label: "📊 View Analytics", color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
+                { label: " AI Captions", color: "bg-[#1E90FF]/40 border-[#1E90FF]/40 text-[#1E90FF]" },
+                { label: " Coach Visibility", color: "bg-[#00C2FF]/40 border-[#00C2FF]/40 text-[#00C2FF]" },
+                { label: " View Analytics", color: "bg-blue-900/40 border-blue-700/40 text-blue-300" },
               ].map((b, i) => (
                 <span key={i} className={`text-[10px] font-bold px-2 py-1 rounded-full border ${b.color}`}>{b.label}</span>
               ))}
@@ -191,9 +191,9 @@ function HighlightReelStudioInner() {
         <div className="sticky top-0 z-20 bg-[#040c1a]/95 backdrop-blur border-b border-blue-900/30 px-4 py-2">
           <div className="max-w-2xl mx-auto flex gap-1.5">
             {[
-              { id: "my-reels", label: "🎬 My Reels" },
-              { id: "upload", label: "⬆️ Upload" },
-              { id: "analytics", label: "📊 Analytics" },
+              { id: "my-reels", label: " My Reels" },
+              { id: "upload", label: " Upload" },
+              { id: "analytics", label: " Analytics" },
             ].map(tab => (
               <button key={tab.id} onClick={() => setActiveTab(tab.id as any)}
                 className={`flex-1 text-xs font-bold py-2 rounded-xl transition-colors ${
@@ -207,7 +207,7 @@ function HighlightReelStudioInner() {
 
         <div className="max-w-2xl mx-auto px-4 py-4 space-y-4">
 
-          {/* ══ MY REELS ══ */}
+          {/*  MY REELS  */}
           {activeTab === "my-reels" && (
             <>
               {/* Upload CTA */}
@@ -236,9 +236,9 @@ function HighlightReelStudioInner() {
                           <Play size={10} className="text-white fill-white" />
                           <span className="text-white text-[10px] font-bold">{reel.duration}</span>
                         </div>
-                        <div className="flex items-center gap-1.5 bg-green-500/20 border border-green-500/30 rounded-full px-2 py-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                          <span className="text-green-400 text-[10px] font-black">LIVE</span>
+                        <div className="flex items-center gap-1.5 bg-[#00C2FF]/20 border border-[#00C2FF]/30 rounded-full px-2 py-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#00C2FF]" />
+                          <span className="text-[#00C2FF] text-[10px] font-black">LIVE</span>
                         </div>
                       </div>
                     </div>
@@ -305,7 +305,7 @@ function HighlightReelStudioInner() {
             </>
           )}
 
-          {/* ══ UPLOAD ══ */}
+          {/*  UPLOAD  */}
           {activeTab === "upload" && (
             <>
               {uploadStep === "select" && (
@@ -329,16 +329,16 @@ function HighlightReelStudioInner() {
               {(uploadStep === "details" || uploadStep === "ai") && uploadedFile && (
                 <div className="space-y-4">
                   {/* File Info */}
-                  <div className="bg-[#0d1e3c] border border-green-800/40 rounded-2xl p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center shrink-0">
-                      <CheckCircle size={20} className="text-green-400" />
+                  <div className="bg-[#0d1e3c] border border-[#00C2FF]/40 rounded-2xl p-4 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#00C2FF]/20 flex items-center justify-center shrink-0">
+                      <CheckCircle size={20} className="text-[#00C2FF]" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-white font-black text-sm truncate">{uploadedFile.name}</div>
-                      <div className="text-green-400 text-xs">{(uploadedFile.size / 1024 / 1024).toFixed(1)} MB · Ready to upload</div>
+                      <div className="text-[#00C2FF] text-xs">{(uploadedFile.size / 1024 / 1024).toFixed(1)} MB · Ready to upload</div>
                     </div>
                     <button onClick={() => { setUploadedFile(null); setUploadStep("select"); }}
-                      className="text-blue-600 hover:text-red-400 transition-colors">
+                      className="text-blue-600 hover:text-[#1E90FF] transition-colors">
                       <X size={16} />
                     </button>
                   </div>
@@ -387,9 +387,9 @@ function HighlightReelStudioInner() {
                     <label className="text-blue-400 text-[10px] font-bold block mb-2">Share To</label>
                     <div className="flex gap-2">
                       {[
-                        { label: "AthlynX Feed", icon: "⚡", active: true },
-                        { label: "Instagram", icon: "📸", active: false },
-                        { label: "Twitter/X", icon: "🐦", active: false },
+                        { label: "AthlynX Feed", icon: "", active: true },
+                        { label: "Instagram", icon: "", active: false },
+                        { label: "Twitter/X", icon: "", active: false },
                       ].map((p, i) => (
                         <div key={i} className={`flex-1 flex items-center gap-1.5 p-2 rounded-xl border text-center justify-center ${
                           p.active ? "border-[#0066ff]/50 bg-[#0066ff]/10 text-[#00c2ff]" : "border-blue-800/30 text-blue-600"
@@ -410,8 +410,8 @@ function HighlightReelStudioInner() {
               )}
 
               {uploadStep === "done" && (
-                <div className="bg-gradient-to-r from-green-900/20 to-green-900/5 border border-green-800/30 rounded-2xl p-8 text-center">
-                  <CheckCircle size={48} className="text-green-400 mx-auto mb-4" />
+                <div className="bg-gradient-to-r from-[#00C2FF]/20 to-[#0a1628]/5 border border-[#00C2FF]/30 rounded-2xl p-8 text-center">
+                  <CheckCircle size={48} className="text-[#00C2FF] mx-auto mb-4" />
                   <div className="text-white font-black text-xl mb-2">Reel Published!</div>
                   <p className="text-blue-400 text-sm mb-4">Your highlight reel is live. Coaches and scouts can now discover you through the AthlynX platform.</p>
                   <div className="flex gap-2">
@@ -429,16 +429,16 @@ function HighlightReelStudioInner() {
             </>
           )}
 
-          {/* ══ ANALYTICS ══ */}
+          {/*  ANALYTICS  */}
           {activeTab === "analytics" && (
             <>
               {/* Summary Cards */}
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: "Total Views", val: "50,000+", icon: Eye, color: "text-[#00c2ff]", bg: "bg-[#0066ff]/20" },
-                  { label: "Total Likes", val: "3,599", icon: Heart, color: "text-red-400", bg: "bg-red-500/20" },
-                  { label: "Coach Views", val: "47", icon: Award, color: "text-sky-400", bg: "bg-blue-500/20" },
-                  { label: "Shares", val: "623", icon: Share2, color: "text-green-400", bg: "bg-green-500/20" },
+                  { label: "Total Likes", val: "3,599", icon: Heart, color: "text-[#1E90FF]", bg: "bg-[#1E90FF]/20" },
+                  { label: "Coach Views", val: "47", icon: Award, color: "text-[#00C2FF]", bg: "bg-blue-500/20" },
+                  { label: "Shares", val: "623", icon: Share2, color: "text-[#00C2FF]", bg: "bg-[#00C2FF]/20" },
                 ].map((s, i) => (
                   <div key={i} className="bg-[#0d1e3c] border border-blue-800/40 rounded-2xl p-4">
                     <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-2`}>
@@ -459,8 +459,8 @@ function HighlightReelStudioInner() {
                     <div className="text-white font-black text-sm truncate">{SAMPLE_REELS[1].title}</div>
                     <div className="text-blue-400 text-xs">{formatStat(SAMPLE_REELS[1].views)} views · {formatStat(SAMPLE_REELS[1].likes)} likes</div>
                     <div className="flex items-center gap-1 mt-1">
-                      <TrendingUp size={10} className="text-green-400" />
-                      <span className="text-green-400 text-[10px] font-bold">+24% this week</span>
+                      <TrendingUp size={10} className="text-[#00C2FF]" />
+                      <span className="text-[#00C2FF] text-[10px] font-bold">+24% this week</span>
                     </div>
                   </div>
                 </div>
@@ -475,13 +475,13 @@ function HighlightReelStudioInner() {
                   { school: "Baylor Bears", coach: "Coach Johnson", action: "Shared your reel", time: "3d ago", level: "D1" },
                 ].map((c, i) => (
                   <div key={i} className="flex items-center gap-3 py-2.5 border-b border-blue-900/20 last:border-0">
-                    <div className="w-9 h-9 rounded-xl bg-blue-900/50 flex items-center justify-center text-sm shrink-0">🏫</div>
+                    <div className="w-9 h-9 rounded-xl bg-blue-900/50 flex items-center justify-center text-sm shrink-0"></div>
                     <div className="flex-1 min-w-0">
                       <div className="text-white font-black text-xs">{c.school}</div>
                       <div className="text-blue-400 text-[10px]">{c.coach} · {c.action}</div>
                     </div>
                     <div className="text-right shrink-0">
-                      <div className="text-green-400 text-[10px] font-black">{c.level}</div>
+                      <div className="text-[#00C2FF] text-[10px] font-black">{c.level}</div>
                       <div className="text-blue-700 text-[9px]">{c.time}</div>
                     </div>
                   </div>

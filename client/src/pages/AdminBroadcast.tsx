@@ -62,7 +62,7 @@ function AdminBroadcastInner() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <p className="text-red-400 text-xl font-bold mb-2">Access Denied</p>
+          <p className="text-[#1E90FF] text-xl font-bold mb-2">Access Denied</p>
           <p className="text-gray-400">Admin access required.</p>
         </div>
       </div>
@@ -90,10 +90,10 @@ function AdminBroadcastInner() {
             <ArrowLeft className="w-4 h-4 mr-1" /> Admin
           </Button>
           <div className="flex items-center gap-2">
-            <Megaphone className="w-5 h-5 text-red-400" />
+            <Megaphone className="w-5 h-5 text-[#1E90FF]" />
             <h1 className="text-xl font-bold">Broadcast Center</h1>
           </div>
-          <Badge className="bg-red-500/20 text-red-400 border-red-500/30">Chad Only</Badge>
+          <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30">Chad Only</Badge>
         </div>
       </div>
 
@@ -183,10 +183,10 @@ function AdminBroadcastInner() {
                 <Button
                   onClick={handleSend}
                   disabled={sendMutation.isPending || !subject.trim() || !body.trim()}
-                  className="bg-red-500 hover:bg-red-400 text-black font-bold px-6"
+                  className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold px-6"
                 >
                   {sendMutation.isPending ? (
-                    <span className="flex items-center gap-2"><span className="animate-spin">⟳</span> Sending...</span>
+                    <span className="flex items-center gap-2"><span className="animate-spin"></span> Sending...</span>
                   ) : (
                     <span className="flex items-center gap-2"><Send className="w-4 h-4" /> Send Now</span>
                   )}
@@ -206,8 +206,8 @@ function AdminBroadcastInner() {
             <CardContent className="space-y-3">
               {[
                 { label: "Total Users", value: stats?.totalUsers, color: "text-white" },
-                { label: "On Trial", value: stats?.onTrial, color: "text-red-400" },
-                { label: "Subscribed", value: stats?.withSubscription, color: "text-green-400" },
+                { label: "On Trial", value: stats?.onTrial, color: "text-[#1E90FF]" },
+                { label: "Subscribed", value: stats?.withSubscription, color: "text-[#00C2FF]" },
                 { label: "New This Week", value: stats?.newThisWeek, color: "text-blue-400" },
               ].map((s) => (
                 <div key={s.label} className="flex justify-between items-center">
@@ -236,7 +236,7 @@ function AdminBroadcastInner() {
                     <div key={b.id} className="border border-gray-800 rounded-lg p-3 space-y-1">
                       <div className="flex items-start justify-between gap-2">
                         <p className="text-white text-sm font-medium leading-tight line-clamp-2">{b.subject}</p>
-                        <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#00C2FF] shrink-0 mt-0.5" />
                       </div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <Badge variant="outline" className="text-xs border-gray-700 text-gray-400 px-1.5 py-0">

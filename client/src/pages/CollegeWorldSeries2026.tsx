@@ -265,7 +265,7 @@ export default function CollegeWorldSeries2026() {
             <Link href="/diamond-grind" className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-white/80 hover:bg-white/10">
               Diamond Grind
             </Link>
-            <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-sky-200">
+            <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">
               Road to Omaha 2026
             </span>
             <span className="rounded-full border border-[#F6C453]/30 bg-[#5D1725]/45 px-4 py-2 text-xs font-black uppercase tracking-[0.25em] text-[#F6C453]">
@@ -287,7 +287,7 @@ export default function CollegeWorldSeries2026() {
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                  <div className="text-3xl font-black text-sky-300">{regionals.length}</div>
+                  <div className="text-3xl font-black text-[#00C2FF]">{regionals.length}</div>
                   <div className="text-xs font-bold uppercase tracking-wider text-white/55">Regional hubs tracked</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
@@ -295,14 +295,14 @@ export default function CollegeWorldSeries2026() {
                   <div className="text-xs font-bold uppercase tracking-wider text-white/55">Team fields listed</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                  <div className="text-3xl font-black text-red-300">3</div>
+                  <div className="text-3xl font-black text-[#1E90FF]">3</div>
                   <div className="text-xs font-bold uppercase tracking-wider text-white/55">Mississippi storylines</div>
                 </div>
               </div>
             </div>
 
             <div className="athlynx-premium-watermark-card rounded-[2rem] border border-white/10 p-6 shadow-2xl backdrop-blur">
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-sky-200">Mississippi watch · MSU loyalty</p>
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#00C2FF]">Mississippi watch · MSU loyalty</p>
               <div className="mt-5 space-y-4">
                 {mississippiHighlights.map((item) => (
                   <div key={item.regional} className="rounded-2xl border border-white/10 bg-white/[0.05] p-4">
@@ -341,12 +341,12 @@ export default function CollegeWorldSeries2026() {
                   <TeamList teams={regional.teams} />
                   <div className="space-y-4">
                     <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-sky-200">Opening matchups</p>
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#00C2FF]">Opening matchups</p>
                       <p className="mt-2 text-sm leading-6 text-white/75">{regional.openingMatchups || "Opening matchups pending final confirmation."}</p>
                     </div>
                     {regional.mississippiRelevance && regional.mississippiRelevance !== "None" ? (
-                      <div className="rounded-2xl border border-red-300/20 bg-red-500/10 p-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-red-200">Mississippi relevance</p>
+                      <div className="rounded-2xl border border-[#1E90FF]/20 bg-[#1E90FF]/10 p-3">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#1E90FF]">Mississippi relevance</p>
                         <p className="mt-2 text-sm leading-6 text-white/75">{regional.mississippiRelevance}</p>
                       </div>
                     ) : null}

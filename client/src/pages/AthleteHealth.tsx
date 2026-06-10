@@ -180,13 +180,13 @@ function AthleteHealthInner() {
       {/* Hero */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="flex justify-center mb-4">
-          <div className="flex items-center gap-2 bg-red-500/20 border border-red-400/30 rounded-full px-4 py-2">
-            <Heart className="w-4 h-4 text-red-400" />
-            <span className="text-red-300 text-sm font-semibold">AthlynX HEALTH HUB</span>
+          <div className="flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-4 py-2">
+            <Heart className="w-4 h-4 text-[#1E90FF]" />
+            <span className="text-[#1E90FF] text-sm font-semibold">AthlynX HEALTH HUB</span>
           </div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-black text-center mb-3">
-          Your Body. <span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">Your Career.</span>
+          Your Body. <span className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] bg-clip-text text-transparent">Your Career.</span>
         </h1>
         <p className="text-slate-300 text-center text-lg max-w-2xl mx-auto mb-8">
           Sports medicine doctors, elite trainers, physical therapists, sports psychologists, and nutritionists — everything your body and mind need to perform at the highest level and stay there.
@@ -201,7 +201,7 @@ function AthleteHealthInner() {
             { value: "Free", label: "Initial Consultation" }
           ].map((s, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-              <div className="text-xl font-black text-red-400">{s.value}</div>
+              <div className="text-xl font-black text-[#1E90FF]">{s.value}</div>
               <div className="text-xs text-slate-400 mt-1">{s.label}</div>
             </div>
           ))}
@@ -213,7 +213,7 @@ function AthleteHealthInner() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-red-600 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold capitalize transition-all ${activeTab === tab ? "bg-[#1E90FF] text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
             >
               {tab}
             </button>
@@ -227,7 +227,7 @@ function AthleteHealthInner() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${activeCategory === cat.id ? "bg-red-600 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${activeCategory === cat.id ? "bg-[#1E90FF] text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
               >
                 {cat.label}
               </button>
@@ -239,9 +239,9 @@ function AthleteHealthInner() {
         {activeTab === "professionals" && (
           <div className="space-y-5">
             {filteredPros.map((pro, i) => (
-              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${pro.featured ? "border-red-400/40" : "border-white/10"}`}>
+              <div key={i} className={`bg-white/5 border rounded-2xl p-6 hover:bg-white/10 transition-all ${pro.featured ? "border-[#1E90FF]/40" : "border-white/10"}`}>
                 {pro.featured && (
-                  <div className="flex items-center gap-1 text-xs text-sky-400 font-semibold mb-3">
+                  <div className="flex items-center gap-1 text-xs text-[#00C2FF] font-semibold mb-3">
                     <Star className="w-3 h-3 fill-blue-400" />
                     FEATURED PROFESSIONAL
                   </div>
@@ -249,7 +249,7 @@ function AthleteHealthInner() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-black text-white">{pro.name}</h3>
-                    <p className="text-red-400 text-sm font-semibold">{pro.title}</p>
+                    <p className="text-[#1E90FF] text-sm font-semibold">{pro.title}</p>
                     <div className="flex items-center gap-3 mt-1">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-slate-400" />
@@ -261,12 +261,12 @@ function AthleteHealthInner() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${pro.available ? "bg-green-500/20 text-green-400" : "bg-slate-500/20 text-slate-400"}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${pro.available ? "bg-green-400" : "bg-slate-400"}`} />
+                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${pro.available ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-slate-500/20 text-slate-400"}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${pro.available ? "bg-[#00C2FF]" : "bg-slate-400"}`} />
                       {pro.available ? "Available" : "Busy"}
                     </div>
                     <div className="flex items-center gap-1 mt-1 justify-end">
-                      <Star className="w-3 h-3 text-sky-400 fill-blue-400" />
+                      <Star className="w-3 h-3 text-[#00C2FF] fill-blue-400" />
                       <span className="text-white text-sm font-bold">{pro.rating}</span>
                       <span className="text-slate-400 text-xs">({pro.reviews})</span>
                     </div>
@@ -274,7 +274,7 @@ function AthleteHealthInner() {
                 </div>
                 <div className="flex flex-wrap gap-1 mb-3">
                   {pro.credentials.map((c, j) => (
-                    <span key={j} className="flex items-center gap-1 text-xs bg-red-500/20 text-red-300 border border-red-400/30 px-2 py-0.5 rounded-full">
+                    <span key={j} className="flex items-center gap-1 text-xs bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30 px-2 py-0.5 rounded-full">
                       <Award className="w-2.5 h-2.5" />{c}
                     </span>
                   ))}
@@ -284,7 +284,7 @@ function AthleteHealthInner() {
                   {pro.specialties.map((s, j) => <span key={j} className="text-xs bg-white/10 text-slate-300 px-2 py-0.5 rounded-full">{s}</span>)}
                 </div>
                 <div className="flex gap-2">
-                  <button className="flex-1 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white text-sm font-bold py-2.5 rounded-xl transition-all">
+                  <button className="flex-1 flex items-center justify-center gap-2 bg-[#1E90FF] hover:bg-[#1E90FF] text-white text-sm font-bold py-2.5 rounded-xl transition-all">
                     <Calendar className="w-4 h-4" />
                     Book Appointment
                   </button>
@@ -305,7 +305,7 @@ function AthleteHealthInner() {
               const Icon = svc.icon;
               return (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-all cursor-pointer">
-                  <Icon className="w-8 h-8 text-red-400 mb-3" />
+                  <Icon className="w-8 h-8 text-[#1E90FF] mb-3" />
                   <h3 className="text-white font-bold mb-2">{svc.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{svc.desc}</p>
                 </div>
@@ -320,14 +320,14 @@ function AthleteHealthInner() {
             {/* Mental Health Stats */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <h2 className="text-xl font-black text-white mb-2 flex items-center gap-2">
-                <Brain className="w-5 h-5 text-purple-400" />
+                <Brain className="w-5 h-5 text-[#1E90FF]" />
                 Mental Health Is Performance
               </h2>
               <p className="text-slate-400 text-sm mb-4">The stigma is gone. The data is clear. Mental health directly impacts on-field performance.</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {MENTAL_HEALTH_STATS.map((s, i) => (
                   <div key={i} className="bg-white/5 rounded-xl p-4 text-center">
-                    <div className="text-2xl font-black text-purple-400 mb-1">{s.stat}</div>
+                    <div className="text-2xl font-black text-[#1E90FF] mb-1">{s.stat}</div>
                     <div className="text-slate-400 text-xs leading-relaxed">{s.desc}</div>
                   </div>
                 ))}
@@ -337,7 +337,7 @@ function AthleteHealthInner() {
             {/* Injury Prevention */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <h2 className="text-xl font-black text-white mb-4 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-green-400" />
+                <Shield className="w-5 h-5 text-[#00C2FF]" />
                 Injury Prevention Guide
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -353,13 +353,13 @@ function AthleteHealthInner() {
         )}
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-red-900/50 to-rose-900/50 border border-red-400/20 rounded-2xl p-6 sm:p-8 text-center">
-          <Heart className="w-10 h-10 text-red-400 mx-auto mb-3" />
+        <div className="mt-12 bg-gradient-to-r from-[#1E90FF]/50 to-[#0a1628]/50 border border-[#1E90FF]/20 rounded-2xl p-6 sm:p-8 text-center">
+          <Heart className="w-10 h-10 text-[#1E90FF] mx-auto mb-3" />
           <h3 className="text-xl font-black text-white mb-2">Are You a Sports Health Professional?</h3>
           <p className="text-slate-400 text-sm mb-4 max-w-xl mx-auto">
             Join the AthlynX Health Network and connect with athletes at every level. Offer telehealth consultations, in-person appointments, and digital programs.
           </p>
-          <button className="bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
+          <button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold px-6 py-3 rounded-xl transition-all text-sm">
             Apply to Join the Network
           </button>
         </div>

@@ -84,7 +84,7 @@ export default function PartnerAvatar({
 
   return (
     <div
-      className={`${sizeClasses} rounded-full bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border border-cyan-500/40 flex items-center justify-center font-bold text-white ${ringClasses} ${className}`}
+      className={`${sizeClasses} rounded-full bg-gradient-to-br from-[#1E90FF]/20 to-blue-500/30 border border-[#1E90FF]/30 flex items-center justify-center font-bold text-white ${ringClasses} ${className}`}
       aria-label={name ?? email ?? "user"}
     >
       {initials}

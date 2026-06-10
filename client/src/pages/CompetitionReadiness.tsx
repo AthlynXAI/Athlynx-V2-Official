@@ -55,14 +55,14 @@ function CompetitionReadinessInner() {
             <Link href="/digital-health" className="text-gray-300 hover:text-white">Digital Health</Link>
             <Link href="/medical" className="text-gray-300 hover:text-white">Medical</Link>
             <Link href="/hipaa" className="text-gray-300 hover:text-white">Privacy Posture</Link>
-            <Link href="/signin" className="rounded-xl bg-cyan-400 px-4 py-2 font-black text-[#07111f] hover:bg-cyan-300">Sign In</Link>
+            <Link href="/signin" className="rounded-xl bg-[#1E90FF] px-4 py-2 font-black text-[#07111f] hover:bg-[#1E90FF]">Sign In</Link>
           </nav>
         </div>
       </header>
 
       <main className="px-4 py-16 md:py-20">
         <section className="mx-auto mb-14 max-w-6xl text-center">
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-400/10 px-4 py-2 text-sm font-bold text-cyan-200">
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#1E90FF]/30 bg-[#1E90FF]/20 px-4 py-2 text-sm font-bold text-[#00C2FF]">
             <Rocket className="h-4 w-4" /> OPENAI + NEBIUS READINESS
           </span>
           <h1 className="mx-auto mb-6 max-w-5xl text-4xl font-black leading-tight md:text-6xl">
@@ -76,7 +76,7 @@ function CompetitionReadinessInner() {
         <section className="mx-auto mb-14 grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
           {readinessPillars.map((pillar) => (
             <article key={pillar.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/10">
-              <pillar.icon className="mb-4 h-10 w-10 text-cyan-300" />
+              <pillar.icon className="mb-4 h-10 w-10 text-[#00C2FF]" />
               <h2 className="mb-3 text-2xl font-black text-white">{pillar.title}</h2>
               <p className="leading-relaxed text-gray-300">{pillar.body}</p>
             </article>
@@ -84,15 +84,15 @@ function CompetitionReadinessInner() {
         </section>
 
         <section className="mx-auto mb-14 grid max-w-7xl gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-3xl border border-cyan-300/20 bg-cyan-400/10 p-7">
+          <div className="rounded-3xl border border-[#1E90FF]/30 bg-[#1E90FF]/20 p-7">
             <div className="mb-5 flex items-center gap-3">
-              <Server className="h-8 w-8 text-cyan-300" />
+              <Server className="h-8 w-8 text-[#00C2FF]" />
               <h2 className="text-3xl font-black">What judges can verify now</h2>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               {publicProof.map(([label, body]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="mb-2 flex items-center gap-2 text-cyan-200">
+                  <div className="mb-2 flex items-center gap-2 text-[#00C2FF]">
                     <CheckCircle className="h-4 w-4" />
                     <h3 className="font-black">{label}</h3>
                   </div>
@@ -102,9 +102,9 @@ function CompetitionReadinessInner() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-emerald-300/20 bg-emerald-400/10 p-7">
+          <div className="rounded-3xl border border-[#1E90FF]/20 bg-[#1E90FF]/10 p-7">
             <div className="mb-5 flex items-center gap-3">
-              <Lock className="h-8 w-8 text-emerald-300" />
+              <Lock className="h-8 w-8 text-[#00C2FF]" />
               <h2 className="text-3xl font-black">Responsible boundaries</h2>
             </div>
             <p className="mb-5 leading-relaxed text-gray-300">
@@ -113,7 +113,7 @@ function CompetitionReadinessInner() {
             <div className="space-y-3">
               {guardrails.map((item) => (
                 <div key={item} className="flex gap-3 rounded-xl border border-white/10 bg-black/20 p-3 text-sm leading-relaxed text-gray-300">
-                  <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-300" />
+                  <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#00C2FF]" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -123,35 +123,35 @@ function CompetitionReadinessInner() {
 
         <section className="mx-auto mb-14 max-w-7xl rounded-3xl border border-white/10 bg-white/5 p-7">
           <div className="mb-6 flex items-center gap-3">
-            <FileText className="h-8 w-8 text-cyan-300" />
+            <FileText className="h-8 w-8 text-[#00C2FF]" />
             <h2 className="text-3xl font-black">Competition packet alignment</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             <div className="rounded-2xl bg-black/20 p-5">
-              <h3 className="mb-3 text-xl font-black text-cyan-200">OpenAI packet</h3>
+              <h3 className="mb-3 text-xl font-black text-[#00C2FF]">OpenAI packet</h3>
               <p className="leading-relaxed text-gray-300">Prepared around applied AI, domain-specific evaluation, athlete-workflow automation, safety boundaries, and human-supervised platform outcomes.</p>
             </div>
             <div className="rounded-2xl bg-black/20 p-5">
-              <h3 className="mb-3 text-xl font-black text-cyan-200">Nebius packet</h3>
+              <h3 className="mb-3 text-xl font-black text-[#00C2FF]">Nebius packet</h3>
               <p className="leading-relaxed text-gray-300">Prepared around Digital Health, real-world data intelligence, MVP proof, GPU-scale AI infrastructure, anonymized data posture, and June finalist review readiness.</p>
             </div>
             <div className="rounded-2xl bg-black/20 p-5">
-              <h3 className="mb-3 text-xl font-black text-cyan-200">Investor materials</h3>
+              <h3 className="mb-3 text-xl font-black text-[#00C2FF]">Investor materials</h3>
               <p className="leading-relaxed text-gray-300">Decks, P&L models, and detailed financials remain private, request-only, and recipient-approved. They are not published on this public page.</p>
             </div>
           </div>
         </section>
 
         <section className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-          <Link href="/digital-health" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-300/40">
+          <Link href="/digital-health" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-[#1E90FF]/30">
             <h3 className="mb-2 text-2xl font-black">Digital Health Hub</h3>
             <p className="text-gray-300">Review the athlete wellness and lifecycle doorway.</p>
           </Link>
-          <Link href="/fuel-bots" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-300/40">
+          <Link href="/fuel-bots" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-[#1E90FF]/30">
             <h3 className="mb-2 text-2xl font-black">Fuel Bots</h3>
             <p className="text-gray-300">Review the future physical-AI and athlete-support lane.</p>
           </Link>
-          <Link href="/athlynxai-os" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-300/40">
+          <Link href="/athlynxai-os" className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-[#1E90FF]/30">
             <h3 className="mb-2 text-2xl font-black">AthlynXAI OS</h3>
             <p className="text-gray-300">Review the operating-system and media-loop foundation.</p>
           </Link>

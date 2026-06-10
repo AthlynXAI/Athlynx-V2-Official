@@ -6,7 +6,7 @@ const PLATFORMS: Array<{ id: string; label: string; enabled: boolean; note?: str
   { id: "tiktok", label: "TikTok", enabled: true },
   { id: "youtube", label: "YouTube", enabled: true },
   { id: "instagram", label: "Instagram", enabled: false, note: "Coming soon" },
-  { id: "twitter", label: "X / Twitter", enabled: false, note: "Coming soon" },
+  { id: "twitter", label: "Instagram", enabled: false, note: "Coming soon" },
   { id: "snapchat", label: "Snapchat", enabled: false, note: "Coming soon" },
 ];
 

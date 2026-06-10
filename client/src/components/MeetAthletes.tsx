@@ -75,21 +75,21 @@ export default function MeetAthletes({
 
   const getSportEmoji = (sport: string) => {
     const map: Record<string, string> = {
-      Football: "🏈", Basketball: "🏀", Baseball: "⚾", Soccer: "⚽",
-      "Track & Field": "🏃", Swimming: "🏊", Wrestling: "🤼", Tennis: "🎾",
-      Volleyball: "🏐", Hockey: "🏒", Softball: "🥎", Golf: "⛳",
-      Lacrosse: "🥍", Gymnastics: "🤸", "Cross Country": "🏃‍♂️",
-      Rowing: "🚣", "Water Polo": "🤽", "Field Hockey": "🏑",
-      Cheerleading: "📣", Rugby: "🏉", Cricket: "🏏",
+      Football: "", Basketball: "", Baseball: "", Soccer: "",
+      "Track & Field": "", Swimming: "", Wrestling: "", Tennis: "",
+      Volleyball: "", Hockey: "", Softball: "", Golf: "",
+      Lacrosse: "", Gymnastics: "", "Cross Country": "",
+      Rowing: "", "Water Polo": "", "Field Hockey": "",
+      Cheerleading: "", Rugby: "", Cricket: "",
     };
-    return map[sport] || "🏆";
+    return map[sport] || "";
   };
 
   if (variant === "onboarding") {
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <div className="text-4xl mb-3">👥</div>
+          <div className="text-4xl mb-3"></div>
           <h2 className="text-2xl font-black text-white mb-2">Meet Your Fellow Athletes</h2>
           <p className="text-slate-400 text-sm">Connect with athletes in your sport, at your school, and around the world. This is your network.</p>
         </div>
@@ -125,7 +125,7 @@ export default function MeetAthletes({
         {showCoaches && coaches.length > 0 && (
           <div>
             <h3 className="text-white font-black text-sm mb-3 flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-sky-400" />
+              <Trophy className="w-4 h-4 text-[#00C2FF]" />
               Coaches & Scouts Watching
             </h3>
             <div className="space-y-2">
@@ -146,7 +146,7 @@ export default function MeetAthletes({
                     disabled={connected.has(coach.id) || coach.id < 0}
                     className="text-xs border border-blue-700 hover:border-blue-500 hover:text-blue-400 text-slate-400 px-3 py-1.5 rounded-full transition-colors flex-shrink-0 disabled:opacity-50"
                   >
-                    {connected.has(coach.id) ? "✓ Following" : "Follow"}
+                    {connected.has(coach.id) ? " Following" : "Follow"}
                   </button>
                 </div>
               ))}
@@ -188,7 +188,7 @@ export default function MeetAthletes({
                 disabled={connected.has(athlete.id)}
                 className="text-xs border border-slate-700 hover:border-blue-500 hover:text-blue-400 text-slate-400 px-2 py-1 rounded-full transition-colors flex-shrink-0 flex items-center gap-1"
               >
-                {connected.has(athlete.id) ? "✓" : <><UserPlus className="w-3 h-3" /> Connect</>}
+                {connected.has(athlete.id) ? "" : <><UserPlus className="w-3 h-3" /> Connect</>}
               </button>
             </div>
           ))}
@@ -252,7 +252,7 @@ export default function MeetAthletes({
       {showCoaches && (
         <div>
           <h3 className="text-white font-black text-lg mb-4 flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-sky-400" />
+            <Trophy className="w-5 h-5 text-[#00C2FF]" />
             Coaches & Scouts
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -267,7 +267,7 @@ export default function MeetAthletes({
                 <div className="flex-1 min-w-0">
                   <div className="text-white font-black">{coach.name}</div>
                   <div className="text-slate-500 text-xs">{coach.school}</div>
-                  <div className="text-sky-400 text-xs">{getSportEmoji(coach.sport)} {coach.sport}</div>
+                  <div className="text-[#00C2FF] text-xs">{getSportEmoji(coach.sport)} {coach.sport}</div>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <button
@@ -275,7 +275,7 @@ export default function MeetAthletes({
                     disabled={connected.has(coach.id) || coach.id < 0}
                     className="text-xs bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold px-3 py-1.5 rounded-full transition-colors"
                   >
-                    {connected.has(coach.id) ? "✓ Following" : "Follow"}
+                    {connected.has(coach.id) ? " Following" : "Follow"}
                   </button>
                   <Link href="/messenger">
                     <button className="text-xs border border-slate-700 hover:border-blue-500 text-slate-400 hover:text-blue-400 font-bold px-3 py-1.5 rounded-full transition-colors flex items-center gap-1 justify-center">
@@ -292,7 +292,7 @@ export default function MeetAthletes({
   );
 }
 
-// ─── Athlete Card ─────────────────────────────────────────────────────────────
+//  Athlete Card 
 function AthleteCard({
   athlete,
   connected,
@@ -344,15 +344,15 @@ function AthleteCard({
           {/* X-Score */}
           {athlete.xScore > 0 && (
             <div className="flex items-center gap-1 mt-1.5">
-              <Zap className="w-3 h-3 text-sky-400" />
-              <span className="text-sky-400 text-xs font-black">{athlete.xScore}</span>
+              <Zap className="w-3 h-3 text-[#00C2FF]" />
+              <span className="text-[#00C2FF] text-xs font-black">{athlete.xScore}</span>
             </div>
           )}
 
           {/* NIL Verified */}
           {athlete.nilVerified && (
-            <div className="text-xs bg-green-900/40 text-green-400 border border-green-800/40 px-2 py-0.5 rounded-full mt-1">
-              NIL Verified ✓
+            <div className="text-xs bg-[#00C2FF]/40 text-[#00C2FF] border border-[#00C2FF]/40 px-2 py-0.5 rounded-full mt-1">
+              NIL Verified 
             </div>
           )}
         </div>
@@ -364,11 +364,11 @@ function AthleteCard({
         disabled={connected}
         className={`mt-3 w-full text-xs font-black py-2 rounded-full transition-all ${
           connected
-            ? "bg-green-900/40 text-green-400 border border-green-800/40"
+            ? "bg-[#00C2FF]/40 text-[#00C2FF] border border-[#00C2FF]/40"
             : "bg-blue-600 hover:bg-blue-500 text-white"
         }`}
       >
-        {connected ? "✓ Connected" : (
+        {connected ? " Connected" : (
           <span className="flex items-center justify-center gap-1">
             <UserPlus className="w-3 h-3" /> Connect
           </span>

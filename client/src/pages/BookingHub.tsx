@@ -12,16 +12,16 @@ const BOOKING_TYPES = [
     id: "chad-personal",
     title: "Chad A. Dozier",
     subtitle: "Founder · CEO · Chairman — AthlynXAI Corporation",
-    emoji: "👤",
-    color: "from-blue-600 to-cyan-600",
+    emoji: "",
+    color: "from-blue-600 to-[#0a1628]",
     badge: "PERSONAL",
     badgeColor: "bg-blue-600",
     description: "Schedule a 1-on-1 with Chad directly. Available for investor meetings, NIL consultations, partnership discussions, and athlete coaching sessions.",
     slots: [
-      { label: "30-Min Intro Call", duration: "30 min", icon: "☎️" },
-      { label: "1-Hour Strategy Session", duration: "60 min", icon: "🎯" },
-      { label: "Investor Meeting", duration: "60 min", icon: "💼" },
-      { label: "NIL Consultation", duration: "45 min", icon: "💰" },
+      { label: "30-Min Intro Call", duration: "30 min", icon: "" },
+      { label: "1-Hour Strategy Session", duration: "60 min", icon: "" },
+      { label: "Investor Meeting", duration: "60 min", icon: "" },
+      { label: "NIL Consultation", duration: "45 min", icon: "" },
     ],
     calendarUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1234?gv=true",
     email: "contact@athlynx.ai",
@@ -31,16 +31,16 @@ const BOOKING_TYPES = [
     id: "org-booking",
     title: "AthlynXAI Corporation",
     subtitle: "Team Meetings · Partner Demos · Athlete Onboarding",
-    emoji: "🏢",
-    color: "from-indigo-600 to-purple-600",
+    emoji: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
     badge: "ORGANIZATION",
-    badgeColor: "bg-indigo-600",
+    badgeColor: "bg-[#1E90FF]",
     description: "Book time with the AthlynXAI team for platform demos, enterprise onboarding, partnership discussions, and team collaboration sessions.",
     slots: [
-      { label: "Platform Demo", duration: "30 min", icon: "🖥️" },
-      { label: "Enterprise Onboarding", duration: "60 min", icon: "🚀" },
-      { label: "Partner Discussion", duration: "45 min", icon: "🤝" },
-      { label: "Team Collaboration", duration: "60 min", icon: "👥" },
+      { label: "Platform Demo", duration: "30 min", icon: "" },
+      { label: "Enterprise Onboarding", duration: "60 min", icon: "" },
+      { label: "Partner Discussion", duration: "45 min", icon: "" },
+      { label: "Team Collaboration", duration: "60 min", icon: "" },
     ],
     calendarUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ5678?gv=true",
     email: "contact@athlynx.ai",
@@ -65,15 +65,15 @@ export default function BookingHub() {
 
         {/* Header */}
         <div className="bg-gradient-to-br from-[#0d1b3e] to-[#1a3a8f] rounded-2xl border border-blue-800 p-6 text-center">
-          <div className="text-4xl mb-3">📅</div>
+          <div className="text-4xl mb-3"></div>
           <h1 className="text-2xl font-black text-white mb-2">Schedule a Meeting</h1>
           <p className="text-blue-300 text-sm max-w-lg mx-auto">
             Book time directly with Chad or the AthlynXAI team. All meetings are confirmed instantly via Google Calendar.
           </p>
           <div className="flex items-center justify-center gap-4 mt-4 text-xs text-blue-400">
-            <span className="flex items-center gap-1">✅ Instant confirmation</span>
-            <span className="flex items-center gap-1">📧 Calendar invite sent</span>
-            <span className="flex items-center gap-1">🔒 Secure & private</span>
+            <span className="flex items-center gap-1"> Instant confirmation</span>
+            <span className="flex items-center gap-1"> Calendar invite sent</span>
+            <span className="flex items-center gap-1"> Secure & private</span>
           </div>
         </div>
 
@@ -115,11 +115,11 @@ export default function BookingHub() {
                 <div className="bg-blue-900/20 rounded-xl p-3 mb-4 border border-blue-800/30">
                   <div className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">Contact</div>
                   <div className="flex items-center gap-2 text-sm text-blue-200 mb-1">
-                    <span>📧</span>
+                    <span></span>
                     <a href={`mailto:${booking.email}`} className="hover:text-white transition-colors">{booking.email}</a>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-blue-200">
-                    <span>📞</span>
+                    <span></span>
                     <a href={`tel:${booking.phone}`} className="hover:text-white transition-colors">{booking.phone}</a>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function BookingHub() {
                   onClick={() => handleBook(booking)}
                   className={`w-full bg-gradient-to-r ${booking.color} text-white font-black py-3.5 rounded-xl text-sm hover:scale-105 transition-all shadow-lg`}
                 >
-                  📅 Book Now — Opens Google Calendar
+                   Book Now — Opens Google Calendar
                 </button>
 
                 {/* Alternative: Email */}
@@ -165,10 +165,10 @@ export default function BookingHub() {
         {/* Quick Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { label: "Community Feedback", href: "/community-feedback", icon: "💬" },
-            { label: "Partner Portal", href: "/partner-portal", icon: "🤝" },
-            { label: "Investor Hub", href: "/investor-hub", icon: "💼" },
-            { label: "Contact", href: "/contact", icon: "📬" },
+            { label: "Community Feedback", href: "/community-feedback", icon: "" },
+            { label: "Partner Portal", href: "/partner-portal", icon: "" },
+            { label: "Investor Hub", href: "/investor-hub", icon: "" },
+            { label: "Contact", href: "/contact", icon: "" },
           ].map(link => (
             <Link key={link.href} href={link.href}>
               <div className="bg-[#0d1b3e] rounded-xl border border-blue-800 p-3 text-center hover:border-blue-600 hover:bg-blue-900/30 transition-all cursor-pointer">

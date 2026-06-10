@@ -105,10 +105,10 @@ export default function AthlynXEngine() {
         <div className="container px-4 md:px-5 max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex items-center gap-3 mb-2">
-            <Cpu className="w-8 h-8 text-cyan-400" />
+            <Cpu className="w-8 h-8 text-[#00C2FF]" />
             <h1 className="text-3xl md:text-4xl font-black text-white">AthlynXAI Engine</h1>
-            <Badge className={isHealthy ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" : "bg-red-500/20 text-red-300 border-red-500/40"}>
-              {healthLoading ? "Checking…" : isHealthy ? "● ONLINE" : "● OFFLINE"}
+            <Badge className={isHealthy ? "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/40" : "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/40"}>
+              {healthLoading ? "Checking…" : isHealthy ? " ONLINE" : " OFFLINE"}
             </Badge>
           </div>
           <p className="text-white/60 mb-8">
@@ -122,7 +122,7 @@ export default function AthlynXEngine() {
                 <div className="flex items-center gap-2 text-white/60 text-xs mb-2">
                   <Activity className="w-4 h-4" /> STATUS
                 </div>
-                <p className={`text-xl font-bold ${isHealthy ? "text-emerald-400" : "text-red-400"}`}>
+                <p className={`text-xl font-bold ${isHealthy ? "text-[#00C2FF]" : "text-[#1E90FF]"}`}>
                   {healthLoading ? "—" : isHealthy ? "Operational" : "Degraded"}
                 </p>
               </CardContent>
@@ -133,7 +133,7 @@ export default function AthlynXEngine() {
                 <div className="flex items-center gap-2 text-white/60 text-xs mb-2">
                   <Server className="w-4 h-4" /> ENGINE
                 </div>
-                <p className="text-xl font-bold text-cyan-300 uppercase">{health?.engine ?? "—"}</p>
+                <p className="text-xl font-bold text-[#00C2FF] uppercase">{health?.engine ?? "—"}</p>
               </CardContent>
             </Card>
 
@@ -153,7 +153,7 @@ export default function AthlynXEngine() {
                 <div className="flex items-center gap-2 text-white/60 text-xs mb-2">
                   <Clock className="w-4 h-4" /> LATENCY
                 </div>
-                <p className="text-xl font-bold text-cyan-300">
+                <p className="text-xl font-bold text-[#00C2FF]">
                   {health?.latency_ms != null ? `${health.latency_ms} ms` : "—"}
                 </p>
               </CardContent>
@@ -161,29 +161,29 @@ export default function AthlynXEngine() {
           </div>
 
           {/* Health detail card */}
-          <Card className="bg-white/5 border-cyan-500/20 mb-8">
+          <Card className="bg-white/5 border-[#1E90FF]/30 mb-8">
             <CardContent className="p-5 md:p-6">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex items-center gap-2">
                   {isHealthy ? (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5 text-[#00C2FF]" />
                   ) : (
-                    <AlertTriangle className="w-5 h-5 text-red-400" />
+                    <AlertTriangle className="w-5 h-5 text-[#1E90FF]" />
                   )}
                   <h2 className="text-white font-bold">Heartbeat</h2>
                 </div>
                 <Button size="sm" variant="outline" onClick={checkHealth} disabled={healthLoading}
-                  className="border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/10">
+                  className="border-[#1E90FF]/30 text-[#00C2FF] hover:bg-[#1E90FF]/20">
                   {healthLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : "Refresh"}
                 </Button>
               </div>
               {health?.reply && (
-                <p className="text-emerald-300 text-sm font-mono mb-2">
-                  Reply: <span className="text-emerald-200">"{health.reply}"</span>
+                <p className="text-[#00C2FF] text-sm font-mono mb-2">
+                  Reply: <span className="text-[#00C2FF]">"{health.reply}"</span>
                 </p>
               )}
               {health?.error && (
-                <p className="text-red-300 text-sm font-mono mb-2">Error: {health.error}</p>
+                <p className="text-[#1E90FF] text-sm font-mono mb-2">Error: {health.error}</p>
               )}
               <div className="grid sm:grid-cols-2 gap-2 text-xs text-white/60 mt-3">
                 <div>Base URL: <span className="text-white/80">{health?.base_url ?? "—"}</span></div>
@@ -196,12 +196,12 @@ export default function AthlynXEngine() {
 
           {/* Invoke console — admin only */}
           {isAdmin ? (
-            <Card className="bg-gradient-to-br from-cyan-500/5 to-blue-500/5 border-cyan-500/30">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-blue-500/5 border-[#1E90FF]/30">
               <CardContent className="p-5 md:p-6">
                 <div className="flex items-center gap-2 mb-1">
-                  <Zap className="w-5 h-5 text-cyan-400" />
+                  <Zap className="w-5 h-5 text-[#00C2FF]" />
                   <h2 className="text-white font-bold">Invoke Console</h2>
-                  <Badge className="bg-blue-500/20 text-sky-300 border-blue-500/40 text-[10px]">ADMIN</Badge>
+                  <Badge className="bg-blue-500/20 text-[#00C2FF] border-blue-500/40 text-[10px]">ADMIN</Badge>
                 </div>
                 <p className="text-white/60 text-xs mb-4">Live inference against the engine. Logged to your account.</p>
 
@@ -227,7 +227,7 @@ export default function AthlynXEngine() {
                   <Button
                     onClick={runInvoke}
                     disabled={invokeLoading || !prompt.trim()}
-                    className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold"
+                    className="bg-[#1E90FF] hover:bg-[#1E90FF] text-slate-950 font-bold"
                   >
                     {invokeLoading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
                     Invoke
@@ -235,7 +235,7 @@ export default function AthlynXEngine() {
                 </div>
 
                 {invokeError && (
-                  <div className="mt-4 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-sm">
+                  <div className="mt-4 p-3 rounded-lg bg-[#1E90FF]/10 border border-[#1E90FF]/30 text-[#1E90FF] text-sm">
                     {invokeError}
                   </div>
                 )}
@@ -246,7 +246,7 @@ export default function AthlynXEngine() {
                       <span>Response</span>
                       <span>{responseMeta?.latency_ms} ms · {responseMeta?.model}</span>
                     </div>
-                    <div className="p-4 rounded-lg bg-slate-950 border border-cyan-500/20 text-white/90 text-sm whitespace-pre-wrap font-mono">
+                    <div className="p-4 rounded-lg bg-slate-950 border border-[#1E90FF]/30 text-white/90 text-sm whitespace-pre-wrap font-mono">
                       {response}
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export default function AthlynXEngine() {
                 <Shield className="w-10 h-10 text-white/40 mx-auto mb-3" />
                 <p className="text-white/70 mb-1">The invoke console is admin-only.</p>
                 <p className="text-white/40 text-sm mb-4">Sign in as an AthlynX admin to query the engine directly.</p>
-                <Link href="/signin"><Button variant="outline" className="border-cyan-500/40 text-cyan-300">Sign in</Button></Link>
+                <Link href="/signin"><Button variant="outline" className="border-[#1E90FF]/30 text-[#00C2FF]">Sign in</Button></Link>
               </CardContent>
             </Card>
           )}

@@ -25,7 +25,7 @@ const SPORT = {
   accent: "#16A34A",
   accentSoft: "rgba(22,163,74,0.12)",
   accentRing: "rgba(22,163,74,0.40)",
-  emblem: "🏏",
+  emblem: "",
   trpcSport: "Cricket",
   ctaLabel: "Get Assessed",
   heroPhoto: "/sport-hero/cricket-hero.jpg",
@@ -61,10 +61,10 @@ const TIERS = ["Build", "Sharpen", "Optimize", "Elite"] as const;
 type Tier = (typeof TIERS)[number];
 
 const ASSESSMENT_STEPS = [
-  { icon: "📋", title: "Intake",      desc: "Goals, position, history — locked in 10 minutes.",      duration: "10 min" },
-  { icon: "🎥", title: "3D Capture",  desc: "Markerless mocap — every discipline, every angle.",     duration: "45 min" },
-  { icon: "🧠", title: "AI Analysis", desc: "Gemini + Nebius H200 grade every frame, every joint.",  duration: "20 min" },
-  { icon: "🤝", title: "Coach Review",desc: "Live readout, plan, next step. You leave with proof.", duration: "15 min" },
+  { icon: "", title: "Intake",      desc: "Goals, position, history — locked in 10 minutes.",      duration: "10 min" },
+  { icon: "", title: "3D Capture",  desc: "Markerless mocap — every discipline, every angle.",     duration: "45 min" },
+  { icon: "", title: "AI Analysis", desc: "Gemini + Nebius H200 grade every frame, every joint.",  duration: "20 min" },
+  { icon: "", title: "Coach Review",desc: "Live readout, plan, next step. You leave with proof.", duration: "15 min" },
 ];
 
 const STATS_FIELDS = [

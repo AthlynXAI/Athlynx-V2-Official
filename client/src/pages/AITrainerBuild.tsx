@@ -16,10 +16,10 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { SCHOOLS, schoolLogoUrl, schoolByAbbr } from "@/data/schools";
 
 const TIERS = [
-  { id: "youth",   label: "Youth / Travel",   note: "Club, AAU, select team brand", emoji: "🌱" },
-  { id: "hs",      label: "High School",      note: "Varsity school brand",         emoji: "🏫" },
-  { id: "college", label: "College",          note: "NCAA / NAIA / JUCO program",   emoji: "🎓" },
-  { id: "pro",     label: "Pro",              note: "Affiliate or league brand",    emoji: "🏆" },
+  { id: "youth",   label: "Youth / Travel",   note: "Club, AAU, select team brand", emoji: "" },
+  { id: "hs",      label: "High School",      note: "Varsity school brand",         emoji: "" },
+  { id: "college", label: "College",          note: "NCAA / NAIA / JUCO program",   emoji: "" },
+  { id: "pro",     label: "Pro",              note: "Affiliate or league brand",    emoji: "" },
 ];
 
 const STEPS = ["Tier", "Top 5 Schools", "Brand Pack", "Confirm"] as const;
@@ -101,8 +101,8 @@ function AITrainerBuildInner() {
       />
 
       <section className="max-w-4xl mx-auto px-6 pt-10 pb-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/20 to-cyan-500/20 border border-cyan-400/30 text-xs font-bold tracking-widest text-cyan-300 mb-4">
-          <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/20 to-[#0a1628]/20 border border-[#1E90FF]/30 text-xs font-bold tracking-widest text-[#00C2FF] mb-4">
+          <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse"></span>
           AI TRAINER · COACH LYNX · BUILD YOUR PROFILE
         </div>
         <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-3">
@@ -122,17 +122,17 @@ function AITrainerBuildInner() {
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black ${
                   i <= step
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-black"
+                    ? "bg-gradient-to-r from-[#1E90FF] to-blue-500 text-black"
                     : "bg-gray-800 text-gray-500"
                 }`}
               >
                 {i + 1}
               </div>
-              <div className={`text-xs font-bold tracking-wider uppercase ${i <= step ? "text-cyan-300" : "text-gray-600"}`}>
+              <div className={`text-xs font-bold tracking-wider uppercase ${i <= step ? "text-[#00C2FF]" : "text-gray-600"}`}>
                 {label}
               </div>
               {i < STEPS.length - 1 && (
-                <div className={`flex-1 h-px ${i < step ? "bg-cyan-400" : "bg-gray-800"}`} />
+                <div className={`flex-1 h-px ${i < step ? "bg-[#1E90FF]" : "bg-gray-800"}`} />
               )}
             </div>
           ))}
@@ -151,12 +151,12 @@ function AITrainerBuildInner() {
                   onClick={() => setTier(t.id)}
                   className={`text-left rounded-2xl p-4 border transition-all ${
                     tier === t.id
-                      ? "bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border-cyan-400/60"
+                      ? "bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/20 border-[#1E90FF]/30"
                       : "bg-gray-900/60 border-gray-800 hover:border-gray-700"
                   }`}
                 >
                   <div className="text-2xl mb-2">{t.emoji}</div>
-                  <div className="text-xs font-black tracking-widest uppercase text-cyan-300">{t.label}</div>
+                  <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF]">{t.label}</div>
                   <div className="text-xs text-gray-400 mt-1">{t.note}</div>
                 </button>
               ))}
@@ -172,7 +172,7 @@ function AITrainerBuildInner() {
                 <p className="text-sm text-gray-400 mt-1">Tap up to 5 — your first pick becomes your primary brand.</p>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-black text-cyan-300">{top5.length}/5</div>
+                <div className="text-3xl font-black text-[#00C2FF]">{top5.length}/5</div>
                 <div className="text-[10px] text-gray-500 font-bold tracking-widest uppercase">Selected</div>
               </div>
             </div>
@@ -185,7 +185,7 @@ function AITrainerBuildInner() {
                     key={s.abbr}
                     onClick={() => toggleSchool(s.abbr)}
                     className={`rounded-xl overflow-hidden border-2 transition-all ${
-                      selected ? "border-cyan-400 ring-2 ring-cyan-400/40 scale-[1.02]" : "border-gray-800 hover:border-gray-600"
+                      selected ? "border-[#1E90FF] ring-2 ring-cyan-400/40 scale-[1.02]" : "border-gray-800 hover:border-gray-600"
                     }`}
                     style={{ background: `linear-gradient(135deg, ${s.primary} 0%, ${s.primary} 70%, ${s.secondary} 100%)` }}
                   >
@@ -199,7 +199,7 @@ function AITrainerBuildInner() {
                       />
                       <div className="text-[10px] font-black text-white tracking-wider drop-shadow">{s.abbr}</div>
                       {rank && (
-                        <div className="absolute top-1 right-1 w-5 h-5 bg-cyan-400 rounded-full flex items-center justify-center text-[10px] font-black text-black">
+                        <div className="absolute top-1 right-1 w-5 h-5 bg-[#1E90FF] rounded-full flex items-center justify-center text-[10px] font-black text-black">
                           {rank}
                         </div>
                       )}
@@ -220,7 +220,7 @@ function AITrainerBuildInner() {
             <div className="grid md:grid-cols-2 gap-4">
               {/* Colors */}
               <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
-                <div className="text-xs font-black tracking-widest uppercase text-cyan-300 mb-2">Primary Colors</div>
+                <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF] mb-2">Primary Colors</div>
                 <div className="flex gap-3 items-center">
                   <div className="w-16 h-16 rounded-xl shadow-lg" style={{ background: primarySchool.primary }} />
                   <div className="w-16 h-16 rounded-xl shadow-lg border border-white/10" style={{ background: primarySchool.secondary }} />
@@ -233,7 +233,7 @@ function AITrainerBuildInner() {
 
               {/* Logo */}
               <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
-                <div className="text-xs font-black tracking-widest uppercase text-cyan-300 mb-2">Watermark</div>
+                <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF] mb-2">Watermark</div>
                 <div className="flex items-center justify-center h-20 rounded-xl"
                      style={{ background: `linear-gradient(135deg, ${primarySchool.primary} 0%, ${primarySchool.secondary} 100%)` }}>
                   <img
@@ -248,9 +248,9 @@ function AITrainerBuildInner() {
               {/* Tagline */}
               <div className="md:col-span-2 rounded-2xl border border-gray-800 bg-gray-900/40 p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-xs font-black tracking-widest uppercase text-cyan-300">Tagline</div>
-                  <button onClick={generateTagline} className="text-xs font-bold text-cyan-300 hover:text-cyan-200">
-                    🎯 Regenerate
+                  <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF]">Tagline</div>
+                  <button onClick={generateTagline} className="text-xs font-bold text-[#00C2FF] hover:text-[#00C2FF]">
+                     Regenerate
                   </button>
                 </div>
                 <input
@@ -258,7 +258,7 @@ function AITrainerBuildInner() {
                   value={tagline}
                   onChange={(e) => setTagline(e.target.value)}
                   placeholder="Tap Regenerate, or write your own..."
-                  className="w-full bg-black/40 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:border-cyan-400 outline-none"
+                  className="w-full bg-black/40 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#1E90FF] outline-none"
                 />
               </div>
             </div>
@@ -289,7 +289,7 @@ function AITrainerBuildInner() {
                 {tagline && <div className="text-base md:text-lg italic text-white/95 leading-snug">"{tagline}"</div>}
               </div>
               <div className="bg-black/60 p-5">
-                <div className="text-xs font-black tracking-widest uppercase text-cyan-300 mb-2">Top 5 Recruiting Board</div>
+                <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF] mb-2">Top 5 Recruiting Board</div>
                 <div className="grid grid-cols-5 gap-2">
                   {top5.map((abbr, i) => {
                     const s = schoolByAbbr(abbr);
@@ -310,8 +310,8 @@ function AITrainerBuildInner() {
             </div>
 
             {saved && (
-              <div className="mt-4 rounded-2xl border border-green-400/40 bg-green-500/10 p-4 text-green-300">
-                ✅ Brand pack saved. Your profile auto-skins on next sign-in. Coach Lynx will keep watch.
+              <div className="mt-4 rounded-2xl border border-[#00C2FF]/40 bg-[#00C2FF]/10 p-4 text-[#00C2FF]">
+                 Brand pack saved. Your profile auto-skins on next sign-in. Coach Lynx will keep watch.
               </div>
             )}
           </div>
@@ -335,7 +335,7 @@ function AITrainerBuildInner() {
               setStep((s) => Math.min(STEPS.length - 1, s + 1));
             }}
             disabled={!canAdvance}
-            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-black tracking-wider uppercase text-sm disabled:opacity-40 hover:scale-[1.02] transition-transform"
+            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#1E90FF] to-blue-600 text-black font-black tracking-wider uppercase text-sm disabled:opacity-40 hover:scale-[1.02] transition-transform"
           >
             Next →
           </button>
@@ -343,9 +343,9 @@ function AITrainerBuildInner() {
           <button
             onClick={handleSave}
             disabled={saving || saved}
-            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500 text-black font-black tracking-wider uppercase text-sm disabled:opacity-60 hover:scale-[1.02] transition-transform"
+            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] text-black font-black tracking-wider uppercase text-sm disabled:opacity-60 hover:scale-[1.02] transition-transform"
           >
-            {saved ? "✅ Saved" : saving ? "Saving..." : "Save Brand Pack"}
+            {saved ? " Saved" : saving ? "Saving..." : "Save Brand Pack"}
           </button>
         )}
       </section>
@@ -356,7 +356,7 @@ function AITrainerBuildInner() {
       </footer>
 
       <div className="text-center pb-6">
-        <Link href="/branded-profile" className="text-xs text-cyan-400 hover:text-cyan-300 underline">
+        <Link href="/branded-profile" className="text-xs text-[#00C2FF] hover:text-[#00C2FF] underline">
           See the full Branded Profile gallery →
         </Link>
       </div>

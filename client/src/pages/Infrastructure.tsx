@@ -6,7 +6,7 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 
 const PILLARS = [
   {
-    icon: "💧",
+    icon: "",
     title: "Efficient Cooling Vision",
     desc: "The long-term infrastructure plan prioritizes efficient cooling, lower waste, strong uptime, and controlled operations without publishing facility-level engineering details.",
     stats: [
@@ -14,11 +14,11 @@ const PILLARS = [
       { label: "Goal", value: "Reliability" },
       { label: "Access", value: "Private" },
     ],
-    color: "border-cyan-700/50",
+    color: "border-[#1E90FF]/30",
     glow: "shadow-cyan-900/30",
   },
   {
-    icon: "🌋",
+    icon: "",
     title: "Energy-Aware Infrastructure",
     desc: "Future facilities are planned around resilient, cost-aware, and energy-conscious operations. Specific partner, facility, and engineering details remain private.",
     stats: [
@@ -26,11 +26,11 @@ const PILLARS = [
       { label: "Energy Source", value: "Geothermal" },
       { label: "Waste Energy", value: "Zero" },
     ],
-    color: "border-green-700/50",
+    color: "border-[#00C2FF]/50",
     glow: "shadow-green-900/30",
   },
   {
-    icon: "🌿",
+    icon: "",
     title: "Living Roof — Water + Power",
     desc: "A living grass roof harvests fresh rainwater for immersion cooling fluid replenishment — eliminating municipal water dependency. Photosynthesis energy generation, carbon sequestration, and 30-40% natural insulation. The building is alive.",
     stats: [
@@ -38,11 +38,11 @@ const PILLARS = [
       { label: "Insulation", value: "-40% Cooling" },
       { label: "Carbon", value: "Sequestered" },
     ],
-    color: "border-green-800/50",
+    color: "border-[#00C2FF]/50",
     glow: "shadow-green-950/30",
   },
   {
-    icon: "⚛️",
+    icon: "",
     title: "Next-Generation Compute Research",
     desc: "AthlynXAI tracks emerging compute, security, and athlete-data technologies while keeping research priorities and technical implementation private.",
     stats: [
@@ -50,7 +50,7 @@ const PILLARS = [
       { label: "AI Processing", value: "Next-Gen" },
       { label: "Timeline", value: "2026-2027" },
     ],
-    color: "border-purple-700/50",
+    color: "border-[#1E90FF]/50",
     glow: "shadow-purple-900/30",
   },
 ];
@@ -60,60 +60,60 @@ const PARTNERSHIPS = [
     name: "Private Intelligence Layer",
     role: "Protected AI-assisted platform capability",
     desc: "AthlynXAI OS is designed to support recruiting visibility, NIL readiness, athlete content, and decision support without revealing the vendors, models, routing, or operating method behind the system.",
-    icon: "🟢",
+    icon: "",
     status: "LIVE — Blueprint Protected"
   },
   {
     name: "Secure Platform Foundation",
     role: "Production-ready operating base",
     desc: "The public experience communicates reliability, scale, and speed. The implementation map, provider mix, data topology, and failover logic remain internal company IP.",
-    icon: "🔒",
+    icon: "",
     status: "Protected"
   },
   {
     name: "Long-Term Infrastructure Vision",
     role: "Future-owned infrastructure strategy",
     desc: "The long-term roadmap includes controlled infrastructure, energy-aware facilities, and secure data operations for the full Dozier Holdings Group ecosystem.",
-    icon: "🏗️",
+    icon: "",
     status: "Strategic Roadmap"
   },
   {
     name: "Partner Review Pathway",
     role: "Private conversations only",
     desc: "Strategic infrastructure and technology partnerships are handled through direct review. Public pages do not publish partner names, terms, or system design details unless explicitly approved.",
-    icon: "🤝",
+    icon: "",
     status: "Inquiry Only"
   },
 ];
 
 const LIVING_DATA_CENTER = [
   {
-    icon: "🌋",
+    icon: "",
     title: "Geothermal Base Power",
     desc: "Advanced horizontal drilling beneath each facility taps into the earth's core heat for continuous, clean base-load power generation — 24/7, weather-independent. No generators. No fuel costs. No downtime."
   },
   {
-    icon: "⚡",
+    icon: "",
     title: "Oil & Gas Turbine (CHP)",
     desc: "Combined Heat & Power turbines for peak demand — waste heat is recycled back into the facility for heating and energy recovery. Zero waste. Maximum efficiency."
   },
   {
-    icon: "💧",
+    icon: "",
     title: "Efficient Cooling Research",
     desc: "Future facilities will prioritize efficiency, resilience, and responsible operations without publishing the technical blueprint."
   },
   {
-    icon: "🚀",
+    icon: "",
     title: "High-Performance Operations",
     desc: "The roadmap focuses on performance, uptime, and cost discipline while keeping operating methods confidential."
   },
   {
-    icon: "🌿",
+    icon: "",
     title: "Living Grass Roof",
     desc: "A living grass roof captures fresh rainwater fed directly into the immersion cooling fluid replenishment system. Natural insulation, carbon sequestration, and photosynthesis energy generation — the building is alive."
   },
   {
-    icon: "⚛️",
+    icon: "",
     title: "Advanced Compute Research",
     desc: "Emerging compute and security research remains part of the long-term vision, with technical details reserved for approved internal review."
   },
@@ -160,7 +160,7 @@ function InfrastructureInner() {
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-blue-900/10 rounded-full blur-[140px]" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-950/10 rounded-full blur-[120px]" />
-        <div className="absolute top-[40%] left-[40%] w-[400px] h-[400px] bg-green-900/8 rounded-full blur-[100px]" />
+        <div className="absolute top-[40%] left-[40%] w-[400px] h-[400px] bg-[#00C2FF]/8 rounded-full blur-[100px]" />
       </div>
 
       {/* Header */}
@@ -179,7 +179,7 @@ function InfrastructureInner() {
 
         <h1 className="text-5xl md:text-6xl font-black mb-4 leading-tight">
           Built to{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[#1E90FF] to-[#0a1628]">
             Last Forever
           </span>
         </h1>
@@ -218,8 +218,8 @@ function InfrastructureInner() {
 
       {/* Vision Statement */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 mb-20">
-        <div className="bg-gradient-to-r from-blue-900/30 to-green-900/20 border border-blue-700/30 rounded-3xl p-10 text-center">
-          <div className="text-4xl mb-4">⚡</div>
+        <div className="bg-gradient-to-r from-blue-900/30 to-[#0a1628]/20 border border-blue-700/30 rounded-3xl p-10 text-center">
+          <div className="text-4xl mb-4"></div>
           <h2 className="text-3xl font-black text-white mb-4">
             Geothermal Power Meets Sports Technology
           </h2>
@@ -231,9 +231,9 @@ function InfrastructureInner() {
           </p>
           <div className="mt-8 grid grid-cols-3 gap-6 max-w-lg mx-auto">
             {[
-              { icon: "🌍", label: "Net Zero Carbon" },
-              { icon: "⚡", label: "Geothermal Power" },
-              { icon: "🔒", label: "100% Secure" },
+              { icon: "", label: "Net Zero Carbon" },
+              { icon: "", label: "Geothermal Power" },
+              { icon: "", label: "100% Secure" },
             ].map((item) => (
               <div key={item.label} className="text-center">
                 <div className="text-3xl mb-2">{item.icon}</div>
@@ -250,13 +250,13 @@ function InfrastructureInner() {
           The Road We're Building
         </h2>
         <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-cyan-600 to-green-600" />
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-[#1E90FF] to-[#0a1628]" />
           <div className="space-y-8">
             {TIMELINE.map((item, i) => (
               <div key={i} className="relative pl-16">
-                <div className="absolute left-3.5 top-1 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-[#050d1a] shadow-lg shadow-blue-500/40" />
+                <div className="absolute left-3.5 top-1 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-[#0a1628] border-2 border-[#050d1a] shadow-lg shadow-blue-500/40" />
                 <div className="bg-[#0a1628]/60 border border-blue-900/40 rounded-2xl p-5">
-                  <div className="text-cyan-400 text-xs font-black tracking-widest mb-1">{item.year}</div>
+                  <div className="text-[#00C2FF] text-xs font-black tracking-widest mb-1">{item.year}</div>
                   <h3 className="text-white font-black text-lg mb-2">{item.title}</h3>
                   <p className="text-blue-300/70 text-sm leading-relaxed">{item.desc}</p>
                 </div>
@@ -269,8 +269,8 @@ function InfrastructureInner() {
       {/* Strategic Partnerships */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 mb-20">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-green-900/40 border border-green-600/40 rounded-full px-5 py-2 mb-6 text-green-300 text-xs font-black tracking-widest">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#00C2FF]/40 border border-[#00C2FF]/40 rounded-full px-5 py-2 mb-6 text-[#00C2FF] text-xs font-black tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse" />
             STRATEGIC PARTNERSHIPS
           </div>
           <h2 className="text-3xl font-black text-white mb-3">Building With the Best</h2>
@@ -286,10 +286,10 @@ function InfrastructureInner() {
                   <span className="text-3xl">{partner.icon}</span>
                   <div>
                     <h3 className="text-white font-black text-lg">{partner.name}</h3>
-                    <p className="text-cyan-400 text-xs font-bold">{partner.role}</p>
+                    <p className="text-[#00C2FF] text-xs font-bold">{partner.role}</p>
                   </div>
                 </div>
-                <span className="bg-blue-900/40 border border-blue-600/40 text-sky-300 text-xs px-3 py-1 rounded-full font-bold">{partner.status}</span>
+                <span className="bg-blue-900/40 border border-blue-600/40 text-[#00C2FF] text-xs px-3 py-1 rounded-full font-bold">{partner.status}</span>
               </div>
               <p className="text-blue-300/70 text-sm leading-relaxed">{partner.desc}</p>
             </div>
@@ -300,29 +300,29 @@ function InfrastructureInner() {
       {/* Living Data Center */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 mb-20">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-green-900/40 border border-green-600/40 rounded-full px-5 py-2 mb-6 text-green-300 text-xs font-black tracking-widest">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#00C2FF]/40 border border-[#00C2FF]/40 rounded-full px-5 py-2 mb-6 text-[#00C2FF] text-xs font-black tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse" />
             PROPRIETARY INNOVATION
           </div>
           <h2 className="text-3xl font-black text-white mb-3">The Living Data Center™</h2>
           <p className="text-blue-300/70 max-w-2xl mx-auto text-sm">
             DHG's original concept — the world's first self-sustaining, living data center. 
             Geothermal power, gas turbines, grass roofs that harvest fresh water, photosynthesis energy generation, and quantum computing. 
-            <span className="text-cyan-400 font-bold"> Patent pending.</span>
+            <span className="text-[#00C2FF] font-bold"> Patent pending.</span>
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {LIVING_DATA_CENTER.map((item) => (
-            <div key={item.title} className="bg-gradient-to-br from-green-900/20 to-blue-900/20 border border-green-700/30 rounded-2xl p-6 hover:-translate-y-1 transition-transform">
+            <div key={item.title} className="bg-gradient-to-br from-[#00C2FF]/20 to-blue-900/20 border border-[#00C2FF]/30 rounded-2xl p-6 hover:-translate-y-1 transition-transform">
               <div className="text-4xl mb-4">{item.icon}</div>
               <h3 className="text-white font-black text-lg mb-2">{item.title}</h3>
               <p className="text-blue-300/70 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
-        <div className="mt-8 bg-gradient-to-r from-green-900/30 to-cyan-900/20 border border-green-700/30 rounded-2xl p-8 text-center">
+        <div className="mt-8 bg-gradient-to-r from-[#00C2FF]/30 to-[#0a1628]/20 border border-[#00C2FF]/30 rounded-2xl p-8 text-center">
           <p className="text-white font-black text-xl mb-2">"Own the Data. Own the Hardware. Own the World."</p>
-          <p className="text-green-300/80 text-sm">— Chad A. Dozier, Founder · CEO · Chairman, AthlynX</p>
+          <p className="text-[#00C2FF]/80 text-sm">— Chad A. Dozier, Founder · CEO · Chairman, AthlynX</p>
         </div>
       </div>
 
@@ -339,7 +339,7 @@ function InfrastructureInner() {
           </p>
           <button
             onClick={() => window.open("mailto:contact@athlynx.ai?subject=Infrastructure Partnership Inquiry", "_blank")}
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-black px-8 py-4 rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-blue-500/30"
+            className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-black px-8 py-4 rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-blue-500/30"
           >
             Contact Our Infrastructure Team
           </button>

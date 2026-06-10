@@ -118,14 +118,14 @@ function BitcoinMiningInner() {
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
               <Bitcoin className="w-3 h-3 mr-1" /> DHG CRYPTOCURRENCY DIVISION
             </Badge>
             
             {/* Bitcoin Logo */}
             <div className="w-24 h-24 mx-auto mb-6 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-500 rounded-full blur-xl opacity-50 animate-pulse" />
-              <div className="relative w-full h-full bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-full blur-xl opacity-50 animate-pulse" />
+              <div className="relative w-full h-full bg-gradient-to-br from-[#1E90FF] to-[#0a1628] rounded-full flex items-center justify-center">
                 <Bitcoin className="w-12 h-12 text-white" />
               </div>
             </div>
@@ -133,7 +133,7 @@ function BitcoinMiningInner() {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
               Bitcoin Mining Facility
             </h1>
-            <p className="text-xl text-red-400 mb-6">
+            <p className="text-xl text-[#1E90FF] mb-6">
               State-of-the-Art Mining Operations
             </p>
             <p className="text-white/60 max-w-2xl mx-auto mb-8">
@@ -143,11 +143,11 @@ function BitcoinMiningInner() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-gradient-to-r from-red-500 to-red-500 hover:from-red-400 hover:to-red-400 text-white font-bold">
+              <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white font-bold">
                 <TrendingUp className="w-4 h-4 mr-2" /> Investment Opportunities
               </Button>
               <Link href="/dhg-empire">
-                <Button variant="outline" className="border-red-500/50 text-red-400 hover:bg-red-500/20">
+                <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF] hover:bg-[#1E90FF]/20">
                   <Building2 className="w-4 h-4 mr-2" /> DHG Empire
                 </Button>
               </Link>
@@ -160,9 +160,9 @@ function BitcoinMiningInner() {
       <section className="container px-4 md:px-5 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {facilityStats.map((stat, i) => (
-            <Card key={i} className="bg-white/5 border-red-500/20">
+            <Card key={i} className="bg-white/5 border-[#1E90FF]/20">
               <CardContent className="p-6 text-center">
-                <stat.icon className="w-8 h-8 text-red-400 mx-auto mb-2" />
+                <stat.icon className="w-8 h-8 text-[#1E90FF] mx-auto mb-2" />
                 <p className="text-3xl font-bold text-white">{stat.value}</p>
                 <p className="text-white/60">{stat.label}</p>
               </CardContent>
@@ -180,8 +180,8 @@ function BitcoinMiningInner() {
               variant={activeTab === tab ? "default" : "outline"}
               onClick={() => setActiveTab(tab)}
               className={activeTab === tab 
-                ? "bg-gradient-to-r from-red-500 to-red-500 text-white border-0" 
-                : "border-red-500/30 text-red-400 hover:bg-red-500/20"
+                ? "bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white border-0" 
+                : "border-[#1E90FF]/30 text-[#1E90FF] hover:bg-[#1E90FF]/20"
               }
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -197,10 +197,10 @@ function BitcoinMiningInner() {
             {/* Key Features */}
             <div className="grid md:grid-cols-2 gap-6">
               {keyFeatures.map((feature, i) => (
-                <Card key={i} className="bg-white/5 border-red-500/20">
+                <Card key={i} className="bg-white/5 border-[#1E90FF]/20">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF] to-[#0a1628] flex items-center justify-center flex-shrink-0">
                         <feature.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -208,7 +208,7 @@ function BitcoinMiningInner() {
                         <p className="text-white/60 mb-3">{feature.description}</p>
                         <ul className="space-y-1">
                           {feature.specs.map((spec, j) => (
-                            <li key={j} className="text-red-400 text-sm flex items-center gap-2">
+                            <li key={j} className="text-[#1E90FF] text-sm flex items-center gap-2">
                               <ChevronRight className="w-3 h-3" /> {spec}
                             </li>
                           ))}
@@ -221,24 +221,24 @@ function BitcoinMiningInner() {
             </div>
 
             {/* Implementation Timeline */}
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-red-400" /> Implementation Timeline
+                  <Clock className="w-5 h-5 text-[#1E90FF]" /> Implementation Timeline
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-4 gap-4">
                   {timeline.map((phase, i) => (
                     <div key={i} className="relative">
-                      <div className="bg-gradient-to-r from-red-500/20 to-red-500/20 rounded-xl p-4 border border-red-500/30">
-                        <Badge className="bg-red-500 text-white mb-2">{phase.phase}</Badge>
-                        <p className="text-red-400 text-sm mb-1">Months {phase.months}</p>
+                      <div className="bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 rounded-xl p-4 border border-[#1E90FF]/30">
+                        <Badge className="bg-[#1E90FF] text-white mb-2">{phase.phase}</Badge>
+                        <p className="text-[#1E90FF] text-sm mb-1">Months {phase.months}</p>
                         <h4 className="text-white font-bold mb-1">{phase.title}</h4>
                         <p className="text-white/60 text-sm">{phase.description}</p>
                       </div>
                       {i < timeline.length - 1 && (
-                        <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-red-500/50" />
+                        <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-[#1E90FF]/50" />
                       )}
                     </div>
                   ))}
@@ -251,11 +251,11 @@ function BitcoinMiningInner() {
         {activeTab === 'technology' && (
           <div className="space-y-8">
             {/* Immersion Cooling */}
-            <Card className="bg-gradient-to-r from-red-500/10 to-red-500/10 border-red-500/30">
+            <Card className="bg-gradient-to-r from-[#1E90FF]/10 to-[#0a1628]/10 border-[#1E90FF]/30">
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
-                    <Badge className="bg-red-500/20 text-red-400 mb-4">ADVANCED COOLING</Badge>
+                    <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] mb-4">ADVANCED COOLING</Badge>
                     <h2 className="text-3xl font-bold text-white mb-4">Immersion Cooling Technology</h2>
                     <p className="text-white/70 mb-6">
                       Our facilities utilize advanced immersion cooling technology, submerging mining 
@@ -263,42 +263,42 @@ function BitcoinMiningInner() {
                     </p>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-3 text-white">
-                        <Thermometer className="w-5 h-5 text-red-400" />
+                        <Thermometer className="w-5 h-5 text-[#1E90FF]" />
                         <span>Up to 30% higher hash rates vs air-cooled</span>
                       </li>
                       <li className="flex items-center gap-3 text-white">
-                        <Shield className="w-5 h-5 text-red-400" />
+                        <Shield className="w-5 h-5 text-[#1E90FF]" />
                         <span>Extended equipment lifespan</span>
                       </li>
                       <li className="flex items-center gap-3 text-white">
-                        <Leaf className="w-5 h-5 text-red-400" />
+                        <Leaf className="w-5 h-5 text-[#1E90FF]" />
                         <span>Biodegradable dielectric fluid (GWP: 0)</span>
                       </li>
                     </ul>
                   </div>
-                  <div className="bg-slate-900/50 rounded-xl p-6 border border-red-500/30">
+                  <div className="bg-slate-900/50 rounded-xl p-6 border border-[#1E90FF]/30">
                     <h3 className="text-white font-bold mb-4">Container Specifications</h3>
                     <table className="w-full">
                       <tbody className="text-white/80">
                         <tr className="border-b border-white/10">
                           <td className="py-2">Immersion Conex Size</td>
-                          <td className="py-2 text-red-400 text-right">40ft x 8ft x 13ft</td>
+                          <td className="py-2 text-[#1E90FF] text-right">40ft x 8ft x 13ft</td>
                         </tr>
                         <tr className="border-b border-white/10">
                           <td className="py-2">Tanks per Conex</td>
-                          <td className="py-2 text-red-400 text-right">8</td>
+                          <td className="py-2 text-[#1E90FF] text-right">8</td>
                         </tr>
                         <tr className="border-b border-white/10">
                           <td className="py-2">Miners per Tank</td>
-                          <td className="py-2 text-red-400 text-right">16</td>
+                          <td className="py-2 text-[#1E90FF] text-right">16</td>
                         </tr>
                         <tr className="border-b border-white/10">
                           <td className="py-2">Total Miner Slots</td>
-                          <td className="py-2 text-red-400 text-right">128</td>
+                          <td className="py-2 text-[#1E90FF] text-right">128</td>
                         </tr>
                         <tr>
                           <td className="py-2">Cooling Performance</td>
-                          <td className="py-2 text-red-400 text-right">2240 kW @ 20°C</td>
+                          <td className="py-2 text-[#1E90FF] text-right">2240 kW @ 20°C</td>
                         </tr>
                       </tbody>
                     </table>
@@ -308,22 +308,22 @@ function BitcoinMiningInner() {
             </Card>
 
             {/* VIRT Token Integration */}
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardContent className="p-8">
                 <div className="text-center max-w-2xl mx-auto">
-                  <Coins className="w-16 h-16 text-red-400 mx-auto mb-4" />
+                  <Coins className="w-16 h-16 text-[#1E90FF] mx-auto mb-4" />
                   <h2 className="text-2xl font-bold text-white mb-4">VIRT Token Integration</h2>
                   <p className="text-white/70 mb-6">
                     The VIRT Token platform seamlessly integrates with our mining facilities, enabling 
                     tokenized investment in mining operations while providing transparency and liquidity.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-slate-900/50 rounded-xl p-4 border border-red-500/30">
-                      <h4 className="text-red-400 font-bold mb-2">Tokenized Mining Exposure</h4>
+                    <div className="bg-slate-900/50 rounded-xl p-4 border border-[#1E90FF]/30">
+                      <h4 className="text-[#1E90FF] font-bold mb-2">Tokenized Mining Exposure</h4>
                       <p className="text-white/60 text-sm">Fractional ownership in mining operations through tokenization</p>
                     </div>
-                    <div className="bg-slate-900/50 rounded-xl p-4 border border-red-500/30">
-                      <h4 className="text-red-400 font-bold mb-2">Smart Contract Security</h4>
+                    <div className="bg-slate-900/50 rounded-xl p-4 border border-[#1E90FF]/30">
+                      <h4 className="text-[#1E90FF] font-bold mb-2">Smart Contract Security</h4>
                       <p className="text-white/60 text-sm">Automated distribution of mining rewards</p>
                     </div>
                   </div>
@@ -336,19 +336,19 @@ function BitcoinMiningInner() {
         {activeTab === 'financials' && (
           <div className="space-y-8">
             {/* Market Overview */}
-            <Card className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-green-500/30">
+            <Card className="bg-gradient-to-r from-[#00C2FF]/10 to-[#00C2FF]/10 border-[#00C2FF]/30">
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <p className="text-green-400 text-sm mb-1">Bitcoin Price (Aug 2025)</p>
+                    <p className="text-[#00C2FF] text-sm mb-1">Bitcoin Price (Aug 2025)</p>
                     <p className="text-4xl font-bold text-white">$117,398</p>
                   </div>
                   <div>
-                    <p className="text-green-400 text-sm mb-1">Market Cap</p>
+                    <p className="text-[#00C2FF] text-sm mb-1">Market Cap</p>
                     <p className="text-4xl font-bold text-white">$2.3T</p>
                   </div>
                   <div>
-                    <p className="text-green-400 text-sm mb-1">24h Volume</p>
+                    <p className="text-[#00C2FF] text-sm mb-1">24h Volume</p>
                     <p className="text-4xl font-bold text-white">$42.8B</p>
                   </div>
                 </div>
@@ -356,10 +356,10 @@ function BitcoinMiningInner() {
             </Card>
 
             {/* Revenue Scenarios */}
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-red-400" /> Revenue Scenarios
+                  <BarChart3 className="w-5 h-5 text-[#1E90FF]" /> Revenue Scenarios
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -374,9 +374,9 @@ function BitcoinMiningInner() {
                     </thead>
                     <tbody>
                       {financialScenarios.map((scenario, i) => (
-                        <tr key={i} className={`border-b border-white/10 ${scenario.highlight ? 'bg-red-500/10' : ''}`}>
+                        <tr key={i} className={`border-b border-white/10 ${scenario.highlight ? 'bg-[#1E90FF]/10' : ''}`}>
                           <td className="py-3 text-white">{scenario.scenario}</td>
-                          <td className="py-3 text-right text-red-400 font-bold">{scenario.monthly}</td>
+                          <td className="py-3 text-right text-[#1E90FF] font-bold">{scenario.monthly}</td>
                           <td className="py-3 text-right text-white">{scenario.roi}</td>
                         </tr>
                       ))}
@@ -390,28 +390,28 @@ function BitcoinMiningInner() {
             </Card>
 
             {/* Energy Cost Analysis */}
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-red-400" /> Energy Cost Impact
+                  <Zap className="w-5 h-5 text-[#1E90FF]" /> Energy Cost Impact
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-3 gap-4">
-                  <div className="bg-green-500/10 rounded-xl p-4 border border-green-500/30">
-                    <p className="text-green-400 font-bold mb-2">$0.03/kWh</p>
+                  <div className="bg-[#00C2FF]/10 rounded-xl p-4 border border-[#00C2FF]/30">
+                    <p className="text-[#00C2FF] font-bold mb-2">$0.03/kWh</p>
                     <p className="text-white text-sm">Cost to Mine 1 BTC: $58,000</p>
-                    <p className="text-green-400 text-sm">50.6% profit margin</p>
+                    <p className="text-[#00C2FF] text-sm">50.6% profit margin</p>
                   </div>
-                  <div className="bg-red-500/10 rounded-xl p-4 border border-red-500/30">
-                    <p className="text-red-400 font-bold mb-2">$0.05/kWh</p>
+                  <div className="bg-[#1E90FF]/10 rounded-xl p-4 border border-[#1E90FF]/30">
+                    <p className="text-[#1E90FF] font-bold mb-2">$0.05/kWh</p>
                     <p className="text-white text-sm">Cost to Mine 1 BTC: $96,552</p>
-                    <p className="text-red-400 text-sm">17.8% profit margin</p>
+                    <p className="text-[#1E90FF] text-sm">17.8% profit margin</p>
                   </div>
-                  <div className="bg-red-500/10 rounded-xl p-4 border border-red-500/30">
-                    <p className="text-red-400 font-bold mb-2">$0.08/kWh</p>
+                  <div className="bg-[#1E90FF]/10 rounded-xl p-4 border border-[#1E90FF]/30">
+                    <p className="text-[#1E90FF] font-bold mb-2">$0.08/kWh</p>
                     <p className="text-white text-sm">Cost to Mine 1 BTC: $154,483</p>
-                    <p className="text-red-400 text-sm">-31.6% (loss)</p>
+                    <p className="text-[#1E90FF] text-sm">-31.6% (loss)</p>
                   </div>
                 </div>
               </CardContent>
@@ -422,19 +422,19 @@ function BitcoinMiningInner() {
         {activeTab === 'hardware' && (
           <div className="space-y-6">
             {hardwareOptions.map((hw, i) => (
-              <Card key={i} className="bg-white/5 border-red-500/20 hover:bg-white/10 transition-all">
+              <Card key={i} className="bg-white/5 border-[#1E90FF]/20 hover:bg-white/10 transition-all">
                 <CardContent className="p-6">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500 to-red-500 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF] to-[#0a1628] flex items-center justify-center">
                         <Cpu className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-white font-bold">{hw.name}</h3>
                           <Badge variant="outline" className={`text-xs ${
-                            hw.tier === 'High-End' ? 'border-green-500 text-green-400' :
-                            hw.tier === 'Mid-Range' ? 'border-red-500 text-red-400' :
+                            hw.tier === 'High-End' ? 'border-[#00C2FF] text-[#00C2FF]' :
+                            hw.tier === 'Mid-Range' ? 'border-[#1E90FF] text-[#1E90FF]' :
                             'border-gray-500 text-gray-400'
                           }`}>
                             {hw.tier}
@@ -446,7 +446,7 @@ function BitcoinMiningInner() {
                     <div className="grid grid-cols-3 gap-6 text-center">
                       <div>
                         <p className="text-white/50 text-xs">Hashrate</p>
-                        <p className="text-red-400 font-bold">{hw.hashrate}</p>
+                        <p className="text-[#1E90FF] font-bold">{hw.hashrate}</p>
                       </div>
                       <div>
                         <p className="text-white/50 text-xs">Power</p>
@@ -454,7 +454,7 @@ function BitcoinMiningInner() {
                       </div>
                       <div>
                         <p className="text-white/50 text-xs">Price</p>
-                        <p className="text-green-400 font-bold">{hw.price}</p>
+                        <p className="text-[#00C2FF] font-bold">{hw.price}</p>
                       </div>
                     </div>
                   </div>
@@ -466,20 +466,20 @@ function BitcoinMiningInner() {
       </section>
 
       {/* Contact Section */}
-      <section className="container px-4 md:px-5 py-16 border-t border-red-500/20">
+      <section className="container px-4 md:px-5 py-16 border-t border-[#1E90FF]/20">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-4">Investment Inquiries</h2>
           <p className="text-white/60 mb-8">
             Interested in Bitcoin mining investment opportunities? Contact our team.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
                   CD
                 </div>
                 <h3 className="text-white font-bold">Chad A. Dozier</h3>
-                <p className="text-red-400 text-sm mb-3">Chief Executive Officer</p>
+                <p className="text-[#1E90FF] text-sm mb-3">Chief Executive Officer</p>
                 <div className="space-y-2 text-sm">
                   <p className="text-white/60 flex items-center justify-center gap-2">
                     <Phone className="w-4 h-4" /> Book a call
@@ -490,13 +490,13 @@ function BitcoinMiningInner() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="bg-white/5 border-red-500/20">
+            <Card className="bg-white/5 border-[#1E90FF]/20">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-xl">
                   GT
                 </div>
                 <h3 className="text-white font-bold">Glenn Tse</h3>
-                <p className="text-red-400 text-sm mb-3">VP Business Development</p>
+                <p className="text-[#1E90FF] text-sm mb-3">VP Business Development</p>
                 <div className="space-y-2 text-sm">
                   <p className="text-white/60 flex items-center justify-center gap-2">
                     <Phone className="w-4 h-4" /> +1-832-620-6389

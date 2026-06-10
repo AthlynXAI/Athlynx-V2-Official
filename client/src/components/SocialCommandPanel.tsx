@@ -1,7 +1,7 @@
 /**
  * SocialCommandPanel — AthlynXAI
  * Permanent social media posting from the admin panel
- * Posts to: Facebook, Instagram, X/Twitter, LinkedIn, Buffer
+ * Posts to: Facebook, Instagram, Instagram, LinkedIn, Buffer
  * All tokens stored in Vercel env vars — permanent, never expires
  * No AthlynXAI. No Buffer UI. No manual steps. The platform posts itself.
  */
@@ -11,19 +11,19 @@ import { Send, Zap, CheckCircle, XCircle, Loader2, RefreshCw } from "lucide-reac
 import { toast } from "sonner";
 
 const PLATFORMS = [
-  { id: "facebook", label: "Facebook (AthlynX Page)", icon: "👥", color: "text-blue-400" },
-  { id: "instagram", label: "Instagram (@chad_dozier / @chaddozier14)", icon: "📸", color: "text-pink-400" },
-  { id: "twitter", label: "X / Twitter (@ChadADozier2)", icon: "🐦", color: "text-sky-400" },
-  { id: "linkedin", label: "LinkedIn", icon: "💼", color: "text-blue-300" },
-  { id: "buffer_linkedin", label: "Buffer → LinkedIn (backup)", icon: "🔄", color: "text-green-400" },
-  { id: "buffer_twitter", label: "Buffer → X/Twitter (backup)", icon: "🔄", color: "text-green-400" },
+  { id: "facebook", label: "Facebook (AthlynX Page)", icon: "", color: "text-blue-400" },
+  { id: "instagram", label: "Instagram (@chad_dozier / @chaddozier14)", icon: "", color: "text-[#1E90FF]" },
+  { id: "twitter", label: "Instagram (@ChadADozier2)", icon: "", color: "text-[#00C2FF]" },
+  { id: "linkedin", label: "LinkedIn", icon: "", color: "text-blue-300" },
+  { id: "buffer_linkedin", label: "Buffer → LinkedIn (backup)", icon: "", color: "text-[#00C2FF]" },
+  { id: "buffer_instagram", label: "Buffer → Instagram (backup)", icon: "", color: "text-[#00C2FF]" },
 ] as const;
 
 type PlatformId = typeof PLATFORMS[number]["id"];
 
 const QUICK_TOPICS = [
   "AthlynXAI SportXHub launch — every sport worldwide",
-  "AI X-Factor Score — powered by Nebius H200 GPUs",
+  "AI EPX Score — powered by Nebius H200 GPUs",
   "NIL deals for every sport on AthlynXAI",
   "Transfer Portal — find your next school",
   "Meet new athletes worldwide on AthlynXAI",
@@ -34,7 +34,7 @@ export default function SocialCommandPanel() {
   const [message, setMessage] = useState("");
   const [topic, setTopic] = useState("");
   const [tone, setTone] = useState<"professional" | "hype" | "motivational" | "educational">("motivational");
-  const [selectedPlatforms, setSelectedPlatforms] = useState<PlatformId[]>(["buffer_linkedin", "buffer_twitter"]);
+  const [selectedPlatforms, setSelectedPlatforms] = useState<PlatformId[]>(["buffer_linkedin", "buffer_instagram"]);
   const [postResult, setPostResult] = useState<any>(null);
   const [mode, setMode] = useState<"manual" | "ai">("manual");
 
@@ -85,7 +85,7 @@ export default function SocialCommandPanel() {
         <div className="flex items-center gap-3 mb-2">
           <Send className="w-6 h-6 text-blue-400" />
           <h2 className="text-xl font-black text-white">Social Command Center</h2>
-          <span className="text-xs bg-green-900/40 text-green-400 border border-green-800/40 px-2 py-0.5 rounded-full font-bold">Permanent · Vercel</span>
+          <span className="text-xs bg-[#00C2FF]/40 text-[#00C2FF] border border-[#00C2FF]/40 px-2 py-0.5 rounded-full font-bold">Permanent · Vercel</span>
         </div>
         <p className="text-slate-400 text-sm">Post to all channels directly from the platform. No Buffer UI. No AthlynXAI. Tokens live in Vercel forever.</p>
       </div>
@@ -99,12 +99,12 @@ export default function SocialCommandPanel() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {Object.entries(tokens).map(([key, status]) => (
             <div key={key} className="flex items-center gap-2 text-xs">
-              {String(status).includes("✅") ? (
-                <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
+              {String(status).includes("") ? (
+                <CheckCircle className="w-3.5 h-3.5 text-[#00C2FF] flex-shrink-0" />
               ) : (
-                <XCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
+                <XCircle className="w-3.5 h-3.5 text-[#1E90FF] flex-shrink-0" />
               )}
-              <span className={String(status).includes("✅") ? "text-slate-300" : "text-slate-500"}>
+              <span className={String(status).includes("") ? "text-slate-300" : "text-slate-500"}>
                 {key.replace(/_/g, " ")}
               </span>
             </div>
@@ -115,7 +115,7 @@ export default function SocialCommandPanel() {
 
       {/* Mode Toggle */}
       <div className="flex gap-2">
-        {[{ id: "manual", label: "✍️ Write Post" }, { id: "ai", label: "🤖 AI Generate + Post" }].map(m => (
+        {[{ id: "manual", label: " Write Post" }, { id: "ai", label: " AI Generate + Post" }].map(m => (
           <button
             key={m.id}
             onClick={() => setMode(m.id as typeof mode)}
@@ -213,7 +213,7 @@ export default function SocialCommandPanel() {
       <button
         onClick={handlePost}
         disabled={isPending || selectedPlatforms.length === 0}
-        className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 disabled:opacity-40 disabled:cursor-not-allowed text-white font-black py-4 rounded-2xl text-lg transition-all flex items-center justify-center gap-3"
+        className="w-full bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] disabled:opacity-40 disabled:cursor-not-allowed text-white font-black py-4 rounded-2xl text-lg transition-all flex items-center justify-center gap-3"
       >
         {isPending ? (
           <><Loader2 className="w-5 h-5 animate-spin" /> Posting to {selectedPlatforms.length} platform{selectedPlatforms.length !== 1 ? "s" : ""}...</>
@@ -229,9 +229,9 @@ export default function SocialCommandPanel() {
         <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
           <div className="flex items-center gap-2 mb-3">
             {postResult.success ? (
-              <CheckCircle className="w-5 h-5 text-green-400" />
+              <CheckCircle className="w-5 h-5 text-[#00C2FF]" />
             ) : (
-              <XCircle className="w-5 h-5 text-red-400" />
+              <XCircle className="w-5 h-5 text-[#1E90FF]" />
             )}
             <div className="text-white font-black">{postResult.summary}</div>
           </div>
@@ -249,11 +249,11 @@ export default function SocialCommandPanel() {
                 <span className="text-slate-300 capitalize">{platform.replace(/_/g, " ")}</span>
                 <div className="flex items-center gap-2">
                   {result.success ? (
-                    <span className="text-green-400 font-bold flex items-center gap-1">
+                    <span className="text-[#00C2FF] font-bold flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5" /> Posted
                     </span>
                   ) : (
-                    <span className="text-red-400 text-xs">{result.error || "Failed"}</span>
+                    <span className="text-[#1E90FF] text-xs">{result.error || "Failed"}</span>
                   )}
                 </div>
               </div>

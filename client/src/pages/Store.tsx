@@ -177,21 +177,21 @@ function StoreInner() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const categories = [
-    { id: "all", name: "All Products", icon: "🛒" },
-    { id: "enterprise", name: "Enterprise Hardware", icon: "🖥️" },
-    { id: "software", name: "Software & Licenses", icon: "💿" },
-    { id: "datacenter", name: "Data Center", icon: "🏢" },
-    { id: "support", name: "Support & Maintenance", icon: "🛠️" },
-    { id: "fuelbots", name: "AI Companions", icon: "🤖" },
-    { id: "baseball", name: "Baseball", icon: "⚾" },
-    { id: "football", name: "Football", icon: "🏈" },
-    { id: "basketball", name: "Basketball", icon: "🏀" },
-    { id: "fishing", name: "Fishing", icon: "🎣" },
-    { id: "golf", name: "Golf", icon: "⛳" },
-    { id: "hunting", name: "Hunting & Outdoor", icon: "🦌" },
-    { id: "fitness", name: "Fitness", icon: "💪" },
-    { id: "apparel", name: "Apparel & Nutrition", icon: "👕" },
-    { id: "training", name: "Training & Recovery", icon: "🏋️" },
+    { id: "all", name: "All Products", icon: "" },
+    { id: "enterprise", name: "Enterprise Hardware", icon: "" },
+    { id: "software", name: "Software & Licenses", icon: "" },
+    { id: "datacenter", name: "Data Center", icon: "" },
+    { id: "support", name: "Support & Maintenance", icon: "" },
+    { id: "fuelbots", name: "AI Companions", icon: "" },
+    { id: "baseball", name: "Baseball", icon: "" },
+    { id: "football", name: "Football", icon: "" },
+    { id: "basketball", name: "Basketball", icon: "" },
+    { id: "fishing", name: "Fishing", icon: "" },
+    { id: "golf", name: "Golf", icon: "" },
+    { id: "hunting", name: "Hunting & Outdoor", icon: "" },
+    { id: "fitness", name: "Fitness", icon: "" },
+    { id: "apparel", name: "Apparel & Nutrition", icon: "" },
+    { id: "training", name: "Training & Recovery", icon: "" },
   ];
 
   // Live Stripe products — falls back to static if Stripe not configured
@@ -282,7 +282,7 @@ function StoreInner() {
         name: product.name,
         price: price,
         qty: 1,
-        image: product.imageUrl || product.image || '📦',
+        image: product.imageUrl || product.image || '',
         category: product.category,
         description: product.description || ''
       }];
@@ -385,11 +385,11 @@ function StoreInner() {
 
               {localCart.length === 0 ? (
                 <div className="text-center py-12">
-                  <span className="text-6xl mb-4 block">🛒</span>
+                  <span className="text-6xl mb-4 block"></span>
                   <p className="text-gray-400">Your cart is empty</p>
                   <button
                     onClick={() => setShowCart(false)}
-                    className="mt-4 px-6 py-2 bg-red-500 text-black rounded-lg font-semibold hover:bg-red-400"
+                    className="mt-4 px-6 py-2 bg-[#1E90FF] text-black rounded-lg font-semibold hover:bg-[#1E90FF]"
                   >
                     Continue Shopping
                   </button>
@@ -408,7 +408,7 @@ function StoreInner() {
                         </div>
                         <div className="flex-1">
                           <p className="text-white font-semibold text-sm">{item.name}</p>
-                          <p className="text-red-400 font-bold">${item.price.toFixed(2)}</p>
+                          <p className="text-[#1E90FF] font-bold">${item.price.toFixed(2)}</p>
                           <div className="flex items-center gap-2 mt-2">
                             <button
                               onClick={() => updateQuantity(item.id, -1)}
@@ -425,7 +425,7 @@ function StoreInner() {
                             </button>
                             <button
                               onClick={() => removeFromCart(item.id)}
-                              className="ml-auto text-red-400 hover:text-red-300 text-sm"
+                              className="ml-auto text-[#1E90FF] hover:text-[#1E90FF] text-sm"
                             >
                               Remove
                             </button>
@@ -457,7 +457,7 @@ function StoreInner() {
 
                   <button
                     onClick={() => { setShowCart(false); setShowCheckout(true); }}
-                    className="w-full py-4 bg-red-500 text-black rounded-xl font-bold text-lg hover:bg-red-400 transition-all"
+                    className="w-full py-4 bg-[#1E90FF] text-black rounded-xl font-bold text-lg hover:bg-[#1E90FF] transition-all"
                   >
                     Proceed to Checkout
                   </button>
@@ -485,7 +485,7 @@ function StoreInner() {
                   type="text"
                   value={checkoutName}
                   onChange={e => setCheckoutName(e.target.value)}
-                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-red-500 outline-none"
+                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-[#1E90FF] outline-none"
                   placeholder="Chad A. Dozier"
                 />
               </div>
@@ -495,7 +495,7 @@ function StoreInner() {
                   type="email"
                   value={checkoutEmail}
                   onChange={e => setCheckoutEmail(e.target.value)}
-                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-red-500 outline-none"
+                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-[#1E90FF] outline-none"
                   placeholder="you@example.com"
                 />
               </div>
@@ -505,7 +505,7 @@ function StoreInner() {
                   type="text"
                   value={checkoutAddress}
                   onChange={e => setCheckoutAddress(e.target.value)}
-                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-red-500 outline-none"
+                  className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-[#1E90FF] outline-none"
                   placeholder="123 Main St"
                 />
               </div>
@@ -516,7 +516,7 @@ function StoreInner() {
                     type="text"
                     value={checkoutCity}
                     onChange={e => setCheckoutCity(e.target.value)}
-                    className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-red-500 outline-none"
+                    className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-[#1E90FF] outline-none"
                     placeholder="Houston"
                   />
                 </div>
@@ -526,7 +526,7 @@ function StoreInner() {
                     type="text"
                     value={checkoutZip}
                     onChange={e => setCheckoutZip(e.target.value)}
-                    className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-red-500 outline-none"
+                    className="w-full bg-white/10 rounded-lg px-4 py-3 text-white border border-white/20 focus:border-[#1E90FF] outline-none"
                     placeholder="77001"
                   />
                 </div>
@@ -555,12 +555,12 @@ function StoreInner() {
             <button
               onClick={handleCheckout}
               disabled={isProcessing}
-              className="w-full py-4 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all disabled:opacity-50"
+              className="w-full py-4 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all disabled:opacity-50"
             >
               {isProcessing ? "Processing..." : `Pay $${orderTotal.toFixed(2)}`}
             </button>
             <p className="text-gray-500 text-xs text-center mt-2">
-              🔒 Your payment is secure and encrypted
+               Your payment is secure and encrypted
             </p>
           </div>
         </div>
@@ -570,22 +570,22 @@ function StoreInner() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl">⚡</span>
+            <span className="text-2xl"></span>
             <span className="text-xl font-black text-white">AthlynX</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link href="/home" className="text-gray-400 hover:text-white">Platform</Link>
-            <Link href="/store" className="text-red-400 font-semibold">Store</Link>
+            <Link href="/store" className="text-[#1E90FF] font-semibold">Store</Link>
             <Link href="/pricing" className="text-gray-400 hover:text-white">Pricing</Link>
           </nav>
           <button
             onClick={() => setShowCart(true)}
-            className="relative flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition-all"
+            className="relative flex items-center gap-2 bg-[#1E90FF] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#1E90FF] transition-all"
           >
-            <span>🛒</span>
+            <span></span>
             <span>${cartTotal.toFixed(2)}</span>
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 bg-white text-red-600 text-xs rounded-full flex items-center justify-center font-bold">
+              <span className="absolute -top-2 -right-2 w-5 h-5 bg-white text-[#1E90FF] text-xs rounded-full flex items-center justify-center font-bold">
                 {cartCount}
               </span>
             )}
@@ -597,44 +597,44 @@ function StoreInner() {
         <div className="container mx-auto max-w-7xl">
           {/* Hero */}
           <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1 bg-red-500/20 text-red-400 rounded-full text-sm font-semibold mb-4">
-              🛒 OFFICIAL STORE
+            <span className="inline-block px-4 py-1 bg-[#1E90FF]/20 text-[#1E90FF] rounded-full text-sm font-semibold mb-4">
+               OFFICIAL STORE
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-              The Amazon of <span className="text-red-400">Sports</span>
+              The Amazon of <span className="text-[#1E90FF]">Sports</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Memberships, AI credits, training programs, NIL gear, recruiting services, playbooks, enterprise servers, and more — everything an athlete needs, all in one place.
             </p>
           </div>
 
-          {/* ── Membership Plans ── */}
+          {/*  Membership Plans  */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-red-500/30" />
-              <span className="text-red-400 font-bold tracking-widest text-xs uppercase">AthlynX Memberships</span>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-red-500/30" />
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#0a1628]/30" />
+              <span className="text-[#1E90FF] font-bold tracking-widest text-xs uppercase">AthlynX Memberships</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#0a1628]/30" />
             </div>
             <p className="text-gray-400 text-sm text-center mb-6">7-day free trial on all plans — credit card required, not charged until day 8.</p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {[
                 { name: "Athlete Free", price: "$0", badge: "Free Trial", color: "border-blue-500/40 bg-blue-900/20", features: ["Basic Profile", "NIL Discovery", "Community Feed", "7-Day Trial"] },
-                { name: "Starter", price: "$9.99", badge: "Starter", color: "border-cyan-500/40 bg-cyan-900/20", features: ["Basic Profile", "NIL Discovery", "Community Messaging", "Diamond Grind"] },
-                { name: "Pro", price: "$19.99", badge: "Most Popular", color: "border-green-500/40 bg-green-900/20", features: ["AI Recruiter", "NIL Marketplace", "Warriors Playbook", "AI Sales"] },
-                { name: "Elite", price: "$39.99", badge: "Best Value", color: "border-purple-500/40 bg-purple-900/20", features: ["NIL Vault", "Brand Deal AI", "Account Manager", "API Access"] },
-                { name: "Champion", price: "$59.99", badge: "Champion", color: "border-cyan-500/40 bg-cyan-900/20", features: ["NIL Analytics", "Brand Deal Suite", "Custom Page", "Early Access"] },
-                { name: "MVP", price: "$99.99", badge: "MVP 🏆", color: "border-blue-500/40 bg-blue-900/20", features: ["1-on-1 Strategy", "VIP Network", "Unlimited Credits", "Custom Brand Kit"] },
+                { name: "Starter", price: "$9.99", badge: "Starter", color: "border-[#1E90FF]/30 bg-[#1E90FF]/20", features: ["Basic Profile", "NIL Discovery", "Community Messaging", "Diamond Grind"] },
+                { name: "Pro", price: "$19.99", badge: "Most Popular", color: "border-[#00C2FF]/40 bg-[#00C2FF]/20", features: ["AI Recruiter", "NIL Marketplace", "Warriors Playbook", "AI Sales"] },
+                { name: "Elite", price: "$39.99", badge: "Best Value", color: "border-[#1E90FF]/40 bg-[#1E90FF]/20", features: ["NIL Vault", "Brand Deal AI", "Account Manager", "API Access"] },
+                { name: "Champion", price: "$59.99", badge: "Champion", color: "border-[#1E90FF]/30 bg-[#1E90FF]/20", features: ["NIL Analytics", "Brand Deal Suite", "Custom Page", "Early Access"] },
+                { name: "MVP", price: "$99.99", badge: "MVP ", color: "border-blue-500/40 bg-blue-900/20", features: ["1-on-1 Strategy", "VIP Network", "Unlimited Credits", "Custom Brand Kit"] },
               ].map(plan => (
                 <div key={plan.name} className={`border rounded-xl p-4 flex flex-col ${plan.color}`}>
                   <span className="text-xs font-bold text-white/60 mb-1">{plan.badge}</span>
                   <h3 className="font-black text-white text-sm mb-1">{plan.name}</h3>
                   <div className="text-xl font-black text-white mb-3">{plan.price}<span className="text-xs text-white/40">/mo</span></div>
                   <ul className="space-y-1 mb-4 flex-1">
-                    {plan.features.map((f, i) => <li key={i} className="text-xs text-white/60 flex items-center gap-1"><span className="text-green-400">✓</span>{f}</li>)}
+                    {plan.features.map((f, i) => <li key={i} className="text-xs text-white/60 flex items-center gap-1"><span className="text-[#00C2FF]"></span>{f}</li>)}
                   </ul>
                   <button
                     onClick={() => window.location.href = '/pricing'}
-                    className="w-full py-1.5 bg-red-500 hover:bg-red-400 text-white text-xs font-bold rounded-lg transition-colors"
+                    className="w-full py-1.5 bg-[#1E90FF] hover:bg-[#1E90FF] text-white text-xs font-bold rounded-lg transition-colors"
                   >
                     Get Started
                   </button>
@@ -643,30 +643,30 @@ function StoreInner() {
             </div>
           </div>
 
-          {/* ── AI Credits ── */}
+          {/*  AI Credits  */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30" />
-              <span className="text-cyan-400 font-bold tracking-widest text-xs uppercase">AI Credits</span>
-              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30" />
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#0a1628]/30" />
+              <span className="text-[#00C2FF] font-bold tracking-widest text-xs uppercase">AI Credits</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#0a1628]/30" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { name: "100 Credits", price: "$9.99", icon: "⚡", desc: "Casual AI Trainer sessions", highlight: false },
-                { name: "500 Credits", price: "$39.99", icon: "🔥", desc: "Best value for active athletes", highlight: true },
-                { name: "1,000 Credits", price: "$69.99", icon: "💎", desc: "Power users, teams & coaches", highlight: false },
+                { name: "100 Credits", price: "$9.99", icon: "", desc: "Casual AI Trainer sessions", highlight: false },
+                { name: "500 Credits", price: "$39.99", icon: "", desc: "Best value for active athletes", highlight: true },
+                { name: "1,000 Credits", price: "$69.99", icon: "", desc: "Power users, teams & coaches", highlight: false },
               ].map(pack => (
                 <div key={pack.name} className={`relative border rounded-xl p-5 text-center flex flex-col items-center ${
-                  pack.highlight ? "border-cyan-500/50 bg-cyan-900/20" : "border-white/10 bg-white/5"
+                  pack.highlight ? "border-[#1E90FF]/30 bg-[#1E90FF]/20" : "border-white/10 bg-white/5"
                 }`}>
-                  {pack.highlight && <span className="absolute -top-3 bg-cyan-500 text-black text-xs font-black px-3 py-1 rounded-full">BEST VALUE</span>}
+                  {pack.highlight && <span className="absolute -top-3 bg-[#1E90FF] text-black text-xs font-black px-3 py-1 rounded-full">BEST VALUE</span>}
                   <div className="text-3xl mb-2">{pack.icon}</div>
                   <h3 className="font-black text-white mb-1">{pack.name}</h3>
-                  <div className="text-2xl font-black text-cyan-400 mb-2">{pack.price}</div>
+                  <div className="text-2xl font-black text-[#00C2FF] mb-2">{pack.price}</div>
                   <p className="text-white/50 text-xs mb-4">{pack.desc}</p>
                   <button
                     onClick={() => window.location.href = '/pricing'}
-                    className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-bold rounded-lg transition-colors"
+                    className="w-full py-2 bg-[#1565C0] hover:bg-[#1E90FF] text-white text-sm font-bold rounded-lg transition-colors"
                   >
                     Buy Credits
                   </button>
@@ -683,7 +683,7 @@ function StoreInner() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl whitespace-nowrap transition-all ${
                   selectedCategory === cat.id
-                    ? "bg-red-500 text-white font-semibold"
+                    ? "bg-[#1E90FF] text-white font-semibold"
                     : "bg-white/10 text-gray-400 hover:bg-white/20"
                 }`}
               >
@@ -701,7 +701,7 @@ function StoreInner() {
               return (
                 <div
                   key={product.id}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-red-500/50 transition-all group cursor-pointer"
+                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-[#1E90FF]/50 transition-all group cursor-pointer"
                 >
                   {/* Product Image */}
                   <div className="aspect-square bg-gradient-to-br from-[#1a1a2e] to-[#0d0d1a] overflow-hidden relative">
@@ -718,7 +718,7 @@ function StoreInner() {
                       />
                     ) : null}
                     <div className={`${isUrl ? 'hidden' : ''} absolute inset-0 flex items-center justify-center text-6xl`}>
-                      {imgSrc || '📦'}
+                      {imgSrc || ''}
                     </div>
                     {/* Category badge */}
                     <div className="absolute top-2 left-2">
@@ -741,7 +741,7 @@ function StoreInner() {
                       <p className="text-gray-500 text-xs mb-2 line-clamp-2">{product.description}</p>
                     )}
                     <div className="flex items-center gap-1 mb-3">
-                      <span className="text-red-400 text-xs">★</span>
+                      <span className="text-[#1E90FF] text-xs"></span>
                       <span className="text-gray-400 text-xs">{product.rating} ({product.reviewCount || 0})</span>
                     </div>
                     <div className="flex items-center justify-between">
@@ -753,7 +753,7 @@ function StoreInner() {
                         className={`px-3 py-2 rounded-lg font-semibold text-sm transition-all ${
                           product.requiresQuote === 'yes' || parseFloat(product.price) === 0
                             ? "bg-blue-600/30 text-blue-400 hover:bg-blue-600/50 border border-blue-500/30"
-                            : "bg-red-500 text-white hover:bg-red-600"
+                            : "bg-[#1E90FF] text-white hover:bg-[#1E90FF]"
                         }`}
                       >
                         {product.requiresQuote === 'yes' || parseFloat(product.price) === 0 ? "Get Quote" : "Add +"}
@@ -766,7 +766,7 @@ function StoreInner() {
           </div>
 
           {/* Enterprise CTA */}
-          <div className="bg-gradient-to-r from-blue-900/40 to-red-900/20 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 mb-10">
+          <div className="bg-gradient-to-r from-blue-900/40 to-[#0a1628]/20 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 mb-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">Need Enterprise Solutions?</h3>
@@ -779,7 +779,7 @@ function StoreInner() {
                   setSelectedProduct(null);
                   setShowContactSales(true);
                 }}
-                className="px-8 py-4 bg-red-500 text-white rounded-xl font-bold hover:bg-red-600 transition-all whitespace-nowrap"
+                className="px-8 py-4 bg-[#1E90FF] text-white rounded-xl font-bold hover:bg-[#1E90FF] transition-all whitespace-nowrap"
               >
                 Contact Sales Team
               </button>

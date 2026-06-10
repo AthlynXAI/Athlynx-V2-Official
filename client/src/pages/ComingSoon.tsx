@@ -23,15 +23,15 @@ function ComingSoonInner({ title, description, icon }: ComingSoonProps) {
         <p className="text-lg text-blue-300 leading-relaxed">{description}</p>
         {/* Status Badge */}
         <div className="inline-flex items-center gap-3 bg-blue-900/60 border border-blue-700/50 px-6 py-3 rounded-full">
-          <span className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse"></span>
-          <span className="text-cyan-400 font-bold text-sm tracking-widest uppercase">Launching July 1, 2026</span>
+          <span className="w-2.5 h-2.5 bg-[#1E90FF] rounded-full animate-pulse"></span>
+          <span className="text-[#00C2FF] font-bold text-sm tracking-widest uppercase">Launching July 1, 2026</span>
         </div>
         {/* Value Props */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
           {[
-            { icon: "🎯", label: "Recruiting Hub", desc: "Connect with coaches nationwide" },
-            { icon: "💰", label: "NIL Deals", desc: "Get paid for your brand" },
-            { icon: "🤖", label: "AI Coach", desc: "24/7 personal AI trainer" },
+            { icon: "", label: "Recruiting Hub", desc: "Connect with coaches nationwide" },
+            { icon: "", label: "NIL Deals", desc: "Get paid for your brand" },
+            { icon: "", label: "AI Coach", desc: "24/7 personal AI trainer" },
           ].map((item, i) => (
             <div key={i} className="bg-blue-900/40 border border-blue-800/50 rounded-xl p-4">
               <div className="text-2xl mb-2">{item.icon}</div>
@@ -43,7 +43,7 @@ function ComingSoonInner({ title, description, icon }: ComingSoonProps) {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
           <Link href="/signup">
-            <a className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black px-8 py-4 rounded-xl text-base shadow-xl transition-all hover:scale-105">
+            <a className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-black px-8 py-4 rounded-xl text-base shadow-xl transition-all hover:scale-105">
               Join Free — 7 Day Trial
             </a>
           </Link>
@@ -58,6 +58,6 @@ function ComingSoonInner({ title, description, icon }: ComingSoonProps) {
     </div>
   );
 }
-export default function ComingSoon({ title = "Coming Soon", description = "This feature is launching soon. Stay tuned!", icon = "🚀" }: Partial<ComingSoonProps>) {
+export default function ComingSoon({ title = "Coming Soon", description = "This feature is launching soon. Stay tuned!", icon = "" }: Partial<ComingSoonProps>) {
   return <RouteErrorBoundary><ComingSoonInner title={title} description={description} icon={icon} /></RouteErrorBoundary>;
 }

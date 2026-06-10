@@ -61,14 +61,14 @@ function PaymentSuccessInner() {
       <div className="max-w-2xl mx-auto px-4 text-center">
         {/* Success Icon */}
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center animate-bounce">
-            <span className="text-6xl">✓</span>
+          <div className="w-32 h-32 mx-auto bg-gradient-to-r from-[#00C2FF] to-[#00C2FF] rounded-full flex items-center justify-center animate-bounce">
+            <span className="text-6xl"></span>
           </div>
         </div>
 
         {/* Success Message */}
         <h1 className="text-5xl md:text-6xl font-black mb-4">
-          <span className="bg-gradient-to-r from-green-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#00C2FF] via-[#1E90FF] to-blue-400 bg-clip-text text-transparent">
             Welcome to the Family!
           </span>
         </h1>
@@ -78,31 +78,31 @@ function PaymentSuccessInner() {
         </p>
 
         {/* Quote */}
-        <div className="bg-slate-800/50 rounded-2xl p-6 mb-8 border border-cyan-500/30">
-          <p className="text-2xl italic text-cyan-400 mb-2">
+        <div className="bg-slate-800/50 rounded-2xl p-6 mb-8 border border-[#1E90FF]/30">
+          <p className="text-2xl italic text-[#00C2FF] mb-2">
             "Dreams Do Come True"
           </p>
           <p className="text-slate-400">— Chad Allen Dozier Sr., Founder</p>
         </div>
 
         {/* What's Next */}
-        <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-2xl p-8 mb-8 border border-cyan-500/20">
-          <h2 className="text-2xl font-bold text-white mb-4">🚀 What's Next?</h2>
+        <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-900/30 rounded-2xl p-8 mb-8 border border-[#1E90FF]/30">
+          <h2 className="text-2xl font-bold text-white mb-4"> What's Next?</h2>
           <ul className="text-left space-y-3 text-slate-300">
             <li className="flex items-start gap-3">
-              <span className="text-green-400">✓</span>
+              <span className="text-[#00C2FF]"></span>
               <span>Complete your athlete profile to get discovered</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-400">✓</span>
+              <span className="text-[#00C2FF]"></span>
               <span>Upload your highlight videos</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-400">✓</span>
+              <span className="text-[#00C2FF]"></span>
               <span>Connect with brands for NIL opportunities</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-400">✓</span>
+              <span className="text-[#00C2FF]"></span>
               <span>Join the community and start networking</span>
             </li>
           </ul>
@@ -111,12 +111,12 @@ function PaymentSuccessInner() {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/portal">
-            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-6 text-lg font-bold rounded-xl">
+            <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white px-8 py-6 text-lg font-bold rounded-xl">
               Go to Dashboard
             </Button>
           </Link>
           <Link href="/">
-            <Button variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 px-8 py-6 text-lg rounded-xl">
+            <Button variant="outline" className="border-[#1E90FF] text-[#00C2FF] hover:bg-[#1E90FF]/20 px-8 py-6 text-lg rounded-xl">
               Back to Home
             </Button>
           </Link>

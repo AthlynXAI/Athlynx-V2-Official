@@ -1,7 +1,7 @@
 /**
  * SportStatsEditor — AthlynXAI
  * Sport-specific stats input for all 20+ sports
- * Feeds the X-Factor AI score (Nebius + Gemini)
+ * Feeds the EPX AI score (Nebius + Gemini)
  * Every sport. Every stat. All on AthlynXAI.
  */
 
@@ -13,7 +13,7 @@ interface StatField {
 }
 
 const SPORT_STATS: Record<string, StatField[]> = {
-  // ── Football ──────────────────────────────────────────────────────────────
+  //  Football 
   Football: [
     { label: "40-Yd Dash", key: "fortyYardDash", placeholder: "4.62", unit: "sec" },
     { label: "Vertical Leap", key: "verticalLeap", placeholder: "36", unit: "inches" },
@@ -27,7 +27,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Rushing Yards", key: "rushingYards", placeholder: "1,200" },
     { label: "Receiving Yards", key: "receivingYards", placeholder: "850" },
   ],
-  // ── Basketball ────────────────────────────────────────────────────────────
+  //  Basketball 
   Basketball: [
     { label: "Points Per Game", key: "pointsPerGame", placeholder: "22.4", unit: "PPG" },
     { label: "Assists Per Game", key: "assistsPerGame", placeholder: "6.8", unit: "APG" },
@@ -40,7 +40,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Vertical Leap", key: "verticalLeap", placeholder: "38", unit: "inches" },
     { label: "40-Yd Dash", key: "fortyYardDash", placeholder: "4.55", unit: "sec" },
   ],
-  // ── Baseball ──────────────────────────────────────────────────────────────
+  //  Baseball 
   Baseball: [
     { label: "Batting Average", key: "battingAvg", placeholder: ".342" },
     { label: "Home Runs", key: "homeRuns", placeholder: "18" },
@@ -55,7 +55,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "60-Yd Dash", key: "sixtyYardDash", placeholder: "6.8", unit: "sec" },
     { label: "Exit Velocity", key: "exitVelocity", placeholder: "98", unit: "MPH" },
   ],
-  // ── Soccer ────────────────────────────────────────────────────────────────
+  //  Soccer 
   Soccer: [
     { label: "Goals Per Game", key: "goalsPerGame", placeholder: "0.8" },
     { label: "Assists Per Game", key: "assistsSoccer", placeholder: "0.5" },
@@ -66,7 +66,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Distance Per Game", key: "distancePerGame", placeholder: "9.8", unit: "km" },
     { label: "Dribble Success", key: "dribbleSuccess", placeholder: "62", unit: "%" },
   ],
-  // ── Track & Field ─────────────────────────────────────────────────────────
+  //  Track & Field 
   "Track & Field": [
     { label: "100m", key: "hundredMeter", placeholder: "10.87", unit: "sec" },
     { label: "200m", key: "twoHundredMeter", placeholder: "21.34", unit: "sec" },
@@ -84,7 +84,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Javelin", key: "javelin", placeholder: "198'8\"", unit: "ft" },
     { label: "Pole Vault", key: "poleVault", placeholder: "16'6\"", unit: "ft" },
   ],
-  // ── Swimming ──────────────────────────────────────────────────────────────
+  //  Swimming 
   Swimming: [
     { label: "50 Free", key: "fiftyFreeStyle", placeholder: "21.34", unit: "sec" },
     { label: "100 Free", key: "hundredFreeStyle", placeholder: "46.82", unit: "sec" },
@@ -96,7 +96,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "400 IM", key: "fourHundredIM", placeholder: "4:08.21", unit: "min" },
     { label: "1500 Free", key: "fifteenHundredFree", placeholder: "15:24.56", unit: "min" },
   ],
-  // ── Wrestling ─────────────────────────────────────────────────────────────
+  //  Wrestling 
   Wrestling: [
     { label: "Record (W-L)", key: "wrestlingRecord", placeholder: "42-3" },
     { label: "Takedowns", key: "takedowns", placeholder: "87" },
@@ -107,7 +107,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Escapes", key: "escapes", placeholder: "24" },
     { label: "Reversals", key: "reversals", placeholder: "15" },
   ],
-  // ── Tennis ────────────────────────────────────────────────────────────────
+  //  Tennis 
   Tennis: [
     { label: "Serve Speed", key: "serveSpeed", placeholder: "128", unit: "MPH" },
     { label: "1st Serve %", key: "firstServePct", placeholder: "64", unit: "%" },
@@ -117,7 +117,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "UTR Rating", key: "utrRating", placeholder: "12.4" },
     { label: "Double Faults", key: "doubleFaults", placeholder: "2.1" },
   ],
-  // ── Volleyball ────────────────────────────────────────────────────────────
+  //  Volleyball 
   Volleyball: [
     { label: "Attack %", key: "attackPct", placeholder: ".342", unit: "%" },
     { label: "Kills Per Set", key: "killsPerSet", placeholder: "4.2" },
@@ -128,7 +128,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Service Errors", key: "serviceErrors", placeholder: "0.8" },
     { label: "Vertical Leap", key: "verticalLeap", placeholder: "28", unit: "inches" },
   ],
-  // ── Hockey ────────────────────────────────────────────────────────────────
+  //  Hockey 
   Hockey: [
     { label: "Goals", key: "goalsHockey", placeholder: "28" },
     { label: "Assists", key: "assistsHockey", placeholder: "42" },
@@ -141,7 +141,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "PIM", key: "penaltyMinutes", placeholder: "24" },
     { label: "Faceoff %", key: "faceoffPct", placeholder: "52.3", unit: "%" },
   ],
-  // ── Golf ──────────────────────────────────────────────────────────────────
+  //  Golf 
   Golf: [
     { label: "Handicap", key: "handicap", placeholder: "+2.4" },
     { label: "Scoring Average", key: "scoringAvg", placeholder: "71.2" },
@@ -152,7 +152,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Sand Save %", key: "sandSavePct", placeholder: "54.2", unit: "%" },
     { label: "Eagles", key: "eagles", placeholder: "4" },
   ],
-  // ── Lacrosse ──────────────────────────────────────────────────────────────
+  //  Lacrosse 
   Lacrosse: [
     { label: "Goals", key: "goalsLax", placeholder: "42" },
     { label: "Assists", key: "assistsLax", placeholder: "28" },
@@ -163,7 +163,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Caused Turnovers", key: "causedTurnovers", placeholder: "34" },
     { label: "Faceoff %", key: "faceoffPctLax", placeholder: "58.2", unit: "%" },
   ],
-  // ── Softball ──────────────────────────────────────────────────────────────
+  //  Softball 
   Softball: [
     { label: "Batting Average", key: "battingAvg", placeholder: ".412" },
     { label: "Home Runs", key: "homeRuns", placeholder: "14" },
@@ -175,7 +175,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Stolen Bases", key: "stolenBases", placeholder: "28" },
     { label: "Fielding %", key: "fieldingPct", placeholder: ".982", unit: "%" },
   ],
-  // ── Gymnastics ────────────────────────────────────────────────────────────
+  //  Gymnastics 
   Gymnastics: [
     { label: "All-Around Score", key: "allAroundScore", placeholder: "55.650" },
     { label: "Vault Score", key: "vaultScore", placeholder: "14.300" },
@@ -185,7 +185,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "J.O. Level", key: "joLevel", placeholder: "Level 10" },
     { label: "Difficulty Score", key: "difficultyScore", placeholder: "5.8" },
   ],
-  // ── Cross Country ─────────────────────────────────────────────────────────
+  //  Cross Country 
   "Cross Country": [
     { label: "5K Time", key: "fiveKTime", placeholder: "14:28", unit: "min" },
     { label: "6K Time", key: "sixKTime", placeholder: "18:42", unit: "min" },
@@ -196,7 +196,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "State Ranking", key: "stateRanking", placeholder: "12" },
     { label: "National Ranking", key: "nationalRanking", placeholder: "245" },
   ],
-  // ── Rowing ────────────────────────────────────────────────────────────────
+  //  Rowing 
   Rowing: [
     { label: "2K Erg Time", key: "twoKErgTime", placeholder: "6:12.4", unit: "min" },
     { label: "500m Split", key: "fiveHundredSplit", placeholder: "1:33.1", unit: "min" },
@@ -206,7 +206,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Seat", key: "rowingSeat", placeholder: "Stroke Seat" },
     { label: "Boat Class", key: "boatClass", placeholder: "M8+" },
   ],
-  // ── Water Polo ────────────────────────────────────────────────────────────
+  //  Water Polo 
   "Water Polo": [
     { label: "Goals Per Game", key: "goalsWP", placeholder: "3.2" },
     { label: "Assists Per Game", key: "assistsWP", placeholder: "1.8" },
@@ -216,7 +216,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Blocks Per Game", key: "blocksWP", placeholder: "0.8" },
     { label: "Eggbeater Height", key: "eggbeaterHeight", placeholder: "24", unit: "inches" },
   ],
-  // ── Field Hockey ──────────────────────────────────────────────────────────
+  //  Field Hockey 
   "Field Hockey": [
     { label: "Goals", key: "goalsFH", placeholder: "18" },
     { label: "Assists", key: "assistsFH", placeholder: "12" },
@@ -226,7 +226,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Tackles Won", key: "tacklesWonFH", placeholder: "48" },
     { label: "Pass Accuracy", key: "passAccuracyFH", placeholder: "84.2", unit: "%" },
   ],
-  // ── Cheerleading ──────────────────────────────────────────────────────────
+  //  Cheerleading 
   Cheerleading: [
     { label: "Tumbling Level", key: "tumblingLevel", placeholder: "Full Twisting Layout" },
     { label: "Stunting Level", key: "stuntingLevel", placeholder: "Elite" },
@@ -234,7 +234,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Competition Level", key: "competitionLevel", placeholder: "All-Star Level 6" },
     { label: "Specialty", key: "cheerSpecialty", placeholder: "Flyer / Tumbler" },
   ],
-  // ── Rugby ─────────────────────────────────────────────────────────────────
+  //  Rugby 
   Rugby: [
     { label: "Tries", key: "triesRugby", placeholder: "18" },
     { label: "Tackles Made", key: "tacklesRugby", placeholder: "87" },
@@ -244,7 +244,7 @@ const SPORT_STATS: Record<string, StatField[]> = {
     { label: "Conversions", key: "conversions", placeholder: "12" },
     { label: "Penalties Kicked", key: "penaltiesKicked", placeholder: "8" },
   ],
-  // ── Cricket ───────────────────────────────────────────────────────────────
+  //  Cricket 
   Cricket: [
     { label: "Batting Average", key: "battingAvgCricket", placeholder: "48.4" },
     { label: "Bowling Average", key: "bowlingAvg", placeholder: "24.8" },
@@ -280,11 +280,11 @@ export default function SportStatsEditor({ sport, editForm, setEditForm }: Sport
   return (
     <div className="bg-[#0d1f3c] border border-blue-800 rounded-xl p-3">
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-sky-400 text-sm">⚡</span>
+        <span className="text-[#00C2FF] text-sm"></span>
         <div className="text-white font-bold text-xs">
           {sportLabel} Stats
         </div>
-        <span className="text-blue-500 text-xs">(feeds your X-Factor AI score)</span>
+        <span className="text-blue-500 text-xs">(feeds your EPX AI score)</span>
       </div>
       <div className="grid grid-cols-2 gap-2">
         {fields.map(f => (

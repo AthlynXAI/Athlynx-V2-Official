@@ -20,17 +20,17 @@ const TIER_META: Record<Tier, { label: string; description: string; accent: stri
   major: {
     label: "Major",
     description: "National household brands. Big budgets. Bigger reach.",
-    accent: "from-cyan-500 to-blue-600",
+    accent: "from-[#1E90FF] to-blue-600",
   },
   regional: {
     label: "Regional",
     description: "Strong in a state or a market. Where the real local fits happen.",
-    accent: "from-emerald-500 to-teal-600",
+    accent: "from-[#00C2FF] to-teal-600",
   },
   local: {
     label: "Local",
     description: "Hometown businesses ready to back hometown athletes.",
-    accent: "from-purple-500 to-pink-600",
+    accent: "from-[#1E90FF] to-[#0a1628]",
   },
 };
 
@@ -76,8 +76,8 @@ function BrandWallInner() {
 
       <section className="container mx-auto px-4 py-10 max-w-6xl">
         <div className="flex items-center gap-3 mb-2">
-          <Sparkles className="w-6 h-6 text-sky-400" />
-          <div className="text-sky-400 text-xs font-semibold tracking-wider">AthlynX BRAND WALL</div>
+          <Sparkles className="w-6 h-6 text-[#00C2FF]" />
+          <div className="text-[#00C2FF] text-xs font-semibold tracking-wider">AthlynX BRAND WALL</div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold mb-3">
           Every brand. One wall. Real receipts.

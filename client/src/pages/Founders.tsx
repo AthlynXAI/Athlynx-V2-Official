@@ -15,8 +15,8 @@ const TEAM = [
     linkedin: "https://www.linkedin.com/in/chad-a-dozier-sr",
     bio: "Chad A. Dozier Sr. is the founder and category-defining operator behind AthlynX and Dozier Holdings Group.",
     tags: ["Founder", "Athlete Advocate", "Category Builder"],
-    frameColor: "border-cyan-400",
-    badgeColor: "bg-cyan-700 text-cyan-100",
+    frameColor: "border-[#1E90FF]",
+    badgeColor: "bg-cyan-700 text-[#00C2FF]",
   },
   {
     name: "Lee Marshall",
@@ -43,8 +43,8 @@ const TEAM = [
     linkedin: null,
     bio: "Glenn Tse is the co-founder and financial architect helping turn the AthlynX and DHG vision into operational reality.",
     tags: ["Co-Founder", "Finance", "Operations"],
-    frameColor: "border-indigo-400",
-    badgeColor: "bg-indigo-700 text-indigo-100",
+    frameColor: "border-[#1E90FF]",
+    badgeColor: "bg-[#1E90FF] text-[#1E90FF]",
   },
 
 ];
@@ -82,7 +82,7 @@ function FoundersInner() {
 
             {/* Name & Title */}
             <h3 className="text-2xl font-black text-white mb-0.5">{person.name}</h3>
-            <div className="text-cyan-400 font-semibold text-sm mb-1">{person.title}</div>
+            <div className="text-[#00C2FF] font-semibold text-sm mb-1">{person.title}</div>
             <div className="text-blue-400 text-xs mb-3">{person.org}</div>
 
             {/* Tags */}
@@ -105,7 +105,7 @@ function FoundersInner() {
                   href={`mailto:${email}`}
                   className="flex items-center gap-3 bg-[#1a2a5e] hover:bg-[#1e3470] border border-blue-800 rounded-xl px-4 py-3 transition-colors w-full"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-cyan-600 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#1565C0] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-white text-sm font-medium truncate">{email}</span>
@@ -116,7 +116,7 @@ function FoundersInner() {
                   href={`tel:${person.phone}`}
                   className="flex items-center gap-3 bg-[#1a2a5e] hover:bg-[#1e3470] border border-blue-800 rounded-xl px-4 py-3 transition-colors w-full"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-cyan-600 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#1565C0] flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-white text-sm font-medium">{person.phone}</span>
@@ -128,18 +128,18 @@ function FoundersInner() {
                   href={person.alignable}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 bg-[#1a1a4e] hover:bg-[#22226e] border border-purple-800 rounded-xl px-4 py-3 transition-colors w-full"
+                  className="flex items-center gap-3 bg-[#1a1a4e] hover:bg-[#22226e] border border-[#1E90FF] rounded-xl px-4 py-3 transition-colors w-full"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-purple-700 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#1E90FF] flex items-center justify-center shrink-0">
                     <svg viewBox="0 0 24 24" className="w-4 h-4 text-white fill-current">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
                     </svg>
                   </div>
                   <div className="flex flex-col items-start">
                     <span className="text-white text-sm font-bold">Alignable</span>
-                    <span className="text-purple-300 text-xs">AthlynXAI Corporation · Houston, TX</span>
+                    <span className="text-[#1E90FF] text-xs">AthlynXAI Corporation · Houston, TX</span>
                   </div>
-                  <ExternalLink className="w-3 h-3 text-purple-400 ml-auto shrink-0" />
+                  <ExternalLink className="w-3 h-3 text-[#1E90FF] ml-auto shrink-0" />
                 </a>
               )}
               {/* LinkedIn */}
@@ -168,7 +168,7 @@ function FoundersInner() {
 
         {/* Vision Quote */}
         <div className="bg-gradient-to-br from-[#0d1f4e] to-[#091535] border border-blue-800 rounded-xl p-5 text-center">
-          <div className="text-cyan-400 text-xs uppercase tracking-widest mb-2">The Vision</div>
+          <div className="text-[#00C2FF] text-xs uppercase tracking-widest mb-2">The Vision</div>
           <blockquote className="text-white text-xl font-black leading-relaxed">
             "Every athlete deserves a playbook. We built it."
           </blockquote>
@@ -180,10 +180,10 @@ function FoundersInner() {
           <h3 className="text-white font-bold mb-3">The Mission</h3>
           <div className="space-y-3">
             {[
-              { icon: "🏆", title: "Athlete First", desc: "Every decision we make starts with what's best for the athlete." },
-              { icon: "💰", title: "NIL Empowerment", desc: "Helping athletes understand, protect, and maximize their NIL value." },
-              { icon: "🤝", title: "Community", desc: "Building the largest network of athletes, coaches, and brands in sports." },
-              { icon: "🚀", title: "Innovation", desc: "Using AI and technology to give athletes an unfair advantage." },
+              { icon: "", title: "Athlete First", desc: "Every decision we make starts with what's best for the athlete." },
+              { icon: "", title: "NIL Empowerment", desc: "Helping athletes understand, protect, and maximize their NIL value." },
+              { icon: "", title: "Community", desc: "Building the largest network of athletes, coaches, and brands in sports." },
+              { icon: "", title: "Innovation", desc: "Using AI and technology to give athletes an unfair advantage." },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 bg-[#091535] rounded-xl p-3">
                 <span className="text-2xl shrink-0">{item.icon}</span>

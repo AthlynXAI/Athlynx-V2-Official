@@ -4,7 +4,7 @@
 
 import { Link } from "wouter";
 
-// ─── OWL MARK SVG WATERMARK ──────────────────────────────────────────────────
+//  OWL MARK SVG WATERMARK 
 function OwlMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -18,7 +18,7 @@ function OwlMark({ className = "" }: { className?: string }) {
   );
 }
 
-// ─── APP DEFINITIONS ─────────────────────────────────────────────────────────
+//  APP DEFINITIONS 
 interface AppDef {
   id: string;
   name: string;
@@ -36,12 +36,12 @@ interface AppDef {
 }
 
 const APPS: AppDef[] = [
-  // ── FLAGSHIP ──────────────────────────────────────────────────────────────
+  //  FLAGSHIP 
   {
     id: "athlynx-main",
     name: "AthlynX",
     tagline: "The Athlete's Playbook",
-    icon: "🏆",
+    icon: "",
     category: "Flagship",
     status: "LIVE",
     route: "/",
@@ -55,7 +55,7 @@ const APPS: AppDef[] = [
     id: "athlynxai-os",
     name: "AthlynXAI OS v1",
     tagline: "The Operating System",
-    icon: "⚙️",
+    icon: "",
     category: "Flagship",
     status: "LIVE",
     route: "/athlynxai-os",
@@ -68,7 +68,7 @@ const APPS: AppDef[] = [
     id: "athlynx-mobile",
     name: "AthlynX Mobile",
     tagline: "iOS & Android",
-    icon: "📱",
+    icon: "",
     category: "Flagship",
     status: "LIVE",
     route: "/mobile-app",
@@ -79,12 +79,12 @@ const APPS: AppDef[] = [
     isFlagship: true,
   },
 
-  // ── SPORTS BRANDS ─────────────────────────────────────────────────────────
+  //  SPORTS BRANDS 
   {
     id: "diamond-grind",
     name: "Diamond Grind",
     tagline: "Elite Baseball Platform",
-    icon: "⚾",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/diamond-grind",
@@ -97,7 +97,7 @@ const APPS: AppDef[] = [
     id: "diamond-grind-iq",
     name: "Diamond Grind IQ",
     tagline: "Baseball Analytics",
-    icon: "📊",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/diamond-grind-iq",
@@ -109,7 +109,7 @@ const APPS: AppDef[] = [
     id: "gridiron-nexus",
     name: "Gridiron Nexus",
     tagline: "Football Excellence",
-    icon: "🏈",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/gridiron-nexus",
@@ -122,7 +122,7 @@ const APPS: AppDef[] = [
     id: "warriors-playbook",
     name: "Warriors Playbook",
     tagline: "Football Coaching OS",
-    icon: "📋",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/warriors-playbook",
@@ -134,7 +134,7 @@ const APPS: AppDef[] = [
     id: "court-kings",
     name: "Court Kings",
     tagline: "Basketball Dominance",
-    icon: "🏀",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/court-kings",
@@ -147,7 +147,7 @@ const APPS: AppDef[] = [
     id: "pitch-pulse",
     name: "Pitch Pulse",
     tagline: "Soccer Intelligence",
-    icon: "⚽",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/pitch-pulse",
@@ -160,7 +160,7 @@ const APPS: AppDef[] = [
     id: "softball-nation",
     name: "Softball Nation",
     tagline: "Women's Softball Platform",
-    icon: "🥎",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/softball-nation",
@@ -171,7 +171,7 @@ const APPS: AppDef[] = [
     id: "racket-kings",
     name: "Racket Kings",
     tagline: "Tennis & Racquet Sports",
-    icon: "🎾",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/racket-kings",
@@ -182,7 +182,7 @@ const APPS: AppDef[] = [
     id: "track-elite",
     name: "Track Elite",
     tagline: "Track & Field Platform",
-    icon: "🏃",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/track-elite",
@@ -193,7 +193,7 @@ const APPS: AppDef[] = [
     id: "swim-surge",
     name: "Swim Surge",
     tagline: "Aquatics Platform",
-    icon: "🏊",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/swim-surge",
@@ -204,7 +204,7 @@ const APPS: AppDef[] = [
     id: "fairway-elite",
     name: "Fairway Elite",
     tagline: "Golf Excellence",
-    icon: "⛳",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/fairway-elite",
@@ -217,7 +217,7 @@ const APPS: AppDef[] = [
     id: "reel-masters",
     name: "Reel Masters",
     tagline: "Fishing Community",
-    icon: "🎣",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/reel-masters",
@@ -230,7 +230,7 @@ const APPS: AppDef[] = [
     id: "hunt-pro",
     name: "Hunt Pro",
     tagline: "Hunting & Outdoors",
-    icon: "🦌",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/hunt-pro",
@@ -241,7 +241,7 @@ const APPS: AppDef[] = [
     id: "mat-warriors",
     name: "Mat Warriors",
     tagline: "Combat Sports",
-    icon: "🥊",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/mat-warriors",
@@ -252,7 +252,7 @@ const APPS: AppDef[] = [
     id: "net-setters",
     name: "Net Setters",
     tagline: "Volleyball & Net Sports",
-    icon: "🏐",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/net-setters",
@@ -263,7 +263,7 @@ const APPS: AppDef[] = [
     id: "cheer-elite",
     name: "Cheer Elite",
     tagline: "Cheer & Dance",
-    icon: "📣",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/cheer-elite",
@@ -274,7 +274,7 @@ const APPS: AppDef[] = [
     id: "gymnastics-vault",
     name: "Gymnastics Vault",
     tagline: "Gymnastics Platform",
-    icon: "🤸",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/gymnastics-vault",
@@ -285,7 +285,7 @@ const APPS: AppDef[] = [
     id: "ice-breakers",
     name: "Ice Breakers",
     tagline: "Ice Hockey Platform",
-    icon: "🏒",
+    icon: "",
     category: "Sports",
     status: "LIVE",
     route: "/ice-breakers",
@@ -293,12 +293,12 @@ const APPS: AppDef[] = [
     features: ["Stats Tracking", "Recruiting", "Camp Finder", "Film Room"],
   },
 
-  // ── AI TOOLS ──────────────────────────────────────────────────────────────
+  //  AI TOOLS 
   {
     id: "ai-recruiter",
     name: "AI Recruiter",
     tagline: "Prospect Matching Engine",
-    icon: "🤖",
+    icon: "",
     category: "AI Tools",
     status: "LIVE",
     route: "/ai-recruiter",
@@ -310,7 +310,7 @@ const APPS: AppDef[] = [
     id: "trainer-bot",
     name: "Trainer Bot",
     tagline: "AI Personal Trainer",
-    icon: "💪",
+    icon: "",
     category: "AI Tools",
     status: "LIVE",
     route: "/trainer-bot",
@@ -322,7 +322,7 @@ const APPS: AppDef[] = [
     id: "ai-scouting",
     name: "AI Scouting Report",
     tagline: "Automated Scout",
-    icon: "🔍",
+    icon: "",
     category: "AI Tools",
     status: "LIVE",
     route: "/ai-scouting-report",
@@ -331,13 +331,13 @@ const APPS: AppDef[] = [
     isAI: true,
   },
   {
-    id: "x-factor",
-    name: "X-Factor",
+    id: "epx",
+    name: "EPX",
     tagline: "Competitive Edge Engine",
-    icon: "⚡",
+    icon: "",
     category: "AI Tools",
     status: "LIVE",
-    route: "/x-factor",
+    route: "/epx",
     description: "Identify and amplify your competitive edge with AI analysis.",
     features: ["Edge Analysis", "Performance Gaps", "Improvement Plan", "Benchmarking"],
     isAI: true,
@@ -346,7 +346,7 @@ const APPS: AppDef[] = [
     id: "athlynx-engine",
     name: "AthlynX Engine",
     tagline: "Nebius H200 AI Core",
-    icon: "🧠",
+    icon: "",
     category: "AI Tools",
     status: "LIVE",
     route: "/athlynx-engine",
@@ -355,12 +355,12 @@ const APPS: AppDef[] = [
     isAI: true,
   },
 
-  // ── NIL & RECRUITING ──────────────────────────────────────────────────────
+  //  NIL & RECRUITING 
   {
     id: "nil-portal",
     name: "NIL Portal",
     tagline: "Name. Image. Likeness.",
-    icon: "💰",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/nil-portal",
@@ -371,7 +371,7 @@ const APPS: AppDef[] = [
     id: "nil-vault",
     name: "NIL Vault",
     tagline: "Deal Management",
-    icon: "🔐",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/nil-vault",
@@ -382,7 +382,7 @@ const APPS: AppDef[] = [
     id: "nil-calculator",
     name: "NIL Calculator",
     tagline: "Valuation Engine",
-    icon: "🧮",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/nil-calculator",
@@ -394,7 +394,7 @@ const APPS: AppDef[] = [
     id: "recruiting-hub",
     name: "Recruiting Hub",
     tagline: "College Recruiting Center",
-    icon: "🎓",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/recruiting-hub",
@@ -405,7 +405,7 @@ const APPS: AppDef[] = [
     id: "transfer-portal",
     name: "Transfer Portal",
     tagline: "Portal Intelligence",
-    icon: "🔄",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/transfer-portal",
@@ -416,7 +416,7 @@ const APPS: AppDef[] = [
     id: "signing-day",
     name: "Signing Day",
     tagline: "Commitment Tracker",
-    icon: "✍️",
+    icon: "",
     category: "NIL & Recruiting",
     status: "LIVE",
     route: "/signing-day",
@@ -424,12 +424,12 @@ const APPS: AppDef[] = [
     features: ["Commitment Tracker", "Signing Calendar", "Class Rankings", "Alerts"],
   },
 
-  // ── MEDIA & CONTENT ───────────────────────────────────────────────────────
+  //  MEDIA & CONTENT 
   {
     id: "highlight-studio",
     name: "Highlight Studio",
     tagline: "Auto-Cut Highlights",
-    icon: "🎬",
+    icon: "",
     category: "Media",
     status: "LIVE",
     route: "/highlight-reel-studio",
@@ -441,7 +441,7 @@ const APPS: AppDef[] = [
     id: "media-os",
     name: "Media OS",
     tagline: "Content Command Center",
-    icon: "📡",
+    icon: "",
     category: "Media",
     status: "LIVE",
     route: "/media-os",
@@ -452,7 +452,7 @@ const APPS: AppDef[] = [
     id: "social-hub",
     name: "Social Hub",
     tagline: "Social Command Center",
-    icon: "📲",
+    icon: "",
     category: "Media",
     status: "LIVE",
     route: "/social-hub",
@@ -464,7 +464,7 @@ const APPS: AppDef[] = [
     id: "founder-podcast",
     name: "Founder Podcast",
     tagline: "AXN Audio Network",
-    icon: "🎙️",
+    icon: "",
     category: "Media",
     status: "LIVE",
     route: "/founder-podcast",
@@ -475,7 +475,7 @@ const APPS: AppDef[] = [
     id: "athlynx-network",
     name: "AthlynX Network",
     tagline: "AXN Broadcast",
-    icon: "📺",
+    icon: "",
     category: "Media",
     status: "LIVE",
     route: "/athlynx-network",
@@ -483,12 +483,12 @@ const APPS: AppDef[] = [
     features: ["Live Stream", "Highlights", "Shows", "Athlete Channels"],
   },
 
-  // ── CALENDARS & SCHEDULING ────────────────────────────────────────────────
+  //  CALENDARS & SCHEDULING 
   {
     id: "athlete-calendar",
     name: "Athlete Calendar",
     tagline: "Schedule Everything",
-    icon: "📅",
+    icon: "",
     category: "Scheduling",
     status: "LIVE",
     route: "/athlete-calendar",
@@ -499,7 +499,7 @@ const APPS: AppDef[] = [
     id: "booking-hub",
     name: "Booking Hub",
     tagline: "Appointment Engine",
-    icon: "🗓️",
+    icon: "",
     category: "Scheduling",
     status: "LIVE",
     route: "/booking-hub",
@@ -507,12 +507,12 @@ const APPS: AppDef[] = [
     features: ["Camp Booking", "Showcase Finder", "Training Sessions", "Visit Scheduling"],
   },
 
-  // ── CRM & BACK-OFFICE ─────────────────────────────────────────────────────
+  //  CRM & BACK-OFFICE 
   {
     id: "crm-command",
     name: "CRM Command Center",
     tagline: "Athlete CRM",
-    icon: "🏢",
+    icon: "",
     category: "CRM",
     status: "LIVE",
     route: "/crm",
@@ -523,7 +523,7 @@ const APPS: AppDef[] = [
     id: "admin-dashboard",
     name: "Admin Dashboard",
     tagline: "Back-Office OS",
-    icon: "🖥️",
+    icon: "",
     category: "CRM",
     status: "LIVE",
     route: "/admin",
@@ -534,7 +534,7 @@ const APPS: AppDef[] = [
     id: "partner-portal",
     name: "Partner Portal",
     tagline: "Brand & Agent Portal",
-    icon: "🤝",
+    icon: "",
     category: "CRM",
     status: "LIVE",
     route: "/partner-portal",
@@ -542,12 +542,12 @@ const APPS: AppDef[] = [
     features: ["Deal Submissions", "Athlete Discovery", "Contract Tools", "Analytics"],
   },
 
-  // ── FINANCE & LEGAL ───────────────────────────────────────────────────────
+  //  FINANCE & LEGAL 
   {
     id: "athlete-financial",
     name: "Athlete Financial",
     tagline: "Money Management",
-    icon: "💳",
+    icon: "",
     category: "Finance",
     status: "LIVE",
     route: "/athlete-financial",
@@ -558,7 +558,7 @@ const APPS: AppDef[] = [
     id: "contracts",
     name: "Contracts",
     tagline: "Legal Document Engine",
-    icon: "📜",
+    icon: "",
     category: "Finance",
     status: "LIVE",
     route: "/contracts",
@@ -570,7 +570,7 @@ const APPS: AppDef[] = [
     id: "token-factory",
     name: "Token Factory",
     tagline: "Athlete Tokenization",
-    icon: "🪙",
+    icon: "",
     category: "Finance",
     status: "LIVE",
     route: "/token-factory",
@@ -578,12 +578,12 @@ const APPS: AppDef[] = [
     features: ["Token Creation", "Equity Splits", "Smart Contracts", "Marketplace"],
   },
 
-  // ── HEALTH & WELLNESS ─────────────────────────────────────────────────────
+  //  HEALTH & WELLNESS 
   {
     id: "athlete-health",
     name: "Athlete Health",
     tagline: "Performance Health",
-    icon: "🏥",
+    icon: "",
     category: "Health",
     status: "LIVE",
     route: "/athlete-health",
@@ -594,7 +594,7 @@ const APPS: AppDef[] = [
     id: "gluco-athlete",
     name: "GlucoAthlete OS",
     tagline: "Metabolic Performance",
-    icon: "🩸",
+    icon: "",
     category: "Health",
     status: "LIVE",
     route: "/gluco-athlete-os",
@@ -606,7 +606,7 @@ const APPS: AppDef[] = [
     id: "wellness-portal",
     name: "Wellness Portal",
     tagline: "Mind & Body",
-    icon: "🧘",
+    icon: "",
     category: "Health",
     status: "LIVE",
     route: "/wellness-portal",
@@ -614,12 +614,12 @@ const APPS: AppDef[] = [
     features: ["Mindset Training", "Sleep Tracking", "Stress Management", "Journaling"],
   },
 
-  // ── COMMERCE ──────────────────────────────────────────────────────────────
+  //  COMMERCE 
   {
     id: "athlete-store",
     name: "AthlynX Store",
     tagline: "Athlete Merch & Gear",
-    icon: "🛍️",
+    icon: "",
     category: "Commerce",
     status: "LIVE",
     route: "/store",
@@ -630,7 +630,7 @@ const APPS: AppDef[] = [
     id: "vendor-marketplace",
     name: "Vendor Marketplace",
     tagline: "Partner Commerce",
-    icon: "🏪",
+    icon: "",
     category: "Commerce",
     status: "LIVE",
     route: "/commerce",
@@ -638,12 +638,12 @@ const APPS: AppDef[] = [
     features: ["Vendor Directory", "Product Catalog", "Deal Pipeline", "Fulfillment"],
   },
 
-  // ── INFRASTRUCTURE ────────────────────────────────────────────────────────
+  //  INFRASTRUCTURE 
   {
     id: "connector-health",
     name: "Connector Health OS",
     tagline: "18 Live Connectors",
-    icon: "🔌",
+    icon: "",
     category: "Infrastructure",
     status: "LIVE",
     route: "/connector-health",
@@ -654,7 +654,7 @@ const APPS: AppDef[] = [
     id: "seo-dashboard",
     name: "SEO Command Center",
     tagline: "Search Intelligence",
-    icon: "🔎",
+    icon: "",
     category: "Infrastructure",
     status: "LIVE",
     route: "/seo",
@@ -665,7 +665,7 @@ const APPS: AppDef[] = [
     id: "brackets",
     name: "Brackets",
     tagline: "Live Tournament Tracker",
-    icon: "🏆",
+    icon: "",
     category: "Infrastructure",
     status: "LIVE",
     route: "/brackets",
@@ -677,8 +677,8 @@ const APPS: AppDef[] = [
 const CATEGORIES = ["All", ...Array.from(new Set(APPS.map((a) => a.category)))];
 
 const STATUS_COLORS: Record<AppDef["status"], string> = {
-  LIVE: "bg-green-500/20 text-green-400 border-green-500/30",
-  BETA: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+  LIVE: "bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30",
+  BETA: "bg-[#1E90FF]/20 text-white border-[#1E90FF]/30",
   "COMING SOON": "bg-white/10 text-white/50 border-white/20",
 };
 
@@ -734,7 +734,7 @@ function AppCard({ app }: { app: AppDef }) {
               onClick={(e) => e.stopPropagation()}
               className="flex-1 text-center text-[10px] font-black uppercase tracking-wider py-1.5 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/30 rounded-lg transition-all text-white/70"
             >
-              🍎 iOS
+               iOS
             </a>
           )}
           {app.android && (
@@ -745,7 +745,7 @@ function AppCard({ app }: { app: AppDef }) {
               onClick={(e) => e.stopPropagation()}
               className="flex-1 text-center text-[10px] font-black uppercase tracking-wider py-1.5 bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/30 rounded-lg transition-all text-white/70"
             >
-              🤖 Android
+               Android
             </a>
           )}
         </div>
@@ -799,7 +799,7 @@ export default function AthlynXAIAppsEcosystem() {
           </p>
           <div className="flex flex-wrap gap-3 items-center">
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-[#00C2FF] rounded-full animate-pulse" />
               <span className="text-sm font-black text-white">{liveCount} Live Apps</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
@@ -809,7 +809,7 @@ export default function AthlynXAIAppsEcosystem() {
               <span className="text-sm font-black text-white">{APPS.length} Total Apps</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-4 py-2">
-              <span className="text-sm font-black text-green-400">iOS + Android</span>
+              <span className="text-sm font-black text-[#00C2FF]">iOS + Android</span>
             </div>
           </div>
         </div>
@@ -825,7 +825,7 @@ export default function AthlynXAIAppsEcosystem() {
                 showAIOnly ? "bg-blue-500 text-black" : "border border-white/20 text-white/70 hover:border-blue-500/50"
               }`}
             >
-              🤖 AI Only
+               AI Only
             </button>
           </div>
           <input
@@ -915,7 +915,7 @@ export default function AthlynXAIAppsEcosystem() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-white text-black font-black text-sm px-8 py-4 rounded-2xl uppercase tracking-wider transition-all hover:bg-gray-100 shadow-lg"
             >
-              🍎 Download on iOS
+               Download on iOS
             </a>
             <a
               href="https://play.google.com/store/apps/details?id=ai.athlynx.app"
@@ -923,7 +923,7 @@ export default function AthlynXAIAppsEcosystem() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 bg-blue-500 hover:bg-blue-400 text-black font-black text-sm px-8 py-4 rounded-2xl uppercase tracking-wider transition-all shadow-lg shadow-blue-500/30"
             >
-              🤖 Download on Android
+               Download on Android
             </a>
             <Link
               href="/signup"

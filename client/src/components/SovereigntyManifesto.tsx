@@ -92,7 +92,7 @@ export default function SovereigntyManifesto() {
       aria-label="The AthlynX Doctrine — Sovereignty Manifesto"
     >
       <div className="max-w-6xl mx-auto">
-        {/* ── Eyebrow ── */}
+        {/*  Eyebrow  */}
         <div className="text-center mb-6">
           <span
             className="inline-block text-[11px] font-black uppercase tracking-[0.32em] text-[#1E90FF]"
@@ -102,13 +102,13 @@ export default function SovereigntyManifesto() {
           </span>
         </div>
 
-        {/* ── Main headline ── */}
+        {/*  Main headline  */}
         <h2 className="text-center font-black tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4">
           The athlete leap{" "}
           <span className="text-[#00C2FF]">is here.</span>
         </h2>
 
-        {/* ── Sub-headline ── */}
+        {/*  Sub-headline  */}
         <div className="text-center mb-8">
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white/80 leading-snug">
             Sovereignty decides who leads it.
@@ -118,7 +118,7 @@ export default function SovereigntyManifesto() {
           </p>
         </div>
 
-        {/* ── Opening paragraph ── */}
+        {/*  Opening paragraph  */}
         <p className="max-w-3xl mx-auto text-center text-white/70 leading-relaxed text-base md:text-lg mb-14">
           Every full-stack AI thesis is converging on one truth: models are
           commoditizing, and sovereignty over the stack beneath them is what
@@ -127,7 +127,7 @@ export default function SovereigntyManifesto() {
           pro to retirement.
         </p>
 
-        {/* ── Three-Pillar Grid ── */}
+        {/*  Three-Pillar Grid  */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {pillars.map((pillar) => (
             <div
@@ -157,7 +157,7 @@ export default function SovereigntyManifesto() {
           ))}
         </div>
 
-        {/* ── Closing manifesto line ── */}
+        {/*  Closing manifesto line  */}
         <div className="text-center mb-12">
           <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
             One identity. Every athlete. Every platform.
@@ -167,7 +167,7 @@ export default function SovereigntyManifesto() {
           </p>
         </div>
 
-        {/* ── CTAs ── */}
+        {/*  CTAs  */}
         <div className="flex flex-wrap gap-3 justify-center mb-14">
           <a
             href="/investor-deck"
@@ -189,7 +189,7 @@ export default function SovereigntyManifesto() {
           </a>
         </div>
 
-        {/* ── Bottom signoff ── */}
+        {/*  Bottom signoff  */}
         <div className="text-center space-y-1.5">
           <p
             className="text-[10px] font-semibold uppercase tracking-widest text-white/40"

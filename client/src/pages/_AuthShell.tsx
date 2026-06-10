@@ -134,6 +134,14 @@ export function AuthShell({ mode }: { mode: Mode }) {
         : provider === "apple"
           ? await signInWithApple()
           : await signInWithFacebook();
+      // OAuth redirect flow: signInWithOAuth triggers a browser redirect.
+      // idToken is empty at this point — the real token comes back via /auth/callback.
+      // AuthCallback.tsx handles the token exchange and session creation.
+      // Do NOT call syncFirebaseMutation here with an empty token.
+      if (!result.idToken) {
+        // Browser is already navigating to the OAuth provider — just wait.
+        return;
+      }
       syncFirebaseMutation.mutate({
         idToken: result.idToken,
         name: result.user.displayName ?? "",

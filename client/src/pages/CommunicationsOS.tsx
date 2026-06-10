@@ -7,11 +7,11 @@ import {
 } from "@shared/communicationsOs";
 
 const badgeTone: Record<string, string> = {
-  connected: "bg-emerald-500/15 text-emerald-200 border-emerald-400/30",
-  needs_setup: "bg-blue-500/15 text-sky-200 border-blue-400/30",
-  planned: "bg-sky-500/15 text-sky-200 border-sky-400/30",
-  critical: "bg-red-500/15 text-red-200 border-red-400/30",
-  high: "bg-cyan-500/15 text-cyan-200 border-cyan-400/30",
+  connected: "bg-[#1E90FF]/15 text-[#00C2FF] border-[#1E90FF]/30",
+  needs_setup: "bg-blue-500/15 text-[#00C2FF] border-blue-400/30",
+  planned: "bg-[#1E90FF]/15 text-[#00C2FF] border-[#1E90FF]/30",
+  critical: "bg-[#1E90FF]/15 text-[#1E90FF] border-[#1E90FF]/30",
+  high: "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30",
   normal: "bg-blue-500/15 text-blue-200 border-blue-400/30",
   low: "bg-slate-500/15 text-slate-200 border-slate-400/30",
 };
@@ -122,7 +122,7 @@ export default function CommunicationsOS() {
                     </span>
                   ))}
                 </div>
-                {provider.limitation ? <p className="mt-4 text-sm text-sky-100">{provider.limitation}</p> : null}
+                {provider.limitation ? <p className="mt-4 text-sm text-[#00C2FF]">{provider.limitation}</p> : null}
                 <p className="mt-4 text-sm leading-6 text-slate-300">{provider.crmAction}</p>
               </article>
             ))}
@@ -189,7 +189,7 @@ export default function CommunicationsOS() {
               "Add Outlook/iCloud move-delete capability or centralize through Gmailify.",
               "Attach SMS webhook with draft-first reply policy.",
             ]).map((item) => (
-              <div key={item} className="rounded-2xl border border-blue-300/10 bg-slate-950/50 p-4 text-sm text-sky-50">
+              <div key={item} className="rounded-2xl border border-blue-300/10 bg-slate-950/50 p-4 text-sm text-[#00C2FF]">
                 {item}
               </div>
             ))}

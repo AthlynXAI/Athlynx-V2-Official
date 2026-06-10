@@ -5,31 +5,31 @@ import { trpc } from "@/lib/trpc";
 import { CheckCircle, ArrowRight, ChevronLeft, X } from "lucide-react";
 import MeetAthletes from "@/components/MeetAthletes";
 
-// ─── Role Definitions ─────────────────────────────────────────────────────────
+//  Role Definitions 
 export const ROLES = [
-  { id: "athlete", label: "Athlete", emoji: "🏆", desc: "I'm the player" },
-  { id: "parent", label: "Parent", emoji: "👨‍👩‍👧", desc: "Supporting my child" },
-  { id: "coach", label: "Coach", emoji: "📋", desc: "I coach athletes" },
-  { id: "agent", label: "Agent", emoji: "🤝", desc: "I represent athletes" },
-  { id: "friend", label: "Friend", emoji: "👫", desc: "Supporting a friend" },
-  { id: "fan", label: "Fan", emoji: "📣", desc: "I follow athletes" },
-  { id: "brand", label: "Brand", emoji: "🏢", desc: "We want NIL deals" },
-  { id: "sponsor", label: "Sponsor", emoji: "💰", desc: "I sponsor athletes" },
-  { id: "financial_advisor", label: "Financial Advisor", emoji: "📊", desc: "I manage athlete finances" },
-  { id: "pastor", label: "Pastor / Chaplain", emoji: "✝️", desc: "Spiritual support" },
-  { id: "sibling", label: "Sibling", emoji: "👥", desc: "Supporting my sibling" },
-  { id: "medical_doctor", label: "Doctor (MD)", emoji: "🩺", desc: "Athlete medical care" },
-  { id: "physical_therapist", label: "Physical Therapist", emoji: "🦴", desc: "Rehab & recovery" },
-  { id: "trainer", label: "Personal Trainer", emoji: "💪", desc: "I train athletes" },
-  { id: "scout", label: "Scout / Recruiter", emoji: "🔭", desc: "I find talent" },
-  { id: "media", label: "Media / Journalist", emoji: "🎙️", desc: "I cover athletes" },
-  { id: "nutritionist", label: "Nutritionist", emoji: "🥗", desc: "Athlete nutrition" },
-  { id: "mental_coach", label: "Mental Performance Coach", emoji: "🧠", desc: "Mental skills training" },
+  { id: "athlete", label: "Athlete", emoji: "", desc: "I'm the player" },
+  { id: "parent", label: "Parent", emoji: "", desc: "Supporting my child" },
+  { id: "coach", label: "Coach", emoji: "", desc: "I coach athletes" },
+  { id: "agent", label: "Agent", emoji: "", desc: "I represent athletes" },
+  { id: "friend", label: "Friend", emoji: "", desc: "Supporting a friend" },
+  { id: "fan", label: "Fan", emoji: "", desc: "I follow athletes" },
+  { id: "brand", label: "Brand", emoji: "", desc: "We want NIL deals" },
+  { id: "sponsor", label: "Sponsor", emoji: "", desc: "I sponsor athletes" },
+  { id: "financial_advisor", label: "Financial Advisor", emoji: "", desc: "I manage athlete finances" },
+  { id: "pastor", label: "Pastor / Chaplain", emoji: "", desc: "Spiritual support" },
+  { id: "sibling", label: "Sibling", emoji: "", desc: "Supporting my sibling" },
+  { id: "medical_doctor", label: "Doctor (MD)", emoji: "", desc: "Athlete medical care" },
+  { id: "physical_therapist", label: "Physical Therapist", emoji: "", desc: "Rehab & recovery" },
+  { id: "trainer", label: "Personal Trainer", emoji: "", desc: "I train athletes" },
+  { id: "scout", label: "Scout / Recruiter", emoji: "", desc: "I find talent" },
+  { id: "media", label: "Media / Journalist", emoji: "", desc: "I cover athletes" },
+  { id: "nutritionist", label: "Nutritionist", emoji: "", desc: "Athlete nutrition" },
+  { id: "mental_coach", label: "Mental Performance Coach", emoji: "", desc: "Mental skills training" },
 ] as const;
 
 export type RoleId = typeof ROLES[number]["id"];
 
-// ─── Questions per role ───────────────────────────────────────────────────────
+//  Questions per role 
 type Question = {
   key: string;
   question: string;
@@ -220,7 +220,7 @@ const ROLE_QUESTIONS: Record<RoleId, Question[]> = {
   ],
 };
 
-// ─── Component ────────────────────────────────────────────────────────────────
+//  Component 
 interface AIOnboardingProps {
   onComplete: (data: Record<string, string>) => void;
   onDismiss?: () => void;
@@ -308,7 +308,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
       setCurrentAnswer("");
     } else {
       // Done
-      newMessages.push({ role: "ai", text: `Perfect! You're all set, ${newAnswers.firstName || "there"}! 🎉 Welcome to AthlynX — your profile is being set up now.` });
+      newMessages.push({ role: "ai", text: `Perfect! You're all set, ${newAnswers.firstName || "there"}!  Welcome to AthlynX — your profile is being set up now.` });
       setMessages(newMessages);
       // Save to backend
       saveOnboarding.mutate({
@@ -329,13 +329,13 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
       setQuestionIndex(nextIndex);
       setCurrentAnswer("");
     } else {
-      newMessages.push({ role: "ai" as const, text: `You're all set! 🎉 Welcome to AthlynX — your profile is being set up now.` });
+      newMessages.push({ role: "ai" as const, text: `You're all set!  Welcome to AthlynX — your profile is being set up now.` });
       setMessages(newMessages);
       saveOnboarding.mutate({ role: selectedRole!, data: newAnswers });
     }
   };
 
-  // ── WELCOME SCREEN ── Cinematic intro
+  //  WELCOME SCREEN  Cinematic intro
   if (step === "welcome") {
     return (
       <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#020812]">
@@ -343,14 +343,14 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-transparent to-indigo-900/30" />
           <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(0,100,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,100,255,0.04) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "4s" }} />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/8 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "5s", animationDelay: "1s" }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#1E90FF]/8 rounded-full blur-3xl animate-pulse" style={{ animationDuration: "5s", animationDelay: "1s" }} />
         </div>
         <div className="relative z-10 text-center px-6">
           <div className="mb-6">
             <img src="/img-athlete-multisport.jpg" alt="AthlynX" className="w-20 h-20 rounded-2xl mx-auto shadow-2xl shadow-blue-500/30" style={{ animation: "bounce 2s infinite" }} />
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-3 tracking-tight">
-            Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">AthlynX</span>
+            Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#0a1628]">AthlynX</span>
           </h1>
           <p className="text-blue-300 text-lg font-medium mb-2">The Athlete's Playbook</p>
           <p className="text-blue-500 text-sm mb-6">Building your personalized experience...</p>
@@ -364,14 +364,14 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
     );
   }
 
-  // ── ACTIVATION SCREEN ── Real-time profile building
+  //  ACTIVATION SCREEN  Real-time profile building
   if (step === "activating") {
     const activationSteps = [
-      { text: "Securing your account", icon: "🔐" },
-      { text: "Building your profile", icon: "🏆" },
-      { text: "Activating your AI Trainer", icon: "🤖" },
-      { text: "Connecting you to the platform", icon: "📊" },
-      { text: "You're ready. Welcome to AthlynX", icon: "🚀" },
+      { text: "Securing your account", icon: "" },
+      { text: "Building your profile", icon: "" },
+      { text: "Activating your AI Trainer", icon: "" },
+      { text: "Connecting you to the platform", icon: "" },
+      { text: "You're ready. Welcome to AthlynX", icon: "" },
     ];
     return (
       <div className="fixed inset-0 z-[100] bg-[#020812] flex items-center justify-center">
@@ -395,19 +395,19 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
                   "opacity-30"
                 }`}>
                   <div className={`text-xl ${done ? "" : active ? "animate-bounce" : ""}`}>
-                    {done ? "✅" : s.icon}
+                    {done ? "" : s.icon}
                   </div>
                   <span className={`text-sm font-semibold flex-1 text-left ${
                     done ? "text-white" : active ? "text-blue-300" : "text-blue-700"
                   }`}>{s.text}</span>
-                  {done && <div className="w-2 h-2 bg-green-400 rounded-full" />}
+                  {done && <div className="w-2 h-2 bg-[#00C2FF] rounded-full" />}
                 </div>
               );
             })}
           </div>
           <div className="h-1.5 bg-blue-900/50 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-700"
+              className="h-full bg-gradient-to-r from-blue-500 to-[#0a1628] rounded-full transition-all duration-700"
               style={{ width: `${(activationStep / activationSteps.length) * 100}%` }}
             />
           </div>
@@ -416,14 +416,14 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
     );
   }
 
-  // ── Role Selection ──
+  //  Role Selection 
   if (step === "role") {
     return (
       <div className="fixed inset-0 z-50 bg-[#050c1a] backdrop-blur-sm flex items-end md:items-center justify-center p-4">
         <div className="bg-[#0d1a3a] border border-blue-700/50 rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl shadow-blue-900/50">
           {/* Header */}
           <div className="sticky top-0 bg-gradient-to-r from-blue-700 to-indigo-700 rounded-t-3xl p-5 text-center">
-            <div className="text-4xl mb-2">🤖</div>
+            <div className="text-4xl mb-2"></div>
             <h2 className="text-xl font-black text-white">Welcome to AthlynX!</h2>
             <p className="text-blue-200 text-sm mt-1">I'm your AI Trainer. First — who are you?</p>
           </div>
@@ -456,7 +456,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
     );
   }
 
-  // ── Questions (Chat UI) ──
+  //  Questions (Chat UI) 
   if (step === "questions") {
     return (
       <div className="fixed inset-0 z-50 bg-[#050c1a] backdrop-blur-sm flex items-end md:items-center justify-center p-4">
@@ -495,7 +495,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
             {messages.map((msg, i) => (
               <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 {msg.role === "ai" && (
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm shrink-0 mt-0.5">🤖</div>
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm shrink-0 mt-0.5"></div>
                 )}
                 <div className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                   msg.role === "user"
@@ -508,7 +508,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
             ))}
             {saveOnboarding.isPending && (
               <div className="flex gap-2 justify-start">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm shrink-0">🤖</div>
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-sm shrink-0"></div>
                 <div className="bg-[#1a3a8f] border border-blue-800/50 rounded-2xl rounded-bl-sm px-3 py-2">
                   <div className="flex gap-1 items-center h-5">
                     <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0ms" }} />
@@ -580,7 +580,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
     );
   }
 
-  // ── Meet Athletes Step ──
+  //  Meet Athletes Step 
   if (step === "meet") {
     return (
       <div className="fixed inset-0 z-50 bg-[#050c1a] backdrop-blur-sm overflow-y-auto">
@@ -588,7 +588,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
           <div className="bg-[#0d1a3a] border border-blue-700/50 rounded-3xl w-full max-w-2xl shadow-2xl">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-700 to-indigo-700 rounded-t-3xl p-6 text-center">
-              <div className="text-4xl mb-2">🏆</div>
+              <div className="text-4xl mb-2"></div>
               <h2 className="text-2xl font-black text-white">You're In! Meet Your Athletes</h2>
               <p className="text-blue-200 text-sm mt-1">Connect with athletes in your sport, at your school, and around the world.</p>
             </div>
@@ -597,7 +597,7 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
               <div className="mt-6 flex gap-3">
                 <button
                   onClick={() => { onComplete(answers); window.location.href = "/portal"; }}
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-black py-4 rounded-2xl text-lg hover:scale-105 transition-all"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-[#0a1628] text-white font-black py-4 rounded-2xl text-lg hover:scale-105 transition-all"
                 >
                   Enter the Platform →
                 </button>
@@ -615,12 +615,12 @@ export default function AIOnboarding({ onComplete, onDismiss }: AIOnboardingProp
     );
   }
 
-  // ── Done ──
+  //  Done 
   return (
     <div className="fixed inset-0 z-50 bg-[#050c1a] backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-[#0d1a3a] border border-green-700/50 rounded-3xl w-full max-w-sm p-8 text-center shadow-2xl">
-        <div className="text-6xl mb-4">🎉</div>
-        <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-3" />
+      <div className="bg-[#0d1a3a] border border-[#00C2FF]/50 rounded-3xl w-full max-w-sm p-8 text-center shadow-2xl">
+        <div className="text-6xl mb-4"></div>
+        <CheckCircle className="w-12 h-12 text-[#00C2FF] mx-auto mb-3" />
         <h2 className="text-2xl font-black text-white mb-2">You're In!</h2>
         <p className="text-blue-300 mb-4">Profile set up. Next — pick your plan and add your card. You won't be charged for 7 days.</p>
         <div className="flex items-center justify-center gap-2 text-blue-400 text-sm">

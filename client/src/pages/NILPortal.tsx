@@ -14,21 +14,21 @@ import { toast } from "sonner";
 import { NILAvatar, type NILAvatarSize } from "@/components/NILAvatar";
 
 const TABS = [
-  { id: "feed", label: "Feed", icon: "🏠" },
-  { id: "messenger", label: "Messenger", icon: "💬" },
-  { id: "deals", label: "NIL Deals", icon: "💰" },
-  { id: "social", label: "Social Hub", icon: "🌐" },
-  { id: "vault", label: "NIL Vault", icon: "🔐" },
+  { id: "feed", label: "Feed", icon: "" },
+  { id: "messenger", label: "Messenger", icon: "" },
+  { id: "deals", label: "NIL Deals", icon: "" },
+  { id: "social", label: "Social Hub", icon: "" },
+  { id: "vault", label: "NIL Vault", icon: "" },
 ];
 
 const SOCIAL_PLATFORMS = [
-  { id: "instagram", label: "Instagram", color: "#E1306C", icon: "📸", placeholder: "https://instagram.com/yourhandle" },
-  { id: "facebook", label: "Facebook", color: "#1877F2", icon: "👥", placeholder: "https://facebook.com/yourpage" },
-  { id: "twitter", label: "X / Twitter", color: "#1DA1F2", icon: "🐦", placeholder: "https://x.com/yourhandle" },
-  { id: "tiktok", label: "TikTok", color: "#FF0050", icon: "🎵", placeholder: "@yourhandle" },
-  { id: "linkedin", label: "LinkedIn", color: "#0A66C2", icon: "💼", placeholder: "https://linkedin.com/in/yourprofile" },
-  { id: "youtube", label: "YouTube", color: "#FF0000", icon: "▶️", placeholder: "https://youtube.com/@yourchannel" },
-  { id: "hudl", label: "Hudl", color: "#F05A28", icon: "🎬", placeholder: "https://hudl.com/profile/yourprofile" },
+  { id: "instagram", label: "Instagram", color: "#E1306C", icon: "", placeholder: "https://instagram.com/yourhandle" },
+  { id: "facebook", label: "Facebook", color: "#1877F2", icon: "", placeholder: "https://facebook.com/yourpage" },
+  { id: "twitter", label: "Instagram", color: "#1DA1F2", icon: "", placeholder: "https://x.com/yourhandle" },
+  { id: "tiktok", label: "TikTok", color: "#FF0050", icon: "", placeholder: "@yourhandle" },
+  { id: "linkedin", label: "LinkedIn", color: "#0A66C2", icon: "", placeholder: "https://linkedin.com/in/yourprofile" },
+  { id: "youtube", label: "YouTube", color: "#FF0000", icon: "", placeholder: "https://youtube.com/@yourchannel" },
+  { id: "hudl", label: "Hudl", color: "#F05A28", icon: "", placeholder: "https://hudl.com/profile/yourprofile" },
 ];
 
 // NIL doctrine: real Image is required. When absent at >=32px, render a
@@ -63,9 +63,9 @@ function FeedTab({ user }: { user: any }) {
               rows={2} className="flex-1 bg-[#0d1f3c] border border-blue-800 text-white text-sm rounded-2xl px-4 py-2.5 focus:outline-none focus:border-blue-500 placeholder-blue-500 resize-none" />
           </div>
           <div className="flex items-center gap-2 pt-2 border-t border-blue-900/50">
-            {[{ l: "📸 Photo", v: "achievement" }, { l: "🎬 Video", v: "workout" }, { l: "💰 NIL Deal", v: "nil_deal" }, { l: "🏆 Update", v: "status" }].map(b => (
+            {[{ l: " Photo", v: "achievement" }, { l: " Video", v: "workout" }, { l: " NIL Deal", v: "nil_deal" }, { l: " Update", v: "status" }].map(b => (
               <button key={b.v} onClick={() => setPostType(b.v as any)}
-                className={`text-xs font-semibold px-2 py-1.5 rounded-lg transition-colors ${postType === b.v ? "text-cyan-400 bg-blue-900/60" : "text-blue-400 hover:bg-blue-900/30"}`}>{b.l}</button>
+                className={`text-xs font-semibold px-2 py-1.5 rounded-lg transition-colors ${postType === b.v ? "text-[#00C2FF] bg-blue-900/60" : "text-blue-400 hover:bg-blue-900/30"}`}>{b.l}</button>
             ))}
             <button onClick={() => postText.trim() && createPost.mutate({ content: postText, postType })}
               disabled={createPost.isPending || !postText.trim()}
@@ -83,7 +83,7 @@ function FeedTab({ user }: { user: any }) {
       ))}
       {!isLoading && (posts as any[]).length === 0 && (
         <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-8 text-center">
-          <div className="text-4xl mb-3">🏆</div>
+          <div className="text-4xl mb-3"></div>
           <div className="text-white font-bold mb-2">NIL Feed is Live</div>
           <div className="text-blue-400 text-sm">Share your NIL deals, highlights, and recruiting updates.</div>
         </div>
@@ -97,14 +97,14 @@ function FeedTab({ user }: { user: any }) {
                 <span className="font-bold text-white text-sm">{post.authorName || "Athlete"}</span>
                 <svg className="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
               </div>
-              <div className="text-blue-400 text-xs">{timeAgo(post.createdAt)} · 🌐</div>
+              <div className="text-blue-400 text-xs">{timeAgo(post.createdAt)} · </div>
             </div>
             <span className="text-[9px] font-black px-2 py-1 rounded-full text-white bg-blue-600">{post.postType?.toUpperCase() || "POST"}</span>
           </div>
           <div className="px-4 pb-3"><p className="text-blue-100 text-sm leading-relaxed">{post.content}</p></div>
           {post.mediaUrl && post.mediaType === "image" && <img src={post.mediaUrl} className="w-full max-h-64 object-cover" alt="" />}
           <div className="px-2 py-1 flex border-t border-blue-900">
-            {[{ icon: "👍", label: "Like" }, { icon: "💬", label: "Comment" }, { icon: "↗️", label: "Share" }].map(a => (
+            {[{ icon: "", label: "Like" }, { icon: "", label: "Comment" }, { icon: "↗", label: "Share" }].map(a => (
               <button key={a.label} className="flex-1 flex items-center justify-center gap-1.5 py-2 text-sm font-semibold text-blue-400 hover:bg-blue-900/30 rounded-lg transition-colors">
                 <span>{a.icon}</span>{a.label}
               </button>
@@ -132,7 +132,7 @@ function MessengerTab({ user }: { user: any }) {
   });
   if (!user) return (
     <div className="text-center py-8">
-      <div className="text-4xl mb-3">💬</div>
+      <div className="text-4xl mb-3"></div>
       <div className="text-white font-bold mb-2">Sign in to Message Athletes</div>
       <Link href="/signin" className="inline-block bg-blue-600 text-white font-bold px-6 py-2.5 rounded-xl">Sign In</Link>
     </div>
@@ -218,7 +218,7 @@ function SocialHubTab({ user }: { user: any }) {
     <div className="space-y-4">
       <div className="bg-gradient-to-r from-[#1a3a8f] to-[#0d1f3c] border border-blue-700 rounded-xl p-4">
         <div className="flex items-center gap-3 mb-2">
-          <div className="text-3xl">🌐</div>
+          <div className="text-3xl"></div>
           <div>
             <div className="text-white font-black text-lg">Social Command Center</div>
             <div className="text-blue-300 text-sm">Connect all your platforms. One hub. Total control.</div>
@@ -256,13 +256,13 @@ function SocialHubTab({ user }: { user: any }) {
           );
         })}
         <button onClick={handleSave} disabled={updateProfile.isPending}
-          className="w-full mt-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 rounded-xl transition-all disabled:opacity-50">
+          className="w-full mt-2 bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold py-3 rounded-xl transition-all disabled:opacity-50">
           {updateProfile.isPending ? "Saving..." : "Save & Connect All Platforms"}
         </button>
       </div>
       <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4">
         <div className="flex items-center gap-3 mb-3">
-          <div className="text-2xl">📡</div>
+          <div className="text-2xl"></div>
           <div>
             <div className="text-white font-bold text-sm">Cross-Post to All Platforms</div>
             <div className="text-blue-400 text-xs">Post once on AthlynX — goes to Instagram, Facebook, X, TikTok, LinkedIn simultaneously</div>
@@ -275,9 +275,9 @@ function SocialHubTab({ user }: { user: any }) {
       <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4">
         <div className="text-white font-bold text-sm mb-3">Connected Channels via Buffer</div>
         <div className="grid grid-cols-2 gap-2">
-          {["Instagram (AthlynXAI)", "Facebook (AthlynX)", "X / Twitter", "LinkedIn", "TikTok (cdozier75)", "YouTube"].map(c => (
+          {["Instagram (AthlynXAI)", "Facebook (AthlynX)", "Instagram", "LinkedIn", "TikTok (cdozier75)", "YouTube"].map(c => (
             <div key={c} className="flex items-center gap-2 bg-[#0d1f3c] rounded-lg p-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full shrink-0" />
+              <div className="w-2 h-2 bg-[#00C2FF] rounded-full shrink-0" />
               <div className="text-white text-xs font-semibold truncate">{c}</div>
             </div>
           ))}
@@ -299,9 +299,9 @@ function DealsTab({ user }: { user: any }) {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-3 gap-3">
-        {[{ label: "Total NIL Value", value: `$${totalValue.toLocaleString()}`, color: "text-green-400" },
+        {[{ label: "Total NIL Value", value: `$${totalValue.toLocaleString()}`, color: "text-[#00C2FF]" },
           { label: "Active Deals", value: String((myDeals as any[]).filter((d: any) => d.status === "active").length), color: "text-blue-400" },
-          { label: "Total Deals", value: String((myDeals as any[]).length), color: "text-cyan-400" }].map((s, i) => (
+          { label: "Total Deals", value: String((myDeals as any[]).length), color: "text-[#00C2FF]" }].map((s, i) => (
           <div key={i} className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-3 text-center">
             <div className={`text-xl font-black ${s.color}`}>{s.value}</div>
             <div className="text-blue-400 text-xs mt-0.5">{s.label}</div>
@@ -322,7 +322,7 @@ function DealsTab({ user }: { user: any }) {
           ))}
           <button onClick={() => createDeal.mutate({ brandName: newDeal.brandName, dealValue: parseFloat(newDeal.dealValue) || 0, description: newDeal.description, category: newDeal.category })}
             disabled={createDeal.isPending || !newDeal.brandName}
-            className="w-full bg-green-600 hover:bg-green-500 disabled:opacity-50 text-white font-bold py-2.5 rounded-xl text-sm">
+            className="w-full bg-[#00C2FF] hover:bg-[#00C2FF] disabled:opacity-50 text-white font-bold py-2.5 rounded-xl text-sm">
             {createDeal.isPending ? "Adding..." : "Add Deal"}
           </button>
         </div>
@@ -331,15 +331,15 @@ function DealsTab({ user }: { user: any }) {
         <div key={d.id} className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <div className="font-bold text-white">{d.brandName}</div>
-            <span className={`text-xs font-bold px-2 py-1 rounded-full ${d.status === "active" ? "bg-green-900 text-green-400" : d.status === "pending" ? "bg-blue-900 text-sky-400" : "bg-gray-800 text-gray-400"}`}>{d.status?.toUpperCase()}</span>
+            <span className={`text-xs font-bold px-2 py-1 rounded-full ${d.status === "active" ? "bg-[#00C2FF] text-[#00C2FF]" : d.status === "pending" ? "bg-blue-900 text-[#00C2FF]" : "bg-gray-800 text-gray-400"}`}>{d.status?.toUpperCase()}</span>
           </div>
-          <div className="text-green-400 font-black text-lg">${(d.dealValue ?? 0).toLocaleString()}</div>
+          <div className="text-[#00C2FF] font-black text-lg">${(d.dealValue ?? 0).toLocaleString()}</div>
           {d.description && <div className="text-blue-300 text-sm mt-1">{d.description}</div>}
         </div>
       ))}
       {(myDeals as any[]).length === 0 && (
         <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-6 text-center">
-          <div className="text-3xl mb-2">💰</div>
+          <div className="text-3xl mb-2"></div>
           <div className="text-white font-bold mb-1">No NIL Deals Yet</div>
           <div className="text-blue-400 text-sm">Add your first deal to start tracking your NIL value.</div>
         </div>
@@ -360,7 +360,7 @@ function NILPortalInner() {
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <h2 className="text-xl font-black text-white">NIL PORTAL</h2>
-                <span className="text-xs bg-green-600 text-white px-2 py-0.5 rounded-full font-bold">LIVE</span>
+                <span className="text-xs bg-[#00C2FF] text-white px-2 py-0.5 rounded-full font-bold">LIVE</span>
               </div>
               <p className="text-blue-300 text-xs">Feed · Messenger · NIL Deals · Social Hub · All Platforms Connected</p>
             </div>
@@ -384,7 +384,7 @@ function NILPortalInner() {
         {activeTab === "social" && <SocialHubTab user={user} />}
         {activeTab === "vault" && (
           <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-6 text-center">
-            <div className="text-4xl mb-3">🔐</div>
+            <div className="text-4xl mb-3"></div>
             <div className="text-white font-black text-lg mb-2">NIL Vault</div>
             <div className="text-blue-400 text-sm mb-4">Secure storage for your NIL contracts, agreements, and documents.</div>
             <Link href="/nil-vault" className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-xl">Open NIL Vault →</Link>

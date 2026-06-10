@@ -37,28 +37,28 @@ function SerenityMemorialInner() {
       years: "Years 1-2",
       description: "Establish flagship Orange Beach location. Build operational excellence and community reputation.",
       target: "80-120 Services",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-[#0a1628]"
     },
     {
       phase: "Regional",
       years: "Years 3-4",
       description: "Acquire 3-5 locations in Gulf Coast region. Leverage economies of scale in purchasing.",
       target: "400-600 Services",
-      color: "from-cyan-500 to-teal-500"
+      color: "from-[#1E90FF] to-[#00C2FF]"
     },
     {
       phase: "State-Level",
       years: "Years 5-7",
       description: "Expand throughout Alabama & adjacent states. Acquire established local brands.",
       target: "1,000-1,500 Services",
-      color: "from-teal-500 to-green-500"
+      color: "from-[#00C2FF] to-[#0a1628]"
     },
     {
       phase: "Multi-State",
       years: "Years 8-10",
       description: "Expand to GA, TN, Carolinas. Position for institutional investment or strategic exit.",
       target: "3,000-5,000 Services",
-      color: "from-green-500 to-emerald-500"
+      color: "from-[#00C2FF] to-[#00C2FF]"
     }
   ];
 
@@ -103,17 +103,17 @@ function SerenityMemorialInner() {
         
         <div className="container relative px-4 md:px-5">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="bg-red-500/20 text-red-400 border-red-500/30 mb-4">
+            <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30 mb-4">
               <Building className="w-3 h-3 mr-1" /> A DOZIER HOLDINGS GROUP SUBSIDIARY
             </Badge>
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Leaf className="w-10 h-10 text-emerald-400" />
+              <Leaf className="w-10 h-10 text-[#00C2FF]" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white">
                 Serenity Memorial
               </h1>
-              <Leaf className="w-10 h-10 text-emerald-400 transform scale-x-[-1]" />
+              <Leaf className="w-10 h-10 text-[#00C2FF] transform scale-x-[-1]" />
             </div>
-            <p className="text-2xl text-red-400 font-light mb-4">Services</p>
+            <p className="text-2xl text-[#1E90FF] font-light mb-4">Services</p>
             <p className="text-xl text-white/70 italic mb-8">
               "Honoring Life with Grace"
             </p>
@@ -144,7 +144,7 @@ function SerenityMemorialInner() {
           ].map((stat, i) => (
             <Card key={i} className="bg-white/5 border-white/10 text-center">
               <CardContent className="p-6">
-                <p className="text-3xl font-bold text-red-400 mb-2">{stat.value}</p>
+                <p className="text-3xl font-bold text-[#1E90FF] mb-2">{stat.value}</p>
                 <p className="text-white font-semibold">{stat.label}</p>
                 <p className="text-white/50 text-sm">{stat.sub}</p>
               </CardContent>
@@ -153,14 +153,14 @@ function SerenityMemorialInner() {
         </div>
 
         {/* Orange Beach Advantage */}
-        <Card className="bg-gradient-to-r from-emerald-500/20 to-red-500/20 border-emerald-500/30">
+        <Card className="bg-gradient-to-r from-[#00C2FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30">
           <CardContent className="p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <Badge className="bg-emerald-500/20 text-emerald-400 mb-4">CRITICAL ADVANTAGE</Badge>
+                <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] mb-4">CRITICAL ADVANTAGE</Badge>
                 <h3 className="text-2xl font-bold text-white mb-4">Orange Beach Market</h3>
                 <p className="text-white/70 mb-4">
-                  <strong className="text-emerald-400">No dedicated funeral home exists within Orange Beach city limits</strong>, 
+                  <strong className="text-[#00C2FF]">No dedicated funeral home exists within Orange Beach city limits</strong>, 
                   creating a significant first-mover opportunity.
                 </p>
                 <p className="text-white/60">
@@ -202,7 +202,7 @@ function SerenityMemorialInner() {
                 <h3 className="text-xl font-bold text-white mb-3">{phase.phase}</h3>
                 <p className="text-white/60 text-sm mb-4">{phase.description}</p>
                 <div className="pt-4 border-t border-white/10">
-                  <p className="text-red-400 font-semibold">Target: {phase.target}</p>
+                  <p className="text-[#1E90FF] font-semibold">Target: {phase.target}</p>
                 </div>
               </CardContent>
             </Card>
@@ -234,7 +234,7 @@ function SerenityMemorialInner() {
               <tr className="border-b border-white/10">
                 <td className="py-4 px-4 text-white">Annual Revenue</td>
                 {financials.map((f, i) => (
-                  <td key={i} className="text-center py-4 px-4 text-emerald-400 font-semibold">{f.revenue}</td>
+                  <td key={i} className="text-center py-4 px-4 text-[#00C2FF] font-semibold">{f.revenue}</td>
                 ))}
               </tr>
               <tr className="border-b border-white/10">
@@ -252,7 +252,7 @@ function SerenityMemorialInner() {
               <tr className="border-b border-white/10">
                 <td className="py-4 px-4 text-white">Net Profit Margin</td>
                 {financials.map((f, i) => (
-                  <td key={i} className="text-center py-4 px-4 text-red-400 font-semibold">{f.margin}</td>
+                  <td key={i} className="text-center py-4 px-4 text-[#1E90FF] font-semibold">{f.margin}</td>
                 ))}
               </tr>
               <tr>
@@ -295,7 +295,7 @@ function SerenityMemorialInner() {
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="bg-white/5 border-white/10">
             <CardContent className="p-8">
-              <Badge className="bg-red-500/20 text-red-400 mb-4">FOUNDER & CEO</Badge>
+              <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] mb-4">FOUNDER & CEO</Badge>
               <h3 className="text-2xl font-bold text-white mb-4">Bailey Boyd</h3>
               <p className="text-white/70">
                 Experienced leader focused on compassionate service and community impact, 
@@ -305,7 +305,7 @@ function SerenityMemorialInner() {
           </Card>
           <Card className="bg-white/5 border-white/10">
             <CardContent className="p-8">
-              <Badge className="bg-cyan-500/20 text-cyan-400 mb-4">STRATEGIC PARTNER</Badge>
+              <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] mb-4">STRATEGIC PARTNER</Badge>
               <h3 className="text-2xl font-bold text-white mb-4">Dozier Holdings Group</h3>
               <p className="text-white/70">
                 Silent partner supplying strategic oversight, capital access, and 
@@ -323,8 +323,8 @@ function SerenityMemorialInner() {
           {competitiveAdvantages.map((adv, i) => (
             <Card key={i} className="bg-white/5 border-white/10">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-4">
-                  <adv.icon className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-xl flex items-center justify-center mb-4">
+                  <adv.icon className="w-6 h-6 text-[#1E90FF]" />
                 </div>
                 <h3 className="text-white font-semibold mb-2">{adv.title}</h3>
                 <p className="text-white/60 text-sm">{adv.description}</p>
@@ -336,30 +336,30 @@ function SerenityMemorialInner() {
 
       {/* Investment Opportunity */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-red-500/20 to-emerald-500/20 border-red-500/30">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/20 to-[#00C2FF]/20 border-[#1E90FF]/30">
           <CardContent className="p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <Badge className="bg-red-500/20 text-red-400 mb-4">INVESTMENT OPPORTUNITY</Badge>
+                <Badge className="bg-[#1E90FF]/20 text-[#1E90FF] mb-4">INVESTMENT OPPORTUNITY</Badge>
                 <h2 className="text-3xl font-bold text-white mb-4">Initial Capital Ask</h2>
-                <p className="text-5xl font-bold text-red-400 mb-6">$650,000</p>
+                <p className="text-5xl font-bold text-[#1E90FF] mb-6">$650,000</p>
                 
                 <h3 className="text-white font-semibold mb-4">Investment Highlights</h3>
                 <ul className="space-y-3 text-white/70">
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                     <span><strong>Immediate Market Opportunity:</strong> First and only funeral home in Orange Beach city limits</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                     <span><strong>Proven Industry Model:</strong> Roll-up strategy validated by major consolidators</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                     <span><strong>Strong Unit Economics:</strong> Projected 27.6% net margins by Year 5</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ChevronRight className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="w-5 h-5 text-[#00C2FF] flex-shrink-0 mt-0.5" />
                     <span><strong>Clear Exit Strategy:</strong> Strategic sale or PE buyout at 6-10x EBITDA</span>
                   </li>
                 </ul>
@@ -378,7 +378,7 @@ function SerenityMemorialInner() {
                 
                 <div className="mt-6">
                   <Link href="/investor-hub">
-                    <Button className="w-full bg-red-500 hover:bg-red-400 text-black font-bold py-3">
+                    <Button className="w-full bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold py-3">
                       Contact for Investment Details
                     </Button>
                   </Link>
@@ -398,12 +398,12 @@ function SerenityMemorialInner() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact">
-              <Button className="bg-red-500 hover:bg-red-400 text-black font-bold">
+              <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-black font-bold">
                 <Phone className="w-4 h-4 mr-2" /> Contact Us
               </Button>
             </Link>
             <Link href="/investor-deck">
-              <Button variant="outline" className="border-red-500/50 text-red-400 hover:bg-red-500/20">
+              <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF] hover:bg-[#1E90FF]/20">
                 View Full Investor Deck
               </Button>
             </Link>

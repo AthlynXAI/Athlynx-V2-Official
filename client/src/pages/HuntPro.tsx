@@ -97,15 +97,15 @@ function HuntProInner() {
       <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMDAsMTUwLDEwMCwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
         
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-[#1E90FF]/10 rounded-full blur-3xl" />
 
         <div className="container relative py-16 px-5">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 rounded-full px-4 py-2 mb-6">
-              <Crosshair className="w-5 h-5 text-red-400" />
-              <span className="text-red-400 font-bold">HUNT PRO</span>
-              <Badge className="bg-red-500 text-black text-xs">POWERED BY AthlynX</Badge>
+            <div className="inline-flex items-center gap-2 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-full px-4 py-2 mb-6">
+              <Crosshair className="w-5 h-5 text-[#1E90FF]" />
+              <span className="text-[#1E90FF] font-bold">HUNT PRO</span>
+              <Badge className="bg-[#1E90FF] text-black text-xs">POWERED BY AthlynX</Badge>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
@@ -118,10 +118,10 @@ function HuntProInner() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Button className="bg-red-500 hover:bg-red-400 text-white font-bold px-8 py-6 text-lg">
+              <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold px-8 py-6 text-lg">
                 <Trophy className="w-5 h-5 mr-2" /> Join Competition
               </Button>
-              <Button variant="outline" className="border-red-500/50 text-red-400 hover:bg-red-500/20 px-8 py-6 text-lg">
+              <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF] hover:bg-[#1E90FF]/20 px-8 py-6 text-lg">
                 <MapPin className="w-5 h-5 mr-2" /> Find Hunting Land
               </Button>
             </div>
@@ -130,7 +130,7 @@ function HuntProInner() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {stats.map((stat, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <stat.icon className="w-6 h-6 text-red-400 mx-auto mb-2" />
+                  <stat.icon className="w-6 h-6 text-[#1E90FF] mx-auto mb-2" />
                   <p className="text-2xl font-black text-white">{stat.value}</p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
                 </div>
@@ -162,22 +162,22 @@ function HuntProInner() {
       <section className="container px-5 py-12">
         <Tabs defaultValue="tournaments" className="w-full">
           <TabsList className="grid grid-cols-6 bg-white/5 border border-white/10 rounded-xl p-1 mb-8">
-            <TabsTrigger value="tournaments" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="tournaments" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Trophy className="w-4 h-4 mr-1 md:mr-2" /> Tournaments
             </TabsTrigger>
-            <TabsTrigger value="hunters" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="hunters" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Users className="w-4 h-4 mr-1 md:mr-2" /> Pro Hunters
             </TabsTrigger>
-            <TabsTrigger value="calendar" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="calendar" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Calendar className="w-4 h-4 mr-1 md:mr-2" /> Seasons
             </TabsTrigger>
-            <TabsTrigger value="camps" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="camps" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <Mountain className="w-4 h-4 mr-1 md:mr-2" /> Camps
             </TabsTrigger>
-            <TabsTrigger value="gear" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="gear" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <ShoppingBag className="w-4 h-4 mr-1 md:mr-2" /> Sitka Gear
             </TabsTrigger>
-            <TabsTrigger value="land" className="data-[state=active]:bg-red-500 data-[state=active]:text-white text-xs md:text-sm">
+            <TabsTrigger value="land" className="data-[state=active]:bg-[#1E90FF] data-[state=active]:text-white text-xs md:text-sm">
               <TreePine className="w-4 h-4 mr-1 md:mr-2" /> Land
             </TabsTrigger>
           </TabsList>
@@ -187,19 +187,19 @@ function HuntProInner() {
             <div className="space-y-4">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-white">National Hunting Championships</h2>
-                <Button variant="outline" className="border-red-500/50 text-red-400">
+                <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF]">
                   View All <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
               
               {tournaments.map((tournament, i) => (
-                <Card key={i} className="bg-white/5 border-white/10 hover:border-red-500/50 transition-all">
+                <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/50 transition-all">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
                           <h3 className="text-xl font-bold text-white">{tournament.name}</h3>
-                          <Badge className="bg-red-500/20 text-red-400">{tournament.species}</Badge>
+                          <Badge className="bg-[#1E90FF]/20 text-[#1E90FF]">{tournament.species}</Badge>
                         </div>
                         <div className="flex flex-wrap gap-4 text-white/60 text-sm">
                           <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> {tournament.location}</span>
@@ -209,10 +209,10 @@ function HuntProInner() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-green-400">{tournament.prize}</p>
+                          <p className="text-2xl font-bold text-[#00C2FF]">{tournament.prize}</p>
                           <p className="text-white/50 text-sm">Prize Pool</p>
                         </div>
-                        <Button className={tournament.status === "Open" ? "bg-red-500 hover:bg-red-400" : "bg-gray-600"}>
+                        <Button className={tournament.status === "Open" ? "bg-[#1E90FF] hover:bg-[#1E90FF]" : "bg-gray-600"}>
                           {tournament.status === "Open" ? "Register" : tournament.status}
                         </Button>
                       </div>
@@ -229,15 +229,15 @@ function HuntProInner() {
               <h2 className="text-2xl font-bold text-white mb-6">Pro Hunter Rankings</h2>
               
               {proHunters.map((hunter, i) => (
-                <Card key={i} className="bg-white/5 border-white/10 hover:border-red-500/50 transition-all">
+                <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/50 transition-all">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold ${
-                          hunter.rank === 1 ? 'bg-red-500 text-black' :
+                          hunter.rank === 1 ? 'bg-[#1E90FF] text-black' :
                           hunter.rank === 2 ? 'bg-gray-400 text-black' :
-                          hunter.rank === 3 ? 'bg-red-600 text-white' :
-                          'bg-red-500/20 text-red-400'
+                          hunter.rank === 3 ? 'bg-[#1E90FF] text-white' :
+                          'bg-[#1E90FF]/20 text-[#1E90FF]'
                         }`}>
                           #{hunter.rank}
                         </div>
@@ -248,18 +248,18 @@ function HuntProInner() {
                       </div>
                       <div className="flex items-center gap-8">
                         <div className="text-center">
-                          <p className="text-xl font-bold text-green-400">{hunter.earnings}</p>
+                          <p className="text-xl font-bold text-[#00C2FF]">{hunter.earnings}</p>
                           <p className="text-white/50 text-xs">Career Earnings</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-xl font-bold text-red-400">{hunter.trophies}</p>
+                          <p className="text-xl font-bold text-[#1E90FF]">{hunter.trophies}</p>
                           <p className="text-white/50 text-xs">Trophy Animals</p>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Star className="w-5 h-5 text-red-400 fill-red-400" />
+                          <Star className="w-5 h-5 text-[#1E90FF] fill-red-400" />
                           <span className="text-white font-bold">{hunter.rating}</span>
                         </div>
-                        <Button variant="outline" className="border-red-500/50 text-red-400">View Profile</Button>
+                        <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF]">View Profile</Button>
                       </div>
                     </div>
                   </CardContent>
@@ -279,8 +279,8 @@ function HuntProInner() {
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <Target className="w-6 h-6 text-red-400" />
+                          <div className="w-12 h-12 bg-[#1E90FF]/20 rounded-lg flex items-center justify-center">
+                            <Target className="w-6 h-6 text-[#1E90FF]" />
                           </div>
                           <div>
                             <h3 className="text-lg font-bold text-white">{season.species}</h3>
@@ -292,7 +292,7 @@ function HuntProInner() {
                             <p className="text-white font-semibold">{season.season}</p>
                             <p className="text-white/50 text-sm">Season Dates</p>
                           </div>
-                          <Badge className={season.status === "Open" ? "bg-green-500" : "bg-red-500 text-black"}>
+                          <Badge className={season.status === "Open" ? "bg-[#00C2FF]" : "bg-[#1E90FF] text-black"}>
                             {season.status}
                           </Badge>
                         </div>
@@ -311,14 +311,14 @@ function HuntProInner() {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {camps.map((camp, i) => (
-                  <Card key={i} className="bg-white/5 border-white/10 hover:border-red-500/50 transition-all">
+                  <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/50 transition-all">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <h3 className="text-xl font-bold text-white mb-1">{camp.name}</h3>
                           <p className="text-white/50 text-sm">Instructor: {camp.instructor}</p>
                         </div>
-                        <Badge className="bg-red-500/20 text-red-400">{camp.focus}</Badge>
+                        <Badge className="bg-[#1E90FF]/20 text-[#1E90FF]">{camp.focus}</Badge>
                       </div>
                       <div className="flex flex-wrap gap-4 text-white/60 text-sm mb-4">
                         <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {camp.duration}</span>
@@ -326,8 +326,8 @@ function HuntProInner() {
                         <span className="flex items-center gap-1"><Users className="w-4 h-4" /> {camp.spots} spots</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <p className="text-2xl font-bold text-green-400">{camp.price}</p>
-                        <Button className="bg-red-500 hover:bg-red-400">Book Now</Button>
+                        <p className="text-2xl font-bold text-[#00C2FF]">{camp.price}</p>
+                        <Button className="bg-[#1E90FF] hover:bg-[#1E90FF]">Book Now</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -349,13 +349,13 @@ function HuntProInner() {
                   <Card key={i} className="bg-white/5 border-white/10 hover:border-[#5a6c4d] transition-all">
                     <CardContent className="p-6">
                       <div className="aspect-square bg-[#4a5c3d]/20 rounded-lg mb-4 flex items-center justify-center">
-                        <span className="text-6xl">🦌</span>
+                        <span className="text-6xl"></span>
                       </div>
                       <Badge className="bg-[#4a5c3d]/30 text-[#8fa97a] mb-2">{item.pattern}</Badge>
                       <h3 className="text-lg font-bold text-white mb-1">{item.name}</h3>
                       <p className="text-white/50 text-sm mb-3">{item.type}</p>
                       <div className="flex items-center gap-2 mb-4">
-                        <Star className="w-4 h-4 text-red-400 fill-red-400" />
+                        <Star className="w-4 h-4 text-[#1E90FF] fill-red-400" />
                         <span className="text-white">{item.rating}</span>
                         <span className="text-white/50 text-sm">({item.reviews.toLocaleString()} reviews)</span>
                       </div>
@@ -398,26 +398,26 @@ function HuntProInner() {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {landListings.map((land, i) => (
-                  <Card key={i} className="bg-white/5 border-white/10 hover:border-red-500/50 transition-all">
+                  <Card key={i} className="bg-white/5 border-white/10 hover:border-[#1E90FF]/50 transition-all">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div>
                           <h3 className="text-xl font-bold text-white">{land.name}</h3>
                           <p className="text-white/50">{land.state}</p>
                         </div>
-                        <div className="flex items-center gap-1 bg-red-500/20 px-2 py-1 rounded">
-                          <Star className="w-4 h-4 text-red-400 fill-red-400" />
-                          <span className="text-red-400 font-bold">{land.rating}</span>
+                        <div className="flex items-center gap-1 bg-[#1E90FF]/20 px-2 py-1 rounded">
+                          <Star className="w-4 h-4 text-[#1E90FF] fill-red-400" />
+                          <span className="text-[#1E90FF] font-bold">{land.rating}</span>
                         </div>
                       </div>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {land.species.map((s, j) => (
-                          <Badge key={j} className="bg-red-500/20 text-red-400">{s}</Badge>
+                          <Badge key={j} className="bg-[#1E90FF]/20 text-[#1E90FF]">{s}</Badge>
                         ))}
                       </div>
                       <div className="flex items-center justify-between">
-                        <p className="text-xl font-bold text-green-400">{land.price}</p>
-                        <Button variant="outline" className="border-red-500/50 text-red-400">
+                        <p className="text-xl font-bold text-[#00C2FF]">{land.price}</p>
+                        <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF]">
                           <MapPin className="w-4 h-4 mr-1" /> View Details
                         </Button>
                       </div>
@@ -432,9 +432,9 @@ function HuntProInner() {
 
       {/* AI Hunting Guide */}
       <section className="container px-5 py-12">
-        <Card className="bg-gradient-to-br from-red-500/20 to-red-500/20 border-red-500/30">
+        <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30">
           <CardContent className="p-8 text-center">
-            <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-[#1E90FF] rounded-full flex items-center justify-center mx-auto mb-6">
               <Bot className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">AI Hunting Guide</h2>
@@ -443,7 +443,7 @@ function HuntProInner() {
               gear suggestions, and expert tips powered by AI.
             </p>
             <Link href="/ai-training-bot">
-              <Button className="bg-red-500 hover:bg-red-400 text-white font-bold px-8 py-3">
+              <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold px-8 py-3">
                 <Bot className="w-5 h-5 mr-2" /> Start AI Hunting Guide
               </Button>
             </Link>
@@ -454,7 +454,7 @@ function HuntProInner() {
 
       {/* CTA Section */}
       <section className="container px-5 py-16">
-        <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Hunt Like a Pro?
           </h2>
@@ -463,7 +463,7 @@ function HuntProInner() {
             Tournaments, gear, land, and AI-powered guidance.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-white text-red-600 font-bold px-8 py-3 hover:bg-gray-100">
+            <Button className="bg-white text-[#1E90FF] font-bold px-8 py-3 hover:bg-gray-100">
               Create Free Account
             </Button>
             <Button variant="outline" className="border-white text-white hover:bg-white/20 px-8 py-3">

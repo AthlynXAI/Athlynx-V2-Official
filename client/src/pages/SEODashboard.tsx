@@ -76,8 +76,8 @@ export default function SEODashboard() {
             <span className="text-[#1E90FF] font-bold">SEO Command Center</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-green-400 text-xs font-mono">LIVE</span>
+            <span className="w-2 h-2 rounded-full bg-[#00C2FF] animate-pulse" />
+            <span className="text-[#00C2FF] text-xs font-mono">LIVE</span>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function SEODashboard() {
             <div key={s.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
               <div className="text-2xl font-black text-[#1E90FF]">{s.value}</div>
               <div className="text-white/70 text-sm mt-1">{s.label}</div>
-              <div className="text-green-400 text-xs mt-1">{s.trend}</div>
+              <div className="text-[#00C2FF] text-xs mt-1">{s.trend}</div>
             </div>
           ))}
         </div>
@@ -126,13 +126,13 @@ export default function SEODashboard() {
                 <h3 className="font-bold text-lg mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <button onClick={exportSitemap} className="w-full text-left px-4 py-3 bg-[#1E90FF]/10 border border-[#1E90FF]/30 rounded-lg text-[#1E90FF] hover:bg-[#1E90FF]/20 transition-colors text-sm font-semibold">
-                    📄 Export sitemap.xml
+                     Export sitemap.xml
                   </button>
                   <button onClick={handleCopy} className="w-full text-left px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white hover:bg-white/10 transition-colors text-sm font-semibold">
-                    {copied ? "✅ Copied!" : "📋 Copy Shopify Crawler Headers"}
+                    {copied ? " Copied!" : " Copy Shopify Crawler Headers"}
                   </button>
                   <a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white hover:bg-white/10 transition-colors text-sm font-semibold">
-                    🔍 Open Google Search Console →
+                     Open Google Search Console →
                   </a>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function SEODashboard() {
                       <span className="text-white/80">{k.keyword}</span>
                       <div className="flex gap-3">
                         <span className="text-white/40">{k.volume}</span>
-                        <span className="text-green-400 font-mono">{k.rank}</span>
+                        <span className="text-[#00C2FF] font-mono">{k.rank}</span>
                       </div>
                     </div>
                   ))}
@@ -172,7 +172,7 @@ export default function SEODashboard() {
                     <td className="px-4 py-3 text-white font-medium">{k.keyword}</td>
                     <td className="px-4 py-3 text-white/60">{k.volume}</td>
                     <td className="px-4 py-3">
-                      <span className={`px-2 py-0.5 rounded text-xs font-semibold ${k.difficulty === "Low" ? "bg-green-500/20 text-green-400" : k.difficulty === "Medium" ? "bg-yellow-500/20 text-yellow-400" : "bg-red-500/20 text-red-400"}`}>
+                      <span className={`px-2 py-0.5 rounded text-xs font-semibold ${k.difficulty === "Low" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : k.difficulty === "Medium" ? "bg-[#1E90FF]/20 text-white" : "bg-[#1E90FF]/20 text-[#1E90FF]"}`}>
                         {k.difficulty}
                       </span>
                     </td>
@@ -229,8 +229,8 @@ export default function SEODashboard() {
                   <div className="font-semibold">{c.name}</div>
                   <div className="text-white/40 text-xs mt-0.5">{c.url}</div>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-bold ${c.status === "connected" ? "bg-green-500/20 text-green-400" : "bg-yellow-500/20 text-yellow-400"}`}>
-                  {c.status === "connected" ? "✅ Connected" : "⏳ Pending"}
+                <span className={`px-3 py-1 rounded-full text-xs font-bold ${c.status === "connected" ? "bg-[#00C2FF]/20 text-[#00C2FF]" : "bg-[#1E90FF]/20 text-white"}`}>
+                  {c.status === "connected" ? " Connected" : " Pending"}
                 </span>
               </div>
             ))}

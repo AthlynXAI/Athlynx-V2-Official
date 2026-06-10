@@ -40,12 +40,12 @@ const footerLinks = {
 const socialLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/chad-a-dozier-494391136", icon: ExternalLink, color: "hover:text-blue-400" },
   { name: "Globe", href: "https://www.facebook.com/chad.dozier.2025", icon: Globe, color: "hover:text-blue-500" },
-  { name: "Share2", href: "https://twitter.com/AthlynX", icon: Share2, color: "hover:text-sky-400" },
-  { name: "Camera", href: "https://instagram.com/athlynx", icon: Camera, color: "hover:text-red-400" },
-  { name: "YouTube", href: "https://youtube.com/@AthlynX", icon: Play, color: "hover:text-red-500" },
-  { name: "TikTok", href: "https://tiktok.com/@athlynx", icon: Music2, color: "hover:text-red-500" },
-  { name: "WhatsApp", href: "mailto:contact@athlynx.ai?subject=AthlynXAI%20Contact", icon: MessageCircle, color: "hover:text-green-400" },
-  { name: "WeChat", href: "#", icon: MessageSquare, color: "hover:text-green-500", id: "ChadDozier14" },
+  { name: "Share2", href: "https://instagram.com/athlynxai", icon: Share2, color: "hover:text-[#00C2FF]" },
+  { name: "Camera", href: "https://instagram.com/athlynx", icon: Camera, color: "hover:text-[#1E90FF]" },
+  { name: "YouTube", href: "https://youtube.com/@AthlynX", icon: Play, color: "hover:text-[#1E90FF]" },
+  { name: "TikTok", href: "https://tiktok.com/@athlynx", icon: Music2, color: "hover:text-[#1E90FF]" },
+  { name: "WhatsApp", href: "mailto:contact@athlynx.ai?subject=AthlynXAI%20Contact", icon: MessageCircle, color: "hover:text-[#00C2FF]" },
+  { name: "WeChat", href: "#", icon: MessageSquare, color: "hover:text-[#00C2FF]", id: "ChadDozier14" },
 ];
 
 export default function UnifiedFooter() {
@@ -60,7 +60,7 @@ export default function UnifiedFooter() {
               <span className="text-2xl font-black text-white">AthlynX</span>
             </div>
             <p className="text-white/50 text-sm max-w-xs mb-4">ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM. One platform for NIL deals, training, recruiting, and more.</p>
-            <p className="text-cyan-400 text-xs font-bold">PERPETUAL MOTION - THE ENGINE THAT NEVER STOPS</p>
+            <p className="text-[#00C2FF] text-xs font-bold">PERPETUAL MOTION - THE ENGINE THAT NEVER STOPS</p>
             
             {/* Social Media Links */}
             <div className="flex flex-wrap gap-3 mt-4">
@@ -70,7 +70,7 @@ export default function UnifiedFooter() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 ${social.color} transition-all hover:scale-110 hover:border-cyan-500/50`}
+                  className={`w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 ${social.color} transition-all hover:scale-110 hover:border-[#1E90FF]/30`}
                   title={social.id ? `${social.name}: ${social.id}` : social.name}
                 >
                   <social.icon className="w-4 h-4" />
@@ -80,13 +80,13 @@ export default function UnifiedFooter() {
             
             {/* Contact Info */}
             <div className="mt-4 space-y-1">
-              <a href="mailto:contact@athlynx.ai" className="flex items-center gap-2 text-white/50 hover:text-cyan-400 text-sm transition-colors">
+              <a href="mailto:contact@athlynx.ai" className="flex items-center gap-2 text-white/50 hover:text-[#00C2FF] text-sm transition-colors">
                 <Mail className="w-4 h-4" /> contact@athlynx.ai
               </a>
-              <a href="/book" className="flex items-center gap-2 text-white/50 hover:text-cyan-400 text-sm transition-colors">
+              <a href="/book" className="flex items-center gap-2 text-white/50 hover:text-[#00C2FF] text-sm transition-colors">
                 <Phone className="w-4 h-4" /> Book a call
               </a>
-              <a href="https://athlynx.ai" className="flex items-center gap-2 text-white/50 hover:text-cyan-400 text-sm transition-colors">
+              <a href="https://athlynx.ai" className="flex items-center gap-2 text-white/50 hover:text-[#00C2FF] text-sm transition-colors">
                 <Globe className="w-4 h-4" /> athlynx.ai
               </a>
             </div>
@@ -95,7 +95,7 @@ export default function UnifiedFooter() {
           {/* Link columns */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h4 className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-4">Platform</h4>
+              <h4 className="text-[#00C2FF] font-bold text-sm uppercase tracking-wider mb-4">Platform</h4>
               <ul className="space-y-2">
                 {footerLinks.platform.map((link) => (
                   <li key={link.name}>
@@ -108,7 +108,7 @@ export default function UnifiedFooter() {
             </div>
             
             <div>
-              <h4 className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-4">Apps</h4>
+              <h4 className="text-[#00C2FF] font-bold text-sm uppercase tracking-wider mb-4">Apps</h4>
               <ul className="space-y-2">
                 {footerLinks.apps.map((link) => (
                   <li key={link.name}>
@@ -121,7 +121,7 @@ export default function UnifiedFooter() {
             </div>
             
             <div>
-              <h4 className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
+              <h4 className="text-[#00C2FF] font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
               <ul className="space-y-2">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
@@ -134,7 +134,7 @@ export default function UnifiedFooter() {
             </div>
             
             <div>
-              <h4 className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
+              <h4 className="text-[#00C2FF] font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
               <ul className="space-y-2">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
@@ -152,12 +152,12 @@ export default function UnifiedFooter() {
         <div className="border-t border-white/10 pt-6 mb-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-red-500 to-red-500 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] flex items-center justify-center text-white text-xs font-bold">
                 #1
               </div>
               <div className="text-left">
                 <p className="text-white text-sm font-bold">Chad A. Dozier</p>
-                <p className="text-red-400 text-xs">Founder & CEO · AthlynX</p>
+                <p className="text-[#1E90FF] text-xs">Founder & CEO · AthlynX</p>
               </div>
             </div>
             <p className="text-white/40 text-xs italic">Iron Sharpens Iron — Proverbs 27:17</p>

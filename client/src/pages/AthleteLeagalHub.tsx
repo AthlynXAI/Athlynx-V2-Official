@@ -13,7 +13,7 @@ import {
   Building2, Heart, Mic, Camera, Filter, MapPin, ExternalLink
 } from "lucide-react";
 
-// ─── Contract Templates ───────────────────────────────────────────────────────
+//  Contract Templates 
 const CONTRACT_CATEGORIES = [
   { id: "all", label: "All Contracts" },
   { id: "nil", label: "NIL Deals" },
@@ -40,7 +40,7 @@ const CONTRACTS = [
   { id: 12, title: "Merch & Product Collaboration Deal", category: "endorsement", desc: "Co-branded merchandise agreement. Covers royalties, design approval, production, and distribution.", popular: false, tier: "pro", pages: "5–6 pages" },
 ];
 
-// ─── Agents ───────────────────────────────────────────────────────────────────
+//  Agents 
 const AGENTS = [
   { id: 1, name: "Marcus Williams", cert: "NFLPA Certified", sports: ["Football"], location: "Dallas, TX", clients: 34, rating: 4.9, deals: "$180M+", specialty: "Offensive Line & Skill Positions", verified: true },
   { id: 2, name: "Jennifer Park", cert: "NBPA Certified", sports: ["Basketball"], location: "Los Angeles, CA", clients: 22, rating: 5.0, deals: "$420M+", specialty: "Guards & Forwards, International Players", verified: true },
@@ -50,7 +50,7 @@ const AGENTS = [
   { id: 6, name: "Michelle Chen", cert: "NBPA Certified", sports: ["Basketball"], location: "Chicago, IL", clients: 18, rating: 5.0, deals: "$380M+", specialty: "Centers & Power Forwards, Endorsements", verified: true },
 ];
 
-// ─── Financial Advisors ───────────────────────────────────────────────────────
+//  Financial Advisors 
 const ADVISORS = [
   { id: 1, name: "Robert Martinez", cert: "CFP, Athlete Specialist", firm: "Athlete Wealth Partners", location: "Houston, TX", athletes: 120, rating: 4.9, aum: "$340M", specialty: "NFL/NBA Wealth Management, Tax Strategy", verified: true },
   { id: 2, name: "Angela Brooks", cert: "CFA, Sports Finance", firm: "ProAthlete Financial", location: "New York, NY", athletes: 85, rating: 5.0, aum: "$520M", specialty: "Investment Management, Retirement Planning", verified: true },
@@ -60,26 +60,26 @@ const ADVISORS = [
   { id: 6, name: "Lisa Chang", cert: "CFP, NIL Specialist", firm: "NIL Financial Group", location: "Nashville, TN", athletes: 310, rating: 5.0, aum: "$145M", specialty: "NIL Income Management, College Athlete Finance", verified: true },
 ];
 
-// ─── Endorsement Deals ────────────────────────────────────────────────────────
+//  Endorsement Deals 
 const ENDORSEMENT_DEALS = [
-  { id: 1, brand: "Nike", category: "Apparel", value: "$10K–$50K", type: "Social Media + Appearances", requirements: "10K+ followers, D1 or Pro athlete", deadline: "Rolling", featured: true, logo: "👟" },
-  { id: 2, brand: "Gatorade", category: "Nutrition", value: "$5K–$20K", type: "Product Endorsement + Content", requirements: "5K+ followers, Any sport", deadline: "Rolling", featured: true, logo: "⚡" },
-  { id: 3, brand: "Under Armour", category: "Apparel", value: "$8K–$35K", type: "Ambassador Program", requirements: "8K+ followers, Performance sport", deadline: "May 30, 2026", featured: true, logo: "🛡️" },
-  { id: 4, brand: "Beats by Dre", category: "Electronics", value: "$3K–$15K", type: "Social Media Campaign", requirements: "15K+ followers, Any sport", deadline: "June 15, 2026", featured: false, logo: "🎧" },
-  { id: 5, brand: "Fanatics", category: "Merchandise", value: "$4K–$12K", type: "Merch Collaboration", requirements: "Strong fan base, Any level", deadline: "Rolling", featured: false, logo: "🏆" },
-  { id: 6, brand: "Muscle Milk", category: "Nutrition", value: "$2K–$8K", type: "Affiliate + Content", requirements: "2K+ followers, Any athlete", deadline: "Rolling", featured: false, logo: "💪" },
-  { id: 7, brand: "State Farm", category: "Insurance", value: "$5K–$25K", type: "TV + Social Campaign", requirements: "College or Pro, 20K+ followers", deadline: "July 1, 2026", featured: true, logo: "🏠" },
-  { id: 8, brand: "Panini America", category: "Trading Cards", value: "$3K–$10K", type: "Autograph Deal", requirements: "Draft prospect or Pro", deadline: "Rolling", featured: false, logo: "🃏" },
-  { id: 9, brand: "Topps", category: "Collectibles", value: "$2K–$8K", type: "Signature Series", requirements: "Any level athlete", deadline: "Rolling", featured: false, logo: "⭐" },
-  { id: 10, brand: "Local Auto Group", category: "Automotive", value: "$2K–$6K", type: "Appearance + Social", requirements: "Local athlete, 2K+ followers", deadline: "Rolling", featured: false, logo: "🚗" },
-  { id: 11, brand: "Campus Protein", category: "Nutrition", value: "$1K–$4K", type: "Affiliate Program", requirements: "Any athlete, 1K+ followers", deadline: "Rolling", featured: false, logo: "🥤" },
-  { id: 12, brand: "AthlynX Brand Partners", category: "Platform", value: "$500–$5K", type: "Platform Ambassador", requirements: "Active AthlynX member", deadline: "Rolling", featured: true, logo: "🔥" },
+  { id: 1, brand: "Nike", category: "Apparel", value: "$10K–$50K", type: "Social Media + Appearances", requirements: "10K+ followers, D1 or Pro athlete", deadline: "Rolling", featured: true, logo: "" },
+  { id: 2, brand: "Gatorade", category: "Nutrition", value: "$5K–$20K", type: "Product Endorsement + Content", requirements: "5K+ followers, Any sport", deadline: "Rolling", featured: true, logo: "" },
+  { id: 3, brand: "Under Armour", category: "Apparel", value: "$8K–$35K", type: "Ambassador Program", requirements: "8K+ followers, Performance sport", deadline: "May 30, 2026", featured: true, logo: "" },
+  { id: 4, brand: "Beats by Dre", category: "Electronics", value: "$3K–$15K", type: "Social Media Campaign", requirements: "15K+ followers, Any sport", deadline: "June 15, 2026", featured: false, logo: "" },
+  { id: 5, brand: "Fanatics", category: "Merchandise", value: "$4K–$12K", type: "Merch Collaboration", requirements: "Strong fan base, Any level", deadline: "Rolling", featured: false, logo: "" },
+  { id: 6, brand: "Muscle Milk", category: "Nutrition", value: "$2K–$8K", type: "Affiliate + Content", requirements: "2K+ followers, Any athlete", deadline: "Rolling", featured: false, logo: "" },
+  { id: 7, brand: "State Farm", category: "Insurance", value: "$5K–$25K", type: "TV + Social Campaign", requirements: "College or Pro, 20K+ followers", deadline: "July 1, 2026", featured: true, logo: "" },
+  { id: 8, brand: "Panini America", category: "Trading Cards", value: "$3K–$10K", type: "Autograph Deal", requirements: "Draft prospect or Pro", deadline: "Rolling", featured: false, logo: "" },
+  { id: 9, brand: "Topps", category: "Collectibles", value: "$2K–$8K", type: "Signature Series", requirements: "Any level athlete", deadline: "Rolling", featured: false, logo: "" },
+  { id: 10, brand: "Local Auto Group", category: "Automotive", value: "$2K–$6K", type: "Appearance + Social", requirements: "Local athlete, 2K+ followers", deadline: "Rolling", featured: false, logo: "" },
+  { id: 11, brand: "Campus Protein", category: "Nutrition", value: "$1K–$4K", type: "Affiliate Program", requirements: "Any athlete, 1K+ followers", deadline: "Rolling", featured: false, logo: "" },
+  { id: 12, brand: "AthlynX Brand Partners", category: "Platform", value: "$500–$5K", type: "Platform Ambassador", requirements: "Active AthlynX member", deadline: "Rolling", featured: true, logo: "" },
 ];
 
 const TIER_COLORS: Record<string, string> = {
-  free: "bg-green-900/30 text-green-400 border-green-700/40",
+  free: "bg-[#00C2FF]/30 text-[#00C2FF] border-[#00C2FF]/40",
   pro: "bg-blue-900/30 text-blue-400 border-blue-700/40",
-  elite: "bg-red-900/30 text-red-400 border-red-700/40",
+  elite: "bg-[#1E90FF]/30 text-[#1E90FF] border-[#1E90FF]/40",
 };
 
 function AthleteLeagalHubInner() {
@@ -165,7 +165,7 @@ function AthleteLeagalHubInner() {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
 
-        {/* ── CONTRACT TEMPLATES ── */}
+        {/*  CONTRACT TEMPLATES  */}
         {activeTab === "contracts" && (
           <div>
             <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -201,7 +201,7 @@ function AthleteLeagalHubInner() {
                       <FileText className="w-5 h-5 text-blue-400" />
                     </div>
                     <div className="flex gap-2">
-                      {contract.popular && <Badge className="bg-red-900/30 text-red-400 border-red-700/40 text-[10px]">POPULAR</Badge>}
+                      {contract.popular && <Badge className="bg-[#1E90FF]/30 text-[#1E90FF] border-[#1E90FF]/40 text-[10px]">POPULAR</Badge>}
                       <Badge className={`text-[10px] border ${TIER_COLORS[contract.tier]}`}>{contract.tier.toUpperCase()}</Badge>
                     </div>
                   </div>
@@ -209,7 +209,7 @@ function AthleteLeagalHubInner() {
                   <p className="text-blue-300 text-sm mb-3 leading-relaxed">{contract.desc}</p>
                   <div className="flex items-center justify-between text-xs text-blue-500 mb-4">
                     <span className="flex items-center gap-1"><FileText className="w-3 h-3" />{contract.pages}</span>
-                    <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-green-500" />Legally Reviewed</span>
+                    <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-[#00C2FF]" />Legally Reviewed</span>
                   </div>
                   <Button size="sm" className="w-full bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg">
                     <Download className="w-4 h-4 mr-2" /> Use Template
@@ -219,22 +219,22 @@ function AthleteLeagalHubInner() {
             </div>
 
             {/* AI Contract Generator CTA */}
-            <div className="mt-8 bg-gradient-to-r from-indigo-900 to-blue-950 rounded-2xl border border-indigo-700/40 p-6 flex flex-col md:flex-row items-center gap-6">
-              <div className="bg-indigo-700/40 rounded-2xl p-4 shrink-0">
-                <Zap className="w-8 h-8 text-indigo-300" />
+            <div className="mt-8 bg-gradient-to-r from-[#1E90FF] to-blue-950 rounded-2xl border border-[#1E90FF]/40 p-6 flex flex-col md:flex-row items-center gap-6">
+              <div className="bg-[#1E90FF]/40 rounded-2xl p-4 shrink-0">
+                <Zap className="w-8 h-8 text-[#1E90FF]" />
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-black text-white mb-1">Need a Custom Contract?</h3>
-                <p className="text-indigo-200 text-sm">Our AI Contract Generator creates a fully customized, legally-reviewed contract in under 2 minutes. Just answer a few questions.</p>
+                <p className="text-[#1E90FF] text-sm">Our AI Contract Generator creates a fully customized, legally-reviewed contract in under 2 minutes. Just answer a few questions.</p>
               </div>
-              <Button className="bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-400 hover:to-blue-500 text-white font-black px-6 py-3 rounded-xl whitespace-nowrap shadow-lg">
+              <Button className="bg-gradient-to-r from-[#1E90FF] to-blue-600 hover:from-[#1E90FF] hover:to-blue-500 text-white font-black px-6 py-3 rounded-xl whitespace-nowrap shadow-lg">
                 Generate Custom Contract <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
           </div>
         )}
 
-        {/* ── AGENT FINDER ── */}
+        {/*  AGENT FINDER  */}
         {activeTab === "agents" && (
           <div>
             <div className="bg-[#0d1a3a] rounded-2xl border border-blue-900/40 p-5 mb-6">
@@ -242,7 +242,7 @@ function AthleteLeagalHubInner() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {["All agents verified & certified", "Read real athlete reviews", "Compare commission rates", "Schedule free consultations"].map(item => (
                   <div key={item} className="flex items-center gap-2 text-sm text-blue-300">
-                    <CheckCircle className="w-4 h-4 text-green-400 shrink-0" />{item}
+                    <CheckCircle className="w-4 h-4 text-[#00C2FF] shrink-0" />{item}
                   </div>
                 ))}
               </div>
@@ -261,8 +261,8 @@ function AthleteLeagalHubInner() {
                         {agent.verified && <CheckCircle className="w-4 h-4 text-blue-400" />}
                       </div>
                       <Badge className="bg-blue-900/40 text-blue-300 border-blue-700/40 text-xs mb-1">{agent.cert}</Badge>
-                      <div className="flex items-center gap-1 text-red-400 text-sm">
-                        {"★".repeat(Math.floor(agent.rating))}
+                      <div className="flex items-center gap-1 text-[#1E90FF] text-sm">
+                        {"".repeat(Math.floor(agent.rating))}
                         <span className="text-blue-400 ml-1">{agent.rating}</span>
                       </div>
                     </div>
@@ -273,7 +273,7 @@ function AthleteLeagalHubInner() {
                       <div className="text-[10px] text-blue-400">Clients</div>
                     </div>
                     <div className="bg-blue-900/20 rounded-lg p-2 text-center">
-                      <div className="text-sm font-black text-green-400">{agent.deals}</div>
+                      <div className="text-sm font-black text-[#00C2FF]">{agent.deals}</div>
                       <div className="text-[10px] text-blue-400">Deals Done</div>
                     </div>
                     <div className="bg-blue-900/20 rounded-lg p-2 text-center">
@@ -297,53 +297,53 @@ function AthleteLeagalHubInner() {
           </div>
         )}
 
-        {/* ── FINANCIAL ADVISORS ── */}
+        {/*  FINANCIAL ADVISORS  */}
         {activeTab === "advisors" && (
           <div>
-            <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-2xl border border-green-700/30 p-5 mb-6">
-              <h3 className="font-bold text-white mb-2 flex items-center gap-2"><DollarSign className="w-5 h-5 text-green-400" />Athlete-Specialized Financial Advisors</h3>
-              <p className="text-green-200 text-sm">Every advisor in our network specializes in athlete finances — NIL income, multi-state taxes, short career windows, and long-term wealth building. All verified and reviewed by athletes.</p>
+            <div className="bg-gradient-to-r from-[#00C2FF]/30 to-emerald-900/30 rounded-2xl border border-[#00C2FF]/30 p-5 mb-6">
+              <h3 className="font-bold text-white mb-2 flex items-center gap-2"><DollarSign className="w-5 h-5 text-[#00C2FF]" />Athlete-Specialized Financial Advisors</h3>
+              <p className="text-[#00C2FF] text-sm">Every advisor in our network specializes in athlete finances — NIL income, multi-state taxes, short career windows, and long-term wealth building. All verified and reviewed by athletes.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-5">
               {ADVISORS.map(advisor => (
-                <div key={advisor.id} className="bg-[#0d1a3a] rounded-2xl border border-blue-900/40 p-6 hover:border-green-600/40 transition-all">
+                <div key={advisor.id} className="bg-[#0d1a3a] rounded-2xl border border-blue-900/40 p-6 hover:border-[#00C2FF]/40 transition-all">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-700 to-emerald-800 flex items-center justify-center text-2xl font-black text-white shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00C2FF] to-emerald-800 flex items-center justify-center text-2xl font-black text-white shrink-0">
                       {advisor.name.split(" ").map(n => n[0]).join("")}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-black text-white text-lg">{advisor.name}</h3>
-                        {advisor.verified && <CheckCircle className="w-4 h-4 text-green-400" />}
+                        {advisor.verified && <CheckCircle className="w-4 h-4 text-[#00C2FF]" />}
                       </div>
-                      <div className="text-xs text-green-300 mb-1">{advisor.cert} · {advisor.firm}</div>
-                      <div className="flex items-center gap-1 text-red-400 text-sm">
-                        {"★".repeat(Math.floor(advisor.rating))}
+                      <div className="text-xs text-[#00C2FF] mb-1">{advisor.cert} · {advisor.firm}</div>
+                      <div className="flex items-center gap-1 text-[#1E90FF] text-sm">
+                        {"".repeat(Math.floor(advisor.rating))}
                         <span className="text-blue-400 ml-1">{advisor.rating}</span>
                       </div>
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-3 mb-4">
-                    <div className="bg-green-900/20 rounded-lg p-2 text-center">
+                    <div className="bg-[#00C2FF]/20 rounded-lg p-2 text-center">
                       <div className="text-sm font-black text-white">{advisor.athletes}</div>
-                      <div className="text-[10px] text-green-400">Athletes</div>
+                      <div className="text-[10px] text-[#00C2FF]">Athletes</div>
                     </div>
-                    <div className="bg-green-900/20 rounded-lg p-2 text-center">
-                      <div className="text-sm font-black text-green-400">{advisor.aum}</div>
-                      <div className="text-[10px] text-green-400">AUM</div>
+                    <div className="bg-[#00C2FF]/20 rounded-lg p-2 text-center">
+                      <div className="text-sm font-black text-[#00C2FF]">{advisor.aum}</div>
+                      <div className="text-[10px] text-[#00C2FF]">AUM</div>
                     </div>
-                    <div className="bg-green-900/20 rounded-lg p-2 text-center">
+                    <div className="bg-[#00C2FF]/20 rounded-lg p-2 text-center">
                       <div className="text-sm font-black text-white">{advisor.location.split(",")[1]?.trim() || advisor.location}</div>
-                      <div className="text-[10px] text-green-400">Location</div>
+                      <div className="text-[10px] text-[#00C2FF]">Location</div>
                     </div>
                   </div>
                   <p className="text-blue-400 text-xs mb-4">Specialty: {advisor.specialty}</p>
                   <div className="flex gap-2">
-                    <Button size="sm" className="flex-1 bg-green-700 hover:bg-green-600 text-white font-bold rounded-lg">
+                    <Button size="sm" className="flex-1 bg-[#00C2FF] hover:bg-[#00C2FF] text-white font-bold rounded-lg">
                       <Phone className="w-3 h-3 mr-1" /> Free Consultation
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 border-green-700 text-green-300 hover:bg-green-900/20 font-bold rounded-lg">
+                    <Button size="sm" variant="outline" className="flex-1 border-[#00C2FF] text-[#00C2FF] hover:bg-[#00C2FF]/20 font-bold rounded-lg">
                       <Mail className="w-3 h-3 mr-1" /> Send Message
                     </Button>
                   </div>
@@ -353,21 +353,21 @@ function AthleteLeagalHubInner() {
           </div>
         )}
 
-        {/* ── ENDORSEMENT DEALS ── */}
+        {/*  ENDORSEMENT DEALS  */}
         {activeTab === "endorsements" && (
           <div>
-            <div className="bg-gradient-to-r from-red-900/30 to-red-900/30 rounded-2xl border border-red-700/30 p-5 mb-6">
-              <h3 className="font-bold text-white mb-2 flex items-center gap-2"><Star className="w-5 h-5 text-red-400" />Live Endorsement Opportunities</h3>
-              <p className="text-red-200 text-sm">Browse active endorsement deals from national brands and local businesses. Apply directly through AthlynX — no agent required for most deals. Use our AI to match you with the best opportunities for your profile.</p>
+            <div className="bg-gradient-to-r from-[#1E90FF]/30 to-[#0a1628]/30 rounded-2xl border border-[#1E90FF]/30 p-5 mb-6">
+              <h3 className="font-bold text-white mb-2 flex items-center gap-2"><Star className="w-5 h-5 text-[#1E90FF]" />Live Endorsement Opportunities</h3>
+              <p className="text-[#1E90FF] text-sm">Browse active endorsement deals from national brands and local businesses. Apply directly through AthlynX — no agent required for most deals. Use our AI to match you with the best opportunities for your profile.</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {ENDORSEMENT_DEALS.map(deal => (
-                <div key={deal.id} className={`bg-[#0d1a3a] rounded-2xl border p-5 hover:border-red-600/40 transition-all ${deal.featured ? "border-red-700/40" : "border-blue-900/40"}`}>
+                <div key={deal.id} className={`bg-[#0d1a3a] rounded-2xl border p-5 hover:border-[#1E90FF]/40 transition-all ${deal.featured ? "border-[#1E90FF]/40" : "border-blue-900/40"}`}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="text-3xl">{deal.logo}</div>
                     <div className="flex gap-1">
-                      {deal.featured && <Badge className="bg-red-900/30 text-red-400 border-red-700/40 text-[10px]">FEATURED</Badge>}
+                      {deal.featured && <Badge className="bg-[#1E90FF]/30 text-[#1E90FF] border-[#1E90FF]/40 text-[10px]">FEATURED</Badge>}
                       <Badge className="bg-blue-900/30 text-blue-400 border-blue-700/40 text-[10px]">{deal.category}</Badge>
                     </div>
                   </div>
@@ -376,7 +376,7 @@ function AthleteLeagalHubInner() {
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm">
                       <span className="text-blue-400">Deal Value</span>
-                      <span className="text-green-400 font-bold">{deal.value}</span>
+                      <span className="text-[#00C2FF] font-bold">{deal.value}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-blue-400">Requirements</span>
@@ -387,7 +387,7 @@ function AthleteLeagalHubInner() {
                       <span className="text-white">{deal.deadline}</span>
                     </div>
                   </div>
-                  <Button size="sm" className="w-full bg-gradient-to-r from-red-600 to-red-600 hover:from-red-500 hover:to-red-500 text-white font-bold rounded-lg">
+                  <Button size="sm" className="w-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-white font-bold rounded-lg">
                     Apply Now <ArrowRight className="ml-1 w-3 h-3" />
                   </Button>
                 </div>
@@ -395,15 +395,15 @@ function AthleteLeagalHubInner() {
             </div>
 
             {/* Submit Your Deal CTA */}
-            <div className="mt-8 bg-gradient-to-r from-red-900/40 to-red-900/40 rounded-2xl border border-red-700/30 p-6 flex flex-col md:flex-row items-center gap-6">
-              <div className="bg-red-700/30 rounded-2xl p-4 shrink-0">
-                <Building2 className="w-8 h-8 text-red-300" />
+            <div className="mt-8 bg-gradient-to-r from-[#1E90FF]/40 to-[#0a1628]/40 rounded-2xl border border-[#1E90FF]/30 p-6 flex flex-col md:flex-row items-center gap-6">
+              <div className="bg-[#1E90FF]/30 rounded-2xl p-4 shrink-0">
+                <Building2 className="w-8 h-8 text-[#1E90FF]" />
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-black text-white mb-1">Are You a Brand?</h3>
-                <p className="text-red-200 text-sm">Post your endorsement opportunity and connect with thousands of verified athletes across every sport and level.</p>
+                <p className="text-[#1E90FF] text-sm">Post your endorsement opportunity and connect with thousands of verified athletes across every sport and level.</p>
               </div>
-              <Button className="bg-gradient-to-r from-red-500 to-red-500 hover:from-red-400 hover:to-red-400 text-black font-black px-6 py-3 rounded-xl whitespace-nowrap shadow-lg">
+              <Button className="bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF] hover:to-[#0a1628] text-black font-black px-6 py-3 rounded-xl whitespace-nowrap shadow-lg">
                 Post a Deal <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>

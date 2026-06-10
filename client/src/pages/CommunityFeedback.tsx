@@ -8,19 +8,19 @@ import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 
 const feedbackCategories = [
-  { id: "feature", label: "Feature Request", icon: "💡" },
-  { id: "bug", label: "Bug Report", icon: "🐛" },
-  { id: "improvement", label: "Improvement", icon: "📈" },
-  { id: "general", label: "General Feedback", icon: "💬" },
+  { id: "feature", label: "Feature Request", icon: "" },
+  { id: "bug", label: "Bug Report", icon: "" },
+  { id: "improvement", label: "Improvement", icon: "" },
+  { id: "general", label: "General Feedback", icon: "" },
 ];
 
 const statusColors: Record<string, string> = {
   pending: "bg-gray-600",
-  reviewing: "bg-red-500",
+  reviewing: "bg-[#1E90FF]",
   planned: "bg-blue-600",
   in_progress: "bg-blue-500",
-  completed: "bg-green-500",
-  declined: "bg-red-600",
+  completed: "bg-[#00C2FF]",
+  declined: "bg-[#1E90FF]",
 };
 
 const statusLabels: Record<string, string> = {
@@ -118,7 +118,7 @@ function CommunityFeedbackInner() {
       {/* Hero */}
       <section className="py-14 px-4 text-center">
         <div className="max-w-2xl mx-auto">
-          <div className="text-5xl mb-4">💬</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
             Your Voice Shapes<br />
             <span className="text-blue-400">AthlynX</span>
@@ -134,10 +134,10 @@ function CommunityFeedbackInner() {
       <section className="py-8 px-4 border-y border-blue-900/20 bg-black/20">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
-            { value: totalCount > 0 ? totalCount.toString() : "0", label: "Ideas Submitted", icon: "💡" },
-            { value: posts.filter(p => p.status === "completed").length.toString(), label: "Features Shipped", icon: "✅" },
-            { value: posts.reduce((sum, p) => sum + (p.votes ?? 0), 0).toString(), label: "Community Votes", icon: "🗳️" },
-            { value: "< 24h", label: "Avg Response Time", icon: "⚡" },
+            { value: totalCount > 0 ? totalCount.toString() : "0", label: "Ideas Submitted", icon: "" },
+            { value: posts.filter(p => p.status === "completed").length.toString(), label: "Features Shipped", icon: "" },
+            { value: posts.reduce((sum, p) => sum + (p.votes ?? 0), 0).toString(), label: "Community Votes", icon: "" },
+            { value: "< 24h", label: "Avg Response Time", icon: "" },
           ].map((s) => (
             <div key={s.label}>
               <div className="text-2xl mb-1">{s.icon}</div>
@@ -155,7 +155,7 @@ function CommunityFeedbackInner() {
             <h2 className="text-white font-black text-xl mb-5">Submit Feedback</h2>
             {submitted ? (
               <div className="text-center py-8">
-                <div className="text-5xl mb-4">🎉</div>
+                <div className="text-5xl mb-4 hidden"></div>
                 <h3 className="text-white font-bold text-lg mb-2">Thank You!</h3>
                 <p className="text-gray-400 text-sm mb-4">Your feedback has been submitted. Chad reviews every single submission personally.</p>
                 <button
@@ -273,7 +273,7 @@ function CommunityFeedbackInner() {
 
           {posts.length === 0 ? (
             <div className="text-center py-16 text-gray-500">
-              <div className="text-5xl mb-4">💡</div>
+              <div className="text-5xl mb-4 hidden"></div>
               <p className="text-lg font-bold text-gray-400">Be the first to submit feedback!</p>
               <p className="text-sm mt-2">Your ideas shape AthlynX. Every suggestion is read by Chad personally.</p>
             </div>
@@ -292,7 +292,7 @@ function CommunityFeedbackInner() {
                             : "bg-white/5 hover:bg-blue-600/20 text-gray-400 hover:text-blue-400"
                         }`}
                       >
-                        <span className="text-lg">▲</span>
+                        <span className="text-lg"></span>
                         <span className="text-sm font-black">{(post.votes ?? 0) + (votedIds.includes(post.id) ? 1 : 0)}</span>
                       </button>
                     </div>
@@ -308,7 +308,7 @@ function CommunityFeedbackInner() {
                       <p className="text-gray-400 text-sm mb-3">{post.body ?? post.description}</p>
                       {post.adminReply && (
                         <div className="bg-blue-900/30 border border-blue-700/40 rounded-lg px-4 py-3 mb-3">
-                          <div className="text-blue-400 text-xs font-bold mb-1">💬 AthlynX Response</div>
+                          <div className="text-blue-400 text-xs font-bold mb-1"> AthlynX Response</div>
                           <p className="text-blue-100 text-sm">{post.adminReply}</p>
                         </div>
                       )}

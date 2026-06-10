@@ -38,7 +38,7 @@ const robotProducts = [
       "Heavy-load capacity"
     ],
     useCases: ["Villa Agape Companion", "Indoor Patrol", "Elderly Care"],
-    color: "from-blue-500 to-cyan-500"
+    color: "from-blue-500 to-[#0a1628]"
   },
   {
     name: "Wheel-Leg Hybrid",
@@ -52,7 +52,7 @@ const robotProducts = [
       "Night supplementary lighting"
     ],
     useCases: ["Data Center Patrol", "Outdoor Security", "Property Inspection"],
-    color: "from-blue-600 to-red-500"
+    color: "from-blue-600 to-[#0a1628]"
   },
   {
     name: "Medium Size Robot Dog",
@@ -66,7 +66,7 @@ const robotProducts = [
       "High computing power expansion"
     ],
     useCases: ["Heavy Duty Tasks", "Research Platform", "Custom Development"],
-    color: "from-red-500 to-red-500"
+    color: "from-[#1E90FF] to-[#0a1628]"
   }
 ];
 
@@ -152,7 +152,7 @@ function RobotCompanionsInner() {
             </Button>
           </Link>
           <div className="flex items-center gap-2">
-            <Bot className="w-5 h-5 text-cyan-400" />
+            <Bot className="w-5 h-5 text-[#00C2FF]" />
             <span className="font-semibold text-white">Robot Companions</span>
           </div>
         </div>
@@ -162,12 +162,12 @@ function RobotCompanionsInner() {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
-            <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 mb-6">
+            <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 mb-6">
               <Bot className="w-3 h-3 mr-1" />
               Hansi Tech Partnership
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Robot <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Companions</span>
+              Robot <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E90FF] to-blue-500">Companions</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
               Breaking application boundaries with high-performance robot dogs. 
@@ -176,11 +176,11 @@ function RobotCompanionsInner() {
           </div>
 
           {/* Hero Visual */}
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 p-8 mb-16">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1E90FF]/20 to-blue-500/20 border border-[#1E90FF]/30 p-8 mb-16">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjI4MzMiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZ2LTRoLTJ2NGgyem0tNiA2aC00djJoNHYtMnptLTYgMGgtNHYyaDR2LTJ6bTEyIDBWMjhoLTJ2Nmgyem0tNiA2di00aC0ydjRoMnptNi02aC00djJoNHYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
             <div className="relative grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-5xl font-bold text-cyan-400 mb-2">3</div>
+                <div className="text-5xl font-bold text-[#00C2FF] mb-2">3</div>
                 <div className="text-slate-400">Robot Models</div>
               </div>
               <div>
@@ -225,7 +225,7 @@ function RobotCompanionsInner() {
                   <div className="space-y-2 mb-4">
                     {robot.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />
                         {feature}
                       </div>
                     ))}
@@ -257,8 +257,8 @@ function RobotCompanionsInner() {
             {solutions.map((solution, index) => (
               <Card key={index} className="bg-slate-900/50 border-slate-700">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
-                    <solution.icon className="w-6 h-6 text-cyan-400" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/20 flex items-center justify-center mb-4">
+                    <solution.icon className="w-6 h-6 text-[#00C2FF]" />
                   </div>
                   <CardTitle className="text-white">{solution.title}</CardTitle>
                   <p className="text-slate-400 text-sm">{solution.description}</p>
@@ -267,8 +267,8 @@ function RobotCompanionsInner() {
                   <div className="space-y-3 mb-4">
                     {solution.workflow.map((step, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs text-cyan-400 font-bold">{i + 1}</span>
+                        <div className="w-6 h-6 rounded-full bg-[#1E90FF]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-xs text-[#00C2FF] font-bold">{i + 1}</span>
                         </div>
                         <span className="text-sm text-slate-300">{step}</span>
                       </div>
@@ -302,11 +302,11 @@ function RobotCompanionsInner() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {dhgApplications.map((app, index) => (
-              <Card key={index} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
+              <Card key={index} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-slate-700 hover:border-[#1E90FF]/30 transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <app.icon className="w-6 h-6 text-cyan-400" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
+                      <app.icon className="w-6 h-6 text-[#00C2FF]" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-white mb-2">{app.company}</h3>
@@ -314,7 +314,7 @@ function RobotCompanionsInner() {
                       <div className="grid grid-cols-2 gap-2">
                         {app.benefits.map((benefit, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                            <Zap className="w-3 h-3 text-red-400" />
+                            <Zap className="w-3 h-3 text-[#1E90FF]" />
                             {benefit}
                           </div>
                         ))}
@@ -348,7 +348,7 @@ function RobotCompanionsInner() {
               { icon: Shield, label: "Protection", value: "IP66 Rated" }
             ].map((spec, index) => (
               <div key={index} className="text-center p-4 rounded-xl bg-slate-900/50 border border-slate-700">
-                <spec.icon className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+                <spec.icon className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
                 <div className="text-white font-bold">{spec.value}</div>
                 <div className="text-slate-500 text-sm">{spec.label}</div>
               </div>
@@ -360,20 +360,20 @@ function RobotCompanionsInner() {
       {/* Partnership */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-3xl border border-cyan-500/30 p-8 md:p-12">
-            <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 mb-6">
+          <div className="bg-gradient-to-r from-[#1E90FF]/20 to-blue-500/10 rounded-3xl border border-[#1E90FF]/30 p-8 md:p-12">
+            <Badge className="bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30 mb-6">
               Strategic Partnership
             </Badge>
             <h2 className="text-3xl font-bold text-white mb-4">
               Hansi Tech x AthlynX
             </h2>
             <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-              Through our partnership with Hansi Tech (函司科技), we bring cutting-edge robot technology 
+              Through our partnership with Hansi Tech (), we bring cutting-edge robot technology 
               to America. From data center patrol to companion care, we're breaking application boundaries.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/early-access">
-                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8">
+                <Button size="lg" className="bg-gradient-to-r from-[#1E90FF] to-blue-500 hover:from-[#1E90FF] hover:to-blue-600 text-white px-8">
                   Request Robot Demo
                 </Button>
               </Link>
@@ -392,7 +392,7 @@ function RobotCompanionsInner() {
         <p className="text-slate-500">
           © 2026 Dozier Holdings Group, LLC. All rights reserved.
         </p>
-        <p className="text-cyan-400 font-medium mt-2">
+        <p className="text-[#00C2FF] font-medium mt-2">
           Breaking Application Boundaries
         </p>
       </footer>

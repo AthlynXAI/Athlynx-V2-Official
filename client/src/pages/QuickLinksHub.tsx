@@ -47,7 +47,7 @@ function QuickLinksHubInner() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {systems.core.map((system) => (
             <Link key={system.name} href={system.link}>
-              <div className={`bg-white/5 border rounded-2xl p-6 text-center cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-1 hover:shadow-2xl ${system.featured ? 'border-2 border-red-500 bg-gradient-to-br from-red-500/10 to-white/5' : 'border-white/10 hover:border-blue-500'}`}>
+              <div className={`bg-white/5 border rounded-2xl p-6 text-center cursor-pointer transition-all hover:bg-white/10 hover:-translate-y-1 hover:shadow-2xl ${system.featured ? 'border-2 border-[#1E90FF] bg-gradient-to-br from-[#1E90FF]/10 to-white/5' : 'border-white/10 hover:border-blue-500'}`}>
                 <img src={system.icon} alt={system.name} className="w-16 h-16 rounded-xl mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-white mb-2">{system.name}</h3>
                 <p className="text-sm text-white/60 mb-4">{system.description}</p>

@@ -102,7 +102,7 @@ export function FinalScoreStudio({
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      {/* ─── Control panel ─────────────────────────────────────────────── */}
+      {/*  Control panel  */}
       <div className="flex w-full flex-col gap-4 lg:w-80">
         <h3 className="text-lg font-bold">Final Score</h3>
 
@@ -206,7 +206,7 @@ export function FinalScoreStudio({
         </p>
       </div>
 
-      {/* ─── Card preview / export surface ─────────────────────────────── */}
+      {/*  Card preview / export surface  */}
       <div className="flex-1 overflow-auto">
         <div className="origin-top-left scale-50 lg:scale-[0.42]">
           <StudioCard

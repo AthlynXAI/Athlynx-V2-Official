@@ -19,7 +19,7 @@ const ICC_PRODUCTS = [
         tagline: "High-density AI infrastructure · private technical review",
         specs: ["High-density accelerator configuration", "Advanced cooling form factor", "High-bandwidth memory architecture", "High-speed fabric architecture", "Designed for approved AI workloads"],
         badge: "NEW — Mar 2026",
-        badgeColor: "bg-green-500",
+        badgeColor: "bg-[#00C2FF]",
         featured: true,
       },
       {
@@ -43,7 +43,7 @@ const ICC_PRODUCTS = [
         tagline: "8× NVIDIA Blackwell B200 · 288GB HBM3e · 8 TB/s",
         specs: ["8× NVIDIA B200 Tensor Core GPU", "288GB HBM3e · 8 TB/s Bandwidth", "11× H100 Inference Performance", "NDR InfiniBand 2× vs H100", "Trillion-parameter LLM Ready"],
         badge: "BLACKWELL",
-        badgeColor: "bg-emerald-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: false,
       },
     ],
@@ -51,7 +51,7 @@ const ICC_PRODUCTS = [
   {
     category: "Custom Enterprise Servers",
     icon: <Server className="w-6 h-6" />,
-    color: "from-indigo-600 to-indigo-800",
+    color: "from-[#1E90FF] to-indigo-800",
     badge: "SUPERMICRO",
     products: [
       {
@@ -75,7 +75,7 @@ const ICC_PRODUCTS = [
         tagline: "Supermicro 4U 60-Bay · Intel Xeon 6521P · 30T Storage",
         specs: ["Supermicro SSG-542B-E1CR60", "Intel Xeon 6521P (24C/48T, 225W)", "128GB DDR5 6400MHz ECC", "60× 3.5\" SATA/SAS + 2× M.2", "1+1 2000W Redundant PSU"],
         badge: "HYPERSCALE",
-        badgeColor: "bg-red-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: false,
       },
       {
@@ -83,7 +83,7 @@ const ICC_PRODUCTS = [
         tagline: "Supermicro 2U · Intel Xeon Silver 4514Y · 64GB DDR5",
         specs: ["Supermicro SYS-221H-TNR", "2× Intel Xeon Silver 4514Y (16C/32T)", "64GB DDR5 5600MHz ECC", "Micron 5400 PRO 480GB M.2 SSD", "8× 2.5\" NVMe/SATA/SAS"],
         badge: "STORAGE",
-        badgeColor: "bg-cyan-600",
+        badgeColor: "bg-[#1565C0]",
         featured: false,
       },
     ],
@@ -91,7 +91,7 @@ const ICC_PRODUCTS = [
   {
     category: "AI Workstations",
     icon: <Monitor className="w-6 h-6" />,
-    color: "from-cyan-600 to-cyan-800",
+    color: "from-[#1E90FF] to-[#0a1628]",
     badge: "WORKSTATION",
     products: [
       {
@@ -107,7 +107,7 @@ const ICC_PRODUCTS = [
         tagline: "NVIDIA RTX 5000 Ada · 32GB GDDR6 · Design & AI",
         specs: ["NVIDIA RTX 5000 Ada Generation", "32GB GDDR6 ECC Memory", "Intel Core i9-14900K", "128GB DDR5 ECC RAM", "Dual 10GbE Networking"],
         badge: "CREATOR",
-        badgeColor: "bg-indigo-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: false,
       },
       {
@@ -115,7 +115,7 @@ const ICC_PRODUCTS = [
         tagline: "RTX Blackwell · Next-Gen AI & Visualization",
         specs: ["NVIDIA RTX Blackwell Architecture", "Next-generation DLSS 4 AI", "Multi-GPU NVLink Support", "PCIe 5.0 Platform", "Showcased at SIGGRAPH 2025"],
         badge: "BLACKWELL NEW",
-        badgeColor: "bg-emerald-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: true,
       },
     ],
@@ -123,7 +123,7 @@ const ICC_PRODUCTS = [
   {
     category: "Financial Trading Systems",
     icon: <TrendingUp className="w-6 h-6" />,
-    color: "from-red-600 to-red-800",
+    color: "from-[#1E90FF] to-[#0a1628]",
     badge: "ULTRA-LOW LATENCY",
     products: [
       {
@@ -131,7 +131,7 @@ const ICC_PRODUCTS = [
         tagline: "Sub-microsecond latency · NYSE/NASDAQ co-location ready",
         specs: ["Intel Xeon w9-3595X (60C/120T)", "Ultra-low latency BIOS tuning", "Solarflare/Mellanox RDMA NICs", "FPGA acceleration option", "NYSE/NASDAQ co-location certified"],
         badge: "HFT READY",
-        badgeColor: "bg-red-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: true,
       },
       {
@@ -139,7 +139,7 @@ const ICC_PRODUCTS = [
         tagline: "Maximum single-thread performance · Algorithmic trading",
         specs: ["Intel Core i9-14900KS Overclocked", "DDR5 7200MHz+ Tuned Memory", "Custom liquid cooling solution", "Redundant 10GbE + 25GbE", "24/7 mission-critical uptime"],
         badge: "OVERCLOCKED",
-        badgeColor: "bg-red-600",
+        badgeColor: "bg-[#1E90FF]",
         featured: false,
       },
     ],
@@ -171,14 +171,14 @@ const ICC_PRODUCTS = [
 ];
 
 const PARTNERS = [
-  { name: "NVIDIA", desc: "Elite Partner 2024 — AI & Accelerated Computing", color: "text-green-400", icon: "🟢" },
-  { name: "AMD", desc: "EPYC Processor Partner — Data Center CPUs", color: "text-red-400", icon: "🔴" },
-  { name: "Dell Technologies", desc: "OEM Hardware Partner — Enterprise Servers", color: "text-blue-400", icon: "🔵" },
-  { name: "Intel", desc: "Xeon Scalable & Core Platform Partner", color: "text-cyan-400", icon: "🔷" },
-  { name: "Supermicro", desc: "Primary Server Platform — Green Computing", color: "text-red-400", icon: "🟡" },
-  { name: "Micron", desc: "DDR5 ECC Memory & NVMe Storage Partner", color: "text-blue-500", icon: "🟣" },
-  { name: "Mellanox/NVIDIA", desc: "InfiniBand & 400G Ethernet Networking", color: "text-green-300", icon: "🌐" },
-  { name: "Solarflare", desc: "Ultra-Low Latency RDMA Networking", color: "text-red-400", icon: "⚡" },
+  { name: "NVIDIA", desc: "Elite Partner 2024 — AI & Accelerated Computing", color: "text-[#00C2FF]", icon: "" },
+  { name: "AMD", desc: "EPYC Processor Partner — Data Center CPUs", color: "text-[#1E90FF]", icon: "" },
+  { name: "Dell Technologies", desc: "OEM Hardware Partner — Enterprise Servers", color: "text-blue-400", icon: "" },
+  { name: "Intel", desc: "Xeon Scalable & Core Platform Partner", color: "text-[#00C2FF]", icon: "" },
+  { name: "Supermicro", desc: "Primary Server Platform — Green Computing", color: "text-[#1E90FF]", icon: "" },
+  { name: "Micron", desc: "DDR5 ECC Memory & NVMe Storage Partner", color: "text-blue-500", icon: "" },
+  { name: "Mellanox/NVIDIA", desc: "InfiniBand & 400G Ethernet Networking", color: "text-[#00C2FF]", icon: "" },
+  { name: "Solarflare", desc: "Ultra-Low Latency RDMA Networking", color: "text-[#1E90FF]", icon: "" },
 ];
 
 const AWARDS = [
@@ -213,8 +213,8 @@ function ICCUSAPartnerInner() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 mb-10">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 px-3 py-1">
-                  ⭐ NVIDIA Elite Partner 2024
+                <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/30 px-3 py-1">
+                   NVIDIA Elite Partner 2024
                 </Badge>
                 <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 px-3 py-1">
                   ISO 9001:2015 Certified
@@ -222,7 +222,7 @@ function ICCUSAPartnerInner() {
               </div>
               <h1 className="text-5xl font-black text-white mb-4 leading-tight">
                 International Computer<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#0a1628]">
                   Concepts (ICC-USA)™
                 </span>
               </h1>
@@ -233,7 +233,7 @@ function ICCUSAPartnerInner() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/marketplace">
-                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold px-8 py-3 text-lg">
+                  <Button className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold px-8 py-3 text-lg">
                     Shop ICC-USA Products
                   </Button>
                 </Link>
@@ -265,12 +265,12 @@ function ICCUSAPartnerInner() {
       </div>
 
       {/* Awards */}
-      <div className="bg-gradient-to-r from-blue-900/20 to-cyan-900/10 border-b border-blue-900/30 py-8">
+      <div className="bg-gradient-to-r from-blue-900/20 to-[#0a1628]/10 border-b border-blue-900/30 py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-6">
             {AWARDS.map((award, i) => (
               <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl px-5 py-3 border border-white/10">
-                <Award className="w-5 h-5 text-red-400" />
+                <Award className="w-5 h-5 text-[#1E90FF]" />
                 <div>
                   <div className="text-white font-bold text-sm">{award.title}</div>
                   <div className="text-slate-400 text-xs">{award.org} · {award.year} · {award.category}</div>
@@ -322,7 +322,7 @@ function ICCUSAPartnerInner() {
                 >
                   {product.featured && (
                     <div className="absolute -top-2 -right-2">
-                      <Star className="w-5 h-5 text-red-400 fill-red-400" />
+                      <Star className="w-5 h-5 text-[#1E90FF] fill-red-400" />
                     </div>
                   )}
                   <Badge className={`${product.badgeColor} text-white text-xs mb-3`}>
@@ -395,7 +395,7 @@ function ICCUSAPartnerInner() {
               </div>
             </div>
             <div className="lg:w-64 text-center">
-              <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-blue-600 to-[#0a1628] rounded-2xl p-8">
                 <Globe className="w-16 h-16 text-white mx-auto mb-4" />
                 <div className="text-white font-black text-lg">Trusted Worldwide</div>
                 <div className="text-blue-100 text-sm mt-2">From CERN to your data center — ICC-USA delivers enterprise-grade AI infrastructure at every scale.</div>
@@ -406,7 +406,7 @@ function ICCUSAPartnerInner() {
       </div>
 
       {/* Contact CTA */}
-      <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/20 border-t border-blue-900/30 py-16">
+      <div className="bg-gradient-to-r from-blue-900/30 to-[#0a1628]/20 border-t border-blue-900/30 py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-black text-white mb-4">Ready to Build Your Infrastructure?</h2>
           <p className="text-slate-300 text-lg mb-8">
@@ -415,7 +415,7 @@ function ICCUSAPartnerInner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/marketplace">
-              <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold px-10 py-4 text-lg">
+              <Button className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold px-10 py-4 text-lg">
                 Browse All Products
               </Button>
             </Link>

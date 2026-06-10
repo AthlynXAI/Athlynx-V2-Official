@@ -18,10 +18,10 @@ function WellnessPortalInner() {
   const [selectedAudience, setSelectedAudience] = useState<'athletes' | 'executives' | 'military' | 'medical'>('athletes');
 
   const audiences = [
-    { id: 'athletes', label: 'Athletes', icon: Medal, color: 'from-cyan-500 to-blue-500' },
-    { id: 'executives', label: 'Executives', icon: Briefcase, color: 'from-blue-600 to-red-500' },
-    { id: 'military', label: 'Military', icon: Shield, color: 'from-green-500 to-emerald-500' },
-    { id: 'medical', label: 'Medical Professionals', icon: Stethoscope, color: 'from-red-500 to-red-500' }
+    { id: 'athletes', label: 'Athletes', icon: Medal, color: 'from-[#1E90FF] to-blue-500' },
+    { id: 'executives', label: 'Executives', icon: Briefcase, color: 'from-blue-600 to-[#0a1628]' },
+    { id: 'military', label: 'Military', icon: Shield, color: 'from-[#00C2FF] to-[#00C2FF]' },
+    { id: 'medical', label: 'Medical Professionals', icon: Stethoscope, color: 'from-[#1E90FF] to-[#0a1628]' }
   ];
 
   const stats = [
@@ -99,8 +99,8 @@ function WellnessPortalInner() {
             
             {/* Brain Icon */}
             <div className="w-24 h-24 mx-auto mb-6 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-red-500 rounded-full blur-xl opacity-50 animate-pulse" />
-              <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-red-600 rounded-full flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#0a1628] rounded-full blur-xl opacity-50 animate-pulse" />
+              <div className="relative w-full h-full bg-gradient-to-br from-blue-600 to-[#0a1628] rounded-full flex items-center justify-center">
                 <Brain className="w-12 h-12 text-white" />
               </div>
             </div>
@@ -118,7 +118,7 @@ function WellnessPortalInner() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-500 hover:to-red-400 text-white font-bold">
+              <Button className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold">
                 <Sparkles className="w-4 h-4 mr-2" /> Start Your Journey
               </Button>
               <Button variant="outline" className="border-blue-600/50 text-blue-500 hover:bg-blue-600/20">
@@ -206,7 +206,7 @@ function WellnessPortalInner() {
           {features.map((feature, i) => (
             <Card key={i} className="bg-white/5 border-blue-600/20 text-center">
               <CardContent className="p-6">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-red-500 mx-auto mb-4 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-[#0a1628] mx-auto mb-4 flex items-center justify-center">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-white font-bold mb-2">{feature.title}</h3>
@@ -219,18 +219,18 @@ function WellnessPortalInner() {
 
       {/* Crisis Support Banner */}
       <section className="container px-4 md:px-5 pb-16">
-        <Card className="bg-gradient-to-r from-red-500/20 to-red-500/20 border-red-500/30">
+        <Card className="bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30">
           <CardContent className="p-8 text-center">
-            <Phone className="w-12 h-12 text-red-400 mx-auto mb-4" />
+            <Phone className="w-12 h-12 text-[#1E90FF] mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-white mb-2">Need Immediate Support?</h2>
             <p className="text-white/70 mb-4">
               Our crisis support line is available 24/7. You're not alone.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-red-500 hover:bg-red-400 text-white font-bold">
+              <Button className="bg-[#1E90FF] hover:bg-[#1E90FF] text-white font-bold">
                 <Phone className="w-4 h-4 mr-2" /> Call Now: 1-800-WELLNESS
               </Button>
-              <Button variant="outline" className="border-red-500/50 text-red-400 hover:bg-red-500/20">
+              <Button variant="outline" className="border-[#1E90FF]/50 text-[#1E90FF] hover:bg-[#1E90FF]/20">
                 <MessageCircle className="w-4 h-4 mr-2" /> Chat with Counselor
               </Button>
             </div>
@@ -246,7 +246,7 @@ function WellnessPortalInner() {
             Join thousands of high-performers who have transformed their mental health and performance.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-500 hover:to-red-400 text-white font-bold">
+            <Button className="bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-blue-500 hover:to-[#0a1628] text-white font-bold">
               <GraduationCap className="w-4 h-4 mr-2" /> Enroll Now
             </Button>
             <Link href="/dhg-empire">

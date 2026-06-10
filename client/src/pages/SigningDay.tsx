@@ -16,7 +16,7 @@ function SigningDayInner() {
     { id: "baseball", name: "Baseball", emoji: "" },
     { id: "basketball", name: "Basketball", emoji: "" },
     { id: "soccer", name: "Soccer", emoji: "" },
-    { id: "track", name: "Track & Field", emoji: "🏃" },
+    { id: "track", name: "Track & Field", emoji: "" },
     { id: "volleyball", name: "Volleyball", emoji: "" },
   ];
 
@@ -107,15 +107,15 @@ function SigningDayInner() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-cyan-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-[#0a1628]">
       {/* Hero Section */}
       <div className="container py-12">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Trophy className="h-12 w-12 text-red-400" />
+            <Trophy className="h-12 w-12 text-[#1E90FF]" />
             <h1 className="text-5xl font-bold text-white">National Signing Day</h1>
           </div>
-          <p className="text-xl text-cyan-200 max-w-3xl mx-auto">
+          <p className="text-xl text-[#00C2FF] max-w-3xl mx-auto">
             Watch athletes announce their college commitments LIVE. Every commitment is a celebration. Every decision is a moment.
           </p>
         </div>
@@ -125,8 +125,8 @@ function SigningDayInner() {
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-red-500/20 rounded-lg">
-                  <Video className="h-6 w-6 text-red-400" />
+                <div className="p-3 bg-[#1E90FF]/20 rounded-lg">
+                  <Video className="h-6 w-6 text-[#1E90FF]" />
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">12</div>
@@ -139,8 +139,8 @@ function SigningDayInner() {
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-green-500/20 rounded-lg">
-                  <Users className="h-6 w-6 text-green-400" />
+                <div className="p-3 bg-[#00C2FF]/20 rounded-lg">
+                  <Users className="h-6 w-6 text-[#00C2FF]" />
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">45.2K</div>
@@ -186,7 +186,7 @@ function SigningDayInner() {
               key={sport.id}
               variant={selectedSport === sport.id ? "default" : "outline"}
               onClick={() => setSelectedSport(sport.id)}
-              className={selectedSport === sport.id ? "bg-cyan-500 hover:bg-cyan-600" : "bg-white/10 hover:bg-white/20 text-white border-white/20"}
+              className={selectedSport === sport.id ? "bg-[#1E90FF] hover:bg-[#1E90FF]" : "bg-white/10 hover:bg-white/20 text-white border-white/20"}
             >
               <span className="mr-2">{sport.emoji}</span>
               {sport.name}
@@ -198,10 +198,10 @@ function SigningDayInner() {
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-6">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+              <div className="w-3 h-3 bg-[#1E90FF] rounded-full animate-pulse" />
               <h2 className="text-3xl font-bold text-white">Live Now</h2>
             </div>
-            <Badge variant="destructive" className="bg-red-500">
+            <Badge variant="destructive" className="bg-[#1E90FF]">
               {liveStreams.length} LIVE
             </Badge>
           </div>
@@ -212,8 +212,8 @@ function SigningDayInner() {
                 <div className="relative">
                   <img src={stream.thumbnail} alt={stream.athleteName} className="w-full h-64 object-cover" />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="destructive" className="bg-red-500 animate-pulse">
-                      🔴 LIVE
+                    <Badge variant="destructive" className="bg-[#1E90FF] animate-pulse">
+                       LIVE
                     </Badge>
                   </div>
                   <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
@@ -221,7 +221,7 @@ function SigningDayInner() {
                     <span className="text-white font-semibold">{stream.viewers.toLocaleString()}</span>
                   </div>
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600">
+                    <Button size="lg" className="bg-[#1E90FF] hover:bg-[#1E90FF]">
                       <Play className="h-5 w-5 mr-2" />
                       Watch Live
                     </Button>
@@ -259,7 +259,7 @@ function SigningDayInner() {
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-3xl">{event.emoji}</span>
-                    <Badge variant="outline" className="border-cyan-400 text-cyan-400">
+                    <Badge variant="outline" className="border-[#1E90FF] text-[#00C2FF]">
                       {event.sport}
                     </Badge>
                   </div>
@@ -272,7 +272,7 @@ function SigningDayInner() {
                       <Users className="h-4 w-4" />
                       <span>{event.athleteCount} athletes</span>
                     </div>
-                    <Button variant="outline" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-white">
+                    <Button variant="outline" className="border-[#1E90FF] text-[#00C2FF] hover:bg-[#1E90FF] hover:text-white">
                       Notify Me
                     </Button>
                   </div>
@@ -298,7 +298,7 @@ function SigningDayInner() {
                       </CardDescription>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-cyan-400">Committed to {commitment.college}!</div>
+                  <div className="text-2xl font-bold text-[#00C2FF]">Committed to {commitment.college}!</div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between text-sm text-gray-300">
@@ -308,7 +308,7 @@ function SigningDayInner() {
                     </div>
                     <span>{commitment.timestamp}</span>
                   </div>
-                  <Button className="w-full mt-4 bg-cyan-500 hover:bg-cyan-600">
+                  <Button className="w-full mt-4 bg-[#1E90FF] hover:bg-[#1E90FF]">
                     <Play className="h-4 w-4 mr-2" />
                     Watch Announcement
                   </Button>
@@ -320,7 +320,7 @@ function SigningDayInner() {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <Card className="bg-gradient-to-r from-cyan-500 to-blue-500 border-0">
+          <Card className="bg-gradient-to-r from-[#1E90FF] to-blue-500 border-0">
             <CardContent className="py-12">
               <Trophy className="h-16 w-16 text-white mx-auto mb-4" />
               <h2 className="text-4xl font-bold text-white mb-4">Ready to Announce Your Commitment?</h2>
@@ -328,7 +328,7 @@ function SigningDayInner() {
                 Make your college decision a moment to remember. Stream your announcement live to thousands of fans, family, and friends.
               </p>
               <div className="flex gap-4 justify-center">
-                <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-[#00C2FF] hover:bg-gray-100">
                   <Video className="h-5 w-5 mr-2" />
                   Schedule Your Stream
                 </Button>

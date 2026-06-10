@@ -151,10 +151,10 @@ function AboutInner() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
             {[
-              { emoji: "🏈", label: "High School Recruiting" },
-              { emoji: "🎓", label: "College NIL Deals" },
-              { emoji: "🔄", label: "Transfer Portal" },
-              { emoji: "🏆", label: "Pro Career & Beyond" },
+              { emoji: "", label: "High School Recruiting" },
+              { emoji: "", label: "College NIL Deals" },
+              { emoji: "", label: "Transfer Portal" },
+              { emoji: "", label: "Pro Career & Beyond" },
             ].map((item, i) => (
               <div key={i} className="bg-[#0a1628] border border-[#0066ff]/20 rounded-2xl p-6 text-center hover:border-[#0066ff]/50 transition-all">
                 <div className="text-4xl mb-3">{item.emoji}</div>

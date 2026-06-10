@@ -11,13 +11,13 @@
  * Doctrine alignment:
  * - Athlete-owned: every card pulls from the athlete's published profile
  * - Routing not inventory: this composes existing identity, doesn't store a new copy
- * - 4.5★ quality bar: exports at 2x pixelRatio, brand-bar locked
+ * - 4.5 quality bar: exports at 2x pixelRatio, brand-bar locked
  */
 import { useMemo, useRef, useState } from "react";
 import { StudioCard } from "./StudioCard";
 import { useExportPng } from "./useExportPng";
 
-// ─── Position config ──────────────────────────────────────────────────────────
+//  Position config 
 export const BASEBALL_POSITIONS = [
   { code: "P", label: "Pitcher" },
   { code: "C", label: "Catcher" },
@@ -32,7 +32,7 @@ export const BASEBALL_POSITIONS = [
 
 export type PositionCode = (typeof BASEBALL_POSITIONS)[number]["code"];
 
-// ─── Roster slot data shape ───────────────────────────────────────────────────
+//  Roster slot data shape 
 export interface LineupSlot {
   position: PositionCode;
   athleteId: number | null;
@@ -118,7 +118,7 @@ export function LineupStudio({
 
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      {/* ─── Control panel ─────────────────────────────────────────────── */}
+      {/*  Control panel  */}
       <div className="flex w-full flex-col gap-4 lg:w-80">
         <h3 className="text-lg font-bold">Assign positions</h3>
         {BASEBALL_POSITIONS.map((pos, idx) => (
@@ -158,7 +158,7 @@ export function LineupStudio({
         ) : null}
       </div>
 
-      {/* ─── Card preview / export surface ─────────────────────────────── */}
+      {/*  Card preview / export surface  */}
       <div className="flex-1 overflow-auto">
         <div className="origin-top-left scale-50 lg:scale-[0.42]">
           <StudioCard

@@ -20,10 +20,10 @@ import { NILAvatar } from "@/components/NILAvatar";
 
 const AVATAR_COLORS = [
   "from-blue-600 to-blue-800",
-  "from-emerald-600 to-teal-700",
-  "from-violet-600 to-purple-800",
-  "from-cyan-600 to-red-700",
-  "from-pink-600 to-rose-700",
+  "from-[#00C2FF] to-teal-700",
+  "from-[#1E90FF] to-[#0a1628]",
+  "from-[#1E90FF] to-[#0a1628]",
+  "from-[#1E90FF] to-[#0a1628]",
 ];
 
 function getColor(id: number) { return AVATAR_COLORS[id % AVATAR_COLORS.length]; }
@@ -138,8 +138,8 @@ function MessengerAppInner() {
           <h2 className="text-xl font-black text-white mb-2">Sign In to Use Messenger</h2>
           <p className="text-blue-300 text-sm mb-2">Connect with coaches, brands, and fellow athletes.</p>
           <div className="flex items-center justify-center gap-1.5 mb-6">
-            <Lock className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="text-emerald-400 text-xs font-black">END-TO-END ENCRYPTED</span>
+            <Lock className="w-3.5 h-3.5 text-[#00C2FF]" />
+            <span className="text-[#00C2FF] text-xs font-black">END-TO-END ENCRYPTED</span>
           </div>
           <a href="/signin" className="bg-blue-600 hover:bg-blue-500 text-white font-black px-6 py-2.5 rounded-xl inline-flex items-center gap-2 transition-colors">
             <Zap className="w-4 h-4" /> Sign In
@@ -154,7 +154,7 @@ function MessengerAppInner() {
       <div className="bg-[#0d1b3e] border border-blue-900/50 rounded-2xl overflow-hidden" style={{ height: "calc(100vh - 180px)", minHeight: "500px" }}>
         <div className="flex h-full">
 
-          {/* ── Conversation List ── */}
+          {/*  Conversation List  */}
           <div className={`${showList ? "flex" : "hidden"} md:flex flex-col w-full md:w-80 border-r border-blue-900/50 shrink-0`}>
             {/* Header */}
             <div className="p-3 border-b border-blue-900/50">
@@ -163,9 +163,9 @@ function MessengerAppInner() {
                   <MessageCircle className="w-4 h-4 text-blue-400" />
                 </div>
                 <span className="font-black text-white">Messenger</span>
-                <div className="ml-auto flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2 py-0.5">
-                  <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                  <span className="text-emerald-400 text-[9px] font-black">E2EE</span>
+                <div className="ml-auto flex items-center gap-1.5 bg-[#1E90FF]/10 border border-[#1E90FF]/20 rounded-full px-2 py-0.5">
+                  <Lock className="w-2.5 h-2.5 text-[#00C2FF]" />
+                  <span className="text-[#00C2FF] text-[9px] font-black">E2EE</span>
                 </div>
               </div>
               <div className="flex gap-2">
@@ -242,7 +242,7 @@ function MessengerAppInner() {
                   <div className="relative shrink-0">
                     {/* NIL doctrine: 44px avatar must show real Image, or silhouette — never initials. */}
                     <NILAvatar src={(convo as any).avatarUrl} name={convo.name || "Conversation"} size="md" />
-                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-[#0d1b3e]" />
+                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#1E90FF] rounded-full border-2 border-[#0d1b3e]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
@@ -252,7 +252,7 @@ function MessengerAppInner() {
                       </span>
                     </div>
                     <div className="flex items-center gap-1 text-xs text-blue-500 truncate">
-                      <Lock className="w-2.5 h-2.5 text-emerald-500 flex-shrink-0" />
+                      <Lock className="w-2.5 h-2.5 text-[#00C2FF] flex-shrink-0" />
                       <span className="truncate">{convo.lastMessage ? "Encrypted message" : "No messages yet"}</span>
                     </div>
                   </div>
@@ -261,7 +261,7 @@ function MessengerAppInner() {
             </div>
           </div>
 
-          {/* ── Chat Window ── */}
+          {/*  Chat Window  */}
           <div className={`${!showList ? "flex" : "hidden"} md:flex flex-col flex-1 min-w-0`}>
             {!activeConvo ? (
               <div className="flex-1 flex items-center justify-center">
@@ -271,9 +271,9 @@ function MessengerAppInner() {
                   </div>
                   <div className="text-white font-black text-lg mb-1">Select a conversation</div>
                   <div className="text-blue-500 text-sm mb-4">or start a new one to get connected</div>
-                  <div className="flex items-center justify-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1.5 mx-auto w-fit">
-                    <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 text-xs font-black">All messages are end-to-end encrypted</span>
+                  <div className="flex items-center justify-center gap-1.5 bg-[#1E90FF]/10 border border-[#1E90FF]/20 rounded-full px-3 py-1.5 mx-auto w-fit">
+                    <Shield className="w-3.5 h-3.5 text-[#00C2FF]" />
+                    <span className="text-[#00C2FF] text-xs font-black">All messages are end-to-end encrypted</span>
                   </div>
                 </div>
               </div>
@@ -289,11 +289,11 @@ function MessengerAppInner() {
                   <div className="flex-1">
                     <div className="font-black text-white text-sm">{(activeConvo as any).name || "Conversation"}</div>
                     <div className="flex items-center gap-1.5">
-                      <Radio className="w-2.5 h-2.5 text-emerald-400" />
-                      <span className="text-emerald-400 text-[10px] font-black">LIVE</span>
+                      <Radio className="w-2.5 h-2.5 text-[#00C2FF]" />
+                      <span className="text-[#00C2FF] text-[10px] font-black">LIVE</span>
                       <span className="text-blue-600 text-[10px]">·</span>
-                      <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                      <span className="text-emerald-400 text-[10px] font-black">E2EE</span>
+                      <Lock className="w-2.5 h-2.5 text-[#00C2FF]" />
+                      <span className="text-[#00C2FF] text-[10px] font-black">E2EE</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -310,9 +310,9 @@ function MessengerAppInner() {
                 </div>
 
                 {/* E2EE notice banner */}
-                <div className="flex items-center justify-center gap-2 py-2 bg-emerald-950/20 border-b border-emerald-900/20">
-                  <Lock className="w-3 h-3 text-emerald-400" />
-                  <span className="text-emerald-400 text-[10px] font-black">Messages are end-to-end encrypted. Only you and the recipient can read them.</span>
+                <div className="flex items-center justify-center gap-2 py-2 bg-[#1E90FF]/20 border-b border-[#1E90FF]/20">
+                  <Lock className="w-3 h-3 text-[#00C2FF]" />
+                  <span className="text-[#00C2FF] text-[10px] font-black">Messages are end-to-end encrypted. Only you and the recipient can read them.</span>
                 </div>
 
                 {/* Messages */}
@@ -347,7 +347,7 @@ function MessengerAppInner() {
                               {new Date(msg.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                             </span>
                             {isMe && <CheckCheck className="w-3 h-3 text-blue-300" />}
-                            <Lock className="w-2.5 h-2.5 text-emerald-500/60" />
+                            <Lock className="w-2.5 h-2.5 text-[#00C2FF]/60" />
                           </div>
                         </div>
                       </div>
@@ -359,8 +359,8 @@ function MessengerAppInner() {
                 {/* Message input */}
                 <div className="p-3 border-t border-blue-900/50 bg-[#0a1628]">
                   <div className="flex items-center gap-1 mb-1.5">
-                    <Lock className="w-2.5 h-2.5 text-emerald-400" />
-                    <span className="text-emerald-400 text-[9px] font-black">AES-256-GCM ENCRYPTED</span>
+                    <Lock className="w-2.5 h-2.5 text-[#00C2FF]" />
+                    <span className="text-[#00C2FF] text-[9px] font-black">AES-256-GCM ENCRYPTED</span>
                   </div>
                   <div className="flex gap-2 items-end">
                     <div className="flex items-center gap-1 text-blue-500">

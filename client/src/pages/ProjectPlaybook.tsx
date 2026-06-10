@@ -225,36 +225,36 @@ function ProjectPlaybookInner() {
     <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
       {/* Header */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-cyan-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1E90FF]/10 via-transparent to-[#0a1628]/10" />
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             {/* Team Logo */}
-            <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-red-500 to-red-600 mb-4 shadow-lg shadow-red-500/30">
+            <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#1E90FF] to-[#0a1628] mb-4 shadow-lg shadow-red-500/30">
               <span className="text-5xl"></span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black text-white mb-2 tracking-tight">
-              AthlynX <span className="text-cyan-400">PLAYBOOK</span>
+              AthlynX <span className="text-[#00C2FF]">PLAYBOOK</span>
             </h1>
-            <p className="text-xl text-red-400 font-bold mb-2">THE STARTING LINEUP</p>
+            <p className="text-xl text-[#1E90FF] font-bold mb-2">THE STARTING LINEUP</p>
             <p className="text-gray-400">Project Status as of December 29, 2025</p>
             
             {/* Team Record */}
             <div className="flex justify-center gap-8 mt-6">
               <div className="text-center">
-                <div className="text-3xl font-black text-green-400">70%</div>
+                <div className="text-3xl font-black text-[#00C2FF]">70%</div>
                 <div className="text-xs text-gray-500 uppercase">Complete</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-cyan-400">9</div>
+                <div className="text-3xl font-black text-[#00C2FF]">9</div>
                 <div className="text-xs text-gray-500 uppercase">Starters</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-red-400">6</div>
+                <div className="text-3xl font-black text-[#1E90FF]">6</div>
                 <div className="text-xs text-gray-500 uppercase">On Bench</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-black text-red-400">7</div>
+                <div className="text-3xl font-black text-[#1E90FF]">7</div>
                 <div className="text-xs text-gray-500 uppercase">In Farm</div>
               </div>
             </div>
@@ -263,17 +263,17 @@ function ProjectPlaybookInner() {
       </div>
 
       {/* Live Status Banner */}
-      <div className="bg-gradient-to-r from-green-600 to-green-500 py-3">
+      <div className="bg-gradient-to-r from-[#00C2FF] to-[#0a1628] py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-3">
             <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
             <span className="text-white font-bold">LIVE ON RAILWAY</span>
-            <span className="text-green-100">|</span>
+            <span className="text-[#00C2FF]">|</span>
             <a 
               href="https://athlynx-backend-production.up.railway.app" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white underline hover:text-green-100"
+              className="text-white underline hover:text-[#00C2FF]"
             >
               athlynx-backend-production.up.railway.app
             </a>
@@ -314,7 +314,7 @@ function ProjectPlaybookInner() {
           <div>
             {/* Baseball Diamond Visual */}
             <div className="relative max-w-2xl mx-auto mb-12 aspect-square">
-              <div className="absolute inset-0 bg-gradient-to-b from-green-900/30 to-green-800/20 rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#00C2FF]/30 to-[#0a1628]/20 rounded-full" />
               
               {/* Diamond Shape */}
               <svg viewBox="0 0 400 400" className="w-full h-full">
@@ -374,7 +374,7 @@ function ProjectPlaybookInner() {
               </svg>
               
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-                <div className="text-green-400 font-bold text-sm">ALL POSITIONS FILLED</div>
+                <div className="text-[#00C2FF] font-bold text-sm">ALL POSITIONS FILLED</div>
                 <div className="text-gray-500 text-xs">9 Starters Ready</div>
               </div>
             </div>
@@ -384,19 +384,19 @@ function ProjectPlaybookInner() {
               {startingLineup.map((player, index) => (
                 <div 
                   key={index}
-                  className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-4 border border-white/10 hover:border-cyan-500/50 transition-all hover:scale-105"
+                  className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-4 border border-white/10 hover:border-[#1E90FF]/30 transition-all hover:scale-105"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex flex-col items-center justify-center shadow-lg">
+                      <div className="w-16 h-20 bg-gradient-to-br from-[#1E90FF] to-blue-600 rounded-lg flex flex-col items-center justify-center shadow-lg">
                         <span className="text-white font-black text-2xl">{player.number}</span>
-                        <span className="text-cyan-200 text-xs font-bold">{player.position}</span>
+                        <span className="text-[#00C2FF] text-xs font-bold">{player.position}</span>
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
-                        <span className="text-xs text-green-400 font-bold">{player.stats}</span>
+                        <CheckCircle2 className="w-4 h-4 text-[#00C2FF] flex-shrink-0" />
+                        <span className="text-xs text-[#00C2FF] font-bold">{player.stats}</span>
                       </div>
                       <h3 className="text-white font-bold truncate">{player.name}</h3>
                       <p className="text-gray-400 text-xs">{player.positionName}</p>
@@ -413,7 +413,7 @@ function ProjectPlaybookInner() {
         {activeTab === "bench" && (
           <div>
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-red-400 mb-2">🪑 THE BENCH</h2>
+              <h2 className="text-2xl font-bold text-[#1E90FF] mb-2"> THE BENCH</h2>
               <p className="text-gray-400">White-Label Sport Platforms - Coming Soon Pages Built</p>
             </div>
             
@@ -421,17 +421,17 @@ function ProjectPlaybookInner() {
               {benchPlayers.map((player, index) => (
                 <div 
                   key={index}
-                  className="bg-gradient-to-br from-red-500/10 to-red-500/5 rounded-xl p-4 border border-red-500/20"
+                  className="bg-gradient-to-br from-[#1E90FF]/10 to-[#0a1628]/5 rounded-xl p-4 border border-[#1E90FF]/20"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-18 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex flex-col items-center justify-center">
+                    <div className="w-14 h-18 bg-gradient-to-br from-[#1E90FF] to-[#0a1628] rounded-lg flex flex-col items-center justify-center">
                       <span className="text-white font-black text-xl">{player.number}</span>
-                      <span className="text-red-200 text-xs">{player.position}</span>
+                      <span className="text-[#1E90FF] text-xs">{player.position}</span>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <Clock className="w-4 h-4 text-red-400" />
-                        <span className="text-xs text-red-400 font-bold">{player.stats}</span>
+                        <Clock className="w-4 h-4 text-[#1E90FF]" />
+                        <span className="text-xs text-[#1E90FF] font-bold">{player.stats}</span>
                       </div>
                       <h3 className="text-white font-bold">{player.name}</h3>
                     </div>
@@ -440,9 +440,9 @@ function ProjectPlaybookInner() {
               ))}
             </div>
             
-            <div className="mt-8 p-6 bg-red-500/10 rounded-xl border border-red-500/20 text-center">
-              <Zap className="w-8 h-8 text-red-400 mx-auto mb-2" />
-              <p className="text-red-400 font-bold">Ready to be called up!</p>
+            <div className="mt-8 p-6 bg-[#1E90FF]/10 rounded-xl border border-[#1E90FF]/20 text-center">
+              <Zap className="w-8 h-8 text-[#1E90FF] mx-auto mb-2" />
+              <p className="text-[#1E90FF] font-bold">Ready to be called up!</p>
               <p className="text-gray-400 text-sm">These platforms have landing pages and will be fully built post-launch</p>
             </div>
           </div>
@@ -452,7 +452,7 @@ function ProjectPlaybookInner() {
         {activeTab === "farm" && (
           <div>
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-red-400 mb-2">🌱 FARM SYSTEM</h2>
+              <h2 className="text-2xl font-bold text-[#1E90FF] mb-2"> FARM SYSTEM</h2>
               <p className="text-gray-400">Future Development - Prospects in Training</p>
             </div>
             
@@ -465,10 +465,10 @@ function ProjectPlaybookInner() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        prospect.level === "AAA" ? "bg-red-500/20 text-red-400" :
-                        prospect.level === "AA" ? "bg-red-500/20 text-red-400" :
-                        prospect.level === "A" ? "bg-red-500/20 text-red-400" :
-                        "bg-green-500/20 text-green-400"
+                        prospect.level === "AAA" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                        prospect.level === "AA" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                        prospect.level === "A" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                        "bg-[#00C2FF]/20 text-[#00C2FF]"
                       }`}>
                         {prospect.level}
                       </div>
@@ -478,8 +478,8 @@ function ProjectPlaybookInner() {
                       </div>
                     </div>
                     <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-                      prospect.priority === "HIGH" ? "bg-red-500/20 text-red-400" :
-                      prospect.priority === "MEDIUM" ? "bg-red-500/20 text-red-400" :
+                      prospect.priority === "HIGH" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
+                      prospect.priority === "MEDIUM" ? "bg-[#1E90FF]/20 text-[#1E90FF]" :
                       "bg-gray-500/20 text-gray-400"
                     }`}>
                       {prospect.priority} PRIORITY
@@ -490,16 +490,16 @@ function ProjectPlaybookInner() {
             </div>
             
             <div className="mt-8 grid md:grid-cols-3 gap-4">
-              <div className="p-4 bg-red-500/10 rounded-xl border border-red-500/20 text-center">
-                <div className="text-2xl font-black text-red-400">AAA</div>
+              <div className="p-4 bg-[#1E90FF]/10 rounded-xl border border-[#1E90FF]/20 text-center">
+                <div className="text-2xl font-black text-[#1E90FF]">AAA</div>
                 <div className="text-gray-400 text-sm">Ready for call-up</div>
               </div>
-              <div className="p-4 bg-red-500/10 rounded-xl border border-red-500/20 text-center">
-                <div className="text-2xl font-black text-red-400">AA</div>
+              <div className="p-4 bg-[#1E90FF]/10 rounded-xl border border-[#1E90FF]/20 text-center">
+                <div className="text-2xl font-black text-[#1E90FF]">AA</div>
                 <div className="text-gray-400 text-sm">Advanced development</div>
               </div>
-              <div className="p-4 bg-red-500/10 rounded-xl border border-red-500/20 text-center">
-                <div className="text-2xl font-black text-red-400">A / Rookie</div>
+              <div className="p-4 bg-[#1E90FF]/10 rounded-xl border border-[#1E90FF]/20 text-center">
+                <div className="text-2xl font-black text-[#1E90FF]">A / Rookie</div>
                 <div className="text-gray-400 text-sm">Early development</div>
               </div>
             </div>
@@ -510,7 +510,7 @@ function ProjectPlaybookInner() {
         {activeTab === "schedule" && (
           <div>
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-green-400 mb-2">📅 GAME SCHEDULE</h2>
+              <h2 className="text-2xl font-bold text-[#00C2FF] mb-2"> GAME SCHEDULE</h2>
               <p className="text-gray-400">Launch Timeline - Road to Championship</p>
             </div>
             
@@ -520,22 +520,22 @@ function ProjectPlaybookInner() {
                   key={index}
                   className={`rounded-xl p-6 border ${
                     game.status === "championship" 
-                      ? "bg-gradient-to-r from-red-500/20 to-red-500/20 border-red-500/50" 
+                      ? "bg-gradient-to-r from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/50" 
                       : "bg-white/5 border-white/10"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        {game.status === "championship" && <Trophy className="w-5 h-5 text-red-400" />}
+                        {game.status === "championship" && <Trophy className="w-5 h-5 text-[#1E90FF]" />}
                         <span className={`text-sm font-bold ${
-                          game.status === "championship" ? "text-red-400" : "text-cyan-400"
+                          game.status === "championship" ? "text-[#1E90FF]" : "text-[#00C2FF]"
                         }`}>
                           {game.date}
                         </span>
                       </div>
                       <h3 className={`text-xl font-bold ${
-                        game.status === "championship" ? "text-red-400" : "text-white"
+                        game.status === "championship" ? "text-[#1E90FF]" : "text-white"
                       }`}>
                         {game.opponent}
                       </h3>
@@ -543,7 +543,7 @@ function ProjectPlaybookInner() {
                     </div>
                     <div className={`px-4 py-2 rounded-lg text-sm font-bold ${
                       game.location === "HOME" 
-                        ? "bg-green-500/20 text-green-400" 
+                        ? "bg-[#00C2FF]/20 text-[#00C2FF]" 
                         : "bg-blue-500/20 text-blue-400"
                     }`}>
                       {game.location}
@@ -554,10 +554,10 @@ function ProjectPlaybookInner() {
             </div>
             
             {/* Championship Banner */}
-            <div className="mt-8 p-8 bg-gradient-to-r from-red-500/20 via-red-500/20 to-red-500/20 rounded-xl border border-red-500/30 text-center">
-              <Trophy className="w-16 h-16 text-red-400 mx-auto mb-4" />
+            <div className="mt-8 p-8 bg-gradient-to-r from-[#1E90FF]/20 via-[#0a1628] to-black rounded-xl border border-[#1E90FF]/30 text-center">
+              <Trophy className="w-16 h-16 text-[#1E90FF] mx-auto mb-4" />
               <h3 className="text-3xl font-black text-white mb-2">CHAMPIONSHIP GAME</h3>
-              <p className="text-red-400 text-xl font-bold">FEBRUARY 1, 2026</p>
+              <p className="text-[#1E90FF] text-xl font-bold">FEBRUARY 1, 2026</p>
               <p className="text-gray-400 mt-2">Full Public Launch - The Big Day</p>
               
               <div className="flex justify-center gap-4 mt-6">
@@ -587,9 +587,9 @@ function ProjectPlaybookInner() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <img src="/athlynx-icon.png" alt="DHG" className="w-8 h-8" />
             <span className="text-gray-400">Powered by</span>
-            <span className="text-cyan-400 font-bold">Dozier Holdings Group</span>
+            <span className="text-[#00C2FF] font-bold">Dozier Holdings Group</span>
           </div>
-          <Link href="/" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300">
+          <Link href="/" className="inline-flex items-center gap-2 text-[#00C2FF] hover:text-[#00C2FF]">
             <ArrowRight className="w-4 h-4" />
             Back to VIP Access
           </Link>

@@ -11,36 +11,36 @@ import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 
 const SOURCE_ICONS: Record<string, string> = {
-  ai_bot: "🤖",
-  robot: "🦾",
-  wearable: "⌚",
-  video_analysis: "🎬",
-  manual: "✍️",
-  api_integration: "🔌",
+  ai_bot: "",
+  robot: "",
+  wearable: "",
+  video_analysis: "",
+  manual: "",
+  api_integration: "",
 };
 
 const EVENT_ICONS: Record<string, string> = {
-  performance_metric: "📊",
-  biometric: "❤️",
-  gps_tracking: "📍",
-  motion_capture: "🏃",
-  ai_session: "🧠",
-  recruitment_interaction: "🎓",
-  training_session: "🏋️",
-  health_record: "🩺",
-  game_stat: "🏆",
-  combine_result: "⚡",
-  injury_report: "🩹",
-  recovery_score: "💚",
+  performance_metric: "",
+  biometric: "",
+  gps_tracking: "",
+  motion_capture: "",
+  ai_session: "",
+  recruitment_interaction: "",
+  training_session: "",
+  health_record: "",
+  game_stat: "",
+  combine_result: "",
+  injury_report: "",
+  recovery_score: "",
 };
 
 const SOURCE_COLORS: Record<string, string> = {
-  ai_bot: "border-cyan-400/40 bg-cyan-400/5 text-cyan-400",
-  robot: "border-purple-400/40 bg-purple-400/5 text-purple-400",
-  wearable: "border-green-400/40 bg-green-400/5 text-green-400",
-  video_analysis: "border-cyan-400/40 bg-cyan-400/5 text-cyan-400",
+  ai_bot: "border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]",
+  robot: "border-[#1E90FF]/40 bg-[#1E90FF]/5 text-[#1E90FF]",
+  wearable: "border-[#00C2FF]/40 bg-[#00C2FF]/5 text-[#00C2FF]",
+  video_analysis: "border-[#1E90FF]/30 bg-[#1E90FF]/20 text-[#00C2FF]",
   manual: "border-blue-400/40 bg-blue-400/5 text-blue-400",
-  api_integration: "border-red-400/40 bg-red-400/5 text-red-400",
+  api_integration: "border-[#1E90FF]/40 bg-[#1E90FF]/5 text-[#1E90FF]",
 };
 
 function timeAgo(date: string | Date) {
@@ -84,22 +84,22 @@ function AthleteDataDashboardInner() {
   const isDemo = (myEvents as any[]).length === 0;
 
   const statCards = [
-    { label: "Total Data Events", value: platformStats?.totalEvents?.toLocaleString() ?? "—", icon: "📡", color: "text-cyan-400", sub: "All time" },
-    { label: "AI Bot Sessions", value: platformStats?.aiEvents?.toLocaleString() ?? "—", icon: "🤖", color: "text-blue-400", sub: "AI interactions" },
-    { label: "Robot Captures", value: platformStats?.robotEvents?.toLocaleString() ?? "—", icon: "🦾", color: "text-purple-400", sub: "Sideline data" },
-    { label: "Wearable Streams", value: platformStats?.wearableEvents?.toLocaleString() ?? "—", icon: "⌚", color: "text-green-400", sub: "Real-time bio" },
+    { label: "Total Data Events", value: platformStats?.totalEvents?.toLocaleString() ?? "—", icon: "", color: "text-[#00C2FF]", sub: "All time" },
+    { label: "AI Bot Sessions", value: platformStats?.aiEvents?.toLocaleString() ?? "—", icon: "", color: "text-blue-400", sub: "AI interactions" },
+    { label: "Robot Captures", value: platformStats?.robotEvents?.toLocaleString() ?? "—", icon: "", color: "text-[#1E90FF]", sub: "Sideline data" },
+    { label: "Wearable Streams", value: platformStats?.wearableEvents?.toLocaleString() ?? "—", icon: "", color: "text-[#00C2FF]", sub: "Real-time bio" },
   ];
 
   return (
     <PlatformLayout>
       <div className="max-w-6xl mx-auto px-4 py-6 space-y-6 pb-24">
-        {/* ── HEADER ── */}
+        {/*  HEADER  */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <span className="text-3xl">📡</span>
+              <span className="text-3xl"></span>
               <h1 className="text-3xl font-black text-white">Data Command Center</h1>
-              <span className="bg-cyan-500/20 text-cyan-400 text-xs font-black px-3 py-1 rounded-full border border-cyan-400/30 animate-pulse">
+              <span className="bg-[#1E90FF]/20 text-[#00C2FF] text-xs font-black px-3 py-1 rounded-full border border-[#1E90FF]/30 animate-pulse">
                 LIVE
               </span>
             </div>
@@ -110,23 +110,23 @@ function AthleteDataDashboardInner() {
           <div className="flex gap-2">
             <button
               onClick={() => setActiveTab("my")}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "my" ? "bg-cyan-500 text-black" : "bg-white/5 text-white/60 hover:bg-white/10"}`}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "my" ? "bg-[#1E90FF] text-black" : "bg-white/5 text-white/60 hover:bg-white/10"}`}
             >
               My Data
             </button>
             <button
               onClick={() => setActiveTab("platform")}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "platform" ? "bg-cyan-500 text-black" : "bg-white/5 text-white/60 hover:bg-white/10"}`}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === "platform" ? "bg-[#1E90FF] text-black" : "bg-white/5 text-white/60 hover:bg-white/10"}`}
             >
               Platform Stats
             </button>
           </div>
         </div>
 
-        {/* ── STAT CARDS ── */}
+        {/*  STAT CARDS  */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {statCards.map((s, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-cyan-400/30 transition-all">
+            <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-[#1E90FF]/30 transition-all">
               <div className="text-2xl mb-2">{s.icon}</div>
               <div className={`text-2xl font-black ${s.color}`}>{statsLoading ? "..." : s.value}</div>
               <div className="text-white/70 text-sm font-bold mt-1">{s.label}</div>
@@ -137,10 +137,10 @@ function AthleteDataDashboardInner() {
 
         {activeTab === "my" ? (
           <>
-            {/* ── DATA SOURCES ── */}
+            {/*  DATA SOURCES  */}
             <div>
               <h2 className="text-lg font-black text-white mb-3 flex items-center gap-2">
-                <span>🔌</span> Connected Data Sources
+                <span></span> Connected Data Sources
                 <span className="text-white/30 text-sm font-normal">({sources.length} registered)</span>
               </h2>
               {sources.length === 0 ? (
@@ -158,8 +158,8 @@ function AthleteDataDashboardInner() {
                   {(sources as any[]).map((src: any) => (
                     <div key={src.id} className={`border rounded-xl p-3 ${SOURCE_COLORS[src.sourceType] || "border-white/10 bg-white/5 text-white"}`}>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xl">{SOURCE_ICONS[src.sourceType] || "📡"}</span>
-                        <span className={`w-2 h-2 rounded-full ${src.isActive ? "bg-green-400" : "bg-red-400"}`} />
+                        <span className="text-xl">{SOURCE_ICONS[src.sourceType] || ""}</span>
+                        <span className={`w-2 h-2 rounded-full ${src.isActive ? "bg-[#00C2FF]" : "bg-[#1E90FF]"}`} />
                       </div>
                       <div className="font-bold text-sm">{src.name}</div>
                       <div className="text-xs opacity-60 capitalize">{src.sourceType.replace("_", " ")}</div>
@@ -170,11 +170,11 @@ function AthleteDataDashboardInner() {
               )}
             </div>
 
-            {/* ── LIVE EVENT FEED ── */}
+            {/*  LIVE EVENT FEED  */}
             <div>
               <h2 className="text-lg font-black text-white mb-3 flex items-center gap-2">
-                <span>⚡</span> Live Event Stream
-                {isDemo && <span className="text-sky-400/60 text-xs font-normal">(demo — start using the platform to see your real data)</span>}
+                <span></span> Live Event Stream
+                {isDemo && <span className="text-[#00C2FF]/60 text-xs font-normal">(demo — start using the platform to see your real data)</span>}
               </h2>
               {myLoading ? (
                 <div className="text-white/40 text-center py-12">Loading your data stream...</div>
@@ -183,9 +183,9 @@ function AthleteDataDashboardInner() {
                   {(displayEvents as any[]).map((event: any, i: number) => (
                     <div
                       key={event.id ?? i}
-                      className={`border rounded-xl p-4 flex items-start gap-4 transition-all hover:border-cyan-400/30 ${SOURCE_COLORS[event.sourceType] || "border-white/10 bg-white/5"}`}
+                      className={`border rounded-xl p-4 flex items-start gap-4 transition-all hover:border-[#1E90FF]/30 ${SOURCE_COLORS[event.sourceType] || "border-white/10 bg-white/5"}`}
                     >
-                      <div className="text-2xl flex-shrink-0">{EVENT_ICONS[event.eventType] || "📊"}</div>
+                      <div className="text-2xl flex-shrink-0">{EVENT_ICONS[event.eventType] || ""}</div>
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-1">
                           <span className="font-bold text-white text-sm capitalize">{event.eventType.replace(/_/g, " ")}</span>
@@ -205,9 +205,9 @@ function AthleteDataDashboardInner() {
                             : String(event.payload)}
                         </div>
                         <div className="flex gap-3 mt-1 text-xs text-white/30">
-                          {event.heartRate && <span>❤️ {event.heartRate} bpm</span>}
-                          {event.speed && <span>⚡ {event.speed} mph</span>}
-                          {event.recoveryScore && <span>💚 {event.recoveryScore}% recovery</span>}
+                          {event.heartRate && <span> {event.heartRate} bpm</span>}
+                          {event.speed && <span> {event.speed} mph</span>}
+                          {event.recoveryScore && <span> {event.recoveryScore}% recovery</span>}
                         </div>
                       </div>
                       <div className="text-white/30 text-xs flex-shrink-0">{timeAgo(event.createdAt)}</div>
@@ -219,10 +219,10 @@ function AthleteDataDashboardInner() {
           </>
         ) : (
           <>
-            {/* ── PLATFORM STATS TAB ── */}
+            {/*  PLATFORM STATS TAB  */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <h2 className="text-xl font-black text-white mb-4 flex items-center gap-2">
-                <span>🌐</span> Platform-Wide Data Intelligence
+                <span></span> Platform-Wide Data Intelligence
               </h2>
               <p className="text-white/50 text-sm mb-6">
                 Every AI interaction, every robot sideline session, every wearable stream — all flowing into AthlynX servers.
@@ -230,10 +230,10 @@ function AthleteDataDashboardInner() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {[
-                  { label: "AI Bot Sessions", count: platformStats?.aiEvents ?? 0, icon: "🤖", desc: "Profile optimizations, recruiting AI, NIL analysis" },
-                  { label: "Robot Captures", count: platformStats?.robotEvents ?? 0, icon: "🦾", desc: "Sideline motion capture, combine data, pitch tracking" },
-                  { label: "Wearable Streams", count: platformStats?.wearableEvents ?? 0, icon: "⌚", desc: "Heart rate, GPS, biometrics, recovery scores" },
-                  { label: "Total Events", count: platformStats?.totalEvents ?? 0, icon: "📡", desc: "All data events across all sources" },
+                  { label: "AI Bot Sessions", count: platformStats?.aiEvents ?? 0, icon: "", desc: "Profile optimizations, recruiting AI, NIL analysis" },
+                  { label: "Robot Captures", count: platformStats?.robotEvents ?? 0, icon: "", desc: "Sideline motion capture, combine data, pitch tracking" },
+                  { label: "Wearable Streams", count: platformStats?.wearableEvents ?? 0, icon: "", desc: "Heart rate, GPS, biometrics, recovery scores" },
+                  { label: "Total Events", count: platformStats?.totalEvents ?? 0, icon: "", desc: "All data events across all sources" },
                 ].map((item, i) => (
                   <div key={i} className="bg-black/30 rounded-xl p-4 border border-white/10">
                     <div className="flex items-center gap-3 mb-2">
@@ -254,7 +254,7 @@ function AthleteDataDashboardInner() {
                   <div className="space-y-2">
                     {(platformStats.recentEvents as any[]).slice(0, 10).map((event: any, i: number) => (
                       <div key={i} className="flex items-center gap-3 text-sm border border-white/5 rounded-lg p-3 bg-white/3">
-                        <span className="text-lg">{SOURCE_ICONS[event.sourceType] || "📡"}</span>
+                        <span className="text-lg">{SOURCE_ICONS[event.sourceType] || ""}</span>
                         <span className="text-white/60 capitalize">{event.eventType?.replace(/_/g, " ")}</span>
                         {event.sport && <span className="text-white/30 text-xs">{event.sport}</span>}
                         <span className="ml-auto text-white/20 text-xs">{timeAgo(event.createdAt)}</span>
@@ -265,18 +265,18 @@ function AthleteDataDashboardInner() {
               )}
             </div>
 
-            {/* ── DATA MOAT EXPLAINER ── */}
-            <div className="bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-cyan-400/20 rounded-2xl p-6">
-              <h2 className="text-xl font-black text-white mb-3">🔒 The AthlynX Data Moat</h2>
+            {/*  DATA MOAT EXPLAINER  */}
+            <div className="bg-gradient-to-r from-[#1E90FF]/20 via-blue-500/10 to-[#0a1628]/10 border border-[#1E90FF]/30 rounded-2xl p-6">
+              <h2 className="text-xl font-black text-white mb-3"> The AthlynX Data Moat</h2>
               <p className="text-white/60 text-sm mb-4">
                 No competitor has ever built this. Every data point collected on AthlynX is proprietary, anonymized, and
                 owned by AthlynX. This creates an insurmountable competitive advantage as the dataset grows.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
-                  { icon: "🤖", title: "AI Bot Data", desc: "Every AI conversation, recommendation, and outcome logged and learned from" },
-                  { icon: "🦾", title: "Robot Sideline Data", desc: "Motion capture, pitch tracking, combine metrics — real-time from the field" },
-                  { icon: "⌚", title: "Wearable Integration", desc: "Heart rate, GPS, recovery, sleep — continuous biometric streams" },
+                  { icon: "", title: "AI Bot Data", desc: "Every AI conversation, recommendation, and outcome logged and learned from" },
+                  { icon: "", title: "Robot Sideline Data", desc: "Motion capture, pitch tracking, combine metrics — real-time from the field" },
+                  { icon: "", title: "Wearable Integration", desc: "Heart rate, GPS, recovery, sleep — continuous biometric streams" },
                 ].map((item, i) => (
                   <div key={i} className="bg-black/30 rounded-xl p-4 border border-white/10">
                     <div className="text-2xl mb-2">{item.icon}</div>

@@ -21,7 +21,7 @@ type SortField = "createdAt" | "name" | "email" | "role";
 type SortDir = "asc" | "desc";
 
 function trialStatus(trialEndsAt: Date | null | undefined, hasSubscription: boolean) {
-  if (hasSubscription) return { label: "Subscribed", color: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" };
+  if (hasSubscription) return { label: "Subscribed", color: "bg-[#1E90FF]/20 text-[#00C2FF] border-[#1E90FF]/30" };
   if (!trialEndsAt) return { label: "Free", color: "bg-slate-500/20 text-slate-400 border-slate-500/30" };
   const now = new Date();
   const end = new Date(trialEndsAt);
@@ -29,7 +29,7 @@ function trialStatus(trialEndsAt: Date | null | undefined, hasSubscription: bool
     const daysLeft = Math.ceil((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
     return { label: `Trial (${daysLeft}d)`, color: "bg-blue-500/20 text-blue-300 border-blue-500/30" };
   }
-  return { label: "Trial Expired", color: "bg-red-500/20 text-red-300 border-red-500/30" };
+  return { label: "Trial Expired", color: "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30" };
 }
 
 function AdminUsersInner() {
@@ -97,8 +97,8 @@ function AdminUsersInner() {
   if (!user || (user as any).role !== "admin") {
     return (
       <div className="min-h-screen bg-[#060d1f] flex items-center justify-center">
-        <Card className="bg-[#0d1b3e] border-red-500/30 p-8 text-center">
-          <Shield className="w-12 h-12 text-red-400 mx-auto mb-4" />
+        <Card className="bg-[#0d1b3e] border-[#1E90FF]/30 p-8 text-center">
+          <Shield className="w-12 h-12 text-[#1E90FF] mx-auto mb-4" />
           <h2 className="text-white text-xl font-bold mb-2">Admin Access Required</h2>
           <p className="text-slate-400 mb-4">This page is restricted to administrators.</p>
           <Button onClick={() => navigate("/admin")} variant="outline" className="border-blue-500/40 text-blue-300">
@@ -141,9 +141,9 @@ function AdminUsersInner() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {[
               { label: "Total Users", value: stats.totalUsers, icon: Users, color: "text-blue-400" },
-              { label: "New This Week", value: stats.newThisWeek, icon: TrendingUp, color: "text-emerald-400" },
-              { label: "New This Month", value: stats.newThisMonth, icon: TrendingUp, color: "text-cyan-400" },
-              { label: "Subscribed", value: stats.withSubscription, icon: CreditCard, color: "text-red-400" },
+              { label: "New This Week", value: stats.newThisWeek, icon: TrendingUp, color: "text-[#00C2FF]" },
+              { label: "New This Month", value: stats.newThisMonth, icon: TrendingUp, color: "text-[#00C2FF]" },
+              { label: "Subscribed", value: stats.withSubscription, icon: CreditCard, color: "text-[#1E90FF]" },
               { label: "On Trial", value: stats.onTrial, icon: Clock, color: "text-blue-500" },
             ].map(({ label, value, icon: Icon, color }) => (
               <Card key={label} className="bg-[#0d1b3e] border-[#1e3a6e]">
@@ -243,7 +243,7 @@ function AdminUsersInner() {
                               <div className="font-medium text-white flex items-center gap-1.5">
                                 {u.name || <span className="text-slate-500 italic">—</span>}
                                 {isMasterAdmin(u.email) && (
-                                  <Crown className="w-3.5 h-3.5 text-sky-400" aria-label="Master Admin" />
+                                  <Crown className="w-3.5 h-3.5 text-[#00C2FF]" aria-label="Master Admin" />
                                 )}
                               </div>
                               <div className="text-xs text-slate-500">#{u.id}</div>
@@ -264,7 +264,7 @@ function AdminUsersInner() {
                         <td className="px-4 py-3">
                           <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${
                             u.role === "admin"
-                              ? "bg-red-500/20 text-red-300 border-red-500/30"
+                              ? "bg-[#1E90FF]/20 text-[#1E90FF] border-[#1E90FF]/30"
                               : "bg-slate-500/20 text-slate-400 border-slate-500/30"
                           }`}>
                             {u.role}
@@ -295,7 +295,7 @@ function AdminUsersInner() {
                             </SelectTrigger>
                             <SelectContent className="bg-[#0d1b3e] border-[#1e3a6e]">
                               <SelectItem value="user" className="text-slate-300 text-xs">User</SelectItem>
-                              <SelectItem value="admin" className="text-red-300 text-xs">Admin</SelectItem>
+                              <SelectItem value="admin" className="text-[#1E90FF] text-xs">Admin</SelectItem>
                             </SelectContent>
                           </Select>
                         </td>

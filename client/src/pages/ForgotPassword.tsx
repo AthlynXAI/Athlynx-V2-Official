@@ -105,7 +105,7 @@ function ForgotPasswordInner() {
               </div>
               <form onSubmit={handleSendCode} className="space-y-4">
                 {error && (
-                  <div className="bg-red-900/30 border border-red-700/50 text-red-300 text-sm rounded-xl px-4 py-3">
+                  <div className="bg-[#1E90FF]/30 border border-[#1E90FF]/50 text-[#1E90FF] text-sm rounded-xl px-4 py-3">
                     {error}
                   </div>
                 )}
@@ -153,7 +153,7 @@ function ForgotPasswordInner() {
               </div>
               <form onSubmit={handleVerifyCode} className="space-y-4">
                 {error && (
-                  <div className="bg-red-900/30 border border-red-700/50 text-red-300 text-sm rounded-xl px-4 py-3">
+                  <div className="bg-[#1E90FF]/30 border border-[#1E90FF]/50 text-[#1E90FF] text-sm rounded-xl px-4 py-3">
                     {error}
                   </div>
                 )}
@@ -207,7 +207,7 @@ function ForgotPasswordInner() {
               </div>
               <form onSubmit={handleResetPassword} className="space-y-4">
                 {error && (
-                  <div className="bg-red-900/30 border border-red-700/50 text-red-300 text-sm rounded-xl px-4 py-3">
+                  <div className="bg-[#1E90FF]/30 border border-[#1E90FF]/50 text-[#1E90FF] text-sm rounded-xl px-4 py-3">
                     {error}
                   </div>
                 )}
@@ -266,8 +266,8 @@ function ForgotPasswordInner() {
           {/* Step: Done */}
           {step === "done" && (
             <div className="text-center py-4">
-              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-green-400" />
+              <div className="w-16 h-16 bg-[#00C2FF]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-8 h-8 text-[#00C2FF]" />
               </div>
               <h1 className="text-2xl font-black text-white mb-2">Password Reset!</h1>
               <p className="text-white/50 text-sm mb-6">

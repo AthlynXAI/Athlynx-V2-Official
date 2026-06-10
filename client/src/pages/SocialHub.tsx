@@ -29,26 +29,26 @@ import {
 
 // ALL SOCIAL PLATFORMS
 const MESSAGING_PLATFORMS = [
-  { id: 'whatsapp', name: 'WhatsApp', icon: '📱', color: '#25D366', users: '2B+', type: 'messaging' },
-  { id: 'wechat', name: 'WeChat', icon: '💬', color: '#07C160', users: '1.3B+', type: 'messaging' },
-  { id: 'telegram', name: 'Telegram', icon: '✈️', color: '#0088cc', users: '700M+', type: 'messaging' },
-  { id: 'discord', name: 'Discord', icon: '🎮', color: '#5865F2', users: '150M+', type: 'messaging' },
+  { id: 'whatsapp', name: 'WhatsApp', icon: '', color: '#25D366', users: '2B+', type: 'messaging' },
+  { id: 'wechat', name: 'WeChat', icon: '', color: '#07C160', users: '1.3B+', type: 'messaging' },
+  { id: 'telegram', name: 'Telegram', icon: '', color: '#0088cc', users: '700M+', type: 'messaging' },
+  { id: 'discord', name: 'Discord', icon: '', color: '#5865F2', users: '150M+', type: 'messaging' },
 ];
 
 const SOCIAL_PLATFORMS = [
-  { id: 'facebook', name: 'Facebook', icon: '📘', color: '#1877F2', users: '3B+', type: 'social' },
-  { id: 'instagram', name: 'Instagram', icon: '📸', color: '#E4405F', users: '2B+', type: 'social' },
-  { id: 'twitter', name: 'X (Twitter)', icon: '🐦', color: '#000000', users: '500M+', type: 'social' },
-  { id: 'linkedin', name: 'LinkedIn', icon: '💼', color: '#0A66C2', users: '900M+', type: 'social' },
-  { id: 'tiktok', name: 'TikTok', icon: '🎵', color: '#000000', users: '1B+', type: 'social' },
-  { id: 'youtube', name: 'YouTube', icon: '▶️', color: '#FF0000', users: '2.5B+', type: 'social' },
+  { id: 'facebook', name: 'Facebook', icon: '', color: '#1877F2', users: '3B+', type: 'social' },
+  { id: 'instagram', name: 'Instagram', icon: '', color: '#E4405F', users: '2B+', type: 'social' },
+  { id: 'twitter', name: 'X (Twitter)', icon: '', color: '#000000', users: '500M+', type: 'social' },
+  { id: 'linkedin', name: 'LinkedIn', icon: '', color: '#0A66C2', users: '900M+', type: 'social' },
+  { id: 'tiktok', name: 'TikTok', icon: '', color: '#000000', users: '1B+', type: 'social' },
+  { id: 'youtube', name: 'YouTube', icon: '', color: '#FF0000', users: '2.5B+', type: 'social' },
 ];
 
 const BUSINESS_PLATFORMS = [
-  { id: 'teams', name: 'MS Teams', icon: '👥', color: '#6264A7', users: '300M+', type: 'business' },
-  { id: 'zoom', name: 'Zoom', icon: '🎥', color: '#2D8CFF', users: '300M+', type: 'business' },
-  { id: 'slack', name: 'Slack', icon: '💬', color: '#4A154B', users: '20M+', type: 'business' },
-  { id: 'email', name: 'Email', icon: '📧', color: '#00d4ff', users: '4B+', type: 'business' },
+  { id: 'teams', name: 'MS Teams', icon: '', color: '#6264A7', users: '300M+', type: 'business' },
+  { id: 'zoom', name: 'Zoom', icon: '', color: '#2D8CFF', users: '300M+', type: 'business' },
+  { id: 'slack', name: 'Slack', icon: '', color: '#4A154B', users: '20M+', type: 'business' },
+  { id: 'email', name: 'Email', icon: '', color: '#00d4ff', users: '4B+', type: 'business' },
 ];
 
 const ALL_PLATFORMS = [...MESSAGING_PLATFORMS, ...SOCIAL_PLATFORMS, ...BUSINESS_PLATFORMS];
@@ -88,7 +88,7 @@ function SocialHubInner() {
     await new Promise(r => setTimeout(r, 2000));
 
     toast({
-      title: '🚀 BROADCAST SENT!',
+      title: ' BROADCAST SENT!',
       description: `Message sent to ${selectedPlatforms.length} platforms simultaneously!`,
     });
 
@@ -109,13 +109,13 @@ function SocialHubInner() {
           onClick={() => togglePlatform(platform.id)}
           className={`relative flex flex-col items-center p-4 rounded-xl cursor-pointer transition-all duration-300 ${
             selectedPlatforms.includes(platform.id)
-              ? 'bg-gradient-to-br from-cyan-500/30 to-blue-600/30 border-2 border-cyan-400 scale-105 shadow-lg shadow-cyan-500/20'
+              ? 'bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/30 border-2 border-[#1E90FF] scale-105 shadow-lg shadow-cyan-500/20'
               : 'bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20'
           }`}
         >
           {selectedPlatforms.includes(platform.id) && (
             <div className="absolute top-2 right-2">
-              <CheckCircle2 className="w-5 h-5 text-cyan-400" />
+              <CheckCircle2 className="w-5 h-5 text-[#00C2FF]" />
             </div>
           )}
           <span className="text-4xl mb-2">{platform.icon}</span>
@@ -129,13 +129,13 @@ function SocialHubInner() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a1628] to-[#1a365d]">
       {/* Header */}
-      <div className="bg-[#0a1628] border-b border-cyan-500/30">
+      <div className="bg-[#0a1628] border-b border-[#1E90FF]/30">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-bold text-cyan-400">AthlynX SOCIAL HUB</h1>
-                <Badge className="bg-green-500/20 text-green-400 border-green-500/50">
+                <h1 className="text-3xl font-bold text-[#00C2FF]">AthlynX SOCIAL HUB</h1>
+                <Badge className="bg-[#00C2FF]/20 text-[#00C2FF] border-[#00C2FF]/50">
                   <Zap className="w-3 h-3 mr-1" />
                   LIVE
                 </Badge>
@@ -144,15 +144,15 @@ function SocialHubInner() {
             </div>
             <div className="flex items-center gap-4">
               <div className="text-center">
-                <p className="text-2xl font-bold text-cyan-300">{selectedPlatforms.length}</p>
+                <p className="text-2xl font-bold text-[#00C2FF]">{selectedPlatforms.length}</p>
                 <p className="text-gray-500 text-xs">Selected</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-cyan-400">14</p>
+                <p className="text-2xl font-bold text-[#00C2FF]">14</p>
                 <p className="text-gray-500 text-xs">Platforms</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-green-400">15B+</p>
+                <p className="text-2xl font-bold text-[#00C2FF]">15B+</p>
                 <p className="text-gray-500 text-xs">Total Reach</p>
               </div>
             </div>
@@ -165,15 +165,15 @@ function SocialHubInner() {
           
           {/* Left - Platform Selection */}
           <div className="lg:col-span-2 space-y-6">
-            <Card className="bg-[#1a365d]/50 border-cyan-500/30">
+            <Card className="bg-[#1a365d]/50 border-[#1E90FF]/30">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-white flex items-center gap-2">
-                    <Globe className="w-5 h-5 text-cyan-400" />
+                    <Globe className="w-5 h-5 text-[#00C2FF]" />
                     Select Platforms
                   </CardTitle>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="text-cyan-400 border-cyan-400/50" onClick={selectAll}>
+                    <Button size="sm" variant="outline" className="text-[#00C2FF] border-[#1E90FF]/30" onClick={selectAll}>
                       Select All
                     </Button>
                     <Button size="sm" variant="outline" className="text-gray-400 border-gray-400/50" onClick={clearAll}>
@@ -185,13 +185,13 @@ function SocialHubInner() {
               <CardContent>
                 <Tabs value={activeTab} onValueChange={setActiveTab}>
                   <TabsList className="bg-[#0a1628] border border-white/10 mb-6">
-                    <TabsTrigger value="all" className="data-[state=active]:bg-cyan-500/20 data-[state=active]:text-cyan-400">
+                    <TabsTrigger value="all" className="data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#00C2FF]">
                       All (14)
                     </TabsTrigger>
-                    <TabsTrigger value="messaging" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">
+                    <TabsTrigger value="messaging" className="data-[state=active]:bg-[#00C2FF]/20 data-[state=active]:text-[#00C2FF]">
                       Messaging (4)
                     </TabsTrigger>
-                    <TabsTrigger value="social" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">
+                    <TabsTrigger value="social" className="data-[state=active]:bg-[#1E90FF]/20 data-[state=active]:text-[#1E90FF]">
                       Social (6)
                     </TabsTrigger>
                     <TabsTrigger value="business" className="data-[state=active]:bg-blue-600/20 data-[state=active]:text-blue-500">
@@ -209,18 +209,18 @@ function SocialHubInner() {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-4 gap-4">
-              <Card className="bg-gradient-to-br from-green-500/20 to-green-600/10 border-green-500/30">
+              <Card className="bg-gradient-to-br from-[#00C2FF]/20 to-[#0a1628]/10 border-[#00C2FF]/30">
                 <CardContent className="pt-6 text-center">
-                  <MessageSquare className="w-8 h-8 text-green-400 mx-auto mb-2" />
+                  <MessageSquare className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
                   <p className="text-2xl font-bold text-white">4</p>
-                  <p className="text-green-400 text-xs">Messaging</p>
+                  <p className="text-[#00C2FF] text-xs">Messaging</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-red-500/20 to-red-600/10 border-red-500/30">
+              <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/10 border-[#1E90FF]/30">
                 <CardContent className="pt-6 text-center">
-                  <Share2 className="w-8 h-8 text-red-400 mx-auto mb-2" />
+                  <Share2 className="w-8 h-8 text-[#1E90FF] mx-auto mb-2" />
                   <p className="text-2xl font-bold text-white">6</p>
-                  <p className="text-red-400 text-xs">Social</p>
+                  <p className="text-[#1E90FF] text-xs">Social</p>
                 </CardContent>
               </Card>
               <Card className="bg-gradient-to-br from-blue-600/20 to-blue-700/10 border-blue-600/30">
@@ -230,11 +230,11 @@ function SocialHubInner() {
                   <p className="text-blue-500 text-xs">Business</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-cyan-500/20 to-red-600/10 border-cyan-500/30">
+              <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-[#0a1628]/10 border-[#1E90FF]/30">
                 <CardContent className="pt-6 text-center">
-                  <TrendingUp className="w-8 h-8 text-cyan-300 mx-auto mb-2" />
+                  <TrendingUp className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
                   <p className="text-2xl font-bold text-white">15B+</p>
-                  <p className="text-cyan-300 text-xs">Total Reach</p>
+                  <p className="text-[#00C2FF] text-xs">Total Reach</p>
                 </CardContent>
               </Card>
             </div>
@@ -242,10 +242,10 @@ function SocialHubInner() {
 
           {/* Right - Compose & Send */}
           <div className="space-y-6">
-            <Card className="bg-[#1a365d]/50 border-cyan-500/30">
+            <Card className="bg-[#1a365d]/50 border-[#1E90FF]/30">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <Send className="w-5 h-5 text-cyan-300" />
+                  <Send className="w-5 h-5 text-[#00C2FF]" />
                   Broadcast Message
                 </CardTitle>
               </CardHeader>
@@ -254,7 +254,7 @@ function SocialHubInner() {
                   placeholder="Type your message here... This will be sent to ALL selected platforms simultaneously."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="min-h-[180px] bg-[#0a1628] border-cyan-500/30 text-white placeholder:text-gray-500 resize-none"
+                  className="min-h-[180px] bg-[#0a1628] border-[#1E90FF]/30 text-white placeholder:text-gray-500 resize-none"
                 />
                 
                 <div className="bg-[#0a1628] rounded-lg p-3 border border-white/10">
@@ -276,7 +276,7 @@ function SocialHubInner() {
                 <Button
                   onClick={sendToAll}
                   disabled={sending || selectedPlatforms.length === 0}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-red-600 hover:from-cyan-500/90 hover:to-red-600/90 text-black font-bold py-6 text-lg"
+                  className="w-full bg-gradient-to-r from-[#1E90FF] to-[#0a1628] hover:from-[#1E90FF]/20 hover:to-[#0a1628]/90 text-black font-bold py-6 text-lg"
                 >
                   {sending ? (
                     <>
@@ -294,40 +294,40 @@ function SocialHubInner() {
             </Card>
 
             {/* Features */}
-            <Card className="bg-[#1a365d]/50 border-cyan-500/30">
+            <Card className="bg-[#1a365d]/50 border-[#1E90FF]/30">
               <CardHeader className="pb-3">
                 <CardTitle className="text-white text-sm">Features</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#00C2FF]" />
                   <span className="text-gray-300">Simultaneous posting to all platforms</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#00C2FF]" />
                   <span className="text-gray-300">Auto-format for each platform</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#00C2FF]" />
                   <span className="text-gray-300">Schedule posts in advance</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#00C2FF]" />
                   <span className="text-gray-300">Analytics across all platforms</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
+                  <CheckCircle2 className="w-4 h-4 text-[#00C2FF]" />
                   <span className="text-gray-300">AI-powered content optimization</span>
                 </div>
               </CardContent>
             </Card>
 
             {/* Quick Links */}
-            <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border-cyan-500/30">
+            <Card className="bg-gradient-to-br from-[#1E90FF]/20 to-blue-600/10 border-[#1E90FF]/30">
               <CardContent className="pt-6 text-center">
-                <p className="text-cyan-300 font-bold mb-2">FIRST MEDIA CONGLOMERATE</p>
+                <p className="text-[#00C2FF] font-bold mb-2">FIRST MEDIA CONGLOMERATE</p>
                 <p className="text-white text-sm">Fox News + ESPN + Social Media</p>
-                <p className="text-cyan-400 text-sm">ALL IN ONE PLATFORM</p>
+                <p className="text-[#00C2FF] text-sm">ALL IN ONE PLATFORM</p>
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <p className="text-gray-400 text-xs">Dreams Do Come True 2026</p>
                 </div>

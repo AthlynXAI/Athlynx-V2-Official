@@ -24,7 +24,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
 
   const slots: SeasonalSlot[] = [];
 
-  // ── BASEBALL / SOFTBALL POSTSEASON (mid-May → late June) ──
+  //  BASEBALL / SOFTBALL POSTSEASON (mid-May → late June) 
   const inBaseballPostseason = (month === 4 && day >= 15) || month === 5 || (month === 6 && day <= 5);
   if (inBaseballPostseason) {
     // MCWS — Regionals begin May 29, Supers June 5-8, Omaha June 13-24
@@ -49,7 +49,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     }
   }
 
-  // ── DIAMOND GRIND — youth pipeline, the lifeblood lane, always present in baseball/softball season ──
+  //  DIAMOND GRIND — youth pipeline, the lifeblood lane, always present in baseball/softball season 
   if (inBaseballPostseason || (month >= 1 && month <= 7)) {
     slots.push({
       label: "DIAMOND GRIND IQ",
@@ -60,7 +60,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── NBA PLAYOFFS / FINALS (mid-April → mid-June) ──
+  //  NBA PLAYOFFS / FINALS (mid-April → mid-June) 
   if ((month === 3 && day >= 15) || month === 4 || (month === 5 && day <= 22)) {
     slots.push({
       label: "NBA · COURT KINGS",
@@ -71,7 +71,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── NHL STANLEY CUP (mid-April → mid-June) ──
+  //  NHL STANLEY CUP (mid-April → mid-June) 
   if ((month === 3 && day >= 15) || month === 4 || (month === 5 && day <= 22)) {
     slots.push({
       label: "STANLEY CUP",
@@ -82,7 +82,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── WNBA SEASON (May → October, Finals October) ──
+  //  WNBA SEASON (May → October, Finals October) 
   if ((month === 4 && day >= 15) || month === 5 || month === 6 || month === 7 || month === 8 || (month === 9 && day <= 20)) {
     slots.push({
       label: "WNBA",
@@ -93,7 +93,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── COLLEGE FOOTBALL (Aug 24 → Jan 20) ──
+  //  COLLEGE FOOTBALL (Aug 24 → Jan 20) 
   if ((month === 7 && day >= 24) || month === 8 || month === 9 || month === 10 || month === 11 || (month === 0 && day <= 20)) {
     slots.push({
       label: "CFB",
@@ -104,7 +104,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── NFL SEASON (Sep → Feb) ──
+  //  NFL SEASON (Sep → Feb) 
   if (month === 8 || month === 9 || month === 10 || month === 11 || month === 0 || (month === 1 && day <= 14)) {
     slots.push({
       label: "NFL",
@@ -115,7 +115,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── COLLEGE BASKETBALL / MARCH MADNESS (Nov → early April) ──
+  //  COLLEGE BASKETBALL / MARCH MADNESS (Nov → early April) 
   if (month === 10 || month === 11 || month === 0 || month === 1 || (month === 2 && day <= 31) || (month === 3 && day <= 8)) {
     slots.push({
       label: "MARCH MADNESS",
@@ -126,7 +126,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── MLB SEASON (late March → early November) ──
+  //  MLB SEASON (late March → early November) 
   if ((month === 2 && day >= 24) || month === 3 || month === 4 || month === 5 || month === 6 || month === 7 || month === 8 || (month === 9 && day <= 5)) {
     slots.push({
       label: "MLB",
@@ -137,7 +137,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── PGA / GOLF MAJORS (April Masters, May PGA, June US Open, July Open) ──
+  //  PGA / GOLF MAJORS (April Masters, May PGA, June US Open, July Open) 
   if (month === 3 || month === 4 || month === 5 || month === 6) {
     const majorName =
       month === 3 ? "The Masters" :
@@ -153,7 +153,7 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
     });
   }
 
-  // ── SOCCER (year-round, World Cup summer 2026, NWSL Mar–Nov) ──
+  //  SOCCER (year-round, World Cup summer 2026, NWSL Mar–Nov) 
   if (month === 5 || month === 6) {
     slots.push({
       label: "PITCH PULSE",

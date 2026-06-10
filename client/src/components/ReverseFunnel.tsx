@@ -1,6 +1,6 @@
 /**
  * AthlynX Reverse Funnel Component
- * ─────────────────────────────────
+ * 
  * Every page captures leads automatically.
  * Visitor → Lead → CRM → AI Follow-up → Conversion.
  *
@@ -101,21 +101,21 @@ export function ReverseFunnel({
       headline: "Your NIL. Your Career. Your Future.",
       sub: "Join thousands of athletes already on AthlynX — NIL deals, recruiting, AI training.",
       cta: "Start Free — 7 Days",
-      badge: "⚡ FREE 7-DAY ACCESS",
+      badge: " FREE 7-DAY ACCESS",
       color: "from-[#0a1540] to-[#1565c0]",
     },
     b2b: {
       headline: "AI Data Intelligence for Your Business",
       sub: "ConCreator™ — 4 tiers from $297/machine/month. Request a demo today.",
       cta: "Request Demo",
-      badge: "🤖 CONCREATOR™ LIVE",
+      badge: " CONCREATOR™ LIVE",
       color: "from-[#0a1628] to-[#0d2040]",
     },
     investor: {
       headline: "The $47B NIL Market. One Platform.",
       sub: "AthlynX is live. 20+ platforms. Pre-seed round open. Request the investor deck.",
       cta: "View Investor Deck",
-      badge: "💼 PRE-SEED OPEN",
+      badge: " PRE-SEED OPEN",
       color: "from-[#1a0000] to-[#7f0000]",
     },
   }[variant];
@@ -151,7 +151,7 @@ export function ReverseFunnel({
 
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-white mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00C2FF] animate-pulse" />
             {content.badge}
           </div>
 
@@ -216,7 +216,7 @@ export function ReverseFunnel({
             </>
           ) : (
             <div className="text-center py-4">
-              <div className="text-5xl mb-3">🏆</div>
+              <div className="text-5xl mb-3"></div>
               <h3 className="text-xl font-black text-white mb-2">You're in!</h3>
               <p className="text-blue-200 text-sm">Check your email for next steps. Welcome to AthlynX.</p>
             </div>
@@ -291,7 +291,7 @@ export function AIAssistantButton() {
               <div className="flex items-center gap-2">
                 <img src="/img-athlete-multisport.jpg" alt="" className="w-6 h-6 rounded-lg" />
                 <span className="text-white font-bold text-sm">AthlynXAI</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00C2FF] animate-pulse" />
               </div>
               <button onClick={() => setOpen(false)} className="text-white/40 hover:text-white">
                 <X className="w-4 h-4" />
@@ -302,7 +302,7 @@ export function AIAssistantButton() {
             <div className="h-64 overflow-y-auto p-3 space-y-2">
               {conversation.length === 0 && (
                 <div className="text-center py-6">
-                  <Trophy className="w-8 h-8 text-sky-400 mx-auto mb-2" />
+                  <Trophy className="w-8 h-8 text-[#00C2FF] mx-auto mb-2" />
                   <p className="text-white/60 text-xs">Ask me anything about AthlynX, NIL deals, recruiting, or ConCreator™</p>
                 </div>
               )}

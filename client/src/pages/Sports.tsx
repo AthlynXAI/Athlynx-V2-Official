@@ -34,16 +34,16 @@ export default function Sports() {
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white">
       {/* Hero */}
       <section className="relative px-6 pt-16 pb-12 md:pt-24 md:pb-16 text-center max-w-6xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/20 to-cyan-500/20 border border-cyan-400/30 text-xs font-bold tracking-widest text-cyan-300 mb-6">
-          <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600/20 to-[#0a1628]/20 border border-[#1E90FF]/30 text-xs font-bold tracking-widest text-[#00C2FF] mb-6">
+          <span className="w-2 h-2 bg-[#1E90FF] rounded-full animate-pulse"></span>
           EVERY SPORT · EVERY ATHLETE · ONE PLATFORM
         </div>
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-5">
-          <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-white via-blue-200 to-[#0a1628] bg-clip-text text-transparent">
             Create Everything
           </span>
           <br />
-          <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-[#1E90FF] to-teal-400 bg-clip-text text-transparent">
             In One Place.
           </span>
         </h1>
@@ -54,7 +54,7 @@ export default function Sports() {
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
           <Link
             href="/signup"
-            className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-cyan-500 hover:to-blue-600 text-white font-black text-base shadow-xl shadow-blue-500/30 transition-all hover:scale-105 active:scale-95"
+            className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-black text-base shadow-xl shadow-blue-500/30 transition-all hover:scale-105 active:scale-95"
           >
             Start Your Profile
           </Link>
@@ -74,7 +74,7 @@ export default function Sports() {
             <Link
               key={sport.slug}
               href={sport.href}
-              className="group relative block overflow-hidden rounded-3xl bg-gray-900 border border-white/5 hover:border-cyan-400/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/20"
+              className="group relative block overflow-hidden rounded-3xl bg-gray-900 border border-white/5 hover:border-[#1E90FF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/20"
             >
               <div className="aspect-[2/3] overflow-hidden bg-black">
                 <img
@@ -90,12 +90,12 @@ export default function Sports() {
                     <h3 className="text-2xl font-black tracking-tight text-white drop-shadow-lg">
                       {sport.label}
                     </h3>
-                    <p className="text-xs font-medium text-cyan-300/90 uppercase tracking-wider mt-1">
+                    <p className="text-xs font-medium text-[#00C2FF]/90 uppercase tracking-wider mt-1">
                       {sport.tagline}
                     </p>
                   </div>
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <svg className="w-7 h-7 text-[#00C2FF]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </div>
@@ -108,10 +108,10 @@ export default function Sports() {
 
       {/* Branded Profile CTA */}
       <section className="px-6 pb-12 max-w-5xl mx-auto">
-        <Link href="/ai-trainer/build" className="block rounded-3xl border border-cyan-400/30 bg-gradient-to-r from-[#660000]/40 via-blue-950/40 to-cyan-950/40 p-6 md:p-8 hover:border-cyan-400/60 transition-all">
+        <Link href="/ai-trainer/build" className="block rounded-3xl border border-[#1E90FF]/30 bg-gradient-to-r from-[#660000]/40 via-blue-950/40 to-[#0a1628]/40 p-6 md:p-8 hover:border-[#1E90FF]/30 transition-all">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <div className="text-xs font-black tracking-widest uppercase text-cyan-300 mb-2">AI Trainer · Birth to Death</div>
+              <div className="text-xs font-black tracking-widest uppercase text-[#00C2FF] mb-2">AI Trainer · Birth to Death</div>
               <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-2">
                 Your Top 5 Schools On Page One.
               </h3>
@@ -119,7 +119,7 @@ export default function Sports() {
                 Branded for your school, college, and pro team. NIL pipeline built in. We do it all.
               </p>
             </div>
-            <span className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-black tracking-wider uppercase text-sm">
+            <span className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-gradient-to-r from-[#1E90FF] to-blue-600 text-black font-black tracking-wider uppercase text-sm">
               Build My Profile →
             </span>
           </div>
@@ -128,16 +128,16 @@ export default function Sports() {
 
       {/* Highway thesis */}
       <section className="px-6 pb-24 max-w-5xl mx-auto text-center">
-        <div className="rounded-3xl bg-gradient-to-br from-blue-950/40 via-gray-950 to-cyan-950/40 border border-cyan-500/20 p-8 md:p-14">
-          <p className="text-xs font-bold tracking-widest text-cyan-300 mb-4">THE AthlynXAI THESIS</p>
+        <div className="rounded-3xl bg-gradient-to-br from-blue-950/40 via-gray-950 to-[#0a1628]/40 border border-[#1E90FF]/30 p-8 md:p-14">
+          <p className="text-xs font-bold tracking-widest text-[#00C2FF] mb-4">THE AthlynXAI THESIS</p>
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-5">
-            <span className="bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-blue-200 to-[#0a1628] bg-clip-text text-transparent">
               We are the highway.
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
             Every other platform is a truck. They haul athlete content from one place to another.
-            We are the <span className="text-cyan-300 font-bold">road</span> they all drive on —
+            We are the <span className="text-[#00C2FF] font-bold">road</span> they all drive on —
             and we control the speed.
           </p>
           <p className="mt-6 text-base text-gray-400 max-w-2xl mx-auto">

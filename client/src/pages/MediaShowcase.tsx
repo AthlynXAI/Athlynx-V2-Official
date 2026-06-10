@@ -27,32 +27,32 @@ function MediaShowcaseInner() {
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Background gradient with golden glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-red-600/20 via-red-500/30 to-red-600/20 blur-[100px] rounded-full"></div>
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#1E90FF]/20 via-[#0a1628] to-black blur-[100px] rounded-full"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 text-center px-4">
           {/* Trophy Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-red-500/50 rounded-full mb-8 bg-black/50">
-            <span className="text-red-500 text-xl"></span>
-            <span className="text-red-500 font-bold tracking-[0.3em] text-sm">INTRODUCING</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#1E90FF]/50 rounded-full mb-8 bg-black/50">
+            <span className="text-[#1E90FF] text-xl"></span>
+            <span className="text-[#1E90FF] font-bold tracking-[0.3em] text-sm">INTRODUCING</span>
           </div>
 
           {/* Main Title */}
           <h1 className="text-6xl md:text-8xl font-black text-white mb-4 tracking-tight" style={{ textShadow: '0 0 60px rgba(234, 179, 8, 0.3)' }}>
             THE<br />
-            <span className="bg-gradient-to-r from-red-200 via-red-400 to-red-200 bg-clip-text text-transparent">ATHLETE'S</span><br />
+            <span className="bg-gradient-to-r from-[#1E90FF] via-[#1E90FF] to-[#0a1628] bg-clip-text text-transparent">ATHLETE'S</span><br />
             PLAYBOOK
           </h1>
 
           {/* Subtitle */}
-          <p className="text-cyan-400 text-xl md:text-2xl tracking-[0.2em] mb-12">
+          <p className="text-[#00C2FF] text-xl md:text-2xl tracking-[0.2em] mb-12">
             Your Complete NIL Success System
           </p>
 
           {/* Enter Site Button */}
           <Link href="/home">
-            <button className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-cyan-400 text-black font-bold text-lg rounded-full hover:from-cyan-400 hover:to-cyan-300 transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
+            <button className="px-10 py-4 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-black font-bold text-lg rounded-full hover:from-[#1E90FF] hover:to-[#0a1628] transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
               Enter Site
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -78,7 +78,7 @@ function MediaShowcaseInner() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {appIcons.map((app) => (
               <Link key={app.name} href={app.url}>
-                <div className="bg-slate-800/50 border border-cyan-500/20 rounded-2xl p-6 text-center hover:border-cyan-500/50 hover:bg-slate-800 transition-all cursor-pointer group">
+                <div className="bg-slate-800/50 border border-[#1E90FF]/30 rounded-2xl p-6 text-center hover:border-[#1E90FF]/30 hover:bg-slate-800 transition-all cursor-pointer group">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-cyan-500/20 transition-shadow">
                     <img src={app.icon} alt={app.name} className="w-full h-full object-cover" />
                   </div>
@@ -126,7 +126,7 @@ function MediaShowcaseInner() {
                 onClick={() => setActiveVideo(video)}
                 className={`relative rounded-xl overflow-hidden aspect-video border-2 transition-all ${
                   activeVideo.id === video.id
-                    ? "border-cyan-500 ring-2 ring-cyan-500/50"
+                    ? "border-[#1E90FF] ring-2 ring-cyan-500/50"
                     : "border-gray-700 hover:border-gray-500"
                 }`}
               >
@@ -165,12 +165,12 @@ function MediaShowcaseInner() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/">
-              <button className="px-6 py-3 bg-cyan-500 text-black font-bold rounded-lg hover:bg-cyan-400 transition-colors">
+              <button className="px-6 py-3 bg-[#1E90FF] text-black font-bold rounded-lg hover:bg-[#1E90FF] transition-colors">
                 VIP Early Access
               </button>
             </Link>
             <Link href="/project-management">
-              <button className="px-6 py-3 border border-cyan-500 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500/10 transition-colors">
+              <button className="px-6 py-3 border border-[#1E90FF] text-[#00C2FF] font-bold rounded-lg hover:bg-[#1E90FF]/20 transition-colors">
                 Project Management
               </button>
             </Link>

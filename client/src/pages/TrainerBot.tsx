@@ -5,7 +5,7 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 const ROLES = [
   {
     category: "Personal Trainer",
-    icon: "🏋️",
+    icon: "",
     color: "from-blue-900 to-blue-800",
     border: "border-blue-700",
     roles: [
@@ -17,9 +17,9 @@ const ROLES = [
   },
   {
     category: "Medical & Health Monitor",
-    icon: "❤️",
-    color: "from-red-900 to-red-800",
-    border: "border-red-700",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     roles: [
       { title: "Heart Rate Monitor", desc: "Continuous real-time heart rate tracking during training, rest, and competition. Alerts you and your coach when zones are exceeded." },
       { title: "Injury Prevention", desc: "Analyzes movement patterns, detects compensations and imbalances, and flags injury risk before it becomes a problem." },
@@ -29,9 +29,9 @@ const ROLES = [
   },
   {
     category: "Ball Boy / Equipment",
-    icon: "⚾",
-    color: "from-green-900 to-green-800",
-    border: "border-green-700",
+    icon: "",
+    color: "from-[#00C2FF] to-[#0a1628]",
+    border: "border-[#00C2FF]",
     roles: [
       { title: "Ball Boy / Ball Girl", desc: "Retrieves balls, feeds drills, resets equipment between reps, and keeps practice moving without interruption." },
       { title: "Throwing Partner", desc: "Throws the ball with you and to you — football spirals, baseball pitches, basketball passes, soccer crosses. Tireless. Accurate. Always ready." },
@@ -41,9 +41,9 @@ const ROLES = [
   },
   {
     category: "Water Boy / Nutrition",
-    icon: "💧",
-    color: "from-cyan-900 to-cyan-800",
-    border: "border-cyan-700",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     roles: [
       { title: "Water Boy", desc: "Delivers water, sports drinks, and recovery shakes on demand. Tracks your hydration levels and reminds you to drink before you feel thirsty." },
       { title: "Sideline Attendant", desc: "Stationed on the sideline during games — towels, water, snacks, ice bags, and anything else you need between plays." },
@@ -53,7 +53,7 @@ const ROLES = [
   },
   {
     category: "Film Crew & Scout",
-    icon: "🎬",
+    icon: "",
     color: "from-blue-950 to-blue-900",
     border: "border-blue-800",
     roles: [
@@ -65,9 +65,9 @@ const ROLES = [
   },
   {
     category: "Schedule & Life Manager",
-    icon: "📅",
-    color: "from-red-900 to-red-800",
-    border: "border-red-700",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     roles: [
       { title: "Schedule Manager", desc: "Manages your training calendar, academic schedule, recruiting visits, and NIL obligations — all in one place." },
       { title: "Academic Tutor", desc: "Keeps you eligible. Monitors grades, schedules study sessions, and helps you stay on top of coursework during the season." },
@@ -77,9 +77,9 @@ const ROLES = [
   },
   {
     category: "Stadium & Venue Roles",
-    icon: "🏟️",
-    color: "from-red-900 to-red-800",
-    border: "border-red-700",
+    icon: "",
+    color: "from-[#1E90FF] to-[#0a1628]",
+    border: "border-[#1E90FF]",
     roles: [
       { title: "Concession Vendor", desc: "Roams the stands delivering food, drinks, and merchandise to fans in their seats. Faster service, no long lines, more revenue per game." },
       { title: "Security Rover", desc: "Patrols the venue, monitors crowd behavior, identifies safety issues, and alerts security staff instantly." },
@@ -89,9 +89,9 @@ const ROLES = [
   },
   {
     category: "The Father Figure",
-    icon: "👨‍👦",
-    color: "from-indigo-900 to-indigo-800",
-    border: "border-indigo-700",
+    icon: "",
+    color: "from-[#1E90FF] to-indigo-800",
+    border: "border-[#1E90FF]",
     roles: [
       { title: "Always There", desc: "Never misses a practice, a game, or a workout. Available 24/7, 365 days a year. Rain, shine, 5 AM or midnight — your TrainerBot is there." },
       { title: "Encouragement Engine", desc: "Celebrates your wins, picks you up after losses, tracks your progress over time, and reminds you how far you've come." },
@@ -117,7 +117,7 @@ function TrainerBotInner() {
 
         {/* Hero */}
         <div className="text-center py-8">
-          <div className="text-6xl mb-3">🤖</div>
+          <div className="text-6xl mb-3"></div>
           <h1 className="text-white font-black text-3xl mb-2 tracking-tight">
             AthlynX <span className="text-blue-400">TrainerBot</span>
           </h1>
@@ -139,7 +139,7 @@ function TrainerBotInner() {
         {/* Vision Statement */}
         <div className="bg-gradient-to-r from-[#0a1f44] to-[#0d2b5e] border border-blue-700 rounded-2xl p-5 mb-8">
           <div className="flex items-start gap-3">
-            <div className="text-3xl shrink-0">👨‍👦</div>
+            <div className="text-3xl shrink-0"></div>
             <div>
               <h2 className="text-white font-black text-base mb-1">Anything a Father Can Do, a TrainerBot Can Do</h2>
               <p className="text-blue-200 text-sm leading-relaxed">
@@ -180,7 +180,7 @@ function TrainerBotInner() {
 
         {/* Medical Data Section */}
         <div className="mt-8 bg-[#0d1b3e] border border-blue-800 rounded-2xl p-5">
-          <h2 className="text-white font-black text-base mb-3">📊 Complete Health & Performance Data</h2>
+          <h2 className="text-white font-black text-base mb-3"> Complete Health & Performance Data</h2>
           <div className="grid grid-cols-2 gap-2">
             {[
               "Heart Rate (Real-Time)", "HRV Tracking", "Blood Oxygen (SpO2)", "Body Temperature",
@@ -198,7 +198,7 @@ function TrainerBotInner() {
 
         {/* Sports Coverage */}
         <div className="mt-6 bg-[#0d1b3e] border border-blue-800 rounded-2xl p-5">
-          <h2 className="text-white font-black text-base mb-3">🏆 Built for Every Sport</h2>
+          <h2 className="text-white font-black text-base mb-3"> Built for Every Sport</h2>
           <div className="flex flex-wrap gap-2">
             {[
               "Football", "Basketball", "Baseball", "Softball", "Soccer", "Track & Field",
@@ -215,7 +215,7 @@ function TrainerBotInner() {
 
         {/* Stadium Roles */}
         <div className="mt-6 bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-blue-900 rounded-2xl p-5">
-          <h2 className="text-white font-black text-base mb-3">🏟️ Stadium & Venue Deployment</h2>
+          <h2 className="text-white font-black text-base mb-3"> Stadium & Venue Deployment</h2>
           <div className="space-y-2">
             {[
               { role: "Concession Vendor", desc: "Seat-to-seat food & drink delivery — no lines, more revenue" },
@@ -237,7 +237,7 @@ function TrainerBotInner() {
 
         {/* AthlynX Integration */}
         <div className="mt-6 bg-[#0d1b3e] border border-blue-800 rounded-2xl p-5">
-          <h2 className="text-white font-black text-base mb-3">🔗 Syncs With Your Entire AthlynX Profile</h2>
+          <h2 className="text-white font-black text-base mb-3"> Syncs With Your Entire AthlynX Profile</h2>
           <div className="space-y-2">
             {[
               { app: "AI Training Bot", sync: "Logs every workout, rep, set, and performance metric automatically" },
@@ -259,7 +259,7 @@ function TrainerBotInner() {
 
         {/* CTA */}
         <div className="mt-8 bg-gradient-to-br from-[#0a1628] to-[#1a3a8f] border border-blue-600 rounded-2xl p-6 text-center">
-          <div className="text-4xl mb-3">🤖</div>
+          <div className="text-4xl mb-3"></div>
           <h3 className="text-white font-black text-xl mb-2">Be First in Line</h3>
           <p className="text-blue-200 text-sm leading-relaxed max-w-sm mx-auto mb-4">
             AthlynX TrainerBot is in development. Athletes on Elite and NIL Vault plans get priority access at launch. Sign up now and lock in your spot.

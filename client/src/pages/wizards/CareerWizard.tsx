@@ -77,7 +77,7 @@ export default function CareerWizard() {
               <div className="grid grid-cols-2 gap-2">
                 {LEVELS.map(l => (
                   <button key={l} onClick={() => setLevel(l)}
-                    className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition-all ${level === l ? "bg-red-600 border-red-400 text-white" : "bg-[#0d1b3e] border-blue-900 text-blue-300 hover:border-blue-600"}`}>
+                    className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition-all ${level === l ? "bg-[#1E90FF] border-[#1E90FF] text-white" : "bg-[#0d1b3e] border-blue-900 text-blue-300 hover:border-blue-600"}`}>
                     {l}
                   </button>
                 ))}
@@ -114,7 +114,7 @@ export default function CareerWizard() {
               <div className="grid grid-cols-3 gap-2">
                 {["2025", "2026", "2027", "2028", "2029", "2030"].map(y => (
                   <button key={y} onClick={() => setGradYear(y)}
-                    className={`py-3 rounded-xl text-sm font-bold border transition-all ${gradYear === y ? "bg-red-600 border-red-400 text-white" : "bg-[#0d1b3e] border-blue-900 text-blue-300 hover:border-blue-600"}`}>
+                    className={`py-3 rounded-xl text-sm font-bold border transition-all ${gradYear === y ? "bg-[#1E90FF] border-[#1E90FF] text-white" : "bg-[#0d1b3e] border-blue-900 text-blue-300 hover:border-blue-600"}`}>
                     {y}
                   </button>
                 ))}
@@ -127,7 +127,7 @@ export default function CareerWizard() {
                     wizardMutation.mutate({ wizardType: "career", context });
                   }}
                   disabled={wizardMutation.isPending}
-                  className="flex-1 bg-gradient-to-r from-red-600 to-red-500 text-white font-black">
+                  className="flex-1 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] text-white font-black">
                   {wizardMutation.isPending ? "Generating..." : "Generate My Playbook "}
                 </Button>
               </div>
@@ -136,9 +136,9 @@ export default function CareerWizard() {
         )}
         {done && (
           <div className="space-y-4">
-            <Card className="bg-gradient-to-r from-red-900/40 to-blue-900 border-red-600">
+            <Card className="bg-gradient-to-r from-[#1E90FF]/40 to-blue-900 border-[#1E90FF]">
               <CardContent className="p-5">
-                <div className="text-red-400 text-xs uppercase tracking-widest mb-1">Your Career Playbook</div>
+                <div className="text-[#1E90FF] text-xs uppercase tracking-widest mb-1">Your Career Playbook</div>
                 <h2 className="text-white text-2xl font-black mb-1">{sport} Athlete — {level}</h2>
                 <p className="text-blue-300 text-sm">Target Year: {gradYear}</p>
                 <div className="flex flex-wrap gap-2 mt-3">

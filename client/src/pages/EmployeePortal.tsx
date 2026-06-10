@@ -20,25 +20,25 @@ const TEAM = [
 ];
 
 const QUICK_ACTIONS = [
-  { label: "Admin Dashboard", href: "/admin", icon: "⚙️", desc: "Manage users & platform" },
-  { label: "CRM Command", href: "/crm-command", icon: "📊", desc: "Contacts & pipeline" },
-  { label: "Broadcast", href: "/admin/broadcast", icon: "📣", desc: "Message all users" },
-  { label: "NIL Portal", href: "/nil-portal", icon: "💰", desc: "Manage NIL deals" },
-  { label: "Transfer Portal", href: "/transfer-portal", icon: "🔄", desc: "Athlete transfers" },
-  { label: "Social Command", href: "/social-command", icon: "📱", desc: "Social media control" },
-  { label: "Investor Hub", href: "/investor-hub", icon: "💎", desc: "Investor relations" },
-  { label: "AI Command", href: "/wizard-hub", icon: "🤖", desc: "Gemini AI tools" },
+  { label: "Admin Dashboard", href: "/admin", icon: "", desc: "Manage users & platform" },
+  { label: "CRM Command", href: "/crm-command", icon: "", desc: "Contacts & pipeline" },
+  { label: "Broadcast", href: "/admin/broadcast", icon: "", desc: "Message all users" },
+  { label: "NIL Portal", href: "/nil-portal", icon: "", desc: "Manage NIL deals" },
+  { label: "Transfer Portal", href: "/transfer-portal", icon: "", desc: "Athlete transfers" },
+  { label: "Social Command", href: "/social-command", icon: "", desc: "Social media control" },
+  { label: "Investor Hub", href: "/investor-hub", icon: "", desc: "Investor relations" },
+  { label: "AI Command", href: "/wizard-hub", icon: "", desc: "Gemini AI tools" },
 ];
 
 const FUNNEL_STAGES = [
-  { stage: "Awareness", action: "Social posts auto-published 3x/day via Buffer", status: "✅ LIVE", color: "#0066ff" },
-  { stage: "Interest", action: "Home page → Sign Up CTA → 7-day free trial", status: "✅ LIVE", color: "#00c2ff" },
-  { stage: "Signup", action: "Email/Google auth → Gemini enriches CRM profile", status: "✅ LIVE", color: "#7c3aed" },
-  { stage: "Onboarding", action: "AI Onboarding → Role selection → Platform tour", status: "✅ LIVE", color: "#059669" },
-  { stage: "Activation", action: "First NIL deal / Transfer entry / AI Trainer session", status: "✅ LIVE", color: "#d97706" },
-  { stage: "Conversion", action: "Trial expires → Stripe billing → Pro/Elite upgrade", status: "✅ LIVE", color: "#dc2626" },
-  { stage: "Retention", action: "Daily AI reports → Personalized recommendations", status: "✅ LIVE", color: "#0066ff" },
-  { stage: "Revenue", action: "Subscriptions + NIL commissions + ConCreator B2B", status: "✅ LIVE", color: "#00c2ff" },
+  { stage: "Awareness", action: "Social posts auto-published 3x/day via Buffer", status: " LIVE", color: "#0066ff" },
+  { stage: "Interest", action: "Home page → Sign Up CTA → 7-day free trial", status: " LIVE", color: "#00c2ff" },
+  { stage: "Signup", action: "Email/Google auth → Gemini enriches CRM profile", status: " LIVE", color: "#7c3aed" },
+  { stage: "Onboarding", action: "AI Onboarding → Role selection → Platform tour", status: " LIVE", color: "#059669" },
+  { stage: "Activation", action: "First NIL deal / Transfer entry / AI Trainer session", status: " LIVE", color: "#d97706" },
+  { stage: "Conversion", action: "Trial expires → Stripe billing → Pro/Elite upgrade", status: " LIVE", color: "#dc2626" },
+  { stage: "Retention", action: "Daily AI reports → Personalized recommendations", status: " LIVE", color: "#0066ff" },
+  { stage: "Revenue", action: "Subscriptions + NIL commissions + ConCreator B2B", status: " LIVE", color: "#00c2ff" },
 ];
 
 function EmployeePortalInner() {
@@ -58,7 +58,7 @@ function EmployeePortalInner() {
     return (
       <PlatformLayout>
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-          <div className="text-5xl mb-4">🔒</div>
+          <div className="text-5xl mb-4 hidden"></div>
           <h1 className="text-2xl font-black text-white mb-2">Employee Access Only</h1>
           <p className="text-blue-400">This portal is for AthlynX team members only.</p>
           <Link href="/dashboard" className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-xl font-bold">
@@ -83,7 +83,7 @@ function EmployeePortalInner() {
         {/* Header */}
         <div className="bg-gradient-to-r from-[#0a1628] to-[#1a3a8f] border border-blue-700 rounded-xl p-5">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-2xl">🏢</div>
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-[#0a1628] flex items-center justify-center text-2xl"></div>
             <div>
               <h2 className="text-2xl font-black text-white">AthlynX Employee Portal</h2>
               <p className="text-blue-300 text-sm">Welcome back, {user.name ?? "Team Member"} · {(user as any).role?.toUpperCase()}</p>
@@ -92,10 +92,10 @@ function EmployeePortalInner() {
           {/* Live Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
             {[
-              { label: "Total Users", value: stats?.totalUsers ?? "—", icon: "👥" },
-              { label: "Active Trial", value: stats?.onTrial ?? "—", icon: "⏱️" },
-              { label: "Paid Subs", value: stats?.withSubscription ?? "—", icon: "💎" },
-              { label: "New This Week", value: stats?.newThisWeek ?? "—", icon: "💰" },
+              { label: "Total Users", value: stats?.totalUsers ?? "—", icon: "" },
+              { label: "Active Trial", value: stats?.onTrial ?? "—", icon: "" },
+              { label: "Paid Subs", value: stats?.withSubscription ?? "—", icon: "" },
+              { label: "New This Week", value: stats?.newThisWeek ?? "—", icon: "" },
             ].map((s, i) => (
               <div key={i} className="bg-[#0d1b3e] rounded-xl p-3 text-center border border-blue-900">
                 <div className="text-xl">{s.icon}</div>
@@ -113,7 +113,7 @@ function EmployeePortalInner() {
               className={`flex-1 py-2 text-xs font-bold rounded-lg capitalize transition-colors ${
                 activeTab === tab ? "bg-blue-600 text-white" : "text-blue-400 hover:text-white"
               }`}>
-              {tab === "overview" ? "🏠 Overview" : tab === "team" ? "👥 Team" : tab === "funnel" ? "🔄 Funnel" : "🤖 AI Command"}
+              {tab === "overview" ? " Overview" : tab === "team" ? " Team" : tab === "funnel" ? " Funnel" : " AI Command"}
             </button>
           ))}
         </div>
@@ -135,7 +135,7 @@ function EmployeePortalInner() {
 
             {/* Autonomous Systems Status */}
             <div className="bg-[#0a1628] border border-blue-900 rounded-xl p-4">
-              <div className="text-white font-black mb-3">🤖 Autonomous Systems Status</div>
+              <div className="text-white font-black mb-3"> Autonomous Systems Status</div>
               <div className="space-y-2">
                 {[
                   { name: "Social Media Cron", detail: "3x/day · 10 channels · 600 unique posts", status: "LIVE" },
@@ -153,7 +153,7 @@ function EmployeePortalInner() {
                       <div className="text-blue-400 text-xs">{sys.detail}</div>
                     </div>
                     <span className={`text-xs font-black px-2 py-0.5 rounded-full ${
-                      sys.status === "LIVE" ? "bg-green-900/40 text-green-400 border border-green-700" : "bg-blue-900/40 text-sky-400 border border-blue-700"
+                      sys.status === "LIVE" ? "bg-[#00C2FF]/40 text-[#00C2FF] border border-[#00C2FF]" : "bg-blue-900/40 text-[#00C2FF] border border-blue-700"
                     }`}>{sys.status}</span>
                   </div>
                 ))}
@@ -209,7 +209,7 @@ function EmployeePortalInner() {
                     <div className="flex-1 border-b border-blue-900/40 pb-3">
                       <div className="flex items-center justify-between">
                         <div className="text-white font-bold text-sm">{stage.stage}</div>
-                        <span className="text-xs font-bold text-green-400">{stage.status}</span>
+                        <span className="text-xs font-bold text-[#00C2FF]">{stage.status}</span>
                       </div>
                       <div className="text-blue-400 text-xs mt-0.5">{stage.action}</div>
                     </div>
@@ -217,7 +217,7 @@ function EmployeePortalInner() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 border border-blue-700 rounded-xl p-4 text-center">
+            <div className="bg-gradient-to-r from-blue-900/40 to-[#0a1628]/40 border border-blue-700 rounded-xl p-4 text-center">
               <div className="text-white font-black text-lg">$268.14/month to run the entire platform</div>
               <div className="text-blue-300 text-sm mt-1">Every dollar above that is pure profit — distributed automatically via Stripe</div>
             </div>
@@ -236,7 +236,7 @@ function EmployeePortalInner() {
                   onChange={e => setAiQuery(e.target.value)}
                   onKeyDown={e => e.key === "Enter" && handleAiQuery()}
                   placeholder="Ask Gemini: How many users signed up today? What's our NIL pipeline? Write a proposal for CementCo..."
-                  className="flex-1 bg-[#1a3a8f] border border-blue-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 placeholder-blue-600"
+                  className="flex-1 bg-[#1a3a8f] border border-blue-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-[#1E90FF] placeholder-blue-600"
                 />
                 <button onClick={handleAiQuery} disabled={aiLoading}
                   className="bg-[#00c2ff] hover:bg-[#00a8e0] text-black font-black px-5 py-3 rounded-xl transition-all disabled:opacity-50">

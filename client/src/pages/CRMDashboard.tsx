@@ -94,7 +94,7 @@ function CRMDashboardInner() {
       if (newSignups.length > lastSignupCount.current && lastSignupCount.current > 0) {
         // Play notification sound
         playNotificationSound();
-        toast.success(`🎉 NEW SIGNUP #${newSignups[0].signupNumber}!`, {
+        toast.success(` NEW SIGNUP #${newSignups[0].signupNumber}!`, {
           description: `${newSignups[0].fullName} just joined!`,
           duration: 10000,
         });
@@ -171,7 +171,7 @@ function CRMDashboardInner() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-12 h-12 border-2 border-[#1E90FF] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-white/50 text-sm">Loading CRM Dashboard...</p>
         </div>
       </div>
@@ -181,13 +181,13 @@ function CRMDashboardInner() {
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
-        <Card className="w-full max-w-md bg-slate-800/90 border-red-500/30">
+        <Card className="w-full max-w-md bg-slate-800/90 border-[#1E90FF]/30">
           <CardHeader className="text-center">
-            <div className="mx-auto mb-4 w-24 h-24 bg-gradient-to-r from-red-500 to-red-700 rounded-2xl flex items-center justify-center">
-              <span className="text-5xl">🚫</span>
+            <div className="mx-auto mb-4 w-24 h-24 bg-gradient-to-r from-[#1E90FF] to-[#0a1628] rounded-2xl flex items-center justify-center">
+              <span className="text-5xl"></span>
             </div>
             <CardTitle className="text-3xl text-white">Access Denied</CardTitle>
-            <p className="text-red-400 text-sm">Admin access required. Contact Chad Dozier.</p>
+            <p className="text-[#1E90FF] text-sm">Admin access required. Contact Chad Dozier.</p>
           </CardHeader>
           <CardContent className="text-center">
             <Link href="/feed">
@@ -207,15 +207,15 @@ function CRMDashboardInner() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/">
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl px-4 py-2 flex items-center gap-2">
-                <span className="text-2xl">📊</span>
+              <div className="bg-gradient-to-r from-[#1E90FF] to-blue-500 rounded-xl px-4 py-2 flex items-center gap-2">
+                <span className="text-2xl"></span>
                 <div>
                   <h1 className="text-white font-bold text-lg">AthlynX CRM</h1>
                   <p className="text-blue-100 text-[10px]">PARTNER DASHBOARD</p>
                 </div>
               </div>
             </Link>
-            <span className="text-cyan-400">Welcome, {partnerName}</span>
+            <span className="text-[#00C2FF]">Welcome, {partnerName}</span>
           </div>
           
           <div className="flex items-center gap-3">
@@ -230,9 +230,9 @@ function CRMDashboardInner() {
             </label>
             <Button
               onClick={exportToCSV}
-              className="bg-green-600 hover:bg-green-500"
+              className="bg-[#00C2FF] hover:bg-[#00C2FF]"
             >
-              📥 Export CSV
+               Export CSV
             </Button>
             <Button
               onClick={handleLogout}
@@ -251,53 +251,53 @@ function CRMDashboardInner() {
           <StatCard 
             title="Total Signups" 
             value={stats?.totalSignups || 0} 
-            icon="👥"
+            icon=""
             color="cyan"
           />
           <StatCard 
             title="Today" 
             value={stats?.todaySignups || 0} 
-            icon="📅"
+            icon=""
             color="green"
           />
           <StatCard 
             title="Waitlist" 
             value={stats?.waitlistCount || 0} 
-            icon="📋"
+            icon=""
             color="blue"
           />
           <StatCard 
             title="Converted" 
             value={stats?.convertedUsers || 0} 
-            icon="✅"
+            icon=""
             color="blue"
           />
           <StatCard 
             title="Paying" 
             value={stats?.payingUsers || 0} 
-            icon="💰"
+            icon=""
             color="red"
           />
           <StatCard 
             title="Revenue" 
             value={`$${stats?.totalRevenue || 0}`} 
-            icon="💵"
+            icon=""
             color="green"
           />
           <StatCard 
             title="Conv. Rate" 
             value={`${stats?.conversionRate || 0}%`} 
-            icon="📈"
+            icon=""
             color="red"
           />
         </div>
 
 
         {/* Inbox Cleanup + OAuth Security Control */}
-        <div className="mb-8 rounded-2xl border border-cyan-500/30 bg-slate-800/60 p-6 shadow-xl shadow-cyan-950/20">
+        <div className="mb-8 rounded-2xl border border-[#1E90FF]/30 bg-slate-800/60 p-6 shadow-xl shadow-cyan-950/20">
           <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-300">Communication OS Guardrail</p>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#00C2FF]">Communication OS Guardrail</p>
               <h2 className="mt-2 text-2xl font-black text-white">Inbox Cleanup & OAuth Security Control</h2>
               <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-300">
                 AthlynXAI CRM now treats email cleanup as an operating workflow: truly important business, billing, legal,
@@ -306,20 +306,20 @@ function CRMDashboardInner() {
               </p>
             </div>
             <Link href="/crm/communications">
-              <Button className="bg-cyan-600 hover:bg-cyan-500 text-white">Open Communications OS</Button>
+              <Button className="bg-[#1565C0] hover:bg-[#1E90FF] text-white">Open Communications OS</Button>
             </Link>
           </div>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             <div className="rounded-xl border border-slate-600 bg-slate-900/70 p-4">
-              <h3 className="font-bold text-cyan-200">Folder what matters</h3>
+              <h3 className="font-bold text-[#00C2FF]">Folder what matters</h3>
               <p className="mt-2 text-sm text-slate-400">Keep only high-value proof in reviewable folders: GitHub/Vercel, Apple Developer, billing, legal, investor, OAuth, and account-access events.</p>
             </div>
             <div className="rounded-xl border border-slate-600 bg-slate-900/70 p-4">
-              <h3 className="font-bold text-cyan-200">Trash routine noise</h3>
+              <h3 className="font-bold text-[#00C2FF]">Trash routine noise</h3>
               <p className="mt-2 text-sm text-slate-400">Completed Perplexity task notices, routine newsletters, stale login codes, and non-critical notifications go to Trash for Chad to permanently delete later.</p>
             </div>
             <div className="rounded-xl border border-slate-600 bg-slate-900/70 p-4">
-              <h3 className="font-bold text-cyan-200">Review OAuth apps one by one</h3>
+              <h3 className="font-bold text-[#00C2FF]">Review OAuth apps one by one</h3>
               <p className="mt-2 text-sm text-slate-400">GitHub authorized apps, revoked-token notices, broad scopes, and connector drift become CRM System Alerts. Never bulk revoke, expand scopes, or reconnect without approval.</p>
             </div>
           </div>
@@ -328,7 +328,7 @@ function CRMDashboardInner() {
         {/* Milestones */}
         <div className="mb-8">
           <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            🎯 Milestones
+             Milestones
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <MilestoneCard target={1} current={stats?.totalSignups || 0} label="First Signup!" />
@@ -344,9 +344,9 @@ function CRMDashboardInner() {
 
         {/* Live Feed */}
         <div className="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden">
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-4 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#1E90FF] to-blue-600 px-6 py-4 flex items-center justify-between">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
+              <span className="w-3 h-3 bg-[#00C2FF] rounded-full animate-pulse"></span>
               LIVE SIGNUP FEED
             </h2>
             <span className="text-blue-100 text-sm">
@@ -358,16 +358,16 @@ function CRMDashboardInner() {
             <table className="w-full">
               <thead className="bg-slate-700/50">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">#</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Time</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Name</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Email</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Phone</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Role</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Sport</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Device</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">IP</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-cyan-400 uppercase tracking-wider">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">#</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Time</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Name</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Email</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Phone</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Role</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Sport</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Device</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">IP</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-[#00C2FF] uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-700">
@@ -375,7 +375,7 @@ function CRMDashboardInner() {
                   <tr>
                     <td colSpan={10} className="px-4 py-12 text-center text-slate-400">
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-4xl">⏳</span>
+                        <span className="text-4xl"></span>
                         <p>Waiting for first signup...</p>
                         <p className="text-sm">Launch is at 9 AM CST!</p>
                       </div>
@@ -386,15 +386,15 @@ function CRMDashboardInner() {
                     <tr 
                       key={signup.id} 
                       className={`hover:bg-slate-700/30 transition-colors ${
-                        index === 0 ? "bg-cyan-900/20 animate-pulse" : ""
+                        index === 0 ? "bg-[#1E90FF]/20 animate-pulse" : ""
                       }`}
                     >
                       <td className="px-4 py-3">
                         <span className={`font-bold ${
-                          signup.signupNumber === 1 ? "text-red-400" : "text-cyan-400"
+                          signup.signupNumber === 1 ? "text-[#1E90FF]" : "text-[#00C2FF]"
                         }`}>
                           #{signup.signupNumber}
-                          {signup.signupNumber === 1 && " 🏆"}
+                          {signup.signupNumber === 1 && " "}
                         </span>
                       </td>
                       <td className="px-4 py-3 text-slate-300 text-sm">
@@ -407,8 +407,8 @@ function CRMDashboardInner() {
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                           signup.role === "athlete" ? "bg-blue-500/20 text-blue-400" :
                           signup.role === "parent" ? "bg-blue-600/20 text-blue-500" :
-                          signup.role === "coach" ? "bg-green-500/20 text-green-400" :
-                          "bg-red-500/20 text-red-400"
+                          signup.role === "coach" ? "bg-[#00C2FF]/20 text-[#00C2FF]" :
+                          "bg-[#1E90FF]/20 text-[#1E90FF]"
                         }`}>
                           {signup.role || "-"}
                         </span>
@@ -421,13 +421,13 @@ function CRMDashboardInner() {
                       <td className="px-4 py-3">
                         <div className="flex gap-1">
                           {signup.isPaying && (
-                            <span className="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">💰 Paying</span>
+                            <span className="px-2 py-1 bg-[#00C2FF]/20 text-[#00C2FF] rounded-full text-xs"> Paying</span>
                           )}
                           {signup.isConverted && !signup.isPaying && (
-                            <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">✅ Converted</span>
+                            <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs"> Converted</span>
                           )}
                           {!signup.isConverted && (
-                            <span className="px-2 py-1 bg-slate-500/20 text-slate-400 rounded-full text-xs">📋 Waitlist</span>
+                            <span className="px-2 py-1 bg-slate-500/20 text-slate-400 rounded-full text-xs"> Waitlist</span>
                           )}
                         </div>
                       </td>
@@ -451,12 +451,12 @@ function CRMDashboardInner() {
 
 function StatCard({ title, value, icon, color }: { title: string; value: number | string; icon: string; color: string }) {
   const colorClasses: Record<string, string> = {
-    cyan: "from-cyan-500/20 to-cyan-600/20 border-cyan-500/30",
-    green: "from-green-500/20 to-green-600/20 border-green-500/30",
+    cyan: "from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30",
+    green: "from-[#00C2FF]/20 to-[#0a1628]/20 border-[#00C2FF]/30",
     blue: "from-blue-500/20 to-blue-600/20 border-blue-500/30",
     blue2: "from-blue-600/20 to-blue-700/20 border-blue-600/30",
-    red2: "from-red-500/20 to-red-600/20 border-red-500/30",
-    orange2: "from-red-500/20 to-red-600/20 border-red-500/30",
+    red2: "from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30",
+    orange2: "from-[#1E90FF]/20 to-[#0a1628]/20 border-[#1E90FF]/30",
   };
 
   return (
@@ -477,17 +477,17 @@ function MilestoneCard({ target, current, label, isRevenue = false }: { target: 
   return (
     <div className={`rounded-xl border p-4 ${
       achieved 
-        ? "bg-gradient-to-br from-green-500/20 to-green-600/20 border-green-500/50" 
+        ? "bg-gradient-to-br from-[#00C2FF]/20 to-[#0a1628]/20 border-[#00C2FF]/50" 
         : "bg-slate-800/50 border-slate-700"
     }`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-sm text-slate-300">{label}</span>
-        {achieved && <span className="text-xl">🎉</span>}
+        {achieved && <span className="text-xl"></span>}
       </div>
       <div className="h-2 bg-slate-700 rounded-full overflow-hidden mb-2">
         <div 
           className={`h-full transition-all duration-500 ${
-            achieved ? "bg-green-500" : "bg-cyan-500"
+            achieved ? "bg-[#00C2FF]" : "bg-[#1E90FF]"
           }`}
           style={{ width: `${progress}%` }}
         />
