@@ -5,7 +5,7 @@ export default function Home() {
         AthlynX
       </h1>
       <p className="mt-6 text-xl md:text-2xl text-granite-100 max-w-2xl">
-        The Athlete's Playbook.
+        The Athlete&apos;s Playbook.
       </p>
       <p className="mt-2 text-base text-granite-100/70 max-w-xl">
         One Platform. Every Tool. Unlimited Potential. Built for every athlete —
