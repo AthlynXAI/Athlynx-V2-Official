@@ -71,7 +71,7 @@ const competitions = [
   {
     name: "Google AI Hackathon",
     status: "READY",
-    statusColor: "text-yellow-400 bg-yellow-400/10 border-yellow-400/30",
+    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/30",
     category: "Gemini Integration \u2014 Multi-Modal AI OS",
     date: "2026",
     location: "Global",
