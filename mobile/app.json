@@ -2,23 +2,27 @@
   "expo": {
     "name": "AthlynXAI",
     "slug": "athlynxai",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/app-icon.png",
+    "icon": "./assets/icon.png",
     "scheme": "athlynxai",
     "userInterfaceStyle": "dark",
-    "newArchEnabled": false,
+    "backgroundColor": "#000000",
+    "primaryColor": "#1E90FF",
     "splash": {
-      "image": "./assets/splash-lockup.png",
+      "image": "./assets/splash.png",
+      "imageWidth": 200,
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "72",
+      "buildNumber": "82",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIStatusBarStyle": "UIStatusBarStyleLightContent",
+        "UIViewControllerBasedStatusBarAppearance": false
       },
       "jsEngine": "jsc"
     },
@@ -28,7 +32,7 @@
         "backgroundColor": "#000000"
       },
       "package": "ai.athlynx.app",
-      "versionCode": 72,
+      "versionCode": 82,
       "permissions": [
         "POST_NOTIFICATIONS",
         "android.permission.RECORD_AUDIO",
@@ -44,13 +48,16 @@
       "output": "static",
       "favicon": "./assets/favicon.png"
     },
+    "notification": {
+      "icon": "./assets/notification-icon.png"
+    },
     "plugins": [
       "./plugins/withGradleFix",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/splash-lockup.png",
-          "imageWidth": 640,
+          "image": "./assets/splash.png",
+          "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#000000"
         }

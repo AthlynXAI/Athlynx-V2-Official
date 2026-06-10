@@ -19,14 +19,16 @@
     },
     "production": {
       "android": {
-        "buildType": "app-bundle"
+        "buildType": "app-bundle",
+        "image": "ubuntu-26.04-jdk-17-ndk-r27b"
       },
       "ios": {
         "distribution": "store",
         "credentialsSource": "remote",
-        "image": "latest"
+        "image": "macos-tahoe-26.4-xcode-26.4"
       },
       "autoIncrement": true,
+      "node": "22.22.2",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://athlynx.ai",
         "EXPO_PUBLIC_SUPABASE_URL": "$EXPO_PUBLIC_SUPABASE_URL",
@@ -47,7 +49,7 @@
         "ascApiKeyPath": "./AuthKey_NP9G8Q3KKR.p8",
         "ascApiKeyIssuerId": "ba530e88-4441-4029-bc5a-853abab91a91",
         "ascApiKeyId": "NP9G8Q3KKR",
-        "appleId": "chaddozier@athlynx.ai",
+        "appleId": "chad.dozier@icloud.com",
         "ascAppId": "6767448150"
       }
     }
