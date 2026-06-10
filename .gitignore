@@ -123,7 +123,6 @@ scripts/seed-tidb.cjs
 *.MP4
 *.mov
 *.MOV
-api/index.js
 api/cron/daily-report.js
 api/cron/social-post.js
 mobile/android/
