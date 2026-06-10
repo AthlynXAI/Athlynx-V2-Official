@@ -7,7 +7,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import {
   Camera, Medal, MapPin, School, GraduationCap, BookOpen,
-  Scale, Target, Instagram, Music2, Trophy, DollarSign, Zap, MessageCircle
+  Scale, Target, Music2, Trophy, DollarSign, Zap, MessageCircle, Link2
 } from "lucide-react-native";
 import { profileApi, mediaApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
@@ -220,7 +220,7 @@ export default function ProfileScreen() {
           <View style={styles.socialRow}>
             {profile.instagram && (
               <View style={styles.socialChip}>
-                <Instagram size={16} color={Colors.textSecondary} />
+                <Link2 size={16} color={Colors.textSecondary} />
                 <Text style={styles.socialHandle}>@{profile.instagram}</Text>
               </View>
             )}

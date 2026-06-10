@@ -205,7 +205,7 @@ export default function TrainingScreen() {
           <Text style={styles.sectionTitle}>Recent Sessions</Text>
           {history.length === 0 ? (
             <View style={styles.emptyState}>
-              <Activity size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
+              <Activity size={48} color={Colors.textSecondary} style={styles.emptyIcon} />
               <Text style={styles.emptyText}>No sessions logged yet.</Text>
               <Text style={styles.emptySubtext}>Tap "+ Log" to record your first workout.</Text>
             </View>

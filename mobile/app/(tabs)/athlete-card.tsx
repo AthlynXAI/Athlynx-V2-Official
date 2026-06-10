@@ -8,7 +8,7 @@ import {
   ActivityIndicator, Alert, Share,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Scale, BookOpen, MapPin, GraduationCap, Instagram, Music2, Share2, Link2, Zap, DollarSign } from "lucide-react-native";
+import { Scale, BookOpen, MapPin, GraduationCap, Music2, Share2, Link2, Zap, DollarSign } from "lucide-react-native";
 import { profileApi, aiApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
@@ -179,8 +179,8 @@ export default function AthleteCardScreen() {
       {(profile?.instagram || profile?.twitter || profile?.tiktokHandle) && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Social</Text>
-          {profile?.instagram && <InfoRow Icon={Instagram} label="Instagram" value={`@${profile.instagram}`} />}
-          {profile?.twitter && <InfoRow icon="𝕏" label="X (Twitter)" value={`@${profile.twitter}`} />}
+          {profile?.instagram && <InfoRow Icon={Link2} label="Instagram" value={`@${profile.instagram}`} />}
+          {profile?.twitter && <InfoRow Icon={Link2} label="X (Twitter)" value={`@${profile.twitter}`} />}
           {profile?.tiktokHandle && <InfoRow Icon={Music2} label="TikTok" value={`@${profile.tiktokHandle}`} />}
         </View>
       )}

@@ -166,7 +166,7 @@ export default function TransferPortalScreen() {
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={Colors.cyan} />}
           >
             <View style={styles.headerRow}>
-              <View style={styles.headerTitleRow}>
+              <View style={styles.headerTitle}>
                 <ArrowLeftRight size={20} color={Colors.textPrimary} />
                 <Text style={styles.headerTitle}>Transfer Portal</Text>
               </View>
@@ -181,7 +181,7 @@ export default function TransferPortalScreen() {
           <ScrollView style={styles.list} contentContainerStyle={styles.listContent}>
             {submitted ? (
               <View style={styles.successCard}>
-                <CheckCircle size={48} color={Colors.success} style={styles.successIconView} />
+                <CheckCircle size={48} color={Colors.success} style={styles.successIcon} />
                 <Text style={styles.successTitle}>You're in the Portal!</Text>
                 <Text style={styles.successSub}>Coaches across the country can now see your profile. Check your email for next steps.</Text>
                 <TouchableOpacity style={styles.resetBtn} onPress={() => setSubmitted(false)}>

@@ -51,7 +51,7 @@ function AthleteCard({ athlete }: { athlete: Athlete }) {
             {[athlete.sport, athlete.position, athlete.classYear].filter(Boolean).join(" · ")}
           </Text>
           {athlete.school && (
-            <View style={styles.athleteSchoolRow}>
+            <View style={styles.athleteSchool}>
               <School size={12} color={Colors.textSecondary} />
               <Text style={styles.athleteSchool}>{athlete.school}</Text>
             </View>
@@ -189,7 +189,7 @@ export default function RecruitingScreen() {
           contentContainerStyle={styles.list}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Trophy size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
+              <Trophy size={48} color={Colors.textSecondary} style={styles.emptyIcon} />
               <Text style={styles.emptyTitle}>No athletes found</Text>
               <Text style={styles.emptySubtitle}>Try a different search or sport filter</Text>
             </View>

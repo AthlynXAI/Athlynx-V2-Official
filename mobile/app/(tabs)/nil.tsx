@@ -217,7 +217,7 @@ export default function NILScreen() {
           contentContainerStyle={styles.list}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <DollarSign size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
+              <DollarSign size={48} color={Colors.textSecondary} style={styles.emptyIcon} />
               <Text style={styles.emptyTitle}>
                 {tab === "mine" ? "No deals yet" : "No deals available"}
               </Text>
