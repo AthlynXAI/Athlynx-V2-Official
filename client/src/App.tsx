@@ -297,6 +297,8 @@ import OSLedger from "./pages/OSLedger";
 import CoachLynx from "./components/CoachLynx";
 import AthletePlaybookEpisode1 from "./pages/AthletePlaybookEpisode1";
 import GlucoAthleteOS from "./pages/GlucoAthleteOS";
+import AthlynxEngine from "./pages/AthlynxEngine";
+import GoogleWorkspaceOS from "./pages/GoogleWorkspaceOS";
 
 function Router() {
   return (
@@ -769,6 +771,16 @@ function Router() {
       {/* Build 13: Traffic ledger admin */}
       <Route path="/os/ledger" component={OSLedger} />
       <Route path="/admin/ledger" component={OSLedger} />
+      {/* AI Engine — Nebius H200 */}
+      <Route path="/athlynx-engine" component={AthlynxEngine} />
+      <Route path="/ai-engine" component={AthlynxEngine} />
+      <Route path="/nebius" component={AthlynxEngine} />
+      <Route path="/engine" component={AthlynxEngine} />
+      {/* Google Workspace OS */}
+      <Route path="/google-workspace" component={GoogleWorkspaceOS} />
+      <Route path="/workspace" component={GoogleWorkspaceOS} />
+      <Route path="/gws" component={GoogleWorkspaceOS} />
+      <Route path="/gemini" component={GoogleWorkspaceOS} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

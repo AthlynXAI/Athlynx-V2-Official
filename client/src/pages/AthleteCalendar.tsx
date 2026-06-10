@@ -323,6 +323,33 @@ function AthleteCalendarInner() {
           </div>
         )}
 
+        {/* Calendly Integration */}
+        <div className="bg-[#0d1b3e] border border-blue-700 rounded-xl p-4 mb-3">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="text-2xl">📆</div>
+            <div className="flex-1">
+              <div className="text-white font-bold text-sm">Calendly — Book a Meeting</div>
+              <div className="text-blue-400 text-xs">Schedule with coaches, scouts, and brands instantly</div>
+            </div>
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-2 rounded-lg transition-colors shrink-0">
+              Open Calendly →
+            </a>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: "Book Coach Meeting", href: "https://calendly.com" },
+              { label: "Schedule Scout Visit", href: "https://calendly.com" },
+              { label: "NIL Brand Meeting", href: "https://calendly.com" },
+              { label: "My Availability", href: "https://calendly.com" },
+            ].map((item) => (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
+                className="text-center text-xs font-bold text-blue-300 bg-blue-900/40 border border-blue-700/50 rounded-lg py-2 px-3 hover:bg-blue-800/60 transition-colors">
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
         {/* Google Calendar sync */}
         <div className="bg-[#1a3a8f] border border-blue-900 rounded-xl p-4 flex items-center gap-3">
           <div className="text-2xl">📅</div>

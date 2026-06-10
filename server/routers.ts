@@ -53,6 +53,9 @@ import { studioRouter } from "./routers/studioRouter";
 // Build 29 — Unified Communications OS (CRM + Layer Cake command layer)
 import { communicationsOsRouter } from "./routers/communicationsOsRouter";
 
+// Multi-AI Engine — Gemini + Nebius H200 + Claude + Perplexity + Grok + OpenAI
+import { multiAIRouter } from "./routers/multiAIRouter";
+
 export const appRouter = router({
   system: systemRouter,
   stripe: stripeRouter,
@@ -107,6 +110,9 @@ export const appRouter = router({
 
   // Build 29 — Unified Communications OS
   communicationsOs: communicationsOsRouter,
+
+  // Multi-AI Engine — all providers
+  multiAI: multiAIRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -644,7 +644,7 @@ function HomeInner() {
       </div>
       {/* Announcement bar */}
       <div className="bg-[#0a1628] text-center text-xs py-1.5 tracking-widest font-semibold text-white border-b border-[#1E90FF]/25">
-        ATHLETE-FIRST PROFILE CLAIMS · <span className="text-[#1E90FF]">JULY 1 FULL LAUNCH</span>
+        <span className="text-[#1E90FF] font-black">BE THE LEGACY</span> · 1 MAN · 1 AI · $1B · <span className="text-[#00C2FF]">FIRST AUTONOMOUS ATHLETE OS</span> · NEBIUS H200 · ATHLYNXAI OS v1
       </div>
 
       {/* Header */}
@@ -803,6 +803,11 @@ function HomeInner() {
           <h1 className="mt-8 max-w-5xl text-4xl font-black uppercase leading-[0.95] tracking-tight text-white drop-shadow-2xl md:text-7xl">
             ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM.
           </h1>
+          <div className="mt-4 inline-flex items-center gap-3">
+            <span className="text-2xl md:text-4xl font-black uppercase tracking-widest text-[#1E90FF] drop-shadow-[0_0_24px_rgba(30,144,255,0.6)]">BE THE LEGACY</span>
+            <span className="text-white/30 text-2xl">·</span>
+            <span className="text-sm md:text-base font-black uppercase tracking-widest text-white/60">ENTER THE PORTAL</span>
+          </div>
 
           {/* ═══ RECOGNITION ═══ */}
           <div className="mt-10 w-full max-w-5xl">
