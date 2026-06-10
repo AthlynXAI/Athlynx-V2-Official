@@ -1,6 +1,6 @@
 /**
  * SDK Server — AthlynX
- * Session-cookie based authentication. Firebase Auth replaces Auth0/Okta.
+ * Session-cookie based authentication. Supabase Auth replaces Firebase/Auth0/Okta.
  */
 import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 import { ForbiddenError } from "@shared/_core/errors";

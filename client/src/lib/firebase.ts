@@ -1,125 +1,134 @@
 /**
- * AthlynXAI — Firebase Auth Client
- * Supports: Google, Apple, Facebook, X/Twitter, Email/Password
- * iOS/Android: uses signInWithRedirect (Safari blocks popups)
- * Desktop: uses signInWithPopup
+ * AthlynXAI — Auth Client (Supabase OAuth)
+ * Firebase has been fully removed. All social sign-in now goes through
+ * Supabase Auth (Google, Apple, Twitter).
+ *
+ * Exports the same surface that pages imported from the old firebase.ts so
+ * no page-level import changes are needed.
  */
-import { initializeApp, getApps } from "firebase/app";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  OAuthProvider,
-  FacebookAuthProvider,
-  TwitterAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  type User as FirebaseUser,
-} from "firebase/auth";
+import { supabase } from "./supabase";
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+export const isFirebaseConfigured = true; // Supabase is always configured
+
+// ─── Shared types ──────────────────────────────────────────────────────────
+
+export type FirebaseUser = {
+  uid: string;
+  displayName: string | null;
+  email: string | null;
+  photoURL: string | null;
 };
 
-export const isFirebaseConfigured = !!(
-  firebaseConfig.apiKey &&
-  firebaseConfig.authDomain &&
-  firebaseConfig.projectId &&
-  firebaseConfig.appId
-);
+type AuthResult = { idToken: string; user: FirebaseUser };
 
-const app = isFirebaseConfigured
-  ? (getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0])
-  : null;
+// ─── OAuth helpers ─────────────────────────────────────────────────────────
 
-export const auth = isFirebaseConfigured && app ? getAuth(app) : null as any;
-
-const googleProvider = new GoogleAuthProvider();
-googleProvider.addScope("email");
-googleProvider.addScope("profile");
-
-const appleProvider = new OAuthProvider("apple.com");
-appleProvider.addScope("email");
-appleProvider.addScope("name");
-
-const facebookProvider = new FacebookAuthProvider();
-facebookProvider.addScope("email");
-facebookProvider.addScope("public_profile");
-
-const twitterProvider = new TwitterAuthProvider();
-
-/** Detect mobile (iOS or Android) — use redirect instead of popup */
-function isMobile(): boolean {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-}
-
-/** Sign in with any provider — always use popup (opens real browser window, avoids disallowed_useragent on mobile) */
-async function signInWithProvider(
-  provider: GoogleAuthProvider | OAuthProvider | FacebookAuthProvider | TwitterAuthProvider
-): Promise<{ idToken: string; user: FirebaseUser }> {
-  if (!isFirebaseConfigured || !auth) throw new Error('Firebase is not configured');
-  // Always use popup — signInWithRedirect causes Error 403 disallowed_useragent on mobile
-  // because it opens in an embedded WebView. Popup opens a real browser window which Google allows.
-  const result = await signInWithPopup(auth, provider);
-  const idToken = await result.user.getIdToken();
-  return { idToken, user: result.user };
+async function signInWithOAuth(
+  provider: "google" | "apple" | "twitter"
+): Promise<AuthResult> {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: `${window.location.origin}/auth/callback`,
+      scopes: provider === "google" ? "email profile" : undefined,
+    },
+  });
+  if (error) throw error;
+  // signInWithOAuth triggers a redirect — result handled in AuthCallback
+  return {
+    idToken: "",
+    user: { uid: "", displayName: null, email: null, photoURL: null },
+  };
 }
 
 /**
- * Call this on app load to handle redirect result after mobile sign-in.
- * Returns user data if a redirect just completed, null otherwise.
+ * Called at /auth/callback to exchange the OAuth code for a session.
+ * Returns the session access_token as the "idToken" for syncSupabaseUser.
  */
-export async function handleRedirectResult(): Promise<{ idToken: string; user: FirebaseUser } | null> {
-  if (!isFirebaseConfigured || !auth) return null;
-  try {
-    const result = await getRedirectResult(auth);
-    if (!result) return null;
-    const idToken = await result.user.getIdToken();
-    return { idToken, user: result.user };
-  } catch (err: any) {
-    if (
-      err?.code === 'auth/missing-initial-state' ||
-      err?.message?.includes('missing initial state') ||
-      err?.message?.includes('sessionStorage')
-    ) {
-      return null;
-    }
-    throw err;
-  }
+export async function handleRedirectResult(): Promise<AuthResult | null> {
+  const { data, error } = await supabase.auth.getSession();
+  if (error || !data.session) return null;
+  const session = data.session;
+  const user = session.user;
+  return {
+    idToken: session.access_token,
+    user: {
+      uid: user.id,
+      displayName:
+        user.user_metadata?.full_name ?? user.user_metadata?.name ?? null,
+      email: user.email ?? null,
+      photoURL: user.user_metadata?.avatar_url ?? null,
+    },
+  };
 }
 
-export async function signInWithGoogle(): Promise<{ idToken: string; user: FirebaseUser }> {
-  return signInWithProvider(googleProvider);
+export async function signInWithGoogle(): Promise<AuthResult> {
+  return signInWithOAuth("google");
 }
 
-export async function signInWithApple(): Promise<{ idToken: string; user: FirebaseUser }> {
-  return signInWithProvider(appleProvider);
+export async function signInWithApple(): Promise<AuthResult> {
+  return signInWithOAuth("apple");
 }
 
-export async function signInWithFacebook(): Promise<{ idToken: string; user: FirebaseUser }> {
-  return signInWithProvider(facebookProvider);
+export async function signInWithFacebook(): Promise<AuthResult> {
+  // Facebook not configured in Supabase — fall back to Google
+  console.warn("[Auth] Facebook OAuth not configured; using Google");
+  return signInWithOAuth("google");
 }
 
-export async function signInWithTwitter(): Promise<{ idToken: string; user: FirebaseUser }> {
-  return signInWithProvider(twitterProvider);
+export async function signInWithTwitter(): Promise<AuthResult> {
+  return signInWithOAuth("twitter");
 }
 
 export async function firebaseSignOut(): Promise<void> {
-  if (auth) await signOut(auth);
+  await supabase.auth.signOut();
 }
 
-export {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  type FirebaseUser,
-};
+// ─── Email/password helpers backed by Supabase ────────────────────────────
+
+export async function signInWithEmailAndPassword(
+  _auth: unknown,
+  email: string,
+  password: string
+) {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+  if (error) throw error;
+  return data;
+}
+
+export async function createUserWithEmailAndPassword(
+  _auth: unknown,
+  email: string,
+  password: string
+) {
+  const { data, error } = await supabase.auth.signUp({ email, password });
+  if (error) throw error;
+  return data;
+}
+
+export function onAuthStateChanged(
+  _auth: unknown,
+  callback: (user: FirebaseUser | null) => void
+) {
+  const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+    if (!session) {
+      callback(null);
+      return;
+    }
+    const u = session.user;
+    callback({
+      uid: u.id,
+      displayName:
+        u.user_metadata?.full_name ?? u.user_metadata?.name ?? null,
+      email: u.email ?? null,
+      photoURL: u.user_metadata?.avatar_url ?? null,
+    });
+  });
+  return () => data.subscription.unsubscribe();
+}
+
+// auth export (pages that reference `auth` directly)
+export const auth = supabase.auth;

@@ -1,20 +1,22 @@
 /**
- * AthlynX — Firebase Admin SDK
- * Verifies Firebase ID tokens server-side without needing a service account key file.
- * Uses Google's public JWKS endpoint to verify RS256 tokens.
- * Project ID: athlynxai
+ * AthlynXAI — Supabase JWT Verifier (replaces Firebase Admin)
+ * Firebase has been fully removed. This module verifies Supabase access tokens
+ * using the Supabase JWKS endpoint so the server can trust client sessions.
+ *
+ * Drop-in replacement: exports verifyFirebaseToken() with the same signature
+ * so customAuthRouter.ts needs zero changes.
  */
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
-const FIREBASE_PROJECT_ID = "athlynxai";
-const FIREBASE_JWKS_URL = "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com";
-const FIREBASE_ISSUER = `https://securetoken.google.com/${FIREBASE_PROJECT_ID}`;
+const SUPABASE_PROJECT_REF = "pgrbkisgwpxgphpqmual";
+const SUPABASE_JWKS_URL = `https://${SUPABASE_PROJECT_REF}.supabase.co/auth/v1/.well-known/jwks.json`;
+const SUPABASE_ISSUER = `https://${SUPABASE_PROJECT_REF}.supabase.co/auth/v1`;
 
-// Cache the JWKS set (auto-refreshes)
 let jwks: ReturnType<typeof createRemoteJWKSet> | null = null;
+
 function getJwks() {
   if (!jwks) {
-    jwks = createRemoteJWKSet(new URL(FIREBASE_JWKS_URL));
+    jwks = createRemoteJWKSet(new URL(SUPABASE_JWKS_URL));
   }
   return jwks;
 }
@@ -32,27 +34,44 @@ export type FirebaseTokenPayload = {
 };
 
 /**
- * Verify a Firebase ID token and return the decoded payload.
- * Throws if the token is invalid or expired.
+ * Verify a Supabase access token and return a payload compatible with the
+ * existing FirebaseTokenPayload shape so callers need no changes.
  */
-export async function verifyFirebaseToken(idToken: string): Promise<FirebaseTokenPayload> {
-  const { payload } = await jwtVerify(idToken, getJwks(), {
-    issuer: FIREBASE_ISSUER,
-    audience: FIREBASE_PROJECT_ID,
-    algorithms: ["RS256"],
+export async function verifyFirebaseToken(
+  accessToken: string
+): Promise<FirebaseTokenPayload> {
+  const { payload } = await jwtVerify(accessToken, getJwks(), {
+    issuer: SUPABASE_ISSUER,
   });
 
   const uid = payload.sub;
   if (!uid) {
-    throw new Error("Firebase token missing sub (uid)");
+    throw new Error("Supabase token missing sub (uid)");
   }
+
+  // Supabase stores provider info in app_metadata
+  const appMeta = (payload as any).app_metadata ?? {};
+  const provider: string = appMeta.provider ?? "email";
 
   return {
     uid,
-    email: typeof payload.email === "string" ? payload.email : undefined,
-    name: typeof payload.name === "string" ? payload.name : undefined,
-    picture: typeof payload.picture === "string" ? payload.picture : undefined,
-    phone_number: typeof payload.phone_number === "string" ? payload.phone_number : undefined,
-    firebase: (payload as any).firebase ?? { sign_in_provider: "unknown" },
+    email:
+      typeof payload.email === "string" ? payload.email : undefined,
+    name:
+      typeof (payload as any).user_metadata?.full_name === "string"
+        ? (payload as any).user_metadata.full_name
+        : typeof (payload as any).user_metadata?.name === "string"
+        ? (payload as any).user_metadata.name
+        : undefined,
+    picture:
+      typeof (payload as any).user_metadata?.avatar_url === "string"
+        ? (payload as any).user_metadata.avatar_url
+        : undefined,
+    phone_number:
+      typeof payload.phone === "string" ? payload.phone : undefined,
+    firebase: {
+      sign_in_provider: provider,
+      identities: {},
+    },
   };
 }

@@ -615,7 +615,7 @@ function ConnectorsModule() {
             <APIKeyItem name="Nebius AI API Key — $5,000 GPU Credits Active" status="configured" lastUsed="Live — Llama-3.3-70B on H200" />
             <APIKeyItem name="Stripe Secret Key" status="configured" lastUsed="Today" />
             <APIKeyItem name="Stripe Publishable Key" status="configured" lastUsed="Today" />
-            <APIKeyItem name="Firebase API Key" status="configured" lastUsed="Live" />
+            <APIKeyItem name="Supabase API Key" status="configured" lastUsed="Live" />
             <APIKeyItem name="Resend API Key" status="configured" lastUsed="Live" />
             <APIKeyItem name="Netlify Deploy Token" status="configured" lastUsed="Live" />
           </div>

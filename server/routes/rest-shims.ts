@@ -63,7 +63,7 @@ restShimsRouter.get("/qa/questions", (_req: Request, res: Response) => {
 // GET /api/auth/session — REAL session check using custom session cookie.
 // Reads app_session_id cookie via sdk.authenticateRequest and returns the
 // current user (or unauthenticated) without throwing. Auth0/NextAuth stubs
-// removed — AthlynX uses Firebase + custom session cookie via tRPC.
+// removed — AthlynX uses Supabase + custom session cookie via tRPC.
 // Canonical path is `/api/trpc/auth.me`; this shim exists for legacy callers.
 // ---------------------------------------------------------------------------
 restShimsRouter.get("/auth/session", async (req: Request, res: Response) => {
