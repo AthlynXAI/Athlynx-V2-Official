@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
     "build": "vite build && esbuild server/_core/index.ts --platform=node --target=node18 --packages=external --bundle --format=esm --outdir=dist",
-    "build:vercel": "node scripts/bundle-doctrine.mjs && vite build --config vite.vercel.config.ts && esbuild server/entry.ts --bundle --platform=node --target=node18 --format=cjs --outfile=api/index.js",
+    "build:vercel": "node scripts/bundle-doctrine.mjs && vite build --config vite.vercel.config.ts && esbuild server/entry.ts --bundle --platform=node --target=node18 --format=cjs --external:@anthropic-ai/sdk --outfile=api/index.js",
     "identity:check": "node scripts/ensure-git-author.mjs",
     "deploy:preflight": "node scripts/ensure-git-author.mjs && npm run check && npm run build:vercel",
     "bundle:doctrine": "node scripts/bundle-doctrine.mjs",
@@ -91,6 +91,7 @@
     "next-themes": "^0.4.6",
     "node-cron": "^4.2.1",
     "nodemailer": "^8.0.5",
+    "@anthropic-ai/sdk": "^0.54.0",
     "openai": "^6.36.0",
     "pg": "^8.20.0",
     "postgres": "^3.4.9",
