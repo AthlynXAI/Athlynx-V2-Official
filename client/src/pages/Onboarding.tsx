@@ -1,7 +1,7 @@
 import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 /**
  * AthlynX — Onboarding Page
- * New users land here after Firebase login to select their role.
+ * New users land here after sign-in to select their role.
  * Uses the full AIOnboarding component with all 19 roles.
  */
 import { useEffect } from "react";

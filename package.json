@@ -82,8 +82,6 @@
     "drizzle-orm": "^0.45.2",
     "embla-carousel-react": "^8.6.0",
     "express": "^5.2.1",
-    "firebase": "^12.12.1",
-    "firebase-admin": "^13.8.0",
     "framer-motion": "^12.38.0",
     "input-otp": "^1.4.2",
     "jose": "6.1.0",

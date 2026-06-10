@@ -7,7 +7,7 @@ import { RouteErrorBoundary } from '@/components/GlobalErrorBoundary'
 /**
  * AthlynXAI — Auth Callback Handler
  * Handles both:
- * 1. Firebase redirect result (mobile iOS/Android after Google/social sign-in)
+ * 1. Supabase OAuth redirect result (after Google/Apple/Twitter sign-in)
  * 2. Server OAuth callback (desktop)
  */
 function AuthCallbackInner() {
@@ -55,7 +55,7 @@ function AuthCallbackInner() {
 
     async function handleCallback() {
       try {
-        // Try to get Firebase redirect result (mobile flow)
+        // Try to get Supabase OAuth redirect result
         const result = await handleRedirectResult()
         if (result) {
           setStatus('Completing sign-in...')

@@ -1,6 +1,6 @@
 /**
  * AthlynX — Custom Auth Router
- * Firebase-based authentication. Auth0 has been fully removed.
+ * Supabase-based authentication. Firebase and Auth0 have been fully removed.
  *
  * Procedures:
  *  - me               : return current session user (protected)
@@ -38,7 +38,7 @@ export const customAuthRouter = router({
     return { success: true };
   }),
 
-  // ─── Firebase social login (Google, Apple, Facebook, Twitter) ────────────
+  // ─── Supabase social login (Google, Apple, Twitter) ────────────────────────
   // Frontend: signInWithGoogle() → get idToken → call this → session cookie set
   syncFirebaseUser: publicProcedure
     .input(
@@ -52,12 +52,12 @@ export const customAuthRouter = router({
       })
     )
     .mutation(async ({ input, ctx }) => {
-      // 1. Verify the Firebase ID token with Google's public JWKS
+      // 1. Verify the Supabase access token
       const firebasePayload = await verifyFirebaseToken(input.idToken);
       const uid = firebasePayload.uid;
-      const openId = `firebase:${uid}`;
+      const openId = `supabase:${uid}`;
 
-      // 2. Resolve display values — prefer Firebase token fields, fall back to input
+      // 2. Resolve display values — prefer token fields, fall back to input
       const name = firebasePayload.name || input.name || "Athlete";
       const email = firebasePayload.email || input.email || "";
       const loginMethod = firebasePayload.firebase?.sign_in_provider ?? "google.com";
@@ -98,7 +98,7 @@ export const customAuthRouter = router({
       // 6. Return the user record
       const user = await getUserByOpenId(openId);
 
-      // Fetch Gravatar avatar for new Firebase/Google users
+      // Fetch Gravatar avatar for new social login users
       if (isNewUser && email) {
         try {
           const { getGravatarUrl } = await import("../services/gravatar");
@@ -117,7 +117,7 @@ export const customAuthRouter = router({
         const baseSignupMetadata = {
           method: loginMethod,
           email,
-          source: "firebase",
+          source: "supabase",
           ...(input.attribution || {}),
           completedAt,
         };
@@ -136,7 +136,7 @@ export const customAuthRouter = router({
         }
       }
 
-      // Notify Chad (all 5 emails) when a brand new user signs up via Google/Firebase
+      // Notify Chad (all 5 emails) when a brand new user signs up via social login
       if (isNewUser) {
         try {
           const { sendOwnerNewUserAlert } = await import("../services/aws-ses");

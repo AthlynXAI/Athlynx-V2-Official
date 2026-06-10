@@ -43,7 +43,7 @@ function AuthStrategyInner() {
           <h1 className="text-4xl md:text-5xl font-black mb-4">AUTH0 vs OKTA vs FIREBASE</h1>
           <p className="text-[#00c2ff] text-lg font-bold mb-2">Board Meeting Decision — May 5, 2026</p>
           <p className="text-blue-200/60 max-w-2xl mx-auto">
-            Finalizing the enterprise authentication strategy for AthlynX as we scale to public launch July 1, 2026. Current stack: Firebase Auth + Custom JWT.
+            Finalizing the enterprise authentication strategy for AthlynX as we scale to public launch July 1, 2026. Current stack: Supabase Auth + Custom JWT.
           </p>
         </div>
       </div>
@@ -57,10 +57,10 @@ function AuthStrategyInner() {
             <div>
               <h2 className="text-green-400 font-black text-lg mb-1">CURRENT STACK — LIVE & WORKING</h2>
               <p className="text-green-200/80 text-sm">
-                Firebase Auth + Custom JWT is live, stable, and handling all 4 social logins (Google, Apple, Facebook, X). All partner accounts have full access. Chad A. Dozier Sr. is the only Master Admin. The current stack is production-ready for the July 1, 2026 public launch.
+                Supabase Auth + Custom JWT is live, stable, and handling all social logins (Google, Apple, Twitter). All partner accounts have full access. Chad A. Dozier Sr. is the only Master Admin. The current stack is production-ready for the July 1, 2026 public launch.
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
-                {["Firebase Auth", "Custom JWT", "Google Sign-In ✅", "Apple Sign-In ✅", "Facebook Sign-In ✅", "X Sign-In ✅", "Email + Password ✅"].map(t => (
+                {["Supabase Auth", "Custom JWT", "Google Sign-In ✅", "Apple Sign-In ✅", "X Sign-In ✅", "Email + Password ✅"].map(t => (
                   <Badge key={t} className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">{t}</Badge>
                 ))}
               </div>
@@ -91,7 +91,7 @@ function AuthStrategyInner() {
                   <th className="text-left py-3 px-4 text-blue-300 font-bold">Feature</th>
                   <th className="text-center py-3 px-4 text-[#00c2ff] font-black">Auth0</th>
                   <th className="text-center py-3 px-4 text-[#0066ff] font-black">Okta</th>
-                  <th className="text-center py-3 px-4 text-green-400 font-black">Firebase (Current)</th>
+                  <th className="text-center py-3 px-4 text-green-400 font-black">Supabase (Current)</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,7 +118,7 @@ function AuthStrategyInner() {
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              title: "OPTION A: Stay Firebase",
+              title: "OPTION A: Stay Supabase",
               subtitle: "Recommended for July 1 Launch",
               color: "green",
               icon: CheckCircle,

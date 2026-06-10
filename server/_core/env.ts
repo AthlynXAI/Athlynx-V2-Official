@@ -16,9 +16,6 @@ export const ENV = {
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
   ownerEmail: process.env.OWNER_EMAIL ?? "chaddozier75@gmail.com",
 
-  // Firebase Admin (server-side token verification)
-  firebaseProjectId: process.env.FIREBASE_PROJECT_ID ?? "athlynxai",
-
   // SendGrid
   sendgridApiKey: process.env.SENDGRID_API_KEY ?? "",
   sendgridFromEmail: process.env.SENDGRID_FROM_EMAIL ?? "noreply@athlynx.ai",
