@@ -1,0 +1,164 @@
+name: EAS Android build & Play Internal submit
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Auto-Android pipeline: pushes to main that touch the mobile app build a
+# fresh AAB on EAS and submit it to the Google Play Internal Testing track.
+# Manual dispatch is also supported with knobs.
+#
+# Required secrets:
+#   - EXPO_TOKEN                    (Expo account token)
+# Required for Play submit (auto on push, optional on manual):
+#   - GOOGLE_SERVICE_ACCOUNT_JSON   (full Play service account JSON)
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/eas-android-build.yml'
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "EAS build profile (mobile/eas.json)"
+        required: true
+        default: production
+        type: choice
+        options: [production, preview, development]
+      clear_cache:
+        description: "Pass --clear-cache to eas build"
+        required: true
+        default: true
+        type: boolean
+      submit_to_play:
+        description: "Submit AAB to Google Play Internal track"
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: eas-android-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Android build (${{ inputs.profile || 'production' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: mobile
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Verify EXPO_TOKEN secret is configured
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          if [ -z "${EXPO_TOKEN}" ]; then
+            echo "::error::EXPO_TOKEN secret is not set."
+            exit 1
+          fi
+          echo "EXPO_TOKEN is present (length: ${#EXPO_TOKEN})."
+
+      - name: Set up Expo / EAS CLI
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Confirm EAS authentication
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: npx eas-cli whoami
+
+      - name: Resolve build profile
+        id: profile
+        run: |
+          if [ -n "${{ inputs.profile }}" ]; then
+            echo "value=${{ inputs.profile }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=production" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Resolve clear_cache flag
+        id: clearcache
+        run: |
+          if [ "${{ inputs.clear_cache }}" = "false" ]; then
+            echo "flag=" >> "$GITHUB_OUTPUT"
+          else
+            echo "flag=--clear-cache" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build Android AAB on EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          npx eas-cli build \
+            --platform android \
+            --profile "${{ steps.profile.outputs.value }}" \
+            --non-interactive \
+            ${{ steps.clearcache.outputs.flag }}
+
+      - name: Should submit to Play?
+        id: submit_gate
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # Resolve user intent (push always wants to submit; manual dispatch follows the input).
+          if [ "${{ github.event_name }}" = "push" ]; then
+            INTENT=true
+          elif [ "${{ inputs.submit_to_play }}" = "true" ]; then
+            INTENT=true
+          else
+            INTENT=false
+          fi
+
+          # Soft gate: if intent is true but the Play secret isn't configured yet,
+          # warn loudly and skip submission. Build itself still succeeds so the AAB is available.
+          if [ "$INTENT" = "true" ] && [ -z "${GOOGLE_SERVICE_ACCOUNT_JSON}" ]; then
+            echo "::warning::GOOGLE_SERVICE_ACCOUNT_JSON secret is not set — skipping Play submission. AAB built successfully and is available on EAS. Paste the Play service-account JSON into repo secrets to enable auto-submit."
+            echo "submit=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "submit=$INTENT" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Write Play service account key
+        if: steps.submit_gate.outputs.submit == 'true'
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          umask 077
+          printf '%s' "${GOOGLE_SERVICE_ACCOUNT_JSON}" > google-service-account.json
+          node -e "JSON.parse(require('fs').readFileSync('google-service-account.json','utf8'))" \
+            || { echo "::error::GOOGLE_SERVICE_ACCOUNT_JSON is not valid JSON."; exit 1; }
+
+      - name: Submit latest AAB to Google Play (internal track)
+        if: steps.submit_gate.outputs.submit == 'true'
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          npx eas-cli submit \
+            --platform android \
+            --profile "${{ steps.profile.outputs.value }}" \
+            --latest \
+            --non-interactive
+
+      - name: Remove Play service account key
+        if: always() && steps.submit_gate.outputs.submit == 'true'
+        run: rm -f google-service-account.json

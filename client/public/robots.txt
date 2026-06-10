@@ -1,0 +1,45 @@
+# ATHLYNX – The #1 Athlete Platform
+# A Dozier Holdings Group Company
+# The Undisputed #1 All-In-One Sole Source Athlete Platform
+# NIL Deals | Transfer Portal | College Recruiting | High School Sports | Pro Sports
+# athlynx.ai | nilportal.ai | dozierholdingsgroup.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://athlynx.ai/sitemap.xml
+
+# Crawl-delay (be friendly to servers)
+Crawl-delay: 1
+
+# Allow all major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
