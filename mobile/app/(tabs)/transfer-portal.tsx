@@ -8,6 +8,7 @@ import {
   TextInput, ActivityIndicator, Alert, Modal,
   KeyboardAvoidingView, Platform, RefreshControl,
 } from "react-native";
+import { ArrowLeftRight, CheckCircle, Zap } from "lucide-react-native";
 import { apiQuery, apiMutation } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
@@ -122,7 +123,7 @@ export default function TransferPortalScreen() {
     } catch { /* graceful fallback */ }
     setSubmitted(true);
     setModalVisible(false);
-    Alert.alert("🔄 You're In!", "You've entered the Transfer Portal. Coaches will be notified. Check your email for next steps.");
+    Alert.alert("You're In!", "You've entered the Transfer Portal. Coaches will be notified. Check your email for next steps.");
   }
 
   return (
@@ -165,7 +166,10 @@ export default function TransferPortalScreen() {
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={Colors.cyan} />}
           >
             <View style={styles.headerRow}>
-              <Text style={styles.headerTitle}>🔄 Transfer Portal</Text>
+              <View style={styles.headerTitleRow}>
+                <ArrowLeftRight size={20} color={Colors.textPrimary} />
+                <Text style={styles.headerTitle}>Transfer Portal</Text>
+              </View>
               <Text style={styles.headerSub}>{filtered.length} athletes available</Text>
             </View>
             {filtered.map((a, i) => <AthleteCard key={i} athlete={a} />)}
@@ -177,7 +181,7 @@ export default function TransferPortalScreen() {
           <ScrollView style={styles.list} contentContainerStyle={styles.listContent}>
             {submitted ? (
               <View style={styles.successCard}>
-                <Text style={styles.successIcon}>🎉</Text>
+                <CheckCircle size={48} color={Colors.success} style={styles.successIconView} />
                 <Text style={styles.successTitle}>You're in the Portal!</Text>
                 <Text style={styles.successSub}>Coaches across the country can now see your profile. Check your email for next steps.</Text>
                 <TouchableOpacity style={styles.resetBtn} onPress={() => setSubmitted(false)}>
@@ -243,7 +247,7 @@ export default function TransferPortalScreen() {
 
                 {/* AI Eligibility Check */}
                 <TouchableOpacity style={styles.eligBtn} onPress={checkEligibility} disabled={checking}>
-                  <Text style={styles.eligBtnText}>{checking ? "Checking..." : "⚡ AI Eligibility Check"}</Text>
+                  <Text style={styles.eligBtnText}>{checking ? "Checking..." : "AI Eligibility Check"}</Text>
                 </TouchableOpacity>
                 {checking && <ActivityIndicator color={Colors.cyan} style={{ marginTop: Spacing.md }} />}
                 {eligResult && (
@@ -255,7 +259,7 @@ export default function TransferPortalScreen() {
 
                 {/* Enter Portal CTA */}
                 <TouchableOpacity style={styles.enterBtn} onPress={enterPortal}>
-                  <Text style={styles.enterBtnText}>🔄 Enter the Transfer Portal</Text>
+                  <Text style={styles.enterBtnText}>Enter the Transfer Portal</Text>
                 </TouchableOpacity>
                 <Text style={styles.disclaimer}>Your profile will be visible to verified coaches. You can withdraw at any time.</Text>
                 <View style={{ height: Spacing.xxl }} />

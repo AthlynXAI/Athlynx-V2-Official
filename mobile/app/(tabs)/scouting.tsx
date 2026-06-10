@@ -11,6 +11,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import { Activity, BarChart2, FileText, Zap } from "lucide-react-native";
 import { aiApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
@@ -45,10 +46,10 @@ const EMPTY_FORM: ScoutingForm = {
   fortyYd: "", vertical: "", bench: "", nilValue: "", highlights: "",
 };
 
-function SectionHeader({ title, icon }: { title: string; icon: string }) {
+function SectionHeader({ title, Icon }: { title: string; Icon: React.ComponentType<{ size: number; color: string }> }) {
   return (
     <View style={styles.sectionHeader}>
-      <Text style={styles.sectionIcon}>{icon}</Text>
+      <Icon size={16} color={Colors.cyan} />
       <Text style={styles.sectionTitle}>{title}</Text>
     </View>
   );
@@ -166,14 +167,14 @@ export default function ScoutingScreen() {
             D1-level scouting intelligence. Powered by Nebius Llama-3.3-70B.
           </Text>
           <View style={styles.creditBadge}>
-            <Text style={styles.creditBadgeText}>⚡ 10 credits</Text>
+            <Text style={styles.creditBadgeText}>10 credits</Text>
           </View>
         </View>
 
         {/* Form */}
         <View style={styles.form}>
 
-          <SectionHeader title="Athlete Info" icon="🏃" />
+          <SectionHeader title="Athlete Info" Icon={Activity} />
 
           <Text style={styles.label}>Full Name *</Text>
           <TextInput
@@ -259,7 +260,7 @@ export default function ScoutingScreen() {
             </View>
           </View>
 
-          <SectionHeader title="Performance Metrics" icon="📊" />
+          <SectionHeader title="Performance Metrics" Icon={BarChart2} />
 
           <View style={styles.row}>
             <View style={styles.half}>
@@ -321,7 +322,7 @@ export default function ScoutingScreen() {
             onChangeText={(v) => update("nilValue", v)}
           />
 
-          <SectionHeader title="Additional Notes" icon="📝" />
+          <SectionHeader title="Additional Notes" Icon={FileText} />
 
           <TextInput
             style={[styles.input, styles.inputMulti]}
@@ -344,7 +345,7 @@ export default function ScoutingScreen() {
                 <Text style={styles.generateBtnText}>  Generating Report...</Text>
               </View>
             ) : (
-              <Text style={styles.generateBtnText}>⚡ Generate Scouting Report</Text>
+              <Text style={styles.generateBtnText}>Generate Scouting Report</Text>
             )}
           </TouchableOpacity>
 

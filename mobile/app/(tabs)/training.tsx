@@ -13,6 +13,7 @@ import {
   Platform,
   RefreshControl,
 } from "react-native";
+import { Dumbbell, Timer, Zap, Flame, Activity } from "lucide-react-native";
 import { trainingApi } from "../../lib/api";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
 
@@ -37,15 +38,15 @@ const WORKOUT_TYPES = [
   "Film Study", "Recovery", "Plyometrics", "Flexibility", "Team Practice", "Game",
 ];
 
-function StatCard({ value, label, icon, color }: {
+function StatCard({ value, label, Icon, color }: {
   value: string | number;
   label: string;
-  icon: string;
+  Icon: React.ComponentType<{ size: number; color: string }>;
   color?: string;
 }) {
   return (
     <View style={styles.statCard}>
-      <Text style={styles.statIcon}>{icon}</Text>
+      <Icon size={22} color={color || Colors.textSecondary} />
       <Text style={[styles.statValue, color ? { color } : {}]}>{value}</Text>
       <Text style={styles.statLabel}>{label}</Text>
     </View>
@@ -117,7 +118,7 @@ export default function TrainingScreen() {
       setModalVisible(false);
       setWorkout(""); setDuration(""); setPerformance("7"); setNotes(""); setSelectedType("");
       await loadData();
-      Alert.alert("⚡ Logged!", "Workout recorded. Keep grinding.");
+      Alert.alert("Logged!", "Workout recorded. Keep grinding.");
     } catch (err: any) {
       Alert.alert("Error", err.message || "Failed to log workout.");
     } finally {
@@ -167,25 +168,25 @@ export default function TrainingScreen() {
           <StatCard
             value={stats?.totalSessions ?? 0}
             label="Sessions"
-            icon="🏋️"
+            Icon={Dumbbell}
             color={Colors.cyan}
           />
           <StatCard
             value={formatDuration(stats?.totalMinutes)}
             label="Total Time"
-            icon="⏱️"
+            Icon={Timer}
             color={Colors.blue}
           />
           <StatCard
             value={stats?.avgPerformance ? `${stats.avgPerformance}/10` : "—"}
             label="Avg Rating"
-            icon="⚡"
+            Icon={Zap}
             color={Colors.gold}
           />
           <StatCard
             value={stats?.streak ? `${stats.streak}d` : "0d"}
             label="Streak"
-            icon="🔥"
+            Icon={Flame}
             color={Colors.success}
           />
         </View>
@@ -194,7 +195,7 @@ export default function TrainingScreen() {
         {(stats?.streak ?? 0) >= 3 && (
           <View style={styles.streakBanner}>
             <Text style={styles.streakBannerText}>
-              🔥 {stats!.streak}-day streak! You're locked in.
+              {stats!.streak}-day streak! You're locked in.
             </Text>
           </View>
         )}
@@ -204,7 +205,7 @@ export default function TrainingScreen() {
           <Text style={styles.sectionTitle}>Recent Sessions</Text>
           {history.length === 0 ? (
             <View style={styles.emptyState}>
-              <Text style={styles.emptyIcon}>🏃</Text>
+              <Activity size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
               <Text style={styles.emptyText}>No sessions logged yet.</Text>
               <Text style={styles.emptySubtext}>Tap "+ Log" to record your first workout.</Text>
             </View>

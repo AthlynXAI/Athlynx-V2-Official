@@ -3,6 +3,7 @@ import {
   View, Text, FlatList, StyleSheet, TouchableOpacity,
   RefreshControl, ActivityIndicator, Modal, TextInput, Alert
 } from "react-native";
+import { DollarSign } from "lucide-react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { NILValuationSnapshot, nilApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
@@ -216,7 +217,7 @@ export default function NILScreen() {
           contentContainerStyle={styles.list}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Text style={styles.emptyIcon}>💰</Text>
+              <DollarSign size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
               <Text style={styles.emptyTitle}>
                 {tab === "mine" ? "No deals yet" : "No deals available"}
               </Text>

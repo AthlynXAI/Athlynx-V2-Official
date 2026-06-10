@@ -3,6 +3,7 @@ import {
   View, Text, FlatList, StyleSheet, TouchableOpacity,
   TextInput, RefreshControl, ActivityIndicator
 } from "react-native";
+import { Search, School, Zap, Trophy } from "lucide-react-native";
 import { profileApi } from "../../lib/api";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
 
@@ -50,7 +51,10 @@ function AthleteCard({ athlete }: { athlete: Athlete }) {
             {[athlete.sport, athlete.position, athlete.classYear].filter(Boolean).join(" · ")}
           </Text>
           {athlete.school && (
-            <Text style={styles.athleteSchool}>🏫 {athlete.school}</Text>
+            <View style={styles.athleteSchoolRow}>
+              <School size={12} color={Colors.textSecondary} />
+              <Text style={styles.athleteSchool}>{athlete.school}</Text>
+            </View>
           )}
         </View>
         <View style={[styles.statusBadge, { borderColor: statusColor }]}>
@@ -127,7 +131,7 @@ export default function RecruitingScreen() {
     <View style={styles.container}>
       {/* Search Bar */}
       <View style={styles.searchBar}>
-        <Text style={styles.searchIcon}>🔍</Text>
+        <Search size={16} color={Colors.textSecondary} />
         <TextInput
           style={styles.searchInput}
           value={search}
@@ -161,7 +165,7 @@ export default function RecruitingScreen() {
       {/* Stats Banner */}
       <View style={styles.statsBanner}>
         <Text style={styles.statsBannerText}>
-          ⚡ 520K+ Athletes · 44 Sports · D1 through JUCO
+          520K+ Athletes · 44 Sports · D1 through JUCO
         </Text>
       </View>
 
@@ -185,7 +189,7 @@ export default function RecruitingScreen() {
           contentContainerStyle={styles.list}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Text style={styles.emptyIcon}>🏆</Text>
+              <Trophy size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
               <Text style={styles.emptyTitle}>No athletes found</Text>
               <Text style={styles.emptySubtitle}>Try a different search or sport filter</Text>
             </View>

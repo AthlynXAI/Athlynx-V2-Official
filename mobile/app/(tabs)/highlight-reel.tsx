@@ -7,28 +7,29 @@ import {
   View, Text, ScrollView, StyleSheet, TouchableOpacity,
   TextInput, ActivityIndicator, Alert, RefreshControl,
 } from "react-native";
+import { Film, Clapperboard, Dumbbell, Trophy, Eye, Video, Zap } from "lucide-react-native";
 import { apiMutation, apiQuery } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
 
 const REEL_TYPES = [
-  { id: "highlights", label: "Highlights", icon: "🎬" },
-  { id: "game_film", label: "Game Film", icon: "🏟️" },
-  { id: "training", label: "Training", icon: "🏋️" },
-  { id: "recruiting", label: "Recruiting", icon: "🏆" },
+  { id: "highlights", label: "Highlights", Icon: Film },
+  { id: "game_film", label: "Game Film", Icon: Clapperboard },
+  { id: "training", label: "Training", Icon: Dumbbell },
+  { id: "recruiting", label: "Recruiting", Icon: Trophy },
 ];
 
 const SAMPLE_REELS = [
-  { id: 1, title: "2025 Season Highlights — QB Marcus J.", type: "highlights", sport: "Football", views: 1240, duration: "3:42", thumbnail: "🏈" },
-  { id: 2, title: "Spring Training Reel — DeShawn T.", type: "training", sport: "Basketball", views: 890, duration: "2:15", thumbnail: "🏀" },
-  { id: 3, title: "Recruiting Video — Carlos R.", type: "recruiting", sport: "Baseball", views: 2100, duration: "4:30", thumbnail: "⚾" },
+  { id: 1, title: "2025 Season Highlights — QB Marcus J.", type: "highlights", sport: "Football", views: 1240, duration: "3:42" },
+  { id: 2, title: "Spring Training Reel — DeShawn T.", type: "training", sport: "Basketball", views: 890, duration: "2:15" },
+  { id: 3, title: "Recruiting Video — Carlos R.", type: "recruiting", sport: "Baseball", views: 2100, duration: "4:30" },
 ];
 
 function ReelCard({ reel }: { reel: any }) {
   return (
     <View style={styles.reelCard}>
       <View style={styles.reelThumb}>
-        <Text style={styles.reelThumbIcon}>{reel.thumbnail}</Text>
+        <Film size={32} color={Colors.textSecondary} />
         <View style={styles.reelDuration}>
           <Text style={styles.reelDurationText}>{reel.duration}</Text>
         </View>
@@ -37,7 +38,10 @@ function ReelCard({ reel }: { reel: any }) {
         <Text style={styles.reelTitle} numberOfLines={2}>{reel.title}</Text>
         <Text style={styles.reelMeta}>{reel.sport} · {reel.type}</Text>
         <View style={styles.reelStats}>
-          <Text style={styles.reelViews}>👁 {reel.views.toLocaleString()} views</Text>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+            <Eye size={12} color={Colors.textSecondary} />
+            <Text style={styles.reelViews}>{reel.views.toLocaleString()} views</Text>
+          </View>
         </View>
       </View>
       <TouchableOpacity style={styles.reelShare}>
@@ -112,7 +116,7 @@ export default function HighlightReelScreen() {
           style={[styles.tab, activeTab === "studio" && styles.tabActive]}
           onPress={() => setActiveTab("studio")}
         >
-          <Text style={[styles.tabText, activeTab === "studio" && styles.tabTextActive]}>🎬 Studio</Text>
+          <Text style={[styles.tabText, activeTab === "studio" && styles.tabTextActive]}>Studio</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.tab, activeTab === "my-reels" && styles.tabActive]}
@@ -126,7 +130,7 @@ export default function HighlightReelScreen() {
         <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
           {/* Upload Zone */}
           <TouchableOpacity style={styles.uploadZone} onPress={handleUpload}>
-            <Text style={styles.uploadIcon}>📹</Text>
+            <Video size={48} color={Colors.textSecondary} style={{ marginBottom: 12 }} />
             <Text style={styles.uploadTitle}>Upload Your Highlight Reel</Text>
             <Text style={styles.uploadSub}>MP4, MOV · Up to 500MB</Text>
             <View style={styles.uploadBtn}>
@@ -143,7 +147,7 @@ export default function HighlightReelScreen() {
                 style={[styles.reelTypeBtn, reelType === rt.id && styles.reelTypeBtnActive]}
                 onPress={() => setReelType(rt.id)}
               >
-                <Text style={styles.reelTypeIcon}>{rt.icon}</Text>
+                <rt.Icon size={18} color={reelType === rt.id ? Colors.cyan : Colors.textSecondary} />
                 <Text style={[styles.reelTypeLabel, reelType === rt.id && styles.reelTypeLabelActive]}>{rt.label}</Text>
               </TouchableOpacity>
             ))}
@@ -162,7 +166,7 @@ export default function HighlightReelScreen() {
           {/* AI Content Generator */}
           <View style={styles.aiSection}>
             <View style={styles.aiHeader}>
-              <Text style={styles.aiTitle}>⚡ AI Reel Content Generator</Text>
+              <Text style={styles.aiTitle}>AI Reel Content Generator</Text>
               <Text style={styles.aiSub}>Describe your reel — AI writes the title, description & hashtags</Text>
             </View>
             <TextInput

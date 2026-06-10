@@ -9,6 +9,7 @@ import {
   RefreshControl,
   Alert,
 } from "react-native";
+import { Zap, DollarSign, MessageCircle, UserPlus, Mail, Trophy, Bell } from "lucide-react-native";
 import { notificationsApi } from "../../lib/api";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
 
@@ -22,15 +23,17 @@ interface Notification {
   actorName?: string;
 }
 
-const TYPE_CONFIG: Record<string, { icon: string; color: string }> = {
-  like:       { icon: "⚡", color: Colors.cyan },
-  comment:    { icon: "💬", color: Colors.blue },
-  follow:     { icon: "👤", color: Colors.success },
-  nil_deal:   { icon: "💰", color: Colors.gold },
-  message:    { icon: "✉️", color: Colors.cyan },
-  recruiting: { icon: "🏆", color: Colors.blue },
-  system:     { icon: "🔔", color: Colors.textSecondary },
-  default:    { icon: "🔔", color: Colors.textSecondary },
+type IconComponent = React.ComponentType<{ size: number; color: string }>;
+
+const TYPE_CONFIG: Record<string, { Icon: IconComponent; color: string }> = {
+  like:       { Icon: Zap,           color: Colors.cyan },
+  comment:    { Icon: MessageCircle, color: Colors.blue },
+  follow:     { Icon: UserPlus,      color: Colors.success },
+  nil_deal:   { Icon: DollarSign,    color: Colors.gold },
+  message:    { Icon: Mail,          color: Colors.cyan },
+  recruiting: { Icon: Trophy,        color: Colors.blue },
+  system:     { Icon: Bell,          color: Colors.textSecondary },
+  default:    { Icon: Bell,          color: Colors.textSecondary },
 };
 
 function timeAgo(dateStr: string) {
@@ -60,7 +63,7 @@ function NotifCard({
       activeOpacity={0.75}
     >
       <View style={[styles.iconWrap, { backgroundColor: cfg.color + "22", borderColor: cfg.color + "44" }]}>
-        <Text style={styles.iconText}>{cfg.icon}</Text>
+        <cfg.Icon size={18} color={cfg.color} />
       </View>
       <View style={styles.cardBody}>
         <View style={styles.cardTop}>
@@ -164,7 +167,7 @@ export default function NotificationsScreen() {
 
       {notifications.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyIcon}>🔔</Text>
+          <Bell size={56} color={Colors.textSecondary} style={styles.emptyIconView} />
           <Text style={styles.emptyTitle}>All caught up!</Text>
           <Text style={styles.emptySub}>
             You'll see likes, comments, NIL deals, and recruiting activity here.
@@ -247,7 +250,6 @@ const styles = StyleSheet.create({
     marginRight: Spacing.md,
     flexShrink: 0,
   },
-  iconText: { fontSize: 20 },
 
   cardBody: { flex: 1 },
   cardTop: {
@@ -282,7 +284,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: Spacing.xl,
   },
-  emptyIcon: { fontSize: 56, marginBottom: Spacing.md },
+  emptyIconView: { marginBottom: Spacing.md },
   emptyTitle: { ...Typography.h3, marginBottom: Spacing.sm },
   emptySub: { ...Typography.bodySmall, textAlign: "center", lineHeight: 20 },
 });

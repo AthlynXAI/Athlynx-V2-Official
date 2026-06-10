@@ -1,26 +1,49 @@
+/**
+ * AthlynXAI Mobile — Tab Layout
+ * Matches the web platform's MobileBottomNav exactly:
+ * Home | Reels | Athletes | NIL | Alerts | Profile
+ * Active color: #1E90FF (dodger blue) — same as web
+ */
 import { Tabs } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+import {
+  Home,
+  Film,
+  Users,
+  CircleDollarSign,
+  Bell,
+  User,
+  Trophy,
+  MessageCircle,
+  Dumbbell,
+  BarChart2,
+  Mic2,
+  LayoutGrid,
+  GraduationCap,
+} from "lucide-react-native";
+import { useAuth } from "../../contexts/AuthContext";
 import { Colors } from "../../lib/theme";
 
-function TabIcon({ name, focused }: { name: string; focused: boolean }) {
-  const icons: Record<string, string> = {
-    index:         "⚡",
-    recruiting:    "🏆",
-    nil:           "💰",
-    "diamond-grind": "◆",
-    brackets:      "▦",
-    training:      "🏋️",
-    scouting:      "📊",
-    media:         "🎙️",
-    messages:      "💬",
-    notifications: "🔔",
-    profile:       "👤",
-  };
+// Web platform active color: #1E90FF
+const ACTIVE_COLOR = "#1E90FF";
+const INACTIVE_COLOR = "#9aa8c7";
+
+type IconProps = { size: number; color: string; strokeWidth?: number };
+
+function TabIcon({
+  Icon,
+  focused,
+}: {
+  Icon: React.ComponentType<IconProps>;
+  focused: boolean;
+}) {
   return (
     <View style={styles.tabIcon}>
-      <Text style={[styles.tabEmoji, focused && styles.tabEmojiActive]}>
-        {icons[name] || "•"}
-      </Text>
+      <Icon
+        size={22}
+        color={focused ? ACTIVE_COLOR : INACTIVE_COLOR}
+        strokeWidth={focused ? 2.5 : 1.8}
+      />
     </View>
   );
 }
@@ -30,101 +53,134 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: Colors.cyan,
-        tabBarInactiveTintColor: Colors.tabInactive,
+        tabBarActiveTintColor: ACTIVE_COLOR,
+        tabBarInactiveTintColor: INACTIVE_COLOR,
         tabBarLabelStyle: styles.tabLabel,
-        headerStyle: { backgroundColor: Colors.navyLight },
-        headerTintColor: Colors.textPrimary,
+        headerStyle: {
+          backgroundColor: "#000000",
+          borderBottomColor: "rgba(30,144,255,0.28)",
+          borderBottomWidth: 1,
+        },
+        headerTintColor: "#FFFFFF",
         headerTitleStyle: { fontWeight: "700", fontSize: 18 },
         headerShadowVisible: false,
       }}
     >
+      {/* 1 — Home / Feed */}
       <Tabs.Screen
         name="index"
         options={{
           title: "X-Factor Feed",
-          tabBarLabel: "Feed",
-          tabBarIcon: ({ focused }) => <TabIcon name="index" focused={focused} />,
+          tabBarLabel: "Home",
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Home} focused={focused} />,
         }}
       />
+
+      {/* 2 — Highlight Reels */}
+      <Tabs.Screen
+        name="highlight-reel"
+        options={{
+          title: "Highlight Reels",
+          tabBarLabel: "Reels",
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Film} focused={focused} />,
+        }}
+      />
+
+      {/* 3 — Browse Athletes / Recruiting */}
       <Tabs.Screen
         name="recruiting"
         options={{
-          title: "Recruiting",
-          tabBarLabel: "Recruit",
-          tabBarIcon: ({ focused }) => <TabIcon name="recruiting" focused={focused} />,
+          title: "Athletes",
+          tabBarLabel: "Athletes",
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Users} focused={focused} />,
         }}
       />
+
+      {/* 4 — NIL Portal */}
       <Tabs.Screen
         name="nil"
         options={{
-          title: "NIL Deals",
+          title: "NIL Portal",
           tabBarLabel: "NIL",
-          tabBarIcon: ({ focused }) => <TabIcon name="nil" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon Icon={CircleDollarSign} focused={focused} />,
         }}
       />
+
+      {/* 5 — Notifications */}
       <Tabs.Screen
-        name="diamond-grind"
+        name="notifications"
         options={{
-          title: "Diamond Grind IQ",
-          tabBarLabel: "Diamond",
-          tabBarIcon: ({ focused }) => <TabIcon name="diamond-grind" focused={focused} />,
+          title: "Notifications",
+          tabBarLabel: "Alerts",
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Bell} focused={focused} />,
         }}
       />
+
+      {/* 6 — Profile */}
       <Tabs.Screen
-        name="brackets"
+        name="profile"
         options={{
-          title: "Brackets",
-          tabBarLabel: "Brackets",
-          tabBarIcon: ({ focused }) => <TabIcon name="brackets" focused={focused} />,
+          title: "My Profile",
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ focused }) => <TabIcon Icon={User} focused={focused} />,
         }}
       />
+
+      {/* Hidden tabs — accessible via deep links / navigation, not shown in tab bar */}
       <Tabs.Screen
         name="training"
         options={{
           title: "Training Hub",
-          tabBarLabel: "Train",
-          tabBarIcon: ({ focused }) => <TabIcon name="training" focused={focused} />,
+          href: null,
         }}
       />
       <Tabs.Screen
         name="scouting"
         options={{
           title: "AI Scout",
-          tabBarLabel: "Scout",
-          tabBarIcon: ({ focused }) => <TabIcon name="scouting" focused={focused} />,
-        }}
-      />
-      <Tabs.Screen
-        name="media"
-        options={{
-          title: "Media OS",
-          tabBarLabel: "Media",
-          tabBarIcon: ({ focused }) => <TabIcon name="media" focused={focused} />,
+          href: null,
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
           title: "Messages",
-          tabBarLabel: "Messages",
-          tabBarIcon: ({ focused }) => <TabIcon name="messages" focused={focused} />,
+          href: null,
         }}
       />
       <Tabs.Screen
-        name="notifications"
+        name="transfer-portal"
         options={{
-          title: "Notifications",
-          tabBarLabel: "Alerts",
-          tabBarIcon: ({ focused }) => <TabIcon name="notifications" focused={focused} />,
+          title: "Transfer Portal",
+          href: null,
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="athlete-card"
         options={{
-          title: "My Profile",
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ focused }) => <TabIcon name="profile" focused={focused} />,
+          title: "Athlete",
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="diamond-grind"
+        options={{
+          title: "Diamond Grind IQ",
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="brackets"
+        options={{
+          title: "Brackets",
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="media"
+        options={{
+          title: "Media OS",
+          href: null,
         }}
       />
     </Tabs>
@@ -133,19 +189,25 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: Colors.navyLight,
-    borderTopColor: Colors.border,
+    backgroundColor: "rgba(0,0,0,0.98)",
+    borderTopColor: "rgba(30,144,255,0.28)",
     borderTopWidth: 1,
-    paddingTop: 4,
-    paddingBottom: 4,
-    height: 62,
+    paddingTop: 6,
+    paddingBottom: 6,
+    height: 64,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -24 },
+    shadowOpacity: 0.62,
+    shadowRadius: 40,
+    elevation: 24,
   },
   tabLabel: {
-    fontSize: 9,
-    fontWeight: "600",
+    fontSize: 10,
+    fontWeight: "500",
     marginBottom: 2,
   },
-  tabIcon: { alignItems: "center", justifyContent: "center" },
-  tabEmoji: { fontSize: 18, opacity: 0.5 },
-  tabEmojiActive: { opacity: 1 },
+  tabIcon: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -5,6 +5,10 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
+import {
+  Camera, Medal, MapPin, School, GraduationCap, BookOpen,
+  Scale, Target, Instagram, Music2, Trophy, DollarSign, Zap, MessageCircle
+} from "lucide-react-native";
 import { profileApi, mediaApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
@@ -147,7 +151,7 @@ export default function ProfileScreen() {
           <View style={styles.photoCameraIcon}>
             {uploadingPhoto
               ? <ActivityIndicator size="small" color={Colors.cyan} />
-              : <Text style={styles.photoCameraText}>📷</Text>
+              : <Camera size={16} color={Colors.cyan} />
             }
           </View>
         </TouchableOpacity>
@@ -194,16 +198,16 @@ export default function ProfileScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>ATHLETE INFO</Text>
           <View style={styles.detailsGrid}>
-            {profile.sport && <DetailRow icon="🏅" label="Sport" value={profile.sport} />}
-            {profile.position && <DetailRow icon="📍" label="Position" value={profile.position} />}
-            {profile.school && <DetailRow icon="🏫" label="School" value={profile.school} />}
-            {profile.classYear && <DetailRow icon="🎓" label="Class" value={profile.classYear} />}
-            {profile.state && <DetailRow icon="📌" label="State" value={profile.state} />}
-            {profile.height && <DetailRow icon="📏" label="Height" value={profile.height} />}
-            {profile.weight && <DetailRow icon="⚖️" label="Weight" value={profile.weight} />}
-            {profile.gpa && <DetailRow icon="📚" label="GPA" value={profile.gpa.toFixed(2)} />}
+            {profile.sport && <DetailRow Icon={Medal} label="Sport" value={profile.sport} />}
+            {profile.position && <DetailRow Icon={MapPin} label="Position" value={profile.position} />}
+            {profile.school && <DetailRow Icon={School} label="School" value={profile.school} />}
+            {profile.classYear && <DetailRow Icon={GraduationCap} label="Class" value={profile.classYear} />}
+            {profile.state && <DetailRow Icon={MapPin} label="State" value={profile.state} />}
+            {profile.height && <DetailRow Icon={Scale} label="Height" value={profile.height} />}
+            {profile.weight && <DetailRow Icon={Scale} label="Weight" value={profile.weight} />}
+            {profile.gpa && <DetailRow Icon={BookOpen} label="GPA" value={profile.gpa.toFixed(2)} />}
             {profile.recruitingStatus && (
-              <DetailRow icon="🎯" label="Status" value={profile.recruitingStatus} highlight />
+              <DetailRow Icon={Target} label="Status" value={profile.recruitingStatus} highlight />
             )}
           </View>
         </View>
@@ -216,7 +220,7 @@ export default function ProfileScreen() {
           <View style={styles.socialRow}>
             {profile.instagram && (
               <View style={styles.socialChip}>
-                <Text style={styles.socialIcon}>📸</Text>
+                <Instagram size={16} color={Colors.textSecondary} />
                 <Text style={styles.socialHandle}>@{profile.instagram}</Text>
               </View>
             )}
@@ -228,7 +232,7 @@ export default function ProfileScreen() {
             )}
             {profile.tiktokHandle && (
               <View style={styles.socialChip}>
-                <Text style={styles.socialIcon}>🎵</Text>
+                <Music2 size={16} color={Colors.textSecondary} />
                 <Text style={styles.socialHandle}>@{profile.tiktokHandle}</Text>
               </View>
             )}
@@ -241,17 +245,17 @@ export default function ProfileScreen() {
         <Text style={styles.sectionTitle}>PLATFORM</Text>
         <View style={styles.quickLinks}>
           {[
-            { icon: "🏆", label: "Recruiting Hub", route: "/(tabs)/recruiting" },
-            { icon: "💰", label: "NIL Deals", route: "/(tabs)/nil" },
-            { icon: "⚡", label: "X-Factor Feed", route: "/(tabs)" },
-            { icon: "💬", label: "Messages", route: "/(tabs)/messages" },
+            { Icon: Trophy,         label: "Recruiting Hub", route: "/(tabs)/recruiting" },
+            { Icon: DollarSign,     label: "NIL Deals",      route: "/(tabs)/nil" },
+            { Icon: Zap,            label: "X-Factor Feed",  route: "/(tabs)" },
+            { Icon: MessageCircle,  label: "Messages",       route: "/(tabs)/messages" },
           ].map((link) => (
             <TouchableOpacity
               key={link.label}
               style={styles.quickLink}
               onPress={() => router.push(link.route as any)}
             >
-              <Text style={styles.quickLinkIcon}>{link.icon}</Text>
+              <link.Icon size={18} color={Colors.cyan} />
               <Text style={styles.quickLinkLabel}>{link.label}</Text>
               <Text style={styles.quickLinkArrow}>›</Text>
             </TouchableOpacity>
@@ -272,10 +276,10 @@ export default function ProfileScreen() {
   );
 }
 
-function DetailRow({ icon, label, value, highlight }: { icon: string; label: string; value: string; highlight?: boolean }) {
+function DetailRow({ Icon, label, value, highlight }: { Icon: React.ComponentType<{ size: number; color: string }>; label: string; value: string; highlight?: boolean }) {
   return (
     <View style={styles.detailRow}>
-      <Text style={styles.detailIcon}>{icon}</Text>
+      <Icon size={14} color={Colors.textSecondary} />
       <Text style={styles.detailLabel}>{label}</Text>
       <Text style={[styles.detailValue, highlight && { color: Colors.cyan }]}>{value}</Text>
     </View>

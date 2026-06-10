@@ -3,6 +3,7 @@ import {
   View, Text, FlatList, StyleSheet, TouchableOpacity,
   RefreshControl, ActivityIndicator, TextInput
 } from "react-native";
+import { Search, PenSquare, MessageCircle } from "lucide-react-native";
 import { router } from "expo-router";
 import { messagingApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
@@ -83,7 +84,7 @@ export default function MessagesScreen() {
     <View style={styles.container}>
       {/* Search */}
       <View style={styles.searchBar}>
-        <Text style={styles.searchIcon}>🔍</Text>
+        <Search size={16} color={Colors.textSecondary} />
         <TextInput
           style={styles.searchInput}
           value={search}
@@ -95,7 +96,7 @@ export default function MessagesScreen() {
 
       {/* New Message Button */}
       <TouchableOpacity style={styles.newMsgBtn}>
-        <Text style={styles.newMsgIcon}>✏️</Text>
+        <PenSquare size={16} color={Colors.blue} />
         <Text style={styles.newMsgText}>New Message</Text>
       </TouchableOpacity>
 
@@ -117,7 +118,7 @@ export default function MessagesScreen() {
           }
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Text style={styles.emptyIcon}>💬</Text>
+              <MessageCircle size={48} color={Colors.textSecondary} style={styles.emptyIconView} />
               <Text style={styles.emptyTitle}>No messages yet</Text>
               <Text style={styles.emptySubtitle}>
                 Connect with coaches, athletes, and brands
@@ -140,7 +141,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.md, paddingVertical: 10,
     borderWidth: 1, borderColor: Colors.border, gap: 8,
   },
-  searchIcon: { fontSize: 16 },
   searchInput: { flex: 1, color: Colors.textPrimary, fontSize: 15 },
   newMsgBtn: {
     flexDirection: "row", alignItems: "center",
@@ -149,7 +149,6 @@ const styles = StyleSheet.create({
     borderRadius: BorderRadius.md, padding: Spacing.md,
     borderWidth: 1, borderColor: Colors.blue, gap: 8,
   },
-  newMsgIcon: { fontSize: 16 },
   newMsgText: { color: Colors.blue, fontWeight: "600", fontSize: 15 },
   convItem: {
     flexDirection: "row", alignItems: "center",
@@ -176,7 +175,7 @@ const styles = StyleSheet.create({
   convTime: { ...Typography.caption },
   convPreview: { color: Colors.textSecondary, fontSize: 13 },
   empty: { alignItems: "center", paddingTop: 80, paddingHorizontal: 40 },
-  emptyIcon: { fontSize: 48, marginBottom: Spacing.md },
+  emptyIconView: { marginBottom: Spacing.md },
   emptyTitle: { ...Typography.h3, marginBottom: 8 },
   emptySubtitle: { ...Typography.body, color: Colors.textSecondary, textAlign: "center" },
 });

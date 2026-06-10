@@ -8,6 +8,7 @@ import {
   ActivityIndicator, Alert, Share,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { Scale, BookOpen, MapPin, GraduationCap, Instagram, Music2, Share2, Link2, Zap, DollarSign } from "lucide-react-native";
 import { profileApi, aiApi } from "../../lib/api";
 import { useAuth } from "../../contexts/AuthContext";
 import { Colors, Spacing, BorderRadius, Typography } from "../../lib/theme";
@@ -43,10 +44,10 @@ function StatPill({ label, value, color }: { label: string; value: string | numb
   );
 }
 
-function InfoRow({ label, value, icon }: { label: string; value: string; icon?: string }) {
+function InfoRow({ label, value, Icon }: { label: string; value: string; Icon?: React.ComponentType<{ size: number; color: string }> }) {
   return (
     <View style={styles.infoRow}>
-      <Text style={styles.infoIcon}>{icon || "•"}</Text>
+      {Icon ? <Icon size={13} color={Colors.textSecondary} /> : <Text style={styles.infoIcon}>•</Text>}
       <Text style={styles.infoLabel}>{label}</Text>
       <Text style={styles.infoValue}>{value}</Text>
     </View>
@@ -132,7 +133,7 @@ export default function AthleteCardScreen() {
         {/* NIL Badge */}
         {nilValue > 0 && (
           <View style={styles.nilBadge}>
-            <Text style={styles.nilBadgeText}>💰 NIL Value: ${nilValue.toLocaleString()}</Text>
+            <Text style={styles.nilBadgeText}>NIL Value: ${nilValue.toLocaleString()}</Text>
             {profile?.nilVerified && <Text style={styles.nilVerified}> ✓ Verified</Text>}
           </View>
         )}
@@ -156,11 +157,11 @@ export default function AthleteCardScreen() {
       {/* Profile Details */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Profile Details</Text>
-        {profile?.height && <InfoRow icon="📏" label="Height" value={profile.height} />}
-        {profile?.weight && <InfoRow icon="⚖️" label="Weight" value={profile.weight} />}
-        {profile?.gpa && <InfoRow icon="📚" label="GPA" value={String(profile.gpa)} />}
-        {profile?.state && <InfoRow icon="📍" label="State" value={profile.state} />}
-        {profile?.classYear && <InfoRow icon="🎓" label="Class" value={profile.classYear} />}
+        {profile?.height && <InfoRow Icon={Scale} label="Height" value={profile.height} />}
+        {profile?.weight && <InfoRow Icon={Scale} label="Weight" value={profile.weight} />}
+        {profile?.gpa && <InfoRow Icon={BookOpen} label="GPA" value={String(profile.gpa)} />}
+        {profile?.state && <InfoRow Icon={MapPin} label="State" value={profile.state} />}
+        {profile?.classYear && <InfoRow Icon={GraduationCap} label="Class" value={profile.classYear} />}
         {!profile?.height && !profile?.weight && !profile?.gpa && (
           <Text style={styles.emptyText}>Complete your profile to show stats here</Text>
         )}
@@ -178,9 +179,9 @@ export default function AthleteCardScreen() {
       {(profile?.instagram || profile?.twitter || profile?.tiktokHandle) && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Social</Text>
-          {profile?.instagram && <InfoRow icon="📸" label="Instagram" value={`@${profile.instagram}`} />}
+          {profile?.instagram && <InfoRow Icon={Instagram} label="Instagram" value={`@${profile.instagram}`} />}
           {profile?.twitter && <InfoRow icon="𝕏" label="X (Twitter)" value={`@${profile.twitter}`} />}
-          {profile?.tiktokHandle && <InfoRow icon="🎵" label="TikTok" value={`@${profile.tiktokHandle}`} />}
+          {profile?.tiktokHandle && <InfoRow Icon={Music2} label="TikTok" value={`@${profile.tiktokHandle}`} />}
         </View>
       )}
 
@@ -189,19 +190,19 @@ export default function AthleteCardScreen() {
         <Text style={styles.shareSectionTitle}>Share Your Athlete Card</Text>
         <Text style={styles.shareSectionSub}>Send your profile to coaches, scouts, and brands</Text>
         <TouchableOpacity style={styles.shareBtn} onPress={shareCard}>
-          <Text style={styles.shareBtnText}>📤 Share My Athlete Card</Text>
+          <Share2 size={16} color="#fff" /><Text style={styles.shareBtnText}>Share My Athlete Card</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.copyLinkBtn}
           onPress={() => Alert.alert("Link Copied", `https://athlynx.ai/athlete-card/${user?.id || "me"}`)}
         >
-          <Text style={styles.copyLinkText}>🔗 Copy Profile Link</Text>
+          <Link2 size={14} color={Colors.blue} /><Text style={styles.copyLinkText}>Copy Profile Link</Text>
         </TouchableOpacity>
       </View>
 
       {/* AthlynXAI Branding */}
       <View style={styles.branding}>
-        <Text style={styles.brandingText}>⚡ AthlynXAI · The Complete Athlete Platform</Text>
+        <Text style={styles.brandingText}>AthlynXAI · The Complete Athlete Platform</Text>
         <Text style={styles.brandingUrl}>athlynx.ai</Text>
       </View>
 
