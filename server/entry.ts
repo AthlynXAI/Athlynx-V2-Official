@@ -147,6 +147,23 @@ import("./routes/doctrine").then(({ registerDoctrineRoutes }) => {
   console.log("[doctrine] AthlynXAI Doctrine routes registered: /api/doctrine, /api/doctrine/:spec_id");
 }).catch((err) => console.error("[doctrine] failed to register doctrine routes", err));
 
+// Runtime error sink — client-side errors POSTed here for Vercel log visibility
+app.post("/api/client-error", (req: Request, res: Response) => {
+  try {
+    const b = req.body || {};
+    const ts = b.at || new Date().toISOString();
+    console.error(
+      `[athlynx-client-error] ${ts} url=${b.url || "?"} ua="${String(b.userAgent || "").slice(0, 80)}" ` +
+        `message=${JSON.stringify(b.message || "")} ` +
+        `stack=${JSON.stringify(String(b.stack || "").slice(0, 2000))} ` +
+        `componentStack=${JSON.stringify(String(b.componentStack || "").slice(0, 1000))}`,
+    );
+  } catch (e) {
+    console.error("[athlynx-client-error] failed to parse payload", e);
+  }
+  res.status(204).end();
+});
+
 // Health check
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({

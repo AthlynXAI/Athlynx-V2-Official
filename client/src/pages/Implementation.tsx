@@ -59,7 +59,7 @@ function ImplementationInner() {
       description: "Deploy remaining three bots based on pilot learnings and feedback.",
       tasks: [
         "Configure Presentation Intelligence Suite for Glenn Tse",
-        "Set up Athlete Partner Feedback Engine for Tony Locey",
+
         "Deploy Sales Acceleration Platform for Lee Marshall",
         "Integrate all bots with shared data layer",
         "Enable cross-bot workflows and automation",

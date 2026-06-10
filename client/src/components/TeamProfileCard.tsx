@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import LivePlayerStats from "./LivePlayerStats";
 
 // Optional career stats block — used when the team member is also an athlete
-// whose playing record matters (e.g. our First Athlete Partner Tony Locey).
+// whose playing record matters for the platform's athlete-partner cards.
 // Source citations are kept inline so the card can render a sourced footnote.
 export interface CareerStatLine {
   label: string;             // e.g. "2019 (Junior)"
@@ -582,11 +582,11 @@ export const ATHLYNX_TEAM: TeamProfile[] = [
       ],
       // LIVE: hydrate from MLB Stats API at render so the record stays authoritative.
       live: {
-        mlbPlayerId: 666138,    // Anthony Quinn Locey
+        mlbPlayerId: 666138,    // Athlete Partner (MiLB/MLB)
         espnPlayerId: 4081257,  // ESPN player id
       },
     },
-    // Partners attached to Tony's profile — add entries here as we get names.
+    // Partners attached to this profile — add entries here as we get names.
     // Schema is wired; UI auto-renders the block when at least one partner exists.
     partners: [],
   },

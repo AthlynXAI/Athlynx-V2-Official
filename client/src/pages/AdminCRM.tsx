@@ -332,7 +332,7 @@ function AdminCRMInner() {
                   { name: "Chad A. Dozier", title: "Founder, CEO & Chairman", email: "contact@athlynx.ai", badge: "admin" },
                   { name: "Lee Marshall", title: "Co-Host · VP Sales & Partnerships · Business Partner", email: "lmarshall@athlynx.ai", badge: "team" },
                   { name: "Glenn Tse", title: "CFO / COO", email: "gtse@dozierholdingsgroup.com", badge: "team" },
-                  { name: "Tony Locey", title: "First Athlete Partner & Partner", email: "tlockey24@athlynx.ai", badge: "team" },
+
                 ].map((m) => (
                   <div key={m.name} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00c2ff] to-[#0066ff] flex items-center justify-center text-white font-black text-sm flex-shrink-0">

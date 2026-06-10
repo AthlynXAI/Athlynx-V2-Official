@@ -232,7 +232,7 @@ function FounderDedicationOwnerContent() {
             { name: 'Chad A. Dozier Sr.', role: 'Founder & CEO', initials: 'CD' },
             { name: 'Lee Marshall', role: 'Co-Host · VP Sales & Partnerships', initials: 'LM' },
             { name: 'Glenn Tse', role: 'CFO & COO', initials: 'GT' },
-            { name: 'Tony Locey', role: 'First Athlete Partner & Partner', initials: 'TL' }
+
           ].map((person, i) => (
             <Card key={i} className="bg-white/5 border-red-500/20">
               <CardContent className="p-4 text-center">

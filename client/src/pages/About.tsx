@@ -38,15 +38,7 @@ const TEAM = [
     tag: "CO-FOUNDER",
     tagColor: "bg-[#00c2ff] text-[#050d1a]",
   },
-  {
-    name: "Tony Locey",
-    title: "First Athlete Partner & Partner",
-    photo: "/images/logos/athlynx-main-logo.png",
-    bio: "Tony is the first athlete partner and partner for AthlynXAI, helping keep the platform grounded in athlete experience, trust, and real sports relationships.",
-    email: "tlockey24@athlynx.ai",
-    tag: "FIRST ATHLETE PARTNER",
-    tagColor: "bg-[#00c2ff]/80 text-[#050d1a]",
-  },
+
 ];
 
 const STATS = [

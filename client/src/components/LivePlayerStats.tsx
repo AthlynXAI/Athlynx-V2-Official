@@ -3,8 +3,8 @@
  * for a given player. Hydrates on mount; falls back gracefully to whatever
  * static career data the TeamProfile carries so the card never goes blank.
  *
- * Used on Tony Locey's profile (first true Athlete Partner) so his record
- * is always authoritative — if he signs anywhere, or any line updates,
+ * Used on athlete partner profiles so the career record
+ * stays authoritative — if a player signs anywhere, or any line updates,
  * the card picks it up automatically without a redeploy.
  *
  * Brand-locked: cobalt #1E90FF + true black + white.
@@ -128,7 +128,7 @@ async function fetchMLBPlayer(playerId: number): Promise<LiveCareerSnapshot | nu
 }
 
 interface LivePlayerStatsProps {
-  /** MLB Stats API personId (e.g. Tony Locey = 666138) */
+  /** MLB Stats API personId (e.g. player id from MLB Stats API) */
   mlbPlayerId: number;
   /** ESPN player id for the outbound link */
   espnPlayerId?: number;

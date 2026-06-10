@@ -30,11 +30,7 @@ export default function DoctrineSmallCircle() {
           <div className="text-xl font-bold text-white mt-1">Lee Marshall</div>
           <p className="text-white/60 text-sm mt-2">Athlete outreach, NIL partnerships, platform visibility.</p>
         </a>
-        <a href="/team/tony-locey" className="block border border-white/10 rounded-lg p-5 bg-white/5 hover:bg-white/10 transition">
-          <div className="text-xs text-[#00c2ff] uppercase tracking-widest">First Athlete Partner &amp; Partner</div>
-          <div className="text-xl font-bold text-white mt-1">Tony Locey</div>
-          <p className="text-white/60 text-sm mt-2">Athlete experience, sports trust, and partner feedback.</p>
-        </a>
+
       </div>
 
       <DocH2>The Trust Rules</DocH2>

@@ -119,7 +119,7 @@ function DHGHomeInner() {
     { name: "Chad A. Dozier Sr.", role: "Founder & CEO", image: "/images/team/chad-dozier-headshot.png" },
     { name: "Lee Marshall", role: "Co-Host · VP Sales & Partnerships", image: "/team/lee-marshall.jpg" },
     { name: "Glenn Tse", role: "Co-Founder · CFO / COO", image: "/team/glenn-tse.jpg" },
-    { name: "Tony Locey", role: "First Athlete Partner & Partner", image: null },
+
   ];
 
   return (

@@ -249,7 +249,7 @@ const LEADERSHIP = [
   { name: "Chad A. Dozier", title: "Founder & CEO", initials: "CD", bio: "Founder and driving force behind DHG. Chad built this company in Houston in November 2024 — the long way, the honest way.", color: "from-blue-500 to-cyan-500", phone: "", email: "contact@athlynx.ai" },
   { name: "Lee Marshall", title: "Sales & Partnerships", initials: "LM", bio: "Business partner and relationship builder supporting athlete outreach, revenue growth, and The Athlete’s Playbook momentum.", color: "from-red-500 to-red-500", phone: "", email: "lmarshall@athlynx.ai" },
   { name: "Glenn Tse", title: "Finance & Operations", initials: "GT", bio: "Co-founder and financial architect supporting operations, governance, and controlled growth across the DHG portfolio.", color: "from-emerald-500 to-teal-500", phone: "", email: "contact@athlynx.ai" },
-  { name: "Tony Locey", title: "First Athlete Partner", initials: "TL", bio: "First athlete partner helping keep AthlynXAI grounded in athlete experience and sports trust.", color: "from-cyan-500 to-blue-500", phone: "", email: "tlockey24@athlynx.ai" },
+
 ];
 
 const statusConfig = {

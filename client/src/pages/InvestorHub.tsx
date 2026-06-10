@@ -129,7 +129,7 @@ const TEAM = [
   { name: "Chad A. Dozier", title: "Founder · CEO · Chairman", equity: "51%", role: "Vision, product, strategy, execution. Built AthlynX from zero. Houston, TX.", initials: "CD", highlight: true },
   { name: "Glenn Tse", title: "Co-Founder & CFO", equity: "24%", role: "Financial strategy, investor relations, Asia-Pacific expansion. Co-founded DHG with Chad in Houston, November 2024.", initials: "GT", highlight: true },
   { name: "Lee Marshall", title: "Partner · Sales & Partnerships", equity: "Private", role: "Business development, athlete community outreach, partnerships, and podcast momentum.", initials: "LM", highlight: false },
-  { name: "Tony Locey", title: "First Athlete Partner & Partner", equity: "Private", role: "Athlete partner feedback, sports relationships, and platform trust.", initials: "TL", highlight: false },
+
 ];
 
 const YEARS = ["2025", "2026", "2027", "2028", "2029"];

@@ -471,7 +471,7 @@ function PartnersModule() {
     { id: 1, name: "Chad Allen Dozier Sr.", role: "Founder / Owner", equity: "Private", accessCode: "GATED", email: "contact@athlynx.ai", phone: "" },
     { id: 2, name: "Lee Marshall", role: "Sales / Partnerships", equity: "Private", accessCode: "GATED", email: "lmarshall@athlynx.ai", phone: "" },
     { id: 3, name: "Glenn Tse", role: "Finance / Operations", equity: "Private", accessCode: "GATED", email: "contact@athlynx.ai", phone: "" },
-    { id: 4, name: "Tony Locey", role: "First Athlete Partner", equity: "Private", accessCode: "GATED", email: "tlockey24@athlynx.ai", phone: "" },
+
   ];
 
   return (
@@ -522,7 +522,7 @@ function PartnersModule() {
             <NCNDAStatus name="Chad Allen Dozier Sr." status="signed" />
             <NCNDAStatus name="Lee Marshall" status="pending" />
             <NCNDAStatus name="Glenn Tse" status="pending" />
-            <NCNDAStatus name="Tony Locey" status="pending" />
+
           </div>
         </CardContent>
       </Card>
@@ -744,7 +744,7 @@ function EmailsModule() {
         <CardContent>
           <div className="space-y-3">
             <EmailItem 
-              to="Chad Dozier, Lee Marshall, Glenn Tse, Tony Locey"
+              to="Chad Dozier, Lee Marshall, Glenn Tse"
               subject="🔥 PHASE 11 COMPLETE - AthlynX 2026 - ALL DOCUMENTS READY"
               time="Today, 3:15 PM"
               status="sent"

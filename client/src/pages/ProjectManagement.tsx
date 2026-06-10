@@ -56,7 +56,7 @@ const founders = [
   { name: "Chad A. Dozier", title: "Chairman & President", role: "Founder" },
   { name: "Lee Marshall", title: "Co-Host · VP Sales & Partnerships", role: "Partner" },
   { name: "Glenn Tse", title: "VP Business Development", role: "Founder" },
-  { name: "Tony Locey", title: "First Athlete Partner & Partner", role: "Partner" },
+
 ];
 
 const advisors = [

@@ -74,7 +74,7 @@ function TeamBotsInner() {
     {
       id: "operations",
       name: "Operations Command Hub",
-      role: "Tony Locey - Athlete Partner Feedback",
+      role: "Athlete Partner Feedback",
       icon: "⚙️",
       color: "bg-green-500",
       description: "The Athlete Partner Feedback Hub keeps platform decisions grounded in real athlete needs, sports relationships, and trust-building signals.",

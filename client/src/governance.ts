@@ -9,7 +9,7 @@
  *     Developer · Founder · CEO · Chairman.
  *  2. The Master Admin grants and revokes all access — unilaterally,
  *     instantly, with no committee.
- *  3. THE FOUR (Chad · Lee · Glenn · Tony) pay nothing. Unlimited
+ *  3. THE THREE (Chad · Lee · Glenn) pay nothing. Unlimited
  *     credits, billing-exempt. Everyone else pays via standard
  *     Stripe billing.
  *  4. Any access tier (Full Admin, Partner, Team Member, Unlimited
@@ -70,16 +70,8 @@ export const THE_FOUR: readonly DoctrineMember[] = [
     role: "Full Admin",
     label: "Glenn — CFO / COO",
   },
-  {
-    primary: "tlockey24@athlynx.ai",
-    signIn: [
-      "tlockey24@athlynx.ai",
-      "tlocey@athlynx.ai",
-      "tonyloceybaseball@gmail.com",
-    ],
-    role: "Full Admin",
-    label: "Tony — First Athlete Partner & Partner",
-  },
+  // SUSPENDED 2026-06-09: Tony Locey access suspended by Master Admin.
+  // { primary: "tlockey24@athlynx.ai", signIn: ["tlockey24@athlynx.ai", "tlocey@athlynx.ai", "tonyloceybaseball@gmail.com"], role: "Full Admin", label: "Tony — First Athlete Partner & Partner" },
 ] as const;
 
 /**

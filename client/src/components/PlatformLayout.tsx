@@ -199,7 +199,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
     const isAdminUser = (user as any)?.role === 'admin';
     // Partners bypass onboarding splash — same as admin
     const PARTNER_EMAILS_SPLASH = [
-      "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai", "tlockey24@athlynx.ai",
+      "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai",
     ];
     const isPartnerUser = !!(user as any)?.email && PARTNER_EMAILS_SPLASH.includes(((user as any)?.email ?? "").toLowerCase());
     if (dbCompleted || hasLoginMethod || isAdminUser || isPartnerUser) {
@@ -231,7 +231,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
   const isAdmin = (user as any)?.role === 'admin';
   // Partners have full access — never show trial UI or paywall
   const PARTNER_EMAILS = [
-    "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai", "tlockey24@athlynx.ai",
+    "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai",
   ];
   const isPartner = !!(user as any)?.email && PARTNER_EMAILS.includes(((user as any)?.email ?? "").toLowerCase());
   const hasFullAccess = isAdmin || isPartner;

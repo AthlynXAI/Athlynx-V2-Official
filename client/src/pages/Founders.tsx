@@ -46,20 +46,7 @@ const TEAM = [
     frameColor: "border-indigo-400",
     badgeColor: "bg-indigo-700 text-indigo-100",
   },
-  {
-    name: "Tony Locey",
-    title: "First Athlete Partner & Partner",
-    org: "AthlynX | Dozier Holdings Group",
-    photo: "",
-    emails: ["tlockey24@athlynx.ai"],
-    phone: null,
-    alignable: null,
-    linkedin: null,
-    bio: "Tony Locey is the first athlete partner helping keep the AthlynXAI platform grounded in athlete experience and trust.",
-    tags: ["First Athlete Partner", "Partner", "Athlete Trust"],
-    frameColor: "border-cyan-400",
-    badgeColor: "bg-cyan-800 text-cyan-100",
-  },
+
 ];
 
 function FoundersInner() {

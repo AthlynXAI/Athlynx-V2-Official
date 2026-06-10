@@ -30,7 +30,7 @@ const OWNER_EMAILS = [
 ];
 // Partners — full platform access, no paywall
 const PARTNER_EMAILS = [
-  "gtse@athlynx.ai", "lmarshall@athlynx.ai", "tlockey24@athlynx.ai",
+  "gtse@athlynx.ai", "lmarshall@athlynx.ai",
 ];
 
 function BillingInner() {

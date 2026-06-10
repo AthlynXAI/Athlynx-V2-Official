@@ -47,7 +47,7 @@ export default function ExpirationWarningPopup() {
   const isAdmin = (user as any)?.role === 'admin';
   // Partners have full access — same bypass as admin for expiry popup
   const PARTNER_EMAILS = [
-    "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai", "tlockey24@athlynx.ai",
+    "gtse@dozierholdingsgroup.com", "gtse@athlynx.ai", "lmarshall@athlynx.ai",
   ];
   const isPartner = !!user?.email && PARTNER_EMAILS.includes(user.email.toLowerCase());
   const hasFullAccess = isAdmin || isPartner;

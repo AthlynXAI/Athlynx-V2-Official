@@ -83,7 +83,7 @@ const TEAM = [
   { name: 'Chad A. Dozier', role: 'Founder / Owner', email: 'contact@athlynx.ai' },
   { name: 'Lee Marshall', role: 'Sales / Partnerships', email: 'lmarshall@athlynx.ai' },
   { name: 'Glenn Tse', role: 'Finance / Operations', email: 'contact@athlynx.ai' },
-  { name: 'Tony Locey', role: 'First Athlete Partner', email: 'tlockey24@athlynx.ai' },
+
 ];
 
 function CommsHubInner() {

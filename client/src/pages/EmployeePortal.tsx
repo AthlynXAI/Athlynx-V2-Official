@@ -16,7 +16,7 @@ const TEAM = [
   { name: "Chad A. Dozier Sr.", role: "Founder & CEO", email: "contact@athlynx.ai", focus: "Vision, Investors, Strategy", avatar: "C", color: "#0066ff" },
   { name: "Lee Marshall", role: "Co-Host · VP Sales & Partnerships", email: "lmarshall@athlynx.ai", focus: "Revenue, Athlete Acquisition, NIL", avatar: "L", color: "#059669" },
   { name: "Glenn Tse", role: "CFO / COO", email: "gtse@athlynx.ai", focus: "Finance, Operations, Partnerships", avatar: "G", color: "#00c2ff" },
-  { name: "Tony Locey", role: "First Athlete Partner & Partner", email: "tlockey24@athlynx.ai", focus: "Athlete Experience, Sports Relationships, Trust", avatar: "T", color: "#0ea5e9" },
+
 ];
 
 const QUICK_ACTIONS = [

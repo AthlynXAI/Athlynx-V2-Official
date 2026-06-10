@@ -40,7 +40,7 @@ const leadership = [
   { name: 'Chad A. Dozier', title: 'Founder, CEO & Chairman', bio: "Founder of Dozier Holdings Group and AthlynXAI, leading the athlete-first operating-system vision with discipline, ownership, and execution.", email: 'contact@athlynx.ai', initials: 'CD', color: 'from-blue-500 to-cyan-500', photo: '/team/chad-dozier.jpg' },
   { name: 'Lee Marshall', title: 'Co-Host · VP Sales & Partnerships · Business Partner', bio: "Sales and partnership leader connecting DHG and AthlynXAI to athletes, families, brands, podcast audiences, and real-world growth channels.", initials: 'LM', color: 'from-red-500 to-red-500', email: 'lmarshall@athlynx.ai', photo: '/team/lee-marshall.jpg' },
   { name: 'Glenn Tse', title: 'CFO / COO', bio: "Co-founder and financial architect supporting operations, governance, and controlled growth since the company's founding in Houston in November 2024.", initials: 'GT', color: 'from-emerald-500 to-teal-500', email: '', photo: '/team/glenn-tse.jpg' },
-  { name: 'Tony Locey', title: 'First Athlete Partner & Partner', bio: "First athlete partner helping keep AthlynXAI grounded in athlete experience, sports trust, and practical relationship building.", initials: 'TL', color: 'from-cyan-500 to-blue-500', email: 'tlockey24@athlynx.ai', photo: '' },
+
 ];
 
 const stats = [

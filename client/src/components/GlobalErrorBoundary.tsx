@@ -30,6 +30,24 @@ export class GlobalErrorBoundary extends Component<Props, State> {
     this.setState({ errorInfo });
     // Log to console for debugging — never expose to user
     console.error("[AthlynXAI] Runtime error caught by GlobalErrorBoundary:", error, errorInfo);
+
+    // POST to server error sink so errors appear in Vercel logs
+    try {
+      fetch("/api/client-error", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: error?.message || String(error),
+          stack: error?.stack || "",
+          componentStack: errorInfo?.componentStack || "",
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          at: new Date().toISOString(),
+        }),
+      }).catch(() => {/* silent — never throw from error boundary */});
+    } catch (_e) {
+      // silent — never throw from error boundary
+    }
   }
 
   handleRecover = () => {
@@ -45,10 +63,16 @@ export class GlobalErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
+      // Debug mode: show raw error if ?debug=1 or localStorage flag set
+      const showDebug =
+        (typeof window !== "undefined" &&
+          (window.location.search.includes("debug=1") ||
+            localStorage.getItem("athlynx_debug") === "1"));
+
       return (
         <div style={{
           minHeight: "100vh",
-          background: "linear-gradient(135deg, #000a1a 0%, #0d1b3e 50%, #000a1a 100%)",
+          background: "#000000",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -89,21 +113,44 @@ export class GlobalErrorBoundary extends Component<Props, State> {
               The platform hit an unexpected error. Your data is safe. Click below to recover.
             </p>
 
+            {/* Debug panel — only visible when ?debug=1 or athlynx_debug=1 */}
+            {showDebug && this.state.error && (
+              <pre style={{
+                background: "#000000",
+                border: "1px solid #1E90FF",
+                borderRadius: "8px",
+                color: "#94a3b8",
+                fontSize: "11px",
+                lineHeight: "1.5",
+                marginBottom: "20px",
+                maxHeight: "260px",
+                overflow: "auto",
+                padding: "12px",
+                textAlign: "left",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-all",
+              }}>
+                {this.state.error.message}
+                {"\n\n"}
+                {this.state.error.stack}
+              </pre>
+            )}
+
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
               <button
                 onClick={this.handleRecover}
                 style={{
-                  background: "linear-gradient(135deg, #0066cc, #00c8ff)",
+                  background: "#1E90FF",
                   border: "none",
                   borderRadius: "12px",
-                  color: "#fff",
+                  color: "#000",
                   fontSize: "15px",
-                  fontWeight: "800",
+                  fontWeight: 900,
                   padding: "14px 28px",
                   cursor: "pointer",
                 }}
               >
-                🏠 Go Home
+                Go to Dashboard
               </button>
               <button
                 onClick={this.handleRetry}
@@ -163,7 +210,7 @@ export class RouteErrorBoundary extends Component<Props, State> {
           justifyContent: "center",
           padding: "32px",
           textAlign: "center",
-          background: "#000a1a",
+          background: "#000000",
           fontFamily: "system-ui, sans-serif",
         }}>
           <div style={{ fontSize: "48px", marginBottom: "16px" }}>⚡</div>
@@ -176,7 +223,7 @@ export class RouteErrorBoundary extends Component<Props, State> {
           <div style={{ display: "flex", gap: "12px" }}>
             <button
               onClick={() => { window.location.href = "/dashboard"; }}
-              style={{ background: "#0066cc", border: "none", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", padding: "12px 24px", cursor: "pointer" }}
+              style={{ background: "#1E90FF", border: "none", borderRadius: "10px", color: "#000", fontSize: "14px", fontWeight: 900, padding: "12px 24px", cursor: "pointer" }}
             >
               Go to Dashboard
             </button>
