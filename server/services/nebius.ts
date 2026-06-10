@@ -1,15 +1,36 @@
 /**
  * Nebius AI Service — AthlynXAI Platform
- * Secondary AI Engine — Nebius AI Cloud (OpenAI-compatible API)
+ * PRIMARY AI Engine — Nebius AI Cloud (OpenAI-compatible API)
  * NVIDIA H200 GPU Cluster — $5,000 OG Credits Active (confirmed live S37 May 2026)
- * Tenant: tenant-e00r74k0pbm4nqmw2w | SA: serviceaccount-e00jhyptxnfgbev15v
+ * Nebius AI Discovery Awards 2026 — Digital Health Semifinalist
+ * London, July 1, 2026
  *
- * Models: Llama 4 Maverick/Scout (latest) + Llama 3.3-70B (proven production)
+ * DEPRECATED MODELS REMOVED (June 22, 2026 cutoff per Nebius Token Factory notice):
+ * - deepseek-ai/DeepSeek-V3.2 (deprecated June 22, 2026)
+ * - deepseek-ai/DeepSeek-V3.2-fast (deprecated June 22, 2026)
+ * - MiniMaxAI/MiniMax-M2.5-fast (deprecated June 22, 2026)
+ * - moonshotai/Kimi-K2.5 (deprecated June 22, 2026)
+ * - moonshotai/Kimi-K2.5-fast (deprecated June 22, 2026)
+ * - openai/gpt-oss-120b-fast (deprecated June 22, 2026)
+ * - PrimeIntellect/INTELLECT-3 (deprecated June 22, 2026)
+ * - Qwen/Qwen3-235B-A22B-Thinking-2507-fast (deprecated June 22, 2026)
+ * - Qwen/Qwen3-Next-80B-A3B-Thinking-fast (deprecated June 22, 2026)
+ * - Qwen/Qwen3.5-397B-A17B-fast (deprecated June 22, 2026)
+ * - zai-org/GLM-5 (deprecated June 22, 2026)
+ *
+ * ACTIVE MODELS (post-June 22 migration):
+ * - meta-llama/Llama-4-Maverick-17B-128E-Instruct (MoE — best quality)
+ * - meta-llama/Llama-4-Scout-17B-16E-Instruct (fast — high throughput)
+ * - meta-llama/Llama-3.3-70B-Instruct (proven production, sub-500ms)
+ * - meta-llama/Meta-Llama-3.1-8B-Instruct (fast + bulk tasks)
+ * - nvidia/Llama-3_1-Nemotron-Ultra-253B-v1 (elite analysis on H200)
+ *
  * Use cases:
- * - Always-on fallback when Gemini/Claude quota is exhausted
+ * - Primary AI engine for all AthlynXAI OS inference
  * - High-throughput batch AI tasks (CRM enrichment, bulk content generation)
  * - Long-context processing (athlete profiles, scouting reports)
  * - Token Factory — AI credits economy
+ * - Digital Health: wearables, Fuel Bots, AI trainers, medical intelligence
  */
 
 import OpenAI from "openai";

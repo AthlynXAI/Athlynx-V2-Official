@@ -92,6 +92,7 @@ import CommunicationsOS from "./pages/CommunicationsOS";
 import LegalHub from "./pages/LegalHub";
 import HIPAACompliance from "./pages/HIPAACompliance";
 import CompetitionReadiness from "./pages/CompetitionReadiness";
+import NebiusPartnership from "./pages/NebiusPartnership";
 import WizardHub from "./pages/WizardHub";
 import CRMDashboard from "./pages/CRMDashboard";
 import CRMCommandCenter from "./pages/CRMCommandCenter";
@@ -777,7 +778,9 @@ function Router() {
       {/* AI Engine — Nebius H200 */}
       <Route path="/athlynx-engine" component={AthlynxEngine} />
       <Route path="/ai-engine" component={AthlynxEngine} />
-      <Route path="/nebius" component={AthlynxEngine} />
+      <Route path="/nebius" component={NebiusPartnership} />
+      <Route path="/nebius-partnership" component={NebiusPartnership} />
+      <Route path="/nebius-awards" component={NebiusPartnership} />
       <Route path="/engine" component={AthlynxEngine} />
       {/* Google Workspace OS */}
       <Route path="/google-workspace" component={GoogleWorkspaceOS} />

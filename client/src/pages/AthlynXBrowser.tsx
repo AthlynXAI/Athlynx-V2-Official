@@ -49,14 +49,14 @@ const QUICK_SITES = [
   { name: 'Twitter/X', url: 'https://x.com', icon: '', color: '#1DA1F2' },
 ];
 
-// AI Models available
+// AI Models available (updated June 2026 — deprecated models removed per Nebius Token Factory notice)
 const AI_MODELS = [
-  { name: 'AthlynXAI', provider: 'AthlynXAI', icon: '' },
-  { name: 'GPT-OSS-120B', provider: 'Nebius', icon: '' },
-  { name: 'Kimi-K2', provider: 'Moonshot', icon: '' },
-  { name: 'DeepSeek-V3', provider: 'DeepSeek', icon: '' },
-  { name: 'Qwen3-235B', provider: 'Alibaba', icon: '' },
-  { name: 'Llama-4', provider: 'Meta', icon: '' },
+  { name: 'AthlynXAI OS', provider: 'AthlynXAI', icon: '💪' },
+  { name: 'Llama 4 Maverick', provider: 'Nebius H200', icon: '🔥' },
+  { name: 'Llama 4 Scout', provider: 'Nebius H200', icon: '⚡' },
+  { name: 'Llama 3.3-70B', provider: 'Nebius H200', icon: '🤖' },
+  { name: 'Nemotron Ultra 253B', provider: 'NVIDIA via Nebius', icon: '🏆' },
+  { name: 'GPT-4o', provider: 'OpenAI', icon: '🧠' },
 ];
 
 interface BrowserTab {
