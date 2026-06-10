@@ -1,0 +1,34 @@
+{
+  "cli": {
+    "version": ">= 10.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "autoIncrement": true,
+      "ios": {
+        "distribution": "store",
+        "credentialsSource": "remote",
+        "image": "macos-tahoe-26.4-xcode-26.4"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "ascApiKeyPath": "./AuthKey_$ASC_API_KEY_ID.p8",
+        "ascApiKeyId": "$ASC_API_KEY_ID",
+        "ascApiKeyIssuerId": "$ASC_API_KEY_ISSUER_ID",
+        "appleId": "chad.dozier@icloud.com",
+        "ascAppId": "6767448150"
+      }
+    }
+  }
+}

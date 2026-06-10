@@ -1,0 +1,41 @@
+# Path protection — enforced via branch protection + lane-discipline.yml
+# Only the owner may approve changes to these paths.
+
+/db/                       @chaddozier75
+/drizzle/                  @chaddozier75
+/migrations/               @chaddozier75
+*.sql                      @chaddozier75
+/prisma/                   @chaddozier75
+/supabase/migrations/      @chaddozier75
+
+/.github/workflows/        @chaddozier75
+/.github/actions/          @chaddozier75
+/.github/CODEOWNERS        @chaddozier75
+
+/scripts/                  @chaddozier75
+/infra/                    @chaddozier75
+/terraform/                @chaddozier75
+/vercel.json               @chaddozier75
+/next.config.*             @chaddozier75
+/Dockerfile*               @chaddozier75
+/docker-compose*           @chaddozier75
+/.env*                     @chaddozier75
+
+/docs/runbooks/            @chaddozier75
+/docs/incidents/           @chaddozier75
+/docs/policies/            @chaddozier75
+
+# ============================================================
+# BRAND-CRITICAL PAGES — owner approval required
+# Added 2026-06-09 after Home.tsx was rewritten 22 times in 8 days
+# by 4 different bot identities, each violating brand lock.
+# ============================================================
+client/src/pages/Home.tsx                  @chaddozier75
+client/src/pages/LandingPage.tsx           @chaddozier75
+client/src/pages/DHGHome.tsx               @chaddozier75
+client/src/pages/ConnectorOSLanding.tsx    @chaddozier75
+client/public/athlynx-sports-brand.png     @chaddozier75
+client/public/athlynx-official-logo.png    @chaddozier75
+client/public/athlynx-main-logo.png        @chaddozier75
+client/public/athlynx-mark-white.png       @chaddozier75
+ATHLYNXAI_STEALTH_VISUAL_DOCTRINE.md       @chaddozier75

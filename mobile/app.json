@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "AthlynX",
+    "slug": "athlynxai",
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "athlynxai",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.athlynx.app",
+      "buildNumber": "80",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "ai.athlynx.app",
+      "versionCode": 80,
+      "permissions": []
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiUrl": "https://athlynx.ai",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b1ac40c9-4a90-4f9c-99cd-b1cea06189ad"
+      }
+    },
+    "owner": "cdozier14",
+    "notification": {
+      "icon": "./assets/notification-icon.png"
+    }
+  }
+}

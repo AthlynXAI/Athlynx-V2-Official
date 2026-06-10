@@ -1,0 +1,54 @@
+Starting Speech-to-Text conversion...
+Transcribing audio file: /home/ubuntu/upload/SavetoVoiceMemos.m4a, file size: 2.34 MB
+Transcription may take some time depending on file size and audio length...
+Transcription completed successfully!
+
+TRANSCRIPTION RESULT:
+Total Duration: 78.0 seconds
+Language: english
+Timestamped segments:
+[00:00.0 - 00:04.2]  Bring it in!
+[00:04.2 - 00:05.5]  Listen up.
+[00:05.5 - 00:08.5]  The game isn't won by talent alone.
+[00:08.5 - 00:13.9]  It's won through discipline, through growth, through strengthening the mind, the body,
+[00:13.9 - 00:15.4]  and the soul.
+[00:15.4 - 00:18.4]  That's what transformative thinking is about.
+[00:18.4 - 00:24.0]  Learning how to adapt, how to lead, how to grow beyond the game.
+[00:24.0 - 00:31.6]  Athletes.ai was created for the modern athlete to encourage, instruct, inspire, and increase
+[00:31.6 - 00:34.9]  every part of who they are.
+[00:34.9 - 00:38.6]  Because real success isn't just physical.
+[00:38.6 - 00:46.1]  It's mental resilience, spiritual grounding, and becoming complete on and off the field.
+[00:46.1 - 00:51.0]  Athletes.ai, mind, body, soul.
+[00:51.0 - 00:55.0]  Transformative thinking for the next generation of athletes.
+[00:55.0 - 01:04.5]  Remember to stay encouraged, encourage others, instruct, inspire, increase, and lead with love.
+[01:04.5 - 01:09.7]  And this is your coach and host, Lee Marshall.
+[01:09.7 - 01:12.2]  And this is The Athlete's Playbook.
+[01:12.2 - 01:17.4]  Stay tuned for episode 2, and  and always.
+Complete transcription result saved to: /home/ubuntu/upload/SavetoVoiceMemos_transcription_20260524_234640.json
+Plain text transcription saved to: /home/ubuntu/upload/SavetoVoiceMemos_transcription_20260524_234640.txt
+[2J[H[3Jmanus-speech-to-text --terminal-max-len-single=5000 /home/ubuntu/upload/SavetoVoiceMemos.m4a
+Starting Speech-to-Text conversion...
+Transcribing audio file: /home/ubuntu/upload/SavetoVoiceMemos.m4a, file size: 2.34 MB
+Transcription may take some time depending on file size and audio length...
+
+Snippet of transcribed content:
+[00:00.0 - 00:04.2] Bring it in!
+[00:04.2 - 00:05.5] Listen up.
+[00:05.5 - 00:08.5] The game isn't won by talent alone.
+[00:08.5 - 00:13.9] It's won through discipline, through growth, through strengthening the mind, the body,
+[00:13.9 - 00:15.4] and the soul.
+[00:15.4 - 00:18.4] That's what transformative thinking is about.
+[00:18.4 - 00:24.0] Learning how to adapt, how to lead, how to grow beyond the game.
+[00:24.0 - 00:31.6] Athletes.ai was created for the modern athlete to encourage, instruct, inspire, and increase
+[00:31.6 - 00:34.9] every part of who they are.
+[00:34.9 - 00:38.6] Because real success isn't just physical.
+[00:38.6 - 00:46.1] It's mental resilience, spiritual grounding, and becoming complete on and off the field.
+[00:46.1 - 00:51.0] Athletes.ai, mind, body, soul.
+[00:51.0 - 00:55.0] Transformative thinking for the next generation of athletes.
+[00:55.0 - 01:04.5] Remember to stay encouraged, encourage others, instruct, inspire, increase, and lead with love.
+[01:04.5 - 01:09.7] And this is your coach and host, Lee Marshall.
+[01:09.7 - 01:12.2] And this is The Athlete's Playbook.
+[01:12.2 - 01:17.4] Stay tuned for episode 2, and  and always.
+
+Completed transcription, JSON saved to /home/ubuntu/upload/SavetoVoiceMemos_transcription_20260524_234640.json
+Plain text transcription saved to /home/ubuntu/upload/SavetoVoiceMemos_transcription_20260524_234640.txt

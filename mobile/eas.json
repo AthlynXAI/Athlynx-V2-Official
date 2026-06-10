@@ -1,0 +1,57 @@
+{
+  "cli": {
+    "version": ">= 10.0.0",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "node": "22.22.2",
+      "android": {
+        "buildType": "app-bundle",
+        "image": "ubuntu-26.04-jdk-17-ndk-r27b"
+      },
+      "ios": {
+        "distribution": "store",
+        "credentialsSource": "remote",
+        "image": "macos-tahoe-26.4-xcode-26.4"
+      },
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://athlynx.ai",
+        "EXPO_PUBLIC_SUPABASE_URL": "$EXPO_PUBLIC_SUPABASE_URL",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "$EXPO_PUBLIC_SUPABASE_ANON_KEY",
+        "SENTRY_ALLOW_FAILURE": "true",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-service-account.json",
+        "track": "internal",
+        "changesNotSentForReview": true
+      },
+      "ios": {
+        "ascApiKeyPath": "./AuthKey_$ASC_API_KEY_ID.p8",
+        "ascApiKeyId": "$ASC_API_KEY_ID",
+        "ascApiKeyIssuerId": "$ASC_API_KEY_ISSUER_ID",
+        "appleId": "chad.dozier@icloud.com",
+        "ascAppId": "6767448150"
+      }
+    }
+  }
+}

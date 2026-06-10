@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athlynx — Connector Proof of Connection</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #020d1f;
+      color: #e8f0fe;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #021433 0%, #0a2a6e 100%);
+      border-bottom: 3px solid #1e6fff;
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #7eb3ff;
+    }
+
+    .timestamp {
+      display: inline-block;
+      margin-top: 14px;
+      background: #1e6fff22;
+      border: 1px solid #1e6fff;
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: 0.85rem;
+      color: #a8caff;
+      letter-spacing: 1px;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 28px 24px 0;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0d2150;
+      border: 2px solid #1e6fff;
+      border-radius: 40px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .badge .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00e676;
+      box-shadow: 0 0 8px #00e676;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .section {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #1e6fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-left: 5px solid #1e6fff;
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+
+    .connector-card {
+      background: #041228;
+      border: 1px solid #1e3a6e;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 40px;
+    }
+
+    .connector-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .connector-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .icon-github { background: #161b22; border: 2px solid #30363d; }
+    .icon-vercel { background: #000000; border: 2px solid #444; }
+    .icon-cloudflare { background: #f6821f22; border: 2px solid #f6821f; }
+
+    .connector-name {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .connector-status {
+      font-size: 0.85rem;
+      color: #00e676;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .data-item {
+      background: #071830;
+      border: 1px solid #1e3a6e;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .data-label {
+      font-size: 0.75rem;
+      color: #7eb3ff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .data-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      word-break: break-all;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .screenshot-wrap {
+      border: 2px solid #1e3a6e;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #020d1f;
+    }
+
+    .screenshot-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .screenshot-caption {
+      font-size: 0.78rem;
+      color: #7eb3ff;
+      text-align: center;
+      padding: 8px;
+      background: #041228;
+      letter-spacing: 0.5px;
+    }
+
+    .commit-list {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .commit-list li {
+      background: #071830;
+      border-left: 3px solid #1e6fff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      color: #c8d8f8;
+    }
+
+    .commit-sha {
+      font-family: monospace;
+      color: #1e6fff;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .commit-date {
+      color: #7eb3ff;
+      font-size: 0.78rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #1e3a6e;
+      color: #3a5a9e;
+      font-size: 0.85rem;
+      margin-top: 20px;
+    }
+
+    footer strong {
+      color: #7eb3ff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Athlynx — Connector Proof of Connection</h1>
+  <p>Live verification that GitHub, Vercel &amp; Cloudflare are active and connected</p>
+  <span class="timestamp">Generated: April 18, 2026 &nbsp;|&nbsp; Account: chaddozier-bot &nbsp;|&nbsp; Cdozier14@dozierholdingsgroup.com.mx</span>
+</header>
+
+<div class="badge-row">
+  <div class="badge"><span class="dot"></span> GitHub — CONNECTED</div>
+  <div class="badge"><span class="dot"></span> Vercel — CONNECTED</div>
+  <div class="badge"><span class="dot"></span> Cloudflare — CONNECTED</div>
+</div>
+
+<!-- ===== GITHUB ===== -->
+<div class="section">
+  <div class="section-title">GitHub</div>
+  <div class="connector-card">
+    <div class="connector-header">
+      <div class="connector-icon icon-github">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+      <div>
+        <div class="connector-name">GitHub</div>
+        <div class="connector-status">&#10003; LIVE &amp; SYNCED</div>
+      </div>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-item"><div class="data-label">Account</div><div class="data-value">chaddozier-bot</div></div>
+      <div class="data-item"><div class="data-label">Role</div><div class="data-value">Owner</div></div>
+      <div class="data-item"><div class="data-label">Repositories</div><div class="data-value">4 Active</div></div>
+      <div class="data-item"><div class="data-label">Primary Repo</div><div class="data-value">chaddozier-bot</div></div>
+      <div class="data-item"><div class="data-label">Language</div><div class="data-value">TypeScript</div></div>
+      <div class="data-item"><div class="data-label">Last Push</div><div class="data-value">Apr 18, 2026</div></div>
+      <div class="data-item"><div class="data-label">Repo URL</div><div class="data-value">github.com/chaddozier-bot</div></div>
+      <div class="data-item"><div class="data-label">Visibility</div><div class="data-value">Private (Owner)</div></div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="data-label" style="margin-bottom:10px;">Latest Commits — chaddozier-bot repo</div>
+      <ul class="commit-list">
+        <li><span class="commit-sha">d267287</span> Replaced NIL Portal icon and Messenger icon across all files<span class="commit-date">Apr 18, 2026 — Athlynx AI</span></li>
+        <li><span class="commit-sha">8499964</span> MAJOR FIX: All broken CloudFront URLs eliminated — 54 files, 189 CDN URLs<span class="commit-date">Apr 18, 2026 — Athlynx AI</span></li>
+        <li><span class="commit-sha">fd69089</span> All 22 app icons updated to permanent CDN URLs<span class="commit-date">Apr 18, 2026 — Athlynx AI</span></li>
+        <li><span class="commit-sha">bbd8d9b</span> ATHLYNX Complete Platform - Vercel Ready (58+ pages, 10 apps)<span class="commit-date">Apr 11, 2026 — Chad Dozier</span></li>
+      </ul>
+    </div>
+
+    <div class="screenshots">
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/OzapGTMrHafvlNYO.png" alt="GitHub Connected in Athlynx AI" />
+        <div class="screenshot-caption">GitHub connector active in Athlynx AI — chaddozier-bot (Owner)</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/vXaYcFlrybJMNyEB.png" alt="GitHub Deployed Websites" />
+        <div class="screenshot-caption">Deployed websites list — ATHLYNX live Apr 13, 2026</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/YiZIwLiZNJUPEduM.png" alt="GitHub Personal Account" />
+        <div class="screenshot-caption">GitHub account — Chad A. Dozier (retired-non-chad-lane)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VERCEL ===== -->
+  <div class="section-title">Vercel</div>
+  <div class="connector-card">
+    <div class="connector-header">
+      <div class="connector-icon icon-vercel">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 1L24 22H0L12 1z"/></svg>
+      </div>
+      <div>
+        <div class="connector-name">Vercel</div>
+        <div class="connector-status">&#10003; LIVE &amp; DEPLOYING</div>
+      </div>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-item"><div class="data-label">Integration</div><div class="data-value">GitHub → Vercel</div></div>
+      <div class="data-item"><div class="data-label">Installed</div><div class="data-value">3 months ago</div></div>
+      <div class="data-item"><div class="data-label">Auto-Deploy</div><div class="data-value">Every PR / Push</div></div>
+      <div class="data-item"><div class="data-label">Primary Project</div><div class="data-value">ATHLYNX – The Athlete's Playbook</div></div>
+      <div class="data-item"><div class="data-label">Live URL</div><div class="data-value">athlynxapp-cwaxehsq.manus.space</div></div>
+      <div class="data-item"><div class="data-label">Deploy Date</div><div class="data-value">Apr 13, 2026</div></div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="data-label" style="margin-bottom:10px;">Custom Domains — All Verified ✓</div>
+      <div class="data-grid">
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ athlynx.ai</div></div>
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ www.athlynx.net</div></div>
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ athlynx.net</div></div>
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ www.athlynx.io</div></div>
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ athlynx.io</div></div>
+        <div class="data-item"><div class="data-value" style="color:#00e676;">✓ athlynxapp.vip</div></div>
+      </div>
+    </div>
+
+    <div class="screenshots">
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/BhARfsMQLibmQlGF.png" alt="Vercel GitHub Integration" />
+        <div class="screenshot-caption">Vercel installed on GitHub — auto-deploys every PR</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/PxeqOgeyFZCUcswK.png" alt="Custom Domains Verified" />
+        <div class="screenshot-caption">6 custom domains verified and connected</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img src="https://files.athlynx.ai/user_upload_by_module/session_file/310419663028706780/DSFVaoZJlBJMAmIt.png" alt="Deployed Websites" />
+        <div class="screenshot-caption">ATHLYNX, AI Bot Ecosystem, NIL Portal — all deployed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CLOUDFLARE ===== -->
+  <div class="section-title">Cloudflare</div>
+  <div class="connector-card">
+    <div class="connector-header">
+      <div class="connector-icon icon-cloudflare">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#f6821f"><path d="M16.5 15.5c.2-.7.1-1.3-.2-1.8-.3-.4-.8-.7-1.4-.8l-8.7-.1c-.1 0-.2-.1-.2-.2s.1-.2.2-.2l8.8-.1c1-.1 2.1-.9 2.5-1.9l.5-1.3c0-.1 0-.2-.1-.3C17.2 7 15.2 5.5 12.8 5.5c-2 0-3.8 1.1-4.7 2.7-.5-.4-1.2-.6-1.9-.5-1.3.2-2.2 1.3-2.2 2.6v.1C2.6 10.6 1.5 11.8 1.5 13.3c0 .1 0 .3.1.4 0 .1.1.1.2.1h14.4c.1 0 .2-.1.3-.3z"/></svg>
+      </div>
+      <div>
+        <div class="connector-name">Cloudflare</div>
+        <div class="connector-status">&#10003; LIVE — ACCOUNT VERIFIED</div>
+      </div>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-item"><div class="data-label">Account</div><div class="data-value">Cdozier14@dozierholdingsgroup.com.mx</div></div>
+      <div class="data-item"><div class="data-label">Account ID</div><div class="data-value">a51b909855e2...49ca</div></div>
+      <div class="data-item"><div class="data-label">Created</div><div class="data-value">Jan 5, 2026</div></div>
+      <div class="data-item"><div class="data-label">MCP Tools</div><div class="data-value">25 Active Tools</div></div>
+      <div class="data-item"><div class="data-label">Services</div><div class="data-value">Workers, KV, R2, D1</div></div>
+      <div class="data-item"><div class="data-label">Status</div><div class="data-value" style="color:#00e676;">Connected &amp; Responsive</div></div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="data-label" style="margin-bottom:10px;">Available Cloudflare Services</div>
+      <div class="data-grid">
+        <div class="data-item"><div class="data-label">Workers</div><div class="data-value">Serverless Functions</div></div>
+        <div class="data-item"><div class="data-label">KV Store</div><div class="data-value">Key-Value Storage</div></div>
+        <div class="data-item"><div class="data-label">R2 Buckets</div><div class="data-value">Object Storage</div></div>
+        <div class="data-item"><div class="data-label">D1 Database</div><div class="data-value">Serverless SQL</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Pipeline Summary -->
+<div class="section">
+  <div class="section-title">Full Pipeline — Confirmed Active</div>
+  <div class="connector-card">
+    <div style="display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; font-size:1.1rem; font-weight:900; color:#ffffff; padding:10px 0 20px;">
+      <span style="background:#0d2150;border:2px solid #1e6fff;border-radius:10px;padding:10px 20px;">MANUS</span>
+      <span style="color:#1e6fff;font-size:1.5rem;">→</span>
+      <span style="background:#161b22;border:2px solid #30363d;border-radius:10px;padding:10px 20px;">GITHUB</span>
+      <span style="color:#1e6fff;font-size:1.5rem;">→</span>
+      <span style="background:#000;border:2px solid #444;border-radius:10px;padding:10px 20px;">VERCEL</span>
+      <span style="color:#1e6fff;font-size:1.5rem;">+</span>
+      <span style="background:#1a0e00;border:2px solid #f6821f;border-radius:10px;padding:10px 20px;">CLOUDFLARE</span>
+    </div>
+    <p style="text-align:center;color:#7eb3ff;font-size:0.95rem;">Every commit pushed from Athlynx AI syncs to GitHub, auto-deploys to Vercel, and assets are served through Cloudflare. All three connectors verified live on April 18, 2026.</p>
+  </div>
+</div>
+
+<footer>
+  <strong>Athlynx Corporation</strong> &nbsp;|&nbsp; Dozier Holdings Group &nbsp;|&nbsp; Built with Athlynx AI<br/>
+  <span style="font-size:0.75rem;margin-top:6px;display:block;">This page is proof that GitHub (chaddozier-bot), Vercel, and Cloudflare are all connected and active.</span>
+</footer>
+
+</body>
+</html>

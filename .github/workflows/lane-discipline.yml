@@ -3,45 +3,101 @@ name: Lane Discipline
 on:
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, edited]
+
+# This workflow is the machine-enforcement of docs/runbooks/lane-discipline.md
+# It MUST be a required status check on the main branch protection rules.
+# Only the owner (chaddozier75@gmail.com) may modify this file.
 
 jobs:
-  author-check:
-    name: Author allowlist (AthlynxChad only, no bots)
+  enforce:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    permissions:
+      contents: read
+      pull-requests: read
+    env:
+      LANE_TMP: ${{ github.workspace }}/.lane-discipline
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - name: Enforce author identity
+      - name: Checkout PR head
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # setup-node@v5 auto-detects pnpm from packageManager in package.json.
+      # Install pnpm first so that detection finds the binary on PATH.
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Prepare tmp dir
+        shell: bash
         run: |
           set -euo pipefail
-          range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
-          # Allowed: AthlynxChad <chaddozier75@gmail.com> and the squash-merge bot author 'AthlynXAI'
-          # Allowed deploy creator on Vercel side only (NOT here): chaddozier75-cmd
-          forbidden_authors=(
-            "chaddozier-bot"
-            "chaddozier75-bot"
-            "chaddozier75-cmd"
-            "AthlynX Robot"
-            "vercel[bot]"
-          )
-          forbidden_emails=(
-            "chad@athlynx.ai"
-          )
-          fail=0
-          while IFS=$'\t' read -r name email; do
-            for f in "${forbidden_authors[@]}"; do
-              if [ "$name" = "$f" ]; then
-                echo "::error::Forbidden author '$name' in commit history"
-                fail=1
-              fi
-            done
-            for f in "${forbidden_emails[@]}"; do
-              if [ "$email" = "$f" ]; then
-                echo "::error::Forbidden email '$email' in commit history"
-                fail=1
-              fi
-            done
-          done < <(git log --pretty=$'%an\t%ae' "$range")
-          if [ "$fail" = "1" ]; then exit 1; fi
-          echo "✓ All commit authors comply with doctrine."
+          mkdir -p "$LANE_TMP"
+
+      - name: Compute changed files vs base (write to disk, not env)
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          git fetch origin "$BASE_SHA" --depth=1 || true
+          git fetch origin "$HEAD_SHA" --depth=1 || true
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > "$LANE_TMP/changed_files.txt" || true
+          echo "Changed file count: $(wc -l < "$LANE_TMP/changed_files.txt")"
+
+      - name: Collect commit messages on PR (write to disk)
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          git log --format=%B "$BASE_SHA".."$HEAD_SHA" > "$LANE_TMP/commit_messages.txt" || true
+
+      - name: Run lane-discipline check
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_BRANCH: ${{ github.head_ref }}
+          CHANGED_FILES_PATH: ${{ github.workspace }}/.lane-discipline/changed_files.txt
+          PR_COMMIT_MESSAGES_PATH: ${{ github.workspace }}/.lane-discipline/commit_messages.txt
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/check-lane-discipline.mjs
+
+      - name: Verify CODEOWNERS contains protected paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .github/CODEOWNERS || { echo "CODEOWNERS missing"; exit 1; }
+          for p in "/db/" "/drizzle/" "/migrations/" "*.sql" "/.github/workflows/" "/scripts/" "/vercel.json" "/.env" "/docs/runbooks/" "/docs/incidents/" "/docs/policies/"; do
+            grep -F "$p" .github/CODEOWNERS >/dev/null || { echo "CODEOWNERS missing protection for $p"; exit 1; }
+          done
+
+      - name: Collect PR commit authors and files (write to disk)
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          git log --format='%ae|%H' "$BASE_SHA".."$HEAD_SHA" > "$LANE_TMP/commit_authors.txt" || true
+          : > "$LANE_TMP/commit_files.txt"
+          for sha in $(git log --format=%H "$BASE_SHA".."$HEAD_SHA"); do
+            git show --name-only --format= "$sha" | awk -v s="$sha" 'NF{print s"\t"$0}' >> "$LANE_TMP/commit_files.txt"
+          done
+          echo "Authors lines: $(wc -l < "$LANE_TMP/commit_authors.txt")"
+          echo "Commit-files lines: $(wc -l < "$LANE_TMP/commit_files.txt")"
+
+      - name: Verify commit authors against allow-list
+        env:
+          PR_COMMIT_AUTHORS_PATH: ${{ github.workspace }}/.lane-discipline/commit_authors.txt
+          PR_COMMIT_FILES_PATH: ${{ github.workspace }}/.lane-discipline/commit_files.txt
+          PR_BRANCH: ${{ github.head_ref }}
+        run: node scripts/check-commit-authors.mjs

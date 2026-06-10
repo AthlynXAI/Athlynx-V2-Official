@@ -1,0 +1,43 @@
+BUILD_53
+DEPLOY_STAMP: 2026-06-04T02:42:00Z
+TRIGGER: Issue #103 audit + Vercel cache bust
+REPO: AthlynXAI/Athlynx-V2-Official
+BRANCH: main
+AUTHOR: AthlynXAI (chaddozier75@gmail.com)
+VERCEL_TEAM: AthlynxChad
+
+HOME.TSX RENDER ORDER (LOCKED):
+1. LiveBracketBanner  — ~48px dismissable MCWS/WCWS slim bar
+2. Header             — sticky, logo + nav
+3. HeroSection        — athlete bg photo, tagline, Claim Your Free Profile, Google/Apple/Facebook SSO
+4. FlagshipAppTeaser  — Diamond Grind ONE card + Explore all apps link
+5. Ticker             — scrolling marquee
+6. PlatformStats      — 4 stats + bottom CTA
+7. Footer
+
+STRIPPED FROM LANDING (moved to /brackets or /about):
+- SportsAIEcosystem
+- LiveHighlightsFeed
+- RoadToOmahaHero
+- ChampionshipBracketsTop
+- AthleteEntryBanner
+- LiveGamesStrip
+- RecognitionCards (Nebius/OpenAI/NVIDIA/Google ADK)
+- Full app grid
+
+AUTH FIXES:
+- /api/auth/me: Build 50 DB columns added (is_vip, unlimited_credits, billing_exempt,
+  full_admin, partner_status, access_tier) — 500 crash resolved
+- SSO paths: /api/auth/google /api/auth/apple /api/auth/facebook
+- Auth audit dashboard: /admin/audit/auth-me (Build 51)
+- Boot hardening: supabaseClient.ts + stripeInit.ts + main.tsx (Build 52)
+
+CLICK PATH FIXES (Build 51-52):
+- 23 broken wouter v2 <Link><a> anti-patterns fixed across 11 files
+- iOS Safari in-app browser click paths restored
+
+DOCTRINE:
+- North Star: We help the athletes — NIL, hyped up on AI
+- Diamond Grind IQ = flagship #1 app
+- Repo: AthlynXAI/Athlynx-V2-Official ONLY
+- Never: chaddozier-bot, chaddozier75-bot, chaddozier75-cmd

@@ -1,0 +1,68 @@
+import type { AIEngine } from '@/types';
+
+export const AI_ENGINES: AIEngine[] = [
+  {
+    id: 'nil-valuator',
+    name: 'NIL Valuator',
+    description: 'AI-powered NIL deal valuation based on sport, platform reach, and market comps.',
+    category: 'nil',
+    status: 'live',
+    iconName: 'trending-up',
+  },
+  {
+    id: 'recruit-radar',
+    name: 'Recruit Radar',
+    description: 'Identify and rank top recruits by position, region, and fit score for your program.',
+    category: 'recruiting',
+    status: 'live',
+    iconName: 'search',
+  },
+  {
+    id: 'diamond-scout',
+    name: 'Diamond Scout',
+    description: 'Advanced baseball analytics — exit velocity, spin rate, and prospect grade modeling.',
+    category: 'analytics',
+    status: 'live',
+    iconName: 'bar-chart',
+  },
+  {
+    id: 'media-engine',
+    name: 'Media Engine',
+    description: 'Generate athlete highlight reels, social content, and brand decks automatically.',
+    category: 'media',
+    status: 'beta',
+    iconName: 'film',
+  },
+  {
+    id: 'playbook-ai',
+    name: 'Playbook AI',
+    description: 'Coaching intelligence — game-plan generation, opponent tendency analysis, and drill design.',
+    category: 'coaching',
+    status: 'beta',
+    iconName: 'book-open',
+  },
+  {
+    id: 'transfer-portal',
+    name: 'Transfer Portal Intel',
+    description: 'Real-time transfer portal monitoring with fit scoring and eligibility tracking.',
+    category: 'recruiting',
+    status: 'live',
+    iconName: 'refresh-cw',
+  },
+  {
+    id: 'brand-builder',
+    name: 'Brand Builder',
+    description: 'Build your athlete brand identity — logo, colors, social kit, and pitch deck.',
+    category: 'nil',
+    status: 'beta',
+    iconName: 'star',
+  },
+  {
+    id: 'performance-ai',
+    name: 'Performance AI',
+    description: 'Injury risk modeling, load management, and peak performance window prediction.',
+    category: 'analytics',
+    status: 'coming_soon',
+    iconName: 'activity',
+  },
+];
