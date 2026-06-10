@@ -15,13 +15,13 @@ import SovereigntyManifesto from "@/components/SovereigntyManifesto";
 import TeamProfileCard, { ATHLYNX_TEAM } from "@/components/TeamProfileCard";
 
 // Smart routing: logged-in users go to /feed, new visitors go to /signup
+// Uses the real server-side cookie name: app_session_id
 function getPortalDestination(): string {
   try {
-    // Check if user has a session token (stored by our auth system)
-    const hasSession = !!localStorage.getItem('athlynx_user_token') ||
-      !!localStorage.getItem('athlynx_session') ||
-      document.cookie.includes('athlynx_session') ||
-      document.cookie.includes('auth_token');
+    const hasSession =
+      document.cookie.includes('app_session_id') ||
+      !!localStorage.getItem('athlynx_user_token') ||
+      !!localStorage.getItem('athlynx_session');
     return hasSession ? '/feed' : '/signup';
   } catch {
     return '/signup';
@@ -242,6 +242,8 @@ const MOBILE_NAV_SECTIONS: MobileSection[] = [
     links: [
       { href: "/crm", label: "CRM" },
       { href: "/comms-hub", label: "Comms Hub" },
+      { href: "/social", label: "AthlynX Social" },
+      { href: "/network", label: "AXN Network" },
       { href: "/social-hub", label: "Social Hub" },
       { href: "/studio", label: "Studio" },
       { href: "/podcast", label: "Podcast" },

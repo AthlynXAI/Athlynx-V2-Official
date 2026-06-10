@@ -6,30 +6,36 @@ import NILAvatar from "@/components/NILAvatar";
 
 /**
  * Welcome.tsx — Post-signup two-door handoff.
+ * Build 1 Session 2 — June 10 2026
  *
- * Per Manus spec 01-Welcome-Screen.md and Chad's 7 locked decisions:
+ * FLOW:
+ *   New user  (pct < 60)  → shows two-door screen → web → /onboarding
+ *   Returning (pct >= 60) → auto-redirects to /portal immediately (no two-door)
+ *   Signed-out            → /signup
+ *
+ * Per Chad's locked decisions:
  *   • iOS  → TestFlight link (until App Store live)
  *   • Android → Play internal testing (until Play live)
- *   • Footer: "Change anytime" (not Cancel anytime)
- *   • Brand: AthlynX navy + blue-cyan gradient. NO yellow / gold / amber / orange.
- *   • Signed-out users are sent to /signup (handled by useAuth check below).
- *   • landingPreference stored in localStorage (cookie/schema in PR #44).
+ *   • Footer: "Change anytime"
+ *   • Brand: Cobalt · Granite · Electric Blue · Stadium Lights. NO yellow/gold/amber/orange.
+ *   • landingPreference stored in localStorage
  */
 
 const COLORS = {
   base: "#040c1a",
   surface: "#0a1628",
   border: "#0d1e3c",
-  blueStart: "#3b82f6",
-  blueEnd: "#06b6d4",
+  cobalt: "#0047AB",
+  electricBlue: "#1E90FF",
+  stadiumLight: "#00c2ff",
+  granite: "#2a3a4a",
   white: "#ffffff",
   textSecondary: "#94a3b8",
   textMuted: "#64748b",
 };
 
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/athlynx";
-const PLAY_INTERNAL_URL =
-  "https://play.google.com/apps/internaltest/athlynxai";
+const PLAY_INTERNAL_URL = "https://play.google.com/apps/internaltest/athlynxai";
 
 type Platform = "ios" | "android" | "desktop";
 
@@ -43,10 +49,8 @@ function detectPlatform(): Platform {
 
 function identityCaption(pct: number): string {
   if (pct >= 100) return "Your athlete identity is complete. You are ready to move.";
-  if (pct >= 80)
-    return `Your athlete identity is ${pct}% complete. Finish the last details when you are ready.`;
-  if (pct >= 40)
-    return `Your athlete identity is ${pct}% complete. Add your face and proof to stand out.`;
+  if (pct >= 80) return `Your athlete identity is ${pct}% complete. Finish the last details when you are ready.`;
+  if (pct >= 40) return `Your athlete identity is ${pct}% complete. Add your face and proof to stand out.`;
   return `Your athlete identity is ${pct}% complete. Add the basics to unlock your profile.`;
 }
 
@@ -62,22 +66,76 @@ function computeIdentityPercent(user: any): number {
   return Math.min(100, score);
 }
 
+interface DoorCardProps {
+  title: string;
+  subtitle: string;
+  firstTimeMicrocopy: string;
+  primaryLabel: string;
+  secondaryLabel?: string;
+  onPrimary: () => void;
+  onSecondary?: () => void;
+  highlight?: boolean;
+}
+
+function DoorCard({ title, subtitle, firstTimeMicrocopy, primaryLabel, secondaryLabel, onPrimary, onSecondary, highlight }: DoorCardProps) {
+  return (
+    <div style={{
+      background: highlight ? `linear-gradient(135deg, ${COLORS.cobalt}22, ${COLORS.electricBlue}11)` : COLORS.surface,
+      border: `1px solid ${highlight ? COLORS.electricBlue : COLORS.border}`,
+      borderRadius: 16,
+      padding: "24px 20px",
+      marginBottom: 16,
+      boxShadow: highlight ? `0 0 32px ${COLORS.electricBlue}22` : "none",
+    }}>
+      <div style={{ fontWeight: 800, fontSize: 18, color: COLORS.white, marginBottom: 6 }}>{title}</div>
+      <div style={{ fontSize: 13, color: COLORS.textSecondary, marginBottom: 4 }}>{subtitle}</div>
+      <div style={{ fontSize: 12, color: COLORS.stadiumLight, marginBottom: 16, fontStyle: "italic" }}>{firstTimeMicrocopy}</div>
+      <button onClick={onPrimary} style={{
+        width: "100%",
+        padding: "14px",
+        background: highlight ? `linear-gradient(90deg, ${COLORS.cobalt}, ${COLORS.electricBlue})` : COLORS.granite,
+        color: COLORS.white,
+        border: "none",
+        borderRadius: 10,
+        fontSize: 15,
+        fontWeight: 800,
+        cursor: "pointer",
+        marginBottom: secondaryLabel ? 8 : 0,
+        letterSpacing: 0.5,
+        boxShadow: highlight ? `0 4px 20px ${COLORS.electricBlue}44` : "none",
+      }}>{primaryLabel}</button>
+      {secondaryLabel && onSecondary && (
+        <button onClick={onSecondary} style={{
+          width: "100%",
+          padding: "11px",
+          background: "transparent",
+          color: COLORS.textSecondary,
+          border: `1px solid ${COLORS.border}`,
+          borderRadius: 10,
+          fontSize: 13,
+          fontWeight: 600,
+          cursor: "pointer",
+        }}>{secondaryLabel}</button>
+      )}
+    </div>
+  );
+}
+
 function WelcomeInner() {
   const [, setLocation] = useLocation();
   const { data: user, isLoading } = trpc.auth.me.useQuery(undefined, {
     retry: false,
     staleTime: 15_000,
   });
-
   const [platform] = useState<Platform>(() => detectPlatform());
   const [remember, setRemember] = useState(false);
+  const [autoRedirecting, setAutoRedirecting] = useState(false);
 
   useEffect(() => {
     document.title = "Welcome to AthlynX";
   }, []);
 
-  // Signed-out users: synchronous redirect during render. Using window.location.replace
-  // updates the URL bar AND removes /welcome from history so Back doesn't loop.
+  // Signed-out users → /signup
   if (!isLoading && !user && typeof window !== "undefined") {
     window.location.replace("/signup");
     return null;
@@ -85,42 +143,36 @@ function WelcomeInner() {
 
   if (isLoading || !user) {
     return (
-      <div
-        style={{
-          minHeight: "100vh",
-          background: COLORS.base,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            width: 48,
-            height: 48,
-            border: `3px solid ${COLORS.border}`,
-            borderTopColor: COLORS.blueEnd,
-            borderRadius: "50%",
-            animation: "athlynxSpin 0.8s linear infinite",
-          }}
-        />
+      <div style={{
+        minHeight: "100vh",
+        background: COLORS.base,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 16,
+      }}>
+        <div style={{
+          width: 52,
+          height: 52,
+          border: `3px solid ${COLORS.border}`,
+          borderTopColor: COLORS.stadiumLight,
+          borderRadius: "50%",
+          animation: "athlynxSpin 0.8s linear infinite",
+        }} />
         <style>{`@keyframes athlynxSpin { to { transform: rotate(360deg); } }`}</style>
+        <div style={{ color: COLORS.textMuted, fontSize: 14 }}>Loading your profile…</div>
       </div>
     );
   }
 
   const u: any = user;
-  // Tombstone guard: retired/merged accounts carry a name like
-  // "[retired - merged into 1884 - was chaddozier75]". A stale session on a
-  // retired row must never render "Welcome, [retired." — fall back to a clean
-  // identity source and signal the dev console so we can spot stuck sessions.
+
+  // Tombstone guard
   const rawName = typeof u.name === "string" ? u.name : "";
   const isTombstone = rawName.trim().startsWith("[retired");
   if (isTombstone && typeof console !== "undefined") {
-    console.warn(
-      "[Welcome] retired user session detected; falling back to email/displayName",
-      { id: u.id, email: u.email },
-    );
+    console.warn("[Welcome] retired user session detected; falling back to email/displayName", { id: u.id, email: u.email });
   }
   const nameSource = isTombstone
     ? (u.displayName || u.email?.split("@")[0] || "athlete")
@@ -128,15 +180,70 @@ function WelcomeInner() {
   const firstName = String(nameSource).split(" ")[0];
   const pct = computeIdentityPercent(u);
 
+  // ─── AUTO-REDIRECT: Returning users with complete enough profile skip the two-door screen ───
+  // pct >= 60 means they've been here before and have a real profile. Send them straight to /portal.
+  useEffect(() => {
+    if (!isLoading && user && pct >= 60 && !autoRedirecting) {
+      setAutoRedirecting(true);
+      // Small delay so they see the "Welcome back" flash
+      const t = setTimeout(() => {
+        setLocation("/portal");
+      }, 800);
+      return () => clearTimeout(t);
+    }
+  }, [isLoading, user, pct, autoRedirecting, setLocation]);
+
+  if (autoRedirecting || pct >= 60) {
+    return (
+      <div style={{
+        minHeight: "100vh",
+        background: `linear-gradient(135deg, ${COLORS.base} 0%, #0a1628 50%, ${COLORS.base} 100%)`,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 16,
+        fontFamily: "system-ui, sans-serif",
+      }}>
+        {/* Stadium lights effect */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: 4,
+          background: `linear-gradient(90deg, ${COLORS.cobalt}, ${COLORS.electricBlue}, ${COLORS.stadiumLight}, ${COLORS.electricBlue}, ${COLORS.cobalt})`,
+        }} />
+        <div style={{ fontSize: 40 }}>⚡</div>
+        <div style={{ fontWeight: 900, fontSize: 28, color: COLORS.white, letterSpacing: 2, fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+          AthlynX
+        </div>
+        <div style={{ fontWeight: 800, fontSize: 22, color: COLORS.white }}>
+          Welcome back, {firstName}.
+        </div>
+        <div style={{ color: COLORS.stadiumLight, fontSize: 14 }}>Taking you to your platform…</div>
+        <div style={{
+          width: 48,
+          height: 48,
+          border: `3px solid ${COLORS.cobalt}`,
+          borderTopColor: COLORS.stadiumLight,
+          borderRadius: "50%",
+          animation: "athlynxSpin 0.8s linear infinite",
+          marginTop: 8,
+        }} />
+        <style>{`@keyframes athlynxSpin { to { transform: rotate(360deg); } }`}</style>
+        {/* Dozier legacy watermark */}
+        <div style={{ position: "absolute", bottom: 24, color: COLORS.textMuted, fontSize: 11, letterSpacing: 1 }}>
+          © 2026 AthlynX™ · Chad Allen Dozier Sr. · Be The Legacy
+        </div>
+      </div>
+    );
+  }
+
+  // ─── NEW USER TWO-DOOR SCREEN ───
   function rememberAndSave(choice: "app" | "web") {
     try {
       if (remember) {
         localStorage.setItem("athlynx_landing_preference", choice);
         localStorage.setItem("athlynx_landing_chosen_at", new Date().toISOString());
       }
-    } catch {
-      /* localStorage may be unavailable; ignore */
-    }
+    } catch { /* ignore */ }
   }
 
   function openApp() {
@@ -146,342 +253,138 @@ function WelcomeInner() {
     } else if (platform === "android") {
       window.location.href = PLAY_INTERNAL_URL;
     } else {
-      // Desktop: open install instructions in same tab so user can scan QR on phone.
       window.location.href = "/install";
     }
   }
 
   function openWeb() {
     rememberAndSave("web");
-    // First-time users (low identity) → finish quick onboarding; otherwise straight to portal.
-    if (pct < 60) {
-      setLocation("/onboarding");
-    } else {
-      setLocation("/portal");
-    }
+    // New user → onboarding. Returning (pct >= 60) already handled above.
+    setLocation("/onboarding");
   }
 
-  // Easy-login rule: web/portal is always first so the app-install prompt never blocks sign-in.
-  const appFirst = false;
-
-  const appCard = (
-    <DoorCard
-      key="app"
-      title="Install the app later"
-      subtitle="Optional app install. Start on web first, then install anytime."
-      firstTimeMicrocopy="First time here? Continue on web now. You can install the app later."
-      primaryLabel={
-        platform === "ios"
-          ? "Open App Store (TestFlight)"
-          : platform === "android"
-          ? "Open Google Play (internal testing)"
-          : "Show install options"
-      }
-      onPrimary={openApp}
-      secondaryLabel="Already installed? Open AthlynX."
-      onSecondary={() => {
-        rememberAndSave("app");
-        window.location.href = "athlynx://open";
-      }}
-    />
-  );
-
-  const webCard = (
-    <DoorCard
-      key="web"
-      title="Easy login"
-      subtitle="Continue straight to AthlynX in your browser. Works on any device."
-      firstTimeMicrocopy="First time here? Start on web now. You can install the app later."
-      primaryLabel="Open AthlynX now"
-      onPrimary={openWeb}
-    />
-  );
-
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: `linear-gradient(135deg, ${COLORS.base} 0%, #061226 50%, ${COLORS.base} 100%)`,
-        color: COLORS.white,
-        fontFamily: "system-ui, -apple-system, sans-serif",
-        padding: "24px 14px",
-        overflowX: "hidden",
-      }}
-    >
-      <div style={{ maxWidth: 880, margin: "0 auto", width: "100%" }}>
-        {/* Brand */}
+    <div style={{
+      minHeight: "100vh",
+      background: `linear-gradient(135deg, ${COLORS.base} 0%, #0a1628 60%, ${COLORS.base} 100%)`,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "24px 20px",
+      fontFamily: "system-ui, sans-serif",
+      position: "relative",
+      overflow: "hidden",
+    }}>
+      {/* Stadium lights top bar */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: 4,
+        background: `linear-gradient(90deg, ${COLORS.cobalt}, ${COLORS.electricBlue}, ${COLORS.stadiumLight}, ${COLORS.electricBlue}, ${COLORS.cobalt})`,
+      }} />
+
+      {/* Athlete mural watermark */}
+      <div style={{
+        position: "absolute", inset: 0,
+        background: `radial-gradient(ellipse at 20% 50%, ${COLORS.cobalt}08 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, ${COLORS.electricBlue}06 0%, transparent 60%)`,
+        pointerEvents: "none",
+      }} />
+
+      <div style={{ width: "100%", maxWidth: 440, position: "relative", zIndex: 1 }}>
+        {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 28 }}>
-          <div
-            style={{
-              fontFamily: "'DM Sans', system-ui, sans-serif",
-              fontWeight: 900,
-              fontSize: 26,
-              letterSpacing: 2.5,
-              color: COLORS.white,
-            }}
-          >
-            AthlynX
+          <div style={{
+            fontFamily: "'DM Sans', system-ui, sans-serif",
+            fontWeight: 900,
+            fontSize: 32,
+            color: COLORS.white,
+            letterSpacing: 3,
+            textShadow: `0 0 40px ${COLORS.electricBlue}66`,
+          }}>AthlynX</div>
+          <div style={{ color: COLORS.stadiumLight, fontSize: 12, letterSpacing: 2, marginTop: 4, textTransform: "uppercase" }}>
+            The Athlete's Playbook
           </div>
         </div>
 
-        {/* Header */}
+        {/* Avatar + identity */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <h1
-            style={{
-              fontFamily: "'DM Sans', system-ui, sans-serif",
-              fontWeight: 800,
-              fontSize: 36,
-              lineHeight: 1.15,
-              margin: 0,
-            }}
-          >
-            Welcome, {firstName}.
-          </h1>
-          <p
-            style={{
-              color: COLORS.textSecondary,
-              fontSize: 17,
-              marginTop: 8,
-              marginBottom: 0,
-            }}
-          >
-            Where do you want to be?
-          </p>
-        </div>
-
-        {/* Identity strip */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 14,
-            background: COLORS.surface,
-            border: `1px solid ${COLORS.border}`,
-            borderRadius: 14,
-            padding: 16,
-            marginBottom: 24,
-          }}
-        >
-          <NILAvatar
-            src={u.avatarUrl ?? null}
-            showcaseSrc={u.showcasePhotoUrl ?? null}
-            email={u.email ?? null}
-            name={u.name ?? firstName}
-            size="xl"
-          />
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div
-              style={{
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: 1.1,
-                textTransform: "uppercase",
-                color: COLORS.textMuted,
-                marginBottom: 6,
-              }}
-            >
-              Identity · {pct}%
-            </div>
-            <div
-              style={{
-                height: 8,
-                background: COLORS.border,
-                borderRadius: 4,
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  width: `${pct}%`,
-                  height: "100%",
-                  background: `linear-gradient(90deg, ${COLORS.blueStart}, ${COLORS.blueEnd})`,
-                  transition: "width 320ms",
-                }}
-              />
-            </div>
-            <p
-              style={{
-                color: COLORS.textSecondary,
-                fontSize: 13,
-                lineHeight: 1.45,
-                margin: "8px 0 0",
-              }}
-            >
-              {identityCaption(pct)}
-            </p>
+          <NILAvatar user={u} size={72} />
+          <div style={{ fontWeight: 800, fontSize: 22, color: COLORS.white, marginTop: 12 }}>
+            Welcome, {firstName}. 🏆
           </div>
+          <div style={{ color: COLORS.textSecondary, fontSize: 14, marginTop: 4 }}>
+            {identityCaption(pct)}
+          </div>
+          {/* Identity progress bar */}
+          <div style={{ margin: "12px auto 0", maxWidth: 280, height: 6, background: COLORS.granite, borderRadius: 3, overflow: "hidden" }}>
+            <div style={{
+              height: "100%",
+              width: `${pct}%`,
+              background: `linear-gradient(90deg, ${COLORS.cobalt}, ${COLORS.stadiumLight})`,
+              borderRadius: 3,
+              transition: "width 0.8s ease",
+            }} />
+          </div>
+          <div style={{ color: COLORS.textMuted, fontSize: 11, marginTop: 4 }}>{pct}% complete</div>
         </div>
 
-        {/* Doors */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1fr)",
-            gap: 16,
-          }}
-        >
-          {appFirst ? [appCard, webCard] : [webCard, appCard]}
-        </div>
+        {/* Two-door cards */}
+        <DoorCard
+          key="web"
+          title="Start on Web Now"
+          subtitle="Full platform. Zero download. Works on any device."
+          firstTimeMicrocopy="First time here? Start here. Complete your profile in 2 minutes."
+          primaryLabel="Enter AthlynX Platform →"
+          onPrimary={openWeb}
+          highlight={true}
+        />
 
-        {/* Remember */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 12,
-            marginTop: 24,
-            color: COLORS.textSecondary,
-            fontSize: 14,
-          }}
-        >
-          <label
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              cursor: "pointer",
-            }}
-          >
-            <input
-              type="checkbox"
-              checked={remember}
-              onChange={(e) => setRemember(e.target.checked)}
-              style={{ accentColor: COLORS.blueEnd, width: 16, height: 16 }}
-            />
-            Remember my choice on this account.
+        <DoorCard
+          key="app"
+          title="Install the App"
+          subtitle="Native iOS & Android experience. Available now on TestFlight."
+          firstTimeMicrocopy="You can install the app anytime. Start on web first."
+          primaryLabel={
+            platform === "ios" ? "Open TestFlight (iOS)" :
+            platform === "android" ? "Join Android Beta" :
+            "Get App Install Link"
+          }
+          onPrimary={openApp}
+          highlight={false}
+        />
+
+        {/* Remember choice */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "center", marginTop: 8, marginBottom: 20 }}>
+          <input
+            type="checkbox"
+            id="remember"
+            checked={remember}
+            onChange={e => setRemember(e.target.checked)}
+            style={{ accentColor: COLORS.electricBlue, width: 14, height: 14 }}
+          />
+          <label htmlFor="remember" style={{ color: COLORS.textMuted, fontSize: 12, cursor: "pointer" }}>
+            Remember my choice
           </label>
-          <span style={{ color: COLORS.textMuted }}>or</span>
-          <span>Ask every time.</span>
         </div>
 
         {/* Footer */}
-        <p
-          style={{
-            color: COLORS.textMuted,
-            fontSize: 12,
-            textAlign: "center",
-            marginTop: 24,
-            lineHeight: 1.6,
-          }}
-        >
-          Sign in on any device · Your data syncs · Change anytime
-          <br />
-          Need help? <a href="mailto:team@athlynx.ai" style={{ color: COLORS.blueEnd, textDecoration: "none" }}>team@athlynx.ai</a>
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 18,
-            marginTop: 12,
-            fontSize: 12,
-            color: COLORS.textMuted,
-          }}
-        >
-          <a href="/account/switch" style={{ color: COLORS.textMuted, textDecoration: "none" }}>
-            Switch account
-          </a>
-          <span>·</span>
-          <a href="/logout" style={{ color: COLORS.textMuted, textDecoration: "none" }}>
-            Sign out
-          </a>
+        <div style={{ textAlign: "center", borderTop: `1px solid ${COLORS.border}`, paddingTop: 16 }}>
+          <p style={{ color: COLORS.textMuted, fontSize: 11, margin: "0 0 8px" }}>
+            Need help?{" "}
+            <a href="mailto:team@athlynx.ai" style={{ color: COLORS.stadiumLight, textDecoration: "none" }}>team@athlynx.ai</a>
+          </p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
+            <a href="/account/switch" style={{ color: COLORS.textMuted, fontSize: 11, textDecoration: "none" }}>Switch account</a>
+            <a href="/logout" style={{ color: COLORS.textMuted, fontSize: 11, textDecoration: "none" }}>Sign out</a>
+          </div>
+          <div style={{ color: COLORS.textMuted, fontSize: 10, marginTop: 12, letterSpacing: 0.5 }}>
+            © 2026 AthlynX™ · Chad Allen Dozier Sr. · Be The Legacy · Change anytime
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function DoorCard({
-  title,
-  subtitle,
-  firstTimeMicrocopy,
-  primaryLabel,
-  onPrimary,
-  secondaryLabel,
-  onSecondary,
-}: {
-  title: string;
-  subtitle: string;
-  firstTimeMicrocopy: string;
-  primaryLabel: string;
-  onPrimary: () => void;
-  secondaryLabel?: string;
-  onSecondary?: () => void;
-}) {
-  return (
-    <div
-      style={{
-        background: COLORS.surface,
-        border: `1px solid ${COLORS.border}`,
-        borderRadius: 16,
-        padding: 24,
-        display: "flex",
-        flexDirection: "column",
-        gap: 12,
-      }}
-    >
-      <div>
-        <h2
-          style={{
-            fontFamily: "'DM Sans', system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: 20,
-            margin: 0,
-            color: COLORS.white,
-          }}
-        >
-          {title}
-        </h2>
-        <p style={{ color: COLORS.textSecondary, fontSize: 14, marginTop: 6, marginBottom: 0 }}>
-          {subtitle}
-        </p>
-      </div>
-      <button
-        type="button"
-        onClick={onPrimary}
-        style={{
-          marginTop: 4,
-          padding: "13px 18px",
-          background: `linear-gradient(90deg, ${COLORS.blueStart}, ${COLORS.blueEnd})`,
-          color: COLORS.white,
-          border: "none",
-          borderRadius: 10,
-          fontSize: 15,
-          fontWeight: 700,
-          cursor: "pointer",
-        }}
-      >
-        {primaryLabel}
-      </button>
-      {secondaryLabel && onSecondary && (
-        <button
-          type="button"
-          onClick={onSecondary}
-          style={{
-            padding: "10px 18px",
-            background: "transparent",
-            color: COLORS.textSecondary,
-            border: `1px solid ${COLORS.border}`,
-            borderRadius: 10,
-            fontSize: 13,
-            fontWeight: 600,
-            cursor: "pointer",
-          }}
-        >
-          {secondaryLabel}
-        </button>
-      )}
-      <p style={{ color: COLORS.textMuted, fontSize: 12, margin: 0 }}>{firstTimeMicrocopy}</p>
     </div>
   );
 }
 
 export default function Welcome() {
-  return (
-    <RouteErrorBoundary>
-      <WelcomeInner />
-    </RouteErrorBoundary>
-  );
+  return <RouteErrorBoundary><WelcomeInner /></RouteErrorBoundary>;
 }

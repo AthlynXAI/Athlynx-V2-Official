@@ -35,6 +35,40 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════════════
+   ATHLYNX BRAND PALETTE — Cobalt · Granite · Electric Blue · Stadium Lights
+   © 2026 Chad A. Dozier Sr. — AthlynX™ · AthlynXAI™ · AXN™ · AVN™
+   Iron Sharpens Iron — Proverbs 27:17 — Be The Legacy
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Cobalt — deep royal blue, the foundation */
+  --axn-cobalt:          #0047AB;
+  --axn-cobalt-dark:     #002f7a;
+  --axn-cobalt-light:    #1a6fd4;
+
+  /* Granite — dark charcoal with blue undertone, the structure */
+  --axn-granite:         #1c2333;
+  --axn-granite-dark:    #0d1117;
+  --axn-granite-mid:     #252d3d;
+  --axn-granite-light:   #2e3a50;
+
+  /* Electric Blue — the spark, the energy, the brand accent */
+  --axn-electric:        #0066ff;
+  --axn-electric-bright: #00c2ff;
+  --axn-electric-glow:   rgba(0, 194, 255, 0.15);
+
+  /* Stadium Lights — the moment the lights come on */
+  --axn-stadium:         #e8f4ff;
+  --axn-stadium-warm:    #ffffff;
+  --axn-stadium-beam:    rgba(232, 244, 255, 0.08);
+  --axn-stadium-flare:   rgba(0, 102, 255, 0.25);
+
+  /* Full brand gradient */
+  --axn-gradient:        linear-gradient(135deg, #0d1117 0%, #0047AB 50%, #00c2ff 100%);
+  --axn-gradient-dark:   linear-gradient(180deg, #0d1117 0%, #1c2333 100%);
+  --axn-gradient-glow:   linear-gradient(135deg, rgba(0,71,171,0.3) 0%, rgba(0,194,255,0.15) 100%);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

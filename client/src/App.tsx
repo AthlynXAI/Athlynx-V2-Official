@@ -274,6 +274,7 @@ import RealtyBrowse from "./pages/RealtyBrowse";
 import RealtyList from "./pages/RealtyList";
 import FounderPodcast from "./pages/FounderPodcast";
 import AthlynXNetwork from "./pages/AthlynXNetwork";
+import AthlynXSocial from "./pages/AthlynXSocial";
 import BrandWall from "./pages/BrandWall";
 import AIScoutingReport from "./pages/AIScoutingReport";
 import NotificationCenter from "./pages/NotificationCenter";
@@ -395,6 +396,8 @@ function Router() {
       <Route path="/baseball-recruiting-playbook" component={BaseballRecruitingPlaybook} />
       <Route path="/athlete-website-builder" component={AthleteWebsiteBuilder} />
       <Route path="/athlynx-browser" component={AthlynXBrowser} />
+      <Route path="/social" component={AthlynXSocial} />
+      <Route path="/athlynx-social" component={AthlynXSocial} />
       <Route path="/social-hub" component={SocialHub} />
       <Route path="/studio" component={StudioSuite} />
       <Route path="/social-command" component={SocialCommandCenter} />

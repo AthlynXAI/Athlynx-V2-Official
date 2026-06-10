@@ -28,7 +28,7 @@ import {
 import { useRouter } from "expo-router";
 import {
   Trophy,
-  Baseball,
+  Activity,
   Zap,
   ChevronRight,
   Star,
@@ -246,7 +246,7 @@ function DiamondGrindSection({ onPress }: { onPress: () => void }) {
           <View style={styles.diamondBadge}>
             <Text style={styles.diamondBadgeText}>💎 DIAMOND GRIND IQ</Text>
           </View>
-          <Text style={styles.diamondTitle}>Where Baseball{"\n"}Intelligence Lives</Text>
+          <Text style={styles.diamondTitle}>Where Baseball Intelligence Lives</Text>
           <Text style={styles.diamondSub}>MCWS Analytics · Scouting Reports · Pitching Metrics</Text>
           <View style={styles.diamondCTA}>
             <Text style={styles.diamondCTAText}>Explore Diamond Grind IQ</Text>
