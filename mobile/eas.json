@@ -46,9 +46,9 @@
         "changesNotSentForReview": true
       },
       "ios": {
-        "ascApiKeyPath": "./AuthKey_NP9G8Q3KKR.p8",
-        "ascApiKeyIssuerId": "ba530e88-4441-4029-bc5a-853abab91a91",
-        "ascApiKeyId": "NP9G8Q3KKR",
+        "ascApiKeyPath": "./AuthKey_EHRBJCMPF087.p8",
+        "ascApiKeyIssuerId": "693MBSMW4P",
+        "ascApiKeyId": "EHRBJCMPF087",
         "appleId": "chad.dozier@icloud.com",
         "ascAppId": "6767448150"
       }
