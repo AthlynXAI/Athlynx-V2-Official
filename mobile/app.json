@@ -1,0 +1,91 @@
+{
+  "expo": {
+    "name": "AthlynXAI",
+    "slug": "athlynxai",
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/app-icon.png",
+    "scheme": "athlynxai",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash-lockup.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.athlynx.app",
+      "buildNumber": "72",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "jsEngine": "jsc"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "ai.athlynx.app",
+      "versionCode": 72,
+      "permissions": [
+        "POST_NOTIFICATIONS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.MEDIA_IMAGES",
+        "android.permission.MEDIA_VIDEO"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "./plugins/withGradleFix",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-lockup.png",
+          "imageWidth": 640,
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "buildArchs": [
+              "armeabi-v7a",
+              "arm64-v8a"
+            ],
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "minSdkVersion": 24,
+            "kotlinVersion": "1.9.24",
+            "gradleVersion": "8.10.2",
+            "androidGradlePluginVersion": "8.6.1"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiUrl": "https://athlynx.ai",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b1ac40c9-4a90-4f9c-99cd-b1cea06189ad"
+      }
+    },
+    "owner": "cdozier14",
+    "jsEngine": "jsc"
+  }
+}
