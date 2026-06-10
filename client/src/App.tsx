@@ -8,6 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import AthletePageBackground from "./components/AthletePageBackground";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 // ── Core ──
@@ -779,15 +780,21 @@ export default function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <BetaBanner />
-          <SEOManager />
-          <ScrollToTop />
-          <Router />
-          <PWAInstallBanner />
-          <AIWizard />
-          <CoachLynx />
-          <CookieConsent />
-          <Toaster />
+          {/* Sitewide athlete backdrop — Chad Dozier doctrine: athletes ARE the
+              platform. Picks the right image per route, fades to true black,
+              z-index 0 so foreground content sits cleanly on top. */}
+          <AthletePageBackground />
+          <div className="relative z-10">
+            <BetaBanner />
+            <SEOManager />
+            <ScrollToTop />
+            <Router />
+            <PWAInstallBanner />
+            <AIWizard />
+            <CoachLynx />
+            <CookieConsent />
+            <Toaster />
+          </div>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

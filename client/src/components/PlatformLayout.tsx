@@ -5,6 +5,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import AIOnboarding from "./AIOnboarding";
 import ExpirationWarningPopup from "./ExpirationWarningPopup";
 import { AIAssistantButton } from "./ReverseFunnel";
+import AthletePageBackground from "./AthletePageBackground";
 
 const APPS = [
   { id: "nil-portal", label: "NIL Portal", icon: "/logos/nil-portal-logo.png", badge: "LIVE", href: "/nil-portal" },
@@ -252,9 +253,14 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
 
   return (
     <div
-      className="min-h-[100dvh] bg-[#05070f] text-white overflow-x-hidden"
-      style={{ paddingTop: "env(safe-area-inset-top, 0px)", background: "radial-gradient(circle at 15% -10%, rgba(251,191,36,0.16), transparent 28%), radial-gradient(circle at 92% 0%, rgba(34,211,238,0.18), transparent 30%), linear-gradient(180deg, #05070f 0%, #081225 42%, #05070f 100%)" }}
+      className="min-h-[100dvh] text-white overflow-x-hidden relative"
+      style={{ paddingTop: "env(safe-area-inset-top, 0px)", backgroundColor: "#000000" }}
     >
+      {/* Sitewide athlete backdrop — Chad Dozier doctrine: athletes ARE the platform.
+          Picks the right image per route; fades to true black. z-index 0. */}
+      <AthletePageBackground />
+      {/* Foreground content lives above the backdrop */}
+      <div className="relative z-10">
       {/* Subscription Expiry Warning Popup — fires when days <= 5 or expired */}
       {user && <ExpirationWarningPopup />}
       {showOnboarding && user && (
@@ -718,27 +724,27 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
         }}
       >
         <div className="flex items-center justify-around py-2 px-2">
-          <Link href="/feed" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/feed'?'#f8e7a1':'#8aa0c7'}}>
+          <Link href="/feed" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/feed'?'#1E90FF':'#8aa0c7'}}>
             {location==='/feed'?<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>:<svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>}
             <span style={{fontSize:'10px',fontWeight:location==='/feed'?'700':'500'}}>Home</span>
           </Link>
-          <Link href="/reels" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/reels'?'#f8e7a1':'#8aa0c7'}}>
+          <Link href="/reels" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/reels'?'#1E90FF':'#8aa0c7'}}>
             {location==='/reels'?<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>:<svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>}
             <span style={{fontSize:'10px',fontWeight:location==='/reels'?'700':'500'}}>Reels</span>
           </Link>
-          <Link href="/browse-athletes" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location.startsWith('/browse-athletes')?'#f8e7a1':'#8aa0c7'}}>
+          <Link href="/browse-athletes" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location.startsWith('/browse-athletes')?'#1E90FF':'#8aa0c7'}}>
             <svg className="w-6 h-6" fill={location.startsWith('/browse-athletes')?'currentColor':'none'} stroke={location.startsWith('/browse-athletes')?'none':'currentColor'} strokeWidth="2" viewBox="0 0 24 24">{location.startsWith('/browse-athletes')?<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>:<path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>}</svg>
             <span style={{fontSize:'10px',fontWeight:location.startsWith('/browse-athletes')?'700':'500'}}>Athletes</span>
           </Link>
-          <Link href="/nil-portal" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/nil-portal'?'#f8e7a1':'#8aa0c7'}}>
+          <Link href="/nil-portal" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/nil-portal'?'#1E90FF':'#8aa0c7'}}>
             <svg className="w-6 h-6" fill={location==='/nil-portal'?'currentColor':'none'} stroke={location==='/nil-portal'?'none':'currentColor'} strokeWidth="2" viewBox="0 0 24 24">{location==='/nil-portal'?<path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>:<path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>}</svg>
             <span style={{fontSize:'10px',fontWeight:location==='/nil-portal'?'700':'500'}}>NIL</span>
           </Link>
-          <Link href="/notifications" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/notifications'?'#f8e7a1':'#8aa0c7'}}>
+          <Link href="/notifications" className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/notifications'?'#1E90FF':'#8aa0c7'}}>
             {location==='/notifications'?<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>:<svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>}
             <span style={{fontSize:'10px',fontWeight:location==='/notifications'?'700':'500'}}>Alerts</span>
           </Link>
-          <Link href={user?'/profile':'/signin'} className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/profile'?'#f8e7a1':'#8aa0c7'}}>
+          <Link href={user?'/profile':'/signin'} className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-xl" style={{color:location==='/profile'?'#1E90FF':'#8aa0c7'}}>
             <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center" style={{border:location==='/profile'?'2px solid #00c8ff':'2px solid #6b7db3',background:'#0f172a',flexShrink:0}}>
               {user?.avatarUrl?<img src={user.avatarUrl} alt={user.name||'Profile'} className="w-full h-full object-cover"/>:SilhouetteSvg}
             </div>
@@ -749,7 +755,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
         {!user && (
           <div className="flex items-center justify-between px-4 py-2 bg-blue-700/30 border-t border-blue-700/50">
             <span className="text-blue-200 text-xs">Already a member?</span>
-            <Link href="/signin" className="bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-400 hover:from-white hover:via-cyan-200 hover:to-blue-200 text-slate-950 shadow-[0_10px_30px_rgba(34,211,238,0.24)] text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
+            <Link href="/signin" className="bg-[#1E90FF] hover:bg-blue-400 text-black shadow-[0_10px_30px_rgba(30,144,255,0.30)] text-xs font-black px-4 py-1.5 rounded-lg transition-colors">
               Sign In
             </Link>
           </div>
@@ -758,6 +764,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
 
       {/* AI Assistant — always available, everywhere, any device */}
       <AIAssistantButton />
+      </div>
     </div>
   );
 }
