@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "12",
+      "buildNumber": "14",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -67,8 +67,7 @@
         {
           "ios": {
             "deploymentTarget": "16.0",
-            "useFrameworks": "static",
-            "extraPodfileContent": "post_install do |installer|\n  installer.pods_project.targets.each do |target|\n    if target.name == 'fmt'\n      target.build_configurations.each do |config|\n        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'\n      end\n    end\n  end\nend\n"
+            "useFrameworks": "static"
           },
           "android": {
             "buildArchs": [
@@ -83,7 +82,8 @@
             "androidGradlePluginVersion": "8.6.1"
           }
         }
-      ]
+      ],
+      "./plugins/withCppFix"
     ],
     "experiments": {
       "typedRoutes": true
