@@ -47,6 +47,7 @@ export const THE_FOUR: readonly DoctrineMember[] = [
       "chaddozier75@gmail.com",
       "cdozier14@athlynx.ai",
       "cdozier@dozierholdingsgroup.com",
+      "chad.dozier@icloud.com",
     ],
     role: "Master Admin",
     label: "Chad — Founder · CEO · Chairman",

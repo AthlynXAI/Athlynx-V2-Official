@@ -251,7 +251,7 @@ const INTEGRATIONS = [
   { name: "Superhuman", icon: "✉️", role: "AI-powered email OS", color: "bg-blue-800" },
   { name: "Buffer", icon: "📅", role: "Social scheduling", color: "bg-sky-800" },
   { name: "Zapier", icon: "⚡", role: "Workflow automation", color: "bg-blue-800" },
-  { name: "AWS", icon: "☁️", role: "S3, Lambda, SES", color: "bg-blue-700" },
+  { name: "AWS", icon: "☁️", role: "S3, Lambda, SES", color: "bg-blue-900" },
   { name: "Shopify", icon: "🛍️", role: "E-commerce, gear, merch", color: "bg-green-800" },
   { name: "Google Workspace", icon: "🔵", role: "Docs, Drive, Calendar", color: "bg-indigo-800" },
 ];
