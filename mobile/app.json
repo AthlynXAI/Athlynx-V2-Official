@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "10",
+      "buildNumber": "12",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -53,7 +53,6 @@
     },
     "plugins": [
       "./plugins/withGradleFix",
-      "./plugins/withCppFix",
       [
         "expo-splash-screen",
         {
@@ -68,7 +67,8 @@
         {
           "ios": {
             "deploymentTarget": "16.0",
-            "useFrameworks": "static"
+            "useFrameworks": "static",
+            "extraPodfileContent": "post_install do |installer|\n  installer.pods_project.targets.each do |target|\n    if target.name == 'fmt'\n      target.build_configurations.each do |config|\n        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'\n      end\n    end\n  end\nend\n"
           },
           "android": {
             "buildArchs": [
