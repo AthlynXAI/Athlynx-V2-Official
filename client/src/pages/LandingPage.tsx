@@ -683,6 +683,150 @@ function LandingPageInner() {
         </div>
       </section>
 
+      {/*  ATHLYNXAI OS NETWORK BROADCAST SHOWCASE  */}
+      <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,194,255,0.12),transparent_50%)]" />
+        <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl">
+          {/* Header */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-[#00c2ff]/10 border border-[#00c2ff]/30 rounded-full px-5 py-2 mb-6">
+              <span className="w-2 h-2 bg-[#00c2ff] rounded-full animate-pulse" />
+              <span className="text-[#00c2ff] text-xs font-black tracking-[0.3em] uppercase">AthlynXAI OS Network · Live 24/7/365</span>
+            </div>
+            <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tight mb-4">
+              THE NETWORK THAT <span className="text-[#00c2ff]">NEVER SLEEPS</span>
+            </h2>
+            <p className="text-[#8ba3c7] text-lg max-w-3xl mx-auto">
+              Real scores. Real brackets. Real athletes. Real weather. Nothing fake. Right down the middle.
+              AthlynXAI OS is your sports network — all day, all night, every season.
+            </p>
+          </div>
+
+          {/* 3 Network Pillars */}
+          <div className="grid gap-6 lg:grid-cols-3 mb-12">
+
+            {/* Pillar 1: Landing / Network Home */}
+            <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
+                  <span className="text-lg">🏠</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Network Home</p>
+                  <p className="text-sm font-black text-white">AthlynXAI OS</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The front door of the network. Every sport. Every season. Live scores ticker, current champions, active tournaments, and your athlete dashboard — all in one place. Updates automatically as the sports calendar moves.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["Live Score Ticker", "Season Calendar", "Champions Board", "Weather + Conditions"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/">
+                <button className="w-full bg-[#0066ff]/10 hover:bg-[#0066ff]/20 border border-[#0066ff]/30 text-[#00c2ff] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Enter Network Home →
+                </button>
+              </Link>
+            </div>
+
+            {/* Pillar 2: Broadcast Room */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/40 bg-[#06142a]/90 p-6 flex flex-col shadow-2xl shadow-[#00c2ff]/10 relative">
+              <div className="absolute top-4 right-4">
+                <span className="inline-flex items-center gap-1.5 bg-[#00c2ff]/10 border border-[#00c2ff]/30 rounded-full px-3 py-1">
+                  <span className="w-1.5 h-1.5 bg-[#00c2ff] rounded-full animate-pulse" />
+                  <span className="text-[9px] font-black text-[#00c2ff] tracking-widest uppercase">Live</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#00c2ff]/20 border border-[#00c2ff]/30 flex items-center justify-center">
+                  <span className="text-lg">📺</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#00c2ff]/60">Broadcast Room</p>
+                  <p className="text-sm font-black text-white">MCWS Road to Omaha</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The full sportscast experience. Live ESPN scores, interactive bracket, team broadcast cards with player spotlights, coach callouts, fan base culture, YouTube highlights, and podcast integration. Better than SportsCenter. Built for the next generation.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["Live ESPN Scores", "Interactive Bracket", "Team Broadcast Cards", "Player Spotlights", "Coach Callouts", "Fan Base Culture", "Highlight Reels", "Podcast Network"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00c2ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/brackets">
+                <button className="w-full bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Open Broadcast Room → Live Now
+                </button>
+              </Link>
+            </div>
+
+            {/* Pillar 3: Diamond Grind */}
+            <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
+                  <span className="text-lg">⚾</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Training Platform</p>
+                  <p className="text-sm font-black text-white">Diamond Grind™</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The broadcast feeds directly into the training platform. Watch a CWS player hit 112 mph exit velocity — then train for it. AI coach, velocity tracker, showcase prep, leaderboard. From tee-ball to the MLB draft. The cycle never stops.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["AI Coach", "Velocity Tracker", "Exit Velocity", "Fielding Metrics", "Showcase Prep", "Leaderboard"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/diamond-grind">
+                <button className="w-full bg-[#0066ff]/10 hover:bg-[#0066ff]/20 border border-[#0066ff]/30 text-[#00c2ff] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Enter Diamond Grind →
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Network Manifesto Banner */}
+          <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-gradient-to-r from-[#06142a] via-[#050d1a] to-[#06142a] p-8 text-center">
+            <p className="text-[9px] font-black tracking-[0.4em] uppercase text-[#00c2ff]/50 mb-3">AthlynXAI OS · The Network Manifesto</p>
+            <h3 className="text-2xl lg:text-4xl font-black text-white mb-3">
+              "The people who are crazy enough to think they can change the world<br className="hidden lg:block" />
+              <span className="text-[#00c2ff]"> are the ones who actually do."</span>
+            </h3>
+            <p className="text-[#8ba3c7] text-sm mb-6 max-w-2xl mx-auto">
+              — Steve Jobs. That's every athlete who ever laced up. AthlynXAI OS exists for them. From youth to pro to retirement.
+              Fair. Balanced. Real. 24/7/365.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/brackets">
+                <button className="bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-8 py-3 rounded-xl transition-all hover:scale-105">
+                  WATCH LIVE → MCWS BROADCAST
+                </button>
+              </Link>
+              <Link href="/portal">
+                <button className="bg-white/5 hover:bg-white/10 text-white font-bold text-sm px-8 py-3 rounded-xl border border-white/20 transition-all">
+                  ENTER THE PLATFORM
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/*  SIGNUP  */}
       <section className="py-24 px-5 bg-[#030810]">
         <div className="max-w-lg mx-auto">
