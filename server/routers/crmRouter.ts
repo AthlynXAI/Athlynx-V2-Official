@@ -37,13 +37,18 @@ export const crmRouter = router({
         rawReq.headers?.["x-real-ip"]?.toString() ||
         "unknown";
       const userAgent = rawReq.headers?.["user-agent"] || "";
-      await logActivity(null, input.eventType, {
-        ...(input.metadata || {}),
-        path: input.path,
-        ipAddress,
-        userAgent,
-        trackedAt: new Date().toISOString(),
-      });
+      try {
+        await logActivity(null, input.eventType, {
+          ...(input.metadata || {}),
+          path: input.path,
+          ipAddress,
+          userAgent,
+          trackedAt: new Date().toISOString(),
+        });
+      } catch (err) {
+        // Activity logging must never block a user-facing flow. Log and continue.
+        console.error("[activity_log] non-fatal logging failure:", err);
+      }
       return { success: true };
     }),
 
@@ -70,7 +75,12 @@ export const crmRouter = router({
       const userAgent = rawReq.headers?.["user-agent"] || "";
       const metadata = { ...input, ipAddress, userAgent, timestamp: new Date().toISOString() };
       console.log("[CRM] New signup tracked:", metadata);
-      await logActivity(null, "signup_tracked", metadata);
+      try {
+        await logActivity(null, "signup_tracked", metadata);
+      } catch (err) {
+        // Activity logging must never block a user-facing flow. Log and continue.
+        console.error("[activity_log] non-fatal logging failure:", err);
+      }
       return { success: true, message: "Signup tracked" };
     }),
 

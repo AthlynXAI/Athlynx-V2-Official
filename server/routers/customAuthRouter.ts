@@ -121,9 +121,14 @@ export const customAuthRouter = router({
           ...(input.attribution || {}),
           completedAt,
         };
-        await logActivity(user.id, "signup_completed", baseSignupMetadata);
-        await logActivity(user.id, "profile_created", baseSignupMetadata);
-        await logActivity(user.id, "profile_claim_completed", baseSignupMetadata);
+        try {
+          await logActivity(user.id, "signup_completed", baseSignupMetadata);
+          await logActivity(user.id, "profile_created", baseSignupMetadata);
+          await logActivity(user.id, "profile_claim_completed", baseSignupMetadata);
+        } catch (err) {
+          // Activity logging must never block auth. Log and continue.
+          console.error("[activity_log] non-fatal logging failure:", err);
+        }
       }
 
       // Send welcome in-app notification to new user (no banners — messages only)
@@ -315,9 +320,14 @@ Max 3 sentences. Be specific.`;
           ...(input.attribution || {}),
           completedAt,
         };
-        await logActivity(user.id, "signup_completed", baseSignupMetadata);
-        await logActivity(user.id, "profile_created", baseSignupMetadata);
-        await logActivity(user.id, "profile_claim_completed", baseSignupMetadata);
+        try {
+          await logActivity(user.id, "signup_completed", baseSignupMetadata);
+          await logActivity(user.id, "profile_created", baseSignupMetadata);
+          await logActivity(user.id, "profile_claim_completed", baseSignupMetadata);
+        } catch (err) {
+          // Activity logging must never block auth. Log and continue.
+          console.error("[activity_log] non-fatal logging failure:", err);
+        }
       }
 
       // Notify Chad (all 5 emails) every time a new user registers
