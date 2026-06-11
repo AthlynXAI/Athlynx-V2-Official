@@ -737,8 +737,7 @@ export default function Brackets() {
   };
 
   return (
-    <>
-      {/* Sitewide athlete backdrop (fixed, z-0). Foreground content sits above. */}
+    <div className="relative min-h-screen text-white">
       <AthletePageBackground />
       <div className="relative z-10 min-h-screen text-white">
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -831,6 +830,6 @@ export default function Brackets() {
           <TeamCard team={selectedTeam} onClose={() => setSelectedTeam(null)} />
         </div>
       )}
-    </>
+    </div>
   );
 }
