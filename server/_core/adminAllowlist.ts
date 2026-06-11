@@ -28,6 +28,7 @@ const THE_FOUR_DOCTRINE_EMAILS = [
   "chaddozier75@gmail.com",
   "cdozier14@athlynx.ai",
   "cdozier@dozierholdingsgroup.com",
+  "chad.dozier@icloud.com",
   // Lee — Full Admin · VP Sales & Partnerships
   "lmarshall@athlynx.ai",
   "leronious@gmail.com",
@@ -49,6 +50,7 @@ const MASTER_ADMIN_SIGNIN_EMAILS = [
   "chaddozier75@gmail.com",
   "cdozier14@athlynx.ai",
   "cdozier@dozierholdingsgroup.com",
+  "chad.dozier@icloud.com",
 ] as const;
 
 function masterAdminList(): string[] {
