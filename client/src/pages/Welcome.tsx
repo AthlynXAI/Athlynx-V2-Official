@@ -307,7 +307,7 @@ function WelcomeInner() {
 
         {/* Avatar + identity */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <NILAvatar user={u} size={72} />
+          <NILAvatar src={u.avatarUrl} email={u.email} name={u.name} size="lg" />
           <div style={{ fontWeight: 800, fontSize: 22, color: COLORS.white, marginTop: 12 }}>
             Welcome, {firstName}. 🏆
           </div>

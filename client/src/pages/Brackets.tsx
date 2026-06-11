@@ -737,8 +737,10 @@ export default function Brackets() {
   };
 
   return (
-    <AthletePageBackground>
-      <div className="min-h-screen text-white">
+    <>
+      {/* Sitewide athlete backdrop (fixed, z-0). Foreground content sits above. */}
+      <AthletePageBackground />
+      <div className="relative z-10 min-h-screen text-white">
         <div className="max-w-7xl mx-auto px-4 py-8">
 
           {/* Network Header */}
@@ -825,8 +827,10 @@ export default function Brackets() {
 
       {/* Team Modal */}
       {selectedTeam && (
-        <TeamCard team={selectedTeam} onClose={() => setSelectedTeam(null)} />
+        <div className="relative z-10">
+          <TeamCard team={selectedTeam} onClose={() => setSelectedTeam(null)} />
+        </div>
       )}
-    </AthletePageBackground>
+    </>
   );
 }
