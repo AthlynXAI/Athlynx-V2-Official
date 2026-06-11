@@ -168,46 +168,44 @@ const FEATURES = [
 const CHAMPIONSHIP_SPOTLIGHTS = [
   {
     title: "Road To Omaha",
-    eyebrow: "Men's College Baseball",
-    desc: "The 2026 NCAA baseball field is set: 64 teams, 16 regionals, and one road to Omaha. Mississippi State hosts in Starkville, Southern Miss hosts in Hattiesburg, and Ole Miss heads to Lincoln.",
+    eyebrow: "Men's College World Series · LIVE NOW",
+    desc: "8 teams. 1 champion. Charles Schwab Field, Omaha, Nebraska. June 13–22, 2026. Georgia, North Carolina, West Virginia, Ole Miss, Texas, Oklahoma, Alabama, and Troy battle for the national title. The Greatest Show on Grass.",
     accent: "#00c2ff",
+    href: "/brackets",
   },
   {
-    title: "Road To OKC",
-    eyebrow: "Women's College Softball",
-    desc: "Women's College Softball gets the same stage. Mississippi State made history by reaching its first-ever Women's College World Series, and the full field deserves national respect.",
-    accent: "#ff4fd8",
+    title: "Diamond Grind™",
+    eyebrow: "Baseball & Softball · AI Training Platform",
+    desc: "The most complete baseball and softball platform ever built. Velocity tracking, exit velocity, fielding metrics, AI coach, showcase prep for Perfect Game and Area Code. Built for every level — youth to pro.",
+    accent: "#0066ff",
+    href: "/diamond-grind",
   },
   {
     title: "Every Sport Counts",
-    eyebrow: "Men's and Women's Championships",
-    desc: "Football, basketball, baseball, softball, soccer, track, volleyball, tennis, golf, wrestling, swimming, lacrosse, and every athlete chasing a championship belong on the same platform.",
+    eyebrow: "Men's and Women's · All Sports",
+    desc: "Football, basketball, baseball, softball, soccer, track, volleyball, tennis, golf, wrestling, swimming, lacrosse, and every athlete chasing a championship belong on the same platform. Fair and balanced.",
     accent: "#0066ff",
+    href: "/portal",
   },
 ];
 
-const BASEBALL_REGIONALS = [
-  { region: "Los Angeles", teams: ["UCLA", "Virginia Tech", "Cal Poly", "Saint Mary's (CA)"] },
-  { region: "Atlanta", teams: ["Georgia Tech", "Oklahoma", "The Citadel", "UIC"] },
-  { region: "Athens", teams: ["Georgia", "Boston College", "Liberty", "LIU"] },
-  { region: "Auburn", teams: ["Auburn", "UCF", "NC State", "Milwaukee"] },
-  { region: "Chapel Hill", teams: ["North Carolina", "Tennessee", "East Carolina", "VCU"] },
-  { region: "Austin", teams: ["Texas", "UC Santa Barbara", "Tarleton State", "Holy Cross"] },
-  { region: "Tuscaloosa", teams: ["Alabama", "Oklahoma State", "USC Upstate", "Alabama State"] },
-  { region: "Gainesville", teams: ["Florida", "Miami (FL)", "Troy", "Rider"] },
-  { region: "Hattiesburg", teams: ["Southern Miss", "Virginia", "Jacksonville State", "Little Rock"] },
-  { region: "Tallahassee", teams: ["Florida State", "Coastal Carolina", "NIU", "St. John's (NY)"] },
-  { region: "Eugene", teams: ["Oregon", "Oregon State", "Washington State", "Yale"] },
-  { region: "College Station", teams: ["Texas A&M", "Southern California", "Texas State", "Lamar"] },
-  { region: "Lincoln", teams: ["Nebraska", "Ole Miss", "Arizona State", "South Dakota State"] },
-  { region: "Starkville", teams: ["Mississippi State", "Cincinnati", "Louisiana", "Lipscomb"] },
-  { region: "Lawrence", teams: ["Kansas", "Arkansas", "Missouri State", "Northeastern"] },
-  { region: "Morgantown", teams: ["West Virginia", "Wake Forest", "Kentucky", "Binghamton"] },
+// 2026 CWS — 8 teams in Omaha, June 13-22
+const CWS_TEAMS = [
+  { seed: 3,  name: "Georgia",        record: "51-12", bracket: "B2", conference: "SEC" },
+  { seed: 5,  name: "North Carolina", record: "50-12-1", bracket: "B1", conference: "ACC" },
+  { seed: 16, name: "West Virginia",  record: "45-15", bracket: "B1", conference: "Big 12" },
+  { seed: null, name: "Ole Miss",     record: "41-21", bracket: "B1", conference: "SEC" },
+  { seed: 6,  name: "Texas",          record: "45-13", bracket: "B2", conference: "SEC" },
+  { seed: null, name: "Oklahoma",     record: "37-22", bracket: "B2", conference: "SEC" },
+  { seed: 7,  name: "Alabama",        record: "41-19", bracket: "B2", conference: "SEC" },
+  { seed: null, name: "Troy",         record: "38-30", bracket: "B1", conference: "Sun Belt" },
 ];
 
-const NATIONAL_SEEDS = [
-  "UCLA", "Georgia Tech", "Georgia", "Auburn", "North Carolina", "Texas", "Alabama", "Florida",
-  "Southern Miss", "Florida State", "Oregon", "Texas A&M", "Nebraska", "Mississippi State", "Kansas", "West Virginia",
+const CWS_MATCHUPS = [
+  { game: 1, bracket: "B1", team1: "West Virginia", team2: "Troy",          date: "Fri Jun 13", time: "1:00 PM CT",  network: "ESPN" },
+  { game: 2, bracket: "B1", team1: "North Carolina", team2: "Ole Miss",     date: "Fri Jun 13", time: "6:00 PM CT",  network: "ESPN" },
+  { game: 3, bracket: "B2", team1: "Alabama",        team2: "Oklahoma",     date: "Sat Jun 14", time: "2:00 PM CT",  network: "ESPN" },
+  { game: 4, bracket: "B2", team1: "Georgia",        team2: "Texas",        date: "Sat Jun 14", time: "7:00 PM CT",  network: "ESPN" },
 ];
 
 //  Sport Card Component 
@@ -383,75 +381,130 @@ function LandingPageInner() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(255,79,216,0.16),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.10),transparent_55%)]" />
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">
+          {/* WCWS Champions Banner */}
+          <div className="mb-6 flex items-center justify-between gap-4 flex-wrap rounded-[1.5rem] border border-[#BF5700]/30 bg-[#BF5700]/5 px-6 py-4">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🏆</span>
+              <div>
+                <p className="text-[9px] font-black tracking-widest uppercase text-[#BF5700]/70">WCWS 2026 · Devon Park · OKC · Complete</p>
+                <p className="text-sm font-black text-white">Texas Longhorns · Back-to-Back National Champions · 2025 &amp; 2026</p>
+              </div>
+            </div>
+            <span className="text-[10px] font-black tracking-widest uppercase text-white/30">Hook 'Em Horns · Congratulations</span>
+          </div>
+
           <div className="mb-12 overflow-hidden rounded-[2.25rem] border border-[#00c2ff]/30 bg-[#06142a]/90 shadow-2xl shadow-[#0066ff]/20">
             <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:p-10">
               <div>
-                <p className="mb-4 text-sm font-black uppercase tracking-[0.34em] text-[#00c2ff]">Championship Spotlight</p>
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
+                  <p className="text-sm font-black uppercase tracking-[0.34em] text-[#00c2ff]">Live Now · June 13–22, 2026</p>
+                </div>
                 <h2 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-8xl">
-                  Road To <span className="text-[#00c2ff]">Championships</span>
+                  Road To <span className="text-[#00c2ff]">Omaha</span>
                 </h2>
                 <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#8ba3c7]">
-                  This platform supports the full championship road: men, women, every sport, and every team that earned the right to keep playing. Road To Omaha gets the baseball spotlight, Road To OKC gets the softball spotlight, and every championship athlete gets respect.
+                  The Greatest Show on Grass. 8 teams. 1 champion. Charles Schwab Field, Omaha, Nebraska. Men. Women. Every athlete. AthlynXAI OS is your network.
                 </p>
+                <Link href="/brackets">
+                  <button className="mt-6 bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-8 py-3 rounded-xl transition-all hover:scale-105">
+                    OPEN FULL BROADCAST → LIVE SCORES + BRACKET
+                  </button>
+                </Link>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-black/25 p-5 backdrop-blur">
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#ff4fd8]">Mississippi State Women</p>
-                <h3 className="mt-3 text-3xl font-black text-white">Women's College Softball History</h3>
-                <p className="mt-4 text-sm leading-relaxed text-[#c9d8f2]">
-                  Mississippi State softball made program history by reaching its first-ever Women's College World Series. That deserves a true championship-stage highlight right beside the men's baseball Road To Omaha coverage.
-                </p>
+              <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-black/25 p-5 backdrop-blur">
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-3">2026 CWS · 8 Teams in Omaha</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {CWS_TEAMS.map((t) => (
+                    <div key={t.name} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+                      <span className="text-[9px] font-black text-[#00c2ff] w-4">{t.seed ? `#${t.seed}` : "—"}</span>
+                      <div>
+                        <p className="text-xs font-bold text-white leading-tight">{t.name}</p>
+                        <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 pt-4 border-t border-white/10">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-2">Opening Round Schedule</p>
+                  {CWS_MATCHUPS.map((m) => (
+                    <div key={m.game} className="flex items-center justify-between text-[9px] text-white/50 py-1">
+                      <span className="font-bold text-white/70">{m.team1} vs {m.team2}</span>
+                      <span>{m.date} · {m.time} · {m.network}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           <div className="mb-12 grid gap-5 lg:grid-cols-3">
             {CHAMPIONSHIP_SPOTLIGHTS.map((item) => (
-              <article key={item.title} className="rounded-[2rem] border border-white/10 bg-[#07152a]/80 p-6 shadow-xl shadow-black/30">
-                <div className="mb-5 h-1.5 w-24 rounded-full" style={{ backgroundColor: item.accent }} />
-                <p className="text-xs font-black uppercase tracking-[0.24em]" style={{ color: item.accent }}>{item.eyebrow}</p>
-                <h3 className="mt-3 text-3xl font-black text-white">{item.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-[#8ba3c7]">{item.desc}</p>
-              </article>
+              <Link key={item.title} href={(item as any).href || "/portal"}>
+                <article className="rounded-[2rem] border border-white/10 bg-[#07152a]/80 p-6 shadow-xl shadow-black/30 cursor-pointer hover:border-[#00c2ff]/40 transition-all group">
+                  <div className="mb-5 h-1.5 w-24 rounded-full" style={{ backgroundColor: item.accent }} />
+                  <p className="text-xs font-black uppercase tracking-[0.24em]" style={{ color: item.accent }}>{item.eyebrow}</p>
+                  <h3 className="mt-3 text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-[#8ba3c7]">{item.desc}</p>
+                  <p className="mt-4 text-xs font-black tracking-widest uppercase text-[#00c2ff]/50 group-hover:text-[#00c2ff] transition-colors">Open →</p>
+                </article>
+              </Link>
             ))}
           </div>
 
           <div className="grid gap-8 xl:grid-cols-[0.85fr_1.15fr]">
-            <div className="rounded-[2rem] border border-[#0066ff]/25 bg-[#050d1a]/90 p-6">
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00c2ff]">National Top 16 Seeds</p>
-              <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {NATIONAL_SEEDS.map((team, index) => (
-                  <div key={team} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0066ff] text-xs font-black text-white">{index + 1}</span>
-                    <span className="text-sm font-bold text-white">{team}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-[#050d1a]/90 p-6">
-              <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00c2ff]">Road To Omaha</p>
-                  <h3 className="text-3xl font-black text-white">2026 NCAA Baseball Field</h3>
-                </div>
-                <p className="text-sm font-bold text-[#8ba3c7]">64 teams · 16 regionals</p>
-              </div>
-              <div className="grid max-h-[560px] gap-3 overflow-y-auto pr-1 sm:grid-cols-2">
-                {BASEBALL_REGIONALS.map((regional) => (
-                  <article key={regional.region} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                    <h4 className="mb-3 text-base font-black text-white">{regional.region} Regional</h4>
-                    <div className="grid gap-2">
-                      {regional.teams.map((team, index) => (
-                        <div key={team} className="flex items-center gap-2 text-sm text-[#c9d8f2]">
-                          <span className="text-xs font-black text-[#00c2ff]">{index + 1}</span>
-                          <span>{team}</span>
-                        </div>
-                      ))}
+            {/* Diamond Grind Spotlight */}
+            <Link href="/diamond-grind">
+              <div className="rounded-[2rem] border border-[#0066ff]/25 bg-[#050d1a]/90 p-6 cursor-pointer hover:border-[#00c2ff]/50 transition-all group h-full">
+                <p className="text-sm font-black uppercase tracking-[0.28em] text-[#0066ff] mb-1">Diamond Grind™</p>
+                <h3 className="text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors mb-4">Elite Baseball. Built Different.</h3>
+                <p className="text-sm text-[#8ba3c7] leading-relaxed mb-6">The most complete baseball and softball training platform ever built. AI Coach, velocity tracking, exit velocity, fielding metrics, showcase prep for Perfect Game and Area Code. From tee-ball to the draft.</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: "Velocity Tracker", icon: "⚡" },
+                    { label: "Exit Velocity", icon: "💥" },
+                    { label: "AI Coach", icon: "🤖" },
+                    { label: "Showcase Prep", icon: "🎯" },
+                    { label: "Leaderboard", icon: "🏆" },
+                    { label: "Stats Tracker", icon: "📊" },
+                  ].map((f) => (
+                    <div key={f.label} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+                      <span className="text-sm">{f.icon}</span>
+                      <span className="text-xs font-bold text-white">{f.label}</span>
                     </div>
-                  </article>
-                ))}
+                  ))}
+                </div>
+                <p className="mt-6 text-xs font-black tracking-widest uppercase text-[#0066ff]/50 group-hover:text-[#0066ff] transition-colors">Enter Diamond Grind →</p>
               </div>
-            </div>
+            </Link>
+
+            {/* CWS Live Bracket */}
+            <Link href="/brackets">
+              <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-[#050d1a]/90 p-6 cursor-pointer hover:border-[#00c2ff]/50 transition-all group">
+                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
+                      <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · CWS Omaha</p>
+                    </div>
+                    <h3 className="text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors">The Greatest Show on Grass</h3>
+                  </div>
+                  <p className="text-sm font-bold text-[#8ba3c7]">8 teams · Jun 13–22</p>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-2 mb-4">
+                  {CWS_TEAMS.map((t) => (
+                    <div key={t.name} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066ff] text-[9px] font-black text-white">{t.seed ?? "—"}</span>
+                      <div>
+                        <p className="text-sm font-bold text-white">{t.name}</p>
+                        <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs font-black tracking-widest uppercase text-[#00c2ff]/50 group-hover:text-[#00c2ff] transition-colors">Open Full Broadcast → Live Scores + Bracket →</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
