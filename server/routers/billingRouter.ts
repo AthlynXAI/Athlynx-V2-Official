@@ -38,7 +38,7 @@ function stripe(): Stripe {
       message: "STRIPE_SECRET_KEY is not configured.",
     });
   }
-  _stripe = new Stripe(key, { apiVersion: "2026-04-22.dahlia" as any });
+  _stripe = new Stripe(key, { apiVersion: "2026-05-27.dahlia" as any });
   return _stripe;
 }
 
@@ -421,7 +421,7 @@ export const billingRouter = router({
       const inv: any = await s.invoices.retrieve(input.stripeInvoiceId, {
         expand: ["subscription", "customer", "lines.data.subscription"],
       });
-      // Stripe API 2026-04-22.dahlia: invoice.subscription moved off the top level.
+      // Stripe API 2026-05-27.dahlia: invoice.subscription moved off the top level.
       // Read from lines.data[*].subscription as the canonical source, with fallbacks.
       const subscriptionId: string | null =
         (typeof inv.subscription === "string" ? inv.subscription : inv.subscription?.id) ??

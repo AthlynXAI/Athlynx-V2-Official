@@ -195,7 +195,7 @@ export const adminRouter = router({
   getRevenueStats: adminProcedure.query(async () => {
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (!stripeKey) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "STRIPE_SECRET_KEY not set" });
-    const stripe = new Stripe(stripeKey, { apiVersion: "2026-04-22.dahlia" });
+    const stripe = new Stripe(stripeKey, { apiVersion: "2026-05-27.dahlia" });
     const startOfMonth = Math.floor(new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime() / 1000);
     const startOfLastMonth = Math.floor(new Date(new Date().getFullYear(), new Date().getMonth() - 1, 1).getTime() / 1000);
 
