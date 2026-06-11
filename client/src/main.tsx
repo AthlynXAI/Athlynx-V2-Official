@@ -158,6 +158,11 @@ const PUBLIC_ROUTES = [
   '/soccer', '/pitch-pulse',
   '/court-kings',
   '/ice-breakers',
+  // Session 3: public command-center / C-Factor / EPX / portal-news surfaces.
+  // These render their own content (CFactorHub/EPX/etc.) and must not be
+  // replaced by the signin "Welcome back." UI for unauthenticated visitors.
+  '/epx', '/cfactor', '/c-factor',
+  '/command-center', '/athlete-command-center', '/portal-news',
 ];
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {
