@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "25",
+      "buildNumber": "31",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -65,8 +65,7 @@
         "expo-build-properties",
         {
           "ios": {
-            "deploymentTarget": "16.0",
-            "useFrameworks": "dynamic"
+            "deploymentTarget": "16.0"
           },
           "android": {
             "buildArchs": [
