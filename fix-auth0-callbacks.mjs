@@ -3,8 +3,8 @@
  * Adds all 6 domain callbacks to the SPA app
  */
 
-const DOMAIN = 'dev-bzdjgeksqaxkjoqq.us.auth0.com';
-const CLIENT_ID = '6kMlNIq8zEF97huCYBhSFTgSvWNcWSbW';
+const DOMAIN = process.env.AUTH0_DOMAIN || process.env.VITE_AUTH0_DOMAIN;
+const CLIENT_ID = process.env.AUTH0_CLIENT_ID || process.env.VITE_AUTH0_CLIENT_ID;
 const CLIENT_SECRET = process.env.AUTH0_CLIENT_SECRET;
 
 const CALLBACK_URLS = [
@@ -41,8 +41,8 @@ const WEB_ORIGINS = [
 ];
 
 async function run() {
-  if (!CLIENT_SECRET) {
-    console.error('AUTH0_CLIENT_SECRET not set');
+  if (!DOMAIN || !CLIENT_ID || !CLIENT_SECRET) {
+    console.error('AUTH0_DOMAIN, AUTH0_CLIENT_ID and AUTH0_CLIENT_SECRET must be set');
     process.exit(1);
   }
 

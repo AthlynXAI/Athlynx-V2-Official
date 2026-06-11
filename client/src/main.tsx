@@ -103,7 +103,11 @@ const PUBLIC_ROUTES = [
   '/pricing-tiers', '/nil-jobs', '/founder-dedication',
   '/layer-cake', '/infrastructure',
   '/investor-hub', '/investor-deck', '/founders',
-  '/pricing', '/partners', '/nil-portal',
+  '/pricing', '/partners', '/nil-portal', '/portal-news',
+  // Public-by-design app surfaces — render for unauthenticated visitors;
+  // auth-only actions (save/apply/post) gate at the action level, not the page.
+  '/epx',
+  '/cfactor', '/c-factor', '/command-center', '/athlete-command-center',
   '/diamond-grind', '/diamond-grind/road-to-omaha', '/road-to-omaha',
   '/season-engine', '/athlynxai-season-engine', '/all-sports-season-hubs',
   '/growth-crm', '/athletic-journey-crm', '/elite-athlete-pipeline', '/recruiting-profile-crm',

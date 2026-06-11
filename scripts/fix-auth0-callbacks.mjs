@@ -1,12 +1,12 @@
 import { execSync } from 'child_process';
 
 // Load env from the webdev environment
-const domain = process.env.VITE_AUTH0_DOMAIN || 'dev-bzdjgeksqaxkjoqq.us.auth0.com';
-const clientId = process.env.VITE_AUTH0_CLIENT_ID || '6kMlNIq8zEF97huCYBhSFTgSvWNcWSbW';
+const domain = process.env.AUTH0_DOMAIN || process.env.VITE_AUTH0_DOMAIN;
+const clientId = process.env.AUTH0_CLIENT_ID || process.env.VITE_AUTH0_CLIENT_ID;
 const clientSecret = process.env.AUTH0_CLIENT_SECRET;
 
-if (!clientSecret) {
-  console.error('AUTH0_CLIENT_SECRET not found in environment');
+if (!domain || !clientId || !clientSecret) {
+  console.error('AUTH0_DOMAIN, AUTH0_CLIENT_ID and AUTH0_CLIENT_SECRET must be set in environment');
   process.exit(1);
 }
 
