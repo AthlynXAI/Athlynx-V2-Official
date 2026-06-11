@@ -36,7 +36,7 @@ function EnterPortalToggle() {
   return (
     <a
       href={dest}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-black text-sm px-5 py-3.5 rounded-2xl shadow-2xl shadow-blue-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-[#0a1628] hover:from-[#1E90FF] hover:to-blue-600 text-white font-black text-xs sm:text-sm px-3 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-2xl shadow-blue-500/40 transition-all duration-300 hover:scale-105 active:scale-95 opacity-90"
       aria-label="Enter the Portal"
       data-testid="floating-enter-portal"
     >
@@ -598,7 +598,7 @@ function HomeInner() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white pb-20 sm:pb-0">
       {/*  CHAMPIONSHIP BRACKETS · TOP OF PAGE · ABOVE DIAMOND GRIND 
            Both MCWS (men) + WCWS (women) with live ESPN data. WCWS is
            already underway. Regionals end Mon Jun 1; Super Regionals start
