@@ -17,7 +17,7 @@ const AUTH0_DOMAIN =
 
 const AUTH0_CLIENT_ID =
   (import.meta.env.VITE_AUTH0_CLIENT_ID as string | undefined) ||
-  "6a29f203618e5aefbd0ca0e6";
+  "eDJT34flTy4oOq1cie6ItFubLDPHOrcI";
 
 const AUTH0_AUDIENCE =
   (import.meta.env.VITE_AUTH0_AUDIENCE as string | undefined) ||
