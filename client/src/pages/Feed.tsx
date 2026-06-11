@@ -384,8 +384,89 @@ function FeedInner() {
           </div>
         </section>
 
-        {/* Stories bar — Instagram/Facebook style */}
+                {/* Stories bar — Instagram/Facebook style */}
         <StoriesBar user={user} />
+
+        {/* ── AthlynXAI OS Network Header ─────────────────────────── */}
+        <div className="bg-gradient-to-r from-black via-[#050d1a] to-black border border-[#1E90FF]/30 rounded-2xl p-4 text-center">
+          <div className="text-[10px] font-black tracking-[0.3em] text-[#1E90FF] mb-1">ATHLYNXAI OS · THE NETWORK · POWERED BY NEBIUS H200 NVIDIA</div>
+          <div className="text-white font-black text-lg leading-tight mb-1">IQ Before Talent.</div>
+          <div className="text-slate-400 text-xs leading-snug">The athletes who think the game win it. Fair. Balanced. Real. 24/7/365.</div>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[10px] text-red-400 font-bold tracking-widest">LIVE · MCWS IN OMAHA · JUNE 13–22</span>
+          </div>
+        </div>
+
+        {/* ── Athlete IQ Pillar Filter ─────────────────────────────── */}
+        <div>
+          <div className="text-[9px] font-black tracking-[0.25em] text-[#1E90FF] mb-2 px-1">ATHLETE IQ CURRICULUM</div>
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            {[{id:'all',icon:'⚡',label:'ALL'},{id:'vision',icon:'👁',label:'VISION'},{id:'sequence',icon:'🔁',label:'SEQUENCE'},{id:'repetition',icon:'💪',label:'REPS'},{id:'rosters',icon:'📋',label:'ROSTERS'},{id:'salary',icon:'💰',label:'SALARY CAPS'},{id:'analytics',icon:'📊',label:'ANALYTICS'}].map((p) => (
+              <a key={p.id} href={p.id === 'all' ? '/brackets' : p.id === 'rosters' ? '/portal' : p.id === 'repetition' ? '/diamond-grind' : p.id === 'salary' ? '/nil' : '/feed'}
+                className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black tracking-wider border border-[#1E90FF]/30 bg-black/60 text-[#1E90FF] hover:border-[#1E90FF] hover:bg-[#1E90FF]/10 transition-all">
+                <span>{p.icon}</span><span>{p.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* ── MCWS Live Banner ─────────────────────────────────────── */}
+        <a href="/brackets" className="block">
+          <div className="bg-gradient-to-r from-[#001428] via-[#001e3c] to-black border border-[#1E90FF]/40 rounded-2xl p-4 hover:border-[#1E90FF]/80 transition-all group">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-[9px] font-black tracking-[0.3em] text-red-400">LIVE NOW · MCWS · OMAHA</span>
+              </div>
+              <span className="text-[9px] font-black text-[#1E90FF] tracking-wider">⚾ ESPN AUTO-REFRESH 60s</span>
+            </div>
+            <div className="text-white font-black text-base leading-tight mb-1 group-hover:text-[#1E90FF] transition-colors">Road to Omaha · 8 Teams · One National Championship</div>
+            <div className="text-slate-400 text-xs mb-3">Charles Schwab Field · June 13–22, 2026 · The Greatest Show on Grass</div>
+            <div className="flex items-center gap-2">
+              <span className="bg-[#1E90FF] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-wider">WATCH LIVE BROADCAST →</span>
+              <span className="text-slate-500 text-[9px]">Live scores · Full bracket · Team spotlights · Podcasts</span>
+            </div>
+          </div>
+        </a>
+
+        {/* ── Sports Illustrated Editorial Cards ───────────────────── */}
+        <div className="space-y-3">
+          <div className="text-[9px] font-black tracking-[0.25em] text-[#1E90FF] px-1">ATHLYNXAI OS NETWORK · TODAY'S BROADCAST</div>
+          {[
+            {category:'DIAMOND GRIND™ · TRAINING',headline:'Your Velocity. Your Exit Velo. Your Edge. AI-Powered. Real Results.',sub:'Sequence · Repetition · Definition — The Diamond Grind Method',badge:'TRAIN NOW',badgeColor:'bg-[#1E90FF]',cta:'OPEN DIAMOND GRIND →',href:'/diamond-grind',accent:'#00C2FF',emoji:'⚡'},
+            {category:'NIL INTELLIGENCE · SALARY CAPS',headline:'Know Your Value Before You Sign. NIL Deals, Agent Fees, Cap Space — All Inside.',sub:'Financial IQ is the skill no coach teaches. AthlynXAI OS does.',badge:'NIL IQ',badgeColor:'bg-green-700',cta:'CHECK YOUR NIL VALUE →',href:'/nil',accent:'#00CC44',emoji:'💰'},
+            {category:'ROSTERS · RECRUITING INTEL',headline:'Transfer Portal. Depth Charts. Recruiting Rankings. All Live. All Real.',sub:'Know who is moving, who is staying, and who is coming for your spot.',badge:'PORTAL LIVE',badgeColor:'bg-purple-700',cta:'ENTER THE PORTAL →',href:'/portal',accent:'#9966FF',emoji:'🏆'},
+            {category:'PLAYER ANALYTICS · MENTAL & PHYSICAL',headline:'Decision Speed. Pressure Index. Reaction Time. The Full Athlete Profile.',sub:'Physical metrics + Mental analytics = The complete picture scouts never see.',badge:'AI POWERED',badgeColor:'bg-[#1E90FF]',cta:'VIEW YOUR PROFILE →',href:'/profile',accent:'#1E90FF',emoji:'🧠'},
+          ].map((card,i) => (
+            <a key={i} href={card.href} className="block bg-gradient-to-br from-[#000814] via-[#001428] to-black rounded-2xl overflow-hidden hover:scale-[1.01] transition-all" style={{border:`1px solid ${card.accent}33`}}>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[9px] font-black tracking-[0.2em]" style={{color:card.accent}}>{card.emoji} {card.category}</span>
+                  <span className={`text-[9px] font-black px-2 py-0.5 rounded-full text-white ${card.badgeColor}`}>{card.badge}</span>
+                </div>
+                <h3 className="text-white font-black text-sm leading-tight mb-1">{card.headline}</h3>
+                <p className="text-slate-400 text-xs leading-snug mb-3">{card.sub}</p>
+                <span className="text-[9px] font-black px-3 py-1.5 rounded-full text-white tracking-wider" style={{backgroundColor:card.accent}}>{card.cta}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* ── DHG Infrastructure ───────────────────────────────────── */}
+        <div className="bg-gradient-to-r from-black via-[#050d1a] to-black border border-[#1E90FF]/20 rounded-2xl p-4">
+          <div className="text-[9px] font-black tracking-[0.3em] text-[#1E90FF] mb-2">DOZIER HOLDINGS GROUP · INFRASTRUCTURE</div>
+          <div className="text-white font-black text-sm mb-1">We Don't Just Run the Network. We Own the Infrastructure.</div>
+          <div className="grid grid-cols-5 gap-2 mt-3">
+            {[{icon:'🤖',label:'Robotics'},{icon:'🧠',label:'AI'},{icon:'⚡',label:'Energy'},{icon:'🏗',label:'Data Centers'},{icon:'⚛️',label:'Quantum'}].map((p) => (
+              <div key={p.label} className="text-center">
+                <div className="text-xl mb-1">{p.icon}</div>
+                <div className="text-[8px] font-black text-[#1E90FF] tracking-wider">{p.label.toUpperCase()}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 text-center text-[8px] text-slate-700 tracking-widest">NEBIUS H200 NVIDIA · QUANTUM COMPUTING · FULL AUTOMATION · TOKENIZATION</div>
+        </div>
 
         {/* Create post */}
         <div className="bg-[#000000]/92 border border-[#1E90FF]/20 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.42)] backdrop-blur-xl overflow-hidden">
