@@ -325,26 +325,29 @@ function LandingPageInner() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,102,255,0.08),transparent_70%)]" />
 
         <div className="relative z-10 text-center max-w-5xl mx-auto px-5 py-20">
-          {/* Live badge */}
+                    {/* AthlynX — the star. The brand. The belief. */}
           <div className="inline-flex items-center gap-2 bg-[#0066ff]/10 border border-[#0066ff]/30 rounded-full px-5 py-2 mb-8">
             <span className="w-2 h-2 bg-[#00c2ff] rounded-full animate-pulse" />
-            <span className="text-sm font-bold text-[#00c2ff] tracking-wider">PLATFORM v1.0 · LIVE NOW · FREE 7-DAY TRIAL</span>
+            <span className="text-sm font-bold text-[#00c2ff] tracking-wider">ATHLYNXAI OS · THE NETWORK · LIVE NOW</span>
           </div>
-
-          {/* Main headline */}
-          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black leading-none tracking-tighter mb-4">
+          {/* Main headline — AthlynX is the name they need to know */}
+          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black leading-none tracking-tighter mb-6">
             <span className="text-white">AthlynX</span>
             <span className="text-[#0066ff]">AI</span>
           </h1>
-
-          {/* Rotating subheadline */}
-          <div className="h-12 mb-6 overflow-hidden">
-            <p className="text-xl sm:text-2xl font-bold text-[#8ba3c7] tracking-wide">{headlines[headline]}</p>
+          {/* The belief — not features, not specs */}
+          <div className="mb-8 max-w-3xl mx-auto">
+            <p className="text-2xl sm:text-4xl font-black text-white leading-tight mb-4">
+              The athletes crazy enough to think<br />they can change the world<br />
+              <span className="text-[#0066ff]">are the ones who actually do.</span>
+            </p>
+            <p className="text-base sm:text-lg text-[#8ba3c7] leading-relaxed mb-2">
+              AthlynX is not an app. It is a belief — that every athlete, at every level,
+              from youth to pro to retirement, deserves the same intelligence,
+              the same tools, and the same opportunity.
+            </p>
+            <p className="text-base font-black text-white tracking-wide">IQ before talent. Men. Women. Every sport. Fair. Balanced. Real. 24/7/365.</p>
           </div>
-
-          <p className="text-lg text-[#8ba3c7] mb-10 max-w-2xl mx-auto leading-relaxed">
-            The first and only complete athlete empowerment platform. NIL deals, transfer portal, AI recruiting, EPX scoring, C-Factor intelligence — all in one login. Built by athletes. Built for athletes.
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href="/portal">
