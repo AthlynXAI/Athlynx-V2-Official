@@ -1,43 +1,14 @@
-// Brackets — Live MCWS 2026 · 8 Teams · Charles Schwab Field · Omaha, Nebraska
-// Updated June 10, 2026 · AthlynX — ONE IDENTITY. EVERY ATHLETE. EVERY PLATFORM.
-// Brand lock: true black + electric cobalt + white. No gold/yellow/orange. No standalone X glyph.
-
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { LiveRegionalScoreboard } from "@/components/LiveRegionalScoreboard";
-import { RegionalBracketTree } from "@/components/RegionalBracketTree";
-import LiveHighlightsFeed from "@/components/LiveHighlightsFeed";
+import AthletePageBackground from "@/components/AthletePageBackground";
 
-// 
-// Types
-// 
+// ─────────────────────────────────────────────
+// ATHLYNXAI OS — MCWS ROAD TO OMAHA BROADCAST
+// The Greatest Show on Grass · Charles Schwab Field · Omaha, Nebraska
+// June 12–22, 2026 · 8 Teams · 1 Champion
+// ─────────────────────────────────────────────
 
-interface MCWSTeam {
-  seed: number | null;
-  name: string;
-  record: string;
-  natlSeed?: number;
-  bracket: "bracket1" | "bracket2";
-  status?: string;
-}
-
-interface MCWSGame {
-  game: number;
-  matchup: string;
-  ctTime: string;
-  date: string;
-  network: string;
-  result?: string;
-  isToday?: boolean;
-}
-
-interface NILPlayer {
-  name: string;
-  team: string;
-  position: string;
-  context: string;
-  tier: string;
-}
+// ── Types ──────────────────────────────────────────────────────────────────
 
 interface ESPNGame {
   id: string;
@@ -47,395 +18,815 @@ interface ESPNGame {
   homeScore: string;
   awayTeam: string;
   awayScore: string;
+  network?: string;
 }
 
-// 
-// 2026 MCWS — 8 Teams · Charles Schwab Field · Omaha, Nebraska · June 12–22
-// 
+interface Player {
+  name: string;
+  position: string;
+  year: string;
+  stat: string;
+  nilTier: "Elite" | "High" | "Rising";
+  draftStatus?: string;
+}
 
-// Bracket 1: North Carolina (5), West Virginia (16), Ole Miss, Troy
-// Bracket 2: Georgia (3), Texas (6), Alabama (7), Oklahoma
-// Source: NCAA.com June 8, 2026
+interface Team {
+  id: string;
+  name: string;
+  shortName: string;
+  seed: number | null;
+  natlSeed: number | null;
+  record: string;
+  bracket: "bracket1" | "bracket2";
+  conference: string;
+  coach: string;
+  coachYears: string;
+  stadium: string;
+  city: string;
+  color: string;
+  accent: string;
+  fanBase: string;
+  fanChant: string;
+  fanIdentity: string;
+  story: string;
+  players: Player[];
+  podcastAngle: string;
+  youtubeQuery: string;
+}
 
-const MCWS_TEAMS: MCWSTeam[] = [
-  // Bracket 1
-  { seed: 1, natlSeed: 5,  name: "North Carolina",  record: "50-12-1", bracket: "bracket1", status: "2-0 · Winners bracket" },
-  { seed: 2, natlSeed: 16, name: "West Virginia",   record: "45-15",   bracket: "bracket1", status: "First-ever MCWS appearance" },
-  { seed: 3, natlSeed: undefined, name: "Ole Miss",       record: "41-21",   bracket: "bracket1" },
-  { seed: 4, natlSeed: undefined, name: "Troy",           record: "38-30",   bracket: "bracket1", status: "First-ever MCWS appearance" },
-  // Bracket 2
-  { seed: 1, natlSeed: 3,  name: "Georgia",         record: "51-12",   bracket: "bracket2" },
-  { seed: 2, natlSeed: 6,  name: "Texas",           record: "45-13",   bracket: "bracket2" },
-  { seed: 3, natlSeed: 7,  name: "Alabama",         record: "41-19",   bracket: "bracket2" },
-  { seed: 4, natlSeed: undefined, name: "Oklahoma",      record: "37-22",   bracket: "bracket2" },
+// ── 2026 CWS 8-Team Data ───────────────────────────────────────────────────
+
+const TEAMS: Team[] = [
+  {
+    id: "georgia",
+    name: "Georgia Bulldogs",
+    shortName: "Georgia",
+    seed: 1,
+    natlSeed: 3,
+    record: "51-12",
+    bracket: "bracket2",
+    conference: "SEC",
+    coach: "Wes Johnson",
+    coachYears: "First CWS as head coach",
+    stadium: "Foley Field",
+    city: "Athens, GA",
+    color: "#BA0C2F",
+    accent: "#000000",
+    fanBase: "Bulldog Nation",
+    fanChant: "GO DAWGS · SIC 'EM",
+    fanIdentity: "The most passionate fan base in the SEC. Athens turns red on game day. Bulldog Nation travels everywhere.",
+    story: "First CWS since 2008. Won SEC regular season AND tournament for first time ever. 24 runs and 9 home runs in the Athens Super Regional. The hottest team in the country.",
+    players: [
+      { name: "Tre' Morgan", position: "1B", year: "Jr", stat: ".342 AVG · 14 HR · 67 RBI", nilTier: "Elite", draftStatus: "Top 10 MLB Draft Pick" },
+      { name: "Caleb Aoki", position: "SP", year: "Jr", stat: "9-2 · 2.87 ERA · 112 K", nilTier: "High" },
+      { name: "Justin Byrd", position: "RP", year: "So", stat: "8 SV · 1.24 ERA", nilTier: "Rising" },
+    ],
+    podcastAngle: "First CWS in 18 years — what changed under Wes Johnson and why Georgia is built to win it all",
+    youtubeQuery: "Georgia Bulldogs baseball 2026 CWS highlights",
+  },
+  {
+    id: "oklahoma",
+    name: "Oklahoma Sooners",
+    shortName: "Oklahoma",
+    seed: 2,
+    natlSeed: null,
+    record: "37-22",
+    bracket: "bracket2",
+    conference: "SEC",
+    coach: "Skip Johnson",
+    coachYears: "10th season",
+    stadium: "L. Dale Mitchell Park",
+    city: "Norman, OK",
+    color: "#841617",
+    accent: "#FDF9D8",
+    fanBase: "Sooner Nation",
+    fanChant: "BOOMER SOONER",
+    fanIdentity: "One of the most storied programs in college baseball. Sooner Nation never counts Oklahoma out — ever.",
+    story: "Unranked and written off after losing 6 of 8 in May. Skip Johnson changed the rotation, found new arms, and the Sooners got hot at exactly the right time. Never sleep on Oklahoma.",
+    players: [
+      { name: "Xander Mercurius", position: "SP", year: "Jr", stat: "7-3 · 3.21 ERA", nilTier: "High" },
+      { name: "Nick Wesloski", position: "SP", year: "Sr", stat: "First start of season vs Citadel — dominant", nilTier: "Rising" },
+      { name: "Jackson Cleveland", position: "RP", year: "Jr", stat: "Clutch in 10-inning thriller vs Georgia Tech", nilTier: "Rising" },
+    ],
+    podcastAngle: "The resurrection story — how Skip Johnson rebuilt Oklahoma's rotation in 30 days",
+    youtubeQuery: "Oklahoma Sooners baseball 2026 CWS Omaha",
+  },
+  {
+    id: "north-carolina",
+    name: "North Carolina Tar Heels",
+    shortName: "North Carolina",
+    seed: 1,
+    natlSeed: 5,
+    record: "50-12-1",
+    bracket: "bracket1",
+    conference: "ACC",
+    coach: "Scott Forbes",
+    coachYears: "3rd season",
+    stadium: "Boshamer Stadium",
+    city: "Chapel Hill, NC",
+    color: "#4B9CD3",
+    accent: "#FFFFFF",
+    fanBase: "Tar Heel Nation",
+    fanChant: "GO HEELS",
+    fanIdentity: "Chapel Hill bleeds Carolina Blue. Tar Heel Nation is loyal, loud, and everywhere. Second CWS in three years.",
+    story: "Survived the best pitching staff in the field (USC) on a walk-off by Owen Hull. Battle-tested, experienced, and they don't fold under pressure. The only team returning to Omaha in this span.",
+    players: [
+      { name: "Liam Doyle", position: "SP", year: "Jr", stat: "11-1 · 2.14 ERA · 134 K", nilTier: "Elite", draftStatus: "Projected Top 5 Pick" },
+      { name: "Owen Hull", position: "OF", year: "Jr", stat: "Walk-off hero vs USC · .318 AVG · 4 2B in G3", nilTier: "High" },
+      { name: "Gavin Gallaher", position: "SS", year: "Sr", stat: "Veteran leader · 2024 CWS experience", nilTier: "High" },
+    ],
+    podcastAngle: "Liam Doyle — the most dominant pitcher in college baseball and why he's the Omaha favorite",
+    youtubeQuery: "North Carolina Tar Heels baseball 2026 CWS Liam Doyle",
+  },
+  {
+    id: "ole-miss",
+    name: "Ole Miss Rebels",
+    shortName: "Ole Miss",
+    seed: 2,
+    natlSeed: null,
+    record: "41-21",
+    bracket: "bracket1",
+    conference: "SEC",
+    coach: "Mike Bianco",
+    coachYears: "25th season",
+    stadium: "Swayze Field",
+    city: "Oxford, MS",
+    color: "#CE1126",
+    accent: "#14213D",
+    fanBase: "Rebel Nation",
+    fanChant: "HOTTY TODDY",
+    fanIdentity: "Hotty Toddy. Oxford is one of the greatest college towns in America. Rebel Nation shows up everywhere. The Grove doesn't stop at football.",
+    story: "Beat Arizona State twice, took out host Nebraska, then swept #4 Auburn in the Super Regional. Cade Townsend, Taylor Rabe, and Elliott Hunter form one of the toughest pitching trios in the field.",
+    players: [
+      { name: "Cade Townsend", position: "SP", year: "Jr", stat: "8-2 · 2.98 ERA · 108 K", nilTier: "Elite" },
+      { name: "Taylor Rabe", position: "SP", year: "So", stat: "7-1 · 3.12 ERA", nilTier: "High" },
+      { name: "Walker Hooks", position: "RP", year: "Sr", stat: "12 SV · 1.89 ERA", nilTier: "High" },
+      { name: "Landon Waters", position: "RP", year: "Jr", stat: "1-2 bullpen punch with Hooks", nilTier: "Rising" },
+    ],
+    podcastAngle: "Mike Bianco's 25th season — the Ole Miss pitching machine and why Hotty Toddy is built for June",
+    youtubeQuery: "Ole Miss Rebels baseball 2026 CWS highlights",
+  },
+  {
+    id: "texas",
+    name: "Texas Longhorns",
+    shortName: "Texas",
+    seed: 2,
+    natlSeed: 6,
+    record: "45-13",
+    bracket: "bracket2",
+    conference: "SEC",
+    coach: "Jim Schlossnagle",
+    coachYears: "4th season",
+    stadium: "UFCU Disch-Falk Field",
+    city: "Austin, TX",
+    color: "#BF5700",
+    accent: "#FFFFFF",
+    fanBase: "Longhorn Nation",
+    fanChant: "TEXAS FIGHT · HOOK 'EM HORNS",
+    fanIdentity: "Texas is Texas. The biggest brand in college athletics. Longhorn Nation fills every stadium. Hook 'Em never stops.",
+    story: "Back in Omaha after a 3-year drought. Dispatched Oregon in supers. Sam Cozart is the freshman phenom of the tournament. Schlossnagle is one of the best coaches in the country in high-pressure situations.",
+    players: [
+      { name: "Sam Cozart", position: "RP/SP", year: "Fr", stat: "Freshman phenom · 6-0 · 2.11 ERA", nilTier: "Elite", draftStatus: "Future Top Draft Pick" },
+      { name: "Dylan Volantis", position: "SP", year: "Jr", stat: "9-2 · 3.44 ERA", nilTier: "High" },
+      { name: "Jace LaViolette", position: "OF", year: "Jr", stat: ".331 AVG · 18 HR · 72 RBI", nilTier: "Elite", draftStatus: "Top 5 MLB Draft Pick" },
+    ],
+    podcastAngle: "Hook 'Em is back — Schlossnagle, Sam Cozart, and why Texas is always dangerous in June",
+    youtubeQuery: "Texas Longhorns baseball 2026 CWS Omaha highlights",
+  },
+  {
+    id: "west-virginia",
+    name: "West Virginia Mountaineers",
+    shortName: "West Virginia",
+    seed: 1,
+    natlSeed: 16,
+    record: "45-15",
+    bracket: "bracket1",
+    conference: "Big 12",
+    coach: "Randy Mazey",
+    coachYears: "13th season",
+    stadium: "Monongalia County Ballpark",
+    city: "Morgantown, WV",
+    color: "#002855",
+    accent: "#EAAA00",
+    fanBase: "Mountaineer Nation",
+    fanChant: "TAKE ME HOME COUNTRY ROADS",
+    fanIdentity: "The most electric fan base in Omaha. When WVU plays, the whole stadium sings Take Me Home Country Roads. First-ever CWS appearance and the crowd is already theirs.",
+    story: "First CWS appearance in program history. Obliterated Cal Poly in Morgantown. Armani Guzman threw a 5-HR shutout. The Mountaineers are the Cinderella story of 2026 — and they have the bats to go deep.",
+    players: [
+      { name: "Armani Guzman", position: "SP", year: "Jr", stat: "10-2 · 2.67 ERA · 5-HR shutout in supers", nilTier: "High" },
+      { name: "Ben Lumsden", position: "OF", year: "Jr", stat: ".308 AVG · 16 HR · Power bat", nilTier: "High" },
+      { name: "Jake Sabol", position: "C", year: "Sr", stat: "Veteran leader · .291 AVG", nilTier: "Rising" },
+    ],
+    podcastAngle: "Take Me Home Country Roads — the WVU story that has all of Omaha rooting for them",
+    youtubeQuery: "West Virginia Mountaineers baseball 2026 CWS first appearance",
+  },
+  {
+    id: "alabama",
+    name: "Alabama Crimson Tide",
+    shortName: "Alabama",
+    seed: 3,
+    natlSeed: 7,
+    record: "41-19",
+    bracket: "bracket2",
+    conference: "SEC",
+    coach: "Brad Bohannon",
+    coachYears: "5th season",
+    stadium: "Sewell-Thomas Stadium",
+    city: "Tuscaloosa, AL",
+    color: "#9E1B32",
+    accent: "#FFFFFF",
+    fanBase: "Crimson Tide Nation",
+    fanChant: "ROLL TIDE",
+    fanIdentity: "Roll Tide never stops. Alabama fans travel in packs. Tuscaloosa baseball is on the rise and the Tide faithful are all in.",
+    story: "Outhit Oklahoma State to get out of a tough region. A grand slam broke open Game 2 vs St. John's. Tanner Hall is the ace they need to go deep. The question: can Alabama get deep into games?",
+    players: [
+      { name: "Tanner Hall", position: "SP", year: "Jr", stat: "8-3 · 3.18 ERA · SEC tournament ace", nilTier: "High" },
+      { name: "Will Porterfield", position: "OF", year: "Sr", stat: ".297 AVG · 12 HR", nilTier: "Rising" },
+      { name: "Davis Sharpe", position: "1B", year: "Jr", stat: "Grand slam vs St. John's · .281 AVG", nilTier: "Rising" },
+    ],
+    podcastAngle: "Roll Tide baseball — Brad Bohannon building Alabama into an SEC power and what it means for the program",
+    youtubeQuery: "Alabama Crimson Tide baseball 2026 CWS Omaha",
+  },
+  {
+    id: "troy",
+    name: "Troy Trojans",
+    shortName: "Troy",
+    seed: 4,
+    natlSeed: null,
+    record: "38-30",
+    bracket: "bracket1",
+    conference: "Sun Belt",
+    coach: "Skylar Meade",
+    coachYears: "2nd season",
+    stadium: "Riddle-Pace Field",
+    city: "Troy, AL",
+    color: "#8B0000",
+    accent: "#C0C0C0",
+    fanBase: "Trojan Nation",
+    fanChant: "T-R-O-Y · TROY TROY TROY",
+    fanIdentity: "The ultimate underdog story. Troy, Alabama to Omaha, Nebraska. First-ever CWS appearance as the first 30-loss team to ever make it. The whole country is rooting for them.",
+    story: "The greatest underdog story in 2026 college baseball. 29-loss Sun Belt team makes the tournament. Thumped Florida twice. Beat Little Rock 19-4 combined. First-ever CWS appearance. This is why we watch.",
+    players: [
+      { name: "Cade Winstead", position: "SP", year: "Jr", stat: "Led Troy to upset of Florida", nilTier: "Rising" },
+      { name: "Brayden Theriot", position: "OF", year: "Sr", stat: "Hot bat in super regionals", nilTier: "Rising" },
+      { name: "Jake Rucker", position: "SS", year: "Jr", stat: "Team leader · .278 AVG", nilTier: "Rising" },
+    ],
+    podcastAngle: "Troy, Alabama to Omaha — the impossible story of the 2026 College World Series Cinderella",
+    youtubeQuery: "Troy Trojans baseball 2026 CWS first appearance underdog",
+  },
 ];
 
-const MCWS_SCHEDULE: MCWSGame[] = [
-  // Friday June 12 — Opening Day
-  { game: 1, matchup: "#16 West Virginia vs Troy",            ctTime: "1:00 PM CT",  date: "Fri Jun 12", network: "ESPN",  isToday: true },
-  { game: 2, matchup: "#5 North Carolina vs Ole Miss",        ctTime: "6:00 PM CT",  date: "Fri Jun 12", network: "ESPN",  isToday: true },
-  // Saturday June 13
-  { game: 3, matchup: "Alabama/St. John's vs Kansas/Oklahoma",ctTime: "2:00 PM CT",  date: "Sat Jun 13", network: "ESPN" },
-  { game: 4, matchup: "#3 Georgia vs #6 Texas",               ctTime: "7:00 PM CT",  date: "Sat Jun 13", network: "ESPN" },
-  // Sunday June 14 — Elimination Round
-  { game: 5, matchup: "Losers G1 vs Losers G2",               ctTime: "1:00 PM CT",  date: "Sun Jun 14", network: "ESPN" },
-  { game: 6, matchup: "Winners G1 vs Winners G2",             ctTime: "6:00 PM CT",  date: "Sun Jun 14", network: "ESPN" },
-  // Monday June 15 — Elimination Round
-  { game: 7, matchup: "Losers G3 vs Losers G4",               ctTime: "1:00 PM CT",  date: "Mon Jun 15", network: "ESPN" },
-  { game: 8, matchup: "Winners G3 vs Winners G4",             ctTime: "6:00 PM CT",  date: "Mon Jun 15", network: "ESPN" },
-  // Championship Finals — Best of 3
-  { game: 15, matchup: "Championship Series Game 1",          ctTime: "7:00 PM CT",  date: "Sat Jun 20", network: "ESPN" },
-  { game: 16, matchup: "Championship Series Game 2",          ctTime: "1:30 PM CT",  date: "Sun Jun 21", network: "ABC" },
-  { game: 17, matchup: "Championship Series Game 3 (if nec)", ctTime: "6:00 PM CT",  date: "Mon Jun 22", network: "ESPN" },
+const BRACKET_MATCHUPS = [
+  { game: 1, bracket: "bracket1", team1: "West Virginia", team2: "Troy", date: "Fri Jun 13", time: "1:00 PM CT", network: "ESPN", result: null },
+  { game: 2, bracket: "bracket1", team1: "North Carolina", team2: "Ole Miss", date: "Fri Jun 13", time: "6:00 PM CT", network: "ESPN", result: null },
+  { game: 3, bracket: "bracket2", team1: "Alabama", team2: "Oklahoma", date: "Sat Jun 14", time: "2:00 PM CT", network: "ESPN", result: null },
+  { game: 4, bracket: "bracket2", team1: "Georgia", team2: "Texas", date: "Sat Jun 14", time: "7:00 PM CT", network: "ESPN", result: null },
 ];
 
-const MCWS_NIL: NILPlayer[] = [
-  { name: "Liam Doyle",       team: "North Carolina",  position: "P",   context: "#5 nat'l seed · ace starter · walk-off hero vs USC", tier: "Elite" },
-  { name: "Tre' Morgan",      team: "Georgia",         position: "1B",  context: "#3 nat'l seed · SEC Player of the Year candidate",   tier: "Elite" },
-  { name: "Jace LaViolette",  team: "Texas",           position: "OF",  context: "#6 nat'l seed · top MLB draft prospect 2026",        tier: "Elite" },
-  { name: "Armani Guzman",    team: "West Virginia",   position: "P",   context: "First-ever MCWS · Big 12 ace · 5 HR shutout vs Cal Poly", tier: "High" },
-  { name: "Ben Lumsden",      team: "West Virginia",   position: "OF",  context: "Power bat · WVU's first Omaha trip",                 tier: "High" },
-  { name: "Hunter Hines",     team: "Ole Miss",        position: "IF",  context: "SEC standout · Ole Miss back in Omaha",              tier: "High" },
-  { name: "Owen Halls",       team: "North Carolina",  position: "OF",  context: "4 doubles in G3 vs USC · walk-off hero",             tier: "High" },
-  { name: "Tanner Hall",      team: "Alabama",         position: "P",   context: "#7 nat'l seed · SEC tournament ace",                 tier: "Rising" },
-];
-
-// 
-// ESPN live scoreboard fetcher
-// 
+// ── ESPN Live Scoreboard Hook ───────────────────────────────────────────────
 
 function useESPNScoreboard() {
   const [games, setGames] = useState<ESPNGame[]>([]);
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let cancelled = false;
-    const path = "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard";
-
-    async function fetchScoreboard() {
-      try {
-        const res = await fetch(path);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        const events = (data?.events ?? []) as any[];
-        const parsed: ESPNGame[] = events.map((e) => {
-          const comp = e?.competitions?.[0];
-          const home = comp?.competitors?.find((c: any) => c?.homeAway === "home");
-          const away = comp?.competitors?.find((c: any) => c?.homeAway === "away");
-          const stateRaw = comp?.status?.type?.state as string | undefined;
-          const state: ESPNGame["status"] = stateRaw === "in" ? "in" : stateRaw === "post" ? "post" : "pre";
-          return {
-            id: e?.id,
-            status: state,
-            shortDetail: comp?.status?.type?.shortDetail ?? "",
-            homeTeam: home?.team?.shortDisplayName ?? home?.team?.displayName ?? "—",
-            homeScore: home?.score ?? "—",
-            awayTeam: away?.team?.shortDisplayName ?? away?.team?.displayName ?? "—",
-            awayScore: away?.score ?? "—",
-          };
-        });
-        if (!cancelled) {
-          setGames(parsed);
-          setUpdatedAt(new Date());
-          setError(null);
-        }
-      } catch (err: any) {
-        if (!cancelled) setError(err?.message ?? "Live scores temporarily unavailable");
-      }
+  const fetchScoreboard = useCallback(async () => {
+    try {
+      const res = await fetch("https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard");
+      if (!res.ok) throw new Error(`ESPN API ${res.status}`);
+      const data = await res.json();
+      const events = (data?.events ?? []) as any[];
+      const parsed: ESPNGame[] = events.map((e) => {
+        const comp = e?.competitions?.[0];
+        const home = comp?.competitors?.find((c: any) => c?.homeAway === "home");
+        const away = comp?.competitors?.find((c: any) => c?.homeAway === "away");
+        const stateRaw = comp?.status?.type?.state as string | undefined;
+        const state: ESPNGame["status"] = stateRaw === "in" ? "in" : stateRaw === "post" ? "post" : "pre";
+        return {
+          id: e?.id,
+          status: state,
+          shortDetail: comp?.status?.type?.shortDetail ?? "",
+          homeTeam: home?.team?.shortDisplayName ?? home?.team?.displayName ?? "—",
+          homeScore: home?.score ?? "—",
+          awayTeam: away?.team?.shortDisplayName ?? away?.team?.displayName ?? "—",
+          awayScore: away?.score ?? "—",
+          network: comp?.broadcasts?.[0]?.names?.[0] ?? "ESPN",
+        };
+      });
+      setGames(parsed);
+      setUpdatedAt(new Date());
+      setError(null);
+    } catch (err: any) {
+      setError(err?.message ?? "Live scores temporarily unavailable");
+    } finally {
+      setLoading(false);
     }
-
-    fetchScoreboard();
-    const live = games.some((g) => g.status === "in");
-    const interval = live ? 60_000 : 300_000;
-    const t = setInterval(fetchScoreboard, interval);
-    return () => { cancelled = true; clearInterval(t); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { games, updatedAt, error };
+  useEffect(() => {
+    fetchScoreboard();
+    const interval = setInterval(fetchScoreboard, 60_000);
+    return () => clearInterval(interval);
+  }, [fetchScoreboard]);
+
+  return { games, updatedAt, error, loading, refetch: fetchScoreboard };
 }
 
-// 
-// Subcomponents
-// 
+// ── Sub-components ─────────────────────────────────────────────────────────
 
-function LiveBadge({ status }: { status: ESPNGame["status"] }) {
-  if (status === "in")
-    return <span className="text-[10px] font-bold tracking-widest uppercase text-white bg-[#1E90FF] px-1.5 py-0.5 rounded animate-pulse">LIVE</span>;
-  if (status === "post")
-    return <span className="text-[10px] font-bold tracking-widest uppercase text-white/70 bg-white/10 px-1.5 py-0.5 rounded">FINAL</span>;
-  return <span className="text-[10px] font-bold tracking-widest uppercase text-white/50 bg-white/5 px-1.5 py-0.5 rounded">UPCOMING</span>;
+function LivePulse() {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span className="w-2 h-2 rounded-full bg-[#1E90FF] animate-pulse" />
+      <span className="text-[10px] font-black tracking-widest uppercase text-[#1E90FF]">LIVE</span>
+    </span>
+  );
 }
+
+function StatusBadge({ status }: { status: ESPNGame["status"] }) {
+  if (status === "in") return (
+    <span className="text-[9px] font-black tracking-widest uppercase text-white bg-[#1E90FF] px-2 py-0.5 rounded-full animate-pulse">● LIVE</span>
+  );
+  if (status === "post") return (
+    <span className="text-[9px] font-black tracking-widest uppercase text-white/60 bg-white/10 px-2 py-0.5 rounded-full">FINAL</span>
+  );
+  return (
+    <span className="text-[9px] font-black tracking-widest uppercase text-white/40 bg-white/5 px-2 py-0.5 rounded-full">UPCOMING</span>
+  );
+}
+
+function NILBadge({ tier }: { tier: Player["nilTier"] }) {
+  const styles = {
+    Elite: "bg-[#1E90FF]/20 text-[#1E90FF] border border-[#1E90FF]/30",
+    High: "bg-white/10 text-white/70 border border-white/20",
+    Rising: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
+  };
+  return (
+    <span className={`text-[8px] font-black tracking-widest uppercase px-1.5 py-0.5 rounded ${styles[tier]}`}>
+      {tier === "Elite" ? "⚡ ELITE NIL" : tier === "High" ? "★ HIGH VALUE" : "↑ RISING"}
+    </span>
+  );
+}
+
+// ── Live Score Strip ────────────────────────────────────────────────────────
 
 function LiveScoreStrip() {
-  const { games, updatedAt, error } = useESPNScoreboard();
-  const liveGames = useMemo(() => games.filter((g) => g.status === "in"), [games]);
-  const displayGames = liveGames.length > 0 ? liveGames : games.slice(0, 6);
+  const { games, updatedAt, error, loading, refetch } = useESPNScoreboard();
+  const liveGames = games.filter((g) => g.status === "in");
+  const display = liveGames.length > 0 ? liveGames : games.slice(0, 4);
 
   return (
-    <div className="border border-white/10 rounded-lg bg-black/40 p-4 mb-8">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-bold tracking-widest uppercase text-[#88a8ff]">
-          Live Scoreboard · Omaha
-        </h3>
-        <span className="text-[10px] text-white/40">
-          {updatedAt
-            ? `Updated · ${updatedAt.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" })} CT`
-            : "Loading…"}
-        </span>
-      </div>
-      {error && (
-        <div className="text-xs text-white/50 italic">Live scores appear when games begin. ({error})</div>
-      )}
-      {!error && displayGames.length === 0 && (
-        <div className="text-xs text-white/50 italic">No games on the wire yet — first pitch June 12 at 1 PM CT.</div>
-      )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {displayGames.map((g) => (
-          <div key={g.id} className="border border-white/10 rounded p-3 bg-black/60">
-            <div className="flex items-center justify-between mb-2">
-              <LiveBadge status={g.status} />
-              <span className="text-[10px] text-white/40">{g.shortDetail}</span>
-            </div>
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-white">{g.awayTeam}</span>
-              <span className="text-[#88a8ff] font-mono font-bold">{g.awayScore}</span>
-            </div>
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-white">{g.homeTeam}</span>
-              <span className="text-[#88a8ff] font-mono font-bold">{g.homeScore}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function NILPanel() {
-  return (
-    <aside className="border border-[#1E90FF]/30 rounded-lg bg-gradient-to-b from-[#0a1628] to-black p-5 mb-8">
+    <div className="bg-black/60 border border-[#1E90FF]/20 rounded-xl p-4 mb-8">
       <div className="flex items-center justify-between mb-4">
-        <div>
-          <h3 className="text-sm font-bold tracking-widest uppercase text-[#1E90FF]">
-            AthlynX NIL Overlay · Men's Baseball
-          </h3>
-          <p className="text-[11px] text-white/50 mt-1">Top NIL valuations of players in the 2026 MCWS field.</p>
+        <div className="flex items-center gap-3">
+          <LivePulse />
+          <span className="text-xs font-black tracking-widest uppercase text-white/80">Scoreboard · Charles Schwab Field · Omaha</span>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-white/30">athlynx.ai</span>
+        <div className="flex items-center gap-3">
+          {updatedAt && (
+            <span className="text-[10px] text-white/30">
+              Updated {updatedAt.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" })} CT
+            </span>
+          )}
+          <button onClick={refetch} className="text-[10px] text-[#1E90FF]/60 hover:text-[#1E90FF] transition-colors">↻ REFRESH</button>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-        {MCWS_NIL.map((p) => (
-          <div key={`${p.name}-${p.team}`} className="border border-white/10 rounded p-3 bg-black/40 hover:border-[#1E90FF]/50 transition">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-sm font-semibold text-white">{p.name}</span>
-              <span className="text-[10px] font-bold tracking-widest uppercase text-[#1E90FF] bg-[#1E90FF]/10 px-1.5 py-0.5 rounded">
-                {p.tier}
-              </span>
+
+      {loading && (
+        <div className="text-xs text-white/30 italic animate-pulse">Connecting to ESPN live feed…</div>
+      )}
+      {error && !loading && (
+        <div className="text-xs text-white/40 italic">
+          Live scores appear at first pitch · June 13 at 1 PM CT · ESPN
+        </div>
+      )}
+      {!loading && !error && display.length === 0 && (
+        <div className="text-xs text-white/40 italic">No games on the wire right now — first pitch June 13 at 1 PM CT</div>
+      )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {display.map((g) => (
+          <div key={g.id} className="bg-black/40 border border-white/10 rounded-lg p-3 hover:border-[#1E90FF]/30 transition-colors">
+            <div className="flex items-center justify-between mb-2">
+              <StatusBadge status={g.status} />
+              <span className="text-[9px] text-white/30">{g.network}</span>
             </div>
-            <div className="text-xs text-white/60 mb-1">{p.team} · {p.position}</div>
-            <div className="text-[11px] text-white/50 leading-snug">{p.context}</div>
+            <div className="space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-white">{g.awayTeam}</span>
+                <span className="text-sm font-black text-white">{g.awayScore}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-white">{g.homeTeam}</span>
+                <span className="text-sm font-black text-white">{g.homeScore}</span>
+              </div>
+            </div>
+            <div className="mt-2 text-[9px] text-white/30">{g.shortDetail}</div>
           </div>
         ))}
       </div>
-      <p className="text-[10px] text-white/40 mt-4 italic leading-snug">
-        NIL valuations are public estimates from On3, RallyFuel, and SportsGrid — not disclosed contracts.
-      </p>
-    </aside>
-  );
-}
-
-function BracketCard({ team }: { team: MCWSTeam }) {
-  return (
-    <div className="border border-white/10 rounded-lg bg-black/40 p-4 hover:border-[#1E90FF]/50 transition">
-      <div className="flex items-baseline justify-between mb-1">
-        <span className="text-base font-bold text-white">{team.name}</span>
-        {team.natlSeed && (
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#1E90FF]">
-            Nat'l #{team.natlSeed}
-          </span>
-        )}
-      </div>
-      <div className="text-xs text-white/50 font-mono mb-2">{team.record}</div>
-      {team.status && (
-        <div className="text-[11px] text-[#88a8ff] leading-snug">{team.status}</div>
-      )}
     </div>
   );
 }
 
-function ScheduleCard({ game }: { game: MCWSGame }) {
-  return (
-    <div className={`border rounded-lg p-3 transition ${
-      game.isToday
-        ? "border-[#1E90FF] bg-[#1E90FF]/5 shadow-[0_0_24px_-4px_rgba(30,144,255,0.5)]"
-        : "border-white/10 bg-black/40 hover:border-[#1E90FF]/40"
-    }`}>
-      <div className="flex items-baseline justify-between mb-1">
-        <span className="text-[10px] font-bold tracking-widest uppercase text-[#88a8ff]">
-          Game {game.game} · {game.date}
-        </span>
-        <span className="text-[10px] text-white/40">{game.network}</span>
-      </div>
-      <div className="text-sm text-white mb-1">{game.matchup}</div>
-      {game.result ? (
-        <div className="text-[11px] font-mono text-[#88a8ff]">{game.result}</div>
-      ) : (
-        <div className="text-[11px] text-white/50">{game.ctTime}</div>
-      )}
-      {game.isToday && (
-        <div className="mt-1">
-          <span className="text-[10px] font-bold tracking-widest uppercase text-white bg-[#1E90FF] px-1.5 py-0.5 rounded animate-pulse">TODAY</span>
+// ── Bracket Tree ────────────────────────────────────────────────────────────
+
+function BracketView({ onTeamClick }: { onTeamClick: (id: string) => void }) {
+  const bracket1 = TEAMS.filter((t) => t.bracket === "bracket1");
+  const bracket2 = TEAMS.filter((t) => t.bracket === "bracket2");
+
+  const BracketTeam = ({ team }: { team: Team }) => (
+    <button
+      onClick={() => onTeamClick(team.id)}
+      className="w-full flex items-center justify-between bg-black/40 border border-white/10 rounded-lg px-3 py-2 hover:border-[#1E90FF]/50 hover:bg-[#1E90FF]/5 transition-all group"
+    >
+      <div className="flex items-center gap-2">
+        <div className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-black text-white/60 border border-white/20">
+          {team.natlSeed ?? "—"}
         </div>
-      )}
+        <span className="text-xs font-bold text-white group-hover:text-[#1E90FF] transition-colors">{team.shortName}</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-[10px] text-white/40">{team.record}</span>
+        <span className="text-[9px] text-[#1E90FF]/60 group-hover:text-[#1E90FF] transition-colors">→</span>
+      </div>
+    </button>
+  );
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      {[{ label: "BRACKET 1", teams: bracket1, games: BRACKET_MATCHUPS.filter(m => m.bracket === "bracket1") },
+        { label: "BRACKET 2", teams: bracket2, games: BRACKET_MATCHUPS.filter(m => m.bracket === "bracket2") }].map(({ label, teams, games }) => (
+        <div key={label} className="bg-black/40 border border-white/10 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-[10px] font-black tracking-widest uppercase text-[#1E90FF]/70">{label}</span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+          <div className="space-y-2 mb-5">
+            {teams.map((t) => <BracketTeam key={t.id} team={t} />)}
+          </div>
+          <div className="space-y-2">
+            {games.map((g) => (
+              <div key={g.game} className="bg-black/30 border border-white/5 rounded-lg px-3 py-2">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[9px] font-black tracking-widest uppercase text-white/30">GAME {g.game}</span>
+                  <span className="text-[9px] text-[#1E90FF]/60">{g.network}</span>
+                </div>
+                <div className="text-xs font-bold text-white/80">{g.team1} <span className="text-white/30">vs</span> {g.team2}</div>
+                <div className="text-[9px] text-white/40 mt-0.5">{g.date} · {g.time}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-// 
-// Main page
-// 
+// ── Team Card (Expanded) ────────────────────────────────────────────────────
 
-export default function Brackets() {
-  const bracket1 = MCWS_TEAMS.filter((t) => t.bracket === "bracket1");
-  const bracket2 = MCWS_TEAMS.filter((t) => t.bracket === "bracket2");
+function TeamCard({ team, onClose }: { team: Team; onClose: () => void }) {
+  const [activeTab, setActiveTab] = useState<"story" | "players" | "fanbase" | "podcast">("story");
 
-  useEffect(() => {
-    document.title = "MCWS 2026 — Live Bracket · Omaha · AthlynX";
-  }, []);
+  const tabs = [
+    { id: "story" as const, label: "STORY" },
+    { id: "players" as const, label: "PLAYERS" },
+    { id: "fanbase" as const, label: "FAN BASE" },
+    { id: "podcast" as const, label: "PODCAST" },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-[#0a1628] to-black text-white">
-      <div className="max-w-6xl mx-auto px-5 py-10">
-
-        {/* Brand strip */}
-        <div className="flex items-center justify-between mb-8">
-          <Link href="/">
-            <a className="flex items-center gap-3 group">
-              <img
-                src="/athlynx-app-icon.png"
-                alt="AthlynX"
-                className="w-10 h-10 rounded-lg ring-1 ring-[#1E90FF]/40 group-hover:ring-[#1E90FF] transition"
-              />
-              <div>
-                <div className="text-sm font-bold tracking-widest text-white">Athlyn<span className="text-[#1E90FF]">X</span></div>
-                <div className="text-[10px] uppercase tracking-[0.22em] text-[#1E90FF]">The Athlete's Playbook</div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={onClose}>
+      <div
+        className="relative w-full max-w-2xl bg-[#0a0a0f] border border-white/20 rounded-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="relative p-6 pb-4" style={{ borderBottom: `1px solid ${team.color}30` }}>
+          <div className="absolute inset-0 opacity-5" style={{ background: `radial-gradient(ellipse at top left, ${team.color}, transparent)` }} />
+          <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white text-xl transition-colors">✕</button>
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black" style={{ background: `${team.color}20`, border: `1px solid ${team.color}40`, color: team.color }}>
+              {team.shortName[0]}
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                {team.natlSeed && <span className="text-[9px] font-black tracking-widest uppercase text-white/40 bg-white/10 px-2 py-0.5 rounded-full">#{team.natlSeed} NATIONAL SEED</span>}
+                <span className="text-[9px] font-black tracking-widest uppercase text-white/30 bg-white/5 px-2 py-0.5 rounded-full">{team.conference}</span>
               </div>
+              <h2 className="text-xl font-black text-white">{team.name}</h2>
+              <div className="flex items-center gap-3 mt-1">
+                <span className="text-sm text-white/60">{team.record}</span>
+                <span className="text-white/20">·</span>
+                <span className="text-sm text-white/60">{team.coach}</span>
+                <span className="text-white/20">·</span>
+                <span className="text-sm text-white/60">{team.stadium}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex border-b border-white/10">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-1 py-3 text-[10px] font-black tracking-widest uppercase transition-colors ${
+                activeTab === tab.id
+                  ? "text-[#1E90FF] border-b-2 border-[#1E90FF]"
+                  : "text-white/30 hover:text-white/60"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <div className="p-6">
+          {activeTab === "story" && (
+            <div className="space-y-4">
+              <p className="text-sm text-white/80 leading-relaxed">{team.story}</p>
+              <div className="bg-black/40 border border-white/10 rounded-xl p-4">
+                <div className="text-[9px] font-black tracking-widest uppercase text-white/30 mb-2">COACHING STAFF</div>
+                <div className="text-sm font-bold text-white">{team.coach}</div>
+                <div className="text-xs text-white/50">{team.coachYears}</div>
+              </div>
+              <a
+                href={`https://www.youtube.com/results?search_query=${encodeURIComponent(team.youtubeQuery)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-red-600/10 border border-red-600/20 rounded-xl p-4 hover:bg-red-600/20 transition-colors group"
+              >
+                <span className="text-red-500 text-lg">▶</span>
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-red-400 transition-colors">Watch Highlights on YouTube</div>
+                  <div className="text-[9px] text-white/30">{team.youtubeQuery}</div>
+                </div>
+              </a>
+            </div>
+          )}
+
+          {activeTab === "players" && (
+            <div className="space-y-3">
+              {team.players.map((p) => (
+                <div key={p.name} className="bg-black/40 border border-white/10 rounded-xl p-4 hover:border-[#1E90FF]/20 transition-colors">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <div className="text-sm font-black text-white">{p.name}</div>
+                      <div className="text-[10px] text-white/40">{p.position} · {p.year}</div>
+                    </div>
+                    <NILBadge tier={p.nilTier} />
+                  </div>
+                  <div className="text-xs text-white/60">{p.stat}</div>
+                  {p.draftStatus && (
+                    <div className="mt-2 text-[9px] font-bold text-[#1E90FF]/70 bg-[#1E90FF]/5 border border-[#1E90FF]/10 rounded-lg px-2 py-1">
+                      🎯 {p.draftStatus}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <Link href="/nil-portal">
+                <a className="block text-center text-[10px] font-black tracking-widest uppercase text-[#1E90FF]/60 hover:text-[#1E90FF] transition-colors py-3 border border-[#1E90FF]/10 rounded-xl hover:border-[#1E90FF]/30">
+                  → VIEW NIL PORTAL FOR ALL ATHLETES
+                </a>
+              </Link>
+            </div>
+          )}
+
+          {activeTab === "fanbase" && (
+            <div className="space-y-4">
+              <div className="text-center py-4">
+                <div className="text-2xl font-black tracking-widest text-white mb-1" style={{ color: team.color }}>{team.fanChant}</div>
+                <div className="text-xs text-white/40 font-bold tracking-widest uppercase">{team.fanBase}</div>
+              </div>
+              <p className="text-sm text-white/70 leading-relaxed">{team.fanIdentity}</p>
+              <div className="bg-black/40 border border-white/10 rounded-xl p-4">
+                <div className="text-[9px] font-black tracking-widest uppercase text-white/30 mb-2">HOME VENUE</div>
+                <div className="text-sm font-bold text-white">{team.stadium}</div>
+                <div className="text-xs text-white/50">{team.city}</div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "podcast" && (
+            <div className="space-y-4">
+              <div className="bg-[#1E90FF]/5 border border-[#1E90FF]/20 rounded-xl p-5">
+                <div className="text-[9px] font-black tracking-widest uppercase text-[#1E90FF]/60 mb-3">🎙 ATHLYNXAI PODCAST ANGLE</div>
+                <p className="text-sm text-white/80 leading-relaxed font-medium">"{team.podcastAngle}"</p>
+              </div>
+              <div className="bg-black/40 border border-white/10 rounded-xl p-4">
+                <div className="text-[9px] font-black tracking-widest uppercase text-white/30 mb-2">CONNECT WITH THIS STORY</div>
+                <p className="text-xs text-white/50 leading-relaxed">
+                  AthlynXAI OS connects athletes, coaches, and fans through their stories — not just their stats. 
+                  The journey from youth to pro is what we broadcast.
+                </p>
+              </div>
+              <Link href="/create-profile">
+                <a className="block text-center bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white text-xs font-black tracking-widest uppercase py-3 rounded-xl transition-colors">
+                  CREATE YOUR ATHLETE PROFILE → FREE
+                </a>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Team Grid ───────────────────────────────────────────────────────────────
+
+function TeamGrid({ onTeamClick }: { onTeamClick: (id: string) => void }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      {TEAMS.map((team) => (
+        <button
+          key={team.id}
+          onClick={() => onTeamClick(team.id)}
+          className="group bg-black/40 border border-white/10 rounded-xl p-4 text-left hover:border-[#1E90FF]/40 hover:bg-[#1E90FF]/5 transition-all"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black" style={{ background: `${team.color}20`, border: `1px solid ${team.color}40`, color: team.color }}>
+              {team.shortName[0]}
+            </div>
+            <div className="flex items-center gap-1">
+              {team.natlSeed && (
+                <span className="text-[9px] font-black text-white/30 bg-white/5 px-1.5 py-0.5 rounded">#{team.natlSeed}</span>
+              )}
+              <span className="text-[9px] font-black text-white/20 bg-white/5 px-1.5 py-0.5 rounded">{team.conference}</span>
+            </div>
+          </div>
+          <div className="text-sm font-black text-white group-hover:text-[#1E90FF] transition-colors mb-1">{team.shortName}</div>
+          <div className="text-[10px] text-white/40 mb-2">{team.record} · {team.coach}</div>
+          <div className="text-[9px] text-white/30 leading-relaxed line-clamp-2">{team.story.split(".")[0]}.</div>
+          <div className="mt-3 text-[9px] font-black tracking-widest uppercase text-[#1E90FF]/40 group-hover:text-[#1E90FF]/70 transition-colors">
+            TAP FOR FULL BREAKDOWN →
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ── Subscribe Banner ────────────────────────────────────────────────────────
+
+function SubscribeBanner() {
+  return (
+    <div className="relative overflow-hidden bg-gradient-to-r from-[#1E90FF]/10 via-black/60 to-[#1E90FF]/5 border border-[#1E90FF]/20 rounded-2xl p-8 mb-8 text-center">
+      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(ellipse_at_center,_#1E90FF,_transparent)]" />
+      <div className="relative">
+        <div className="text-[10px] font-black tracking-widest uppercase text-[#1E90FF]/60 mb-3">ATHLYNXAI OS · THE NETWORK</div>
+        <h3 className="text-2xl font-black text-white mb-2">
+          "The people crazy enough to think they can change the world<br />
+          <span className="text-[#1E90FF]">are the ones who actually do."</span>
+        </h3>
+        <p className="text-sm text-white/50 mb-6 max-w-xl mx-auto">
+          AthlynXAI OS is the first AI-native sports network. Live scores. Live brackets. Every athlete. Every journey. From youth to pro to retirement. Fair and balanced. Men. Women. Every sport.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Link href="/create-profile">
+            <a className="bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white text-xs font-black tracking-widest uppercase px-8 py-3 rounded-xl transition-colors">
+              CREATE FREE PROFILE · 30 SECONDS
             </a>
           </Link>
-          <div className="text-[10px] uppercase tracking-widest text-white/40">athlynx.ai/brackets</div>
+          <Link href="/subscribe">
+            <a className="border border-[#1E90FF]/30 hover:border-[#1E90FF] text-[#1E90FF] text-xs font-black tracking-widest uppercase px-8 py-3 rounded-xl transition-colors">
+              ATHLYNXAI OS PRO →
+            </a>
+          </Link>
         </div>
-
-        {/* Hero */}
-        <header className="mb-8">
-          <div className="text-[11px] uppercase tracking-[0.22em] text-[#1E90FF] mb-2">
-            2026 NCAA Division I Baseball Championship · Charles Schwab Field · Omaha, Nebraska
-          </div>
-          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-2">
-            MEN'S COLLEGE WORLD SERIES
-          </h1>
-          <div className="text-base md:text-xl font-bold text-[#00C2FF] tracking-tight mb-3">
-            8 Teams · Omaha · June 12–22, 2026
-          </div>
-          <p className="text-sm text-white/60 max-w-2xl leading-relaxed">
-            The field is set. Eight teams have earned their spot at Charles Schwab Field in Omaha. 
-            Double-elimination format through the semifinals. Championship Finals best-of-three June 20–22.
-            Live scores auto-refresh every 60 seconds during game windows.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-4">
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-3 py-1.5 rounded">ROAD TO OMAHA</span>
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-[#1E90FF] border border-[#1E90FF] px-3 py-1.5 rounded">79TH MCWS</span>
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white/60 border border-white/20 px-3 py-1.5 rounded">OPENS JUNE 12</span>
-          </div>
-        </header>
-
-        {/* Live Scoreboard */}
-        <LiveScoreStrip />
-
-        {/* NIL Overlay */}
-        <NILPanel />
-
-        {/* Bracket 1 */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded">BRACKET 1</span>
-            <h2 className="text-lg font-bold text-white tracking-tight">North Carolina · West Virginia · Ole Miss · Troy</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-            {bracket1.map((t) => <BracketCard key={t.name} team={t} />)}
-          </div>
-          <div className="border border-white/10 rounded-lg bg-black/30 p-4 text-sm text-white/60">
-            <span className="text-[#1E90FF] font-semibold">Bracket 1 Opening Games:</span>{" "}
-            Fri Jun 12 — #16 West Virginia vs Troy (1 PM CT, ESPN) · #5 North Carolina vs Ole Miss (6 PM CT, ESPN)
-          </div>
+        <div className="mt-4 text-[9px] text-white/20 tracking-widest uppercase">
+          Powered by Nebius H200 NVIDIA · Full AI Automation · Fair Pricing
         </div>
-
-        {/* Bracket 2 */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded">BRACKET 2</span>
-            <h2 className="text-lg font-bold text-white tracking-tight">Georgia · Texas · Alabama · Oklahoma</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-            {bracket2.map((t) => <BracketCard key={t.name} team={t} />)}
-          </div>
-          <div className="border border-white/10 rounded-lg bg-black/30 p-4 text-sm text-white/60">
-            <span className="text-[#1E90FF] font-semibold">Bracket 2 Opening Games:</span>{" "}
-            Sat Jun 13 — Alabama/St. John's vs Kansas/Oklahoma (2 PM CT, ESPN) · #3 Georgia vs #6 Texas (7 PM CT, ESPN)
-          </div>
-        </div>
-
-        {/* Full Schedule */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded">FULL SCHEDULE</span>
-            <h2 className="text-lg font-bold text-white tracking-tight">June 12–22 · All Times CT · ESPN/ABC</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {MCWS_SCHEDULE.map((g) => <ScheduleCard key={g.game} game={g} />)}
-          </div>
-        </div>
-
-        {/* Live Regional Scoreboard component */}
-        <LiveRegionalScoreboard sport="baseball" />
-
-        {/* Bracket Tree */}
-        <RegionalBracketTree sport="baseball" />
-
-        {/* Live Highlights */}
-        <div className="mt-10">
-          <LiveHighlightsFeed mode="mcws" compact />
-        </div>
-
-        {/* Championship Finals callout */}
-        <div className="border border-[#1E90FF]/40 rounded-lg bg-gradient-to-br from-[#0a1628] via-black to-black p-6 my-10">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-[10px] font-black tracking-[0.22em] uppercase text-white bg-[#1E90FF] px-2 py-1 rounded">CHAMPIONSHIP FINALS</span>
-            <h3 className="text-sm font-bold tracking-widest uppercase text-[#88a8ff]">Best of Three · June 20–22</h3>
-          </div>
-          <p className="text-sm text-white/60 leading-relaxed">
-            The winners of Bracket 1 and Bracket 2 meet in a best-of-three Championship Series.
-            Game 1: Saturday June 20 at 7 PM CT on ESPN.
-            Game 2: Sunday June 21 at 1:30 PM CT on ABC.
-            Game 3 (if necessary): Monday June 22 at 6 PM CT on ESPN.
-          </p>
-        </div>
-
-        {/* Footer */}
-        <footer className="border-t border-white/10 pt-6 mt-12 text-center">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#1E90FF] mb-1">
-            ATHLYNX · THE ATHLETE'S PLAYBOOK
-          </p>
-          <p className="text-[11px] text-white/50 mb-3">One identity. Every athlete. Every platform.</p>
-          <div className="flex justify-center gap-4 text-[10px] text-white/30 uppercase tracking-widest">
-            <Link href="/"><a className="hover:text-white transition">Home</a></Link>
-            <Link href="/sports"><a className="hover:text-white transition">All Sports</a></Link>
-            <Link href="/nil"><a className="hover:text-white transition">NIL</a></Link>
-            <Link href="/recruiting"><a className="hover:text-white transition">Recruiting</a></Link>
-          </div>
-        </footer>
       </div>
     </div>
+  );
+}
+
+// ── WCWS Champions Banner ───────────────────────────────────────────────────
+
+function WCWSChampionsBanner() {
+  return (
+    <div className="bg-gradient-to-r from-[#BF5700]/10 via-black/60 to-[#BF5700]/5 border border-[#BF5700]/30 rounded-xl px-5 py-4 mb-6 flex items-center justify-between flex-wrap gap-3">
+      <div className="flex items-center gap-3">
+        <span className="text-2xl">🏆</span>
+        <div>
+          <div className="text-[9px] font-black tracking-widest uppercase text-[#BF5700]/70">WCWS 2026 · DEVON PARK · OKC · COMPLETE</div>
+          <div className="text-sm font-black text-white">Texas Longhorns · Back-to-Back National Champions · 2025 & 2026</div>
+        </div>
+      </div>
+      <div className="text-[10px] font-black tracking-widest uppercase text-white/30">
+        HOOK 'EM HORNS · CONGRATULATIONS
+      </div>
+    </div>
+  );
+}
+
+// ── Main Page ───────────────────────────────────────────────────────────────
+
+export default function Brackets() {
+  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+  const [activeView, setActiveView] = useState<"bracket" | "teams">("bracket");
+
+  const handleTeamClick = (id: string) => {
+    const team = TEAMS.find((t) => t.id === id);
+    if (team) setSelectedTeam(team);
+  };
+
+  return (
+    <AthletePageBackground>
+      <div className="min-h-screen text-white">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+
+          {/* Network Header */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <LivePulse />
+              <span className="text-[10px] font-black tracking-widest uppercase text-white/40">ATHLYNXAI OS · SPORTS NETWORK · LIVE BROADCAST</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-2">
+              ROAD TO <span className="text-[#1E90FF]">OMAHA</span>
+            </h1>
+            <div className="text-sm font-black tracking-widest uppercase text-white/40 mb-1">
+              THE GREATEST SHOW ON GRASS
+            </div>
+            <div className="text-xs text-white/30">
+              2026 Men's College World Series · Charles Schwab Field · Omaha, Nebraska · June 13–22
+            </div>
+            <div className="flex items-center justify-center gap-4 mt-3 text-[10px] font-black tracking-widest uppercase text-white/30">
+              <span>8 TEAMS</span>
+              <span className="text-white/10">·</span>
+              <span>1 CHAMPION</span>
+              <span className="text-white/10">·</span>
+              <span>ESPN · ABC</span>
+              <span className="text-white/10">·</span>
+              <span>JUNE 13–22</span>
+            </div>
+          </div>
+
+          {/* WCWS Champions */}
+          <WCWSChampionsBanner />
+
+          {/* Live Scores */}
+          <LiveScoreStrip />
+
+          {/* View Toggle */}
+          <div className="flex items-center gap-2 mb-6">
+            {[{ id: "bracket" as const, label: "BRACKET VIEW" }, { id: "teams" as const, label: "TEAM BREAKDOWN" }].map((v) => (
+              <button
+                key={v.id}
+                onClick={() => setActiveView(v.id)}
+                className={`text-[10px] font-black tracking-widest uppercase px-4 py-2 rounded-lg transition-colors ${
+                  activeView === v.id
+                    ? "bg-[#1E90FF] text-white"
+                    : "bg-white/5 text-white/40 hover:text-white/70 hover:bg-white/10"
+                }`}
+              >
+                {v.label}
+              </button>
+            ))}
+            <div className="flex-1" />
+            <a
+              href="https://www.espn.com/college-sports/baseball/ncaa/bracket"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] font-black tracking-widest uppercase text-[#1E90FF]/50 hover:text-[#1E90FF] transition-colors"
+            >
+              FULL NCAA BRACKET ↗
+            </a>
+          </div>
+
+          {/* Bracket or Team Grid */}
+          {activeView === "bracket" ? (
+            <BracketView onTeamClick={handleTeamClick} />
+          ) : (
+            <TeamGrid onTeamClick={handleTeamClick} />
+          )}
+
+          {/* Subscribe Banner */}
+          <SubscribeBanner />
+
+          {/* Bottom Nav */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] font-black tracking-widest uppercase text-white/20 pt-4 border-t border-white/5">
+            <Link href="/"><a className="hover:text-[#1E90FF] transition-colors">← BACK TO OS</a></Link>
+            <span className="text-white/10">·</span>
+            <Link href="/nil-portal"><a className="hover:text-[#1E90FF] transition-colors">NIL PORTAL</a></Link>
+            <span className="text-white/10">·</span>
+            <Link href="/create-profile"><a className="hover:text-[#1E90FF] transition-colors">CREATE PROFILE</a></Link>
+            <span className="text-white/10">·</span>
+            <a href="https://www.espn.com/college-sports/baseball/ncaa/bracket" target="_blank" rel="noopener noreferrer" className="hover:text-[#1E90FF] transition-colors">NCAA BRACKET ↗</a>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Team Modal */}
+      {selectedTeam && (
+        <TeamCard team={selectedTeam} onClose={() => setSelectedTeam(null)} />
+      )}
+    </AthletePageBackground>
   );
 }
