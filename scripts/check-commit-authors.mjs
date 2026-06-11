@@ -41,9 +41,13 @@ import { readFileSync } from "node:fs";
 // GitHub noreply uses the user ID + login format because the Owner's canonical
 // GitHub login is 'AthlyXAI' (user id 251627004), not 'chaddozier75'. The
 // latter is the local-part of the verified primary email, not a GitHub username.
+// chad.dozier@icloud.com is Chad's Apple ID / iCloud email; commits authored
+// from Apple devices (Xcode, GitHub mobile on iOS) may carry this identity.
+// Added 2026-06-11 per standing doctrine (AGENTS.md §Identity).
 const OWNER_EMAILS = new Set([
   "chaddozier75@gmail.com",
   "cdozier14@athlynx.ai",
+  "chad.dozier@icloud.com",
   "251627004+athlyxai@users.noreply.github.com",
 ]);
 const MANUS_EMAIL = "manus-ai-bot@athlynx.ai";
