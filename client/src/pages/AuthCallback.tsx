@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'wouter'
-import { handleRedirectResult } from '@/lib/firebase'
+import { handleRedirectResult } from '@/lib/okta'
 import { trpc } from '@/lib/trpc'
 import { RouteErrorBoundary } from '@/components/GlobalErrorBoundary'
 
 /**
- * AthlynXAI — Auth Callback Handler
- * Handles both:
- * 1. Supabase OAuth redirect result (after Google/Apple/Twitter sign-in)
- * 2. Server OAuth callback (desktop)
+ * AthlynXAI — Auth0 PKCE Callback Handler
+ * Exchanges the Auth0 authorization code for tokens via PKCE,
+ * then calls syncFirebaseUser to upsert the user and set the session cookie.
  */
 function AuthCallbackInner() {
   const [, setLocation] = useLocation()
@@ -55,28 +54,22 @@ function AuthCallbackInner() {
 
     async function handleCallback() {
       try {
-        // Try to get Supabase OAuth redirect result
+        // Exchange Auth0 PKCE code for tokens
         const result = await handleRedirectResult()
-        if (result) {
+        if (result && result.idToken) {
           setStatus('Completing sign-in...')
-          // Extract phone_number from ID token claims if present
-          let phone: string | undefined
-          try {
-            const tokenPayload = JSON.parse(atob(result.idToken.split('.')[1]))
-            phone = tokenPayload?.phone_number || tokenPayload?.phone || undefined
-          } catch { /* non-critical */ }
           await doSync({
             idToken: result.idToken,
             name: result.user.displayName ?? '',
             email: result.user.email ?? '',
             picture: result.user.photoURL ?? undefined,
-            phone,
           })
           return
         }
-        // No redirect result — server OAuth already set cookie. Send to /welcome
-        // for the unified two-door handoff (Manus spec 01-Welcome-Screen).
-        setLocation('/welcome')
+        // No Auth0 result — redirect to /signin
+        console.error('[AuthCallback] No Auth0 result')
+        setStatus('Sign-in failed. Redirecting...')
+        setTimeout(() => { setLocation('/signin') }, 1500)
       } catch (err: any) {
         if (err?.message?.includes('Redirecting')) return
         setStatus('Sign-in error. Redirecting...')

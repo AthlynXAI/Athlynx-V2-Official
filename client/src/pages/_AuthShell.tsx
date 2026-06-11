@@ -5,12 +5,13 @@ import {
   signInWithGoogle,
   signInWithApple,
   signInWithFacebook,
+  loginWithRedirect,
   isFirebaseConfigured,
-} from "@/lib/firebase";
+} from "@/lib/okta";
 import { captureGrowthAttribution, getGrowthAttribution } from "@/lib/growthTracking";
 
-// Build 2 — social-first auth shell used by SignIn.tsx and SignUp.tsx.
-// Apple, Google, Facebook, Email only. Instagram/TikTok handles are captured as signup metadata until OAuth review is complete.
+// Build 2 — Auth0 PKCE auth shell used by SignIn.tsx and SignUp.tsx.
+// All social and email flows redirect to Auth0 Universal Login via PKCE.
 
 const COLORS = {
   base: "#0A1628",
@@ -129,26 +130,13 @@ export function AuthShell({ mode }: { mode: Mode }) {
     trackGrowth("signup_social_started", { provider, ...socialHandleMetadata() });
     setBusy(provider);
     try {
-      const result = provider === "google"
-        ? await signInWithGoogle()
-        : provider === "apple"
-          ? await signInWithApple()
-          : await signInWithFacebook();
-      // OAuth redirect flow: signInWithOAuth triggers a browser redirect.
-      // idToken is empty at this point — the real token comes back via /auth/callback.
-      // AuthCallback.tsx handles the token exchange and session creation.
-      // Do NOT call syncFirebaseMutation here with an empty token.
-      if (!result.idToken) {
-        // Browser is already navigating to the OAuth provider — just wait.
-        return;
-      }
-      syncFirebaseMutation.mutate({
-        idToken: result.idToken,
-        name: result.user.displayName ?? "",
-        email: result.user.email ?? "",
-        picture: result.user.photoURL ?? undefined,
-        attribution: getGrowthAttribution({ provider, ...socialHandleMetadata() }),
-      });
+      // Auth0 PKCE: all social flows trigger a full-page redirect.
+      // The result comes back at /auth/callback — AuthCallback.tsx handles token exchange.
+      if (provider === "google") await signInWithGoogle();
+      else if (provider === "apple") await signInWithApple();
+      else await signInWithFacebook();
+      // Browser is already navigating — no further action needed here.
+      return;
     } catch (err: any) {
       const msg = err?.message ?? "";
       if (msg.includes("popup-closed") || msg.includes("cancelled") || msg.includes("popup_closed")) {
@@ -317,9 +305,10 @@ export function AuthShell({ mode }: { mode: Mode }) {
             {mode === "signup" && <SocialHandleFields instagramHandle={instagramHandle} setInstagramHandle={setInstagramHandle} tiktokHandle={tiktokHandle} setTiktokHandle={setTiktokHandle} />}
             <button
               type="button"
-              onClick={() => {
+              onClick={async () => {
                 trackGrowth("landing_signup_cta_click", { cta: "continue_with_email", ...socialHandleMetadata() });
-                setView("email");
+                // Auth0: redirect to Universal Login email screen
+                await loginWithRedirect();
               }}
               disabled={!!busy}
               style={doorButtonStyle(COLORS.blue, COLORS.white, "none")}

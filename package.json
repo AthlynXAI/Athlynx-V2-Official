@@ -20,6 +20,8 @@
     "connector-health:sweep:julia": "julia scripts/connector_health_sweep.jl"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.54.0",
+    "@auth0/auth0-spa-js": "^2.21.1",
     "@aws-sdk/client-s3": "^3.693.0",
     "@aws-sdk/client-ses": "^3.1032.0",
     "@aws-sdk/client-sns": "^3.1040.0",
@@ -59,7 +61,6 @@
     "@stripe/stripe-js": "^9.4.0",
     "@supabase/supabase-js": "^2.105.3",
     "@tanstack/react-query": "^5.100.9",
-    "html-to-image": "^1.11.13",
     "@trpc/client": "^11.17.0",
     "@trpc/react-query": "^11.17.0",
     "@trpc/server": "^11.17.0",
@@ -83,6 +84,7 @@
     "embla-carousel-react": "^8.6.0",
     "express": "^5.2.1",
     "framer-motion": "^12.38.0",
+    "html-to-image": "^1.11.13",
     "input-otp": "^1.4.2",
     "jose": "6.1.0",
     "lucide-react": "^1.14.0",
@@ -91,7 +93,6 @@
     "next-themes": "^0.4.6",
     "node-cron": "^4.2.1",
     "nodemailer": "^8.0.5",
-    "@anthropic-ai/sdk": "^0.54.0",
     "openai": "^6.36.0",
     "pg": "^8.20.0",
     "postgres": "^3.4.9",
