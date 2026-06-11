@@ -24,27 +24,27 @@ function getSeasonalSlots(now: Date): SeasonalSlot[] {
 
   const slots: SeasonalSlot[] = [];
 
-  //  BASEBALL / SOFTBALL POSTSEASON (mid-May → late June) 
+  //  BASEBALL POSTSEASON (mid-May → late June)
+  //  WCWS ended June 5 — Texas wins back-to-back. Removed from strip.
+  //  MCWS: Regionals done, Supers done, 8 teams in Omaha June 13-24.
   const inBaseballPostseason = (month === 4 && day >= 15) || month === 5 || (month === 6 && day <= 5);
   if (inBaseballPostseason) {
-    // MCWS — Regionals begin May 29, Supers June 5-8, Omaha June 13-24
+    // MCWS CWS in Omaha — June 13-24
     if ((month === 4 && day >= 29) || (month === 5 && day <= 24)) {
+      const isCWSLive = month === 5 && day >= 13;
+      const isSupers = month === 5 && day >= 6 && day <= 12;
       slots.push({
         label: "MCWS · MEN",
-        subLabel: "Road to Omaha — Regionals → Supers → CWS",
+        subLabel: isCWSLive
+          ? "College World Series · Omaha — 8 Teams · Live"
+          : isSupers
+          ? "Super Regionals → Road to Omaha"
+          : "Road to Omaha — Regionals Underway",
         href: "/brackets/mcws",
-        status: month === 5 && day >= 13 ? "LIVE" : (month === 4 && day === 29 ? "LIVE" : "THIS WEEK"),
-        accentNote: "16 regionals · 64 teams · live ESPN scores",
-      });
-    }
-    // WCWS — Devon Park, May 28 → June 5
-    if ((month === 4 && day >= 28) || (month === 5 && day <= 5)) {
-      slots.push({
-        label: "WCWS · WOMEN",
-        subLabel: "Oklahoma City — Devon Park",
-        href: "/brackets/wcws",
-        status: "LIVE",
-        accentNote: "8 teams · double-elimination · ESPN",
+        status: isCWSLive ? "LIVE" : "THIS WEEK",
+        accentNote: isCWSLive
+          ? "8 teams · Charles Schwab Field · Jun 13–24 · ESPN"
+          : "64 teams → 8 · live ESPN scores",
       });
     }
   }
