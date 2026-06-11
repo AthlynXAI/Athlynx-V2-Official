@@ -1,14 +1,14 @@
 /**
  * Expo Config Plugin — Xcode 26 iOS build fixes.
  *
- * Fix 1: fmt C++17 (consteval error)
- *   Set CLANG_CXX_LANGUAGE_STANDARD = c++17 for the fmt pod inside post_install.
- *   Strategy: find "react_native_post_install(" call inside post_install and
- *   append our block right after the closing paren+newline of that call.
+ * Fix 1: fmt consteval error
+ *   fmt 11.0.2 sets FMT_USE_CONSTEVAL=1 when Clang >= 11.01 is detected.
+ *   Xcode 26's Apple Clang enforces stricter consteval rules.
+ *   Fix: Set GCC_PREPROCESSOR_DEFINITIONS += FMT_USE_CONSTEVAL=0 for the fmt pod.
+ *   This directly disables consteval in fmt without changing the C++ standard.
  *
  * Fix 2: jsinspector-modern/ReactCdp.h not found
- *   Add `pod 'React-jsinspector', :modular_headers => true` before the target block.
- *   This is required when useFrameworks: static is set.
+ *   Add pod 'React-jsinspector' with modular_headers => true before the target block.
  */
 const { withDangerousMod } = require('@expo/config-plugins');
 const fs = require('fs');
@@ -17,12 +17,19 @@ const path = require('path');
 const FMT_MARKER = '# [withCppFix:fmt]';
 const JSI_MARKER = '# [withCppFix:jsi]';
 
+// Use GCC_PREPROCESSOR_DEFINITIONS to set FMT_USE_CONSTEVAL=0
+// This is more reliable than changing CLANG_CXX_LANGUAGE_STANDARD
 const FMT_RUBY = `
-  ${FMT_MARKER} fmt C++17 fix for Xcode 26 consteval errors
+  ${FMT_MARKER} Disable fmt consteval for Xcode 26 compatibility
   installer.pods_project.targets.each do |target|
     if target.name == 'fmt'
       target.build_configurations.each do |config|
-        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
+        existing = config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] || ['$(inherited)']
+        existing = [existing] unless existing.is_a?(Array)
+        unless existing.include?('FMT_USE_CONSTEVAL=0')
+          existing << 'FMT_USE_CONSTEVAL=0'
+        end
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = existing
       end
     end
   end
@@ -45,23 +52,17 @@ const withCppFix = (config) => {
 
       let content = fs.readFileSync(podfilePath, 'utf-8');
 
-      // ── Fix 1: fmt C++17 ─────────────────────────────────────────────────
-      // Strategy: find the react_native_post_install(...) call and insert
-      // our Ruby block immediately after it (still inside post_install).
-      // This is robust regardless of indentation or surrounding structure.
+      // ── Fix 1: fmt consteval ─────────────────────────────────────────────
       if (content.includes(FMT_MARKER)) {
         console.log('[withCppFix] fmt fix already present.');
       } else {
-        // Match react_native_post_install(...) — may span multiple lines
-        // We look for the pattern and insert after the line that ends the call
-        const rnPostInstallRegex = /(\s*react_native_post_install\s*\([^)]*\))/;
+        // Insert after react_native_post_install(...) call
+        const rnPostInstallRegex = /(\s*react_native_post_install\s*\([^)]*\))/s;
         const match = rnPostInstallRegex.exec(content);
         if (match) {
-          const insertAfter = match[0];
-          content = content.replace(insertAfter, insertAfter + '\n' + FMT_RUBY);
-          console.log('[withCppFix] Inserted fmt C++17 fix after react_native_post_install.');
+          content = content.replace(match[0], match[0] + '\n' + FMT_RUBY);
+          console.log('[withCppFix] Inserted fmt FMT_USE_CONSTEVAL=0 fix after react_native_post_install.');
         } else {
-          // Fallback: append a new post_install block
           console.warn('[withCppFix] react_native_post_install not found — appending post_install block.');
           content += `\npost_install do |installer|\n${FMT_RUBY}end\n`;
         }
@@ -71,7 +72,6 @@ const withCppFix = (config) => {
       if (content.includes(JSI_MARKER)) {
         console.log('[withCppFix] jsinspector fix already present.');
       } else {
-        // Insert before the first `target '...' do` line
         const targetRegex = /^(target\s+['"][^'"]+['"]\s+do)/m;
         const targetMatch = targetRegex.exec(content);
         if (targetMatch) {
