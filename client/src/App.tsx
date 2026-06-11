@@ -310,7 +310,7 @@ function Router() {
   return (
     <Switch>
       {/*  Core  */}
-      <Route path="/" component={Home} />
+      <Route path="/" component={LandingPage} />
       <Route path="/sports" component={Sports} />
       <Route path="/all-sports-hub" component={AllSportsHub} />
       <Route path="/sports/:slug" component={AllSportsHub} />
