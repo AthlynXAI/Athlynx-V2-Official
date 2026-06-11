@@ -10,7 +10,7 @@ import { licenseAgreements, LicenseAgreement } from "../../drizzle/schema";
 import { eq, desc } from "drizzle-orm";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "", { apiVersion: "2026-05-27.dahlia" });
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "", { apiVersion: "2026-04-22.dahlia" });
 
 // Stripe price IDs for each licensing tier
 const LICENSE_PRICES: Record<string, string> = {

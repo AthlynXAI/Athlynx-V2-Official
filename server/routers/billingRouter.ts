@@ -38,7 +38,7 @@ function stripe(): Stripe {
       message: "STRIPE_SECRET_KEY is not configured.",
     });
   }
-  _stripe = new Stripe(key, { apiVersion: "2026-05-27.dahlia" as any });
+  _stripe = new Stripe(key, { apiVersion: "2026-04-22.dahlia" as any });
   return _stripe;
 }
 
