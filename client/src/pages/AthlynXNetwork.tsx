@@ -250,8 +250,8 @@ const INTEGRATIONS = [
   { name: "Twilio", icon: "📱", role: "SMS, WhatsApp, Voice", color: "bg-red-800" },
   { name: "Superhuman", icon: "✉️", role: "AI-powered email OS", color: "bg-blue-800" },
   { name: "Buffer", icon: "📅", role: "Social scheduling", color: "bg-sky-800" },
-  { name: "Zapier", icon: "⚡", role: "Workflow automation", color: "bg-orange-800" },
-  { name: "AWS", icon: "☁️", role: "S3, Lambda, SES", color: "bg-yellow-800" },
+  { name: "Zapier", icon: "⚡", role: "Workflow automation", color: "bg-blue-800" },
+  { name: "AWS", icon: "☁️", role: "S3, Lambda, SES", color: "bg-blue-700" },
   { name: "Shopify", icon: "🛍️", role: "E-commerce, gear, merch", color: "bg-green-800" },
   { name: "Google Workspace", icon: "🔵", role: "Docs, Drive, Calendar", color: "bg-indigo-800" },
 ];
@@ -273,7 +273,7 @@ const SOCIAL_LINKS = [
   { name: "Instagram", icon: "📸", url: "https://instagram.com/athlynxai", color: "bg-pink-700" },
   { name: "TikTok", icon: "🎬", url: "https://tiktok.com/@athlynxai", color: "bg-slate-800" },
   { name: "Apple Podcasts", icon: "🎙️", url: "https://podcasts.apple.com", color: "bg-purple-700" },
-  { name: "iHeart Radio", icon: "❤️", url: "https://iheart.com", color: "bg-orange-700" },
+  { name: "iHeart Radio", icon: "❤️", url: "https://iheart.com", color: "bg-blue-700" },
   { name: "X / Twitter", icon: "𝕏", url: "https://x.com/athlynxai", color: "bg-slate-900" },
   { name: "Pocket Casts", icon: "🎧", url: "https://pocketcasts.com", color: "bg-rose-700" },
 ];
@@ -713,7 +713,7 @@ function AthlynXNetworkInner() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mt-3 pt-3 border-t" style={{ borderColor: C.graniteL }}>
-                  {[{ icon: Video, label: "Highlight Reel", color: "text-red-400" }, { icon: Image, label: "Photo", color: "text-green-400" }, { icon: FileText, label: "Stats", color: "text-blue-400" }, { icon: DollarSign, label: "NIL Deal", color: "text-yellow-400" }].map(a => (
+                  {[{ icon: Video, label: "Highlight Reel", color: "text-red-400" }, { icon: Image, label: "Photo", color: "text-green-400" }, { icon: FileText, label: "Stats", color: "text-blue-400" }, { icon: DollarSign, label: "NIL Deal", color: "text-blue-400" }].map(a => (
                     <button key={a.label} className={`flex items-center gap-1.5 text-xs ${a.color} hover:opacity-80 transition-opacity flex-1 justify-center`}>
                       <a.icon className="w-4 h-4" /> <span className="hidden sm:inline">{a.label}</span>
                     </button>
@@ -723,7 +723,7 @@ function AthlynXNetworkInner() {
 
               {/* Feed Posts */}
               {FEED_POSTS.map(post => (
-                <FeedPostCard key={post.id} post={post} onLike={id => setLikedPosts(s => new Set([...s, id]))} onCredit={addCredits} />
+                <FeedPostCard key={post.id} post={post} onLike={id => setLikedPosts(s => new Set([...Array.from(s), id]))} onCredit={addCredits} />
               ))}
             </div>
 
@@ -1181,7 +1181,7 @@ function AthlynXNetworkInner() {
             {/* Subscription Tiers */}
             <section>
               <div className="flex items-center gap-2 mb-2">
-                <Crown className="w-5 h-5 text-yellow-400" />
+                <Crown className="w-5 h-5 text-blue-400" />
                 <h3 className="text-xl font-black text-white">Monthly Tiered Services — Reverse Funnel</h3>
               </div>
               <p className="text-sm mb-6" style={{ color: `${C.stadium}60` }}>Every tier feeds the next. Every athlete becomes recurring revenue. Non-stop. Automated. Chad is the only middleman.</p>
