@@ -1,35 +1,25 @@
 /**
- * Expo Config Plugin — Xcode 26 iOS build fix.
+ * Expo Config Plugin — Xcode 26 iOS build fixes.
  *
- * CONFIRMED FIX (expo/expo#44229, fmtlib/fmt#4740):
+ * FIX 1 — fmt consteval (CONFIRMED: expo/expo#44229, fmtlib/fmt#4740):
+ * Patches fmt/base.h directly inside Pods to set FMT_USE_CONSTEVAL=0.
+ * This is the ONLY approach that works — build settings can't override it.
  *
- * Problem: fmt 11.0.2 (bundled with RN 0.79) defines FMT_USE_CONSTEVAL=1
- * when it detects Apple Clang >= 14000029. Xcode 26's Apple Clang enforces
- * stricter consteval rules, causing "call to consteval function is not a
- * constant expression" errors.
- *
- * Root cause: FMT_USE_CONSTEVAL is hardcoded in fmt/base.h — it cannot be
- * overridden by build settings (CLANG_CXX_LANGUAGE_STANDARD or
- * GCC_PREPROCESSOR_DEFINITIONS) because the header is already included
- * before those settings take effect.
- *
- * Fix: Patch the actual fmt/base.h source file inside the Pods directory
- * during post_install, replacing "#define FMT_USE_CONSTEVAL 1" with
- * "#define FMT_USE_CONSTEVAL 0" for all Apple Clang versions.
- *
- * This is the ONLY approach confirmed to work by the community.
- * Source: https://github.com/expo/expo/issues/44229
- * Source: https://github.com/fmtlib/fmt/issues/4740
+ * FIX 2 — jsinspector-modern/ReactCdp.h not found:
+ * Adds `pod 'React-jsinspector', :modular_headers => true` to the target block.
+ * Required when using useFrameworks: static with RN 0.79+.
+ * Source: https://github.com/facebook/react-native/issues/50856
  */
 const { withDangerousMod } = require('@expo/config-plugins');
 const fs = require('fs');
 const path = require('path');
 
-const MARKER = '# [withCppFix] fmt base.h patch for Xcode 26';
+const FMT_MARKER = '# [withCppFix] fmt base.h patch for Xcode 26';
+const JSI_MARKER = '# [withCppFix] React-jsinspector modular_headers';
 
 // Ruby code injected into post_install — patches fmt/base.h directly
 const FMT_PATCH_RUBY = `
-  ${MARKER}
+  ${FMT_MARKER}
   fmt_base_h = File.join(installer.sandbox.pod_dir('fmt'), 'include', 'fmt', 'base.h')
   if File.exist?(fmt_base_h)
     content = File.read(fmt_base_h)
@@ -38,7 +28,7 @@ const FMT_PATCH_RUBY = `
       /^(#\\s*elif\\s+defined\\(__apple_build_version__\\)\\s*&&\\s*__apple_build_version__\\s*>=\\s*14000029L\\s*\\n#\\s*define\\s+FMT_USE_CONSTEVAL)\\s+1/,
       '\\\\1 0'
     )
-    # Also catch the simpler pattern if present
+    # Also catch the simpler single-line pattern if present
     patched = patched.gsub(
       /^(#\\s*define\\s+FMT_USE_CONSTEVAL)\\s+1(\\s*\\/\\/.*apple.*)?$/,
       '\\\\1 0\\\\2'
@@ -55,6 +45,10 @@ const FMT_PATCH_RUBY = `
   end
 `;
 
+// Pod line to insert before the target block closing end
+// Fixes: 'jsinspector-modern/ReactCdp.h' file not found with useFrameworks static
+const JSI_POD_LINE = `  ${JSI_MARKER}\n  pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector-modern', :modular_headers => true\n`;
+
 const withCppFix = (config) => {
   return withDangerousMod(config, [
     'ios',
@@ -68,23 +62,38 @@ const withCppFix = (config) => {
 
       let content = fs.readFileSync(podfilePath, 'utf-8');
 
-      if (content.includes(MARKER)) {
-        console.log('[withCppFix] fmt patch already present in Podfile.');
-        return config;
+      // --- FIX 1: fmt/base.h patch ---
+      if (!content.includes(FMT_MARKER)) {
+        const rnPostInstallRegex = /(react_native_post_install\s*\([^)]*\))/s;
+        const match = rnPostInstallRegex.exec(content);
+
+        if (match) {
+          content = content.replace(match[0], match[0] + '\n' + FMT_PATCH_RUBY);
+          console.log('[withCppFix] Inserted fmt/base.h patch after react_native_post_install.');
+        } else {
+          console.warn('[withCppFix] react_native_post_install not found — appending post_install block.');
+          content += `\npost_install do |installer|\n${FMT_PATCH_RUBY}end\n`;
+        }
+      } else {
+        console.log('[withCppFix] fmt patch already present.');
       }
 
-      // Find react_native_post_install(...) and insert our patch right after it
-      // Using a dotAll regex to match the multi-line call
-      const rnPostInstallRegex = /(react_native_post_install\s*\([^)]*\))/s;
-      const match = rnPostInstallRegex.exec(content);
-
-      if (match) {
-        content = content.replace(match[0], match[0] + '\n' + FMT_PATCH_RUBY);
-        console.log('[withCppFix] Inserted fmt/base.h patch after react_native_post_install.');
+      // --- FIX 2: React-jsinspector modular_headers ---
+      // Insert before the first `target 'athlynxai' do` block's closing end,
+      // or simply prepend before the first `target` line if not already present.
+      if (!content.includes(JSI_MARKER)) {
+        // Find the target block: `target 'athlynxai' do`
+        // Insert the pod line right after the `target '...' do` line
+        const targetLineRegex = /(target\s+['"][^'"]+['"]\s+do\s*\n)/;
+        const targetMatch = targetLineRegex.exec(content);
+        if (targetMatch) {
+          content = content.replace(targetMatch[0], targetMatch[0] + JSI_POD_LINE);
+          console.log('[withCppFix] Inserted React-jsinspector modular_headers fix.');
+        } else {
+          console.warn('[withCppFix] target block not found — skipping jsinspector fix.');
+        }
       } else {
-        // Fallback: append a new post_install block
-        console.warn('[withCppFix] react_native_post_install not found — appending post_install block.');
-        content += `\npost_install do |installer|\n${FMT_PATCH_RUBY}end\n`;
+        console.log('[withCppFix] jsinspector fix already present.');
       }
 
       fs.writeFileSync(podfilePath, content, 'utf-8');
