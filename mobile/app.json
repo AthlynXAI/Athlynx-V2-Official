@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "3",
+      "buildNumber": "7",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -53,6 +53,7 @@
     },
     "plugins": [
       "./plugins/withGradleFix",
+      "./plugins/withCppFix",
       [
         "expo-splash-screen",
         {
@@ -65,6 +66,10 @@
       [
         "expo-build-properties",
         {
+          "ios": {
+            "deploymentTarget": "16.0",
+            "useFrameworks": "static"
+          },
           "android": {
             "buildArchs": [
               "armeabi-v7a",
