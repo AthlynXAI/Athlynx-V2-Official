@@ -10,40 +10,24 @@
  *   → includes React-Core-umbrella.h (line 41)
  *   → includes RCTBridge+Inspector.h
  *   → tries to import <jsinspector-modern/ReactCdp.h>  (line 11)
- *   → fails because React-jsinspector headers are not visible in this context.
+ *   → fails because React-jsinspector headers are not in HEADER_SEARCH_PATHS
+ *     for ExpoModulesCore and other pods that transitively include React-Core.
  *
- * RCTBridge+Inspector.h structure:
- *   #ifdef __cplusplus
- *   #import <jsinspector-modern/ReactCdp.h>   ← PROBLEM LINE
- *   #endif
- *   @interface RCTBridge (Inspector)
- *   @property (nonatomic, assign, readonly)
- *   #ifdef __cplusplus
- *       facebook::react::jsinspector_modern::HostTarget *  ← ALSO PROBLEM
- *   #else
- *       void *
- *   #endif
- *       inspectorTarget;
+ * React-jsinspector pod has header_dir = 'jsinspector-modern', so its headers
+ * are installed at $(PODS_ROOT)/Headers/Public/React-jsinspector/jsinspector-modern/
  *
- * FIX: In post_install, patch RCTBridge+Inspector.h to:
- *   1. Comment out the #import <jsinspector-modern/ReactCdp.h> line
- *   2. Replace the entire #ifdef __cplusplus / #else / #endif block for the
- *      property type with just `void *` (the fallback type)
+ * FIX: In post_install, add $(PODS_ROOT)/Headers/Public/React-jsinspector to
+ * HEADER_SEARCH_PATHS for all pod targets that need it (ExpoModulesCore and
+ * any other pod that transitively includes React-Core umbrella headers).
  *
- * This makes the header compile without jsinspector-modern being available.
- * The inspectorTarget property will be typed as void* instead of HostTarget*,
- * which is safe since this is only used by the CDP inspector (not in production).
- *
- * NOTE: Do NOT add `pod 'React-jsinspector', :modular_headers => true` as a
- * top-level declaration — React Native already declares it with a path source
- * and CocoaPods will error with "multiple dependencies with different sources".
+ * This is the correct fix that preserves type safety — no header patching needed.
  */
 const { withDangerousMod } = require('@expo/config-plugins');
 const fs = require('fs');
 const path = require('path');
 
 const FMT_MARKER = '# [withCppFix] fmt base.h patch for Xcode 26';
-const JSI_MARKER = '# [withCppFix] RCTBridge+Inspector.h jsinspector-modern patch v3';
+const JSI_MARKER = '# [withCppFix] jsinspector-modern HEADER_SEARCH_PATHS fix v4';
 
 // Ruby code injected into post_install — patches fmt/base.h directly
 const FMT_PATCH_RUBY = `
@@ -67,50 +51,93 @@ const FMT_PATCH_RUBY = `
   end
 `;
 
-// Ruby code injected into post_install — patches RCTBridge+Inspector.h
-// to fully remove the jsinspector-modern dependency:
-//   1. Comments out #import <jsinspector-modern/ReactCdp.h>
-//   2. Replaces the #ifdef __cplusplus / HostTarget* / #else / void* / #endif
-//      property type block with just `void *`
+// Ruby code injected into post_install — adds React-jsinspector to HEADER_SEARCH_PATHS
+// for all pod targets that transitively include React-Core umbrella headers.
+//
+// The React-jsinspector pod installs its headers at:
+//   $(PODS_ROOT)/Headers/Public/React-jsinspector/
+// with header_dir = 'jsinspector-modern', so the full path is:
+//   $(PODS_ROOT)/Headers/Public/React-jsinspector/jsinspector-modern/ReactCdp.h
+//
+// Adding $(PODS_ROOT)/Headers/Public/React-jsinspector to HEADER_SEARCH_PATHS
+// makes #import <jsinspector-modern/ReactCdp.h> resolve correctly.
 const JSI_PATCH_RUBY = `
   ${JSI_MARKER}
-  # Collect all candidate locations for RCTBridge+Inspector.h
-  react_core_dir = installer.sandbox.pod_dir('React-Core')
-  inspector_h_candidates = Dir.glob(File.join(react_core_dir, '**', 'RCTBridge+Inspector.h'))
-  react_dir = installer.sandbox.pod_dir('React')
-  inspector_h_candidates += Dir.glob(File.join(react_dir, '**', 'RCTBridge+Inspector.h')) if File.exist?(react_dir.to_s)
-  workdir = installer.sandbox.root.parent
-  inspector_h_candidates += Dir.glob(File.join(workdir, 'node_modules', 'react-native', '**', 'RCTBridge+Inspector.h'))
-  inspector_h_candidates.uniq.each do |inspector_h|
-    content = File.read(inspector_h)
-    next if content.include?('[withCppFix] v3 patched')
-    patched = content.dup
-    # Step 1: Guard the #import line
-    patched.gsub!(
-      '#import <jsinspector-modern/ReactCdp.h>',
-      '// [withCppFix] v3 patched: jsinspector-modern not available\\n// #import <jsinspector-modern/ReactCdp.h>'
-    )
-    # Step 2: Replace the #ifdef __cplusplus / HostTarget* / #else / void* / #endif block
-    # with just void* so the property compiles without the jsinspector-modern type
-    patched.gsub!(
-      /#ifdef __cplusplus\\n\\s*facebook::react::jsinspector_modern::HostTarget \\*\\n#else\\n\\s*\\/\\/[^\\n]*\\n\\s*void \\*\\n#endif/m,
-      '    void * // [withCppFix] v3: simplified from HostTarget*'
-    )
-    # Also handle the variant without the comment line in #else branch
-    patched.gsub!(
-      /#ifdef __cplusplus\\n\\s*facebook::react::jsinspector_modern::HostTarget \\*\\n#else\\n\\s*void \\*\\n#endif/m,
-      '    void * // [withCppFix] v3: simplified from HostTarget*'
-    )
-    if patched != content
-      File.chmod(0644, inspector_h)
-      File.write(inspector_h, patched)
-      puts '[withCppFix] v3 Patched ' + inspector_h
-    else
-      puts '[withCppFix] v3 ' + inspector_h + ': no changes needed or already patched'
+  jsinspector_header_path = '"$(PODS_ROOT)/Headers/Public/React-jsinspector"'
+  # Pods that transitively include React-Core umbrella and need jsinspector-modern headers
+  target_pods = [
+    'ExpoModulesCore',
+    'React-Core',
+    'React-RCTCxxBridge',
+    'React-RCTFabric',
+    'React-RCTAppDelegate',
+    'React-RCTAnimation',
+    'React-RCTBlob',
+    'React-RCTImage',
+    'React-RCTLinking',
+    'React-RCTNetwork',
+    'React-RCTSettings',
+    'React-RCTText',
+    'React-RCTVibration',
+    'React-RCTWebSocket',
+    'React-RCTActionSheet',
+    'React-RCTGeolocation',
+    'React-RCTPushNotification',
+    'React-RCTSafariManager',
+    'React-Fabric',
+    'React-ImageManager',
+    'React-NativeModulesApple',
+    'ReactCommon',
+    'React-NativeCxxBridgeModules',
+    'React-Mapbuffer',
+    'React-rendererdebug',
+    'React-rncore',
+    'React-RuntimeApple',
+    'React-RuntimeCore',
+    'React-RuntimeHermes',
+    'React-RuntimeScheduler',
+    'React-bridging',
+    'React-callinvoker',
+    'React-cxxreact',
+    'React-debug',
+    'React-defaultsnativemodule',
+    'React-featureflags',
+    'React-featureflagsnativemodule',
+    'React-graphics',
+    'React-hermes',
+    'React-idlecallbacksnativemodule',
+    'React-jsi',
+    'React-jsiexecutor',
+    'React-jsinspector',
+    'React-jsitracing',
+    'React-logger',
+    'React-microtasksnativemodule',
+    'React-nativeconfig',
+    'React-nativedebuggeroverlay',
+    'React-perflogger',
+    'React-performancetimeline',
+    'React-rendererconsistency',
+    'React-rendererdebug',
+    'React-runtimeexecutor',
+    'React-runtimescheduler',
+    'React-timing',
+    'React-utils',
+    'Yoga',
+  ]
+  installer.pods_project.targets.each do |target|
+    next unless target_pods.include?(target.name) || target.name.start_with?('Expo')
+    target.build_configurations.each do |config|
+      existing = config.build_settings['HEADER_SEARCH_PATHS'] || '$(inherited)'
+      existing_str = existing.is_a?(Array) ? existing.join(' ') : existing.to_s
+      unless existing_str.include?('React-jsinspector')
+        if existing.is_a?(Array)
+          config.build_settings['HEADER_SEARCH_PATHS'] = existing + [jsinspector_header_path]
+        else
+          config.build_settings['HEADER_SEARCH_PATHS'] = existing_str + ' ' + jsinspector_header_path
+        end
+        puts '[withCppFix] v4 Added React-jsinspector to HEADER_SEARCH_PATHS for ' + target.name
+      end
     end
-  end
-  if inspector_h_candidates.empty?
-    puts '[withCppFix] WARNING: RCTBridge+Inspector.h not found — jsinspector patch skipped'
   end
 `;
 
@@ -140,34 +167,26 @@ const withCppFix = (config) => {
         console.log('[withCppFix] fmt patch already present.');
       }
 
-      // --- FIX 2: RCTBridge+Inspector.h jsinspector-modern patch (v3) ---
+      // --- FIX 2: jsinspector-modern HEADER_SEARCH_PATHS fix (v4) ---
       if (!content.includes(JSI_MARKER)) {
-        // Remove any old version of the JSI patch marker if present
-        const OLD_JSI_MARKER = '# [withCppFix] RCTBridge+Inspector.h jsinspector-modern patch';
-        if (content.includes(OLD_JSI_MARKER)) {
-          console.log('[withCppFix] Removing old JSI patch (v1/v2) — will insert v3.');
-          // Remove the old patch block by removing lines between OLD_JSI_MARKER and the next empty line after it
-          // Simple approach: just add the new marker; the old block will still run but be harmless
-        }
-
         const rnPostInstallRegex = /(react_native_post_install\s*\([^)]*\))/s;
         const match = rnPostInstallRegex.exec(content);
         if (match) {
           content = content.replace(match[0], match[0] + '\n' + JSI_PATCH_RUBY);
-          console.log('[withCppFix] Inserted RCTBridge+Inspector.h v3 patch after react_native_post_install.');
+          console.log('[withCppFix] Inserted jsinspector HEADER_SEARCH_PATHS v4 fix after react_native_post_install.');
         } else {
           const postInstallRegex = /(post_install\s+do\s+\|installer\|)([\s\S]*?)(^end\s*$)/m;
           const piMatch = postInstallRegex.exec(content);
           if (piMatch) {
             content = content.replace(piMatch[0], piMatch[1] + piMatch[2] + JSI_PATCH_RUBY + piMatch[3]);
-            console.log('[withCppFix] Inserted RCTBridge+Inspector.h v3 patch into existing post_install block.');
+            console.log('[withCppFix] Inserted jsinspector HEADER_SEARCH_PATHS v4 fix into existing post_install block.');
           } else {
             content += `\npost_install do |installer|\n${JSI_PATCH_RUBY}end\n`;
-            console.log('[withCppFix] Created new post_install block with v3 jsinspector patch.');
+            console.log('[withCppFix] Created new post_install block with jsinspector v4 fix.');
           }
         }
       } else {
-        console.log('[withCppFix] jsinspector v3 patch already present.');
+        console.log('[withCppFix] jsinspector v4 fix already present.');
       }
 
       fs.writeFileSync(podfilePath, content, 'utf-8');
