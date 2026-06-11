@@ -1,42 +1,58 @@
 /**
- * Expo Config Plugin — Xcode 26 iOS build fixes.
+ * Expo Config Plugin — Xcode 26 iOS build fix.
  *
- * Fix 1: fmt consteval error
- *   fmt 11.0.2 sets FMT_USE_CONSTEVAL=1 when Clang >= 11.01 is detected.
- *   Xcode 26's Apple Clang enforces stricter consteval rules.
- *   Fix: Set GCC_PREPROCESSOR_DEFINITIONS += FMT_USE_CONSTEVAL=0 for the fmt pod.
- *   This directly disables consteval in fmt without changing the C++ standard.
+ * CONFIRMED FIX (expo/expo#44229, fmtlib/fmt#4740):
  *
- * Fix 2: jsinspector-modern/ReactCdp.h not found
- *   Add pod 'React-jsinspector' with modular_headers => true before the target block.
+ * Problem: fmt 11.0.2 (bundled with RN 0.79) defines FMT_USE_CONSTEVAL=1
+ * when it detects Apple Clang >= 14000029. Xcode 26's Apple Clang enforces
+ * stricter consteval rules, causing "call to consteval function is not a
+ * constant expression" errors.
+ *
+ * Root cause: FMT_USE_CONSTEVAL is hardcoded in fmt/base.h — it cannot be
+ * overridden by build settings (CLANG_CXX_LANGUAGE_STANDARD or
+ * GCC_PREPROCESSOR_DEFINITIONS) because the header is already included
+ * before those settings take effect.
+ *
+ * Fix: Patch the actual fmt/base.h source file inside the Pods directory
+ * during post_install, replacing "#define FMT_USE_CONSTEVAL 1" with
+ * "#define FMT_USE_CONSTEVAL 0" for all Apple Clang versions.
+ *
+ * This is the ONLY approach confirmed to work by the community.
+ * Source: https://github.com/expo/expo/issues/44229
+ * Source: https://github.com/fmtlib/fmt/issues/4740
  */
 const { withDangerousMod } = require('@expo/config-plugins');
 const fs = require('fs');
 const path = require('path');
 
-const FMT_MARKER = '# [withCppFix:fmt]';
-const JSI_MARKER = '# [withCppFix:jsi]';
+const MARKER = '# [withCppFix] fmt base.h patch for Xcode 26';
 
-// Use GCC_PREPROCESSOR_DEFINITIONS to set FMT_USE_CONSTEVAL=0
-// This is more reliable than changing CLANG_CXX_LANGUAGE_STANDARD
-const FMT_RUBY = `
-  ${FMT_MARKER} Disable fmt consteval for Xcode 26 compatibility
-  installer.pods_project.targets.each do |target|
-    if target.name == 'fmt'
-      target.build_configurations.each do |config|
-        existing = config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] || ['$(inherited)']
-        existing = [existing] unless existing.is_a?(Array)
-        unless existing.include?('FMT_USE_CONSTEVAL=0')
-          existing << 'FMT_USE_CONSTEVAL=0'
-        end
-        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = existing
-      end
+// Ruby code injected into post_install — patches fmt/base.h directly
+const FMT_PATCH_RUBY = `
+  ${MARKER}
+  fmt_base_h = File.join(installer.sandbox.pod_dir('fmt'), 'include', 'fmt', 'base.h')
+  if File.exist?(fmt_base_h)
+    content = File.read(fmt_base_h)
+    # Disable consteval for ALL Apple Clang versions (Xcode 26 breaks consteval)
+    patched = content.gsub(
+      /^(#\\s*elif\\s+defined\\(__apple_build_version__\\)\\s*&&\\s*__apple_build_version__\\s*>=\\s*14000029L\\s*\\n#\\s*define\\s+FMT_USE_CONSTEVAL)\\s+1/,
+      '\\\\1 0'
+    )
+    # Also catch the simpler pattern if present
+    patched = patched.gsub(
+      /^(#\\s*define\\s+FMT_USE_CONSTEVAL)\\s+1(\\s*\\/\\/.*apple.*)?$/,
+      '\\\\1 0\\\\2'
+    )
+    if patched != content
+      File.chmod(0644, fmt_base_h)
+      File.write(fmt_base_h, patched)
+      puts '[withCppFix] Patched fmt/base.h: FMT_USE_CONSTEVAL=0'
+    else
+      puts '[withCppFix] fmt/base.h already patched or pattern not found'
     end
+  else
+    puts '[withCppFix] WARNING: fmt/base.h not found at ' + fmt_base_h
   end
-`;
-
-const JSI_POD = `${JSI_MARKER} React-jsinspector modular_headers for jsinspector-modern headers
-pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector-modern', :modular_headers => true
 `;
 
 const withCppFix = (config) => {
@@ -52,35 +68,23 @@ const withCppFix = (config) => {
 
       let content = fs.readFileSync(podfilePath, 'utf-8');
 
-      // ── Fix 1: fmt consteval ─────────────────────────────────────────────
-      if (content.includes(FMT_MARKER)) {
-        console.log('[withCppFix] fmt fix already present.');
-      } else {
-        // Insert after react_native_post_install(...) call
-        const rnPostInstallRegex = /(\s*react_native_post_install\s*\([^)]*\))/s;
-        const match = rnPostInstallRegex.exec(content);
-        if (match) {
-          content = content.replace(match[0], match[0] + '\n' + FMT_RUBY);
-          console.log('[withCppFix] Inserted fmt FMT_USE_CONSTEVAL=0 fix after react_native_post_install.');
-        } else {
-          console.warn('[withCppFix] react_native_post_install not found — appending post_install block.');
-          content += `\npost_install do |installer|\n${FMT_RUBY}end\n`;
-        }
+      if (content.includes(MARKER)) {
+        console.log('[withCppFix] fmt patch already present in Podfile.');
+        return config;
       }
 
-      // ── Fix 2: React-jsinspector modular_headers ─────────────────────────
-      if (content.includes(JSI_MARKER)) {
-        console.log('[withCppFix] jsinspector fix already present.');
+      // Find react_native_post_install(...) and insert our patch right after it
+      // Using a dotAll regex to match the multi-line call
+      const rnPostInstallRegex = /(react_native_post_install\s*\([^)]*\))/s;
+      const match = rnPostInstallRegex.exec(content);
+
+      if (match) {
+        content = content.replace(match[0], match[0] + '\n' + FMT_PATCH_RUBY);
+        console.log('[withCppFix] Inserted fmt/base.h patch after react_native_post_install.');
       } else {
-        const targetRegex = /^(target\s+['"][^'"]+['"]\s+do)/m;
-        const targetMatch = targetRegex.exec(content);
-        if (targetMatch) {
-          content = content.replace(targetMatch[0], JSI_POD + '\n' + targetMatch[0]);
-          console.log('[withCppFix] Inserted React-jsinspector modular_headers fix.');
-        } else {
-          console.warn('[withCppFix] No target block found — appending jsinspector pod.');
-          content += `\n${JSI_POD}\n`;
-        }
+        // Fallback: append a new post_install block
+        console.warn('[withCppFix] react_native_post_install not found — appending post_install block.');
+        content += `\npost_install do |installer|\n${FMT_PATCH_RUBY}end\n`;
       }
 
       fs.writeFileSync(podfilePath, content, 'utf-8');
