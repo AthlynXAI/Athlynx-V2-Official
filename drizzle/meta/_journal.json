@@ -1,6 +1,6 @@
 {
   "version": "7",
-  "dialect": "mysql",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
@@ -49,6 +49,76 @@
       "version": "5",
       "when": 1747094400000,
       "tag": "0006_build3_editable_topfive_avatars",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1747180800000,
+      "tag": "0007_build4_layer_cake_realty",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1747267200000,
+      "tag": "0008_build5_fort_knox_audit_log",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1747353600000,
+      "tag": "0009_build7_soul_source_os",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1748563200000,
+      "tag": "0010_build27_stripe_session_idempotency_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1748649600000,
+      "tag": "0011_build27_1_studio_suite",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1748736000000,
+      "tag": "0012_build28_comms_os_scaffold",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1748822400000,
+      "tag": "0013_build28_behavior_signals",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1748908800000,
+      "tag": "0014_social_os_tenant_guardrail",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1748995200000,
+      "tag": "0015_social_content_approved",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "5",
+      "when": 1749686400000,
+      "tag": "0016_activity_log",
       "breakpoints": true
     }
   ]
