@@ -768,9 +768,6 @@ export default function Brackets() {
             </div>
           </div>
 
-          {/* WCWS Champions */}
-          <WCWSChampionsBanner />
-
           {/* Live Scores */}
           <LiveScoreStrip />
 

@@ -432,13 +432,12 @@ function Router() {
       <Route path="/athletic-journey-crm" component={AthlynXAISeasonEngine} />
       <Route path="/growth-crm" component={AthlynXAISeasonEngine} />
       <Route path="/road-to-omaha" component={Brackets} />
-      <Route path="/college-world-series" component={CollegeWorldSeries2026} />
-      <Route path="/college-world-series-2026" component={CollegeWorldSeries2026} />
+      <Route path="/college-world-series" component={Brackets} />
+      <Route path="/college-world-series-2026" component={Brackets} />
       <Route path="/brackets" component={Brackets} />
       <Route path="/brackets/mcws" component={Brackets} />
-      <Route path="/brackets/wcws" component={Brackets} />
       <Route path="/mcws" component={Brackets} />
-      <Route path="/wcws" component={Brackets} />
+      <Route path="/mcws-bracket" component={Brackets} />
       <Route path="/diamond-grind-iq" component={DiamondGrindIQ} />
       <Route path="/dg-iq" component={DiamondGrindIQ} />
       <Route path="/youth-iq" component={DiamondGrindIQ} />
@@ -450,11 +449,11 @@ function Router() {
       <Route path="/all-sports-season-hubs" component={AthlynXAISeasonEngine} />
       <Route path="/elite-athlete-pipeline" component={AthlynXAISeasonEngine} />
       <Route path="/recruiting-profile-crm" component={AthlynXAISeasonEngine} />
-      <Route path="/axn-streaming" component={AthlynXAIOperatingLayer} />
-      <Route path="/podcast-social-engine" component={AthlynXAIOperatingLayer} />
+      <Route path="/axn-streaming" component={AthlynXNetwork} />
+      <Route path="/podcast-social-engine" component={AthlynXNetwork} />
       <Route path="/media-tokenization" component={AthlynXAIOperatingLayer} />
-      <Route path="/axn-os" component={AthlynXAIOperatingLayer} />
-      <Route path="/podcast-os" component={AthlynXAIOperatingLayer} />
+      <Route path="/axn-os" component={AthlynXNetwork} />
+      <Route path="/podcast-os" component={AthlynXNetwork} />
       <Route path="/the-athletes-playbook/episode-1" component={AthletePlaybookEpisode1} />
       <Route path="/the-athletes-playbook/season-1-episode-1-video-2" component={AthletePlaybookEpisode1} />
       <Route path="/athlete-playbook/episode-1" component={AthletePlaybookEpisode1} />
