@@ -706,25 +706,6 @@ function SubscribeBanner() {
   );
 }
 
-// ── WCWS Champions Banner ───────────────────────────────────────────────────
-
-function WCWSChampionsBanner() {
-  return (
-    <div className="bg-gradient-to-r from-[#BF5700]/10 via-black/60 to-[#BF5700]/5 border border-[#BF5700]/30 rounded-xl px-5 py-4 mb-6 flex items-center justify-between flex-wrap gap-3">
-      <div className="flex items-center gap-3">
-        <span className="text-2xl">🏆</span>
-        <div>
-          <div className="text-[9px] font-black tracking-widest uppercase text-[#BF5700]/70">WCWS 2026 · DEVON PARK · OKC · COMPLETE</div>
-          <div className="text-sm font-black text-white">Texas Longhorns · Back-to-Back National Champions · 2025 & 2026</div>
-        </div>
-      </div>
-      <div className="text-[10px] font-black tracking-widest uppercase text-white/30">
-        HOOK 'EM HORNS · CONGRATULATIONS
-      </div>
-    </div>
-  );
-}
-
 // ── Main Page ───────────────────────────────────────────────────────────────
 
 export default function Brackets() {

@@ -599,14 +599,10 @@ function HomeInner() {
 
   return (
     <div className="min-h-screen bg-black text-white pb-20 sm:pb-0">
-      {/*  CHAMPIONSHIP BRACKETS · TOP OF PAGE · ABOVE DIAMOND GRIND 
-           Both MCWS (men) + WCWS (women) with live ESPN data. WCWS is
-           already underway. Regionals end Mon Jun 1; Super Regionals start
-           Fri Jun 5 — same components auto-roll. Diamond Grind covers both
-           sports below. Locked by Chad 2026-05-31. */}
-      {/*  BRACKET BANNERS — premium AthlynX-branded MCWS + WCWS art at the very top.
-           Locked by Chad 2026-06-01 06:01 CDT: "All I want is the bracket banners live and at top."
-           "Brand it for AthlynX. Best them at their own game."  */}
+      {/*  CHAMPIONSHIP BRACKETS · TOP OF PAGE · ABOVE DIAMOND GRIND
+           MCWS (men) live in Omaha, June 13–24. WCWS complete — Texas back-to-back. 2026-06-12.  */}
+      {/*  BRACKET BANNERS — premium AthlynX-branded MCWS art at the very top.
+           Locked by Chad 2026-06-01. Updated 2026-06-12: MCWS only.  */}
       <BracketBannerStrip />
 
       {/*  ATHLETE ENTRY BANNER — right under the brackets so athletes can skip straight to the platform. Locked by Chad 2026-06-01.  */}
@@ -617,7 +613,7 @@ function HomeInner() {
       {/*  ROAD TO OMAHA HERO — live regional bracket + Diamond Grind IQ launch. Locked May 29, 2026.  */}
       <RoadToOmahaHero />
 
-      {/*  LIVE HIGHLIGHTS FEED — official WCWS/MCWS clips + AthlynX originals. Auto-refreshes. Added May 31, 2026 for S1E2 launch weekend.  */}
+      {/*  LIVE HIGHLIGHTS FEED — official MCWS clips + AthlynX originals. Auto-refreshes. Added May 31, 2026 for S1E2 launch weekend.  */}
       <LiveHighlightsFeed mode="auto" />
 
       {/*  SOVEREIGNTY MANIFESTO — AthlynX Doctrine. Chad Dozier's response to HUMAIN. Added June 2026.  */}

@@ -21,7 +21,7 @@ interface HighlightClip {
   title: string;
   channel: string;
   thumb?: string;         // override; otherwise YouTube auto-thumb
-  category: "wcws" | "mcws" | "athlynx" | "general";
+  category: "mcws" | "athlynx" | "general";
   badge?: string;
 }
 
@@ -33,14 +33,6 @@ export const FEATURED_HIGHLIGHTS: HighlightClip[] = [
     channel: "AthlynXAI · The Athlete's Playbook E2",
     category: "athlynx",
     badge: "ATHLYNX ORIGINAL",
-  },
-  //  WCWS coverage (auto-refreshes via API search below) 
-  {
-    id: "wcws-search",
-    title: "WCWS 2026 · Live Highlights",
-    channel: "NCAA Softball · ESPN · SEC Network",
-    category: "wcws",
-    badge: "WCWS · LIVE WINDOW",
   },
   //  MCWS coverage 
   {
@@ -323,24 +315,19 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
 
 interface LiveHighlightsFeedProps {
   /** Which tournament to feature first. "auto" picks based on CT time. */
-  mode?: "auto" | "wcws" | "mcws" | "both";
+  mode?: "auto" | "mcws" | "both";
   /** Compact mode for embeds inside other sections. */
   compact?: boolean;
 }
 
 export default function LiveHighlightsFeed({ mode = "auto", compact = false }: LiveHighlightsFeedProps) {
   const [playingId, setPlayingId] = useState<string | null>(null);
-  const [tab, setTab] = useState<"all" | "wcws" | "mcws" | "athlynx">(() => {
-    if (mode === "wcws") return "wcws";
+  const [tab, setTab] = useState<"all" | "mcws" | "athlynx">(() => {
     if (mode === "mcws") return "mcws";
     return "all";
   });
 
-  // Auto-fetch latest WCWS + MCWS clips via our YouTube proxy
-  const wcwsSearch = useYouTubeHighlights(
-    "WCWS 2026 highlights softball Oklahoma City",
-    tab === "all" || tab === "wcws"
-  );
+  // Auto-fetch latest MCWS clips via our YouTube proxy
   const mcwsSearch = useYouTubeHighlights(
     "NCAA baseball regional 2026 highlights Road to Omaha",
     tab === "all" || tab === "mcws"
@@ -353,21 +340,7 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
     const athlynx = FEATURED_HIGHLIGHTS.filter((h) => h.category === "athlynx");
     if (tab === "all" || tab === "athlynx") all.push(...athlynx);
 
-    // 2) Live WCWS from API
-    if ((tab === "all" || tab === "wcws") && wcwsSearch.items.length > 0) {
-      wcwsSearch.items.slice(0, tab === "wcws" ? 8 : 3).forEach((it) => {
-        all.push({
-          id: it.videoId,
-          title: it.title,
-          channel: it.channelTitle,
-          thumb: it.thumbnail,
-          category: "wcws",
-          badge: "WCWS HIGHLIGHT",
-        });
-      });
-    }
-
-    // 3) Live MCWS from API
+    // 2) Live MCWS from API
     if ((tab === "all" || tab === "mcws") && mcwsSearch.items.length > 0) {
       mcwsSearch.items.slice(0, tab === "mcws" ? 8 : 3).forEach((it) => {
         all.push({
@@ -382,10 +355,9 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
     }
 
     return all;
-  }, [tab, wcwsSearch.items, mcwsSearch.items]);
+  }, [tab, mcwsSearch.items]);
 
-  const loading = (tab === "all" || tab === "wcws") && wcwsSearch.loading
-               || (tab === "all" || tab === "mcws") && mcwsSearch.loading;
+  const loading = (tab === "all" || tab === "mcws") && mcwsSearch.loading;
 
   return (
     <section
@@ -404,7 +376,7 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
               Every play. Every game. <span className="text-[#00C2FF]">One feed.</span>
             </h2>
             <p className="text-white/60 text-sm mt-2 max-w-2xl">
-              Official WCWS and Men's College World Series highlights from NCAA, ESPN, and SEC Network — refreshed automatically. Plus AthlynX original episodes from The Athlete's Playbook.
+              Official Men's College World Series highlights from NCAA, ESPN, and SEC Network — refreshed automatically. Plus AthlynX original episodes from The Athlete's Playbook.
             </p>
           </div>
 
@@ -412,7 +384,6 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
           <div className="flex gap-2 flex-wrap">
             {([
               { id: "all", label: "All Games" },
-              { id: "wcws", label: "WCWS" },
               { id: "mcws", label: "MCWS" },
               { id: "athlynx", label: "AthlynX" },
             ] as const).map((t) => (
@@ -479,13 +450,7 @@ export default function LiveHighlightsFeed({ mode = "auto", compact = false }: L
             >
               MCWS Bracket →
             </a>
-            <a
-              href="/brackets/wcws"
-              data-testid="link-to-wcws-brackets"
-              className="text-[10px] uppercase tracking-[0.22em] font-black px-3 py-2 rounded bg-black border border-[#1E90FF]/40 text-[#00C2FF] hover:bg-[#1E90FF]/10 transition"
-            >
-              WCWS Bracket →
-            </a>
+
           </div>
         </div>
       </div>

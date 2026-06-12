@@ -127,7 +127,8 @@ const PUBLIC_ROUTES = [
   '/lacrosse', '/softball',
   // Live brackets + tournament pages — public for game-day traffic.
   // Required so unauthenticated visitors (investors, press, fans clicking
-  // from socials) can see WCWS + MCWS live scores without a sign-in wall.
+  // from socials) can see MCWS live scores without a sign-in wall.
+  // /brackets/wcws + /wcws kept accessible for deep-links (WCWS complete 2026-06-12).
   '/brackets', '/brackets/mcws', '/brackets/wcws',
   '/mcws', '/wcws',
   '/ncaa-baseball-regionals', '/baseball-regionals',

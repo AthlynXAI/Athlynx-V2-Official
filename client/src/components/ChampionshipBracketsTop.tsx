@@ -1,58 +1,12 @@
 /**
  * ChampionshipBracketsTop — Seasonal championship spotlight.
  *
- * Updated 2026-06-10 per Chad's standing doctrine:
- *   "Sports go by the season. WCWS is over — Texas wins back-to-back.
- *    Remove all WCWS brackets and scores. MCWS is the live highlight —
- *    8 teams in Omaha, June 13-24. Diamond Grind stays alongside MCWS."
- *
+ * Updated 2026-06-12: WCWS complete — MCWS only.
  * Brand-locked: cobalt #1E90FF + true black + white. No gold/yellow/orange.
  */
 
 import { LiveRegionalScoreboard } from "./LiveRegionalScoreboard";
 import { RegionalBracketTree } from "./RegionalBracketTree";
-
-/** Texas WCWS back-to-back champions banner — shown after WCWS ends */
-function WCWSChampionsBanner() {
-  return (
-    <div
-      className="rounded-2xl border border-[#1E90FF]/40 bg-gradient-to-r from-[#0a1628] via-black to-[#0a1628] p-4 md:p-5 flex flex-col md:flex-row items-start md:items-center gap-3"
-      data-testid="wcws-champions-banner"
-    >
-      <div className="flex-1 min-w-0">
-        <div className="text-[10px] font-black uppercase tracking-[0.28em] text-[#1E90FF] mb-1">
-          2026 NCAA Division I Softball Championship · Final
-        </div>
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-[11px] font-black uppercase tracking-[0.18em] bg-[#1E90FF] text-white px-2 py-0.5 rounded">
-            CHAMPIONS
-          </span>
-          <span className="text-[11px] font-black uppercase tracking-[0.18em] bg-white/10 text-white/70 px-2 py-0.5 rounded">
-            WCWS · Devon Park · OKC
-          </span>
-        </div>
-        <h3 className="mt-2 text-2xl md:text-3xl font-black tracking-tight text-white">
-          #1 <span className="text-[#1E90FF]">Texas Longhorns</span>
-        </h3>
-        <p className="mt-1 text-[13px] text-white/70 font-bold">
-          Back-to-Back National Champions · 2025 &amp; 2026
-        </p>
-        <p className="mt-0.5 text-[11px] text-white/45 uppercase tracking-[0.16em]">
-          Women's College World Series · Complete
-        </p>
-      </div>
-      <a
-        href="https://www.ncaa.com/brackets/softball/d1/2026"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="shrink-0 rounded-xl border border-white/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-white/80 transition hover:border-[#1E90FF]/60 hover:text-white"
-        data-testid="wcws-champions-ncaa-link"
-      >
-        Final Bracket ↗
-      </a>
-    </div>
-  );
-}
 
 /** MCWS live block — 8 teams, Omaha, June 13-24 */
 function MCWSLiveBlock() {
@@ -140,9 +94,6 @@ export default function ChampionshipBracketsTop() {
             Men. Women. Every Athlete.
           </span>
         </div>
-
-        {/* WCWS Champions callout — season is over, give props */}
-        <WCWSChampionsBanner />
 
         {/* MCWS — live now in Omaha */}
         <MCWSLiveBlock />

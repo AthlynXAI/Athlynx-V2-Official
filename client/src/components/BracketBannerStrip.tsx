@@ -1,13 +1,13 @@
 /**
- * BracketBannerStrip — premium AthlynX-branded MCWS + WCWS bracket banners
+ * BracketBannerStrip — premium AthlynX-branded MCWS bracket banner
  * pinned at the top of athlynx.ai.
  *
  * Locked by Chad 2026-06-01 06:01 CDT:
  *   "All I want is the bracket banners live and at top."
  *   "Brand it for AthlynX. Best them at their own game. Make it ours and very cool."
  *
- * Images live at /brackets/{mcws,wcws}-banner.jpg — generated server-side
- * with AthlynX logo, watermark, and live tournament data.
+ * Updated 2026-06-12: WCWS is complete — MCWS only.
+ * Image lives at /brackets/mcws-banner.jpg
  *
  * Brand-locked: cobalt #1E90FF · cyan #00C2FF · true black · white.
  * Signoff:  */
@@ -64,27 +64,20 @@ export default function BracketBannerStrip() {
           <div className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1E90FF]"></span>
             <h1 className="text-xs font-black uppercase tracking-[0.28em] text-white md:text-sm">
-              Live Championship Brackets · MCWS + WCWS
+              Live Championship Brackets · MCWS
             </h1>
           </div>
           <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/45">
             Men. Women. Every Athlete.
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
+        <div className="grid grid-cols-1 gap-3">
           <BannerBlock
             imgSrc="/brackets/mcws-banner.jpg"
             alt="AthlynX Road to Omaha — 2026 NCAA D1 Baseball Championship, live regionals, super regionals, MCWS"
             href="/brackets/mcws"
             ncaaHref="https://www.ncaa.com/brackets/baseball/d1/2026"
             testId="bracket-banner-mcws"
-          />
-          <BannerBlock
-            imgSrc="/brackets/wcws-banner.jpg"
-            alt="AthlynX Road to OKC — 2026 NCAA D1 Softball Championship, WCWS semifinals live"
-            href="/brackets/wcws"
-            ncaaHref="https://www.ncaa.com/brackets/softball/d1/2026/wcws"
-            testId="bracket-banner-wcws"
           />
         </div>
       </div>

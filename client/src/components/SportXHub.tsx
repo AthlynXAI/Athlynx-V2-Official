@@ -262,7 +262,7 @@ export const ALL_SPORTS: SportConfig[] = [
       { brand: "Rawlings", type: "Equipment Partner", value: "$1K–$15K/yr", req: "Any college level" },
       { brand: "Gatorade", type: "Hydration Partner", value: "$1K–$8K/yr", req: "Any college level" },
     ],
-    trendingTags: [{ tag: "#PGFNationals", posts: "10.2K" }, { tag: "#WCWS", posts: "14.8K" }, { tag: "#Committed", posts: "21.7K" }, { tag: "#SoftballNIL", posts: "4.9K" }, { tag: "#ExitVelo", posts: "6.1K" }],
+    trendingTags: [{ tag: "#PGFNationals", posts: "10.2K" }, { tag: "#SoftballNation", posts: "14.8K" }, { tag: "#Committed", posts: "21.7K" }, { tag: "#SoftballNIL", posts: "4.9K" }, { tag: "#ExitVelo", posts: "6.1K" }],
     scouts: [{ name: "PGF", org: "National Scouting", role: "Ranking Class 2027" }, { name: "USA Softball", org: "National Federation", role: "Olympic development" }, { name: "NCAA Softball", org: "College Recruiting", role: "Scholarship offers" }],
     events: [{ name: "PGF Nationals", location: "Huntington Beach, CA", date: "Jul–Aug 2026", level: "Elite" }, { name: "USA Softball Junior Olympics", location: "Oklahoma City, OK", date: "Jul 2026", level: "National" }, { name: "Colorado Sparkler", location: "Denver, CO", date: "Jun 2026", level: "National" }, { name: "World Series of Softball", location: "Tulsa, OK", date: "Aug 2026", level: "National" }],
     positions: ["P", "C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "DP/UTIL"],

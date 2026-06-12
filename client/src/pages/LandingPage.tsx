@@ -384,17 +384,6 @@ function LandingPageInner() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(255,79,216,0.16),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.10),transparent_55%)]" />
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">
-          {/* WCWS Champions Banner */}
-          <div className="mb-6 flex items-center justify-between gap-4 flex-wrap rounded-[1.5rem] border border-[#BF5700]/30 bg-[#BF5700]/5 px-6 py-4">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">🏆</span>
-              <div>
-                <p className="text-[9px] font-black tracking-widest uppercase text-[#BF5700]/70">WCWS 2026 · Devon Park · OKC · Complete</p>
-                <p className="text-sm font-black text-white">Texas Longhorns · Back-to-Back National Champions · 2025 &amp; 2026</p>
-              </div>
-            </div>
-            <span className="text-[10px] font-black tracking-widest uppercase text-white/30">Hook 'Em Horns · Congratulations</span>
-          </div>
 
           <div className="mb-12 overflow-hidden rounded-[2.25rem] border border-[#00c2ff]/30 bg-[#06142a]/90 shadow-2xl shadow-[#0066ff]/20">
             <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:p-10">

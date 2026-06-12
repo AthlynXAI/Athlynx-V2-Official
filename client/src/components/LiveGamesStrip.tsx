@@ -159,7 +159,7 @@ function GameCard({ g }: { g: ESPNGame }) {
     month: "short",
     day: "numeric",
   });
-  const sportBadge = g.sport === "baseball" ? "MCWS" : "WCWS";
+  const sportBadge = g.sport === "baseball" ? "MCWS" : "Softball";
   const noteShort = g.note?.replace(/^NCAA (Baseball|Softball) Championship - /, "") ?? "";
   return (
     <div className="min-w-[240px] flex-shrink-0 rounded-lg border border-[#1E90FF]/30 bg-gradient-to-br from-[#0a1628] to-black p-3 hover:border-[#1E90FF]/70 transition">
@@ -253,7 +253,7 @@ export default function LiveGamesStrip() {
           <div className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1E90FF]"></span>
             <h2 className="text-[11px] font-black uppercase tracking-[0.22em] text-white md:text-xs">
-              Live Games · MCWS + WCWS · Today + Tomorrow
+              Live Games · MCWS · Today + Tomorrow
             </h2>
             {liveCount > 0 && (
               <span className="rounded bg-[#1E90FF] px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-white">

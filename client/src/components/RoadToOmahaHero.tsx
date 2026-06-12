@@ -181,24 +181,19 @@ export function RoadToOmahaHero() {
         {/* Live brackets first — top of page above Diamond Grind */}
         <div className="mb-6 rounded-3xl border-2 border-[#1E90FF]/70 bg-[#020817] p-3 shadow-[0_0_34px_rgba(30,144,255,0.32)] md:p-5">
           <div className="mb-4 text-center">
-            <div className="text-[11px] font-black uppercase tracking-[0.22em] text-[#1E90FF]">Regionals · Super Regionals · MCWS · WCWS</div>
+            <div className="text-[11px] font-black uppercase tracking-[0.22em] text-[#1E90FF]">Regionals · Super Regionals · MCWS</div>
             <div className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-white/60">Live daily matchups · ESPN/NCAA scores · YouTube highlights · 60-second refresh</div>
           </div>
-          <div className="mb-4 grid grid-cols-2 gap-2 text-center md:grid-cols-4">
-            {["REGIONALS", "SUPER REGIONALS", "MCWS", "WCWS"].map((stage) => (
+          <div className="mb-4 grid grid-cols-3 gap-2 text-center">
+            {["REGIONALS", "SUPER REGIONALS", "MCWS"].map((stage) => (
               <div key={stage} className="rounded-xl border border-[#1E90FF]/35 bg-black/45 px-2 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-white">{stage}</div>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5">
             <div className="min-w-0 rounded-2xl border border-[#1E90FF]/35 bg-black/35 p-3">
               <Link href="/brackets/mcws"><a className="mb-3 block text-xs font-black uppercase tracking-[0.2em] text-white hover:text-[#1E90FF]">MCWS Live · Regionals to Omaha →</a></Link>
               <LiveRegionalScoreboard sport="baseball" />
               <RegionalBracketTree sport="baseball" />
-            </div>
-            <div className="min-w-0 rounded-2xl border border-[#1E90FF]/35 bg-black/35 p-3">
-              <Link href="/brackets/wcws"><a className="mb-3 block text-xs font-black uppercase tracking-[0.2em] text-white hover:text-[#1E90FF]">WCWS Live · Regionals to OKC →</a></Link>
-              <LiveRegionalScoreboard sport="softball" />
-              <RegionalBracketTree sport="softball" />
             </div>
           </div>
           <div className="mt-5 rounded-2xl border border-[#1E90FF]/25 bg-black/30 p-3">
