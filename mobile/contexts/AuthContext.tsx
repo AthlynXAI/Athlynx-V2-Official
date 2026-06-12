@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { getMe, login, logout, register, User } from "../lib/auth";
+import { getMe, loginWithAuth0, logout, User } from "../lib/auth";
 // Vexo analytics — lightweight event tracking
 async function vexoIdentify(email: string) {
   try {
@@ -15,8 +15,8 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
-  signUp: (data: { name: string; email: string; password: string; sport?: string }) => Promise<void>;
+  /** Opens Auth0 Universal Login (PKCE). The ONLY way to sign in or sign up. */
+  signIn: () => Promise<void>;
   signOut: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -26,7 +26,6 @@ const AuthContext = createContext<AuthContextType>({
   isLoading: true,
   isAuthenticated: false,
   signIn: async () => {},
-  signUp: async () => {},
   signOut: async () => {},
   refreshUser: async () => {},
 });
@@ -57,16 +56,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  async function signIn(email: string, password: string) {
-    const { user: u } = await login(email, password);
+  async function signIn() {
+    const { user: u } = await loginWithAuth0();
     setUser(u);
     try { vexoIdentify(u.email); } catch {}
-  }
-
-  async function signUp(data: { name: string; email: string; password: string; sport?: string }) {
-    const { user: u } = await register(data);
-    setUser(u);
-    try { vexoIdentify(data.email); } catch {}
   }
 
   async function signOut() {
@@ -86,7 +79,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isLoading,
         isAuthenticated: !!user,
         signIn,
-        signUp,
         signOut,
         refreshUser,
       }}

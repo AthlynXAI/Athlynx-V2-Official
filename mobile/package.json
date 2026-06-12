@@ -1,6 +1,6 @@
 {
   "name": "athlynxai",
-  "main": "index.js",
+  "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
@@ -22,7 +22,10 @@
     "@react-navigation/stack": "^7.0.0",
     "@supabase/supabase-js": "^2.106.2",
     "expo": "^53.0.27",
+    "expo-auth-session": "~6.1.5",
     "expo-build-properties": "~0.14.0",
+    "expo-crypto": "~14.1.5",
+    "expo-web-browser": "~14.1.6",
     "expo-constants": "~17.1.8",
     "expo-font": "~13.3.2",
     "expo-image": "~2.4.1",

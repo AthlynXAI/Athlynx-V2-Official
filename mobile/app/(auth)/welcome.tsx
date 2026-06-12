@@ -94,7 +94,7 @@ export default function WelcomeScreen() {
         <Animated.View style={[styles.ctaSection, { opacity: contentOpacity }]}>
           <Pressable
             style={styles.ctaPrimary}
-            onPress={() => router.push("/(auth)/register")}
+            onPress={() => router.push("/(auth)/login")}
           >
             <Text style={styles.ctaPrimaryText}>Get Started — It's Free</Text>
           </Pressable>
