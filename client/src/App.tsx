@@ -325,6 +325,8 @@ function Router() {
       <Route path="/welcome" component={Welcome} />
       <Route path="/trial-expired" component={TrialExpired} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/sign-up" component={SignUp} />
+      <Route path="/register" component={SignUp} />
       <Route path="/early-access" component={EarlyAccess} />
       <Route path="/early-access-v2" component={EarlyAccessUpdated} />
       <Route path="/signin" component={SignIn} />
