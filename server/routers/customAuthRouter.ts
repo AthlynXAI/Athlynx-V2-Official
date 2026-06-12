@@ -1,11 +1,11 @@
 /**
  * AthlynX — Custom Auth Router
- * Supabase-based authentication. Firebase and Auth0 have been fully removed.
+ * Auth0/Okta PKCE-only authentication. Single auth system.
  *
  * Procedures:
  *  - me               : return current session user (protected)
  *  - logout           : clear session cookie (protected)
- *  - syncFirebaseUser : verify Firebase ID token → upsert user → set session cookie (public)
+ *  - syncFirebaseUser : verify Auth0 ID token → upsert user → set session cookie (public)
  *  - login            : email/password sign-in → set session cookie (public)
  *  - register         : email/password sign-up → set session cookie (public)
  *  - savePhone        : save phone number to current user (protected)
@@ -38,8 +38,8 @@ export const customAuthRouter = router({
     return { success: true };
   }),
 
-  // ─── Supabase social login (Google, Apple, Twitter) ────────────────────────
-  // Frontend: signInWithGoogle() → get idToken → call this → session cookie set
+  // ─── Auth0 social login (Google, Apple, Facebook) ────────────────────────
+  // Frontend: Auth0 PKCE redirect → handleRedirectResult() → idToken → call this → session cookie set
   syncFirebaseUser: publicProcedure
     .input(
       z.object({
@@ -52,18 +52,31 @@ export const customAuthRouter = router({
       })
     )
     .mutation(async ({ input, ctx }) => {
-      // 1. Verify the Supabase access token
+      // 1. Verify the Auth0 ID token via JWKS
       const firebasePayload = await verifyFirebaseToken(input.idToken);
       const uid = firebasePayload.uid;
-      const openId = `supabase:${uid}`;
+      const openId = `auth0:${uid}`;
 
       // 2. Resolve display values — prefer token fields, fall back to input
       const name = firebasePayload.name || input.name || "Athlete";
       const email = firebasePayload.email || input.email || "";
       const loginMethod = firebasePayload.firebase?.sign_in_provider ?? "google.com";
 
-      // 3. Check if user already exists
-      const existing = await getUserByOpenId(openId);
+      // 3. Check if user already exists (also migrate old supabase: prefix to auth0:)
+      let existing = await getUserByOpenId(openId);
+      if (!existing) {
+        // Backward-compat: migrate users created with old supabase: prefix
+        const oldOpenId = `supabase:${uid}`;
+        const oldUser = await getUserByOpenId(oldOpenId);
+        if (oldUser) {
+          const db = await getDb();
+          if (db) {
+            await db.update(users).set({ openId }).where(eq(users.openId, oldOpenId));
+            existing = await getUserByOpenId(openId);
+            console.log(`[AUTH] Migrated user openId from supabase: to auth0: for uid=${uid}`);
+          }
+        }
+      }
       const isNewUser = !existing;
 
       // 4. Set 7-day free trial for new users
@@ -117,7 +130,7 @@ export const customAuthRouter = router({
         const baseSignupMetadata = {
           method: loginMethod,
           email,
-          source: "supabase",
+          source: "auth0",
           ...(input.attribution || {}),
           completedAt,
         };
