@@ -17,8 +17,8 @@ const AUTH0_CLIENT_ID =
 
 const AUTH0_REDIRECT_URI =
   typeof window !== "undefined"
-    ? `${window.location.origin}/auth/callback`
-    : "https://athlynx.ai/auth/callback";
+    ? `${window.location.origin}/callback`
+    : "https://athlynx.ai/callback";
 
 // ─── Singleton client ──────────────────────────────────────────────────────
 let _client: Auth0Client | null = null;
