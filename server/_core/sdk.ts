@@ -1,6 +1,9 @@
 /**
  * SDK Server — AthlynX
- * Session-cookie based authentication. Supabase Auth replaces Firebase/Auth0/Okta.
+ * Session-cookie based authentication via signed JWT cookie.
+ * Auth system: Auth0/Okta PKCE ONLY — no Firebase, no Supabase auth.
+ * Session cookie is created by customAuthRouter.syncFirebaseUser after
+ * verifying the Auth0 ID token via JWKS (see server/_core/firebaseAdmin.ts).
  */
 import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 import { ForbiddenError } from "@shared/_core/errors";

@@ -40,7 +40,7 @@ export function isAllowedOrigin(origin?: string | null): boolean {
  * Cloudflare may add some of these too — duplicates are harmless.
  *
  * CSP is intentionally permissive on `script-src` because we serve a SPA with
- * Vite-built bundles and use third-party widgets (Stripe, Auth0, Firebase,
+ * Vite-built bundles and use third-party widgets (Stripe, Auth0,
  * Google Maps, YouTube). Tighten further only after measuring breakage.
  */
 export function securityHeaders(_req: Request, res: Response, next: NextFunction): void {
