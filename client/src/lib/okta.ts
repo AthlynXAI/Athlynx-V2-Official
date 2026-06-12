@@ -32,7 +32,7 @@ export async function getAuth0Client(): Promise<Auth0Client> {
       redirect_uri: AUTH0_REDIRECT_URI,
       scope: "openid profile email",
     },
-    cacheLocation: "localstorage",
+    cacheLocation: "memory",
   });
   return _client;
 }
