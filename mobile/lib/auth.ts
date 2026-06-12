@@ -138,12 +138,15 @@ export async function loginWithAuth0(): Promise<{ user: User; sessionId: string 
   }
 
   // Exchange authorization code for tokens
+  // expo-auth-session v6: codeVerifier is passed via extraParams as code_verifier
   const tokenResult = await AuthSession.exchangeCodeAsync(
     {
       clientId: AUTH0_CLIENT_ID,
       redirectUri: REDIRECT_URI,
       code: result.params.code,
-      codeVerifier: request.codeVerifier!,
+      extraParams: request.codeVerifier
+        ? { code_verifier: request.codeVerifier }
+        : undefined,
     },
     discovery
   );
