@@ -2,14 +2,13 @@ name: EAS iOS build & TestFlight submit
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Auto-iOS pipeline: pushes to main that touch the mobile app build a fresh
-# iOS IPA on EAS and submit it to TestFlight automatically. You'll get the
-# TestFlight push notification on your phone — no Manus, no manual EAS run.
+# iOS IPA on EAS and submit it to TestFlight automatically.
 #
 # Required GitHub repo secrets:
-#   - EXPO_TOKEN              (Expo account token)
-#   - ASC_API_KEY_P8          (Contents of AuthKey_<KEY_ID>.p8 — the .p8 file body)
-#   - ASC_API_KEY_ID          (e.g. 5PTLU5B336)
-#   - ASC_API_KEY_ISSUER_ID   (e.g. ba530e88-4441-4029-bc5a-853abab91a91)
+#   - EXPO_TOKEN              (Expo account token — must belong to cdozier14)
+#   - ASC_API_KEY_P8          (Raw contents of AuthKey_EHRBJCMPF087.p8)
+#   - ASC_API_KEY_ID          (EHRBJCMPF087)
+#   - ASC_API_KEY_ISSUER_ID   (ba530e88-4441-4029-bc5a-853abab91a91)
 # ─────────────────────────────────────────────────────────────────────────────
 
 on:
@@ -64,24 +63,21 @@ jobs:
           ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
           ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
         run: |
-          # EXPO_TOKEN is non-negotiable — build can't even start without it.
           if [ -z "${EXPO_TOKEN}" ]; then
             echo "::error::EXPO_TOKEN secret is not set."
             exit 1
           fi
-          # ASC keys are only mandatory when the user explicitly triggers TestFlight via manual dispatch.
-          # On push, missing ASC keys downgrade to a warning and we skip TestFlight submission (build still runs).
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.submit_to_testflight }}" = "true" ]; then
             missing=()
             [ -z "${ASC_API_KEY_P8}" ] && missing+=("ASC_API_KEY_P8")
             [ -z "${ASC_API_KEY_ID}" ] && missing+=("ASC_API_KEY_ID")
             [ -z "${ASC_API_KEY_ISSUER_ID}" ] && missing+=("ASC_API_KEY_ISSUER_ID")
             if [ ${#missing[@]} -gt 0 ]; then
-              echo "::error::Manual TestFlight submission requested but secrets missing: ${missing[*]}"
+              echo "::error::TestFlight submission requested but secrets missing: ${missing[*]}"
               exit 1
             fi
           fi
-          echo "Required secrets present (EXPO_TOKEN at minimum)."
+          echo "Required secrets present."
 
       - name: Set up Expo / EAS CLI
         uses: expo/expo-github-action@v8
@@ -131,17 +127,14 @@ jobs:
           else
             INTENT=false
           fi
-
-          # Soft gate: if any ASC secret is missing, skip TestFlight submit and warn loudly.
-          # IPA still built and available on EAS.
           if [ "$INTENT" = "true" ] && { [ -z "${ASC_API_KEY_P8}" ] || [ -z "${ASC_API_KEY_ID}" ] || [ -z "${ASC_API_KEY_ISSUER_ID}" ]; }; then
-            echo "::warning::App Store Connect API secrets not all present — skipping TestFlight submission. IPA built successfully and is available on EAS. Paste ASC_API_KEY_P8 / ASC_API_KEY_ID / ASC_API_KEY_ISSUER_ID into repo secrets to enable auto-submit."
+            echo "::warning::ASC secrets not all present — skipping TestFlight submission. IPA is available on EAS."
             echo "submit=false" >> "$GITHUB_OUTPUT"
           else
             echo "submit=$INTENT" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Write App Store Connect API key (.p8) and align EAS submit config
+      - name: Write App Store Connect API key (.p8)
         if: steps.submit_gate.outputs.submit == 'true'
         env:
           ASC_API_KEY_P8: ${{ secrets.ASC_API_KEY_P8 }}
@@ -151,42 +144,50 @@ jobs:
           set -euo pipefail
           umask 077
           KEY_PATH="AuthKey_${ASC_API_KEY_ID}.p8"
-          printf '%s' "${ASC_API_KEY_P8}" > "${KEY_PATH}"
+          # Write key — preserve exact content including headers and line endings
+          printf '%s\n' "${ASC_API_KEY_P8}" > "${KEY_PATH}"
           if [ ! -s "${KEY_PATH}" ]; then
             echo "::error::ASC_API_KEY_P8 wrote an empty file."
             exit 1
           fi
-          if ! grep -q "BEGIN PRIVATE KEY" "${KEY_PATH}"; then
-            echo "::error::ASC_API_KEY_P8 does not look like a valid App Store Connect .p8 key."
+          if ! grep -q "PRIVATE KEY" "${KEY_PATH}"; then
+            echo "::error::ASC_API_KEY_P8 does not look like a valid .p8 key (missing PRIVATE KEY header)."
             exit 1
           fi
-
-          # Keep secrets in GitHub Actions only, but patch the runner's local eas.json
-          # so EAS submit uses the exact API key filename/ID/issuer supplied by secrets.
-          node <<'NODE'
-          const fs = require('fs');
-          const path = 'eas.json';
-          const eas = JSON.parse(fs.readFileSync(path, 'utf8'));
-          eas.submit ??= {};
-          eas.submit.production ??= {};
-          eas.submit.production.ios ??= {};
-          eas.submit.production.ios.ascApiKeyPath = `./AuthKey_${process.env.ASC_API_KEY_ID}.p8`;
-          eas.submit.production.ios.ascApiKeyId = process.env.ASC_API_KEY_ID;
-          eas.submit.production.ios.ascApiKeyIssuerId = process.env.ASC_API_KEY_ISSUER_ID;
-          fs.writeFileSync(path, JSON.stringify(eas, null, 2) + '\n');
-          NODE
+          echo "Key file written: ${KEY_PATH} ($(wc -c < "${KEY_PATH}") bytes)"
+          # Patch eas.json to use exact key path/ID/issuer from secrets
+          # IMPORTANT: Do NOT include appleId — it conflicts with API key auth
+          node -e "
+            const fs = require('fs');
+            const eas = JSON.parse(fs.readFileSync('eas.json', 'utf8'));
+            eas.submit = eas.submit || {};
+            eas.submit.production = eas.submit.production || {};
+            eas.submit.production.ios = eas.submit.production.ios || {};
+            eas.submit.production.ios.ascApiKeyPath = './AuthKey_' + process.env.ASC_API_KEY_ID + '.p8';
+            eas.submit.production.ios.ascApiKeyId = process.env.ASC_API_KEY_ID;
+            eas.submit.production.ios.ascApiKeyIssuerId = process.env.ASC_API_KEY_ISSUER_ID;
+            delete eas.submit.production.ios.appleId;
+            fs.writeFileSync('eas.json', JSON.stringify(eas, null, 2) + '\n');
+            console.log('eas.json patched — ascApiKeyId:', process.env.ASC_API_KEY_ID);
+          "
 
       - name: Submit latest iOS build to TestFlight
         if: steps.submit_gate.outputs.submit == 'true'
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
         run: |
           set -euo pipefail
+          # --no-wait: schedule submission and exit immediately (don't wait for Apple to process)
+          # This prevents false failures when Apple takes >20s to respond
           npx eas-cli submit \
             --platform ios \
             --profile "${{ steps.profile.outputs.value }}" \
             --latest \
-            --non-interactive
+            --non-interactive \
+            --no-wait
+          echo "✅ iOS submission scheduled successfully. Check App Store Connect for processing status."
 
       - name: Remove ASC API key file
         if: always() && steps.submit_gate.outputs.submit == 'true'

@@ -1,7 +1,7 @@
 {
   "cli": {
     "version": ">= 10.0.0",
-    "appVersionSource": "local"
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -47,9 +47,8 @@
       },
       "ios": {
         "ascApiKeyPath": "./AuthKey_EHRBJCMPF087.p8",
-        "ascApiKeyIssuerId": "ba530e88-4441-4029-bc5a-853abab91a91",
         "ascApiKeyId": "EHRBJCMPF087",
-        "appleId": "chad.dozier@icloud.com",
+        "ascApiKeyIssuerId": "ba530e88-4441-4029-bc5a-853abab91a91",
         "ascAppId": "6767448150"
       }
     }
