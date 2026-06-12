@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.athlynx.app",
-      "buildNumber": "1",
+      "buildNumber": "82",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
@@ -31,7 +31,7 @@
         "backgroundColor": "#000000"
       },
       "package": "ai.athlynx.app",
-      "versionCode": 1,
+      "versionCode": 82,
       "permissions": [
         "POST_NOTIFICATIONS",
         "android.permission.RECORD_AUDIO",
