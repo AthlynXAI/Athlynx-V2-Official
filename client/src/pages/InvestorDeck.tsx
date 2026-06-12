@@ -128,15 +128,46 @@ function InvestorDeckInner() {
 
           {/* DHG Ecosystem */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+            {/* AthlynX — custom render so Diamond Grind is a clickable link */}
+            <div className="rounded-2xl border border-[#1E90FF]/30 bg-gradient-to-br from-[#1E90FF]/10 to-transparent p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 bg-[#1E90FF]/20 border border-[#1E90FF]/30 rounded-lg flex items-center justify-center">
+                  <Layers className="w-4.5 h-4.5 text-[#1E90FF]" />
+                </div>
+                <div>
+                  <div className="font-black text-white text-sm">AthlynX</div>
+                  <div className="text-gray-400 text-xs">The Athlete's Playbook</div>
+                </div>
+              </div>
+              <ul className="space-y-1.5">
+                <li className="flex items-start gap-2 text-gray-300 text-xs">
+                  <ChevronRight className="w-3 h-3 text-[#1E90FF] mt-0.5 shrink-0" />
+                  NIL Portal — Deal marketplace
+                </li>
+                <li className="flex items-start gap-2 text-xs">
+                  <ChevronRight className="w-3 h-3 text-[#1E90FF] mt-0.5 shrink-0" />
+                  <Link href="/diamond-grind" className="text-[#00C2FF] hover:text-white hover:underline transition-colors">
+                    Diamond Grind — Elite baseball
+                  </Link>
+                </li>
+                <li className="flex items-start gap-2 text-gray-300 text-xs">
+                  <ChevronRight className="w-3 h-3 text-[#1E90FF] mt-0.5 shrink-0" />
+                  Messenger — Private comms
+                </li>
+                <li className="flex items-start gap-2 text-gray-300 text-xs">
+                  <ChevronRight className="w-3 h-3 text-[#1E90FF] mt-0.5 shrink-0" />
+                  Transfer Portal — Recruiting
+                </li>
+                <li className="flex items-start gap-2 text-gray-300 text-xs">
+                  <ChevronRight className="w-3 h-3 text-[#1E90FF] mt-0.5 shrink-0" />
+                  AI Training Bots — Fuel Bots
+                </li>
+              </ul>
+            </div>
+
+            {/* SOFTMOR INC + AI Training Layer — unchanged, still use shared map */}
             {[
-              {
-                icon: Layers,
-                name: "AthlynX",
-                sub: "The Athlete's Playbook",
-                items: ["NIL Portal — Deal marketplace", "Diamond Grind — Elite baseball", "Messenger — Private comms", "Transfer Portal — Recruiting", "AI Training Bots — Fuel Bots"],
-                border: "border-[#1E90FF]/30",
-                bg: "from-[#1E90FF]/10 to-transparent",
-              },
               {
                 icon: Building2,
                 name: "SOFTMOR INC",
@@ -174,6 +205,7 @@ function InvestorDeckInner() {
                 </ul>
               </div>
             ))}
+
           </div>
         </div>
       </section>
