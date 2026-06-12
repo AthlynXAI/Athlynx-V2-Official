@@ -1,11 +1,13 @@
 /**
- * AthlynXAI — Auth0 OIDC Client
- * Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com
- * Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI (Athlynx-FrontEnd-Single-Page)
+ * AthlynXAI — Auth0 Direct PKCE Implementation
  *
- * Uses ID token (not access token) — no API audience registration required.
+ * Does NOT use @auth0/auth0-spa-js SDK redirect flow.
+ * Implements PKCE manually so the code_verifier is stored in sessionStorage
+ * and survives the full-page reload that happens on Auth0 callback.
+ *
+ * Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com
+ * Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
  */
-import { createAuth0Client, Auth0Client, User } from "@auth0/auth0-spa-js";
 
 const AUTH0_DOMAIN =
   (import.meta.env.VITE_AUTH0_DOMAIN as string | undefined) ||
@@ -17,27 +19,73 @@ const AUTH0_CLIENT_ID =
 
 const AUTH0_REDIRECT_URI =
   typeof window !== "undefined"
-    ? `${window.location.origin}/callback`
-    : "https://athlynx.ai/callback";
+    ? `${window.location.origin}/auth/callback`
+    : "https://athlynx.ai/auth/callback";
 
-// ─── Singleton client ──────────────────────────────────────────────────────
-let _client: Auth0Client | null = null;
+const STORAGE_KEY_VERIFIER = "auth0_pkce_verifier";
+const STORAGE_KEY_STATE    = "auth0_pkce_state";
 
-export async function getAuth0Client(): Promise<Auth0Client> {
-  if (_client) return _client;
-  _client = await createAuth0Client({
-    domain: AUTH0_DOMAIN,
-    clientId: AUTH0_CLIENT_ID,
-    authorizationParams: {
-      redirect_uri: AUTH0_REDIRECT_URI,
-      scope: "openid profile email",
-    },
-    cacheLocation: "memory",
-  });
-  return _client;
+// ─── PKCE helpers ──────────────────────────────────────────────────────────
+
+function base64urlEncode(buffer: ArrayBuffer): string {
+  return btoa(String.fromCharCode(...new Uint8Array(buffer)))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "");
+}
+
+async function generateCodeVerifier(): Promise<string> {
+  const array = new Uint8Array(32);
+  crypto.getRandomValues(array);
+  return base64urlEncode(array.buffer);
+}
+
+async function generateCodeChallenge(verifier: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(verifier);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return base64urlEncode(digest);
+}
+
+function generateState(): string {
+  const array = new Uint8Array(16);
+  crypto.getRandomValues(array);
+  return base64urlEncode(array.buffer);
+}
+
+// ─── Core redirect ─────────────────────────────────────────────────────────
+
+async function redirectToAuth0(params: {
+  connection?: string;
+  loginHint?: string;
+  screenHint?: string;
+}): Promise<void> {
+  const verifier = await generateCodeVerifier();
+  const challenge = await generateCodeChallenge(verifier);
+  const state = generateState();
+
+  // Store in sessionStorage — survives page reload, cleared on tab close
+  sessionStorage.setItem(STORAGE_KEY_VERIFIER, verifier);
+  sessionStorage.setItem(STORAGE_KEY_STATE, state);
+
+  const url = new URL(`https://${AUTH0_DOMAIN}/authorize`);
+  url.searchParams.set("response_type", "code");
+  url.searchParams.set("client_id", AUTH0_CLIENT_ID);
+  url.searchParams.set("redirect_uri", AUTH0_REDIRECT_URI);
+  url.searchParams.set("scope", "openid profile email");
+  url.searchParams.set("code_challenge", challenge);
+  url.searchParams.set("code_challenge_method", "S256");
+  url.searchParams.set("state", state);
+
+  if (params.connection) url.searchParams.set("connection", params.connection);
+  if (params.loginHint)  url.searchParams.set("login_hint", params.loginHint);
+  if (params.screenHint) url.searchParams.set("screen_hint", params.screenHint);
+
+  window.location.href = url.toString();
 }
 
 // ─── Shared types ──────────────────────────────────────────────────────────
+
 export type FirebaseUser = {
   uid: string;
   displayName: string | null;
@@ -47,136 +95,143 @@ export type FirebaseUser = {
 
 export const isFirebaseConfigured = true;
 
-// ─── Extract ID token from cache ──────────────────────────────────────────
-async function getIdToken(client: Auth0Client): Promise<string> {
-  // getIdTokenClaims returns the raw ID token claims including __raw (the JWT)
-  const claims = await client.getIdTokenClaims();
-  if (!claims || !claims.__raw) {
-    throw new Error("No ID token available");
-  }
-  return claims.__raw;
-}
-
 // ─── Sign-in methods ──────────────────────────────────────────────────────
+
 export async function signInWithGoogle(): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { connection: "google-oauth2", redirect_uri: AUTH0_REDIRECT_URI },
-  });
+  await redirectToAuth0({ connection: "google-oauth2" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithApple(): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { connection: "apple", redirect_uri: AUTH0_REDIRECT_URI },
-  });
+  await redirectToAuth0({ connection: "apple" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithFacebook(): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { connection: "facebook", redirect_uri: AUTH0_REDIRECT_URI },
-  });
+  await redirectToAuth0({ connection: "facebook" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithTwitter(): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { connection: "twitter", redirect_uri: AUTH0_REDIRECT_URI },
-  });
+  await redirectToAuth0({ connection: "twitter" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function loginWithRedirect(): Promise<void> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { redirect_uri: AUTH0_REDIRECT_URI },
-  });
+  await redirectToAuth0({});
 }
 
-// ─── Callback handler ─────────────────────────────────────────────────────
-export async function handleRedirectResult(): Promise<{ idToken: string; user: FirebaseUser } | null> {
-  const client = await getAuth0Client();
-  try {
-    await client.handleRedirectCallback();
-  } catch (e) {
-    console.error("[okta] handleRedirectCallback failed:", e);
-    return null;
-  }
-  const auth0User: User | undefined = await client.getUser();
-  if (!auth0User) return null;
-
-  let idToken: string;
-  try {
-    idToken = await getIdToken(client);
-  } catch (e) {
-    console.error("[okta] getIdToken failed:", e);
-    return null;
-  }
-
-  return {
-    idToken,
-    user: {
-      uid: auth0User.sub ?? "",
-      displayName: auth0User.name ?? auth0User.nickname ?? null,
-      email: auth0User.email ?? null,
-      photoURL: auth0User.picture ?? null,
-    },
-  };
-}
-
-// ─── Sign-out ─────────────────────────────────────────────────────────────
-export async function firebaseSignOut(): Promise<void> {
-  const client = await getAuth0Client();
-  await client.logout({
-    logoutParams: { returnTo: typeof window !== "undefined" ? window.location.origin : "https://athlynx.ai" },
-  });
-}
-
-// ─── Email sign-in ────────────────────────────────────────────────────────
 export async function signInWithEmailAndPassword(
   _auth: unknown, email: string, _password: string
 ): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { redirect_uri: AUTH0_REDIRECT_URI, login_hint: email },
-  });
+  await redirectToAuth0({ loginHint: email });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function createUserWithEmailAndPassword(
   _auth: unknown, email: string, _password: string
 ): Promise<{ idToken: string; user: FirebaseUser }> {
-  const client = await getAuth0Client();
-  await client.loginWithRedirect({
-    authorizationParams: { redirect_uri: AUTH0_REDIRECT_URI, login_hint: email, screen_hint: "signup" },
-  });
+  await redirectToAuth0({ loginHint: email, screenHint: "signup" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
+// ─── Callback handler ─────────────────────────────────────────────────────
+
+export async function handleRedirectResult(): Promise<{ idToken: string; user: FirebaseUser } | null> {
+  const params = new URLSearchParams(window.location.search);
+  const code  = params.get("code");
+  const state = params.get("state");
+  const error = params.get("error");
+
+  if (error) {
+    console.error("[okta] Auth0 error:", error, params.get("error_description"));
+    return null;
+  }
+
+  if (!code) {
+    console.error("[okta] No code in callback URL");
+    return null;
+  }
+
+  const verifier      = sessionStorage.getItem(STORAGE_KEY_VERIFIER);
+  const savedState    = sessionStorage.getItem(STORAGE_KEY_STATE);
+
+  if (!verifier) {
+    console.error("[okta] No PKCE verifier in sessionStorage");
+    return null;
+  }
+
+  if (savedState && state !== savedState) {
+    console.error("[okta] State mismatch — possible CSRF");
+    return null;
+  }
+
+  // Clean up storage
+  sessionStorage.removeItem(STORAGE_KEY_VERIFIER);
+  sessionStorage.removeItem(STORAGE_KEY_STATE);
+
+  // Exchange code for tokens
+  const tokenResp = await fetch(`https://${AUTH0_DOMAIN}/oauth/token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type:    "authorization_code",
+      client_id:     AUTH0_CLIENT_ID,
+      code,
+      redirect_uri:  AUTH0_REDIRECT_URI,
+      code_verifier: verifier,
+    }),
+  });
+
+  if (!tokenResp.ok) {
+    const err = await tokenResp.text();
+    console.error("[okta] Token exchange failed:", err);
+    return null;
+  }
+
+  const tokens = await tokenResp.json();
+  const idToken: string = tokens.id_token;
+
+  if (!idToken) {
+    console.error("[okta] No id_token in token response");
+    return null;
+  }
+
+  // Decode ID token payload (no verification needed — server verifies)
+  let payload: any = {};
+  try {
+    payload = JSON.parse(atob(idToken.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
+  } catch (e) {
+    console.error("[okta] Failed to decode ID token:", e);
+  }
+
+  return {
+    idToken,
+    user: {
+      uid:         payload.sub ?? "",
+      displayName: payload.name ?? payload.nickname ?? null,
+      email:       payload.email ?? null,
+      photoURL:    payload.picture ?? null,
+    },
+  };
+}
+
+// ─── Sign-out ─────────────────────────────────────────────────────────────
+
+export async function firebaseSignOut(): Promise<void> {
+  const returnTo = typeof window !== "undefined" ? window.location.origin : "https://athlynx.ai";
+  window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?client_id=${AUTH0_CLIENT_ID}&returnTo=${encodeURIComponent(returnTo)}`;
+}
+
 // ─── Auth state listener ──────────────────────────────────────────────────
+
 export function onAuthStateChanged(
   _auth: unknown,
   callback: (user: FirebaseUser | null) => void
 ): () => void {
-  let cancelled = false;
-  (async () => {
-    try {
-      const client = await getAuth0Client();
-      const isAuthenticated = await client.isAuthenticated();
-      if (cancelled) return;
-      if (!isAuthenticated) { callback(null); return; }
-      const u = await client.getUser();
-      if (cancelled) return;
-      callback(u ? { uid: u.sub ?? "", displayName: u.name ?? u.nickname ?? null, email: u.email ?? null, photoURL: u.picture ?? null } : null);
-    } catch {
-      if (!cancelled) callback(null);
-    }
-  })();
-  return () => { cancelled = true; };
+  // No persistent session in this flow — always unauthenticated on fresh load
+  callback(null);
+  return () => {};
 }
 
 export const auth = { currentUser: null as FirebaseUser | null };
