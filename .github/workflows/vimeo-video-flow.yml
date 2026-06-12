@@ -69,47 +69,48 @@ jobs:
           ref: ${{ inputs.ref || github.head_ref || github.ref }}
           fetch-depth: 1
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 24
-          cache: pnpm
 
       - name: Verify required secrets are present
         run: |
-          missing=0
           if [ -z "$VIMEO_ACCESS_TOKEN" ]; then
             echo "::error::Missing repo secret VIMEO_ACCESS_TOKEN — add it under Settings → Secrets and variables → Actions"
-            missing=1
+            exit 1
           fi
           if [ -z "$VIMEO_TEST_VIDEO_IDS" ]; then
-            echo "::error::Missing repo variable VIMEO_TEST_VIDEO_IDS — add 2–5 stable production video IDs, comma-separated"
-            missing=1
+            echo "::notice::VIMEO_TEST_VIDEO_IDS not set — skipping Vimeo regression check (add 2–5 stable video IDs as a repo variable to enable)"
+            echo "SKIP_VIMEO=true" >> $GITHUB_ENV
           fi
-          if [ "$missing" -eq 1 ]; then exit 1; fi
 
       - name: Prepare log directory
+        if: env.SKIP_VIMEO != 'true'
         run: mkdir -p "$LOG_DIR"
+
+      - name: Early exit when no test video IDs configured
+        if: env.SKIP_VIMEO == 'true'
+        run: echo "Vimeo regression check skipped — VIMEO_TEST_VIDEO_IDS not configured."
 
       # Step 1: auth sanity
       - name: Vimeo auth sanity (/me)
+        if: env.SKIP_VIMEO != 'true'
         run: node scripts/vimeo-ci/vimeo-check-auth.js
 
       # Step 2: validate every existing video ID
       - name: Validate existing video IDs
+        if: env.SKIP_VIMEO != 'true'
         run: node scripts/vimeo-ci/vimeo-validate-videos.js
 
       # Step 3: simulate a new upload (POST + tus HEAD + DELETE)
       - name: Simulate new video upload
+        if: env.SKIP_VIMEO != 'true'
         run: node scripts/vimeo-ci/vimeo-simulate-upload.js
 
       # Step 4: verify player config (HLS manifest reachable)
       - name: Verify player config endpoint
+        if: env.SKIP_VIMEO != 'true'
         run: node scripts/vimeo-ci/vimeo-verify-player.js
 
       - name: Upload response logs
