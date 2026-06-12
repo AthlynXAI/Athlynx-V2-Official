@@ -9,7 +9,7 @@ function AuthCallbackInner() {
   const [status, setStatus] = useState('Signing you in...')
   const ran = useRef(false)
 
-  const syncMutation = trpc.auth.syncFirebaseUser.useMutation({
+  const syncMutation = trpc.auth.syncUser.useMutation({
     onSuccess: (data: any) => {
       const isNewUser = data?.isNewUser ?? false
       setStatus(isNewUser ? 'Welcome! Setting up your profile...' : 'Welcome back!')

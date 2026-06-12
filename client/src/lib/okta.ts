@@ -1,9 +1,8 @@
 /**
- * AthlynXAI — Auth0 Direct PKCE Implementation
+ * AthlynXAI — Auth0 / Okta PKCE Implementation
  *
- * Does NOT use @auth0/auth0-spa-js SDK redirect flow.
- * Implements PKCE manually so the code_verifier is stored in sessionStorage
- * and survives the full-page reload that happens on Auth0 callback.
+ * Auth provider: Auth0 (Okta) — PKCE flow, no SDK redirect wrapper.
+ * All authentication is handled exclusively here. No Firebase. No Supabase auth.
  *
  * Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com
  * Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
@@ -86,33 +85,36 @@ async function redirectToAuth0(params: {
 
 // ─── Shared types ──────────────────────────────────────────────────────────
 
-export type FirebaseUser = {
+export type AthlynXUser = {
   uid: string;
   displayName: string | null;
   email: string | null;
   photoURL: string | null;
 };
 
-export const isFirebaseConfigured = true;
+/** @deprecated Use AthlynXUser — kept for any remaining legacy references during migration */
+export type FirebaseUser = AthlynXUser;
+
+export const isAuthConfigured = true;
 
 // ─── Sign-in methods ──────────────────────────────────────────────────────
 
-export async function signInWithGoogle(): Promise<{ idToken: string; user: FirebaseUser }> {
+export async function signInWithGoogle(): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ connection: "google-oauth2" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
-export async function signInWithApple(): Promise<{ idToken: string; user: FirebaseUser }> {
+export async function signInWithApple(): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ connection: "apple" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
-export async function signInWithFacebook(): Promise<{ idToken: string; user: FirebaseUser }> {
+export async function signInWithFacebook(): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ connection: "facebook" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
-export async function signInWithTwitter(): Promise<{ idToken: string; user: FirebaseUser }> {
+export async function signInWithTwitter(): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ connection: "twitter" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
@@ -123,21 +125,21 @@ export async function loginWithRedirect(): Promise<void> {
 
 export async function signInWithEmailAndPassword(
   _auth: unknown, email: string, _password: string
-): Promise<{ idToken: string; user: FirebaseUser }> {
+): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ loginHint: email });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function createUserWithEmailAndPassword(
   _auth: unknown, email: string, _password: string
-): Promise<{ idToken: string; user: FirebaseUser }> {
+): Promise<{ idToken: string; user: AthlynXUser }> {
   await redirectToAuth0({ loginHint: email, screenHint: "signup" });
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 // ─── Callback handler ─────────────────────────────────────────────────────
 
-export async function handleRedirectResult(): Promise<{ idToken: string; user: FirebaseUser } | null> {
+export async function handleRedirectResult(): Promise<{ idToken: string; user: AthlynXUser } | null> {
   const params = new URLSearchParams(window.location.search);
   const code  = params.get("code");
   const state = params.get("state");
@@ -197,7 +199,7 @@ export async function handleRedirectResult(): Promise<{ idToken: string; user: F
     return null;
   }
 
-  // Decode ID token payload (no verification needed — server verifies)
+  // Decode ID token payload (server verifies signature via JWKS)
   let payload: any = {};
   try {
     payload = JSON.parse(atob(idToken.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
@@ -218,20 +220,23 @@ export async function handleRedirectResult(): Promise<{ idToken: string; user: F
 
 // ─── Sign-out ─────────────────────────────────────────────────────────────
 
-export async function firebaseSignOut(): Promise<void> {
+export async function signOut(): Promise<void> {
   const returnTo = typeof window !== "undefined" ? window.location.origin : "https://athlynx.ai";
   window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?client_id=${AUTH0_CLIENT_ID}&returnTo=${encodeURIComponent(returnTo)}`;
 }
+
+/** @deprecated Use signOut() */
+export const firebaseSignOut = signOut;
 
 // ─── Auth state listener ──────────────────────────────────────────────────
 
 export function onAuthStateChanged(
   _auth: unknown,
-  callback: (user: FirebaseUser | null) => void
+  callback: (user: AthlynXUser | null) => void
 ): () => void {
-  // No persistent session in this flow — always unauthenticated on fresh load
+  // No persistent session in PKCE flow — always unauthenticated on fresh load
   callback(null);
   return () => {};
 }
 
-export const auth = { currentUser: null as FirebaseUser | null };
+export const auth = { currentUser: null as AthlynXUser | null };

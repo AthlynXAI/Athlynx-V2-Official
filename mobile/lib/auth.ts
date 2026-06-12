@@ -166,7 +166,7 @@ export async function loginWithAuth0(): Promise<{ user: User; sessionId: string 
 
   try {
     const syncResult = await trpcMutation<{ user: User; sessionToken?: string }>(
-      "auth.syncFirebaseUser",
+      "auth.syncUser",
       {
         idToken: idToken || accessToken,
         name: userInfo.name || userInfo.nickname || "",

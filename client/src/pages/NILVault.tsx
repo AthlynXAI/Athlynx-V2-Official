@@ -4,7 +4,10 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { encryptDocument, decryptDocument, isEncrypted } from "@/lib/e2e-crypto";
-import { uploadDocument } from "@/lib/supabase-realtime";
+// Document upload via tRPC — Supabase storage archived
+const uploadDocument = async (_bucket: string, _path: string, _file: File): Promise<string> => {
+  throw new Error("Document upload is being migrated to AthlynX storage. Please try again shortly.");
+};
 
 function NILVaultInner() {
   const { user } = useAuth();

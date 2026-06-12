@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { trpc } from '@/lib/trpc'
 import {
-  isFirebaseConfigured,
+  isAuthConfigured as isFirebaseConfigured,
   signInWithGoogle,
   signInWithApple,
   signInWithFacebook,
   signInWithTwitter,
-} from '@/lib/firebase'
+} from '@/lib/okta'
 
 function EarlyAccessInner() {
   const [, setLocation] = useLocation()
@@ -24,7 +24,7 @@ function EarlyAccessInner() {
 
   const savePhoneMutation = trpc.auth.savePhone.useMutation()
 
-  const syncFirebaseMutation = trpc.auth.syncFirebaseUser.useMutation({
+  const syncFirebaseMutation = trpc.auth.syncUser.useMutation({
     onSuccess: () => { window.location.href = '/onboarding' },
     onError: (err) => { setError(err.message || 'Sign-up failed.'); setSocialLoading(null) },
   })

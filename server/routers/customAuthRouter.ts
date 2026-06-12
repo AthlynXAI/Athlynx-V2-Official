@@ -5,7 +5,7 @@
  * Procedures:
  *  - me               : return current session user (protected)
  *  - logout           : clear session cookie (protected)
- *  - syncFirebaseUser : verify Auth0 ID token → upsert user → set session cookie (public)
+ *  - syncUser         : verify Auth0 ID token → upsert user → set session cookie (public)
  *  - login            : email/password sign-in → set session cookie (public)
  *  - register         : email/password sign-up → set session cookie (public)
  *  - savePhone        : save phone number to current user (protected)
@@ -17,7 +17,7 @@ import bcrypt from "bcryptjs";
 import { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 import { getSessionCookieOptions } from "../_core/cookies";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
-import { verifyFirebaseToken } from "../_core/firebaseAdmin";
+import { verifyToken } from "../_core/auth0Verifier";
 import { sdk } from "../_core/sdk";
 import { getDb, upsertUser, getUserByOpenId, logActivity } from "../db";
 import { users } from "../../drizzle/schema";
@@ -40,7 +40,7 @@ export const customAuthRouter = router({
 
   // ─── Auth0 social login (Google, Apple, Facebook) ────────────────────────
   // Frontend: Auth0 PKCE redirect → handleRedirectResult() → idToken → call this → session cookie set
-  syncFirebaseUser: publicProcedure
+  syncUser: publicProcedure
     .input(
       z.object({
         idToken: z.string().min(1),
@@ -53,14 +53,14 @@ export const customAuthRouter = router({
     )
     .mutation(async ({ input, ctx }) => {
       // 1. Verify the Auth0 ID token via JWKS
-      const firebasePayload = await verifyFirebaseToken(input.idToken);
-      const uid = firebasePayload.uid;
+      const auth0Payload = await verifyToken(input.idToken);
+      const uid = auth0Payload.uid;
       const openId = `auth0:${uid}`;
 
       // 2. Resolve display values — prefer token fields, fall back to input
-      const name = firebasePayload.name || input.name || "Athlete";
-      const email = firebasePayload.email || input.email || "";
-      const loginMethod = firebasePayload.firebase?.sign_in_provider ?? "google.com";
+      const name = auth0Payload.name || input.name || "Athlete";
+      const email = auth0Payload.email || input.email || "";
+      const loginMethod = auth0Payload.provider ?? "auth0";
 
       // 3. Check if user already exists (also migrate old supabase: prefix to auth0:)
       let existing = await getUserByOpenId(openId);

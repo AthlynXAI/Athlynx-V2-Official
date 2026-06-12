@@ -6,7 +6,7 @@ import {
   signInWithApple,
   signInWithFacebook,
   loginWithRedirect,
-  isFirebaseConfigured,
+  isAuthConfigured as isFirebaseConfigured,
 } from "@/lib/okta";
 import { captureGrowthAttribution, getGrowthAttribution } from "@/lib/growthTracking";
 
@@ -78,7 +78,7 @@ export function AuthShell({ mode }: { mode: Mode }) {
 
   // Unified handoff: every authenticated path now lands on /welcome.
   // /welcome chooses the next door (App vs Web) and routes onward.
-  const syncFirebaseMutation = trpc.auth.syncFirebaseUser.useMutation({
+  const syncFirebaseMutation = trpc.auth.syncUser.useMutation({
     onSuccess: () => {
       window.location.href = "/welcome";
     },

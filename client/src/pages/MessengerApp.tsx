@@ -8,7 +8,10 @@ import { useState, useRef, useEffect } from "react";
 import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { subscribeToMessages, broadcastMessage, trackUserPresence } from "@/lib/supabase-realtime";
+// Real-time messaging via tRPC polling — Supabase realtime archived
+const subscribeToMessages = (_ch: string, _cb: (m: unknown) => void) => () => {};
+const broadcastMessage = async (_ch: string, _msg: unknown) => {};
+const trackUserPresence = (_ch: string, _uid: string) => () => {};
 import { encryptMessage, decryptMessage, isEncrypted } from "@/lib/e2e-crypto";
 import {
   MessageCircle, Lock, Shield, Send, Plus, Search,
