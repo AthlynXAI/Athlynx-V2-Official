@@ -6,7 +6,7 @@ import {
   signInWithApple,
   signInWithFacebook,
   loginWithRedirect,
-  isAuthConfigured as isFirebaseConfigured,
+  isAuthConfigured,
 } from "@/lib/okta";
 import { captureGrowthAttribution, getGrowthAttribution } from "@/lib/growthTracking";
 
@@ -78,7 +78,7 @@ export function AuthShell({ mode }: { mode: Mode }) {
 
   // Unified handoff: every authenticated path now lands on /welcome.
   // /welcome chooses the next door (App vs Web) and routes onward.
-  const syncFirebaseMutation = trpc.auth.syncUser.useMutation({
+  const syncMutation = trpc.auth.syncUser.useMutation({
     onSuccess: () => {
       window.location.href = "/welcome";
     },
@@ -121,7 +121,7 @@ export function AuthShell({ mode }: { mode: Mode }) {
   }
 
   async function door(provider: "google" | "apple" | "facebook") {
-    if (!isFirebaseConfigured) {
+    if (!isAuthConfigured) {
       setError("Social sign-in is temporarily unavailable. Use email instead.");
       return;
     }

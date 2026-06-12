@@ -171,7 +171,7 @@ function SettingsInner() {
               <CardContent className="space-y-6">
                 <div className="rounded-lg bg-blue-950 border border-blue-800 p-4">
                   <p className="text-white font-medium mb-1">Authentication Provider</p>
-                  <p className="text-blue-300 text-sm">Your account is secured through Supabase Authentication. Manage your password and security below.</p>
+                  <p className="text-blue-300 text-sm">Your account is secured through Auth0. Manage your password and security below.</p>
                   <Badge className="mt-2 bg-[#00C2FF] text-white">Secured</Badge>
                 </div>
                 <Separator className="bg-blue-900" />

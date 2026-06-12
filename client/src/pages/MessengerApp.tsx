@@ -1,7 +1,7 @@
 /**
  * AthlynX Messenger — Session 33
  * Full E2EE integration (AES-256-GCM via Web Crypto API)
- * Lucide icons only · E2EE badge · Real-time via Supabase
+ * Lucide icons only · E2EE badge · Real-time via tRPC polling
  */
 import PlatformLayout from "@/components/PlatformLayout";
 import { useState, useRef, useEffect } from "react";

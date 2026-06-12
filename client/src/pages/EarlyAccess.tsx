@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { trpc } from '@/lib/trpc'
 import {
-  isAuthConfigured as isFirebaseConfigured,
+  isAuthConfigured,
   signInWithGoogle,
   signInWithApple,
   signInWithFacebook,
@@ -24,7 +24,7 @@ function EarlyAccessInner() {
 
   const savePhoneMutation = trpc.auth.savePhone.useMutation()
 
-  const syncFirebaseMutation = trpc.auth.syncUser.useMutation({
+  const syncMutation = trpc.auth.syncUser.useMutation({
     onSuccess: () => { window.location.href = '/onboarding' },
     onError: (err) => { setError(err.message || 'Sign-up failed.'); setSocialLoading(null) },
   })
@@ -81,7 +81,7 @@ function EarlyAccessInner() {
   }
 
   async function handleSocialSignIn(provider: string) {
-    if (!isFirebaseConfigured) {
+    if (!isAuthConfigured) {
       setError('Social sign-up is temporarily unavailable. Please use email/password.')
       return
     }
@@ -93,7 +93,7 @@ function EarlyAccessInner() {
       else if (provider === 'apple') result = await signInWithApple()
       else if (provider === 'facebook') result = await signInWithFacebook()
       else result = await signInWithTwitter()
-      syncFirebaseMutation.mutate({
+      syncMutation.mutate({
         idToken: result.idToken,
         name: result.user.displayName ?? '',
         email: result.user.email ?? '',
