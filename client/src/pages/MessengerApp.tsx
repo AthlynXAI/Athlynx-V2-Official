@@ -69,20 +69,20 @@ function MessengerAppInner() {
 
   useEffect(() => {
     if (!activeConvoId) return undefined;
-    const unsubscribe = subscribeToMessages(activeConvoId, () => { refetchMessages(); });
+    const unsubscribe = subscribeToMessages(String(activeConvoId), () => { refetchMessages(); });
     return () => { void unsubscribe(); };
   }, [activeConvoId]);
 
   useEffect(() => {
     if (!user) return;
-    const channel = trackUserPresence(user.id, user.name || "Athlete");
-    return () => { channel.unsubscribe(); };
+    trackUserPresence(String(user.id), user.name || "Athlete");
+    return () => { /* realtime archived — no-op */ };
   }, [user]);
 
   const sendMessageMutation = trpc.messenger.sendMessage.useMutation({
     onSuccess: (data: any) => {
       setMessage("");
-      if (activeConvoId) broadcastMessage(activeConvoId, data);
+      if (activeConvoId) broadcastMessage(String(activeConvoId), data);
       utils.messenger.getMessages.invalidate({ conversationId: activeConvoId ?? 0 });
       utils.messenger.getConversations.invalidate();
     },

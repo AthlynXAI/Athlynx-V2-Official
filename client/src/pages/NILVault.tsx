@@ -48,7 +48,7 @@ function NILVaultInner() {
     try {
       // Encrypt the file name as metadata
       const encryptedName = await encryptDocument(file.name, user.id, "nil-vault");
-      const url = await uploadDocument(user.id, file);
+      const url = await uploadDocument("nil-vault", String(user.id), file);
       if (url) {
         setUploadSuccess(` "${file.name}" uploaded & encrypted (AES-256)`);
       } else {
