@@ -63,9 +63,10 @@ async function redirectToAuth0(params: {
   const challenge = await generateCodeChallenge(verifier);
   const state = generateState();
 
-  // Store in sessionStorage — survives page reload, cleared on tab close
-  sessionStorage.setItem(STORAGE_KEY_VERIFIER, verifier);
-  sessionStorage.setItem(STORAGE_KEY_STATE, state);
+  // Store in localStorage — survives cross-origin redirects on mobile Safari
+  // sessionStorage is wiped during Auth0 redirect on iOS/Safari ITP
+  localStorage.setItem(STORAGE_KEY_VERIFIER, verifier);
+  localStorage.setItem(STORAGE_KEY_STATE, state);
 
   const url = new URL(`https://${AUTH0_DOMAIN}/authorize`);
   url.searchParams.set("response_type", "code");
@@ -152,11 +153,11 @@ export async function handleRedirectResult(): Promise<{ idToken: string; user: A
     return null;
   }
 
-  const verifier      = sessionStorage.getItem(STORAGE_KEY_VERIFIER);
-  const savedState    = sessionStorage.getItem(STORAGE_KEY_STATE);
+  const verifier      = localStorage.getItem(STORAGE_KEY_VERIFIER);
+  const savedState    = localStorage.getItem(STORAGE_KEY_STATE);
 
   if (!verifier) {
-    console.error("[okta] No PKCE verifier in sessionStorage");
+    console.error("[okta] No PKCE verifier in localStorage");
     return null;
   }
 
@@ -166,8 +167,8 @@ export async function handleRedirectResult(): Promise<{ idToken: string; user: A
   }
 
   // Clean up storage
-  sessionStorage.removeItem(STORAGE_KEY_VERIFIER);
-  sessionStorage.removeItem(STORAGE_KEY_STATE);
+  localStorage.removeItem(STORAGE_KEY_VERIFIER);
+  localStorage.removeItem(STORAGE_KEY_STATE);
 
   // Exchange code for tokens
   const tokenResp = await fetch(`https://${AUTH0_DOMAIN}/oauth/token`, {
