@@ -5,7 +5,7 @@ name: EAS iOS build & TestFlight submit
 # iOS IPA on EAS and submit it to TestFlight automatically.
 #
 # Required GitHub repo secrets:
-#   - EXPO_TOKEN              (Expo account token — must belong to cdozier14)
+#   - EXPO_TOKEN              (Expo account token — athlynxai org, token name: AthlynX New Build)
 #   - ASC_API_KEY_P8          (Raw contents of AuthKey_EHRBJCMPF087.p8)
 #   - ASC_API_KEY_ID          (EHRBJCMPF087)
 #   - ASC_API_KEY_ISSUER_ID   (ba530e88-4441-4029-bc5a-853abab91a91)
