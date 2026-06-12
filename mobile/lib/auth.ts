@@ -1,5 +1,24 @@
+/**
+ * AthlynXAI Mobile — Auth (Auth0/Okta PKCE only)
+ *
+ * Auth system: Auth0/Okta PKCE ONLY — no Firebase, no Supabase auth.
+ *
+ * Mobile auth flow:
+ *   1. Email/password → POST /api/trpc/auth.login or auth.register
+ *   2. Social login → Auth0 Universal Login via expo-auth-session (PKCE)
+ *   3. Session stored as signed JWT cookie / SecureStore token
+ *
+ * The server session is managed by customAuthRouter (server/routers/customAuthRouter.ts).
+ * Auth0 Domain: dev-8yqdmei0v8kc3qqy.us.auth0.com
+ * Auth0 SPA Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
+ */
+
 import * as SecureStore from "expo-secure-store";
-import { isSupabaseConfigured, supabase } from "./supabase";
+
+const SESSION_KEY = "athlynx_session_token";
+const API_BASE = process.env.EXPO_PUBLIC_API_URL || "https://athlynx.ai";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface User {
   id: number | string;
@@ -13,72 +32,91 @@ export interface User {
   subscriptionTier?: string;
 }
 
-const SUPABASE_SESSION_KEY = "supabase_session";
+// ─── Session storage ──────────────────────────────────────────────────────────
 
-function mapSupabaseUser(authUser: any): User {
-  const metadata = authUser?.user_metadata ?? {};
-  return {
-    id: authUser?.id ?? authUser?.email ?? "athlete",
-    name: metadata.name || metadata.full_name || authUser?.email?.split("@")[0] || "Athlete",
-    email: authUser?.email || "",
-    avatarUrl: metadata.avatar_url,
-    role: metadata.role || "athlete",
-    sport: metadata.sport,
-    school: metadata.school,
-    credits: metadata.credits,
-    subscriptionTier: metadata.subscription_tier,
-  };
-}
-
-async function storeSupabaseSession(session: any): Promise<void> {
+async function storeSession(token: string): Promise<void> {
   try {
-    if (session) {
-      await SecureStore.setItemAsync(SUPABASE_SESSION_KEY, JSON.stringify(session));
-      if (session.access_token) {
-        await SecureStore.setItemAsync("session_id", session.access_token);
-      }
-    }
+    await SecureStore.setItemAsync(SESSION_KEY, token);
   } catch (err) {
-    try { console.warn("[auth] SecureStore set failed", (err as Error)?.message); } catch {}
+    console.warn("[auth] SecureStore set failed", (err as Error)?.message);
   }
 }
 
-async function clearStoredSessions(): Promise<void> {
-  try { await SecureStore.deleteItemAsync(SUPABASE_SESSION_KEY); } catch {}
-  try { await SecureStore.deleteItemAsync("session_id"); } catch {}
+async function clearSession(): Promise<void> {
+  try { await SecureStore.deleteItemAsync(SESSION_KEY); } catch {}
 }
 
-async function restoreSupabaseSession(): Promise<void> {
+export async function getStoredSession(): Promise<string | null> {
   try {
-    const raw = await SecureStore.getItemAsync(SUPABASE_SESSION_KEY);
-    if (!raw) return;
-    const session = JSON.parse(raw);
-    if (session?.access_token && session?.refresh_token) {
-      await supabase.auth.setSession({
-        access_token: session.access_token,
-        refresh_token: session.refresh_token,
-      });
-    }
-  } catch (err) {
-    try { console.warn("[auth] Supabase session restore failed", (err as Error)?.message); } catch {}
+    return await SecureStore.getItemAsync(SESSION_KEY);
+  } catch {
+    return null;
   }
 }
 
-function assertSupabaseConfigured() {
-  if (!isSupabaseConfigured) {
-    throw new Error("Supabase production auth is not configured. Set EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY before building.");
+// ─── API helpers ──────────────────────────────────────────────────────────────
+
+async function trpcMutation<T>(
+  procedure: string,
+  input: Record<string, unknown>,
+  sessionToken?: string | null
+): Promise<T> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (sessionToken) headers["Cookie"] = `app_session_id=${sessionToken}`;
+
+  const resp = await fetch(`${API_BASE}/api/trpc/${procedure}`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ json: input }),
+  });
+
+  const body = await resp.json();
+  if (body?.error) {
+    throw new Error(body.error?.json?.message || body.error?.message || "Request failed");
   }
+  return body?.result?.data?.json as T;
 }
 
-export async function login(email: string, password: string): Promise<{ user: User; sessionId: string }> {
-  assertSupabaseConfigured();
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) throw new Error(error.message || "Login failed");
-  if (!data.user) throw new Error("Login failed: no user returned");
-  await storeSupabaseSession(data.session);
-  return { user: mapSupabaseUser(data.user), sessionId: data.session?.access_token || "" };
+async function trpcQuery<T>(
+  procedure: string,
+  sessionToken?: string | null
+): Promise<T> {
+  const headers: Record<string, string> = {};
+  if (sessionToken) headers["Cookie"] = `app_session_id=${sessionToken}`;
+
+  const resp = await fetch(
+    `${API_BASE}/api/trpc/${procedure}?input=${encodeURIComponent(JSON.stringify({ json: {} }))}`,
+    { headers }
+  );
+  const body = await resp.json();
+  if (body?.error) {
+    throw new Error(body.error?.json?.message || body.error?.message || "Request failed");
+  }
+  return body?.result?.data?.json as T;
 }
 
+// ─── Auth functions ───────────────────────────────────────────────────────────
+
+/**
+ * Email/password login — calls server auth.login tRPC procedure.
+ * Returns user and session token.
+ */
+export async function login(
+  email: string,
+  password: string
+): Promise<{ user: User; sessionId: string }> {
+  const result = await trpcMutation<{ user: User; sessionToken?: string }>(
+    "auth.login",
+    { email, password }
+  );
+  const token = result?.sessionToken || "";
+  if (token) await storeSession(token);
+  return { user: result.user, sessionId: token };
+}
+
+/**
+ * Email/password registration — calls server auth.register tRPC procedure.
+ */
 export async function register(data: {
   name: string;
   email: string;
@@ -86,34 +124,69 @@ export async function register(data: {
   sport?: string;
   school?: string;
 }): Promise<{ user: User; sessionId: string }> {
-  assertSupabaseConfigured();
-  const { data: result, error } = await supabase.auth.signUp({
-    email: data.email,
-    password: data.password,
-    options: {
-      data: {
-        name: data.name,
-        sport: data.sport,
-        school: data.school,
-        role: "athlete",
-      },
-    },
-  });
-  if (error) throw new Error(error.message || "Registration failed");
-  if (!result.user) throw new Error("Registration failed: no user returned");
-  await storeSupabaseSession(result.session);
-  return { user: mapSupabaseUser(result.user), sessionId: result.session?.access_token || "" };
+  const result = await trpcMutation<{ user: User; sessionToken?: string }>(
+    "auth.register",
+    {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      ...(data.sport ? { sport: data.sport } : {}),
+      ...(data.school ? { school: data.school } : {}),
+    }
+  );
+  const token = result?.sessionToken || "";
+  if (token) await storeSession(token);
+  return { user: result.user, sessionId: token };
 }
 
+/**
+ * Social login via Auth0 ID token (from expo-auth-session PKCE flow).
+ * Pass the idToken returned by Auth0 after the PKCE redirect.
+ */
+export async function loginWithAuth0Token(
+  idToken: string,
+  profile: { name?: string; email?: string; picture?: string }
+): Promise<{ user: User; sessionId: string }> {
+  const result = await trpcMutation<{ user: User; sessionToken?: string }>(
+    "auth.syncFirebaseUser",
+    {
+      idToken,
+      name: profile.name || "",
+      email: profile.email || "",
+      picture: profile.picture,
+    }
+  );
+  const token = result?.sessionToken || "";
+  if (token) await storeSession(token);
+  return { user: result.user, sessionId: token };
+}
+
+/**
+ * Logout — clears local session.
+ */
 export async function logout(): Promise<void> {
-  try { await supabase.auth.signOut(); } catch {}
-  await clearStoredSessions();
+  const token = await getStoredSession();
+  if (token) {
+    try {
+      await trpcMutation("auth.logout", {}, token);
+    } catch {
+      // Best-effort — clear local session regardless
+    }
+  }
+  await clearSession();
 }
 
+/**
+ * Get current user from server session.
+ * Returns null if not authenticated.
+ */
 export async function getMe(): Promise<User | null> {
-  if (!isSupabaseConfigured) return null;
-  await restoreSupabaseSession();
-  const { data, error } = await supabase.auth.getUser();
-  if (error || !data.user) return null;
-  return mapSupabaseUser(data.user);
+  const token = await getStoredSession();
+  if (!token) return null;
+  try {
+    const user = await trpcQuery<User>("auth.me", token);
+    return user ?? null;
+  } catch {
+    return null;
+  }
 }
