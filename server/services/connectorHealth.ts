@@ -192,18 +192,6 @@ const CONNECTORS: ConnectorHealthDefinition[] = [
     sentryTag: "neon_database",
   },
   {
-    id: "supabase",
-    label: "Supabase Realtime / Storage",
-    lane: "storage",
-    kind: "env",
-    tier: "high",
-    requiredEnv: ["SUPABASE_URL", "SUPABASE_KEY"],
-    ownerAccount: "Realtime/storage rail only unless runtime proof says otherwise",
-    safeCheck: "Read-only project/storage proof before any table or bucket mutation.",
-    recoveryAction: "Restore Supabase env/connector; keep DB authority separate from Neon.",
-    sentryTag: "supabase",
-  },
-  {
     id: "cloudflare_r2",
     label: "Cloudflare R2 / Edge Storage",
     lane: "storage",

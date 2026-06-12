@@ -14,7 +14,7 @@ import { Link } from "wouter";
 const SEED_ROWS = [
   { operator: "athlynx-ai", connector: "stripe", calls: 0, ai_min: 0, revenue_cents: 0, status: "live" },
   { operator: "athlynx-ai", connector: "nebius", calls: 0, ai_min: 0, revenue_cents: 0, status: "live" },
-  { operator: "athlynx-ai", connector: "supabase", calls: 0, ai_min: 0, revenue_cents: 0, status: "live" },
+  { operator: "athlynx-ai", connector: "okta-auth0", calls: 0, ai_min: 0, revenue_cents: 0, status: "live" },
   { operator: "athlynx-ai", connector: "buffer", calls: 0, ai_min: 0, revenue_cents: 0, status: "pending" },
   { operator: "athlynx-ai", connector: "vercel", calls: 0, ai_min: 0, revenue_cents: 0, status: "live" },
 ];

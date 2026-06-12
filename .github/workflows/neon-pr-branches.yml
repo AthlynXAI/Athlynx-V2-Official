@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install neonctl
-        run: npm i -g neonctl@v2
+        run: npm i -g neonctl@latest
       - name: Delete Neon Branch (tolerate missing)
         env:
           NEON_API_KEY: ${{ secrets.NEON_API_KEY }}

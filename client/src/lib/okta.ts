@@ -92,9 +92,6 @@ export type AthlynXUser = {
   photoURL: string | null;
 };
 
-/** @deprecated Use AthlynXUser — kept for any remaining legacy references during migration */
-export type FirebaseUser = AthlynXUser;
-
 export const isAuthConfigured = true;
 
 // ─── Sign-in methods ──────────────────────────────────────────────────────
@@ -225,8 +222,6 @@ export async function signOut(): Promise<void> {
   window.location.href = `https://${AUTH0_DOMAIN}/v2/logout?client_id=${AUTH0_CLIENT_ID}&returnTo=${encodeURIComponent(returnTo)}`;
 }
 
-/** @deprecated Use signOut() */
-export const firebaseSignOut = signOut;
 
 // ─── Auth state listener ──────────────────────────────────────────────────
 
