@@ -244,7 +244,7 @@ function HighlightReelStudioInner() {
               </button>
 
               {/* Reel Cards */}
-              {SAMPLE_REELS.map((reel, i) => (
+              {SAMPLE_REELS.map((reel: typeof SEED_REELS[0], i: number) => (
                 <div key={reel.id} className="bg-[#0d1e3c] border border-blue-800/50 rounded-2xl overflow-hidden">
                   {/* Thumbnail */}
                   <div className="relative">
@@ -299,7 +299,7 @@ function HighlightReelStudioInner() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1 mb-3">
-                      {reel.tags.map((tag, ti) => (
+                      {reel.tags.map((tag: string, ti: number) => (
                         <span key={ti} className="text-[10px] font-bold text-[#00c2ff] bg-[#0066ff]/10 border border-[#0066ff]/20 rounded-full px-2 py-0.5">{tag}</span>
                       ))}
                     </div>

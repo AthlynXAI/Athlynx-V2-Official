@@ -79,14 +79,14 @@ async function main() {
   const builds = await listRecentBuilds({ limit: 5 });
   checks.push({
     name: "easClient returns mock builds in dry-run",
-    pass: builds.length > 0 && builds.every((b) => b.source === "mock"),
+    pass: builds.length > 0 && builds.every((b) => (b.source as string) === "mock"),
   });
   if (builds[0]) {
     const { log, source } = await getBuildLog(builds[0].id);
     const parsed = parseBuildLog(log);
     checks.push({
       name: "mock log routes through parser",
-      pass: source === "mock" && parsed.hasGradleExecuteError,
+      pass: (source as string) === "mock" && parsed.hasGradleExecuteError,
     });
   }
 

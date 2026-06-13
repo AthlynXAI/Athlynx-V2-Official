@@ -351,14 +351,14 @@ function LiveBar({ events }: { events: typeof LIVE_EVENTS }) {
   );
 }
 
-function FeedPost({ post, onLike }: { post: typeof FEED_POSTS[0]; onLike: (id: number) => void }) {
+function FeedPost({ post, onLike }: { post: typeof SEED_FEED_POSTS[0]; onLike: (id: number) => void }) {
   const [liked, setLiked] = useState(false);
   const [localLikes, setLocalLikes] = useState(post.likes);
 
   function handleLike() {
     if (!liked) {
       setLiked(true);
-      setLocalLikes(l => l + 1);
+      setLocalLikes((l: number) => l + 1);
       onLike(post.id);
     }
   }

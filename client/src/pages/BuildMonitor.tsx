@@ -130,7 +130,7 @@ function BuildMonitorInner() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-1 text-sm text-slate-200">
-              <div>Mode: {config?.eas.dryRun ? "Dry-run / mock" : "Live"}</div>
+              <div>Mode: {config?.eas.hasToken ? "Live" : "No credentials"}</div>
               <div>Token: {config?.eas.hasToken ? "set" : "missing"}</div>
               <div>Project ID: {config?.eas.hasProjectId ? "set" : "missing"}</div>
               <div className="text-slate-400 break-all">
@@ -288,7 +288,7 @@ function BuildMonitorInner() {
             <CardHeader>
               <CardTitle className="text-base text-white flex items-center gap-2">
                 Log for {selectedBuild}
-                {logQuery.data?.source === "mock" && (
+                {(logQuery.data?.source as string) === "mock" && (
                   <Badge className="bg-blue-500/20 text-[#00C2FF] border border-blue-500/30">
                     mock
                   </Badge>
