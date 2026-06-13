@@ -849,7 +849,7 @@ function AthlynXSocialInner() {
             </form>
 
             {/* Feed posts */}
-            {posts.map(post => (
+            {posts.map((post: typeof SEED_FEED_POSTS[0]) => (
               <FeedPost key={post.id} post={post} onLike={handleLike} />
             ))}
           </div>
