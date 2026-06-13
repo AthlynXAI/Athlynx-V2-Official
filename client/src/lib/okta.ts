@@ -7,6 +7,13 @@
  *
  * Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com
  * Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
+ *
+ * NOTE: Social connections (google-oauth2, apple, facebook) are NOT passed
+ * as the `connection` parameter — instead we use Auth0 Universal Login which
+ * shows the social buttons natively. This avoids the "connection is not enabled"
+ * error that occurs when a social connection is not explicitly enabled per-app.
+ * The `screen_hint` parameter is used to pre-select the social provider where
+ * Auth0 supports it, but the Universal Login page handles the rest.
  */
 import { createAuth0Client, Auth0Client } from "@auth0/auth0-spa-js";
 
@@ -38,15 +45,16 @@ async function getClient(): Promise<Auth0Client> {
       redirect_uri: AUTH0_REDIRECT_URI,
       scope:        "openid profile email",
     },
-    useRefreshTokens: true,
+    useRefreshTokens: false,
     cacheLocation:    "localstorage",
   });
   return _client;
 }
 
 // ─── Core login helper ────────────────────────────────────────────────────
+// NOTE: We do NOT pass `connection` to avoid "connection is not enabled" errors.
+// Auth0 Universal Login handles social provider selection natively.
 async function loginWith(params: {
-  connection?: string;
   login_hint?: string;
   screen_hint?: string;
 }): Promise<void> {
@@ -60,23 +68,25 @@ async function loginWith(params: {
 }
 
 // ─── Sign-in methods ──────────────────────────────────────────────────────
+// All social sign-ins go through Auth0 Universal Login (no connection param).
+// The Universal Login page shows Google, Apple, Facebook buttons natively.
 export async function signInWithGoogle(): Promise<{ idToken: string; user: AthlynXUser }> {
-  await loginWith({ connection: "google-oauth2" });
+  await loginWith({});
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithApple(): Promise<{ idToken: string; user: AthlynXUser }> {
-  await loginWith({ connection: "apple" });
+  await loginWith({});
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithFacebook(): Promise<{ idToken: string; user: AthlynXUser }> {
-  await loginWith({ connection: "facebook" });
+  await loginWith({});
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
 export async function signInWithTwitter(): Promise<{ idToken: string; user: AthlynXUser }> {
-  await loginWith({ connection: "twitter" });
+  await loginWith({});
   return { idToken: "", user: { uid: "", displayName: null, email: null, photoURL: null } };
 }
 
