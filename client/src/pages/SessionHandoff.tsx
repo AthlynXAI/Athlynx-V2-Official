@@ -283,7 +283,6 @@ export default function SessionHandoff() {
               ["Vercel Team ID", "team_7neDSatyrDspOku2p0LxT8zO"],
               ["Okta Domain", "athlynx.okta.com ($240/mo paid)"],
               ["Auth0 Domain", "dev-8yqdmei0v8kc3qqy.us.auth0.com"],
-              ["Supabase URL", "https://pgrbkisgwpxgphpqmual.supabase.co"],
               ["Shopify Store", "0010yz-fn.myshopify.com"],
               ["Cloud PC", "cloud-pc-6zoui4fe · 35.196.102.133 (GCP)"],
             ].map(([key, val], i) => (

@@ -62,21 +62,8 @@ export const customAuthRouter = router({
       const email = auth0Payload.email || input.email || "";
       const loginMethod = auth0Payload.provider ?? "auth0";
 
-      // 3. Check if user already exists (also migrate old supabase: prefix to auth0:)
+      // 3. Check if user already exists
       let existing = await getUserByOpenId(openId);
-      if (!existing) {
-        // Backward-compat: migrate users created with old supabase: prefix
-        const oldOpenId = `supabase:${uid}`;
-        const oldUser = await getUserByOpenId(oldOpenId);
-        if (oldUser) {
-          const db = await getDb();
-          if (db) {
-            await db.update(users).set({ openId }).where(eq(users.openId, oldOpenId));
-            existing = await getUserByOpenId(openId);
-            console.log(`[AUTH] Migrated user openId from supabase: to auth0: for uid=${uid}`);
-          }
-        }
-      }
       const isNewUser = !existing;
 
       // 4. Set 7-day free trial for new users
