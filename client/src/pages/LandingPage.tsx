@@ -276,12 +276,22 @@ function LandingPageInner() {
   return (
     <div className="min-h-screen bg-[#050d1a] text-white overflow-x-hidden" style={{ fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif" }}>
 
+      {/*  BETA ANNOUNCEMENT BANNER  */}
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-[#0066ff] via-[#0044cc] to-[#00c2ff] text-white text-center py-2 px-4 text-xs font-bold tracking-widest uppercase">
+        <span className="inline-flex items-center gap-2">
+          <span className="animate-pulse w-2 h-2 rounded-full bg-white inline-block"></span>
+          Beta Testing Now Open — Full Platform Launch July 1, 2026
+          <span className="mx-3 opacity-50">|</span>
+          <Link href="/investor-hub"><span className="underline underline-offset-2 hover:text-white/80 cursor-pointer">Investor Access →</span></Link>
+        </span>
+      </div>
+
       {/*  NAV  */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/95 backdrop-blur-xl border-b border-[#0066ff]/20">
+      <nav className="fixed top-8 left-0 right-0 z-50 bg-[#050d1a]/95 backdrop-blur-xl border-b border-[#0066ff]/20">
         <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <img src="/athlynx-icon.png" alt="AthlynXAI" className="w-9 h-9 rounded-xl" onError={e => (e.currentTarget.style.display = 'none')} />
+              <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-9 h-9 rounded-xl" onError={e => (e.currentTarget.style.display = 'none')} />
               <div>
                 <span className="text-white font-black text-lg tracking-tight">AthlynXAI</span>
                 <span className="ml-2 text-[#0066ff] text-xs font-bold">™</span>
@@ -293,6 +303,7 @@ function LandingPageInner() {
             <Link href="/cfactor"><span className="hover:text-white transition-colors cursor-pointer">C-Factor</span></Link>
             <Link href="/nil-portal"><span className="hover:text-white transition-colors cursor-pointer">NIL Portal</span></Link>
             <Link href="/diamond-grind"><span className="hover:text-white transition-colors cursor-pointer">Diamond Grind</span></Link>
+            <Link href="/investor-hub"><span className="hover:text-white text-[#00c2ff] transition-colors cursor-pointer font-black">Investors</span></Link>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/signin">
