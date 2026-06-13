@@ -73,7 +73,7 @@ const FALLBACK_PLANS = [
     priceYearly: 57588,
     features: ["Everything in Elite", "Advanced NIL Analytics", "Custom Athlete Page", "Early Access Features", "Priority Deal Matching", "Champion Badge"],
     badge: "Champion Tier",
-    color: "#f59e0b",
+    color: "#0066ff",
   },
   {
     id: "athlete_mvp",

@@ -34,7 +34,7 @@ function CFactorRing({ score, name, sport, position, school, status }: {
   const radius = 54;
   const circ = 2 * Math.PI * radius;
   const dash = (pct / 100) * circ;
-  const color = score >= 90 ? "#00ff88" : score >= 75 ? "#00c2ff" : score >= 60 ? "#f59e0b" : "#ef4444";
+  const color = score >= 90 ? "#00ff88" : score >= 75 ? "#00c2ff" : score >= 60 ? "#0066ff" : "#ef4444";
   const label = score >= 90 ? "ELITE" : score >= 75 ? "RISING" : score >= 60 ? "DEVELOPING" : "BUILDING";
   return (
     <div className="flex flex-col items-center">

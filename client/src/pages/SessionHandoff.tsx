@@ -1,6 +1,8 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import UnifiedNav from "@/components/UnifiedNav";
+import UnifiedFooter from "@/components/UnifiedFooter";
+
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Copy, CheckCircle2 } from "lucide-react";
@@ -26,7 +28,7 @@ Session 1 Extension:
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
-      <Navbar />
+      <UnifiedNav />
       
       <main className="container mx-auto px-4 pt-32 pb-24 max-w-4xl">
         <div className="mb-12">
@@ -120,7 +122,7 @@ Session 1 Extension:
         </div>
       </main>
       
-      <Footer />
+      <UnifiedFooter />
     </div>
   );
 }

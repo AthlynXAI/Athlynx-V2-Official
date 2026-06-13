@@ -12,7 +12,7 @@ import PlatformLayout from "@/components/PlatformLayout";
 const EPX_TIERS = [
   { range: "90–100", label: "Elite Pro Prospect",  color: "#00ff88", score: 94, desc: "You are on the radar of D1 coaches, pro scouts, and national brands. Your EPX is your proof." },
   { range: "75–89",  label: "Rising Prospect",     color: "#00c2ff", score: 82, desc: "Trending up. Coaches are watching. One breakout performance away from Elite." },
-  { range: "60–74",  label: "Developing Athlete",  color: "#f59e0b", score: 67, desc: "Solid foundation. Keep stacking reps, film, and stats. The score follows the work." },
+  { range: "60–74",  label: "Developing Athlete",  color: "#0066ff", score: 67, desc: "Solid foundation. Keep stacking reps, film, and stats. The score follows the work." },
   { range: "0–59",   label: "Building",            color: "#ef4444", score: 45, desc: "Every elite started here. Your EPX grows every time you compete, train, and show up." },
 ];
 
@@ -36,7 +36,7 @@ function ScoreRing({ score, size = 160 }: { score: number; size?: number }) {
   const radius = size * 0.43;
   const circ = 2 * Math.PI * radius;
   const dash = (score / 100) * circ;
-  const color = score >= 90 ? "#00ff88" : score >= 75 ? "#00c2ff" : score >= 60 ? "#f59e0b" : "#ef4444";
+  const color = score >= 90 ? "#00ff88" : score >= 75 ? "#00c2ff" : score >= 60 ? "#0066ff" : "#ef4444";
   const label = score >= 90 ? "ELITE" : score >= 75 ? "RISING" : score >= 60 ? "DEVELOPING" : "BUILDING";
   return (
     <div className="flex flex-col items-center">

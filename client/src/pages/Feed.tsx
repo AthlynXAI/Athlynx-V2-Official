@@ -17,7 +17,7 @@ const BADGE_COLORS: Record<string, string> = {
 
 const STORY_TYPES = [
   { type: "update", label: "Update", icon: "", color: "#3b82f6" },
-  { type: "highlight", label: "Highlight", icon: "", color: "#f59e0b" },
+  { type: "highlight", label: "Highlight", icon: "", color: "#0066ff" },
   { type: "nil", label: "NIL", icon: "", color: "#10b981" },
   { type: "game", label: "Game", icon: "", color: "#ef4444" },
   { type: "training", label: "Training", icon: "", color: "#06b6d4" },

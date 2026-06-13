@@ -31,7 +31,7 @@ const C = {
   text: "#e2e8f0",
   muted: "#64748b",
   secondary: "#94a3b8",
-  gold: "#f59e0b",
+  gold: "#0066ff",
   green: "#10b981",
   red: "#ef4444",
   purple: "#8b5cf6",
