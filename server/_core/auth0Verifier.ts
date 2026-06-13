@@ -5,14 +5,14 @@
  * No client secret required — PKCE SPA flow only.
  *
  * Auth system: Auth0/Okta PKCE ONLY — no Firebase, no Supabase auth.
- * Domain: dev-8yqdmei0v8kc3qqy.us.auth0.com
- * SPA Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
+ * Domain: dev-46h7vdyglpny7auu.us.auth0.com
+ * SPA Client ID: zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6
  */
 
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
 const AUTH0_DOMAIN =
-  process.env.AUTH0_DOMAIN || "dev-8yqdmei0v8kc3qqy.us.auth0.com";
+  process.env.AUTH0_DOMAIN || "dev-46h7vdyglpny7auu.us.auth0.com";
 
 const AUTH0_JWKS_URL = `https://${AUTH0_DOMAIN}/.well-known/jwks.json`;
 const AUTH0_ISSUER = `https://${AUTH0_DOMAIN}/`;

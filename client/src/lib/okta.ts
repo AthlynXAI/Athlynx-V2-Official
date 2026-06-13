@@ -5,8 +5,8 @@
  * The SDK stores PKCE verifier in memory (not localStorage/sessionStorage),
  * so it survives cross-origin redirects on iOS Safari with ITP enabled.
  *
- * Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com
- * Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
+ * Domain:    dev-46h7vdyglpny7auu.us.auth0.com
+ * Client ID: zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6
  *
  * NOTE: Social connections (google-oauth2, apple, facebook) are NOT passed
  * as the `connection` parameter — instead we use Auth0 Universal Login which
@@ -17,12 +17,12 @@
  */
 import { createAuth0Client, Auth0Client } from "@auth0/auth0-spa-js";
 
-const AUTH0_DOMAIN    = "dev-8yqdmei0v8kc3qqy.us.auth0.com";
-const AUTH0_CLIENT_ID = "eDJT34flTy4oOq1cie6ItFubLDPHOrcI";
+const AUTH0_DOMAIN    = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_DOMAIN) || "dev-46h7vdyglpny7auu.us.auth0.com";
+const AUTH0_CLIENT_ID = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_CLIENT_ID) || "zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6";
 const AUTH0_REDIRECT_URI =
   typeof window !== "undefined"
-    ? `${window.location.origin}/auth/callback`
-    : "https://athlynx.ai/auth/callback";
+    ? `${window.location.origin}/callback`
+    : "https://athlynx.ai/callback";
 
 export type AthlynXUser = {
   uid:         string;
