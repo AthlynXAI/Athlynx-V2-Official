@@ -117,8 +117,8 @@ const MHSAA_RULES = [
   {
     icon: FileText,
     title: "Transfer Rules",
-    color: "text-[#f59e0b]",
-    bg: "bg-[#f59e0b]/10 border-[#f59e0b]/20",
+    color: "text-[#0066ff]",
+    bg: "bg-[#0066ff]/10 border-[#0066ff]/20",
     rules: [
       "Transferring students must sit out one semester unless a hardship waiver is granted",
       "Hardship waivers available for family moves, school closures, and documented hardship cases",
@@ -194,7 +194,7 @@ function MHSAAComplianceInner() {
               { label: "MHSAA Aligned", color: "#0066ff" },
               { label: "NFHS Compliant", color: "#00c2ff" },
               { label: "All 50 State HSAAs", color: "#22c55e" },
-              { label: "NIL HS Law Compliant", color: "#f59e0b" },
+              { label: "NIL HS Law Compliant", color: "#0066ff" },
               { label: "HIPAA Aligned", color: "#a855f7" },
               { label: "FERPA Compliant", color: "#ef4444" },
             ].map(b => (
@@ -259,9 +259,9 @@ function MHSAAComplianceInner() {
         </div>
 
         {/* IRS / Tax section for HS athletes */}
-        <div className="mt-12 rounded-2xl border border-[#f59e0b]/30 bg-[#f59e0b]/5 p-6">
+        <div className="mt-12 rounded-2xl border border-[#0066ff]/30 bg-[#0066ff]/5 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Briefcase className="w-6 h-6 text-[#f59e0b]" />
+            <Briefcase className="w-6 h-6 text-[#0066ff]" />
             <h3 className="text-lg font-black text-white">IRS Tax Compliance — High School NIL Athletes</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -276,7 +276,7 @@ function MHSAAComplianceInner() {
               "AthlynX NIL Vault stores all tax documents with AES-256 encryption",
             ].map((rule, i) => (
               <div key={i} className="flex items-start gap-2 text-sm text-[#8ba3c7]">
-                <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#f59e0b]" />
+                <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#0066ff]" />
                 <span>{rule}</span>
               </div>
             ))}
@@ -333,7 +333,7 @@ function MHSAAComplianceInner() {
         {/* Footer note */}
         <div className="mt-8 p-4 rounded-xl bg-[#0a1628] border border-white/5">
           <div className="flex items-start gap-2">
-            <AlertTriangle className="w-4 h-4 text-[#f59e0b] flex-shrink-0 mt-0.5" />
+            <AlertTriangle className="w-4 h-4 text-[#0066ff] flex-shrink-0 mt-0.5" />
             <p className="text-[11px] text-[#8ba3c7]/70 leading-relaxed">
               AthlynX uses MHSAA-aligned language and compliance frameworks. AthlynX is not officially endorsed by or affiliated with MHSAA, NFHS, or any state high school athletic association. Athletes and families should consult their school's athletic director and a qualified sports attorney for official eligibility determinations. This page is for informational purposes only and does not constitute legal advice.
             </p>

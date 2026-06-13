@@ -81,7 +81,7 @@ function LegalHubInner() {
       description: "1099-NEC, W-9, NIL income reporting, self-employment tax",
       icon: Briefcase,
       href: "/legal-compliance",
-      color: "from-[#f59e0b] to-amber-700",
+      color: "from-[#0066ff] to-blue-800",
     },
     {
       title: "Government & Federal",
@@ -155,7 +155,7 @@ function LegalHubInner() {
               <GraduationCap className="w-4 h-4 text-[#22c55e]" /> MHSAA / All 50 HSAAs
             </span>
             <span className="flex items-center gap-2">
-              <Briefcase className="w-4 h-4 text-[#f59e0b]" /> IRS 1099-NEC
+              <Briefcase className="w-4 h-4 text-[#0066ff]" /> IRS 1099-NEC
             </span>
           </div>
         </div>

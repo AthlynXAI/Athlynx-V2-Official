@@ -246,7 +246,7 @@ function StatBar({ label, homeVal, awayVal, homeColor, awayColor }: {
 
 function BaseballDiamond({ onFirst, onSecond, onThird }: { onFirst?: boolean; onSecond?: boolean; onThird?: boolean }) {
   const base = (on?: boolean) =>
-    `w-3 h-3 rotate-45 border ${on ? "bg-[#f59e0b] border-[#f59e0b]" : "bg-transparent border-white/30"}`;
+    `w-3 h-3 rotate-45 border ${on ? "bg-[#0066ff] border-[#0066ff]" : "bg-transparent border-white/30"}`;
   return (
     <div className="relative w-8 h-8 flex-shrink-0">
       <div className={`absolute top-0 left-1/2 -translate-x-1/2 ${base(onSecond)}`} />
@@ -399,7 +399,7 @@ function GameCard({ game, expanded, onToggle }: { game: ESPNGame; expanded: bool
 }
 
 function NILDiscoveryCard({ prospect }: { prospect: NILProspect }) {
-  const trendColor = prospect.trend === "elite" ? "#f59e0b" : prospect.trend === "breakout" ? "#22c55e" : "#00c2ff";
+  const trendColor = prospect.trend === "elite" ? "#0066ff" : prospect.trend === "breakout" ? "#22c55e" : "#00c2ff";
   const trendLabel = prospect.trend === "elite" ? "ELITE PROSPECT" : prospect.trend === "breakout" ? "BREAKOUT" : "RISING";
   return (
     <div className={`rounded-2xl border p-4 ${prospect.athlynxSigned ? "border-[#0066ff]/60 bg-gradient-to-br from-[#0a1628] to-[#050d1a]" : "border-white/10 bg-[#0a1628]"}`}>
@@ -438,7 +438,7 @@ function NILDiscoveryCard({ prospect }: { prospect: NILProspect }) {
 
 function RecruitingEventCard({ event }: { event: RecruitingEvent }) {
   const typeColors: Record<RecruitingEvent["type"], string> = {
-    "signing-day": "#f59e0b",
+    "signing-day": "#0066ff",
     "camp": "#0066ff",
     "tournament": "#22c55e",
     "evaluation": "#00c2ff",
