@@ -51,100 +51,100 @@ const C = {
 
 // ─── ALL SPORTS — ZERO EXCEPTIONS ─────────────────────────────────────────────
 const ALL_SPORTS = [
-  { icon: "🏈", name: "Football",      slug: "/gridiron-nexus",   hot: true  },
-  { icon: "⚾", name: "Baseball",      slug: "/diamond-grind",    hot: true  },
-  { icon: "🏀", name: "Basketball",    slug: "/court-kings",      hot: true  },
-  { icon: "⚽", name: "Soccer",        slug: "/sports/soccer",    hot: false },
-  { icon: "🥎", name: "Softball",      slug: "/softball-nation",  hot: false },
-  { icon: "🏐", name: "Volleyball",    slug: "/net-setters",      hot: false },
-  { icon: "🎾", name: "Tennis",        slug: "/racket-kings",     hot: false },
-  { icon: "⛳", name: "Golf",          slug: "/fairway-elite",    hot: false },
-  { icon: "🏊", name: "Swimming",      slug: "/swim-surge",       hot: false },
-  { icon: "🏃", name: "Track & Field", slug: "/track-elite",      hot: false },
-  { icon: "🏃", name: "Cross Country", slug: "/cross-country",    hot: false },
-  { icon: "🤼", name: "Wrestling",     slug: "/mat-warriors",     hot: false },
-  { icon: "🥍", name: "Lacrosse",      slug: "/lacrosse-elite",   hot: false },
-  { icon: "🏑", name: "Field Hockey",  slug: "/field-hockey",     hot: false },
-  { icon: "🤸", name: "Gymnastics",    slug: "/gymnastics-vault", hot: true  },
-  { icon: "📣", name: "Cheerleading",  slug: "/cheer-elite",      hot: true  },
-  { icon: "🎺", name: "Band/Marching", slug: "/sports/band",      hot: true  },
-  { icon: "🏒", name: "Ice Hockey",    slug: "/ice-breakers",     hot: false },
-  { icon: "🏉", name: "Rugby",         slug: "/rugby-elite",      hot: false },
-  { icon: "🚣", name: "Rowing",        slug: "/rowing-elite",     hot: false },
-  { icon: "🤽", name: "Water Polo",    slug: "/water-polo",       hot: false },
-  { icon: "🏏", name: "Cricket",       slug: "/cricket-elite",    hot: false },
-  { icon: "🎱", name: "Racquetball",   slug: "/racket-kings",     hot: false },
-  { icon: "🎳", name: "Bowling",       slug: "/sports/bowling",   hot: false },
-  { icon: "🚴", name: "Cycling",       slug: "/sports/cycling",   hot: false },
-  { icon: "🏇", name: "Equestrian",    slug: "/sports/equestrian",hot: false },
-  { icon: "🤺", name: "Fencing",       slug: "/sports/fencing",   hot: false },
-  { icon: "⛷️", name: "Skiing",        slug: "/sports/skiing",    hot: false },
-  { icon: "🏋️", name: "Weightlifting", slug: "/sports/weightlifting", hot: false },
-  { icon: "🥊", name: "Boxing",        slug: "/sports/boxing",    hot: false },
-  { icon: "🥋", name: "MMA",           slug: "/sports/mma",       hot: false },
-  { icon: "🎮", name: "Esports",       slug: "/sports/esports",   hot: false },
-  { icon: "🎣", name: "Fishing",       slug: "/reel-masters",     hot: false },
-  { icon: "🏹", name: "Hunting",       slug: "/hunt-pro",         hot: false },
+  { icon: "FB", name: "Football",      slug: "/gridiron-nexus",   hot: true  },
+  { icon: "BB", name: "Baseball",      slug: "/diamond-grind",    hot: true  },
+  { icon: "BK", name: "Basketball",    slug: "/court-kings",      hot: true  },
+  { icon: "SC", name: "Soccer",        slug: "/sports/soccer",    hot: false },
+  { icon: "SB", name: "Softball",      slug: "/softball-nation",  hot: false },
+  { icon: "VB", name: "Volleyball",    slug: "/net-setters",      hot: false },
+  { icon: "TN", name: "Tennis",        slug: "/racket-kings",     hot: false },
+  { icon: "GL", name: "Golf",          slug: "/fairway-elite",    hot: false },
+  { icon: "SW", name: "Swimming",      slug: "/swim-surge",       hot: false },
+  { icon: "TF", name: "Track & Field", slug: "/track-elite",      hot: false },
+  { icon: "TF", name: "Cross Country", slug: "/cross-country",    hot: false },
+  { icon: "WR", name: "Wrestling",     slug: "/mat-warriors",     hot: false },
+  { icon: "LC", name: "Lacrosse",      slug: "/lacrosse-elite",   hot: false },
+  { icon: "FH", name: "Field Hockey",  slug: "/field-hockey",     hot: false },
+  { icon: "GY", name: "Gymnastics",    slug: "/gymnastics-vault", hot: true  },
+  { icon: "CH", name: "Cheerleading",  slug: "/cheer-elite",      hot: true  },
+  { icon: "BD", name: "Band/Marching", slug: "/sports/band",      hot: true  },
+  { icon: "IH", name: "Ice Hockey",    slug: "/ice-breakers",     hot: false },
+  { icon: "RG", name: "Rugby",         slug: "/rugby-elite",      hot: false },
+  { icon: "RW", name: "Rowing",        slug: "/rowing-elite",     hot: false },
+  { icon: "WP", name: "Water Polo",    slug: "/water-polo",       hot: false },
+  { icon: "CR", name: "Cricket",       slug: "/cricket-elite",    hot: false },
+  { icon: "RQ", name: "Racquetball",   slug: "/racket-kings",     hot: false },
+  { icon: "BW", name: "Bowling",       slug: "/sports/bowling",   hot: false },
+  { icon: "CY", name: "Cycling",       slug: "/sports/cycling",   hot: false },
+  { icon: "EQ", name: "Equestrian",    slug: "/sports/equestrian",hot: false },
+  { icon: "FE", name: "Fencing",       slug: "/sports/fencing",   hot: false },
+  { icon: "SK", name: "Skiing",        slug: "/sports/skiing",    hot: false },
+  { icon: "WL", name: "Weightlifting", slug: "/sports/weightlifting", hot: false },
+  { icon: "BX", name: "Boxing",        slug: "/sports/boxing",    hot: false },
+  { icon: "MMA", name: "MMA",           slug: "/sports/mma",       hot: false },
+  { icon: "ESPORTS", name: "Esports",       slug: "/sports/esports",   hot: false },
+  { icon: "FISHING", name: "Fishing",       slug: "/reel-masters",     hot: false },
+  { icon: "HUNTING", name: "Hunting",       slug: "/hunt-pro",         hot: false },
 ];
 
 // ─── LIVE FEED POSTS ──────────────────────────────────────────────────────────
 const FEED_POSTS = [
   {
     id: "p1", type: "highlight",
-    user: { name: "Marcus Williams", role: "QB · Class of 2027", sport: "🏈", school: "Laurel HS", avatar: "MW" },
-    content: "Just dropped my senior highlight reel. 47 TDs this season. Ready to take my talents to the next level. 🏈⚡",
+    user: { name: "Marcus Williams", role: "QB · Class of 2027", sport: "FB", school: "Laurel HS", avatar: "MW" },
+    content: "Just dropped my senior highlight reel. 47 TDs this season. Ready to take my talents to the next level. FBLIVE",
     video: "SNHQDsOUVYFJwfUT",
     stats: { likes: 847, comments: 134, shares: 89, views: "12.4K" },
-    time: "2m ago", badge: "🔥 TRENDING", recruitable: true,
+    time: "2m ago", badge: "HOT TRENDING", recruitable: true,
     nilValue: "$18,500",
   },
   {
     id: "p2", type: "nil_deal",
-    user: { name: "Jordan Chen", role: "SS · Class of 2026", sport: "⚾", school: "Diamond Grind Elite", avatar: "JC" },
-    content: "Signed my first NIL deal with AthlynX Gear™! Diamond Grind Pro Batting Gloves — these things are elite. Link in bio to get yours. 💎",
+    user: { name: "Jordan Chen", role: "SS · Class of 2026", sport: "BB", school: "Diamond Grind Elite", avatar: "JC" },
+    content: "Signed my first NIL deal with AthlynX Gear™! Diamond Grind Pro Batting Gloves — these things are elite. Link in bio to get yours. DIAMOND",
     image: true,
     stats: { likes: 1203, comments: 267, shares: 156, views: "28.7K" },
-    time: "15m ago", badge: "💰 NIL DEAL", recruitable: true,
+    time: "15m ago", badge: "NIL NIL DEAL", recruitable: true,
     nilValue: "$12,000",
   },
   {
     id: "p3", type: "podcast",
-    user: { name: "Chad Allen Dozier Sr.", role: "Founder · AthlynX™", sport: "🎙️", school: "AthlynXAI OS", avatar: "CD" },
-    content: "Episode 001 is LIVE. 'Why I Built AthlynX — The Origin Story.' 48 minutes of truth. Every athlete needs to hear this. Be The Legacy. 🏆",
+    user: { name: "Chad Allen Dozier Sr.", role: "Founder · AthlynX™", sport: "PODCAST", school: "AthlynXAI OS", avatar: "CD" },
+    content: "Episode 001 is LIVE. 'Why I Built AthlynX — The Origin Story.' 48 minutes of truth. Every athlete needs to hear this. Be The Legacy. CHAMP",
     stats: { likes: 2891, comments: 445, shares: 312, views: "67.2K" },
-    time: "1h ago", badge: "🎙️ PODCAST", recruitable: false,
+    time: "1h ago", badge: "PODCAST PODCAST", recruitable: false,
     podcastUrl: "https://open.spotify.com/episode/3pBeGKonds1DoM39P2zhlq",
   },
   {
     id: "p4", type: "recruit",
-    user: { name: "Aaliyah Johnson", role: "Libero · Class of 2027", sport: "🏐", school: "Jackson Academy", avatar: "AJ" },
-    content: "Just received my 3rd D1 offer through AthlynX! The AI Recruiter matched me with coaches I never would have found on my own. This platform is different. 🏐✨",
+    user: { name: "Aaliyah Johnson", role: "Libero · Class of 2027", sport: "VB", school: "Jackson Academy", avatar: "AJ" },
+    content: "Just received my 3rd D1 offer through AthlynX! The AI Recruiter matched me with coaches I never would have found on my own. This platform is different. VB",
     stats: { likes: 634, comments: 98, shares: 71, views: "8.9K" },
-    time: "2h ago", badge: "🎓 D1 OFFER", recruitable: true,
+    time: "2h ago", badge: "D1 D1 OFFER", recruitable: true,
     nilValue: "$8,200",
   },
   {
     id: "p5", type: "cheer",
-    user: { name: "Destiny Williams", role: "Flyer · Varsity Cheer", sport: "📣", school: "Oak Grove HS", avatar: "DW" },
-    content: "AthlynX finally sees us. Cheerleading is a sport. We train harder than most. Our profiles are live, our NIL is real, and our legacy starts now. 📣💙",
+    user: { name: "Destiny Williams", role: "Flyer · Varsity Cheer", sport: "CH", school: "Oak Grove HS", avatar: "DW" },
+    content: "AthlynX finally sees us. Cheerleading is a sport. We train harder than most. Our profiles are live, our NIL is real, and our legacy starts now. CH",
     stats: { likes: 1456, comments: 203, shares: 178, views: "19.3K" },
-    time: "3h ago", badge: "📣 CHEER", recruitable: true,
+    time: "3h ago", badge: "CH CHEER", recruitable: true,
     nilValue: "$5,400",
   },
   {
     id: "p6", type: "band",
-    user: { name: "Tre Jackson", role: "Drum Major · Marching Band", sport: "🎺", school: "Southern Miss Prep", avatar: "TJ" },
-    content: "Band kids are athletes too. AthlynX built us a lane. Scholarship tools, NIL, recruiting — all of it. Nobody left behind. 🎺🥁",
+    user: { name: "Tre Jackson", role: "Drum Major · Marching Band", sport: "BD", school: "Southern Miss Prep", avatar: "TJ" },
+    content: "Band kids are athletes too. AthlynX built us a lane. Scholarship tools, NIL, recruiting — all of it. Nobody left behind. BD",
     stats: { likes: 987, comments: 167, shares: 134, views: "14.1K" },
-    time: "4h ago", badge: "🎺 BAND", recruitable: true,
+    time: "4h ago", badge: "BD BAND", recruitable: true,
     nilValue: "$3,800",
   },
   {
     id: "p7", type: "gymnastics",
-    user: { name: "Sofia Martinez", role: "All-Around · Level 10", sport: "🤸", school: "Elite Gymnastics Academy", avatar: "SM" },
-    content: "My AthlynX profile just got viewed by 14 college coaches this week. The AI matched me with programs that fit MY skills, MY GPA, MY goals. This is the future. 🤸‍♀️",
+    user: { name: "Sofia Martinez", role: "All-Around · Level 10", sport: "GY", school: "Elite Gymnastics Academy", avatar: "SM" },
+    content: "My AthlynX profile just got viewed by 14 college coaches this week. The AI matched me with programs that fit MY skills, MY GPA, MY goals. This is the future. GY",
     stats: { likes: 1122, comments: 189, shares: 145, views: "16.8K" },
-    time: "5h ago", badge: "🤸 GYMNASTICS", recruitable: true,
+    time: "5h ago", badge: "GY GYMNASTICS", recruitable: true,
     nilValue: "$9,100",
   },
 ];
@@ -168,12 +168,12 @@ const DEMO_CHAT = [
 
 // ─── SHOPIFY PRODUCTS ─────────────────────────────────────────────────────────
 const SHOPIFY_PRODUCTS = [
-  { id: "1", title: "AthlynX Performance Training Tee", price: "34.99", badge: "🔥 HOT", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-performance-training-tee" },
+  { id: "1", title: "AthlynX Performance Training Tee", price: "34.99", badge: "HOT HOT", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-performance-training-tee" },
   { id: "2", title: "AthlynX Performance Training Shorts", price: "39.99", badge: "NEW", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-performance-training-shorts" },
-  { id: "3", title: "AthlynX Full-Zip Performance Hoodie", price: "64.99", badge: "⚡ ELITE", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-full-zip-performance-hoodie" },
+  { id: "3", title: "AthlynX Full-Zip Performance Hoodie", price: "64.99", badge: "LIVE ELITE", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-full-zip-performance-hoodie" },
   { id: "4", title: "AthlynX Compression Leggings", price: "49.99", badge: "PRO", type: "Apparel", href: "https://0010yz-fn.myshopify.com/products/athlynx-compression-leggings" },
-  { id: "5", title: "Diamond Grind Pro Batting Gloves", price: "44.99", badge: "💎 GRIND", type: "Baseball", href: "https://0010yz-fn.myshopify.com/products/diamond-grind-pro-batting-gloves" },
-  { id: "6", title: "Diamond Grind Training Batting Helmet", price: "79.99", badge: "💎 GRIND", type: "Baseball", href: "https://0010yz-fn.myshopify.com/products/diamond-grind-training-batting-helmet" },
+  { id: "5", title: "Diamond Grind Pro Batting Gloves", price: "44.99", badge: "DIAMOND GRIND", type: "Baseball", href: "https://0010yz-fn.myshopify.com/products/diamond-grind-pro-batting-gloves" },
+  { id: "6", title: "Diamond Grind Training Batting Helmet", price: "79.99", badge: "DIAMOND GRIND", type: "Baseball", href: "https://0010yz-fn.myshopify.com/products/diamond-grind-training-batting-helmet" },
   { id: "7", title: "Warriors Playbook Pro Coaching Binder", price: "29.99", badge: "COACH", type: "Coaching", href: "https://0010yz-fn.myshopify.com/products/warriors-playbook-pro-coaching-binder" },
   { id: "8", title: "AthlynX NIL Athlete Snapback Hat", price: "24.99", badge: "NIL", type: "NIL Merch", href: "https://0010yz-fn.myshopify.com/products/athlynx-nil-athlete-snapback-hat" },
   { id: "9", title: "AthlynXAI Logo Performance Tee", price: "34.99", badge: "AI", type: "Branded", href: "https://0010yz-fn.myshopify.com/products/athlynxai-logo-performance-tee" },
@@ -195,65 +195,65 @@ const PODCAST_EPISODES = [
 
 // ─── PLATFORM APPS ────────────────────────────────────────────────────────────
 const PLATFORM_APPS = [
-  { name: "NIL Portal", icon: "💰", href: "/nil-portal", desc: "Deals, endorsements, brand connect", hot: true, cat: "Core" },
-  { name: "Transfer Portal", icon: "🔄", href: "/transfer-portal", desc: "Navigate the portal with AI", hot: true, cat: "Core" },
-  { name: "Diamond Grind", icon: "⚾", href: "/diamond-grind", desc: "Baseball recruiting & analytics", hot: true, cat: "Sports" },
-  { name: "Gridiron Nexus", icon: "🏈", href: "/gridiron-nexus", desc: "Football recruiting intelligence", hot: true, cat: "Sports" },
-  { name: "Court Kings", icon: "🏀", href: "/court-kings", desc: "Basketball scouting & NIL", hot: false, cat: "Sports" },
-  { name: "Cheer Elite", icon: "📣", href: "/cheer-elite", desc: "Cheerleading recruiting & NIL", hot: true, cat: "Sports" },
-  { name: "Gymnastics Vault", icon: "🤸", href: "/gymnastics-vault", desc: "Gymnastics recruiting & scoring", hot: true, cat: "Sports" },
-  { name: "Pitch Pulse", icon: "⚾", href: "/pitch-pulse", desc: "Pitching analytics & film", hot: false, cat: "Sports" },
-  { name: "Softball Nation", icon: "🥎", href: "/softball-nation", desc: "Softball recruiting & stats", hot: false, cat: "Sports" },
-  { name: "Reel Masters", icon: "🎣", href: "/reel-masters", desc: "Fishing & outdoor sports", hot: false, cat: "Sports" },
-  { name: "Athlete Dashboard", icon: "📊", href: "/athlete-dashboard", desc: "Your stats, your story, your brand", hot: false, cat: "Core" },
-  { name: "NIL Calculator", icon: "🧮", href: "/nil-calculator", desc: "Know your market value", hot: true, cat: "Core" },
-  { name: "NIL Vault", icon: "🔐", href: "/nil-vault", desc: "Secure your contracts & IP", hot: false, cat: "Core" },
-  { name: "AI Recruiter", icon: "🤖", href: "/ai-recruiter", desc: "AI-powered recruiting engine", hot: true, cat: "AI" },
-  { name: "AI Sales Bot", icon: "⚡", href: "/ai-sales", desc: "Automate your outreach", hot: false, cat: "AI" },
-  { name: "AI Content", icon: "✍️", href: "/ai-content", desc: "Create content with AI", hot: false, cat: "AI" },
-  { name: "Social Hub", icon: "📱", href: "/social-hub", desc: "All your social in one place", hot: false, cat: "Media" },
-  { name: "Studio Suite", icon: "🎬", href: "/studio", desc: "Create, record, publish", hot: true, cat: "Media" },
-  { name: "Highlight Reel Studio", icon: "🎥", href: "/highlight-reel-studio", desc: "Build your recruiting reel", hot: true, cat: "Media" },
-  { name: "Comms Hub", icon: "📡", href: "/comms-hub", desc: "Email, SMS, WhatsApp unified", hot: false, cat: "Comms" },
-  { name: "CRM Dashboard", icon: "🗂️", href: "/crm", desc: "Full athlete & coach CRM", hot: false, cat: "Business" },
-  { name: "Warriors Playbook", icon: "📋", href: "/warriors-playbook", desc: "Coaching tools & playbooks", hot: false, cat: "Coaching" },
-  { name: "Athlete Playbook", icon: "📖", href: "/athlete-playbook", desc: "Your personal game plan", hot: false, cat: "Core" },
-  { name: "EPX Platform", icon: "🚀", href: "/epx", desc: "Elite performance experience", hot: true, cat: "Core" },
-  { name: "Faith", icon: "✝️", href: "/faith", desc: "Mind, body, soul alignment", hot: false, cat: "Life" },
-  { name: "AthlynXAI OS", icon: "🧠", href: "/athlynxai-os", desc: "The full autonomous engine", hot: true, cat: "OS" },
-  { name: "AXN Network", icon: "📡", href: "/network", desc: "Live broadcasting hub", hot: true, cat: "Media" },
-  { name: "Booking Hub", icon: "📅", href: "/booking-hub", desc: "Schedule appearances & events", hot: false, cat: "Business" },
+  { name: "NIL Portal", icon: "NIL", href: "/nil-portal", desc: "Deals, endorsements, brand connect", hot: true, cat: "Core" },
+  { name: "Transfer Portal", icon: "PORTAL", href: "/transfer-portal", desc: "Navigate the portal with AI", hot: true, cat: "Core" },
+  { name: "Diamond Grind", icon: "BB", href: "/diamond-grind", desc: "Baseball recruiting & analytics", hot: true, cat: "Sports" },
+  { name: "Gridiron Nexus", icon: "FB", href: "/gridiron-nexus", desc: "Football recruiting intelligence", hot: true, cat: "Sports" },
+  { name: "Court Kings", icon: "BK", href: "/court-kings", desc: "Basketball scouting & NIL", hot: false, cat: "Sports" },
+  { name: "Cheer Elite", icon: "CH", href: "/cheer-elite", desc: "Cheerleading recruiting & NIL", hot: true, cat: "Sports" },
+  { name: "Gymnastics Vault", icon: "GY", href: "/gymnastics-vault", desc: "Gymnastics recruiting & scoring", hot: true, cat: "Sports" },
+  { name: "Pitch Pulse", icon: "BB", href: "/pitch-pulse", desc: "Pitching analytics & film", hot: false, cat: "Sports" },
+  { name: "Softball Nation", icon: "SB", href: "/softball-nation", desc: "Softball recruiting & stats", hot: false, cat: "Sports" },
+  { name: "Reel Masters", icon: "FISHING", href: "/reel-masters", desc: "Fishing & outdoor sports", hot: false, cat: "Sports" },
+  { name: "Athlete Dashboard", icon: "STATS", href: "/athlete-dashboard", desc: "Your stats, your story, your brand", hot: false, cat: "Core" },
+  { name: "NIL Calculator", icon: "CALC", href: "/nil-calculator", desc: "Know your market value", hot: true, cat: "Core" },
+  { name: "NIL Vault", icon: "VAULT", href: "/nil-vault", desc: "Secure your contracts & IP", hot: false, cat: "Core" },
+  { name: "AI Recruiter", icon: "AI", href: "/ai-recruiter", desc: "AI-powered recruiting engine", hot: true, cat: "AI" },
+  { name: "AI Sales Bot", icon: "LIVE", href: "/ai-sales", desc: "Automate your outreach", hot: false, cat: "AI" },
+  { name: "AI Content", icon: "WRITE", href: "/ai-content", desc: "Create content with AI", hot: false, cat: "AI" },
+  { name: "Social Hub", icon: "SOCIAL", href: "/social-hub", desc: "All your social in one place", hot: false, cat: "Media" },
+  { name: "Studio Suite", icon: "VIDEO", href: "/studio", desc: "Create, record, publish", hot: true, cat: "Media" },
+  { name: "Highlight Reel Studio", icon: "FILM", href: "/highlight-reel-studio", desc: "Build your recruiting reel", hot: true, cat: "Media" },
+  { name: "Comms Hub", icon: "BROADCAST", href: "/comms-hub", desc: "Email, SMS, WhatsApp unified", hot: false, cat: "Comms" },
+  { name: "CRM Dashboard", icon: "CRM", href: "/crm", desc: "Full athlete & coach CRM", hot: false, cat: "Business" },
+  { name: "Warriors Playbook", icon: "PLAYBOOK", href: "/warriors-playbook", desc: "Coaching tools & playbooks", hot: false, cat: "Coaching" },
+  { name: "Athlete Playbook", icon: "PLAYBOOK", href: "/athlete-playbook", desc: "Your personal game plan", hot: false, cat: "Core" },
+  { name: "EPX Platform", icon: "EPX", href: "/epx", desc: "Elite performance experience", hot: true, cat: "Core" },
+  { name: "Faith", icon: "FAITH", href: "/faith", desc: "Mind, body, soul alignment", hot: false, cat: "Life" },
+  { name: "AthlynXAI OS", icon: "AI", href: "/athlynxai-os", desc: "The full autonomous engine", hot: true, cat: "OS" },
+  { name: "AXN Network", icon: "BROADCAST", href: "/network", desc: "Live broadcasting hub", hot: true, cat: "Media" },
+  { name: "Booking Hub", icon: "EVENTS", href: "/booking-hub", desc: "Schedule appearances & events", hot: false, cat: "Business" },
 ];
 
 // ─── SUBSCRIPTION TIERS ───────────────────────────────────────────────────────
 const TIERS = [
   { name: "Athlete Free", price: "$0", period: "/mo", color: "border-[#2e3a50]", badge: "START HERE", badgeColor: "bg-[#2e3a50]", features: ["AXN Network access", "2 podcast episodes", "NIL Calculator", "Basic profile", "Community feed"], cta: "Get Started Free", ctaStyle: "bg-[#2e3a50] hover:bg-[#252d3d] text-white", href: "/sign-up" },
-  { name: "Athlete Pro", price: "$19", period: "/mo", color: "border-[#00c2ff]", badge: "🔥 MOST POPULAR", badgeColor: "bg-[#0066ff]", features: ["Everything in Free", "All podcast episodes", "NIL Portal full access", "AI Recruiter", "Transfer Portal", "250 AXN Credits/mo", "Social Hub", "Studio Suite", "Highlight Reel Studio"], cta: "Go Pro", ctaStyle: "bg-[#0066ff] hover:bg-[#0047AB] text-white", href: "/sign-up" },
-  { name: "Elite Athlete", price: "$49", period: "/mo", color: "border-[#0047AB]", badge: "⚡ ELITE", badgeColor: "bg-[#0047AB]", features: ["Everything in Pro", "NIL Vault + Contracts", "AI Sales Bot", "Comms Hub (SMS + Email)", "1,000 AXN Credits/mo", "Priority AI routing", "White-label profile page", "All sports platforms"], cta: "Go Elite", ctaStyle: "bg-[#0047AB] hover:bg-[#002f7a] text-white", href: "/sign-up" },
-  { name: "Enterprise", price: "$199", period: "/mo", color: "border-[#e8f4ff]/30", badge: "👑 ENTERPRISE", badgeColor: "bg-[#252d3d]", features: ["Everything in Elite", "Full AthlynXAI OS access", "CRM back office", "Zapier + Buffer + Twilio", "Unlimited AXN Credits", "White-label licensing", "Dedicated AI runner", "Chad Dozier direct access"], cta: "Contact Chad", ctaStyle: "bg-[#252d3d] hover:bg-[#1c2333] text-[#00c2ff] border border-[#00c2ff]/30", href: "mailto:cdozier14@athlynx.ai" },
+  { name: "Athlete Pro", price: "$19", period: "/mo", color: "border-[#00c2ff]", badge: "HOT MOST POPULAR", badgeColor: "bg-[#0066ff]", features: ["Everything in Free", "All podcast episodes", "NIL Portal full access", "AI Recruiter", "Transfer Portal", "250 AXN Credits/mo", "Social Hub", "Studio Suite", "Highlight Reel Studio"], cta: "Go Pro", ctaStyle: "bg-[#0066ff] hover:bg-[#0047AB] text-white", href: "/sign-up" },
+  { name: "Elite Athlete", price: "$49", period: "/mo", color: "border-[#0047AB]", badge: "LIVE ELITE", badgeColor: "bg-[#0047AB]", features: ["Everything in Pro", "NIL Vault + Contracts", "AI Sales Bot", "Comms Hub (SMS + Email)", "1,000 AXN Credits/mo", "Priority AI routing", "White-label profile page", "All sports platforms"], cta: "Go Elite", ctaStyle: "bg-[#0047AB] hover:bg-[#002f7a] text-white", href: "/sign-up" },
+  { name: "Enterprise", price: "$199", period: "/mo", color: "border-[#e8f4ff]/30", badge: "ELITE ENTERPRISE", badgeColor: "bg-[#252d3d]", features: ["Everything in Elite", "Full AthlynXAI OS access", "CRM back office", "Zapier + Buffer + Twilio", "Unlimited AXN Credits", "White-label licensing", "Dedicated AI runner", "Chad Dozier direct access"], cta: "Contact Chad", ctaStyle: "bg-[#252d3d] hover:bg-[#1c2333] text-[#00c2ff] border border-[#00c2ff]/30", href: "mailto:cdozier14@athlynx.ai" },
 ];
 
 // ─── AI STACK ─────────────────────────────────────────────────────────────────
 const AI_STACK = [
-  { name: "Google Gemini", icon: "🔵", role: "Content generation, search, workspace sync", active: true },
-  { name: "Claude (Anthropic)", icon: "🟠", role: "Legal docs, contracts, long-form analysis", active: true },
-  { name: "OpenAI GPT", icon: "🟢", role: "Athlete profiles, NIL valuations, chatbots", active: true },
-  { name: "Perplexity Sonar", icon: "🔷", role: "Real-time recruiting intel, news, research", active: true },
-  { name: "Grok", icon: "⚡", role: "Social media analysis, trending athlete content", active: true },
-  { name: "Nebius AI", icon: "🌌", role: "Athlete Sovereignty Lane, advanced compute", active: true },
-  { name: "Manus AI", icon: "🤖", role: "Autonomous OS execution, full task automation", active: true },
+  { name: "Google Gemini", icon: "AI", role: "Content generation, search, workspace sync", active: true },
+  { name: "Claude (Anthropic)", icon: "AI", role: "Legal docs, contracts, long-form analysis", active: true },
+  { name: "OpenAI GPT", icon: "AI", role: "Athlete profiles, NIL valuations, chatbots", active: true },
+  { name: "Perplexity Sonar", icon: "AI", role: "Real-time recruiting intel, news, research", active: true },
+  { name: "Grok", icon: "LIVE", role: "Social media analysis, trending athlete content", active: true },
+  { name: "Nebius AI", icon: "NEBIUS", role: "Athlete Sovereignty Lane, advanced compute", active: true },
+  { name: "Manus AI", icon: "AI", role: "Autonomous OS execution, full task automation", active: true },
 ];
 
 // ─── INTEGRATION STACK ────────────────────────────────────────────────────────
 const INTEGRATIONS = [
-  { name: "Supabase", icon: "⚡", role: "Database, Auth, Real-time", color: "bg-emerald-800" },
-  { name: "Twilio", icon: "📱", role: "SMS, WhatsApp, Voice", color: "bg-red-800" },
-  { name: "Superhuman", icon: "✉️", role: "AI-powered email OS", color: "bg-blue-800" },
-  { name: "Buffer", icon: "📅", role: "Social scheduling", color: "bg-sky-800" },
-  { name: "Zapier", icon: "⚡", role: "Workflow automation", color: "bg-blue-800" },
-  { name: "AWS", icon: "☁️", role: "S3, Lambda, SES", color: "bg-blue-900" },
-  { name: "Shopify", icon: "🛍️", role: "E-commerce, gear, merch", color: "bg-green-800" },
-  { name: "Google Workspace", icon: "🔵", role: "Docs, Drive, Calendar", color: "bg-indigo-800" },
+  { name: "Supabase", icon: "LIVE", role: "Database, Auth, Real-time", color: "bg-emerald-800" },
+  { name: "Twilio", icon: "SOCIAL", role: "SMS, WhatsApp, Voice", color: "bg-red-800" },
+  { name: "Superhuman", icon: "EMAIL", role: "AI-powered email OS", color: "bg-blue-800" },
+  { name: "Buffer", icon: "EVENTS", role: "Social scheduling", color: "bg-sky-800" },
+  { name: "Zapier", icon: "LIVE", role: "Workflow automation", color: "bg-blue-800" },
+  { name: "AWS", icon: "CLOUD", role: "S3, Lambda, SES", color: "bg-blue-900" },
+  { name: "Shopify", icon: "STORE", role: "E-commerce, gear, merch", color: "bg-green-800" },
+  { name: "Google Workspace", icon: "AI", role: "Docs, Drive, Calendar", color: "bg-indigo-800" },
 ];
 
 // ─── COMPETITOR COMPARISON ────────────────────────────────────────────────────
@@ -268,39 +268,39 @@ const COMPETITORS = [
 
 // ─── SOCIAL PLATFORMS ─────────────────────────────────────────────────────────
 const SOCIAL_LINKS = [
-  { name: "Spotify", icon: "🎵", url: "https://open.spotify.com/episode/3pBeGKonds1DoM39P2zhlq", color: "bg-green-700" },
-  { name: "YouTube", icon: "▶️", url: "https://youtube.com/@athlynxai", color: "bg-red-700" },
-  { name: "Instagram", icon: "📸", url: "https://instagram.com/athlynxai", color: "bg-pink-700" },
-  { name: "TikTok", icon: "🎬", url: "https://tiktok.com/@athlynxai", color: "bg-slate-800" },
-  { name: "Apple Podcasts", icon: "🎙️", url: "https://podcasts.apple.com", color: "bg-purple-700" },
-  { name: "iHeart Radio", icon: "❤️", url: "https://iheart.com", color: "bg-blue-700" },
+  { name: "Spotify", icon: "MUSIC", url: "https://open.spotify.com/episode/3pBeGKonds1DoM39P2zhlq", color: "bg-green-700" },
+  { name: "YouTube", icon: "WATCH", url: "https://youtube.com/@athlynxai", color: "bg-red-700" },
+  { name: "Instagram", icon: "PHOTO", url: "https://instagram.com/athlynxai", color: "bg-pink-700" },
+  { name: "TikTok", icon: "VIDEO", url: "https://tiktok.com/@athlynxai", color: "bg-slate-800" },
+  { name: "Apple Podcasts", icon: "PODCAST", url: "https://podcasts.apple.com", color: "bg-purple-700" },
+  { name: "iHeart Radio", icon: "LIKE", url: "https://iheart.com", color: "bg-blue-700" },
   { name: "X / Twitter", icon: "𝕏", url: "https://x.com/athlynxai", color: "bg-slate-900" },
-  { name: "Pocket Casts", icon: "🎧", url: "https://pocketcasts.com", color: "bg-rose-700" },
+  { name: "Pocket Casts", icon: "PODCAST", url: "https://pocketcasts.com", color: "bg-rose-700" },
 ];
 
 // ─── AXN CREDITS ──────────────────────────────────────────────────────────────
 const CREDIT_ACTIONS = [
-  { action: "Watch an episode", credits: 50, icon: "▶️" },
-  { action: "Share content", credits: 25, icon: "📤" },
-  { action: "Refer an athlete", credits: 500, icon: "👥" },
-  { action: "Create a reel", credits: 100, icon: "🎬" },
-  { action: "Complete NIL profile", credits: 200, icon: "✅" },
-  { action: "Book a coaching session", credits: 150, icon: "📋" },
+  { action: "Watch an episode", credits: 50, icon: "WATCH" },
+  { action: "Share content", credits: 25, icon: "SHARE" },
+  { action: "Refer an athlete", credits: 500, icon: "GROUPS" },
+  { action: "Create a reel", credits: 100, icon: "VIDEO" },
+  { action: "Complete NIL profile", credits: 200, icon: "DONE" },
+  { action: "Book a coaching session", credits: 150, icon: "PLAYBOOK" },
 ];
 
 // ─── LIVE TICKER ──────────────────────────────────────────────────────────────
 function LiveTicker() {
   const items = [
-    "🔴 LIVE: AXN Network — NIL Portal Baseball · Watch Now",
-    "🎙️ EP 001 on Spotify — 'Why I Built AthlynX' — 48:32",
-    "⚡ New: Diamond Grind Pro Batting Gloves — Shop Now",
-    "📣 Cheerleading & Gymnastics — Your Lane is Live",
-    "🎺 Band & Marching Arts — Nobody Left Behind",
-    "🏆 AthlynXAI OS — Connect Anyone to Anything™",
-    "💰 Earn AXN Credits — Watch · Share · Create · Cash Out",
-    "🤖 7 AI Engines Running — Gemini · Claude · GPT · Perplexity · Grok · Nebius · Manus",
-    "👑 © 2026 Chad A. Dozier Sr. · AthlynX™ · AXN™ · AVN™ · All Rights Reserved",
-    "🚀 Be The Legacy · Iron Sharpens Iron · Proverbs 27:17",
+    "LIVE LIVE: AXN Network — NIL Portal Baseball · Watch Now",
+    "PODCAST EP 001 on Spotify — 'Why I Built AthlynX' — 48:32",
+    "LIVE New: Diamond Grind Pro Batting Gloves — Shop Now",
+    "CH Cheerleading & Gymnastics — Your Lane is Live",
+    "BD Band & Marching Arts — Nobody Left Behind",
+    "CHAMP AthlynXAI OS — Connect Anyone to Anything™",
+    "NIL Earn AXN Credits — Watch · Share · Create · Cash Out",
+    "AI 7 AI Engines Running — Gemini · Claude · GPT · Perplexity · Grok · Nebius · Manus",
+    "ELITE © 2026 Chad A. Dozier Sr. · AthlynX™ · AXN™ · AVN™ · All Rights Reserved",
+    "EPX Be The Legacy · Iron Sharpens Iron · Proverbs 27:17",
   ];
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -424,7 +424,7 @@ function FeedPostCard({ post, onLike, onCredit }: { post: typeof FEED_POSTS[0], 
       {/* Recruit Panel */}
       {showRecruit && (
         <div className="mx-4 mb-3 bg-[#0d1117] border border-[#00c2ff]/20 rounded-xl p-3">
-          <p className="text-[#00c2ff] text-xs font-bold mb-2">🎯 Recruit via AthlynXAI OS</p>
+          <p className="text-[#00c2ff] text-xs font-bold mb-2">TARGET Recruit via AthlynXAI OS</p>
           <div className="flex gap-2">
             <Link href="/nil-portal" className="flex-1">
               <Button size="sm" className="w-full bg-[#0047AB] hover:bg-[#002f7a] text-white text-xs">Send NIL Offer</Button>
@@ -550,9 +550,9 @@ function AthlynXNetworkInner() {
 
   const SPONSOR_ADS = [
     { brand: "ICC-USA™", tagline: "Your Official Fulfillment Partner — Gear That Performs", cta: "Shop Gear", href: "/commerce/vendor/icc-usa", grad: "from-[#0047AB] to-[#002f7a]", badge: "OFFICIAL PARTNER" },
-    { brand: "Diamond Grind™", tagline: "Train Like a Pro. Recruit Like a Champion.", cta: "Get Gloves", href: "/diamond-grind", grad: "from-[#1c2333] to-[#0047AB]", badge: "⚾ FEATURED" },
-    { brand: "NIL Portal™", tagline: "Your Name. Your Brand. Your Money.", cta: "Activate NIL", href: "/nil-portal", grad: "from-[#002f7a] to-[#0066ff]", badge: "💰 HOT" },
-    { brand: "AthlynXAI OS™", tagline: "The Only Middleman You'll Ever Need. Chad Dozier Sr.", cta: "Enter the OS", href: "/athlynxai-os", grad: "from-[#0d1117] to-[#1c2333]", badge: "🤖 POWERED" },
+    { brand: "Diamond Grind™", tagline: "Train Like a Pro. Recruit Like a Champion.", cta: "Get Gloves", href: "/diamond-grind", grad: "from-[#1c2333] to-[#0047AB]", badge: "BB FEATURED" },
+    { brand: "NIL Portal™", tagline: "Your Name. Your Brand. Your Money.", cta: "Activate NIL", href: "/nil-portal", grad: "from-[#002f7a] to-[#0066ff]", badge: "NIL HOT" },
+    { brand: "AthlynXAI OS™", tagline: "The Only Middleman You'll Ever Need. Chad Dozier Sr.", cta: "Enter the OS", href: "/athlynxai-os", grad: "from-[#0d1117] to-[#1c2333]", badge: "AI POWERED" },
   ];
 
   useEffect(() => {
@@ -561,11 +561,11 @@ function AthlynXNetworkInner() {
   }, []);
 
   const tabs = [
-    { id: "feed", label: "🏠 Feed" },
-    { id: "messenger", label: "💬 Messenger" },
-    { id: "discover", label: "🔍 Discover" },
-    { id: "store", label: "🛍️ Store" },
-    { id: "os", label: "🤖 OS" },
+    { id: "feed", label: "HOME Feed" },
+    { id: "messenger", label: "MSG Messenger" },
+    { id: "discover", label: "SEARCH Discover" },
+    { id: "store", label: "STORE Store" },
+    { id: "os", label: "AI OS" },
   ] as const;
 
   const SponsorAd = ({ ad }: { ad: typeof SPONSOR_ADS[0] }) => (
@@ -756,7 +756,7 @@ function AthlynXNetworkInner() {
 
               {/* Who to Follow / Recruit */}
               <div className="rounded-2xl p-4 border" style={{ background: C.granite, borderColor: C.graniteL }}>
-                <p className="font-black text-sm text-white mb-3">🎯 Athletes to Recruit</p>
+                <p className="font-black text-sm text-white mb-3">TARGET Athletes to Recruit</p>
                 {FEED_POSTS.filter(p => p.recruitable).slice(0, 3).map(p => (
                   <div key={p.id} className="flex items-center gap-3 mb-3">
                     <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-black shrink-0" style={{ background: `linear-gradient(135deg, ${C.cobalt}, ${C.bright})` }}>
@@ -785,7 +785,7 @@ function AthlynXNetworkInner() {
 
               {/* All Sports Quick Links */}
               <div className="rounded-2xl p-4 border" style={{ background: C.granite, borderColor: C.graniteL }}>
-                <p className="font-black text-sm text-white mb-3">⚡ All Sports</p>
+                <p className="font-black text-sm text-white mb-3">LIVE All Sports</p>
                 <div className="grid grid-cols-4 gap-1.5">
                   {ALL_SPORTS.slice(0, 16).map(s => (
                     <Link key={s.name} href={s.slug}>
@@ -816,9 +816,9 @@ function AthlynXNetworkInner() {
             <MessengerPanel />
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: "🏈", title: "Coach Direct", desc: "Coaches message athletes directly. No middleman except Chad.", cta: "Find Coaches", href: "/ai-recruiter" },
-                { icon: "💰", title: "Agent Connect", desc: "NIL agents reach out with real deals. All tracked in the OS.", cta: "NIL Portal", href: "/nil-portal" },
-                { icon: "🤖", title: "AI Assistant", desc: "Your AthlynXAI OS assistant is always online. Always working.", cta: "Open OS", href: "/athlynxai-os" },
+                { icon: "FB", title: "Coach Direct", desc: "Coaches message athletes directly. No middleman except Chad.", cta: "Find Coaches", href: "/ai-recruiter" },
+                { icon: "NIL", title: "Agent Connect", desc: "NIL agents reach out with real deals. All tracked in the OS.", cta: "NIL Portal", href: "/nil-portal" },
+                { icon: "AI", title: "AI Assistant", desc: "Your AthlynXAI OS assistant is always online. Always working.", cta: "Open OS", href: "/athlynxai-os" },
               ].map(c => (
                 <div key={c.title} className="rounded-2xl p-5 border text-center" style={{ background: C.granite, borderColor: C.graniteL }}>
                   <div className="text-3xl mb-2">{c.icon}</div>
@@ -849,7 +849,7 @@ function AthlynXNetworkInner() {
                       style={{ background: C.granite, borderColor: s.hot ? `${C.cobalt}40` : C.graniteL }}>
                       <div className="text-2xl mb-1">{s.icon}</div>
                       <p className="text-white text-[10px] font-bold group-hover:text-[#00c2ff] transition-colors leading-tight">{s.name}</p>
-                      {s.hot && <div className="text-[8px] mt-1" style={{ color: C.bright }}>🔥 HOT</div>}
+                      {s.hot && <div className="text-[8px] mt-1" style={{ color: C.bright }}>HOT HOT</div>}
                     </div>
                   </Link>
                 ))}
@@ -866,7 +866,7 @@ function AthlynXNetworkInner() {
               </div>
               <div className="rounded-2xl p-5 border mb-4" style={{ background: `linear-gradient(135deg, ${C.graniteDk}, ${C.cobaltDk})`, borderColor: `${C.bright}20` }}>
                 <div className="flex flex-col sm:flex-row gap-4 items-start">
-                  <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl shrink-0" style={{ background: `linear-gradient(135deg, ${C.cobalt}, ${C.bright})` }}>🎙️</div>
+                  <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl shrink-0" style={{ background: `linear-gradient(135deg, ${C.cobalt}, ${C.bright})` }}>PODCAST</div>
                   <div>
                     <Badge className="mb-2 text-xs" style={{ background: `${C.bright}20`, color: C.bright, border: `1px solid ${C.bright}30` }}>THE ATHLETE'S PLAYBOOK™</Badge>
                     <h3 className="text-xl font-black text-white mb-1">The Athlete's Playbook</h3>
@@ -892,7 +892,7 @@ function AthlynXNetworkInner() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
                           <span className="text-xs font-black" style={{ color: C.bright }}>EP {ep.ep}</span>
-                          {ep.live ? <Badge className="text-[10px] bg-green-600/20 text-green-400 border-green-600/30">🔴 LIVE</Badge> : <Badge className="text-[10px] bg-white/10 text-white/40 border-0">COMING SOON</Badge>}
+                          {ep.live ? <Badge className="text-[10px] bg-green-600/20 text-green-400 border-green-600/30">LIVE LIVE</Badge> : <Badge className="text-[10px] bg-white/10 text-white/40 border-0">COMING SOON</Badge>}
                         </div>
                         <p className="font-black text-white text-sm mb-1">{ep.title}</p>
                         <p className="text-xs" style={{ color: `${C.stadium}50` }}>{ep.desc}</p>
@@ -911,7 +911,7 @@ function AthlynXNetworkInner() {
                             </Link>
                             {ep.spotify && (
                               <a href={ep.spotify} target="_blank" rel="noreferrer">
-                                <Button size="sm" variant="outline" className="border-green-500/40 text-green-400 text-xs w-full rounded-full hover:bg-green-500/10">🎵 Spotify</Button>
+                                <Button size="sm" variant="outline" className="border-green-500/40 text-green-400 text-xs w-full rounded-full hover:bg-green-500/10">MUSIC Spotify</Button>
                               </a>
                             )}
                           </>
@@ -942,8 +942,8 @@ function AthlynXNetworkInner() {
                         <Badge className="text-[10px] bg-red-900/30 text-red-400 border-red-900/30">{c.name}</Badge>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-red-400/80 mb-1">❌ {c.does}</p>
-                        <p className="text-xs text-green-400">✅ AthlynX: {c.athlynx}</p>
+                        <p className="text-xs text-red-400/80 mb-1">X {c.does}</p>
+                        <p className="text-xs text-green-400">DONE AthlynX: {c.athlynx}</p>
                       </div>
                     </div>
                   </div>
@@ -979,7 +979,7 @@ function AthlynXNetworkInner() {
                     <div className="rounded-xl p-4 border hover:border-[#00c2ff]/40 transition-all cursor-pointer group h-full" style={{ background: C.granite, borderColor: app.hot ? `${C.cobalt}30` : C.graniteL }}>
                       <div className="flex items-start justify-between mb-2">
                         <span className="text-2xl">{app.icon}</span>
-                        {app.hot && <Badge className="text-[9px] bg-red-600/20 text-red-400 border-red-600/30">🔥</Badge>}
+                        {app.hot && <Badge className="text-[9px] bg-red-600/20 text-red-400 border-red-600/30">HOT</Badge>}
                       </div>
                       <p className="font-black text-white text-xs mb-1 group-hover:text-[#00c2ff] transition-colors">{app.name}</p>
                       <p className="text-[10px]" style={{ color: `${C.stadium}50` }}>{app.desc}</p>
@@ -1079,7 +1079,7 @@ function AthlynXNetworkInner() {
               </div>
               <p className="text-sm mb-4" style={{ color: `${C.stadium}60` }}>Schools, coaches, and organizations can license the AthlynX platform. Chad Dozier Sr. is the only licensor.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-                {[{ icon: "🏫", title: "School License", price: "Contact" }, { icon: "🏋️", title: "Coach License", price: "$199/mo" }, { icon: "🏢", title: "Org License", price: "Custom" }].map(l => (
+                {[{ icon: "SCHOOL", title: "School License", price: "Contact" }, { icon: "WL", title: "Coach License", price: "$199/mo" }, { icon: "ORG", title: "Org License", price: "Custom" }].map(l => (
                   <div key={l.title} className="rounded-xl p-4 border" style={{ background: `${C.cobalt}10`, borderColor: `${C.cobalt}20` }}>
                     <span className="text-2xl">{l.icon}</span>
                     <p className="font-black text-white text-sm mt-2">{l.title}</p>
@@ -1157,15 +1157,15 @@ function AthlynXNetworkInner() {
               </div>
               <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-center">
                 {[
-                  { icon: "👤", label: "Athlete Signs Up" },
-                  { icon: "⚡", label: "Supabase Captures" },
-                  { icon: "📱", label: "Twilio SMS" },
-                  { icon: "✉️", label: "Superhuman Email" },
-                  { icon: "🔄", label: "Zapier Triggers" },
-                  { icon: "🤖", label: "AI Runner" },
-                  { icon: "📅", label: "Buffer Schedules" },
-                  { icon: "💰", label: "Credits Earned" },
-                  { icon: "👑", label: "Revenue → Chad" },
+                  { icon: "PROFILE", label: "Athlete Signs Up" },
+                  { icon: "LIVE", label: "Supabase Captures" },
+                  { icon: "SOCIAL", label: "Twilio SMS" },
+                  { icon: "EMAIL", label: "Superhuman Email" },
+                  { icon: "PORTAL", label: "Zapier Triggers" },
+                  { icon: "AI", label: "AI Runner" },
+                  { icon: "EVENTS", label: "Buffer Schedules" },
+                  { icon: "NIL", label: "Credits Earned" },
+                  { icon: "ELITE", label: "Revenue → Chad" },
                 ].map((step, i, arr) => (
                   <div key={i} className="flex items-center gap-2">
                     <div className="rounded-xl p-3 w-20 border" style={{ background: `${C.cobalt}15`, borderColor: `${C.cobalt}20` }}>
@@ -1220,9 +1220,9 @@ function AthlynXNetworkInner() {
                   { icon: "©", label: "Copyright", desc: "All content, code, and media © 2026 Chad A. Dozier Sr." },
                   { icon: "™", label: "Trademark", desc: "AthlynX™ · AthlynXAI™ · AXN™ · AVN™ · NIL Portal™ · Diamond Grind™ · Warriors Playbook™" },
                   { icon: "®", label: "Patent Pending", desc: "AthlynXAI OS architecture, AXN Credits system, Connect Anyone to Anything™" },
-                  { icon: "📜", label: "License", desc: "White-label licensing available — cdozier14@athlynx.ai" },
-                  { icon: "🔐", label: "IP Protection", desc: "All source code, workflows, and product concepts are proprietary IP" },
-                  { icon: "👑", label: "Founder", desc: "Chad Allen Dozier Sr. — Sole Founder, Owner, and Only Middleman" },
+                  { icon: "LICENSE", label: "License", desc: "White-label licensing available — cdozier14@athlynx.ai" },
+                  { icon: "VAULT", label: "IP Protection", desc: "All source code, workflows, and product concepts are proprietary IP" },
+                  { icon: "ELITE", label: "Founder", desc: "Chad Allen Dozier Sr. — Sole Founder, Owner, and Only Middleman" },
                 ].map(item => (
                   <div key={item.label} className="rounded-xl p-3 border" style={{ background: C.graniteMd, borderColor: C.graniteL }}>
                     <div className="text-2xl font-black text-white/40 mb-1">{item.icon}</div>

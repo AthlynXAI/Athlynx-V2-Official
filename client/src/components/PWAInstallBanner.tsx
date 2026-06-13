@@ -11,7 +11,7 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 }
 
-const ICON_URL = "/athlynx-app-icon.png?v=athlynx-clean-mark-20260526";
+const ICON_URL = "/athlynx-app-icon.png";
 
 const BRAND_LEGS = ["AthlynX", "AthlynXAI", "AXN", "AVN"];
 

@@ -92,6 +92,7 @@ import CommsHub from "./pages/CommsHub";
 import CommunicationsOS from "./pages/CommunicationsOS";
 import LegalHub from "./pages/LegalHub";
 import HIPAACompliance from "./pages/HIPAACompliance";
+import MHSAACompliance from "./pages/MHSAACompliance";
 import CompetitionReadiness from "./pages/CompetitionReadiness";
 import NebiusPartnership from "./pages/NebiusPartnership";
 import WizardHub from "./pages/WizardHub";
@@ -494,6 +495,10 @@ function Router() {
       <Route path="/employee-portal" component={EmployeePortal} />
       <Route path="/team-portal" component={EmployeePortal} />
       <Route path="/hipaa" component={HIPAACompliance} />
+      <Route path="/mhsaa-compliance" component={MHSAACompliance} />
+      <Route path="/mhsaa" component={MHSAACompliance} />
+      <Route path="/high-school-compliance" component={MHSAACompliance} />
+      <Route path="/hs-compliance" component={MHSAACompliance} />
       <Route path="/competition-readiness" component={CompetitionReadiness} />
       <Route path="/openai-nebius" component={CompetitionReadiness} />
       <Route path="/wizard-hub" component={WizardHub} />

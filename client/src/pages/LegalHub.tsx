@@ -2,7 +2,7 @@ import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { Link } from "wouter";
 import PlatformLayout from "@/components/PlatformLayout";
 import MobileBottomNav from '@/components/MobileBottomNav'
-import { Shield, FileText, Lock, Scale, Cookie, Database, Building, Users, FileSignature, Handshake } from "lucide-react";
+import { Shield, FileText, Lock, Scale, Cookie, Database, Building, Users, FileSignature, Handshake, Trophy, Briefcase, GraduationCap, Globe, Heart } from "lucide-react";
 
 function LegalHubInner() {
   const legalSections = [
@@ -62,6 +62,41 @@ function LegalHubInner() {
       href: "/partners",
       color: "from-[#00C2FF] to-[#0a1628]",
     },
+    {
+      title: "NCAA Compliance",
+      description: "NIL rules, eligibility, transfer portal, recruiting compliance",
+      icon: Trophy,
+      href: "/legal-compliance",
+      color: "from-[#0066ff] to-blue-700",
+    },
+    {
+      title: "MHSAA & High School",
+      description: "Michigan HSAA, all 50 state HSAAs, NFHS, HS NIL rules",
+      icon: GraduationCap,
+      href: "/mhsaa-compliance",
+      color: "from-[#22c55e] to-emerald-700",
+    },
+    {
+      title: "IRS & Tax Compliance",
+      description: "1099-NEC, W-9, NIL income reporting, self-employment tax",
+      icon: Briefcase,
+      href: "/legal-compliance",
+      color: "from-[#f59e0b] to-amber-700",
+    },
+    {
+      title: "Government & Federal",
+      description: "FERPA, Title IX, NLRB, FTC, Executive Orders, federal law",
+      icon: Globe,
+      href: "/legal-compliance",
+      color: "from-[#a855f7] to-purple-700",
+    },
+    {
+      title: "HIPAA — Health Data",
+      description: "Medical vault, BAA-ready, AES-256, athlete health records",
+      icon: Heart,
+      href: "/hipaa",
+      color: "from-[#ef4444] to-red-700",
+    },
   ];
 
   return (
@@ -112,6 +147,15 @@ function LegalHubInner() {
             </span>
             <span className="flex items-center gap-2">
               <Scale className="w-4 h-4 text-[#1E90FF]" /> SOC 2 Type II
+            </span>
+            <span className="flex items-center gap-2">
+              <Trophy className="w-4 h-4 text-[#0066ff]" /> NCAA Compliant
+            </span>
+            <span className="flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-[#22c55e]" /> MHSAA / All 50 HSAAs
+            </span>
+            <span className="flex items-center gap-2">
+              <Briefcase className="w-4 h-4 text-[#f59e0b]" /> IRS 1099-NEC
             </span>
           </div>
         </div>

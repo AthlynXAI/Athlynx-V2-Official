@@ -51,12 +51,12 @@ const QUICK_SITES = [
 
 // AI Models available (updated June 2026 — deprecated models removed per Nebius Token Factory notice)
 const AI_MODELS = [
-  { name: 'AthlynXAI OS', provider: 'AthlynXAI', icon: '💪' },
-  { name: 'Llama 4 Maverick', provider: 'Nebius H200', icon: '🔥' },
-  { name: 'Llama 4 Scout', provider: 'Nebius H200', icon: '⚡' },
-  { name: 'Llama 3.3-70B', provider: 'Nebius H200', icon: '🤖' },
-  { name: 'Nemotron Ultra 253B', provider: 'NVIDIA via Nebius', icon: '🏆' },
-  { name: 'GPT-4o', provider: 'OpenAI', icon: '🧠' },
+  { name: 'AthlynXAI OS', provider: 'AthlynXAI', icon: 'AX' },
+  { name: 'Llama 4 Maverick', provider: 'Nebius H200', icon: 'HOT' },
+  { name: 'Llama 4 Scout', provider: 'Nebius H200', icon: 'LIVE' },
+  { name: 'Llama 3.3-70B', provider: 'Nebius H200', icon: 'AI' },
+  { name: 'Nemotron Ultra 253B', provider: 'NVIDIA via Nebius', icon: 'CHAMP' },
+  { name: 'GPT-4o', provider: 'OpenAI', icon: 'AI' },
 ];
 
 interface BrowserTab {

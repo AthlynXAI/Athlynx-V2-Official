@@ -221,7 +221,7 @@ function WelcomeInner() {
           position: "absolute", top: 0, left: 0, right: 0, height: 4,
           background: `linear-gradient(90deg, ${COLORS.cobalt}, ${COLORS.electricBlue}, ${COLORS.stadiumLight}, ${COLORS.electricBlue}, ${COLORS.cobalt})`,
         }} />
-        <div style={{ fontSize: 40 }}>⚡</div>
+        <div style={{ fontSize: 40 }}>LIVE</div>
         <div style={{ fontWeight: 900, fontSize: 28, color: COLORS.white, letterSpacing: 2, fontFamily: "'DM Sans', system-ui, sans-serif" }}>
           AthlynX
         </div>
@@ -320,7 +320,7 @@ function WelcomeInner() {
         <div style={{ textAlign: "center", marginBottom: 24 }}>
           <NILAvatar src={u?.avatarUrl} name={u?.name} email={u?.email} size="xl" />
           <div style={{ fontWeight: 800, fontSize: 22, color: COLORS.white, marginTop: 12 }}>
-            Welcome, {firstName}. 🏆
+            Welcome, {firstName}. CHAMP
           </div>
           <div style={{ color: COLORS.textSecondary, fontSize: 14, marginTop: 4 }}>
             {identityCaption(pct)}

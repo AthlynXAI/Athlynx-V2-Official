@@ -17,12 +17,12 @@ const EPX_TIERS = [
 ];
 
 const EPX_INPUTS = [
-  { icon: "⚡", label: "Combine Metrics",      desc: "Speed, strength, agility, vertical, wingspan — the measurables that define your physical ceiling." },
-  { icon: "🎬", label: "Game Film",            desc: "AI-analyzed highlight reels and full game footage. Every rep counted. Every play graded." },
-  { icon: "📊", label: "Stats & Performance",  desc: "Season stats, tournament results, rankings, and head-to-head performance data." },
-  { icon: "🎯", label: "Recruiting Interest",  desc: "Coach contact frequency, campus visits, scholarship offers, and portal activity." },
-  { icon: "🧠", label: "IQ & Intangibles",     desc: "Leadership, coachability, mental toughness, and competitive instinct — the things scouts can't measure but always talk about." },
-  { icon: "🏆", label: "Championship Moments", desc: "How you perform when it matters most. Clutch factor is real. AthlynXAI tracks it." },
+  { icon: "LIVE", label: "Combine Metrics",      desc: "Speed, strength, agility, vertical, wingspan — the measurables that define your physical ceiling." },
+  { icon: "VIDEO", label: "Game Film",            desc: "AI-analyzed highlight reels and full game footage. Every rep counted. Every play graded." },
+  { icon: "STATS", label: "Stats & Performance",  desc: "Season stats, tournament results, rankings, and head-to-head performance data." },
+  { icon: "TARGET", label: "Recruiting Interest",  desc: "Coach contact frequency, campus visits, scholarship offers, and portal activity." },
+  { icon: "AI", label: "IQ & Intangibles",     desc: "Leadership, coachability, mental toughness, and competitive instinct — the things scouts can't measure but always talk about." },
+  { icon: "CHAMP", label: "Championship Moments", desc: "How you perform when it matters most. Clutch factor is real. AthlynXAI tracks it." },
 ];
 
 const SPORTS_WITH_EPX = [
@@ -230,12 +230,12 @@ export default function EPX() {
             </div>
             <div className="grid gap-6 lg:grid-cols-3 mb-12">
               {[
-                { step:"01", icon:"👤", title:"Build Your Profile",      desc:"Add your sport, position, school, stats, and upload your highlight film. Takes 30 seconds to start." },
-                { step:"02", icon:"🤖", title:"AI Analyzes Everything",  desc:"Four AI engines process your data — combine metrics, film, stats, recruiting activity, and intangibles — in real time." },
-                { step:"03", icon:"⚡", title:"Your Score Goes Live",    desc:"Your EPX score generates automatically and updates every time you add data, compete, or get recruiting contact." },
-                { step:"04", icon:"🎯", title:"Coaches See It",          desc:"Verified coaches and scouts on AthlynXAI can search by EPX score, sport, position, and class year." },
-                { step:"05", icon:"💰", title:"Brands Pay For It",       desc:"NIL deals are tied to EPX. Higher score = higher NIL value. Your EPX is your negotiating power." },
-                { step:"06", icon:"🏆", title:"It Grows With You",       desc:"From youth to pro to retirement. Your EPX score follows your entire athletic career — one identity, forever." },
+                { step:"01", icon:"PROFILE", title:"Build Your Profile",      desc:"Add your sport, position, school, stats, and upload your highlight film. Takes 30 seconds to start." },
+                { step:"02", icon:"AI", title:"AI Analyzes Everything",  desc:"Four AI engines process your data — combine metrics, film, stats, recruiting activity, and intangibles — in real time." },
+                { step:"03", icon:"LIVE", title:"Your Score Goes Live",    desc:"Your EPX score generates automatically and updates every time you add data, compete, or get recruiting contact." },
+                { step:"04", icon:"TARGET", title:"Coaches See It",          desc:"Verified coaches and scouts on AthlynXAI can search by EPX score, sport, position, and class year." },
+                { step:"05", icon:"NIL", title:"Brands Pay For It",       desc:"NIL deals are tied to EPX. Higher score = higher NIL value. Your EPX is your negotiating power." },
+                { step:"06", icon:"CHAMP", title:"It Grows With You",       desc:"From youth to pro to retirement. Your EPX score follows your entire athletic career — one identity, forever." },
               ].map((s) => (
                 <div key={s.step} className="bg-[#0a1628] border border-[#0066ff]/20 rounded-3xl p-6 hover:border-[#0066ff]/50 transition-all group">
                   <div className="flex items-center gap-3 mb-4">

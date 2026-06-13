@@ -66,12 +66,12 @@ const FEATURED_MATCHES = [
 ];
 
 const WATCH_ON = [
-  { name: "Fox Sports", icon: "📺", url: "https://www.foxsports.com/soccer/fifa-world-cup" },
-  { name: "Telemundo", icon: "📡", url: "https://www.telemundo.com/deportes/futbol/copa-mundial-fifa-2026" },
-  { name: "Apple TV+", icon: "🍎", url: "https://tv.apple.com" },
-  { name: "Amazon Prime", icon: "📦", url: "https://www.amazon.com/primevideo" },
-  { name: "YouTube TV", icon: "▶️", url: "https://tv.youtube.com" },
-  { name: "Peacock", icon: "🦚", url: "https://www.peacocktv.com" },
+  { name: "Fox Sports", icon: "TV", url: "https://www.foxsports.com/soccer/fifa-world-cup" },
+  { name: "Telemundo", icon: "BROADCAST", url: "https://www.telemundo.com/deportes/futbol/copa-mundial-fifa-2026" },
+  { name: "Apple TV+", icon: "APPLE", url: "https://tv.apple.com" },
+  { name: "Amazon Prime", icon: "PRIME", url: "https://www.amazon.com/primevideo" },
+  { name: "YouTube TV", icon: "WATCH", url: "https://tv.youtube.com" },
+  { name: "Peacock", icon: "PEACOCK", url: "https://www.peacocktv.com" },
 ];
 
 export default function WorldCup2026() {
@@ -116,7 +116,7 @@ export default function WorldCup2026() {
       <section className="max-w-7xl mx-auto px-5 py-12">
         <div className="rounded-[2rem] border border-[#00c2ff]/30 bg-gradient-to-r from-[#001f5c] via-[#06142a] to-[#5c0000] p-8">
           <div className="flex flex-col lg:flex-row items-center gap-6">
-            <div className="text-6xl">🇺🇸</div>
+            <div className="text-6xl font-black text-white">USA</div>
             <div className="flex-1 text-center lg:text-left">
               <p className="text-[#00c2ff] text-xs font-black tracking-[0.3em] uppercase mb-1">Group D · USA</p>
               <h2 className="text-3xl font-black text-white mb-2">USA Wins Opener 4–1 vs Paraguay</h2>

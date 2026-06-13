@@ -303,7 +303,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <img src="/athlynx-app-icon.png?v=athlynx-clean-mark-20260526" alt="AthlynX" className="w-9 h-9 rounded-xl object-cover ring-1 ring-cyan-200/35 shadow-[0_0_28px_rgba(34,211,238,0.28)]" />
+            <img src="/athlynx-app-icon.png" alt="AthlynX" className="w-9 h-9 rounded-xl object-cover ring-1 ring-cyan-200/35 shadow-[0_0_28px_rgba(34,211,238,0.28)]" />
             <div className="hidden sm:block">
               <div className="text-white font-black text-lg leading-none tracking-wide">AthlynXAI</div>
               <div className="text-[#00C2FF] text-[9px] tracking-[0.24em] leading-none">THE ATHLETE'S PLAYBOOK</div>
@@ -407,7 +407,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-              <img src="/athlynx-app-icon.png?v=athlynx-clean-mark-20260526" alt="AthlynX" className="h-9 w-auto" />
+              <img src="/athlynx-app-icon.png" alt="AthlynX" className="h-9 w-auto" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
@@ -503,7 +503,7 @@ export default function PlatformLayout({ children, title }: PlatformLayoutProps)
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-white/5 active:bg-white/10 transition-colors">
                       <img src={app.icon} alt={app.label} className="w-10 h-10 rounded-xl object-cover shadow"
-                        onError={e => { (e.target as HTMLImageElement).src = '/athlynx-app-icon.png?v=athlynx-clean-mark-20260526'; }} />
+                        onError={e => { (e.target as HTMLImageElement).src = '/athlynx-app-icon.png'; }} />
                       <span className="text-[9px] text-white/50 text-center leading-tight font-medium">{app.label}</span>
                     </Link>
                   ))}

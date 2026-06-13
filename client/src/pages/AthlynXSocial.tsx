@@ -41,7 +41,7 @@ const C = {
 const CURRENT_SEASON = {
   sport: "Baseball / Softball",
   event: "Road to Omaha · MCWS 2026",
-  icon: "⚾",
+  icon: "BB",
   color: C.gold,
   urgency: "LIVE NOW",
 };
@@ -52,12 +52,12 @@ const SEED_FEED_POSTS = [
     id: 1,
     user: "Marcus Williams",
     handle: "@mwilliams_cf",
-    sport: "⚾ Baseball",
+    sport: "BB Baseball",
     school: "LSU Tigers",
     avatar: "MW",
     avatarColor: "#7c3aed",
     time: "2m ago",
-    content: "Just went 3-for-4 with a walk-off RBI in the Super Regional. Road to Omaha is REAL. 🏆 #DiamondGrind #RoadToOmaha",
+    content: "Just went 3-for-4 with a walk-off RBI in the Super Regional. Road to Omaha is REAL. CHAMP #DiamondGrind #RoadToOmaha",
     media: "highlight",
     likes: 847,
     comments: 134,
@@ -71,12 +71,12 @@ const SEED_FEED_POSTS = [
     id: 2,
     user: "Sponsored · Diamond Grind Gear",
     handle: "@diamondgrind",
-    sport: "⚾ Official Gear Partner",
+    sport: "BB Official Gear Partner",
     school: "AthlynX Store",
     avatar: "DG",
     avatarColor: C.gold,
     time: "Sponsored",
-    content: "Pro Batting Gloves — worn by MCWS athletes. Get yours before Omaha. Use code OMAHA26 for 20% off. 🧤⚾",
+    content: "Pro Batting Gloves — worn by MCWS athletes. Get yours before Omaha. Use code OMAHA26 for 20% off. BB",
     media: "ad",
     likes: 0,
     comments: 0,
@@ -92,12 +92,12 @@ const SEED_FEED_POSTS = [
     id: 3,
     user: "Aaliyah Johnson",
     handle: "@aaliyah_libero",
-    sport: "🏐 Volleyball",
+    sport: "VB Volleyball",
     school: "Nebraska Cornhuskers",
     avatar: "AJ",
     avatarColor: "#dc2626",
     time: "15m ago",
-    content: "Fall season prep starts Monday. New strength program locked in. Who else is grinding this summer? 💪 #WarriorsPlaybook",
+    content: "Fall season prep starts Monday. New strength program locked in. Who else is grinding this summer? AX #WarriorsPlaybook",
     media: null,
     likes: 412,
     comments: 67,
@@ -111,12 +111,12 @@ const SEED_FEED_POSTS = [
     id: 4,
     user: "Coach David Torres",
     handle: "@coach_torres_fb",
-    sport: "🏈 Football",
+    sport: "FB Football",
     school: "Recruiting Coordinator · SEC",
     avatar: "DT",
     avatarColor: "#0047AB",
     time: "32m ago",
-    content: "Looking for a 6'4\" OT with 5.2 speed or better. Class of 2027. DM me your AthlynX profile link. Serious inquiries only. 🏈",
+    content: "Looking for a 6'4\" OT with 5.2 speed or better. Class of 2027. DM me your AthlynX profile link. Serious inquiries only. FB",
     media: null,
     likes: 1204,
     comments: 389,
@@ -131,12 +131,12 @@ const SEED_FEED_POSTS = [
     id: 5,
     user: "Destiny Reeves",
     handle: "@destiny_cheer",
-    sport: "📣 Cheerleading",
+    sport: "CH Cheerleading",
     school: "Alabama Crimson Tide",
     avatar: "DR",
     avatarColor: "#dc2626",
     time: "1h ago",
-    content: "Nationals prep week 3 complete. Our pyramid routine is CLEAN. Cheer athletes — you belong here too. AthlynX sees you. 📣✨ #BeTheLegacy",
+    content: "Nationals prep week 3 complete. Our pyramid routine is CLEAN. Cheer athletes — you belong here too. AthlynX sees you. CH #BeTheLegacy",
     media: "reel",
     likes: 2341,
     comments: 445,
@@ -150,12 +150,12 @@ const SEED_FEED_POSTS = [
     id: 6,
     user: "Sponsored · AthlynX Platform",
     handle: "@athlynx",
-    sport: "🏆 The Athlete's Playbook",
+    sport: "CHAMP The Athlete's Playbook",
     school: "athlynx.ai",
     avatar: "AX",
     avatarColor: C.electric,
     time: "Sponsored",
-    content: "Every athlete. Every sport. Every human. One platform. Sign up free — no card, no catch. Your athlete profile is waiting. 🔥",
+    content: "Every athlete. Every sport. Every human. One platform. Sign up free — no card, no catch. Your athlete profile is waiting. HOT",
     media: "ad",
     likes: 0,
     comments: 0,
@@ -171,12 +171,12 @@ const SEED_FEED_POSTS = [
     id: 7,
     user: "Jordan Kim",
     handle: "@jordan_gymnastics",
-    sport: "🤸 Gymnastics",
+    sport: "GY Gymnastics",
     school: "UCLA Bruins",
     avatar: "JK",
     avatarColor: "#2563eb",
     time: "2h ago",
-    content: "Floor routine score: 9.875. Season best. Gymnastics athletes — we have a home here. AthlynX doesn't leave us out. 🤸‍♀️ #BeTheLegacy",
+    content: "Floor routine score: 9.875. Season best. Gymnastics athletes — we have a home here. AthlynX doesn't leave us out. GY #BeTheLegacy",
     media: "highlight",
     likes: 1876,
     comments: 234,
@@ -190,12 +190,12 @@ const SEED_FEED_POSTS = [
     id: 8,
     user: "Marcus Band Director",
     handle: "@director_mbands",
-    sport: "🎺 Marching Band",
+    sport: "BD Marching Band",
     school: "Jackson State University",
     avatar: "MB",
     avatarColor: "#059669",
     time: "3h ago",
-    content: "Our halftime show went viral. 2.3M views. Band athletes are athletes too — and AthlynX is the first platform that treats us that way. 🎺🥁 #BeTheLegacy",
+    content: "Our halftime show went viral. 2.3M views. Band athletes are athletes too — and AthlynX is the first platform that treats us that way. BD #BeTheLegacy",
     media: null,
     likes: 4521,
     comments: 891,
@@ -219,36 +219,36 @@ const STORIES = [
 ];
 
 const LIVE_EVENTS = [
-  { id: 1, title: "MCWS Super Regional — LSU vs Tennessee", sport: "⚾", viewers: 14820, status: "LIVE", color: C.gold },
-  { id: 2, title: "AXN Podcast — Episode 003 Recording", sport: "🎙️", viewers: 2341, status: "LIVE", color: C.electric },
-  { id: 3, title: "NIL Deal Workshop — Coach Torres", sport: "💰", viewers: 891, status: "LIVE", color: C.green },
-  { id: 4, title: "Gymnastics Showcase — UCLA vs Florida", sport: "🤸", viewers: 3204, status: "LIVE", color: "#8b5cf6" },
+  { id: 1, title: "MCWS Super Regional — LSU vs Tennessee", sport: "BB", viewers: 14820, status: "LIVE", color: C.gold },
+  { id: 2, title: "AXN Podcast — Episode 003 Recording", sport: "PODCAST", viewers: 2341, status: "LIVE", color: C.electric },
+  { id: 3, title: "NIL Deal Workshop — Coach Torres", sport: "NIL", viewers: 891, status: "LIVE", color: C.green },
+  { id: 4, title: "Gymnastics Showcase — UCLA vs Florida", sport: "GY", viewers: 3204, status: "LIVE", color: "#8b5cf6" },
 ];
 
 const UPCOMING_EVENTS = [
-  { id: 1, title: "MCWS — College World Series", date: "Jun 14", sport: "⚾", location: "Omaha, NE", type: "Tournament", urgent: true },
-  { id: 2, title: "Diamond Grind Summer Showcase", date: "Jun 21", sport: "⚾", location: "Houston, TX", type: "Showcase", urgent: false },
-  { id: 3, title: "Football Signing Day Prep Camp", date: "Jul 8", sport: "🏈", location: "Atlanta, GA", type: "Camp", urgent: false },
-  { id: 4, title: "Volleyball Fall Showcase", date: "Jul 15", sport: "🏐", location: "Chicago, IL", type: "Showcase", urgent: false },
-  { id: 5, title: "Cheer Nationals Qualifier", date: "Jul 22", sport: "📣", location: "Orlando, FL", type: "Competition", urgent: false },
-  { id: 6, title: "Gymnastics Summer Invitational", date: "Aug 2", sport: "🤸", location: "Los Angeles, CA", type: "Competition", urgent: false },
+  { id: 1, title: "MCWS — College World Series", date: "Jun 14", sport: "BB", location: "Omaha, NE", type: "Tournament", urgent: true },
+  { id: 2, title: "Diamond Grind Summer Showcase", date: "Jun 21", sport: "BB", location: "Houston, TX", type: "Showcase", urgent: false },
+  { id: 3, title: "Football Signing Day Prep Camp", date: "Jul 8", sport: "FB", location: "Atlanta, GA", type: "Camp", urgent: false },
+  { id: 4, title: "Volleyball Fall Showcase", date: "Jul 15", sport: "VB", location: "Chicago, IL", type: "Showcase", urgent: false },
+  { id: 5, title: "Cheer Nationals Qualifier", date: "Jul 22", sport: "CH", location: "Orlando, FL", type: "Competition", urgent: false },
+  { id: 6, title: "Gymnastics Summer Invitational", date: "Aug 2", sport: "GY", location: "Los Angeles, CA", type: "Competition", urgent: false },
 ];
 
 const GROUPS = [
-  { id: 1, name: "Road to Omaha 2026", members: 8420, sport: "⚾", active: true, color: C.gold },
-  { id: 2, name: "Diamond Grind Nation", members: 12400, sport: "⚾", active: true, color: C.gold },
-  { id: 3, name: "Gridiron Nexus — Class of 2027", members: 34200, sport: "🏈", active: true, color: C.electric },
-  { id: 4, name: "Court Kings Basketball", members: 19800, sport: "🏀", active: false, color: "#f97316" },
-  { id: 5, name: "Cheer & Gymnastics Hub", members: 7600, sport: "📣🤸", active: false, color: "#ec4899" },
-  { id: 6, name: "Warriors Playbook — Coaches", members: 4200, sport: "📋", active: false, color: C.cobalt },
-  { id: 7, name: "NIL Marketplace Athletes", members: 28900, sport: "💰", active: false, color: C.green },
-  { id: 8, name: "Band & Marching Arts", members: 3100, sport: "🎺", active: false, color: "#059669" },
+  { id: 1, name: "Road to Omaha 2026", members: 8420, sport: "BB", active: true, color: C.gold },
+  { id: 2, name: "Diamond Grind Nation", members: 12400, sport: "BB", active: true, color: C.gold },
+  { id: 3, name: "Gridiron Nexus — Class of 2027", members: 34200, sport: "FB", active: true, color: C.electric },
+  { id: 4, name: "Court Kings Basketball", members: 19800, sport: "BK", active: false, color: "#f97316" },
+  { id: 5, name: "Cheer & Gymnastics Hub", members: 7600, sport: "CHGY", active: false, color: "#ec4899" },
+  { id: 6, name: "Warriors Playbook — Coaches", members: 4200, sport: "PLAYBOOK", active: false, color: C.cobalt },
+  { id: 7, name: "NIL Marketplace Athletes", members: 28900, sport: "NIL", active: false, color: C.green },
+  { id: 8, name: "Band & Marching Arts", members: 3100, sport: "BD", active: false, color: "#059669" },
 ];
 
 const MESSAGES = [
   { id: 1, user: "Coach Torres", avatar: "DT", color: C.cobalt, preview: "Saw your highlight reel — can we talk?", time: "2m", unread: true },
   { id: 2, user: "NIL Agent Sarah M.", avatar: "SM", color: C.green, preview: "Brand deal opportunity — $8,400 value", time: "15m", unread: true },
-  { id: 3, user: "Marcus Williams", avatar: "MW", color: "#7c3aed", preview: "Great game bro! Road to Omaha 🔥", time: "1h", unread: false },
+  { id: 3, user: "Marcus Williams", avatar: "MW", color: "#7c3aed", preview: "Great game bro! Road to Omaha HOT", time: "1h", unread: false },
   { id: 4, user: "AthlynX OS", avatar: "AX", color: C.electric, preview: "Your profile is 60% complete. Add your stats to unlock recruiting.", time: "2h", unread: true },
 ];
 
@@ -282,7 +282,7 @@ function Avatar({ initials, color, size = 40, verified = false }: { initials: st
           background: C.electric, border: `2px solid ${C.base}`,
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 8, color: C.white,
-        }}>✓</div>
+        }}>OK</div>
       )}
     </div>
   );
@@ -455,7 +455,7 @@ function FeedPost({ post, onLike }: { post: typeof FEED_POSTS[0]; onLike: (id: n
             border: `1px solid #7c3aed44`, cursor: "pointer",
           }}>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 36, marginBottom: 6 }}>🎬</div>
+              <div style={{ fontSize: 36, marginBottom: 6 }}>VIDEO</div>
               <div style={{ color: "#c4b5fd", fontSize: 12, fontWeight: 700 }}>Watch Reel</div>
               <div style={{ color: C.muted, fontSize: 10 }}>Short-form · AVN Studio</div>
             </div>
@@ -465,7 +465,7 @@ function FeedPost({ post, onLike }: { post: typeof FEED_POSTS[0]; onLike: (id: n
         {/* Recruiter views */}
         {post.recruiterViews > 0 && (
           <div style={{ display: "flex", alignItems: "center", gap: 4, marginBottom: 8 }}>
-            <span style={{ fontSize: 12 }}>👁️</span>
+            <span style={{ fontSize: 12 }}>VIEWS</span>
             <span style={{ color: C.electric, fontSize: 11, fontWeight: 600 }}>{post.recruiterViews} recruiters viewed this post</span>
           </div>
         )}
@@ -478,14 +478,14 @@ function FeedPost({ post, onLike }: { post: typeof FEED_POSTS[0]; onLike: (id: n
             border: "none", borderRadius: 6, padding: "7px 4px",
             color: liked ? C.electric : C.muted, fontSize: 12, fontWeight: 600, cursor: "pointer",
           }}>
-            {liked ? "❤️" : "🤍"} {localLikes > 0 ? localLikes.toLocaleString() : "Like"}
+            {liked ? "LIKE" : "LIKE"} {localLikes > 0 ? localLikes.toLocaleString() : "Like"}
           </button>
           <button style={{
             flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
             background: "transparent", border: "none", borderRadius: 6, padding: "7px 4px",
             color: C.muted, fontSize: 12, fontWeight: 600, cursor: "pointer",
           }}>
-            💬 {post.comments > 0 ? post.comments.toLocaleString() : "Comment"}
+            MSG {post.comments > 0 ? post.comments.toLocaleString() : "Comment"}
           </button>
           <button style={{
             flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
@@ -500,7 +500,7 @@ function FeedPost({ post, onLike }: { post: typeof FEED_POSTS[0]; onLike: (id: n
               background: C.electric + "22", border: "none", borderRadius: 6, padding: "7px 4px",
               color: C.electric, fontSize: 12, fontWeight: 700, cursor: "pointer",
             }}>
-              📨 Connect
+              CONNECT Connect
             </button>
           )}
         </div>
@@ -528,13 +528,13 @@ function MessagesPanel({ messages, onClose }: { messages: typeof MESSAGES; onClo
         borderRadius: "12px 12px 0 0",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontSize: 16 }}>💬</span>
+          <span style={{ fontSize: 16 }}>MSG</span>
           <span style={{ color: C.white, fontWeight: 800, fontSize: 14 }}>Messages</span>
           <span style={{ background: C.red, color: C.white, fontSize: 9, fontWeight: 900, padding: "1px 5px", borderRadius: 8 }}>
             {messages.filter(m => m.unread).length}
           </span>
         </div>
-        <button onClick={onClose} style={{ background: "none", border: "none", color: C.muted, cursor: "pointer", fontSize: 16 }}>✕</button>
+        <button onClick={onClose} style={{ background: "none", border: "none", color: C.muted, cursor: "pointer", fontSize: 16 }}>X</button>
       </div>
 
       {activeChat === null ? (
@@ -605,12 +605,12 @@ function MessagesPanel({ messages, onClose }: { messages: typeof MESSAGES; onClo
 type Tab = "feed" | "reels" | "groups" | "events" | "stats" | "recruiting";
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
-  { id: "feed", label: "Feed", icon: "🏠" },
-  { id: "reels", label: "Reels", icon: "🎬" },
-  { id: "groups", label: "Groups", icon: "👥" },
-  { id: "events", label: "Events", icon: "📅" },
-  { id: "stats", label: "Stats", icon: "📊" },
-  { id: "recruiting", label: "Recruiting", icon: "🎯" },
+  { id: "feed", label: "Feed", icon: "HOME" },
+  { id: "reels", label: "Reels", icon: "VIDEO" },
+  { id: "groups", label: "Groups", icon: "GROUPS" },
+  { id: "events", label: "Events", icon: "EVENTS" },
+  { id: "stats", label: "Stats", icon: "STATS" },
+  { id: "recruiting", label: "Recruiting", icon: "TARGET" },
 ];
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
@@ -633,7 +633,7 @@ function AthlynXSocialInner() {
     id: p.id,
     user: p.authorName ?? "AthlynX Athlete",
     handle: `@user${p.userId}`,
-    sport: "🏆 AthlynX",
+    sport: "CHAMP AthlynX",
     school: "",
     avatar: (p.authorName ?? "A").slice(0, 2).toUpperCase(),
     avatarColor: C.electric,
@@ -665,7 +665,7 @@ function AthlynXSocialInner() {
       id: Date.now(),
       user: (user as any)?.name || "You",
       handle: "@you",
-      sport: "🏆 AthlynX",
+      sport: "CHAMP AthlynX",
       school: "Your School",
       avatar: ((user as any)?.name || "Y").slice(0, 2).toUpperCase(),
       avatarColor: C.electric,
@@ -727,7 +727,7 @@ function AthlynXSocialInner() {
             borderRadius: 20, display: "flex", alignItems: "center",
             padding: "0 12px", height: 34,
           }}>
-            <span style={{ color: C.muted, fontSize: 12, marginRight: 6 }}>🔍</span>
+            <span style={{ color: C.muted, fontSize: 12, marginRight: 6 }}>SEARCH</span>
             <input
               placeholder="Search athletes, coaches, schools…"
               style={{ flex: 1, background: "none", border: "none", color: C.text, fontSize: 12, outline: "none" }}
@@ -741,7 +741,7 @@ function AthlynXSocialInner() {
               borderRadius: 8, width: 34, height: 34, cursor: "pointer",
               display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
             }}>
-              💬
+              MSG
               {unreadCount > 0 && (
                 <span style={{
                   position: "absolute", top: -4, right: -4,
@@ -755,12 +755,12 @@ function AthlynXSocialInner() {
               background: C.granite, border: `1px solid ${C.border}`,
               borderRadius: 8, width: 34, height: 34, cursor: "pointer",
               display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
-            }}>🔔</button>
+            }}>ALERTS</button>
             <a href="/portal" style={{
               background: `linear-gradient(90deg, ${C.cobalt}, ${C.electric})`,
               color: C.white, fontSize: 11, fontWeight: 800,
               padding: "6px 10px", borderRadius: 8, textDecoration: "none",
-            }}>OS ⚡</a>
+            }}>OS LIVE</a>
           </div>
         </div>
 
@@ -832,7 +832,7 @@ function AthlynXSocialInner() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8 }}>
                 <div style={{ display: "flex", gap: 8 }}>
-                  {["📸 Photo", "🎬 Video", "📊 Stats", "🏆 Highlight"].map(btn => (
+                  {["PHOTO Photo", "VIDEO Video", "STATS Stats", "CHAMP Highlight"].map(btn => (
                     <button key={btn} type="button" style={{
                       background: C.granite, border: `1px solid ${C.border}`,
                       borderRadius: 6, padding: "4px 8px", color: C.muted,
@@ -860,12 +860,12 @@ function AthlynXSocialInner() {
           <div style={{ padding: "12px 8px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
               {[
-                { title: "Walk-off RBI — Super Regional", sport: "⚾", views: "847K", user: "Marcus W.", color: C.cobalt },
-                { title: "Floor Routine 9.875 — UCLA", sport: "🤸", views: "1.2M", user: "Jordan K.", color: "#7c3aed" },
-                { title: "Cheer Pyramid — Nationals Prep", sport: "📣", views: "2.3M", user: "Destiny R.", color: "#dc2626" },
-                { title: "Band Halftime Show — JSU", sport: "🎺", views: "4.5M", user: "Marcus B.", color: "#059669" },
-                { title: "Volleyball Dig — Nebraska", sport: "🏐", views: "412K", user: "Aaliyah J.", color: "#dc2626" },
-                { title: "Diamond Grind — Batting Drill", sport: "⚾", views: "923K", user: "Diamond Grind™", color: C.gold },
+                { title: "Walk-off RBI — Super Regional", sport: "BB", views: "847K", user: "Marcus W.", color: C.cobalt },
+                { title: "Floor Routine 9.875 — UCLA", sport: "GY", views: "1.2M", user: "Jordan K.", color: "#7c3aed" },
+                { title: "Cheer Pyramid — Nationals Prep", sport: "CH", views: "2.3M", user: "Destiny R.", color: "#dc2626" },
+                { title: "Band Halftime Show — JSU", sport: "BD", views: "4.5M", user: "Marcus B.", color: "#059669" },
+                { title: "Volleyball Dig — Nebraska", sport: "VB", views: "412K", user: "Aaliyah J.", color: "#dc2626" },
+                { title: "Diamond Grind — Batting Drill", sport: "BB", views: "923K", user: "Diamond Grind™", color: C.gold },
               ].map((reel, i) => (
                 <div key={i} style={{
                   background: `linear-gradient(135deg, ${reel.color}33, ${C.granite})`,
@@ -996,10 +996,10 @@ function AthlynXSocialInner() {
             <div style={{ color: C.white, fontWeight: 800, fontSize: 16, marginBottom: 12 }}>Platform Analytics</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16 }}>
               {[
-                { label: "Profile Views", value: "1,284", change: "+23%", icon: "👁️", color: C.electric },
-                { label: "Recruiter Views", value: "47", change: "+8", icon: "🎯", color: C.green },
-                { label: "NIL Impressions", value: "8,420", change: "+12%", icon: "💰", color: C.gold },
-                { label: "AXN Credits", value: "340", change: "+60", icon: "⚡", color: C.stadium },
+                { label: "Profile Views", value: "1,284", change: "+23%", icon: "VIEWS", color: C.electric },
+                { label: "Recruiter Views", value: "47", change: "+8", icon: "TARGET", color: C.green },
+                { label: "NIL Impressions", value: "8,420", change: "+12%", icon: "NIL", color: C.gold },
+                { label: "AXN Credits", value: "340", change: "+60", icon: "LIVE", color: C.stadium },
               ].map(s => (
                 <div key={s.label} style={{
                   background: C.card, border: `1px solid ${s.color}33`,
@@ -1019,12 +1019,12 @@ function AthlynXSocialInner() {
             <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: "14px" }}>
               <div style={{ color: C.white, fontWeight: 700, fontSize: 13, marginBottom: 10 }}>Platform Sports Activity</div>
               {[
-                { sport: "⚾ Baseball/Softball", pct: 34, color: C.gold },
-                { sport: "🏈 Football", pct: 28, color: C.electric },
-                { sport: "🏀 Basketball", pct: 18, color: "#f97316" },
-                { sport: "🏐 Volleyball", pct: 8, color: "#ec4899" },
-                { sport: "📣 Cheer/Gymnastics", pct: 7, color: "#8b5cf6" },
-                { sport: "🎺 Band/Marching", pct: 5, color: C.green },
+                { sport: "BB Baseball/Softball", pct: 34, color: C.gold },
+                { sport: "FB Football", pct: 28, color: C.electric },
+                { sport: "BK Basketball", pct: 18, color: "#f97316" },
+                { sport: "VB Volleyball", pct: 8, color: "#ec4899" },
+                { sport: "CH Cheer/Gymnastics", pct: 7, color: "#8b5cf6" },
+                { sport: "BD Band/Marching", pct: 5, color: C.green },
               ].map(s => (
                 <div key={s.sport} style={{ marginBottom: 8 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
@@ -1048,10 +1048,10 @@ function AthlynXSocialInner() {
 
             {/* Active opportunities */}
             {[
-              { coach: "Coach Torres", school: "SEC Program", sport: "🏈 Football", position: "OT 6'4\"+ · Class 2027", views: 23, urgent: true },
-              { coach: "Coach Williams", school: "ACC Program", sport: "⚾ Baseball", position: "LHP · 88+ MPH · Class 2026", views: 14, urgent: true },
-              { coach: "Coach Davis", school: "Big 12 Program", sport: "🏀 Basketball", position: "PG · 6'0\"+ · Class 2027", views: 8, urgent: false },
-              { coach: "Coach Martinez", school: "Pac-12 Program", sport: "🏐 Volleyball", position: "Libero · 5'6\"+ · Class 2026", views: 5, urgent: false },
+              { coach: "Coach Torres", school: "SEC Program", sport: "FB Football", position: "OT 6'4\"+ · Class 2027", views: 23, urgent: true },
+              { coach: "Coach Williams", school: "ACC Program", sport: "BB Baseball", position: "LHP · 88+ MPH · Class 2026", views: 14, urgent: true },
+              { coach: "Coach Davis", school: "Big 12 Program", sport: "BK Basketball", position: "PG · 6'0\"+ · Class 2027", views: 8, urgent: false },
+              { coach: "Coach Martinez", school: "Pac-12 Program", sport: "VB Volleyball", position: "Libero · 5'6\"+ · Class 2026", views: 5, urgent: false },
             ].map((opp, i) => (
               <div key={i} style={{
                 background: C.card, border: `1px solid ${opp.urgent ? C.electric + "44" : C.border}`,
@@ -1071,7 +1071,7 @@ function AthlynXSocialInner() {
                     </div>
                     <div style={{ color: C.secondary, fontSize: 12 }}>{opp.school} · {opp.sport}</div>
                     <div style={{ color: C.muted, fontSize: 11, marginTop: 2 }}>Looking for: {opp.position}</div>
-                    <div style={{ color: C.electric, fontSize: 11, marginTop: 2 }}>👁️ {opp.views} athletes viewed</div>
+                    <div style={{ color: C.electric, fontSize: 11, marginTop: 2 }}>VIEWS {opp.views} athletes viewed</div>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
@@ -1095,7 +1095,7 @@ function AthlynXSocialInner() {
               border: `1px solid ${C.electric}33`,
               borderRadius: 10, padding: "16px", textAlign: "center", marginTop: 8,
             }}>
-              <div style={{ fontSize: 24, marginBottom: 6 }}>🎯</div>
+              <div style={{ fontSize: 24, marginBottom: 6 }}>TARGET</div>
               <div style={{ color: C.white, fontWeight: 800, fontSize: 14, marginBottom: 4 }}>Complete Your Profile</div>
               <div style={{ color: C.muted, fontSize: 12, marginBottom: 10 }}>Coaches can only recruit what they can see. Add your stats, highlights, and GPA.</div>
               <a href="/onboarding" style={{
@@ -1120,12 +1120,12 @@ function AthlynXSocialInner() {
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}>
         {[
-          { id: "feed" as Tab, icon: "🏠", label: "Feed" },
-          { id: "reels" as Tab, icon: "🎬", label: "Reels" },
-          { id: "groups" as Tab, icon: "👥", label: "Groups" },
-          { id: "events" as Tab, icon: "📅", label: "Events" },
-          { id: "stats" as Tab, icon: "📊", label: "Stats" },
-          { id: "recruiting" as Tab, icon: "🎯", label: "Recruit" },
+          { id: "feed" as Tab, icon: "HOME", label: "Feed" },
+          { id: "reels" as Tab, icon: "VIDEO", label: "Reels" },
+          { id: "groups" as Tab, icon: "GROUPS", label: "Groups" },
+          { id: "events" as Tab, icon: "EVENTS", label: "Events" },
+          { id: "stats" as Tab, icon: "STATS", label: "Stats" },
+          { id: "recruiting" as Tab, icon: "TARGET", label: "Recruit" },
         ].map(t => (
           <button key={t.id} onClick={() => setActiveTab(t.id)} style={{
             flex: 1, display: "flex", flexDirection: "column", alignItems: "center",

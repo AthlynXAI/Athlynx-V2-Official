@@ -148,17 +148,17 @@ const BADGE_COLORS: Record<string, string> = {
 
 const ECOSYSTEM_BRAND_IMAGES = [
   {
-    src: "/brand/engine-mark-white.png?v=tightcrop-c409778",
+    src: "/brand/engine-mark-white.png",
     title: "AthlynX",
     label: "Approved owl/lynx + wordmark",
   },
   {
-    src: "/brand/engine-mark-white.png?v=tightcrop-c409778",
+    src: "/brand/engine-mark-white.png",
     title: "AthlynXAI",
     label: "Official OS watermark only",
   },
   {
-    src: "/brand/engine-mark-white.png?v=tightcrop-c409778",
+    src: "/brand/engine-mark-white.png",
     title: "AXN / AVN",
     label: "Streaming · podcast · network lane",
   },
@@ -310,7 +310,7 @@ function MobileNavMenu({ onClose, onInstall }: { onClose: () => void; onInstall:
     >
       {/* Header row */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-        <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="AthlynX owl lynx mark" className="h-10 w-auto drop-shadow-[0_0_18px_rgba(0,194,255,0.35)]" />
+        <img src="/brand/engine-mark-white.png" alt="AthlynX owl lynx mark" className="h-10 w-auto drop-shadow-[0_0_18px_rgba(0,194,255,0.35)]" />
         <button
           onClick={onClose}
           className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
@@ -465,7 +465,7 @@ function useCountdown(targetDate: Date) {
   return timeLeft;
 }
 
-const AthlynX_LOGO = "/brand/engine-mark-white.png?v=tightcrop-c409778";
+const AthlynX_LOGO = "/brand/engine-mark-white.png";
 
 function VideoCard({ video }: { video: { file: string; title: string; badge: string } }) {
   const [playing, setPlaying] = useState(false);
@@ -649,7 +649,7 @@ function HomeInner() {
       <header className="bg-black/95 border-b border-[#1E90FF]/25 sticky top-0 z-50 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20 md:h-20">
           <div className="flex min-w-0 flex-1 items-center gap-3">
-            <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-16 w-auto max-w-[185px] object-contain drop-shadow-[0_0_24px_rgba(30,144,255,0.50)] md:h-16 md:max-w-[235px]" />
+            <img src="/brand/engine-mark-white.png" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-16 w-auto max-w-[185px] object-contain drop-shadow-[0_0_24px_rgba(30,144,255,0.50)] md:h-16 md:max-w-[235px]" />
             <span className="text-3xl md:text-4xl font-black tracking-tight text-[#1E90FF] drop-shadow-[0_0_18px_rgba(30,144,255,0.35)]">XAI</span>
           </div>
           <div className="hidden md:flex items-center gap-2 text-xs text-blue-400">
@@ -716,7 +716,7 @@ function HomeInner() {
       {/*  SEASONAL WORLD SERIES BRACKETS FIRST  */}
       <section className="relative overflow-hidden border-y border-[#1E90FF]/30 bg-black px-4 py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(30,144,255,0.28),transparent_32%),radial-gradient(circle_at_88%_18%,rgba(0,128,255,0.18),transparent_34%)]" />
-        <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="" aria-hidden="true" className="pointer-events-none absolute -right-16 top-6 hidden w-[520px] opacity-[0.075] drop-shadow-[0_0_46px_rgba(30,144,255,0.55)] lg:block" />
+        <img src="/brand/engine-mark-white.png" alt="" aria-hidden="true" className="pointer-events-none absolute -right-16 top-6 hidden w-[520px] opacity-[0.075] drop-shadow-[0_0_46px_rgba(30,144,255,0.55)] lg:block" />
         <div className="absolute inset-y-0 right-0 hidden w-1/2 opacity-25 lg:block">
           <img src="/media/championship-brand/episode-2/scene01-multisport-walkout.png" alt="AthlynX World Series athletes" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
@@ -727,7 +727,7 @@ function HomeInner() {
               FOR THE ATHLETES CRAZY ENOUGH TO THINK THEY CAN CHANGE THE GAME.
             </div>
             <div className="mb-5 flex items-center gap-4">
-              <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-12 w-auto max-w-[170px] object-contain drop-shadow-[0_0_28px_rgba(30,144,255,0.45)]" />
+              <img src="/brand/engine-mark-white.png" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-12 w-auto max-w-[170px] object-contain drop-shadow-[0_0_28px_rgba(30,144,255,0.45)]" />
               <span className="text-3xl font-black tracking-tight text-[#1E90FF] drop-shadow-[0_0_18px_rgba(30,144,255,0.45)]">XAI</span>
             </div>
             <h2 className="max-w-5xl text-4xl font-black uppercase leading-none tracking-tight text-white md:text-6xl">
@@ -794,7 +794,7 @@ function HomeInner() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(30,144,255,0.22),transparent_34%)]" />
         <div className="relative z-10 mx-auto flex min-h-[720px] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:min-h-[780px]">
           <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-auto w-[min(78vw,390px)] object-contain drop-shadow-[0_0_42px_rgba(30,144,255,0.55)]" />
+            <img src="/brand/engine-mark-white.png" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-auto w-[min(78vw,390px)] object-contain drop-shadow-[0_0_42px_rgba(30,144,255,0.55)]" />
             <span className="text-5xl md:text-7xl font-black tracking-tight text-[#1E90FF] drop-shadow-[0_0_24px_rgba(30,144,255,0.45)]">XAI</span>
           </div>
           <div className="text-xs font-black uppercase tracking-[0.42em] text-white md:text-sm">THE ATHLETE'S PLAYBOOK</div>
@@ -1702,7 +1702,7 @@ APP STORE + GOOGLE PLAY TESTING
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <img src="/brand/engine-mark-white.png?v=tightcrop-c409778" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-16 w-auto max-w-[210px] object-contain" />
+              <img src="/brand/engine-mark-white.png" alt="AthlynX owl lynx mark and AthlynX wordmark" className="h-16 w-auto max-w-[210px] object-contain" />
               <div>
                 <div className="sr-only">AthlynX — THE ATHLETE'S PLAYBOOK</div>
                 <div className="text-blue-400 text-xs">A Dozier Holdings Group Company</div>

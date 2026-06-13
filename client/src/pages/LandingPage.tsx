@@ -16,26 +16,27 @@
 import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
 import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
+import AthlynXOSFeed from "@/components/AthlynXOSFeed";
 
 //  Hero Video (CDN) 
 const HERO_VIDEO = "https://pub-e4ffb4c8e08a4770a064090220a8e31d.r2.dev/videos/SyHtmDgqKAycRzBN.mp4";
 
-//  Platform Screenshots (real athlynx.ai UI) 
+//  Platform Card Assets — real AthlynX brand assets only
 const SCREENS = {
-  feed:       "/brand/athlynx-app-screen-1.png",
-  diamond:    "/landing/IMG_1360.PNG",
-  messenger:  "/brand/app-screen-3.png",
-  epx:        "/brand/app-screen-4.png",
-  cfactor:    "/brand/app-screen-5.png",
-  calendar:   "/brand/app-screen-6.png",
-  rankings:   "/brand/app-screen-7.png",
-  nilportal:  "/brand/app-screen-8.png",
-  transfer:   "/brand/app-screen-9.png",
-  warriors:   "/brand/app-screen-10.png",
-  profile:    "/brand/app-screen-11.png",
-  recruiting: "/brand/app-screen-12.png",
-  screen1:    "/brand/app-screen-13.png",
-  screen2:    "/brand/app-screen-14.png",
+  feed:       "/brand/athlynx-logo-main.png",
+  diamond:    "/diamond-grind-icon.png",
+  messenger:  "/messenger.png",
+  epx:        "/brand/athlynxai-epx-app-card.png",
+  cfactor:    "/brand/athlynxai-xfactor-app-card.png",
+  calendar:   "/brand/eco-horizontal-navy.png",
+  rankings:   "/brand/athlynx_mark.png",
+  nilportal:  "/nil-vault-icon.png",
+  transfer:   "/transfer-portal-icon.png",
+  warriors:   "/warriors-playbook-icon.png",
+  profile:    "/athlynxai-icon.png",
+  recruiting: "/brand/athlynx-promo.png",
+  screen1:    "/brand/multisport_hero.png",
+  screen2:    "/brand/eco-stacked.png",
 };
 
 const ECOSYSTEM_IMAGES = [
@@ -85,32 +86,32 @@ const SPORTS = [
   { gender:"Men's", sport:"Cycling",      img:"/landing/IMG_2063.JPG", href:"/cycling",          badge:"LIVE" },
   { gender:"Men's", sport:"Boxing",       img:"/landing/IMG_2065.JPG", href:"/boxing",           badge:"LIVE" },
   { gender:"Men's", sport:"MMA",          img:"/landing/IMG_2066.JPG", href:"/mma",              badge:"LIVE" },
-  // Women's
-  { gender:"Women's", sport:"Basketball",   img:"/landing/IMG_2046.JPG", href:"/court-kings",      badge:"LIVE" },
-  { gender:"Women's", sport:"Soccer",       img:"/landing/IMG_2048.JPG", href:"/pitch-pulse",      badge:"LIVE" },
-  { gender:"Women's", sport:"Volleyball",   img:"/landing/IMG_2054.JPG", href:"/net-setters",      badge:"LIVE" },
-  { gender:"Women's", sport:"Softball",     img:"/landing/IMG_2061.JPG", href:"/softball-nation",  badge:"LIVE" },
-  { gender:"Women's", sport:"Gymnastics",   img:"/landing/IMG_2055.JPG", href:"/gymnastics",       badge:"LIVE" },
-  { gender:"Women's", sport:"Track & Field",img:"/landing/IMG_2049.JPG", href:"/epx",         badge:"HOT"  },
-  { gender:"Women's", sport:"Swimming",     img:"/landing/IMG_2051.JPG", href:"/swim-surge",       badge:"LIVE" },
-  { gender:"Women's", sport:"Tennis",       img:"/landing/IMG_2052.JPG", href:"/racket-kings",     badge:"LIVE" },
-  { gender:"Women's", sport:"Lacrosse",     img:"/landing/IMG_2058.JPG", href:"/lacrosse",         badge:"LIVE" },
-  { gender:"Women's", sport:"Rowing",       img:"/landing/IMG_2062.JPG", href:"/rowing-elite",     badge:"LIVE" },
-  { gender:"Women's", sport:"Golf",         img:"/landing/IMG_2053.JPG", href:"/fairway-elite",    badge:"LIVE" },
-  { gender:"Women's", sport:"Hockey",       img:"/landing/IMG_2060.JPG", href:"/hockey",           badge:"LIVE" },
-  { gender:"Women's", sport:"Rugby",        img:"/landing/IMG_2057.JPG", href:"/rugby-elite",      badge:"LIVE" },
-  { gender:"Women's", sport:"Wrestling",    img:"/landing/IMG_2050.JPG", href:"/warriors-playbook",badge:"HOT"  },
-  { gender:"Women's", sport:"Boxing",       img:"/landing/IMG_2065.JPG", href:"/boxing",           badge:"LIVE" },
-  { gender:"Women's", sport:"MMA",          img:"/landing/IMG_2066.JPG", href:"/mma",              badge:"LIVE" },
-  { gender:"Women's", sport:"Football",     img:"/landing/IMG_1257.PNG", href:"/gridiron-nexus",   badge:"LIVE" },
-  { gender:"Women's", sport:"Baseball",     img:"/landing/IMG_2047.JPG", href:"/diamond-grind",    badge:"NEW"  },
-  { gender:"Women's", sport:"Cycling",      img:"/landing/IMG_2063.JPG", href:"/cycling",          badge:"LIVE" },
+  // Women's — dedicated women athlete images only
+  { gender:"Women's", sport:"Basketball",   img:"/landing/IMG_1246.PNG", href:"/court-kings",      badge:"LIVE" },
+  { gender:"Women's", sport:"Soccer",       img:"/landing/IMG_1247.PNG", href:"/pitch-pulse",      badge:"LIVE" },
+  { gender:"Women's", sport:"Volleyball",   img:"/landing/IMG_1248.PNG", href:"/net-setters",      badge:"LIVE" },
+  { gender:"Women's", sport:"Softball",     img:"/landing/IMG_1249.PNG", href:"/softball-nation",  badge:"LIVE" },
+  { gender:"Women's", sport:"Gymnastics",   img:"/landing/IMG_1250.PNG", href:"/gymnastics",       badge:"LIVE" },
+  { gender:"Women's", sport:"Track & Field",img:"/landing/IMG_1251.PNG", href:"/epx",              badge:"HOT"  },
+  { gender:"Women's", sport:"Swimming",     img:"/landing/IMG_1252.PNG", href:"/swim-surge",       badge:"LIVE" },
+  { gender:"Women's", sport:"Tennis",       img:"/landing/IMG_1253.PNG", href:"/racket-kings",     badge:"LIVE" },
+  { gender:"Women's", sport:"Lacrosse",     img:"/landing/IMG_1254.PNG", href:"/lacrosse",         badge:"LIVE" },
+  { gender:"Women's", sport:"Rowing",       img:"/landing/IMG_1255.PNG", href:"/rowing-elite",     badge:"LIVE" },
+  { gender:"Women's", sport:"Golf",         img:"/landing/IMG_1256.PNG", href:"/fairway-elite",    badge:"LIVE" },
+  { gender:"Women's", sport:"Hockey",       img:"/landing/IMG_1258.PNG", href:"/hockey",           badge:"LIVE" },
+  { gender:"Women's", sport:"Rugby",        img:"/landing/IMG_1259.PNG", href:"/rugby-elite",      badge:"LIVE" },
+  { gender:"Women's", sport:"Wrestling",    img:"/landing/IMG_1260.PNG", href:"/warriors-playbook",badge:"HOT"  },
+  { gender:"Women's", sport:"Boxing",       img:"/landing/IMG_1261.PNG", href:"/boxing",           badge:"LIVE" },
+  { gender:"Women's", sport:"MMA",          img:"/landing/IMG_1262.PNG", href:"/mma",              badge:"LIVE" },
+  { gender:"Women's", sport:"Football",     img:"/landing/IMG_1246.PNG", href:"/gridiron-nexus",   badge:"LIVE" },
+  { gender:"Women's", sport:"Baseball",     img:"/landing/IMG_1247.PNG", href:"/diamond-grind",    badge:"NEW"  },
+  { gender:"Women's", sport:"Cycling",      img:"/landing/IMG_1248.PNG", href:"/cycling",          badge:"LIVE" },
 ];
 
 //  Platform Features 
 const FEATURES = [
   {
-    icon: "",
+    icon: "/brand/athlynxai-epx-app-mark.png",
     name: "EPX™",
     tagline: "STOP WAITING TO BE DISCOVERED.",
     desc: "Your EPX score (0–100) is your AI-powered athlete rating — built from combine metrics, game film, stats, recruiting interest, and intangibles. It grows as you perform. 90–100 is Elite Pro Prospect. Coaches see it. Brands pay for it.",
@@ -119,7 +120,7 @@ const FEATURES = [
     color: "#0066ff",
   },
   {
-    icon: "",
+    icon: "/brand/athlynxai-xfactor-app-mark.png",
     name: "C-Factor Hub™",
     tagline: "THE OPERATING SYSTEM OF YOUR SPORTS LIFE.",
     desc: "C-Factor is your daily command center — NIL opportunities, recruiting pulse, today's agenda, film room, podcast, vendor marketplace, and your complete athlete intelligence dashboard. Everything you need to manage your career in one place. Mobile-first. Built for champions.",
@@ -128,7 +129,7 @@ const FEATURES = [
     color: "#00c2ff",
   },
   {
-    icon: "",
+    icon: "/nil-vault-icon.png",
     name: "NIL Portal™",
     tagline: "YOUR NAME. YOUR BRAND. YOUR MONEY.",
     desc: "Connect directly with brands, negotiate deals, sign contracts, and track your NIL income — all inside AthlynXAI. No agents required. No middlemen. From local car dealerships to national sponsorships. Your NIL value grows with your EPX score.",
@@ -137,7 +138,7 @@ const FEATURES = [
     color: "#0066ff",
   },
   {
-    icon: "",
+    icon: "/transfer-portal-icon.png",
     name: "Transfer Portal™",
     tagline: "FIND YOUR NEXT SCHOOL. LEVEL UP.",
     desc: "The AthlynXAI Transfer Portal guides athletes from smaller programs to bigger opportunities. Build your profile, get discovered by D1 coaches, compare scholarship offers, and make the move that maximizes your NIL value. The journey from small school to big stage starts here.",
@@ -146,7 +147,7 @@ const FEATURES = [
     color: "#00c2ff",
   },
   {
-    icon: "",
+    icon: "/diamond-grind-icon.png",
     name: "Diamond Grind™",
     tagline: "ELITE BASEBALL. BUILT DIFFERENT.",
     desc: "Programs, Stats, Tracker, Leaderboard, and AI Coach — all purpose-built for baseball and softball athletes. Velocity tracking, exit velocity, fielding metrics, showcase prep for Perfect Game and Area Code. The most complete baseball platform ever built.",
@@ -155,7 +156,7 @@ const FEATURES = [
     color: "#0066ff",
   },
   {
-    icon: "",
+    icon: "/warriors-playbook-icon.png",
     name: "Warriors Playbook™",
     tagline: "PLAYS. FILM. STRATEGY. AI COACH.",
     desc: "The complete football intelligence platform — playbook library, film study, team management, and an AI coach that analyzes your film and gives you a personalized improvement plan. For players, coaches, and programs at every level.",
@@ -599,37 +600,17 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/*  PLATFORM SCREENS  */}
+      {/*  ATHLYNXAI OS LIVE FEED  */}
       <section className="py-24 px-5 bg-[#030810]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">The Full Platform</p>
+          <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">AthlynXAI OS</p>
           <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-4 tracking-tight">
-            EVERY SCREEN. <span className="text-[#00c2ff]">LIVE.</span>
+            EVERY SPORT. <span className="text-[#00c2ff]">LIVE.</span>
           </h2>
-          <p className="text-[#8ba3c7] text-center text-lg mb-16 max-w-2xl mx-auto">
-            This is what you get when you log in. Built from scratch. 100% original. Zero compromises.
+          <p className="text-[#8ba3c7] text-center text-lg mb-12 max-w-3xl mx-auto">
+            Live scores. Team logos. NIL discovery. Signing days. Recruiting calendars. Camps. Tournaments. Every athlete. Every school mascot. One platform.
           </p>
-          <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
-            {[
-              { title:"The Feed",        badge:"LIVE",  img:SCREENS.feed,      href:"/portal",          color:"#22c55e" },
-              { title:"EPX™",       badge:"HOT",   img:SCREENS.epx,   href:"/epx",        color:"#0066ff" },
-              { title:"C-Factor Hub™",   badge:"NEW",   img:SCREENS.cfactor,   href:"/cfactor",         color:"#00c2ff" },
-              { title:"Diamond Grind™",  badge:"NEW",   img:SCREENS.diamond,   href:"/diamond-grind",   color:"#0066ff" },
-              { title:"NIL Messenger™",  badge:"LIVE",  img:SCREENS.messenger, href:"/messenger",       color:"#22c55e" },
-              { title:"Athlete Calendar",badge:"LIVE",  img:SCREENS.calendar,  href:"/athlete-calendar",color:"#22c55e" },
-              { title:"Rankings Hub™",   badge:"NEW",   img:SCREENS.rankings,  href:"/rankings-hub",    color:"#0066ff" },
-              { title:"NIL Portal™",     badge:"LIVE",  img:SCREENS.nilportal, href:"/nil-portal",      color:"#22c55e" },
-              { title:"Transfer Portal™",badge:"LIVE",  img:SCREENS.transfer,  href:"/transfer-portal", color:"#22c55e" },
-              { title:"Warriors Playbook",badge:"HOT",  img:SCREENS.warriors,  href:"/warriors-playbook",color:"#ef4444" },
-              { title:"Athlete Profile™",badge:"LIVE",  img:SCREENS.profile,   href:"/profile",         color:"#22c55e" },
-              { title:"Recruiting Hub™", badge:"HOT",   img:SCREENS.recruiting,href:"/recruiting-hub",  color:"#0066ff" },
-            ].map((s, i) => (
-              <div key={i} className="snap-center flex-shrink-0 flex flex-col items-center gap-3">
-                <ScreenMockup {...s} />
-                <p className="text-[#8ba3c7] text-xs font-bold text-center">{s.title}</p>
-              </div>
-            ))}
-          </div>
+          <AthlynXOSFeed />
         </div>
       </section>
 
@@ -889,26 +870,95 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/*  FOOTER  */}
-      <footer className="bg-[#030810] border-t border-[#0066ff]/10 py-12 px-5">
+      {/*  FOOTER — ENTERPRISE EDITION  */}
+      <footer className="bg-[#030810] border-t border-[#0066ff]/10 pt-16 pb-10 px-5">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-            <div className="flex items-center gap-3">
-              <img src="/athlynx-icon.png" alt="AthlynXAI" className="w-10 h-10 rounded-xl" onError={e => (e.currentTarget.style.display = 'none')} />
+          {/* Brand + 4-Column Grid */}
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-12">
+            {/* Brand Identity */}
+            <div className="flex-shrink-0">
+              <div className="flex items-center gap-4 mb-4">
+                <img src="/athlynx-icon.png" alt="AthlynXAI" className="w-14 h-14 rounded-2xl" onError={e => (e.currentTarget.style.display = 'none')} />
+                <div>
+                  <p className="font-black text-2xl text-white tracking-tight">AthlynXAI<span className="text-[#0066ff]">™</span></p>
+                  <p className="text-[#8ba3c7] text-sm font-semibold">The Athlete's Playbook</p>
+                  <p className="text-[#4a6080] text-xs mt-0.5">Be The Legacy</p>
+                </div>
+              </div>
+              <p className="text-[#4a6080] text-xs max-w-xs leading-relaxed">
+                AthlynX · AthlynXAI · AXN · AVN · AXI · AthlynXAI OS v1.<br />
+                Multi-sport. Multi-social. All genders. All races. All humans.
+              </p>
+            </div>
+            {/* 4-Column Link Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm flex-1">
               <div>
-                <p className="font-black text-lg text-white">AthlynXAI<span className="text-[#0066ff]">™</span></p>
-                <p className="text-[#4a6080] text-xs">The Athlete's Playbook</p>
+                <p className="text-white font-bold uppercase tracking-widest text-xs mb-4">Platform</p>
+                <div className="space-y-2.5">
+                  <a href="/epx" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">EPX Score</a>
+                  <a href="/cfactor" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">C-Factor Hub</a>
+                  <a href="/nil-portal" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">NIL Portal</a>
+                  <a href="/transfer-portal" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Transfer Portal</a>
+                  <a href="/athlynx-feed" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">AthlynX Feed</a>
+                  <a href="/nil-messenger" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">NIL Messenger</a>
+                </div>
+              </div>
+              <div>
+                <p className="text-white font-bold uppercase tracking-widest text-xs mb-4">Networks</p>
+                <div className="space-y-2.5">
+                  <a href="/athlynx-network" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">AXN</a>
+                  <a href="/athlynx-social" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">AVN</a>
+                  <a href="/athlynx-browser" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">AthlynX Browser</a>
+                  <a href="/world-cup-2026" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">World Cup 2026</a>
+                  <a href="/brackets" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Brackets</a>
+                  <a href="/diamond-grind" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Diamond Grind</a>
+                </div>
+              </div>
+              <div>
+                <p className="text-white font-bold uppercase tracking-widest text-xs mb-4">Company</p>
+                <div className="space-y-2.5">
+                  <a href="/investors" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Investors</a>
+                  <a href="/about" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">About Us</a>
+                  <a href="/welcome" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Welcome</a>
+                  <a href="/privacy" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Privacy Policy</a>
+                  <a href="/terms" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Terms of Service</a>
+                  <a href="/signin" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">Sign In</a>
+                </div>
+              </div>
+              <div>
+                <p className="text-white font-bold uppercase tracking-widest text-xs mb-4">Domains</p>
+                <div className="space-y-2.5">
+                  <a href="https://athlynx.ai" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">athlynx.ai</a>
+                  <a href="https://athlynx.io" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">athlynx.io</a>
+                  <a href="https://athlynx.net" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">athlynx.net</a>
+                  <a href="https://athlynx.pro" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">athlynx.pro</a>
+                  <a href="https://nilportal.ai" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">nilportal.ai</a>
+                  <a href="https://nilportals.com" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">nilportals.com</a>
+                  <a href="https://transferportal.live" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">transferportal.live</a>
+                  <a href="https://transferportal360.com" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">transferportal360.com</a>
+                  <a href="https://dozierholdingsgroup.com" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">dozierholdingsgroup.com</a>
+                  <a href="https://wigingtonproperties.com" target="_blank" rel="noopener noreferrer" className="block text-[#4a6080] hover:text-[#0066ff] transition-colors">wigingtonproperties.com</a>
+                </div>
               </div>
             </div>
-            <div className="flex flex-wrap gap-6 text-sm text-[#4a6080]">
-              <a href="https://athlynx.ai" className="hover:text-white transition-colors">athlynx.ai</a>
-              <a href="https://dozierholdingsgroup.com" className="hover:text-white transition-colors">dozierholdingsgroup.com</a>
-              <a href="https://nilportals.com" className="hover:text-white transition-colors">nilportals.com</a>
-            </div>
           </div>
-          <div className="border-t border-[#0066ff]/10 pt-6 text-center text-[#4a6080] text-xs space-y-1">
-            <p>© 2026 AthlynXAI Corporation · A Dozier Holdings Group Company · Houston, TX · EIN 42-2183569</p>
-            <p>Iron Sharpens Iron — Proverbs 27:17 · Founded November 2024 · Chad A. Dozier Sr. & Glenn Tse</p>
+          {/* Founders + Legal Bar */}
+          <div className="border-t border-[#0066ff]/10 pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-3">
+                <img src="/athlynxai-icon.png" alt="AthlynXAI" className="w-8 h-8 rounded-lg" onError={e => (e.currentTarget.style.display = 'none')} />
+                <div className="text-xs">
+                  <p className="font-bold text-[#8ba3c7]">Chad A. Dozier Sr. &amp; Glenn Tse — Founders</p>
+                  <p className="text-[#4a6080]">AthlynXAI Corporation · A Dozier Holdings Group Company · Houston, TX · EIN 42-2183569</p>
+                </div>
+              </div>
+              <div className="text-xs text-center md:text-right">
+                <p className="font-semibold text-[#8ba3c7] mb-1">Iron Sharpens Iron — Proverbs 27:17</p>
+                <p className="text-[#4a6080]">Founded November 2024 · AthlynXAI OS v1 · Powered by Nebius AI &amp; NVIDIA H200</p>
+                <p className="text-[#4a6080] mt-1">Nebius AI Hackathon Semi-Finalist · Google AI Hackathon Participant</p>
+                <p className="text-[#4a6080] mt-1">© 2026 AthlynXAI Corporation. All rights reserved.</p>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

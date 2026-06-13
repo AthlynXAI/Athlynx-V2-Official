@@ -364,7 +364,7 @@ function NILBadge({ tier }: { tier: Player["nilTier"] }) {
   };
   return (
     <span className={`text-[8px] font-black tracking-widest uppercase px-1.5 py-0.5 rounded ${styles[tier]}`}>
-      {tier === "Elite" ? "⚡ ELITE NIL" : tier === "High" ? "★ HIGH VALUE" : "↑ RISING"}
+      {tier === "Elite" ? "LIVE ELITE NIL" : tier === "High" ? "STAR HIGH VALUE" : "↑ RISING"}
     </span>
   );
 }
@@ -505,7 +505,7 @@ function TeamCard({ team, onClose }: { team: Team; onClose: () => void }) {
         {/* Header */}
         <div className="relative p-6 pb-4" style={{ borderBottom: `1px solid ${team.color}30` }}>
           <div className="absolute inset-0 opacity-5" style={{ background: `radial-gradient(ellipse at top left, ${team.color}, transparent)` }} />
-          <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white text-xl transition-colors">✕</button>
+          <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white text-xl transition-colors">X</button>
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black" style={{ background: `${team.color}20`, border: `1px solid ${team.color}40`, color: team.color }}>
               {team.shortName[0]}
@@ -583,7 +583,7 @@ function TeamCard({ team, onClose }: { team: Team; onClose: () => void }) {
                   <div className="text-xs text-white/60">{p.stat}</div>
                   {p.draftStatus && (
                     <div className="mt-2 text-[9px] font-bold text-[#1E90FF]/70 bg-[#1E90FF]/5 border border-[#1E90FF]/10 rounded-lg px-2 py-1">
-                      🎯 {p.draftStatus}
+                      TARGET {p.draftStatus}
                     </div>
                   )}
                 </div>
@@ -614,7 +614,7 @@ function TeamCard({ team, onClose }: { team: Team; onClose: () => void }) {
           {activeTab === "podcast" && (
             <div className="space-y-4">
               <div className="bg-[#1E90FF]/5 border border-[#1E90FF]/20 rounded-xl p-5">
-                <div className="text-[9px] font-black tracking-widest uppercase text-[#1E90FF]/60 mb-3">🎙 ATHLYNXAI PODCAST ANGLE</div>
+                <div className="text-[9px] font-black tracking-widest uppercase text-[#1E90FF]/60 mb-3">PODCAST ATHLYNXAI PODCAST ANGLE</div>
                 <p className="text-sm text-white/80 leading-relaxed font-medium">"{team.podcastAngle}"</p>
               </div>
               <div className="bg-black/40 border border-white/10 rounded-xl p-4">
