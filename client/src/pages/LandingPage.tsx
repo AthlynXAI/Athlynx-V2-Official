@@ -168,10 +168,17 @@ const FEATURES = [
 const CHAMPIONSHIP_SPOTLIGHTS = [
   {
     title: "Road To Omaha",
-    eyebrow: "Men's College World Series · LIVE NOW",
-    desc: "8 teams. 1 champion. Charles Schwab Field, Omaha, Nebraska. June 13–22, 2026. Georgia, North Carolina, West Virginia, Ole Miss, Texas, Oklahoma, Alabama, and Troy battle for the national title. The Greatest Show on Grass.",
+    eyebrow: "Men's College World Series · LIVE NOW · ESPN",
+    desc: "8 teams. 1 champion. Charles Schwab Field, Omaha, Nebraska. June 13–22, 2026. Georgia, North Carolina, West Virginia, Ole Miss, Texas, Oklahoma, Alabama, and Troy battle for the national title. Watch on ESPN, Apple TV, Amazon Prime, and Apple Sports. The Greatest Show on Grass.",
     accent: "#00c2ff",
     href: "/brackets",
+  },
+  {
+    title: "🏆 Texas Back-to-Back",
+    eyebrow: "WCWS Champions · 2025 & 2026 · Congratulations",
+    desc: "CONGRATULATIONS to the Texas Longhorns — BACK-TO-BACK Women's College World Series National Champions! Texas swept Texas Tech in the 2026 WCWS Finals. Back-to-back MOP Teagan Kavan. Hook 'Em Horns. The legacy is built. 🤘",
+    accent: "#00c2ff",
+    href: "/diamond-grind",
   },
   {
     title: "Diamond Grind™",
@@ -179,13 +186,6 @@ const CHAMPIONSHIP_SPOTLIGHTS = [
     desc: "The most complete baseball and softball platform ever built. Velocity tracking, exit velocity, fielding metrics, AI coach, showcase prep for Perfect Game and Area Code. Built for every level — youth to pro.",
     accent: "#0066ff",
     href: "/diamond-grind",
-  },
-  {
-    title: "Every Sport Counts",
-    eyebrow: "Men's and Women's · All Sports",
-    desc: "Football, basketball, baseball, softball, soccer, track, volleyball, tennis, golf, wrestling, swimming, lacrosse, and every athlete chasing a championship belong on the same platform. Fair and balanced.",
-    accent: "#0066ff",
-    href: "/portal",
   },
 ];
 
