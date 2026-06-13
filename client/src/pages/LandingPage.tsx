@@ -546,57 +546,7 @@ function LandingPageInner() {
           {/* 3-Column Live Events */}
           <div className="grid gap-6 lg:grid-cols-3 mb-8">
 
-            {/* NBA Finals */}
-            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Live Series · NBA Finals 2026</p>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-1">🏀 Knicks vs Spurs</h3>
-              <p className="text-[#00c2ff] font-black text-lg mb-3">Knicks Lead 3–1</p>
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                  <span className="font-bold text-[#006BB6]">New York Knicks</span>
-                  <span className="text-white font-black">3 wins</span>
-                </div>
-                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                  <span className="font-bold text-[#C4CED4]">San Antonio Spurs</span>
-                  <span className="text-white font-black">1 win</span>
-                </div>
-              </div>
-              <div className="rounded-xl border border-[#00c2ff]/30 bg-[#00c2ff]/10 px-4 py-3 mb-4">
-                <p className="text-xs font-black uppercase tracking-widest text-[#00c2ff] mb-1">Game 5 — Tonight</p>
-                <p className="text-sm font-bold text-white">New York at San Antonio</p>
-                <p className="text-xs text-[#8ba3c7]">Saturday Jun 13 · 8:30 PM ET · ABC / ESPN</p>
-              </div>
-              <p className="text-xs text-[#8ba3c7]">Knicks chasing first NBA title since 1973. Victor Wembanyama vs the city of New York.</p>
-            </div>
-
-            {/* FIFA World Cup */}
-            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · FIFA World Cup 2026</p>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-1">⚽ World Cup 2026</h3>
-              <p className="text-[#00c2ff] font-black text-sm mb-3">USA · Mexico · Canada — Group Stage Live</p>
-              <div className="space-y-2 mb-4">
-                {[
-                  { match: "USA vs Paraguay", result: "4 – 1 ✓", color: "#B22234" },
-                  { match: "Canada vs Bosnia", result: "0 – 0 ✓", color: "#FF0000" },
-                  { match: "Mexico vs South Africa", result: "Today", color: "#006847" },
-                  { match: "Argentina vs Group D", result: "Today", color: "#74ACDF" },
-                ].map((g) => (
-                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
-                    <span className="font-bold text-white">{g.match}</span>
-                    <span className="font-black text-[#00c2ff]">{g.result}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-[#8ba3c7]">48 teams. 16 cities across USA, Mexico & Canada. The biggest sporting event on Earth. Watch on Fox, Telemundo, Apple TV.</p>
-            </div>
-
-            {/* CWS + WCWS Combined */}
+            {/* CWS + WCWS — STAR OF THE SHOW */}
             <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
@@ -622,6 +572,56 @@ function LandingPageInner() {
                 <p className="text-sm font-bold text-white">Texas Longhorns — Back-to-Back</p>
                 <p className="text-xs text-[#8ba3c7]">Swept Texas Tech · 2025 & 2026 · Hook 'Em 🤘</p>
               </div>
+            </div>
+
+            {/* FIFA World Cup — SECOND */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · FIFA World Cup 2026</p>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-1">⚽ World Cup 2026</h3>
+              <p className="text-[#00c2ff] font-black text-sm mb-3">USA · Mexico · Canada — Group Stage Live</p>
+              <div className="space-y-2 mb-4">
+                {[
+                  { match: "USA vs Paraguay", result: "4 – 1 ✓", color: "#B22234" },
+                  { match: "Canada vs Bosnia", result: "0 – 0 ✓", color: "#FF0000" },
+                  { match: "Mexico vs South Africa", result: "Today", color: "#006847" },
+                  { match: "Argentina vs Group D", result: "Today", color: "#74ACDF" },
+                ].map((g) => (
+                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
+                    <span className="font-bold text-white">{g.match}</span>
+                    <span className="font-black text-[#00c2ff]">{g.result}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-[#8ba3c7]">48 teams. 16 cities across USA, Mexico & Canada. The biggest sporting event on Earth. Watch on Fox, Telemundo, Apple TV.</p>
+            </div>
+
+            {/* NBA Finals — THIRD */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Live Series · NBA Finals 2026</p>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-1">🏀 Knicks vs Spurs</h3>
+              <p className="text-[#00c2ff] font-black text-lg mb-3">Knicks Lead 3–1</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: "#006BB6", borderLeftWidth: 3 }}>
+                  <span className="font-bold text-[#006BB6]">New York Knicks</span>
+                  <span className="text-white font-black">3 wins</span>
+                </div>
+                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: "#C4CED4", borderLeftWidth: 3 }}>
+                  <span className="font-bold text-[#C4CED4]">San Antonio Spurs</span>
+                  <span className="text-white font-black">1 win</span>
+                </div>
+              </div>
+              <div className="rounded-xl border border-[#00c2ff]/30 bg-[#00c2ff]/10 px-4 py-3 mb-4">
+                <p className="text-xs font-black uppercase tracking-widest text-[#00c2ff] mb-1">Game 5 — Tonight</p>
+                <p className="text-sm font-bold text-white">New York at San Antonio</p>
+                <p className="text-xs text-[#8ba3c7]">Saturday Jun 13 · 8:30 PM ET · ABC / ESPN</p>
+              </div>
+              <p className="text-xs text-[#8ba3c7]">Knicks chasing first NBA title since 1973. Victor Wembanyama vs the city of New York.</p>
             </div>
 
           </div>
