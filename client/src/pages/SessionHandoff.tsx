@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import UnifiedNav from "@/components/UnifiedNav";
+import UnifiedFooter from "@/components/UnifiedFooter";
 import { Button } from "@/components/ui/button";
 import { Copy, CheckCircle2, AlertTriangle, ChevronRight, Shield, GitBranch, Zap, Trophy, Clock, ArrowRight } from "lucide-react";
 
@@ -81,7 +81,7 @@ const nextSteps = [
 export default function SessionHandoff() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Navbar />
+      <UnifiedNav />
 
       {/* Hero */}
       <section className="pt-32 pb-16 px-4">
@@ -106,7 +106,7 @@ export default function SessionHandoff() {
       <section className="px-4 pb-16">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
-            <Zap className="w-5 h-5 text-yellow-400" />
+            <Zap className="w-5 h-5 text-blue-400" />
             <h2 className="text-xl font-bold text-white">Start Next Session — Paste This Block</h2>
           </div>
           <CopyBlock text={HANDOFF_BLOCK} label="project_instructions · copy to start next session" />
@@ -193,7 +193,7 @@ export default function SessionHandoff() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <h2 className="text-3xl font-black text-white">Next Session</h2>
-            <span className="text-xs font-mono text-orange-400 bg-orange-500/10 border border-orange-500/20 px-3 py-1.5 rounded-full uppercase tracking-widest">Resume Here</span>
+            <span className="text-xs font-mono text-[#00c2ff] bg-[#0066ff]/10 border border-[#0066ff]/20 px-3 py-1.5 rounded-full uppercase tracking-widest">Resume Here</span>
           </div>
           <div className="space-y-4">
             {nextSteps.map((s, i) => (
@@ -296,7 +296,7 @@ export default function SessionHandoff() {
         </div>
       </section>
 
-      <Footer />
+      <UnifiedFooter />
     </div>
   );
 }
