@@ -1,24 +1,30 @@
 /**
  * okta.ts — Auth0 SPA SDK wrapper for AthlynX
  *
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║  ⚠️  AUTH CREDENTIALS FROZEN — DO NOT MODIFY — EVER            ║
+ * ║  Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com                  ║
+ * ║  Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI                  ║
+ * ║  These are the ONLY valid credentials for athlynx.ai           ║
+ * ║  Changing these WILL break production auth immediately          ║
+ * ║  Verified working: 2026-06-13 (real users signing up live)     ║
+ * ║  Locked by: Chad Dozier — Build 1 Session 5                    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * Uses @auth0/auth0-spa-js which handles iOS Safari ITP automatically.
  * The SDK stores PKCE verifier in memory (not localStorage/sessionStorage),
  * so it survives cross-origin redirects on iOS Safari with ITP enabled.
- *
- * Domain:    dev-46h7vdyglpny7auu.us.auth0.com
- * Client ID: zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6
  *
  * NOTE: Social connections (google-oauth2, apple, facebook) are NOT passed
  * as the `connection` parameter — instead we use Auth0 Universal Login which
  * shows the social buttons natively. This avoids the "connection is not enabled"
  * error that occurs when a social connection is not explicitly enabled per-app.
- * The `screen_hint` parameter is used to pre-select the social provider where
- * Auth0 supports it, but the Universal Login page handles the rest.
  */
 import { createAuth0Client, Auth0Client } from "@auth0/auth0-spa-js";
 
-const AUTH0_DOMAIN    = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_DOMAIN) || "dev-46h7vdyglpny7auu.us.auth0.com";
-const AUTH0_CLIENT_ID = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_CLIENT_ID) || "zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6";
+// ⚠️ FROZEN — DO NOT CHANGE THESE VALUES — see header above
+const AUTH0_DOMAIN    = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_DOMAIN) || "dev-8yqdmei0v8kc3qqy.us.auth0.com";
+const AUTH0_CLIENT_ID = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_CLIENT_ID) || "eDJT34flTy4oOq1cie6ItFubLDPHOrcI";
 const AUTH0_REDIRECT_URI =
   typeof window !== "undefined"
     ? `${window.location.origin}/callback`

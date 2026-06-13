@@ -13,7 +13,8 @@ function AuthCallbackInner() {
     onSuccess: (data: any) => {
       const isNewUser = data?.isNewUser ?? false
       setStatus(isNewUser ? 'Welcome! Setting up your profile...' : 'Welcome back!')
-      setTimeout(() => { window.location.href = 'https://athlynx.ai' }, 500)
+      // New user → /onboarding, returning user → /portal (handled by Welcome.tsx)
+      setTimeout(() => { setLocation('/welcome') }, 500)
     },
     onError: (err) => {
       setStatus('Sign-in failed: ' + (err.message || 'Unknown error'))

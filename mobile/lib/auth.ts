@@ -4,8 +4,8 @@
  * ONE auth system. Auth0 PKCE via expo-auth-session.
  * NO email/password. NO Supabase auth. NO Firebase.
  *
- * Auth0 Domain: dev-8yqdmei0v8kc3qqy.us.auth0.com
- * Auth0 SPA Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI
+ * Auth0 Domain: dev-46h7vdyglpny7auu.us.auth0.com
+ * Auth0 SPA Client ID: zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6
  */
 
 import * as AuthSession from "expo-auth-session";
@@ -16,8 +16,8 @@ WebBrowser.maybeCompleteAuthSession();
 
 // ─── Auth0 Config ─────────────────────────────────────────────────────────────
 
-const AUTH0_DOMAIN = "dev-8yqdmei0v8kc3qqy.us.auth0.com";
-const AUTH0_CLIENT_ID = "eDJT34flTy4oOq1cie6ItFubLDPHOrcI";
+const AUTH0_DOMAIN = "dev-46h7vdyglpny7auu.us.auth0.com";
+const AUTH0_CLIENT_ID = "zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6";
 const REDIRECT_URI = AuthSession.makeRedirectUri({ scheme: "athlynxai" });
 const API_BASE = process.env.EXPO_PUBLIC_API_URL || "https://athlynx.ai";
 const SESSION_KEY = "athlynx_session_token";

@@ -1,18 +1,27 @@
 /**
  * AthlynXAI — Auth0 / Okta ID Token Verifier
  *
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║  ⚠️  AUTH CREDENTIALS FROZEN — DO NOT MODIFY — EVER            ║
+ * ║  Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com                  ║
+ * ║  Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI                  ║
+ * ║  These are the ONLY valid credentials for athlynx.ai           ║
+ * ║  Changing these WILL break production auth immediately          ║
+ * ║  Verified working: 2026-06-13 (real users signing up live)     ║
+ * ║  Locked by: Chad Dozier — Build 1 Session 5                    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * Verifies Auth0 ID tokens (RS256) via JWKS endpoint.
  * No client secret required — PKCE SPA flow only.
  *
- * Auth system: Auth0/Okta PKCE ONLY — no Firebase, no Supabase auth.
- * Domain: dev-46h7vdyglpny7auu.us.auth0.com
- * SPA Client ID: zgy2eO2ZQ2Kb1y2hgWcxQwm6pIgSuvG6
+ * Auth system: Auth0 PKCE ONLY — no Firebase, no Supabase auth.
  */
 
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
+// ⚠️ FROZEN — DO NOT CHANGE THIS VALUE — see header above
 const AUTH0_DOMAIN =
-  process.env.AUTH0_DOMAIN || "dev-46h7vdyglpny7auu.us.auth0.com";
+  process.env.AUTH0_DOMAIN || "dev-8yqdmei0v8kc3qqy.us.auth0.com";
 
 const AUTH0_JWKS_URL = `https://${AUTH0_DOMAIN}/.well-known/jwks.json`;
 const AUTH0_ISSUER = `https://${AUTH0_DOMAIN}/`;
