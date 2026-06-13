@@ -264,7 +264,18 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
       status: "failed",
     });
 
-    // TODO: Send notification to user about failed payment
+    // Notify user of failed payment via in-app notification
+    try {
+      const { sendSystemNotification } = await import("./jobs/platformMessagesJob");
+      await sendSystemNotification(
+        user.id,
+        "Payment Failed",
+        `Your payment of $${(invoice.amount_due / 100).toFixed(2)} failed. Please update your payment method at athlynx.ai/billing to keep your subscription active.`,
+        "billing"
+      );
+    } catch (notifErr) {
+      console.warn("[Webhook] Failed payment notification error:", notifErr);
+    }
   }
 }
 
@@ -284,7 +295,9 @@ async function handlePaymentIntentSucceeded(paymentIntent: Stripe.PaymentIntent)
 async function handlePaymentIntentFailed(paymentIntent: Stripe.PaymentIntent) {
   console.log(`[Webhook] Payment intent failed: ${paymentIntent.id}`);
 
-  // TODO: Handle failed payment notification
+  // Payment intent failures are handled by invoice.payment_failed above.
+  // Log for Sentry/Vercel visibility only.
+  console.warn(`[Webhook] payment_intent.payment_failed: ${paymentIntent.id} — amount=${paymentIntent.amount} currency=${paymentIntent.currency}`);
 }
 
 /**

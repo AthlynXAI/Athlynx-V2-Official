@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { RouteErrorBoundary } from "@/components/GlobalErrorBoundary";
@@ -130,13 +130,24 @@ function WelcomeInner() {
   const [platform] = useState<Platform>(() => detectPlatform());
   const [remember, setRemember] = useState(false);
   const [autoRedirecting, setAutoRedirecting] = useState(false);
+  // Grace period: wait up to 3s after page load before treating !user as signed-out.
+  // This prevents a race where the session cookie was just set by AuthCallback
+  // but auth.me hasn't resolved yet on the first render.
+  const mountedAt = useRef(Date.now());
+  const [graceDone, setGraceDone] = useState(false);
 
   useEffect(() => {
     document.title = "Welcome to AthlynX";
+    const remaining = 3000 - (Date.now() - mountedAt.current);
+    if (remaining > 0) {
+      const t = setTimeout(() => setGraceDone(true), remaining);
+      return () => clearTimeout(t);
+    }
+    setGraceDone(true);
   }, []);
 
-  // Signed-out users → /signup
-  if (!isLoading && !user && typeof window !== "undefined") {
+  // Signed-out users → /signup (only after grace period so cookie has time to resolve)
+  if (graceDone && !isLoading && !user && typeof window !== "undefined") {
     window.location.replace("/signup");
     return null;
   }

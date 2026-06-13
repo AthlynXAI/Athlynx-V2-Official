@@ -16,7 +16,7 @@ import { z } from "zod";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import {
   easConfigSummary,
-  easIsDryRun,
+  easIsConfigured,
   getBuildLog,
   listRecentBuilds,
   type EasBuild,
@@ -150,7 +150,7 @@ export const buildMonitorRouter = router({
         spike10091: spike,
         latestErrored: latestErrored?.build.id ?? null,
         latestSummary: latestErrored?.parsed?.summary ?? null,
-        dryRun: easIsDryRun(),
+        configured: easIsConfigured(),
       };
     }),
 

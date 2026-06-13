@@ -7,7 +7,7 @@
  */
 
 import { detect10091Spike, parseBuildLog } from "../services/buildLogParser";
-import { easConfigSummary, easIsDryRun, getBuildLog, listRecentBuilds } from "../services/easClient";
+import { easConfigSummary, easIsConfigured, getBuildLog, listRecentBuilds } from "../services/easClient";
 import { logBuildHistoryRows, sheetsConfigSummary, sheetsIsDryRun } from "../services/googleSheetsLogger";
 import { alerterConfigSummary } from "../services/slackAlerter";
 
@@ -111,7 +111,7 @@ async function main() {
   console.log("EAS:", easConfigSummary());
   console.log("Sheets:", sheetsConfigSummary());
   console.log("Alerter:", alerterConfigSummary());
-  console.log("Dry-run flags — eas:", easIsDryRun(), "sheets:", sheetsIsDryRun());
+  console.log("Dry-run flags — eas:", easIsConfigured(), "sheets:", sheetsIsDryRun());
   console.log("");
   for (const c of checks) {
     console.log(`${c.pass ? "PASS" : "FAIL"}  ${c.name}${c.detail ? `  (${c.detail})` : ""}`);

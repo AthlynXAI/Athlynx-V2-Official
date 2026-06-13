@@ -654,7 +654,7 @@ function Router() {
       {/*  Media & Content  */}
       <Route path="/podcast" component={Podcast} />
       <Route path="/music" component={Music} />
-      <Route path="/studio" component={Studio} />
+      <Route path="/studio-media" component={Studio} />
       <Route path="/media-showcase" component={MediaShowcase} />
       <Route path="/portal" component={Portal} />
 
@@ -683,7 +683,6 @@ function Router() {
       <Route path="/bots" component={TeamBots} />
       <Route path="/analytics" component={AthleteDataDashboard} />
       <Route path="/portal-news" component={NILPortal} />
-      <Route path="/notifications" component={Notifications} />
       <Route path="/contact" component={Contact} />
       <Route path="/card" component={ChadCard} />
       <Route path="/dot-card" component={ChadCard} />
@@ -758,6 +757,7 @@ function Router() {
       <Route path="/scouting-report" component={AIScoutingReport} />
       <Route path="/notification-center" component={NotificationCenter} />
       <Route path="/notifications" component={NotificationCenter} />
+      <Route path="/notification-legacy" component={Notifications} />
       <Route path="/highlight-reel-studio" component={HighlightReelStudio} />
       <Route path="/reel-studio" component={HighlightReelStudio} />
       <Route path="/admin/build-monitor" component={BuildMonitor} />

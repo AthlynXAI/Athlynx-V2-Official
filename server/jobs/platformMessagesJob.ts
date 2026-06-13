@@ -35,6 +35,34 @@ export async function sendWelcomeNotification(userId: number, userName: string):
   }
 }
 
+// ─── Generic system notification (billing, security, platform alerts) ──────────
+
+export async function sendSystemNotification(
+  userId: number,
+  title: string,
+  message: string,
+  type: string = "system"
+): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.insert(notifications).values({
+      userId,
+      type,
+      title,
+      message,
+      link: type === "billing" ? "/billing" : "/portal",
+      priority: "high",
+      isRead: "no",
+      isDismissed: "no",
+      isBroadcast: "no",
+    });
+    console.log(`[PlatformMessages] ✓ System notification (${type}) sent to userId=${userId}`);
+  } catch (err) {
+    console.error(`[PlatformMessages] Failed to send system notification to userId=${userId}:`, err);
+  }
+}
+
 // ─── Periodic reminder messages (runs weekly) ─────────────────────────────────
 
 const REMINDER_MESSAGES = [

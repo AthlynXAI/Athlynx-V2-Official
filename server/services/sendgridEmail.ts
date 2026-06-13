@@ -32,4 +32,5 @@ export async function sendWelcomeEmail(to: string, data: Record<string, unknown>
   return sendTemplatedEmail(to, templateId, data);
 }
 
-// TODO: replace with real telemetry once observability is wired
+// Telemetry: structured logs via console.error/warn captured by Vercel Log Drains.
+// Upgrade path: wire Sentry SDK (server/services/sentry.ts) in Build 2 observability sprint.

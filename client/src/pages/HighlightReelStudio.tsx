@@ -25,8 +25,8 @@ import {
 const Instagram = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 5.43A4.41 4.41 0 1 0 16.41 12 4.41 4.41 0 0 0 12 7.59Zm0 7.27A2.86 2.86 0 1 1 14.86 12 2.86 2.86 0 0 1 12 14.86Zm5.6-7.45a1.03 1.03 0 1 1-1.03-1.03 1.03 1.03 0 0 1 1.03 1.03Z"/></svg>);
 const Twitter = (p: any) => (<svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M18.244 2H21l-6.51 7.43L22 22h-6.84l-4.65-6.07L4.93 22H2.17l6.96-7.95L2 2h7.04l4.18 5.55L18.244 2Zm-2.4 18h1.86L7.27 4H5.3l10.55 16Z"/></svg>);
 
-//  Sample Reels 
-const SAMPLE_REELS = [
+// Seed reels — shown until real videos are uploaded
+const SEED_REELS = [
   {
     id: 1,
     title: "40-Yard Dash — 4.52s Personal Best",
@@ -91,7 +91,27 @@ function formatStat(n: number): string {
 function HighlightReelStudioInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<"my-reels" | "upload" | "analytics">("my-reels");
-  const [selectedReel, setSelectedReel] = useState<typeof SAMPLE_REELS[0] | null>(null);
+
+  // Real videos from DB
+  const myVideosQuery = trpc.media.getMyVideos.useQuery(undefined, { staleTime: 60_000 });
+  const realReels = (myVideosQuery.data ?? []).map((v: any) => ({
+    id: v.id ?? String(Math.random()),
+    title: v.title ?? "Untitled Reel",
+    sport: v.sport ?? user?.sport ?? "Sport",
+    athlete: user?.name ?? "Athlete",
+    duration: v.duration ?? "0:00",
+    views: v.views ?? 0,
+    likes: v.likes ?? 0,
+    comments: v.comments ?? 0,
+    shares: v.shares ?? 0,
+    thumbnail: v.thumbnailUrl ?? v.url ?? "",
+    tags: v.tags ?? [],
+    uploadedAt: v.createdAt ? new Date(v.createdAt).toLocaleDateString() : "Recently",
+    status: "live" as const,
+  }));
+  const SAMPLE_REELS = realReels.length > 0 ? realReels : SEED_REELS;
+
+  const [selectedReel, setSelectedReel] = useState<typeof SEED_REELS[0] | null>(null);
   const [uploadStep, setUploadStep] = useState<"select" | "details" | "ai" | "done">("select");
   const [isDragging, setIsDragging] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);

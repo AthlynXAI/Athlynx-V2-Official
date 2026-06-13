@@ -46,8 +46,8 @@ const CURRENT_SEASON = {
   urgency: "LIVE NOW",
 };
 
-// ─── MOCK FEED DATA ──────────────────────────────────────────────────────────
-const FEED_POSTS = [
+// ─── SEED FEED DATA (shown until real posts exist in DB) ───────────────────────
+const SEED_FEED_POSTS = [
   {
     id: 1,
     user: "Marcus Williams",
@@ -618,17 +618,44 @@ function AthlynXSocialInner() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<Tab>("feed");
   const [showMessages, setShowMessages] = useState(false);
-  const [posts, setPosts] = useState(FEED_POSTS);
   const [newPostText, setNewPostText] = useState("");
   const [unreadCount] = useState(MESSAGES.filter(m => m.unread).length);
+
+  // Real feed from DB — falls back to seed posts until real content exists
+  const feedQuery = trpc.feed.getFeed.useQuery({ limit: 20, offset: 0 }, { staleTime: 30_000 });
+  const createPost = trpc.feed.createPost.useMutation({
+    onSuccess: () => { feedQuery.refetch(); setNewPostText(""); },
+  });
+  const likePost = trpc.feed.likePost.useMutation();
+
+  // Merge real posts on top of seed posts so feed is never empty
+  const realPosts = (feedQuery.data ?? []).map((p: any) => ({
+    id: p.id,
+    user: p.authorName ?? "AthlynX Athlete",
+    handle: `@user${p.userId}`,
+    sport: "🏆 AthlynX",
+    school: "",
+    avatar: (p.authorName ?? "A").slice(0, 2).toUpperCase(),
+    avatarColor: C.electric,
+    time: new Date(p.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    content: p.content,
+    media: p.mediaType !== "none" ? p.mediaType : null,
+    likes: p.likesCount ?? 0,
+    comments: p.commentsCount ?? 0,
+    shares: p.sharesCount ?? 0,
+    recruiterViews: 0,
+    nilValue: "",
+    verified: false,
+    sponsored: false,
+  }));
+  const posts = realPosts.length > 0 ? realPosts : SEED_FEED_POSTS;
 
   useEffect(() => {
     document.title = "AthlynX Social — The Athlete's Playbook";
   }, []);
 
   function handleLike(id: number) {
-    // In production this would call trpc.social.likePost.mutate({ postId: id })
-    console.log("[AthlynXSocial] liked post", id);
+    likePost.mutate({ postId: id });
   }
 
   function handleNewPost(e: React.FormEvent) {
@@ -653,7 +680,7 @@ function AthlynXSocialInner() {
       verified: false,
       sponsored: false,
     };
-    setPosts(p => [newPost, ...p]);
+    createPost.mutate({ content: newPostText, postType: "status" });
     setNewPostText("");
   }
 

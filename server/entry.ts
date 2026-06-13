@@ -164,6 +164,7 @@ app.post("/api/client-error", (req: Request, res: Response) => {
   res.status(204).end();
 });
 
+
 // Health check
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({

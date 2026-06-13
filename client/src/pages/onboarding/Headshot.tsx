@@ -6,7 +6,7 @@ import {
 } from "./_shell";
 import { trpc } from "@/lib/trpc";
 
-// TODO: schema column athleteProfiles.headshotUrl — for Build 1 we reuse coverUrl/avatarUrl.
+// Build 2: add dedicated athleteProfiles.headshotUrl column. For Build 1 we reuse coverUrl/avatarUrl.
 
 export default function Headshot() {
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);

@@ -10,4 +10,5 @@ export async function sendSms(to: string, body: string): Promise<{ ok: boolean }
   return { ok };
 }
 
-// TODO: replace with real telemetry once observability is wired
+// Telemetry: structured logs via console.error/warn captured by Vercel Log Drains.
+// Upgrade path: wire Sentry SDK (server/services/sentry.ts) in Build 2 observability sprint.

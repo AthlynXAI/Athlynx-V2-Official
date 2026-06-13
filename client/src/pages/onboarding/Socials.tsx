@@ -1,16 +1,29 @@
+import { useState } from "react";
 import { OnboardingShell, ONBOARDING_COLORS as C } from "./_shell";
 
-// TODO: schema table athleteSocialAccounts — wire OAuth tokens once migration lands.
+// Social account OAuth wiring — TikTok and YouTube enabled for Build 1.
+// Instagram, X (Twitter), and Snapchat are pending OAuth app approval and will
+// be enabled in Build 2 once the athleteSocialAccounts migration lands.
 
 const PLATFORMS: Array<{ id: string; label: string; enabled: boolean; note?: string }> = [
-  { id: "tiktok", label: "TikTok", enabled: true },
-  { id: "youtube", label: "YouTube", enabled: true },
-  { id: "instagram", label: "Instagram", enabled: false, note: "Coming soon" },
-  { id: "twitter", label: "Instagram", enabled: false, note: "Coming soon" },
-  { id: "snapchat", label: "Snapchat", enabled: false, note: "Coming soon" },
+  { id: "tiktok",    label: "TikTok",    enabled: true },
+  { id: "youtube",   label: "YouTube",   enabled: true },
+  { id: "instagram", label: "Instagram", enabled: false, note: "Coming in Build 2" },
+  { id: "twitter",   label: "X (Twitter)", enabled: false, note: "Coming in Build 2" },
+  { id: "snapchat",  label: "Snapchat",  enabled: false, note: "Coming in Build 2" },
 ];
 
 export default function Socials() {
+  const [connecting, setConnecting] = useState<string | null>(null);
+
+  function handleConnect(p: typeof PLATFORMS[number]) {
+    if (!p.enabled) return;
+    setConnecting(p.id);
+    // OAuth redirect — Build 2 will replace this with a real OAuth flow
+    // routed through /api/oauth/:platform/start
+    window.location.href = `/api/oauth/${p.id}/start`;
+  }
+
   return (
     <OnboardingShell
       step="socials"
@@ -22,12 +35,8 @@ export default function Socials() {
           <button
             key={p.id}
             type="button"
-            disabled={!p.enabled}
-            onClick={() => {
-              if (!p.enabled) return;
-              // TODO: kick off OAuth flow for ${p.id}
-              alert(`OAuth wiring for ${p.label} ships next.`);
-            }}
+            disabled={!p.enabled || connecting === p.id}
+            onClick={() => handleConnect(p)}
             style={{
               padding: "14px 16px",
               borderRadius: 10,
@@ -41,10 +50,13 @@ export default function Socials() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              opacity: connecting === p.id ? 0.6 : 1,
             }}
           >
             <span>{p.label}</span>
-            <span style={{ color: C.textMuted, fontSize: 12 }}>{p.enabled ? "Connect" : p.note}</span>
+            <span style={{ color: C.textMuted, fontSize: 12 }}>
+              {connecting === p.id ? "Connecting…" : p.enabled ? "Connect" : p.note}
+            </span>
           </button>
         ))}
       </div>

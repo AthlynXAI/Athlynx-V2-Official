@@ -74,14 +74,10 @@ export const mediaRouter = router({
     .mutation(async ({ ctx, input }) => {
       const s3 = getS3();
       if (!s3 || !BUCKET) {
-        // Fallback: return a mock URL for development
-        const mockKey = generateKey(ctx.user.id, input.mediaType, input.filename);
-        return {
-          uploadUrl: null,
-          key: mockKey,
-          publicUrl: `https://athlynx.ai/placeholder-video.mp4`,
-          fallback: true,
-        };
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Media storage is not configured. Please contact support at support@athlynx.ai.",
+        });
       }
 
       const key = generateKey(ctx.user.id, input.mediaType, input.filename);

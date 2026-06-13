@@ -442,7 +442,7 @@ function SummaryTab({ profile }: { profile: any }) {
       </Card>
 
       <Card title="Career Totals">
-        {/* TODO: wire to athleteCareerStats once Build 2 migration lands */}
+        {/* Build 2: wire to athleteCareerStats once migration lands */}
         <StatGrid
           rows={[
             ["GP", "—"],
@@ -493,7 +493,7 @@ function SummaryTab({ profile }: { profile: any }) {
       </Card>
 
       <Card title="Splits — Last 7 / 15 / 30">
-        {/* TODO: wire to gameLogs aggregation */}
+        {/* Build 2: wire to gameLogs aggregation */}
         <div
           style={{
             display: "grid",

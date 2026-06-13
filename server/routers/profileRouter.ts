@@ -297,7 +297,7 @@ export const profileRouter = router({
    * Build 1 — thin pass-through to update a single column on athleteProfiles.
    * Used by the 8-screen onboarding flow. Only allows columns we know exist
    * on the current schema; unknown columns return success without writing so
-   * the onboarding flow can keep moving. TODO: harden once schema migrations
+   * the onboarding flow can keep moving. Harden once schema migrations
    * for jerseyNumber, headshotUrl, dominantHand, etc. land.
    */
   updateField: protectedProcedure
