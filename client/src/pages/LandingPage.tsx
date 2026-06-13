@@ -413,7 +413,9 @@ function LandingPageInner() {
       </section>
 
       {/* LIVE HIGHLIGHTS — 4 clean cards, each to their own page */}
-      <section className="relative bg-[#020713] px-5 py-16">
+      <section className="relative bg-[#020713] px-5 py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(0,102,255,0.22),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.08),transparent_55%)]" />
+        <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">
 
           {/* Section header */}

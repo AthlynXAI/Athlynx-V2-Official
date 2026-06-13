@@ -740,9 +740,9 @@ function HomeInner() {
               Every athlete on this road is one of them. The 64-team bracket is treated with no favorites, no shortcuts, and no preferential spotlight — proof that AthlynX is built for every athlete, at every school, in every sport.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/brackets/mcws" className="rounded-2xl bg-[#1E90FF] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-[#1E90FF]/25 transition hover:bg-[#0080FF]">Follow The Road</Link>
+              <Link href="/brackets" className="rounded-2xl bg-[#1E90FF] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-[#1E90FF]/25 transition hover:bg-[#0080FF]">Follow The Road</Link>
               <Link href="/ncaa-baseball-regionals" className="rounded-2xl border border-[#1E90FF]/40 bg-[#0a1628] px-5 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-[#1E90FF]/20">See Every Regional</Link>
-              <Link href="/softball" className="rounded-2xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20">Honor Every Path</Link>
+              <Link href="/softball-nation" className="rounded-2xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20">Honor Every Path</Link>
             </div>
           </div>
           <div className="space-y-4">
