@@ -310,6 +310,7 @@ import BetaSignup from "./pages/BetaSignup";
 import XFactor from "./pages/XFactor";
 import RoadToOmaha from "./pages/RoadToOmaha";
 import TheWeek from "./pages/TheWeek";
+import SessionHandoff from "./pages/SessionHandoff";
 
 function Router() {
   return (
@@ -825,6 +826,7 @@ function Router() {
       <Route path="/x-factor" component={XFactor} />
       <Route path="/road-to-omaha" component={RoadToOmaha} />
       <Route path="/the-week" component={TheWeek} />
+      <Route path="/session-handoff" component={SessionHandoff} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
