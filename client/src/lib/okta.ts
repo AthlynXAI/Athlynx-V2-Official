@@ -53,6 +53,11 @@ async function getClient(): Promise<Auth0Client> {
     },
     useRefreshTokens: false,
     cacheLocation:    "localstorage",
+    // ⚠️ CRITICAL FIX: store PKCE transaction state in a first-party cookie
+    // instead of sessionStorage. sessionStorage is wiped in private browsing
+    // and during cross-origin redirect chains (athlynx.ai → auth0.com → google.com → athlynx.ai).
+    // This is the root cause of "Sign-in failed" for all users on all browsers.
+    useCookiesForTransactions: true,
   });
   return _client;
 }
@@ -117,28 +122,26 @@ export async function createUserWithEmailAndPassword(
 // ─── Callback handler ─────────────────────────────────────────────────────
 export async function handleRedirectResult(): Promise<{ idToken: string; user: AthlynXUser } | null> {
   const params = new URLSearchParams(window.location.search);
-
   if (params.get("error")) {
-    console.error("[okta] Auth0 error:", params.get("error"), params.get("error_description"));
-    return null;
+    const errCode = params.get("error");
+    const errDesc = params.get("error_description");
+    console.error("[okta] Auth0 error in callback URL:", errCode, errDesc);
+    // Surface the error so it's visible in AuthCallback UI
+    throw new Error(`Auth0 error: ${errCode} — ${errDesc}`);
   }
-
   if (!params.get("code")) {
-    console.error("[okta] No code in callback URL");
-    return null;
+    console.error("[okta] No code in callback URL — params:", window.location.search);
+    throw new Error("No authorization code in callback URL. The login redirect may have been interrupted.");
   }
-
   try {
     const client = await getClient();
-    // The SDK handles PKCE verifier internally — no localStorage needed
+    // The SDK handles PKCE verifier internally via first-party cookie (useCookiesForTransactions: true)
     await client.handleRedirectCallback();
-
     const claims = await client.getIdTokenClaims();
     if (!claims) {
       console.error("[okta] No ID token claims after callback");
-      return null;
+      throw new Error("Auth0 returned no ID token claims. Please try signing in again.");
     }
-
     return {
       idToken: claims.__raw,
       user: {
@@ -150,7 +153,7 @@ export async function handleRedirectResult(): Promise<{ idToken: string; user: A
     };
   } catch (err) {
     console.error("[okta] handleRedirectCallback failed:", err);
-    return null;
+    throw err;
   }
 }
 
