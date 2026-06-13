@@ -40,17 +40,17 @@ const SCREENS = {
 
 const ECOSYSTEM_IMAGES = [
   {
-    src: "/brand/athlynx-promo.png",
+    src: "/brand/uploads-permanent/athlynx-hero-horizontal-stadium.PNG",
     title: "AthlynXAI",
     subtitle: "Recruiting · NIL · Brand tools for the modern athlete",
   },
   {
-    src: "/brand/app-screen-15.png",
+    src: "/brand/uploads-permanent/athlynx-hero-vertical-stadium.JPG",
     title: "AthlynX",
     subtitle: "Parent athlete OS and sports identity layer",
   },
   {
-    src: "/brand/app-screen-16.png",
+    src: "/brand/uploads-permanent/owl-watermark-stadium-approved.JPG",
     title: "AXN / AVN",
     subtitle: "Athlete network, media, video, and vision layer",
   },
@@ -256,6 +256,7 @@ function ScreenMockup({ title, badge, img, href, color }: {
 function LandingPageInner() {
   const [genderFilter, setGenderFilter] = useState<"All" | "Men's" | "Women's">("All");
   const [headline, setHeadline] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const headlines = [
@@ -307,15 +308,36 @@ function LandingPageInner() {
           </div>
           <div className="flex items-center gap-3">
             <Link href="/signin">
-              <button className="text-[#8ba3c7] hover:text-white text-sm font-semibold px-4 py-2 transition-colors">Sign In</button>
+              <button className="text-[#8ba3c7] hover:text-white text-sm font-semibold px-4 py-2 transition-colors hidden sm:block">Sign In</button>
             </Link>
             <Link href="/signup">
-              <button className="bg-[#0066ff] hover:bg-[#0052cc] text-white font-black text-sm px-6 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-[#0066ff]/30">
+              <button className="bg-[#0066ff] hover:bg-[#0052cc] text-white font-black text-sm px-5 py-2 rounded-full transition-all hover:scale-105 shadow-lg shadow-[#0066ff]/30">
                 Join Free
               </button>
             </Link>
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2 ml-1"
+              onClick={() => setMobileMenuOpen(o => !o)}
+              aria-label="Menu"
+            >
+              <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
           </div>
         </div>
+        {/* Mobile menu dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-[#050d1a]/98 border-t border-[#0066ff]/20 px-5 py-4 flex flex-col gap-4 text-sm font-semibold text-[#8ba3c7]">
+            <Link href="/epx" onClick={() => setMobileMenuOpen(false)}><span className="block hover:text-white py-1">EPX</span></Link>
+            <Link href="/cfactor" onClick={() => setMobileMenuOpen(false)}><span className="block hover:text-white py-1">C-Factor</span></Link>
+            <Link href="/nil-portal" onClick={() => setMobileMenuOpen(false)}><span className="block hover:text-white py-1">NIL Portal</span></Link>
+            <Link href="/diamond-grind" onClick={() => setMobileMenuOpen(false)}><span className="block hover:text-white py-1">Diamond Grind</span></Link>
+            <Link href="/investor-hub" onClick={() => setMobileMenuOpen(false)}><span className="block text-[#00c2ff] font-black py-1">Investors</span></Link>
+            <Link href="/signin" onClick={() => setMobileMenuOpen(false)}><span className="block hover:text-white py-1">Sign In</span></Link>
+          </div>
+        )}
       </nav>
 
       {/*  HERO VIDEO BANNER  */}
@@ -523,6 +545,278 @@ function LandingPageInner() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/*  X-FACTOR & C-FACTOR HERO FEATURES  */}
+      <section className="py-24 px-5 bg-[#050d1a]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">AthlynXAI Originals</p>
+          <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-4 tracking-tight">
+            BUILT FOR THE <span className="text-[#00c2ff]">NEXT LEVEL</span>
+          </h2>
+          <p className="text-[#8ba3c7] text-center text-lg mb-16 max-w-2xl mx-auto">
+            Two proprietary systems that no other platform has. Exclusively AthlynXAI.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+            {FEATURES.slice(0, 2).map((f, i) => (
+              <Link key={i} href={f.href}>
+                <div className="bg-gradient-to-br from-[#0a1628] to-[#050d1a] border border-[#0066ff]/20 rounded-3xl p-8 hover:border-[#00c2ff]/60 transition-all cursor-pointer group">
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="text-4xl">{f.icon}</span>
+                    <div>
+                      <p className="text-[#00c2ff] text-xs font-black tracking-[0.3em] uppercase mb-1">{f.tagline}</p>
+                      <h3 className="text-white font-black text-2xl group-hover:text-[#00c2ff] transition-colors">{f.name}</h3>
+                    </div>
+                  </div>
+                  <p className="text-[#8ba3c7] text-sm leading-relaxed mb-6">{f.desc}</p>
+                  <div className="flex items-center gap-2 text-[#0066ff] font-bold text-sm group-hover:gap-4 transition-all">
+                    <span>{f.cta}</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Remaining 4 features */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {FEATURES.slice(2).map((f, i) => (
+              <Link key={i} href={f.href}>
+                <div className="bg-[#0a1628] border border-[#0066ff]/15 rounded-2xl p-6 hover:border-[#0066ff]/50 transition-all cursor-pointer group">
+                  <span className="text-3xl mb-3 block">{f.icon}</span>
+                  <h3 className="text-white font-black text-lg mb-2 group-hover:text-[#00c2ff] transition-colors">{f.name}</h3>
+                  <p className="text-[#8ba3c7] text-xs leading-relaxed mb-4 line-clamp-3">{f.desc}</p>
+                  <span className="text-[#0066ff] text-xs font-bold">Open →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/*  PLATFORM SCREENS  */}
+      <section className="py-24 px-5 bg-[#030810]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">The Full Platform</p>
+          <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-4 tracking-tight">
+            EVERY SCREEN. <span className="text-[#00c2ff]">LIVE.</span>
+          </h2>
+          <p className="text-[#8ba3c7] text-center text-lg mb-16 max-w-2xl mx-auto">
+            This is what you get when you log in. Built from scratch. 100% original. Zero compromises.
+          </p>
+          <div className="flex gap-5 overflow-x-auto pb-6 snap-x snap-mandatory" style={{ scrollbarWidth: 'none' }}>
+            {[
+              { title:"The Feed",        badge:"LIVE",  img:SCREENS.feed,      href:"/portal",          color:"#22c55e" },
+              { title:"EPX™",       badge:"HOT",   img:SCREENS.epx,   href:"/epx",        color:"#0066ff" },
+              { title:"C-Factor Hub™",   badge:"NEW",   img:SCREENS.cfactor,   href:"/cfactor",         color:"#00c2ff" },
+              { title:"Diamond Grind™",  badge:"NEW",   img:SCREENS.diamond,   href:"/diamond-grind",   color:"#0066ff" },
+              { title:"NIL Messenger™",  badge:"LIVE",  img:SCREENS.messenger, href:"/messenger",       color:"#22c55e" },
+              { title:"Athlete Calendar",badge:"LIVE",  img:SCREENS.calendar,  href:"/athlete-calendar",color:"#22c55e" },
+              { title:"Rankings Hub™",   badge:"NEW",   img:SCREENS.rankings,  href:"/rankings-hub",    color:"#0066ff" },
+              { title:"NIL Portal™",     badge:"LIVE",  img:SCREENS.nilportal, href:"/nil-portal",      color:"#22c55e" },
+              { title:"Transfer Portal™",badge:"LIVE",  img:SCREENS.transfer,  href:"/transfer-portal", color:"#22c55e" },
+              { title:"Warriors Playbook",badge:"HOT",  img:SCREENS.warriors,  href:"/warriors-playbook",color:"#ef4444" },
+              { title:"Athlete Profile™",badge:"LIVE",  img:SCREENS.profile,   href:"/profile",         color:"#22c55e" },
+              { title:"Recruiting Hub™", badge:"HOT",   img:SCREENS.recruiting,href:"/recruiting-hub",  color:"#0066ff" },
+            ].map((s, i) => (
+              <div key={i} className="snap-center flex-shrink-0 flex flex-col items-center gap-3">
+                <ScreenMockup {...s} />
+                <p className="text-[#8ba3c7] text-xs font-bold text-center">{s.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/*  MEN'S & WOMEN'S SPORTS  */}
+      <section className="py-24 px-5 bg-[#050d1a]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[#0066ff] text-sm font-black uppercase tracking-[0.3em] text-center mb-3">Every Sport. Every Level.</p>
+          <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-4 tracking-tight">
+            MEN'S <span className="text-[#00c2ff]">&</span> WOMEN'S
+          </h2>
+          <p className="text-[#8ba3c7] text-center text-lg mb-10 max-w-2xl mx-auto">
+            44 sports. Both genders. Youth through Pro. AthlynXAI covers every athlete at every level.
+          </p>
+
+          {/* Gender filter */}
+          <div className="flex justify-center gap-3 mb-12">
+            {(["All", "Men's", "Women's"] as const).map(g => (
+              <button
+                key={g}
+                onClick={() => setGenderFilter(g)}
+                className={`px-8 py-3 rounded-full font-black text-sm transition-all ${
+                  genderFilter === g
+                    ? "bg-[#0066ff] text-white shadow-lg shadow-[#0066ff]/30"
+                    : "bg-white/5 text-[#8ba3c7] border border-white/10 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {g}
+              </button>
+            ))}
+          </div>
+
+          {/* Sport grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filteredSports.map((s, i) => (
+              <SportCard key={i} {...s} size={i < 2 ? "lg" : i < 6 ? "md" : "sm"} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/portal">
+              <button className="bg-[#0066ff] hover:bg-[#0052cc] text-white font-black text-xl px-14 py-5 rounded-2xl transition-all hover:scale-105 shadow-2xl shadow-[#0066ff]/40">
+                ENTER THE FULL PLATFORM →
+              </button>
+            </Link>
+            <p className="text-[#8ba3c7] text-sm mt-3">athlynx.ai · All 44 Sports · Men's & Women's · Free 7-Day Trial</p>
+          </div>
+        </div>
+      </section>
+
+      {/*  ATHLYNXAI OS NETWORK BROADCAST SHOWCASE  */}
+      <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,194,255,0.12),transparent_50%)]" />
+        <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl">
+          {/* Header */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-[#00c2ff]/10 border border-[#00c2ff]/30 rounded-full px-5 py-2 mb-6">
+              <span className="w-2 h-2 bg-[#00c2ff] rounded-full animate-pulse" />
+              <span className="text-[#00c2ff] text-xs font-black tracking-[0.3em] uppercase">AthlynXAI OS Network · Live 24/7/365</span>
+            </div>
+            <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tight mb-4">
+              THE NETWORK THAT <span className="text-[#00c2ff]">NEVER SLEEPS</span>
+            </h2>
+            <p className="text-[#8ba3c7] text-lg max-w-3xl mx-auto">
+              Real scores. Real brackets. Real athletes. Real weather. Nothing fake. Right down the middle.
+              AthlynXAI OS is your sports network — all day, all night, every season.
+            </p>
+          </div>
+
+          {/* 3 Network Pillars */}
+          <div className="grid gap-6 lg:grid-cols-3 mb-12">
+
+            {/* Pillar 1: Landing / Network Home */}
+            <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
+                  <span className="text-lg">🏠</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Network Home</p>
+                  <p className="text-sm font-black text-white">AthlynXAI OS</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The front door of the network. Every sport. Every season. Live scores ticker, current champions, active tournaments, and your athlete dashboard — all in one place. Updates automatically as the sports calendar moves.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["Live Score Ticker", "Season Calendar", "Champions Board", "Weather + Conditions"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/">
+                <button className="w-full bg-[#0066ff]/10 hover:bg-[#0066ff]/20 border border-[#0066ff]/30 text-[#00c2ff] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Enter Network Home →
+                </button>
+              </Link>
+            </div>
+
+            {/* Pillar 2: Broadcast Room */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/40 bg-[#06142a]/90 p-6 flex flex-col shadow-2xl shadow-[#00c2ff]/10 relative">
+              <div className="absolute top-4 right-4">
+                <span className="inline-flex items-center gap-1.5 bg-[#00c2ff]/10 border border-[#00c2ff]/30 rounded-full px-3 py-1">
+                  <span className="w-1.5 h-1.5 bg-[#00c2ff] rounded-full animate-pulse" />
+                  <span className="text-[9px] font-black text-[#00c2ff] tracking-widest uppercase">Live</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#00c2ff]/20 border border-[#00c2ff]/30 flex items-center justify-center">
+                  <span className="text-lg">📺</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#00c2ff]/60">Broadcast Room</p>
+                  <p className="text-sm font-black text-white">MCWS Road to Omaha</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The full sportscast experience. Live ESPN scores, interactive bracket, team broadcast cards with player spotlights, coach callouts, fan base culture, YouTube highlights, and podcast integration. Better than SportsCenter. Built for the next generation.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["Live ESPN Scores", "Interactive Bracket", "Team Broadcast Cards", "Player Spotlights", "Coach Callouts", "Fan Base Culture", "Highlight Reels", "Podcast Network"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00c2ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/brackets">
+                <button className="w-full bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Open Broadcast Room → Live Now
+                </button>
+              </Link>
+            </div>
+
+            {/* Pillar 3: Diamond Grind */}
+            <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
+                  <span className="text-lg">⚾</span>
+                </div>
+                <div>
+                  <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Training Platform</p>
+                  <p className="text-sm font-black text-white">Diamond Grind™</p>
+                </div>
+              </div>
+              <p className="text-xs text-[#8ba3c7] leading-relaxed mb-4 flex-1">
+                The broadcast feeds directly into the training platform. Watch a CWS player hit 112 mph exit velocity — then train for it. AI coach, velocity tracker, showcase prep, leaderboard. From tee-ball to the MLB draft. The cycle never stops.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {["AI Coach", "Velocity Tracker", "Exit Velocity", "Fielding Metrics", "Showcase Prep", "Leaderboard"].map(f => (
+                  <div key={f} className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0066ff]" />
+                    <span className="text-[10px] font-bold text-white/70">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/diamond-grind">
+                <button className="w-full bg-[#0066ff]/10 hover:bg-[#0066ff]/20 border border-[#0066ff]/30 text-[#00c2ff] font-black text-xs py-2.5 rounded-xl transition-all tracking-widest uppercase">
+                  Enter Diamond Grind →
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Network Manifesto Banner */}
+          <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-gradient-to-r from-[#06142a] via-[#050d1a] to-[#06142a] p-8 text-center">
+            <p className="text-[9px] font-black tracking-[0.4em] uppercase text-[#00c2ff]/50 mb-3">AthlynXAI OS · The Network Manifesto</p>
+            <h3 className="text-2xl lg:text-4xl font-black text-white mb-3">
+              "The people who are crazy enough to think they can change the world<br className="hidden lg:block" />
+              <span className="text-[#00c2ff]"> are the ones who actually do."</span>
+            </h3>
+            <p className="text-[#8ba3c7] text-sm mb-6 max-w-2xl mx-auto">
+              — Steve Jobs. That's every athlete who ever laced up. AthlynXAI OS exists for them. From youth to pro to retirement.
+              Fair. Balanced. Real. 24/7/365.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/brackets">
+                <button className="bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-8 py-3 rounded-xl transition-all hover:scale-105">
+                  WATCH LIVE → MCWS BROADCAST
+                </button>
+              </Link>
+              <Link href="/portal">
+                <button className="bg-white/5 hover:bg-white/10 text-white font-bold text-sm px-8 py-3 rounded-xl border border-white/20 transition-all">
+                  ENTER THE PLATFORM
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
