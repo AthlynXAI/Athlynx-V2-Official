@@ -23,7 +23,7 @@ const HERO_VIDEO = "https://pub-e4ffb4c8e08a4770a064090220a8e31d.r2.dev/videos/S
 //  Platform Screenshots (real athlynx.ai UI) 
 const SCREENS = {
   feed:       "/brand/athlynx-app-screen-1.png",
-  diamond:    "/brand/app-screen-2.png",
+  diamond:    "/landing/IMG_1360.PNG",
   messenger:  "/brand/app-screen-3.png",
   epx:        "/brand/app-screen-4.png",
   cfactor:    "/brand/app-screen-5.png",
@@ -66,7 +66,7 @@ const ECOSYSTEM_LEGS = [
 //  Sports — Men's & Women's 
 const SPORTS = [
   // Men's
-  { gender:"Men's", sport:"Football",     img:"/sports/football.png", href:"/gridiron-nexus",   badge:"LIVE" },
+  { gender:"Men's", sport:"Football",     img:"/landing/IMG_1257.PNG", href:"/gridiron-nexus",   badge:"LIVE" },
   { gender:"Men's", sport:"Basketball",   img:"/landing/IMG_2046.JPG", href:"/court-kings",      badge:"LIVE" },
   { gender:"Men's", sport:"Baseball",     img:"/landing/IMG_2047.JPG", href:"/diamond-grind",    badge:"NEW"  },
   { gender:"Men's", sport:"Soccer",       img:"/landing/IMG_2048.JPG", href:"/pitch-pulse",      badge:"LIVE" },
@@ -102,7 +102,7 @@ const SPORTS = [
   { gender:"Women's", sport:"Wrestling",    img:"/landing/IMG_2050.JPG", href:"/warriors-playbook",badge:"HOT"  },
   { gender:"Women's", sport:"Boxing",       img:"/landing/IMG_2065.JPG", href:"/boxing",           badge:"LIVE" },
   { gender:"Women's", sport:"MMA",          img:"/landing/IMG_2066.JPG", href:"/mma",              badge:"LIVE" },
-  { gender:"Women's", sport:"Football",     img:"/sports/football.png", href:"/gridiron-nexus",   badge:"LIVE" },
+  { gender:"Women's", sport:"Football",     img:"/landing/IMG_1257.PNG", href:"/gridiron-nexus",   badge:"LIVE" },
   { gender:"Women's", sport:"Baseball",     img:"/landing/IMG_2047.JPG", href:"/diamond-grind",    badge:"NEW"  },
   { gender:"Women's", sport:"Cycling",      img:"/landing/IMG_2063.JPG", href:"/cycling",          badge:"LIVE" },
 ];
@@ -174,9 +174,9 @@ const CHAMPIONSHIP_SPOTLIGHTS = [
     href: "/brackets",
   },
   {
-    title: "🏆 Texas Back-to-Back",
+    title: "Texas Back-to-Back",
     eyebrow: "WCWS Champions · 2025 & 2026 · Congratulations",
-    desc: "CONGRATULATIONS to the Texas Longhorns — BACK-TO-BACK Women's College World Series National Champions! Texas swept Texas Tech in the 2026 WCWS Finals. Back-to-back MOP Teagan Kavan. Hook 'Em Horns. The legacy is built. 🤘",
+    desc: "CONGRATULATIONS to the Texas Longhorns — BACK-TO-BACK Women's College World Series National Champions! Texas swept Texas Tech in the 2026 WCWS Finals. Back-to-back MOP Teagan Kavan. Hook Em Horns. The legacy is built.",
     accent: "#BF5700",
     href: "/diamond-grind",
   },
@@ -237,7 +237,7 @@ function ScreenMockup({ title, badge, img, href, color }: {
 }) {
   return (
     <Link href={href}>
-      <div className="w-56 h-[440px] rounded-[2.5rem] border-2 border-[#0066ff]/40 shadow-2xl overflow-hidden cursor-pointer hover:border-[#00c2ff] hover:scale-[1.02] transition-all duration-300 flex-shrink-0 bg-[#050d1a] relative group">
+      <div className="w-56 h-[440px] rounded-[2.5rem] border-2 border-[#0066ff]/40 shadow-2xl overflow-hidden cursor-pointer hover:border-[#00c2ff] hover:scale-[1.02] transition-all duration-300 flex-shrink-0 bg-[#0d1f3c] relative group">
         <img src={img} alt={title} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050d1a]/80 via-transparent to-transparent" />
         <div className="absolute top-3 right-3">
@@ -413,7 +413,7 @@ function LandingPageInner() {
       </section>
 
       {/* LIVE HIGHLIGHTS — 4 clean cards, each to their own page */}
-      <section className="relative bg-[#020713] px-5 py-16 overflow-hidden">
+      <section className="relative bg-[#0a1628] px-5 py-16 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(0,102,255,0.22),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.08),transparent_55%)]" />
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -433,7 +433,7 @@ function LandingPageInner() {
             {/* 1 — MCWS */}
             <Link href="/brackets">
               <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
-                <img src="/landing/IMG_7116.PNG" alt="Men's College World Series" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/landing/IMG_1252.PNG" alt="Men's College World Series" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="flex items-center gap-1.5 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
@@ -451,7 +451,7 @@ function LandingPageInner() {
             {/* 2 — FIFA */}
             <Link href="/world-cup">
               <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
-                <img src="/landing/IMG_7119.PNG" alt="FIFA World Cup 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/landing/IMG_1246.PNG" alt="FIFA World Cup 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="flex items-center gap-1.5 bg-[#0066ff] text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
@@ -469,7 +469,7 @@ function LandingPageInner() {
             {/* 3 — NBA Finals */}
             <Link href="/court-kings">
               <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
-                <img src="/landing/IMG_7115.PNG" alt="NBA Finals 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="/landing/IMG_1249.PNG" alt="NBA Finals 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="flex items-center gap-1.5 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
@@ -506,7 +506,7 @@ function LandingPageInner() {
 
 
       {/*  AthlynX ECOSYSTEM BRAND WALL  */}
-      <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
+      <section className="relative overflow-hidden bg-[#0a1628] px-5 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,194,255,0.18),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(0,102,255,0.24),transparent_35%)]" />
         <div className="absolute -right-24 top-10 h-80 w-80 rounded-full border border-[#00c2ff]/20 bg-[#0066ff]/10 blur-2xl" />
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -567,7 +567,7 @@ function LandingPageInner() {
               <Link key={i} href={f.href}>
                 <div className="bg-gradient-to-br from-[#0a1628] to-[#050d1a] border border-[#0066ff]/20 rounded-3xl p-8 hover:border-[#00c2ff]/60 transition-all cursor-pointer group">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="text-4xl">{f.icon}</span>
+                    <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-10 h-10 object-contain" />
                     <div>
                       <p className="text-[#00c2ff] text-xs font-black tracking-[0.3em] uppercase mb-1">{f.tagline}</p>
                       <h3 className="text-white font-black text-2xl group-hover:text-[#00c2ff] transition-colors">{f.name}</h3>
@@ -588,7 +588,7 @@ function LandingPageInner() {
             {FEATURES.slice(2).map((f, i) => (
               <Link key={i} href={f.href}>
                 <div className="bg-[#0a1628] border border-[#0066ff]/15 rounded-2xl p-6 hover:border-[#0066ff]/50 transition-all cursor-pointer group">
-                  <span className="text-3xl mb-3 block">{f.icon}</span>
+                  <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-8 h-8 object-contain mb-3" />
                   <h3 className="text-white font-black text-lg mb-2 group-hover:text-[#00c2ff] transition-colors">{f.name}</h3>
                   <p className="text-[#8ba3c7] text-xs leading-relaxed mb-4 line-clamp-3">{f.desc}</p>
                   <span className="text-[#0066ff] text-xs font-bold">Open →</span>
@@ -680,7 +680,7 @@ function LandingPageInner() {
       </section>
 
       {/*  ATHLYNXAI OS NETWORK BROADCAST SHOWCASE  */}
-      <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
+      <section className="relative overflow-hidden bg-[#0a1628] px-5 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,194,255,0.12),transparent_50%)]" />
         <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -706,7 +706,7 @@ function LandingPageInner() {
             <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
-                  <span className="text-lg">🏠</span>
+                  <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-6 h-6 object-contain" />
                 </div>
                 <div>
                   <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Network Home</p>
@@ -741,7 +741,7 @@ function LandingPageInner() {
               </div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#00c2ff]/20 border border-[#00c2ff]/30 flex items-center justify-center">
-                  <span className="text-lg">📺</span>
+                  <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-6 h-6 object-contain" />
                 </div>
                 <div>
                   <p className="text-[9px] font-black tracking-widest uppercase text-[#00c2ff]/60">Broadcast Room</p>
@@ -770,7 +770,7 @@ function LandingPageInner() {
             <div className="rounded-[2rem] border border-[#0066ff]/30 bg-[#06142a]/90 p-6 flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#0066ff]/20 border border-[#0066ff]/30 flex items-center justify-center">
-                  <span className="text-lg">⚾</span>
+                  <img src="/brand/athlynx-watermark.PNG" alt="AthlynXAI" className="w-6 h-6 object-contain" />
                 </div>
                 <div>
                   <p className="text-[9px] font-black tracking-widest uppercase text-[#0066ff]/60">Training Platform</p>

@@ -306,6 +306,9 @@ import WellnessPortal from "./pages/WellnessPortal";
 import SEODashboard from "./pages/SEODashboard";
 import VendorMarketplace from "./pages/VendorMarketplace";
 import BetaSignup from "./pages/BetaSignup";
+import XFactor from "./pages/XFactor";
+import RoadToOmaha from "./pages/RoadToOmaha";
+import TheWeek from "./pages/TheWeek";
 
 function Router() {
   return (
@@ -813,6 +816,10 @@ function Router() {
       <Route path="/beta" component={BetaSignup} />
       <Route path="/join" component={BetaSignup} />
       <Route path="/get-started" component={BetaSignup} />
+      {/* Orphaned pages restored */}
+      <Route path="/x-factor" component={XFactor} />
+      <Route path="/road-to-omaha" component={RoadToOmaha} />
+      <Route path="/the-week" component={TheWeek} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
