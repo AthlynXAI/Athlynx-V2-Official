@@ -12,10 +12,10 @@ const appFeatures = [
 ];
 
 const screenshots = [
-  { label: "Dashboard", bg: "from-blue-900 to-[#0a1628]" },
-  { label: "NIL Portal", bg: "from-[#00C2FF] to-emerald-900" },
-  { label: "FUEL Bot", bg: "from-[#1E90FF] to-[#0a1628]" },
-  { label: "Tournaments", bg: "from-blue-950 to-indigo-900" },
+  { label: "Dashboard", src: "/brand/uploads-permanent/landing-screen-01.PNG" },
+  { label: "NIL Portal", src: "/brand/uploads-permanent/landing-screen-03.PNG" },
+  { label: "FUEL Bot", src: "/brand/uploads-permanent/landing-screen-05.PNG" },
+  { label: "Tournaments", src: "/brand/uploads-permanent/landing-screen-09.PNG" },
 ];
 
 const xFactorSportApps = [
@@ -341,14 +341,14 @@ function MobileAppInner() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
-              { src: "/app-screens/feed.png",       label: "Social Feed" },
-              { src: "/app-screens/profile.png",    label: "Athlete Profile" },
-              { src: "/app-screens/discover.png",   label: "Discover" },
-              { src: "/app-screens/post.png",       label: "Post Creator" },
-              { src: "/app-screens/nil.png",        label: "NIL Deals" },
-              { src: "/app-screens/messages.png",   label: "Messages" },
-              { src: "/app-screens/recruiting.png", label: "Recruiting" },
-              { src: "/app-screens/settings.png",   label: "Settings" },
+              { src: "/brand/uploads-permanent/landing-screen-01.PNG", label: "Dashboard" },
+              { src: "/brand/uploads-permanent/landing-screen-02.PNG", label: "Athlete Profile" },
+              { src: "/brand/uploads-permanent/landing-screen-03.PNG", label: "NIL Portal" },
+              { src: "/brand/uploads-permanent/landing-screen-04.PNG", label: "C-Factor Hub" },
+              { src: "/brand/uploads-permanent/landing-screen-05.PNG", label: "EPX Score" },
+              { src: "/brand/uploads-permanent/landing-screen-06.PNG", label: "Transfer Portal" },
+              { src: "/brand/uploads-permanent/landing-screen-07.PNG", label: "Diamond Grind" },
+              { src: "/brand/uploads-permanent/landing-screen-08.PNG", label: "Warriors Playbook" },
             ].map((screen, i) => (
               <div key={i} className="relative rounded-2xl overflow-hidden border border-white/10 group" style={{ boxShadow: "0 0 30px rgba(0,194,255,0.08)" }}>
                 <img src={screen.src} alt={`AthlynXAI ${screen.label}`} className="w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />

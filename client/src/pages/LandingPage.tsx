@@ -55,6 +55,21 @@ const ECOSYSTEM_IMAGES = [
     title: "AXN / AVN",
     subtitle: "Athlete network, media, video, and vision layer",
   },
+  {
+    src: "/landing/IMG_7115.PNG",
+    title: "The Playbook",
+    subtitle: "AthlynX · The Athlete's Playbook · Be The Legacy",
+  },
+  {
+    src: "/landing/IMG_7116.PNG",
+    title: "The Platform",
+    subtitle: "AthlynXAI OS · Every athlete · Every sport · Every level",
+  },
+  {
+    src: "/landing/IMG_7119.PNG",
+    title: "The Mark",
+    subtitle: "AthlynX identity · Stadium · Spotlight · Legacy",
+  },
 ];
 
 const ECOSYSTEM_LEGS = [
@@ -534,7 +549,7 @@ function LandingPageInner() {
             </div>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {ECOSYSTEM_IMAGES.map((asset) => (
               <article key={asset.src} className="group relative min-h-[360px] overflow-hidden rounded-[2rem] border border-[#0066ff]/25 bg-[#050d1a] shadow-2xl shadow-black/40">
                 <img src={asset.src} alt={asset.title} className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-105" />

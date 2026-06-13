@@ -1,29 +1,18 @@
 /**
  * Nebius AI Service — AthlynXAI Platform
  * PRIMARY AI Engine — Nebius AI Cloud (OpenAI-compatible API)
- * NVIDIA H200 GPU Cluster — $5,000 OG Credits Active (confirmed live S37 May 2026)
+ * NVIDIA H200 GPU Cluster — $5,000 OG Credits Active (confirmed live Jun 2026)
  * Nebius AI Discovery Awards 2026 — Digital Health Semifinalist
  * London, July 1, 2026
  *
- * DEPRECATED MODELS REMOVED (June 22, 2026 cutoff per Nebius Token Factory notice):
- * - deepseek-ai/DeepSeek-V3.2 (deprecated June 22, 2026)
- * - deepseek-ai/DeepSeek-V3.2-fast (deprecated June 22, 2026)
- * - MiniMaxAI/MiniMax-M2.5-fast (deprecated June 22, 2026)
- * - moonshotai/Kimi-K2.5 (deprecated June 22, 2026)
- * - moonshotai/Kimi-K2.5-fast (deprecated June 22, 2026)
- * - openai/gpt-oss-120b-fast (deprecated June 22, 2026)
- * - PrimeIntellect/INTELLECT-3 (deprecated June 22, 2026)
- * - Qwen/Qwen3-235B-A22B-Thinking-2507-fast (deprecated June 22, 2026)
- * - Qwen/Qwen3-Next-80B-A3B-Thinking-fast (deprecated June 22, 2026)
- * - Qwen/Qwen3.5-397B-A17B-fast (deprecated June 22, 2026)
- * - zai-org/GLM-5 (deprecated June 22, 2026)
- *
- * ACTIVE MODELS (post-June 22 migration):
- * - meta-llama/Llama-4-Maverick-17B-128E-Instruct (MoE — best quality)
- * - meta-llama/Llama-4-Scout-17B-16E-Instruct (fast — high throughput)
- * - meta-llama/Llama-3.3-70B-Instruct (proven production, sub-500ms)
- * - meta-llama/Meta-Llama-3.1-8B-Instruct (fast + bulk tasks)
- * - nvidia/Llama-3_1-Nemotron-Ultra-253B-v1 (elite analysis on H200)
+ * MODEL CATALOG (Jun 13 2026 — verified live via GET /v1/models, 34 models):
+ * PRIMARY:    deepseek-ai/DeepSeek-V3.2         — best reasoning, NIL scoring, scouting
+ * FAST:       deepseek-ai/DeepSeek-V3.2-fast    — real-time chat, recruiter responses
+ * FRONTIER:   Qwen/Qwen3-235B-A22B-Instruct-2507 — 235B MoE, elite analysis
+ * NVIDIA:     nvidia/Llama-3_1-Nemotron-Ultra-253B-v1 — H200 elite (253B)
+ * FALLBACK:   meta-llama/Llama-3.3-70B-Instruct — proven production, sub-500ms
+ * VISION:     Qwen/Qwen2.5-VL-72B-Instruct      — headshot + video AI
+ * EMBEDDINGS: Qwen/Qwen3-Embedding-8B            — semantic athlete matching
  *
  * Use cases:
  * - Primary AI engine for all AthlynXAI OS inference
@@ -37,17 +26,39 @@ import OpenAI from "openai";
 import { recordNebiusCall } from "./nebiusSpendTracker";
 
 const NEBIUS_API_KEY = process.env.NEBIUS_API_KEY || "";
-const NEBIUS_BASE_URL = "https://api.studio.nebius.ai/v1/";
+const NEBIUS_BASE_URL = process.env.NEBIUS_BASE_URL || "https://api.studio.nebius.com/v1";
 
-// ─── Models (S37 May 2026 — Llama 4 + Llama 3.3 on H200) ────────────────────
+// ─── Models (Jun 13 2026 — Verified live via GET /v1/models) ─────────────────
+// curl https://api.studio.nebius.com/v1/models → 34 models confirmed
 export const NEBIUS_MODELS = {
-  // Llama 4 — latest generation (best quality + speed on H200)
-  LLAMA_4_MAVERICK: "meta-llama/Llama-4-Maverick-17B-128E-Instruct", // MoE — best quality
-  LLAMA_4_SCOUT:    "meta-llama/Llama-4-Scout-17B-16E-Instruct",     // Fast — high throughput
-  // Llama 3.3 — proven production (confirmed live May 2026, sub-500ms)
-  LLAMA_70B:  "meta-llama/Llama-3.3-70B-Instruct",                  // Complex tasks — primary fallback
-  LLAMA_8B:   "meta-llama/Meta-Llama-3.1-8B-Instruct",              // Fast + bulk tasks
-  LLAMA_405B: "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",            // Elite analysis (253B on H200)
+  // ── PRIMARY: Best reasoning (AthlynXAI OS default) ──────────────────────────
+  PRIMARY:          "deepseek-ai/DeepSeek-V3.2",                     // Best reasoning — NIL scoring, scouting
+  PRIMARY_FAST:     "deepseek-ai/DeepSeek-V3.2-fast",               // Fast — real-time chat, recruiter
+
+  // ── FRONTIER: Largest context + reasoning ───────────────────────────────────
+  QWEN3_235B:       "Qwen/Qwen3-235B-A22B-Instruct-2507",           // 235B MoE — elite analysis
+  QWEN3_5_397B:     "Qwen/Qwen3.5-397B-A17B",                       // 397B — highest quality
+  DEEPSEEK_V4:      "deepseek-ai/DeepSeek-V4-Pro",                  // DeepSeek V4 Pro
+  KIMI_K2_6:        "moonshotai/Kimi-K2.6",                          // Long context
+
+  // ── NVIDIA H200 STACK ────────────────────────────────────────────────────────
+  LLAMA_405B:       "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",      // NVIDIA Nemotron 253B — elite H200
+  NEMOTRON_SUPER:   "nvidia/nemotron-3-super-120b-a12b",             // NVIDIA 120B — fast elite
+  NEMOTRON_NANO:    "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",        // NVIDIA 30B — bulk tasks
+
+  // ── PRODUCTION FALLBACKS ─────────────────────────────────────────────────────
+  LLAMA_70B:        "meta-llama/Llama-3.3-70B-Instruct",            // Proven production, sub-500ms
+
+  // ── VISION (headshot analysis, highlight processing) ────────────────────────
+  VISION:           "Qwen/Qwen2.5-VL-72B-Instruct",                 // Athlete headshot + video AI
+
+  // ── EMBEDDINGS (athlete search, semantic matching) ──────────────────────────
+  EMBEDDINGS:       "Qwen/Qwen3-Embedding-8B",                      // Semantic athlete matching
+
+  // ── LEGACY ALIASES (backward compat — never remove) ─────────────────────────
+  LLAMA_8B:         "meta-llama/Llama-3.3-70B-Instruct",            // Alias → 70B (8B deprecated on Nebius)
+  LLAMA_4_MAVERICK: "deepseek-ai/DeepSeek-V3.2",                    // Alias → DeepSeek (Llama4 not on Nebius)
+  LLAMA_4_SCOUT:    "deepseek-ai/DeepSeek-V3.2-fast",               // Alias → DeepSeek-fast
 } as const;
 
 export type NebiusModel = typeof NEBIUS_MODELS[keyof typeof NEBIUS_MODELS];
@@ -66,12 +77,12 @@ export interface NebiusMessage {
 }
 
 /**
- * Generate a completion using Nebius AI (Llama models)
- * Primary fallback when Gemini quota is exhausted
+ * Generate a completion using Nebius AI
+ * Default: DeepSeek V3.2 (best reasoning on H200)
  */
 export async function nebiusChat(
   messages: NebiusMessage[],
-  model: NebiusModel = NEBIUS_MODELS.LLAMA_70B,
+  model: NebiusModel = NEBIUS_MODELS.PRIMARY,
   options?: {
     maxTokens?: number;
     temperature?: number;
@@ -103,11 +114,12 @@ export async function nebiusChat(
 
 /**
  * Quick single-prompt completion — ideal for CRM enrichment, short AI tasks
+ * Default: DeepSeek V3.2 (primary engine)
  */
 export async function nebiusComplete(
   prompt: string,
   systemPrompt?: string,
-  model: NebiusModel = NEBIUS_MODELS.LLAMA_8B
+  model: NebiusModel = NEBIUS_MODELS.PRIMARY
 ): Promise<string> {
   return nebiusChat(
     [{ role: "user", content: prompt }],
@@ -156,7 +168,7 @@ Respond in JSON format only:
 }`;
 
   try {
-    const result = await nebiusComplete(prompt, undefined, NEBIUS_MODELS.LLAMA_70B);
+    const result = await nebiusComplete(prompt, undefined, NEBIUS_MODELS.PRIMARY);
     const parsed = JSON.parse(result.trim());
     return {
       score: Math.min(100, Math.max(0, Number(parsed.score) || 75)),
@@ -179,7 +191,7 @@ Respond in JSON format only:
 
 /**
  * Bulk CRM enrichment — enrich multiple athlete profiles at once
- * Uses fast 8B model for cost efficiency
+ * Uses fast model for cost efficiency
  */
 export async function enrichAthleteProfile(athleteData: {
   name: string;
@@ -207,7 +219,7 @@ Respond in JSON only:
 }`;
 
   try {
-    const result = await nebiusComplete(prompt, undefined, NEBIUS_MODELS.LLAMA_8B);
+    const result = await nebiusComplete(prompt, undefined, NEBIUS_MODELS.PRIMARY_FAST);
     return JSON.parse(result.trim());
   } catch {
     return {
@@ -221,14 +233,15 @@ Respond in JSON only:
 
 /**
  * Health check — verify Nebius API is responding
+ * Uses Llama 3.3 70B (proven, fast, reliable)
  */
 export async function nebiusHealthCheck(): Promise<{ status: "ok" | "error"; model: string; latencyMs: number }> {
   const start = Date.now();
   try {
-    await nebiusComplete("Say OK", undefined, NEBIUS_MODELS.LLAMA_8B);
-    return { status: "ok", model: NEBIUS_MODELS.LLAMA_8B, latencyMs: Date.now() - start };
+    await nebiusComplete("Say OK", undefined, NEBIUS_MODELS.LLAMA_70B);
+    return { status: "ok", model: NEBIUS_MODELS.LLAMA_70B, latencyMs: Date.now() - start };
   } catch (e) {
-    return { status: "error", model: NEBIUS_MODELS.LLAMA_8B, latencyMs: Date.now() - start };
+    return { status: "error", model: NEBIUS_MODELS.LLAMA_70B, latencyMs: Date.now() - start };
   }
 }
 
@@ -270,11 +283,13 @@ export function computeStackManifest() {
     hardware: "NVIDIA H200 GPU cluster (Nebius AI Cloud)",
     nebius_configured: Boolean(NEBIUS_API_KEY),
     models: {
-      primary_fast:     { id: NEBIUS_MODELS.LLAMA_8B,    role: "Bulk + fast tasks" },
-      production_70b:   { id: NEBIUS_MODELS.LLAMA_70B,   role: "Production fallback — scouting, X-Factor" },
-      nvidia_nemotron:  { id: NEBIUS_MODELS.LLAMA_405B,  role: "NVIDIA Nemotron Ultra 253B — elite analysis" },
-      llama4_quality:   { id: NEBIUS_MODELS.LLAMA_4_MAVERICK, role: "Llama 4 Maverick — highest quality" },
-      llama4_speed:     { id: NEBIUS_MODELS.LLAMA_4_SCOUT,    role: "Llama 4 Scout — high throughput" },
+      primary:          { id: NEBIUS_MODELS.PRIMARY,       role: "DeepSeek V3.2 — NIL scoring, scouting, default" },
+      primary_fast:     { id: NEBIUS_MODELS.PRIMARY_FAST,  role: "DeepSeek V3.2-fast — real-time chat, recruiter" },
+      qwen3_235b:       { id: NEBIUS_MODELS.QWEN3_235B,    role: "Qwen3 235B MoE — elite analysis" },
+      nvidia_nemotron:  { id: NEBIUS_MODELS.LLAMA_405B,    role: "NVIDIA Nemotron Ultra 253B — H200 elite" },
+      production_70b:   { id: NEBIUS_MODELS.LLAMA_70B,     role: "Llama 3.3 70B — proven production fallback" },
+      vision:           { id: NEBIUS_MODELS.VISION,         role: "Qwen2.5-VL 72B — headshot + video AI" },
+      embeddings:       { id: NEBIUS_MODELS.EMBEDDINGS,     role: "Qwen3-Embedding-8B — semantic athlete matching" },
     },
     open_model_alignment: [
       "NVIDIA Nemotron (LIVE on H200 via Nebius)",
