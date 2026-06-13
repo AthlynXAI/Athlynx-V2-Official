@@ -512,6 +512,135 @@ function LandingPageInner() {
         </div>
       </section>
 
+      {/* AXN LIVE SPORTS NETWORK HUB */}
+      <section className="relative overflow-hidden bg-[#020713] px-5 py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_50%,rgba(0,194,255,0.12),transparent_40%),radial-gradient(circle_at_90%_50%,rgba(0,102,255,0.15),transparent_40%)]" />
+        <div className="relative z-10 mx-auto max-w-7xl">
+
+          {/* Network Header */}
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <p className="text-sm font-black uppercase tracking-[0.34em] text-red-400">AXN · AthlynX Network · Live Now</p>
+            </div>
+            <h2 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+              The <span className="text-[#00c2ff]">Network</span>
+            </h2>
+            <p className="mt-4 text-lg text-[#8ba3c7] max-w-2xl mx-auto">Every major sport. Every major event. Live scores, brackets, and coverage — all on AthlynXAI. We are the network.</p>
+          </div>
+
+          {/* Live Ticker */}
+          <div className="mb-10 overflow-hidden rounded-2xl border border-[#00c2ff]/20 bg-[#06142a]/90 py-3 px-4">
+            <div className="flex items-center gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap text-xs font-bold">
+              <span className="flex-shrink-0 bg-red-500 text-white px-2 py-1 rounded font-black tracking-widest text-[10px]">LIVE</span>
+              <span className="text-[#00c2ff]">🏀 NBA FINALS G5 · TONIGHT 8:30 PM ET · KNICKS vs SPURS · ABC</span>
+              <span className="text-white/40">·</span>
+              <span className="text-[#00c2ff]">⚽ FIFA WC2026 · USA 4-1 Paraguay ✓ · CANADA 0-0 BIH ✓ · SAT GAMES LIVE</span>
+              <span className="text-white/40">·</span>
+              <span className="text-[#00c2ff]">⚾ CWS OMAHA · WVU vs TROY 1PM CT · UNC vs OLE MISS 6PM CT · ESPN</span>
+              <span className="text-white/40">·</span>
+              <span className="text-[#00c2ff]">🏆 WCWS · TEXAS BACK-TO-BACK CHAMPIONS 🤘</span>
+            </div>
+          </div>
+
+          {/* 3-Column Live Events */}
+          <div className="grid gap-6 lg:grid-cols-3 mb-8">
+
+            {/* NBA Finals */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Live Series · NBA Finals 2026</p>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-1">🏀 Knicks vs Spurs</h3>
+              <p className="text-[#00c2ff] font-black text-lg mb-3">Knicks Lead 3–1</p>
+              <div className="space-y-2 mb-4">
+                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+                  <span className="font-bold text-[#006BB6]">New York Knicks</span>
+                  <span className="text-white font-black">3 wins</span>
+                </div>
+                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+                  <span className="font-bold text-[#C4CED4]">San Antonio Spurs</span>
+                  <span className="text-white font-black">1 win</span>
+                </div>
+              </div>
+              <div className="rounded-xl border border-[#00c2ff]/30 bg-[#00c2ff]/10 px-4 py-3 mb-4">
+                <p className="text-xs font-black uppercase tracking-widest text-[#00c2ff] mb-1">Game 5 — Tonight</p>
+                <p className="text-sm font-bold text-white">New York at San Antonio</p>
+                <p className="text-xs text-[#8ba3c7]">Saturday Jun 13 · 8:30 PM ET · ABC / ESPN</p>
+              </div>
+              <p className="text-xs text-[#8ba3c7]">Knicks chasing first NBA title since 1973. Victor Wembanyama vs the city of New York.</p>
+            </div>
+
+            {/* FIFA World Cup */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · FIFA World Cup 2026</p>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-1">⚽ World Cup 2026</h3>
+              <p className="text-[#00c2ff] font-black text-sm mb-3">USA · Mexico · Canada — Group Stage Live</p>
+              <div className="space-y-2 mb-4">
+                {[
+                  { match: "USA vs Paraguay", result: "4 – 1 ✓", color: "#B22234" },
+                  { match: "Canada vs Bosnia", result: "0 – 0 ✓", color: "#FF0000" },
+                  { match: "Mexico vs South Africa", result: "Today", color: "#006847" },
+                  { match: "Argentina vs Group D", result: "Today", color: "#74ACDF" },
+                ].map((g) => (
+                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
+                    <span className="font-bold text-white">{g.match}</span>
+                    <span className="font-black text-[#00c2ff]">{g.result}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-[#8ba3c7]">48 teams. 16 cities across USA, Mexico & Canada. The biggest sporting event on Earth. Watch on Fox, Telemundo, Apple TV.</p>
+            </div>
+
+            {/* CWS + WCWS Combined */}
+            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · College Baseball & Softball</p>
+              </div>
+              <h3 className="text-2xl font-black text-white mb-1">⚾ Diamond Season</h3>
+              <p className="text-[#00c2ff] font-black text-sm mb-3">CWS Omaha Opens Today</p>
+              <div className="space-y-2 mb-4">
+                {[
+                  { match: "WVU vs Troy", time: "Today 1PM CT", network: "ESPN", color: "#002855" },
+                  { match: "UNC vs Ole Miss", time: "Today 6PM CT", network: "ESPN", color: "#7BAFD4" },
+                  { match: "Alabama vs Oklahoma", time: "Sat 2PM CT", network: "ESPN", color: "#9E1B32" },
+                  { match: "Georgia vs Texas", time: "Sat 7PM CT", network: "ESPN", color: "#BA0C2F" },
+                ].map((g) => (
+                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
+                    <span className="font-bold text-white">{g.match}</span>
+                    <span className="font-black text-[#00c2ff]">{g.time} · {g.network}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl border border-[#BF5700]/40 bg-[#BF5700]/10 px-4 py-3">
+                <p className="text-xs font-black uppercase tracking-widest text-[#BF5700] mb-1">🏆 WCWS Champions</p>
+                <p className="text-sm font-bold text-white">Texas Longhorns — Back-to-Back</p>
+                <p className="text-xs text-[#8ba3c7]">Swept Texas Tech · 2025 & 2026 · Hook 'Em 🤘</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* FIFA Page CTA */}
+          <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-gradient-to-r from-[#06142a] to-[#020713] p-8 text-center">
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#00c2ff] mb-2">AthlynX Network · All Sports · All Events</p>
+            <h3 className="text-3xl font-black text-white mb-3">We Cover Everything</h3>
+            <p className="text-[#8ba3c7] mb-6 max-w-2xl mx-auto">NBA Finals. FIFA World Cup. CWS. WCWS. NFL. College Football. Track. Soccer. Every sport, every level — AthlynXAI is your network.</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a href="/brackets" className="bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">CWS Bracket →</a>
+              <a href="/world-cup" className="border border-[#00c2ff]/40 hover:border-[#00c2ff] text-white font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">FIFA World Cup →</a>
+              <a href="/portal" className="border border-white/20 hover:border-white/40 text-white font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">All Sports →</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/*  AthlynX ECOSYSTEM BRAND WALL  */}
       <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,194,255,0.18),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(0,102,255,0.24),transparent_35%)]" />
