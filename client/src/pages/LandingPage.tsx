@@ -177,7 +177,7 @@ const CHAMPIONSHIP_SPOTLIGHTS = [
     title: "🏆 Texas Back-to-Back",
     eyebrow: "WCWS Champions · 2025 & 2026 · Congratulations",
     desc: "CONGRATULATIONS to the Texas Longhorns — BACK-TO-BACK Women's College World Series National Champions! Texas swept Texas Tech in the 2026 WCWS Finals. Back-to-back MOP Teagan Kavan. Hook 'Em Horns. The legacy is built. 🤘",
-    accent: "#00c2ff",
+    accent: "#BF5700",
     href: "/diamond-grind",
   },
   {
@@ -191,14 +191,14 @@ const CHAMPIONSHIP_SPOTLIGHTS = [
 
 // 2026 CWS — 8 teams in Omaha, June 13-22
 const CWS_TEAMS = [
-  { seed: 3,  name: "Georgia",        record: "51-12", bracket: "B2", conference: "SEC" },
-  { seed: 5,  name: "North Carolina", record: "50-12-1", bracket: "B1", conference: "ACC" },
-  { seed: 16, name: "West Virginia",  record: "45-15", bracket: "B1", conference: "Big 12" },
-  { seed: null, name: "Ole Miss",     record: "41-21", bracket: "B1", conference: "SEC" },
-  { seed: 6,  name: "Texas",          record: "45-13", bracket: "B2", conference: "SEC" },
-  { seed: null, name: "Oklahoma",     record: "37-22", bracket: "B2", conference: "SEC" },
-  { seed: 7,  name: "Alabama",        record: "41-19", bracket: "B2", conference: "SEC" },
-  { seed: null, name: "Troy",         record: "38-30", bracket: "B1", conference: "Sun Belt" },
+  { seed: 3,  name: "Georgia",        record: "51-12",   bracket: "B2", conference: "SEC",      color: "#BA0C2F" },
+  { seed: 5,  name: "North Carolina", record: "50-12-1", bracket: "B1", conference: "ACC",      color: "#7BAFD4" },
+  { seed: 16, name: "West Virginia",  record: "45-15",   bracket: "B1", conference: "Big 12",   color: "#002855" },
+  { seed: null, name: "Ole Miss",     record: "41-21",   bracket: "B1", conference: "SEC",      color: "#CE1126" },
+  { seed: 6,  name: "Texas",          record: "45-13",   bracket: "B2", conference: "SEC",      color: "#BF5700" },
+  { seed: null, name: "Oklahoma",     record: "37-22",   bracket: "B2", conference: "SEC",      color: "#841617" },
+  { seed: 7,  name: "Alabama",        record: "41-19",   bracket: "B2", conference: "SEC",      color: "#9E1B32" },
+  { seed: null, name: "Troy",         record: "38-30",   bracket: "B1", conference: "Sun Belt", color: "#8B0000" },
 ];
 
 const CWS_MATCHUPS = [
@@ -419,8 +419,8 @@ function LandingPageInner() {
                 <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-3">2026 CWS · 8 Teams in Omaha</p>
                 <div className="grid grid-cols-2 gap-2">
                   {CWS_TEAMS.map((t) => (
-                    <div key={t.name} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                      <span className="text-[9px] font-black text-[#00c2ff] w-4">{t.seed ? `#${t.seed}` : "—"}</span>
+                    <div key={t.name} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: t.color, borderLeftWidth: 3 }}>
+                      <span className="text-[9px] font-black w-4" style={{ color: t.color }}>{t.seed ? `#${t.seed}` : "—"}</span>
                       <div>
                         <p className="text-xs font-bold text-white leading-tight">{t.name}</p>
                         <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
@@ -496,8 +496,8 @@ function LandingPageInner() {
                 </div>
                 <div className="grid gap-2 sm:grid-cols-2 mb-4">
                   {CWS_TEAMS.map((t) => (
-                    <div key={t.name} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066ff] text-[9px] font-black text-white">{t.seed ?? "—"}</span>
+                    <div key={t.name} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: t.color, borderLeftWidth: 3 }}>
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full text-[9px] font-black text-white" style={{ backgroundColor: t.color }}>{t.seed ?? "—"}</span>
                       <div>
                         <p className="text-sm font-bold text-white">{t.name}</p>
                         <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
