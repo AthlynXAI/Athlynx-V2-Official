@@ -390,256 +390,96 @@ function LandingPageInner() {
         </div>
       </section>
 
-      {/*  CHAMPIONSHIP ROAD: ALL SPORTS SUPPORT  */}
-      <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,194,255,0.20),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(255,79,216,0.16),transparent_30%),linear-gradient(135deg,rgba(0,102,255,0.10),transparent_55%)]" />
-        <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#00c2ff] to-transparent" />
+      {/* LIVE HIGHLIGHTS — 4 clean cards, each to their own page */}
+      <section className="relative bg-[#020713] px-5 py-16">
         <div className="relative z-10 mx-auto max-w-7xl">
 
-          <div className="mb-12 overflow-hidden rounded-[2.25rem] border border-[#00c2ff]/30 bg-[#06142a]/90 shadow-2xl shadow-[#0066ff]/20">
-            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:p-10">
-              <div>
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
-                  <p className="text-sm font-black uppercase tracking-[0.34em] text-[#00c2ff]">Live Now · June 13–22, 2026</p>
-                </div>
-                <h2 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-8xl">
-                  Road To <span className="text-[#00c2ff]">Omaha</span>
-                </h2>
-                <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#8ba3c7]">
-                  The Greatest Show on Grass. 8 teams. 1 champion. Charles Schwab Field, Omaha, Nebraska. Men. Women. Every athlete. AthlynXAI OS is your network.
-                </p>
-                <Link href="/brackets">
-                  <button className="mt-6 bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-8 py-3 rounded-xl transition-all hover:scale-105">
-                    OPEN FULL BROADCAST → LIVE SCORES + BRACKET
-                  </button>
-                </Link>
-              </div>
-              <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-black/25 p-5 backdrop-blur">
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-3">2026 CWS · 8 Teams in Omaha</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {CWS_TEAMS.map((t) => (
-                    <div key={t.name} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: t.color, borderLeftWidth: 3 }}>
-                      <span className="text-[9px] font-black w-4" style={{ color: t.color }}>{t.seed ? `#${t.seed}` : "—"}</span>
-                      <div>
-                        <p className="text-xs font-bold text-white leading-tight">{t.name}</p>
-                        <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-2">Opening Round Schedule</p>
-                  {CWS_MATCHUPS.map((m) => (
-                    <div key={m.game} className="flex items-center justify-between text-[9px] text-white/50 py-1">
-                      <span className="font-bold text-white/70">{m.team1} vs {m.team2}</span>
-                      <span>{m.date} · {m.time} · {m.network}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-12 grid gap-5 lg:grid-cols-3">
-            {CHAMPIONSHIP_SPOTLIGHTS.map((item) => (
-              <Link key={item.title} href={(item as any).href || "/portal"}>
-                <article className="rounded-[2rem] border border-white/10 bg-[#07152a]/80 p-6 shadow-xl shadow-black/30 cursor-pointer hover:border-[#00c2ff]/40 transition-all group">
-                  <div className="mb-5 h-1.5 w-24 rounded-full" style={{ backgroundColor: item.accent }} />
-                  <p className="text-xs font-black uppercase tracking-[0.24em]" style={{ color: item.accent }}>{item.eyebrow}</p>
-                  <h3 className="mt-3 text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-[#8ba3c7]">{item.desc}</p>
-                  <p className="mt-4 text-xs font-black tracking-widest uppercase text-[#00c2ff]/50 group-hover:text-[#00c2ff] transition-colors">Open →</p>
-                </article>
-              </Link>
-            ))}
-          </div>
-
-          <div className="grid gap-8 xl:grid-cols-[0.85fr_1.15fr]">
-            {/* Diamond Grind Spotlight */}
-            <Link href="/diamond-grind">
-              <div className="rounded-[2rem] border border-[#0066ff]/25 bg-[#050d1a]/90 p-6 cursor-pointer hover:border-[#00c2ff]/50 transition-all group h-full">
-                <p className="text-sm font-black uppercase tracking-[0.28em] text-[#0066ff] mb-1">Diamond Grind™</p>
-                <h3 className="text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors mb-4">Elite Baseball. Built Different.</h3>
-                <p className="text-sm text-[#8ba3c7] leading-relaxed mb-6">The most complete baseball and softball training platform ever built. AI Coach, velocity tracking, exit velocity, fielding metrics, showcase prep for Perfect Game and Area Code. From tee-ball to the draft.</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { label: "Velocity Tracker", icon: "⚡" },
-                    { label: "Exit Velocity", icon: "💥" },
-                    { label: "AI Coach", icon: "🤖" },
-                    { label: "Showcase Prep", icon: "🎯" },
-                    { label: "Leaderboard", icon: "🏆" },
-                    { label: "Stats Tracker", icon: "📊" },
-                  ].map((f) => (
-                    <div key={f.label} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
-                      <span className="text-sm">{f.icon}</span>
-                      <span className="text-xs font-bold text-white">{f.label}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-xs font-black tracking-widest uppercase text-[#0066ff]/50 group-hover:text-[#0066ff] transition-colors">Enter Diamond Grind →</p>
-              </div>
-            </Link>
-
-            {/* CWS Live Bracket */}
-            <Link href="/brackets">
-              <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-[#050d1a]/90 p-6 cursor-pointer hover:border-[#00c2ff]/50 transition-all group">
-                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
-                      <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · CWS Omaha</p>
-                    </div>
-                    <h3 className="text-3xl font-black text-white group-hover:text-[#00c2ff] transition-colors">The Greatest Show on Grass</h3>
-                  </div>
-                  <p className="text-sm font-bold text-[#8ba3c7]">8 teams · Jun 13–22</p>
-                </div>
-                <div className="grid gap-2 sm:grid-cols-2 mb-4">
-                  {CWS_TEAMS.map((t) => (
-                    <div key={t.name} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: t.color, borderLeftWidth: 3 }}>
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full text-[9px] font-black text-white" style={{ backgroundColor: t.color }}>{t.seed ?? "—"}</span>
-                      <div>
-                        <p className="text-sm font-bold text-white">{t.name}</p>
-                        <p className="text-[9px] text-white/30">{t.record} · {t.conference}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs font-black tracking-widest uppercase text-[#00c2ff]/50 group-hover:text-[#00c2ff] transition-colors">Open Full Broadcast → Live Scores + Bracket →</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* AXN LIVE SPORTS NETWORK HUB */}
-      <section className="relative overflow-hidden bg-[#020713] px-5 py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_50%,rgba(0,194,255,0.12),transparent_40%),radial-gradient(circle_at_90%_50%,rgba(0,102,255,0.15),transparent_40%)]" />
-        <div className="relative z-10 mx-auto max-w-7xl">
-
-          {/* Network Header */}
+          {/* Section header */}
           <div className="mb-10 text-center">
-            <div className="inline-flex items-center gap-2 mb-4">
+            <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <p className="text-sm font-black uppercase tracking-[0.34em] text-red-400">AXN · AthlynX Network · Live Now</p>
+              <p className="text-xs font-black uppercase tracking-[0.34em] text-red-400">AXN · AthlynX Network · Live Now</p>
             </div>
-            <h2 className="text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
-              The <span className="text-[#00c2ff]">Network</span>
-            </h2>
-            <p className="mt-4 text-lg text-[#8ba3c7] max-w-2xl mx-auto">Every major sport. Every major event. Live scores, brackets, and coverage — all on AthlynXAI. We are the network.</p>
+            <h2 className="text-4xl font-black text-white">What’s Live Right Now</h2>
           </div>
 
-          {/* Live Ticker */}
-          <div className="mb-10 overflow-hidden rounded-2xl border border-[#00c2ff]/20 bg-[#06142a]/90 py-3 px-4">
-            <div className="flex items-center gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap text-xs font-bold">
-              <span className="flex-shrink-0 bg-red-500 text-white px-2 py-1 rounded font-black tracking-widest text-[10px]">LIVE</span>
-              <span className="text-[#00c2ff]">🏀 NBA FINALS G5 · TONIGHT 8:30 PM ET · KNICKS vs SPURS · ABC</span>
-              <span className="text-white/40">·</span>
-              <span className="text-[#00c2ff]">⚽ FIFA WC2026 · USA 4-1 Paraguay ✓ · CANADA 0-0 BIH ✓ · SAT GAMES LIVE</span>
-              <span className="text-white/40">·</span>
-              <span className="text-[#00c2ff]">⚾ CWS OMAHA · WVU vs TROY 1PM CT · UNC vs OLE MISS 6PM CT · ESPN</span>
-              <span className="text-white/40">·</span>
-              <span className="text-[#00c2ff]">🏆 WCWS · TEXAS BACK-TO-BACK CHAMPIONS 🤘</span>
-            </div>
-          </div>
+          {/* 4 highlight cards */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-          {/* 3-Column Live Events */}
-          <div className="grid gap-6 lg:grid-cols-3 mb-8">
-
-            {/* CWS + WCWS — STAR OF THE SHOW */}
-            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · College Baseball & Softball</p>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-1">⚾ Diamond Season</h3>
-              <p className="text-[#00c2ff] font-black text-sm mb-3">CWS Omaha Opens Today</p>
-              <div className="space-y-2 mb-4">
-                {[
-                  { match: "WVU vs Troy", time: "Today 1PM CT", network: "ESPN", color: "#002855" },
-                  { match: "UNC vs Ole Miss", time: "Today 6PM CT", network: "ESPN", color: "#7BAFD4" },
-                  { match: "Alabama vs Oklahoma", time: "Sat 2PM CT", network: "ESPN", color: "#9E1B32" },
-                  { match: "Georgia vs Texas", time: "Sat 7PM CT", network: "ESPN", color: "#BA0C2F" },
-                ].map((g) => (
-                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
-                    <span className="font-bold text-white">{g.match}</span>
-                    <span className="font-black text-[#00c2ff]">{g.time} · {g.network}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-xl border border-[#BF5700]/40 bg-[#BF5700]/10 px-4 py-3">
-                <p className="text-xs font-black uppercase tracking-widest text-[#BF5700] mb-1">🏆 WCWS Champions</p>
-                <p className="text-sm font-bold text-white">Texas Longhorns — Back-to-Back</p>
-                <p className="text-xs text-[#8ba3c7]">Swept Texas Tech · 2025 & 2026 · Hook 'Em 🤘</p>
-              </div>
-            </div>
-
-            {/* FIFA World Cup — SECOND */}
-            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#00c2ff] animate-pulse" />
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00c2ff]">Live · FIFA World Cup 2026</p>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-1">⚽ World Cup 2026</h3>
-              <p className="text-[#00c2ff] font-black text-sm mb-3">USA · Mexico · Canada — Group Stage Live</p>
-              <div className="space-y-2 mb-4">
-                {[
-                  { match: "USA vs Paraguay", result: "4 – 1 ✓", color: "#B22234" },
-                  { match: "Canada vs Bosnia", result: "0 – 0 ✓", color: "#FF0000" },
-                  { match: "Mexico vs South Africa", result: "Today", color: "#006847" },
-                  { match: "Argentina vs Group D", result: "Today", color: "#74ACDF" },
-                ].map((g) => (
-                  <div key={g.match} className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: g.color, borderLeftWidth: 3 }}>
-                    <span className="font-bold text-white">{g.match}</span>
-                    <span className="font-black text-[#00c2ff]">{g.result}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-[#8ba3c7]">48 teams. 16 cities across USA, Mexico & Canada. The biggest sporting event on Earth. Watch on Fox, Telemundo, Apple TV.</p>
-            </div>
-
-            {/* NBA Finals — THIRD */}
-            <div className="rounded-[2rem] border border-[#00c2ff]/25 bg-[#06142a]/90 p-6 shadow-xl">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-red-400">Live Series · NBA Finals 2026</p>
-              </div>
-              <h3 className="text-2xl font-black text-white mb-1">🏀 Knicks vs Spurs</h3>
-              <p className="text-[#00c2ff] font-black text-lg mb-3">Knicks Lead 3–1</p>
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: "#006BB6", borderLeftWidth: 3 }}>
-                  <span className="font-bold text-[#006BB6]">New York Knicks</span>
-                  <span className="text-white font-black">3 wins</span>
+            {/* 1 — MCWS */}
+            <Link href="/brackets">
+              <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
+                <img src="/landing/IMG_7116.PNG" alt="Men's College World Series" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="flex items-center gap-1.5 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />LIVE
+                  </span>
                 </div>
-                <div className="flex justify-between text-xs rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2" style={{ borderLeftColor: "#C4CED4", borderLeftWidth: 3 }}>
-                  <span className="font-bold text-[#C4CED4]">San Antonio Spurs</span>
-                  <span className="text-white font-black">1 win</span>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-1">Men’s College World Series</p>
+                  <h3 className="text-xl font-black text-white leading-tight mb-3">Road to Omaha</h3>
+                  <span className="inline-block bg-[#00c2ff] text-[#050d1a] text-xs font-black px-4 py-1.5 rounded-xl group-hover:bg-white transition-colors">Full Bracket →</span>
                 </div>
               </div>
-              <div className="rounded-xl border border-[#00c2ff]/30 bg-[#00c2ff]/10 px-4 py-3 mb-4">
-                <p className="text-xs font-black uppercase tracking-widest text-[#00c2ff] mb-1">Game 5 — Tonight</p>
-                <p className="text-sm font-bold text-white">New York at San Antonio</p>
-                <p className="text-xs text-[#8ba3c7]">Saturday Jun 13 · 8:30 PM ET · ABC / ESPN</p>
+            </Link>
+
+            {/* 2 — FIFA */}
+            <Link href="/world-cup">
+              <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
+                <img src="/landing/IMG_7119.PNG" alt="FIFA World Cup 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="flex items-center gap-1.5 bg-[#0066ff] text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />LIVE
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-1">FIFA World Cup 2026</p>
+                  <h3 className="text-xl font-black text-white leading-tight mb-3">USA · Mexico · Canada</h3>
+                  <span className="inline-block bg-[#0066ff] text-white text-xs font-black px-4 py-1.5 rounded-xl group-hover:bg-[#00c2ff] group-hover:text-[#050d1a] transition-colors">World Cup Coverage →</span>
+                </div>
               </div>
-              <p className="text-xs text-[#8ba3c7]">Knicks chasing first NBA title since 1973. Victor Wembanyama vs the city of New York.</p>
-            </div>
+            </Link>
+
+            {/* 3 — NBA Finals */}
+            <Link href="/court-kings">
+              <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#00c2ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
+                <img src="/landing/IMG_7115.PNG" alt="NBA Finals 2026" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/50 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="flex items-center gap-1.5 bg-red-500 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />TONIGHT
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-1">NBA Finals · Game 5 · 8:30 PM ET</p>
+                  <h3 className="text-xl font-black text-white leading-tight mb-3">Knicks vs Spurs</h3>
+                  <span className="inline-block bg-white/10 border border-white/20 text-white text-xs font-black px-4 py-1.5 rounded-xl group-hover:bg-[#00c2ff] group-hover:text-[#050d1a] group-hover:border-[#00c2ff] transition-colors">NBA Coverage →</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* 4 — Diamond Grind */}
+            <Link href="/diamond-grind">
+              <div className="group relative h-72 rounded-[2rem] overflow-hidden cursor-pointer border border-[#0066ff]/20 hover:border-[#00c2ff]/60 transition-all hover:scale-[1.02]">
+                <img src="/brand/baseball_watermark.png" alt="Diamond Grind" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020713] via-[#020713]/60 to-[#020713]/20" />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-[#0066ff] text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-widest">PLATFORM</span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#00c2ff] mb-1">Diamond Grind™</p>
+                  <h3 className="text-xl font-black text-white leading-tight mb-3">Elite Baseball. Built Different.</h3>
+                  <span className="inline-block bg-[#0066ff] text-white text-xs font-black px-4 py-1.5 rounded-xl group-hover:bg-[#00c2ff] group-hover:text-[#050d1a] transition-colors">Enter Diamond Grind →</span>
+                </div>
+              </div>
+            </Link>
 
           </div>
-
-          {/* FIFA Page CTA */}
-          <div className="rounded-[2rem] border border-[#00c2ff]/20 bg-gradient-to-r from-[#06142a] to-[#020713] p-8 text-center">
-            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#00c2ff] mb-2">AthlynX Network · All Sports · All Events</p>
-            <h3 className="text-3xl font-black text-white mb-3">We Cover Everything</h3>
-            <p className="text-[#8ba3c7] mb-6 max-w-2xl mx-auto">NBA Finals. FIFA World Cup. CWS. WCWS. NFL. College Football. Track. Soccer. Every sport, every level — AthlynXAI is your network.</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <a href="/brackets" className="bg-[#00c2ff] hover:bg-[#00a8e0] text-[#050d1a] font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">CWS Bracket →</a>
-              <a href="/world-cup" className="border border-[#00c2ff]/40 hover:border-[#00c2ff] text-white font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">FIFA World Cup →</a>
-              <a href="/portal" className="border border-white/20 hover:border-white/40 text-white font-black text-sm px-6 py-3 rounded-xl transition-all hover:scale-105">All Sports →</a>
-            </div>
-          </div>
-
         </div>
       </section>
+
 
       {/*  AthlynX ECOSYSTEM BRAND WALL  */}
       <section className="relative overflow-hidden bg-[#020713] px-5 py-24">
