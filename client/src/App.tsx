@@ -76,6 +76,7 @@ import AthletePlaybook from "./pages/AthletePlaybook";
 import BaseballRecruitingPlaybook from "./pages/BaseballRecruitingPlaybook";
 import CollegeWorldSeries2026 from "./pages/CollegeWorldSeries2026";
 import Brackets from "./pages/Brackets";
+import WorldCup2026 from "./pages/WorldCup2026";
 import DiamondGrindIQ from "./pages/DiamondGrindIQ";
 import AthleteWebsiteBuilder from "./pages/AthleteWebsiteBuilder";
 import AthlynXBrowser from "./pages/AthlynXBrowser";
@@ -438,6 +439,9 @@ function Router() {
       <Route path="/college-world-series-2026" component={Brackets} />
       <Route path="/brackets" component={Brackets} />
       <Route path="/brackets/mcws" component={Brackets} />
+      <Route path="/world-cup" component={WorldCup2026} />
+      <Route path="/fifa" component={WorldCup2026} />
+      <Route path="/world-cup-2026" component={WorldCup2026} />
       <Route path="/mcws" component={Brackets} />
       <Route path="/mcws-bracket" component={Brackets} />
       <Route path="/diamond-grind-iq" component={DiamondGrindIQ} />
