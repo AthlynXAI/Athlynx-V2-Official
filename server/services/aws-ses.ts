@@ -72,147 +72,155 @@ export async function sendEmail(opts: EmailOptions): Promise<boolean> {
 
 // ─── Email Templates ───────────────────────────────────────────────────────
 
-export async function sendWelcomeEmail(to: string, name: string, memberNumber?: number): Promise<boolean> {
+export async function sendWelcomeEmail(to: string, name: string, memberNumber?: number, tempPassword?: string): Promise<boolean> {
   const memberNum = memberNumber ? String(memberNumber).padStart(4, "0") : null;
   const signedUpStr = new Date().toLocaleString("en-US", {
     weekday: "long", month: "long", day: "numeric", year: "numeric",
     hour: "numeric", minute: "2-digit", timeZone: "America/Chicago", timeZoneName: "short",
   });
+  // Brand colors: Cobalt #0047CC | Electric Blue #00AAFF | Granite #1C1C2E | White #FFFFFF
+  // NO purple, NO gold/yellow, NO emojis in feature titles
+  const STADIUM_IMG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663729815473/LpqlOpkuxEDvIsVU.JPG";
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Welcome to AthlynX</title></head>
-<body style="margin:0;padding:0;background:#060d1f;font-family:'Helvetica Neue',Arial,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#060d1f;padding:32px 16px;">
+<body style="margin:0;padding:0;background:#F0F4F8;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F0F4F8;padding:32px 16px;">
 <tr><td align="center">
-<table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-<!-- HERO HEADER -->
-<tr><td style="background:linear-gradient(135deg,#0047cc 0%,#0066ff 50%,#00aaff 100%);border-radius:20px 20px 0 0;padding:48px 40px 36px;text-align:center;">
-  <div style="font-size:52px;font-weight:900;color:#fff;letter-spacing:6px;line-height:1;">AthlynX</div>
-  <div style="font-size:11px;color:rgba(255,255,255,0.75);letter-spacing:8px;margin-top:8px;text-transform:uppercase;">The Athlete's Playbook</div>
-  <div style="margin-top:20px;display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 20px;">
-    <span style="color:#fff;font-size:12px;font-weight:700;letter-spacing:2px;">BE THE LEGACY</span>
-  </div>
+<!-- HEADER: Stadium image -->
+<tr><td style="border-radius:16px 16px 0 0;overflow:hidden;padding:0;margin:0;">
+  <img src="${STADIUM_IMG}" alt="AthlynX — The Athlete's Playbook" width="600" style="display:block;width:100%;max-width:600px;height:auto;border-radius:16px 16px 0 0;" />
 </td></tr>
 
-<!-- WELCOME MESSAGE -->
-<tr><td style="background:#0d1b3e;padding:40px 40px 32px;border-left:1px solid #1e3a6e;border-right:1px solid #1e3a6e;">
-  <h1 style="color:#ffffff;font-size:28px;font-weight:900;margin:0 0 8px;line-height:1.2;">Welcome to the Family, ${name}!</h1>
-  <p style="color:#64b5f6;font-size:14px;margin:0 0 28px;font-style:italic;">&ldquo;The athletes crazy enough to think they can change the world are the ones who actually do.&rdquo;</p>
-  ${memberNum ? `<div style="text-align:center;margin-bottom:28px;"><div style="display:inline-block;background:linear-gradient(135deg,#0066ff,#00c2ff);border-radius:12px;padding:16px 32px;"><div style="color:rgba(255,255,255,0.7);font-size:10px;letter-spacing:3px;margin-bottom:4px;">YOUR MEMBER NUMBER</div><div style="color:#fff;font-size:36px;font-weight:900;letter-spacing:4px;">#${memberNum}</div></div></div>` : ""}
-  <p style="color:#94a3b8;font-size:15px;line-height:1.7;margin:0 0 28px;">Your AthlynX account is live. You now have access to the most powerful athlete platform ever built — <strong style="color:#00c2ff;">44 sports, 213+ features, 4 AI engines</strong>, and a $135B market opportunity waiting for you. Your 7-day free trial starts today.</p>
+<!-- COBALT BRAND BAR -->
+<tr><td style="background:#0047CC;padding:16px 40px;text-align:center;">
+  <span style="color:#FFFFFF;font-size:10px;font-weight:900;letter-spacing:4px;text-transform:uppercase;">WELCOME TO THE PLATFORM</span>
+</td></tr>
+
+<!-- WELCOME SECTION -->
+<tr><td style="background:#FFFFFF;padding:40px 40px 32px;border-left:1px solid #CBD5E0;border-right:1px solid #CBD5E0;">
+  <h1 style="color:#1C1C2E;font-size:26px;font-weight:900;margin:0 0 10px;line-height:1.3;">Welcome to AthlynX, ${name}.</h1>
+  <p style="color:#0047CC;font-size:14px;margin:0 0 24px;font-style:italic;font-weight:600;">&ldquo;Those who wait on the Lord shall renew their strength.&rdquo; &mdash; Isaiah 40:31</p>
+  ${memberNum ? `<div style="text-align:center;margin-bottom:28px;"><div style="display:inline-block;background:linear-gradient(135deg,#0047CC,#00AAFF);border-radius:12px;padding:18px 40px;"><div style="color:rgba(255,255,255,0.8);font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;">Member Number</div><div style="color:#FFFFFF;font-size:38px;font-weight:900;letter-spacing:5px;">#${memberNum}</div></div></div>` : ""}
+  <p style="color:#4A5568;font-size:15px;line-height:1.75;margin:0;">Your AthlynX account is live. You now have access to the most powerful athlete platform ever built &mdash; <strong style="color:#0047CC;">44 sports, 213+ features, 4 AI engines</strong>, and a $135B market opportunity. Your 7-day free trial starts today.</p>
 </td></tr>
 
 <!-- CREDENTIALS BLOCK -->
-<tr><td style="background:#0a1628;padding:0 40px;border-left:1px solid #1e3a6e;border-right:1px solid #1e3a6e;">
-  <div style="border:1px solid #1e3a6e;border-radius:12px;overflow:hidden;margin-bottom:32px;">
-    <div style="background:#0d1b3e;padding:12px 20px;border-bottom:1px solid #1e3a6e;">
-      <span style="color:#00c2ff;font-size:10px;font-weight:900;letter-spacing:3px;">YOUR ACCOUNT CREDENTIALS</span>
+<tr><td style="background:#F7FAFC;padding:32px 40px;border-left:1px solid #CBD5E0;border-right:1px solid #CBD5E0;">
+  <div style="border:1.5px solid #CBD5E0;border-radius:12px;overflow:hidden;background:#FFFFFF;">
+    <div style="background:#0047CC;padding:14px 20px;">
+      <span style="color:#FFFFFF;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;">Your Account Credentials</span>
     </div>
     <table width="100%" cellpadding="0" cellspacing="0">
-      <tr><td style="padding:14px 20px;border-bottom:1px solid #0f2040;">
-        <div style="color:#64748b;font-size:10px;letter-spacing:2px;margin-bottom:3px;">LOGIN URL</div>
-        <div style="color:#00c2ff;font-size:14px;font-weight:700;"><a href="https://athlynx.ai/signin" style="color:#00c2ff;text-decoration:none;">athlynx.ai/signin</a></div>
+      <tr><td style="padding:14px 20px;border-bottom:1px solid #EDF2F7;">
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Login URL</div>
+        <div style="color:#0047CC;font-size:14px;font-weight:700;"><a href="https://athlynx.ai/signin" style="color:#0047CC;text-decoration:none;">athlynx.ai/signin</a></div>
       </td></tr>
-      <tr><td style="padding:14px 20px;border-bottom:1px solid #0f2040;">
-        <div style="color:#64748b;font-size:10px;letter-spacing:2px;margin-bottom:3px;">YOUR EMAIL / USERNAME</div>
-        <div style="color:#ffffff;font-size:14px;font-weight:700;">${to}</div>
+      <tr><td style="padding:14px 20px;border-bottom:1px solid #EDF2F7;">
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Your Email</div>
+        <div style="color:#1C1C2E;font-size:14px;font-weight:700;">${to}</div>
       </td></tr>
-      <tr><td style="padding:14px 20px;border-bottom:1px solid #0f2040;">
-        <div style="color:#64748b;font-size:10px;letter-spacing:2px;margin-bottom:3px;">SIGN IN METHOD</div>
-        <div style="color:#ffffff;font-size:14px;font-weight:700;">Use the same social login you signed up with (Google, Apple, Facebook, etc.)</div>
+      <tr><td style="padding:14px 20px;border-bottom:1px solid #EDF2F7;">
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Sign In Method</div>
+        <div style="color:#1C1C2E;font-size:14px;">${tempPassword ? "Email + Password (see temporary password below)" : "Use the same social login you signed up with — Google, Apple, Facebook, LinkedIn, Twitter, or Email."}</div>
       </td></tr>
-      <tr><td style="padding:14px 20px;border-bottom:1px solid #0f2040;">
-        <div style="color:#64748b;font-size:10px;letter-spacing:2px;margin-bottom:3px;">MEMBER SINCE</div>
-        <div style="color:#00c2ff;font-size:13px;font-weight:700;">${signedUpStr}</div>
+      <tr><td style="padding:14px 20px;border-bottom:1px solid #EDF2F7;">
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Member Since</div>
+        <div style="color:#0047CC;font-size:13px;font-weight:700;">${signedUpStr}</div>
       </td></tr>
       <tr><td style="padding:14px 20px;">
-        <div style="color:#64748b;font-size:10px;letter-spacing:2px;margin-bottom:3px;">FREE TRIAL</div>
-        <div style="color:#f59e0b;font-size:13px;font-weight:700;">7 days FREE — no charge until day 8. Cancel anytime.</div>
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Free Trial</div>
+        <div style="color:#00AAFF;font-size:13px;font-weight:700;">7 days FREE &mdash; no charge until day 8. Cancel anytime.</div>
       </td></tr>
     </table>
   </div>
 </td></tr>
 
-<!-- PLATFORM DEMO SECTION -->
-<tr><td style="background:#0d1b3e;padding:32px 40px;border-left:1px solid #1e3a6e;border-right:1px solid #1e3a6e;">
-  <h2 style="color:#fff;font-size:18px;font-weight:900;margin:0 0 20px;letter-spacing:1px;">WHAT'S INSIDE YOUR PLATFORM</h2>
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr><td style="padding:0 0 12px;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #0066ff;border-radius:10px;padding:16px 20px;">
-        <div style="color:#00c2ff;font-size:13px;font-weight:900;margin-bottom:4px;">🤖 LYNX AI COMPANION</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Powered by Nebius H200 GPUs — your personal AI coach for game film analysis, training plans, nutrition, mental performance, and real-time sport strategy. Ask it anything.</div>
+${tempPassword ? `<!-- TEMP PASSWORD BLOCK -->
+<tr><td style="background:#FFFFFF;padding:0 40px 32px;border-left:1px solid #CBD5E0;border-right:1px solid #CBD5E0;">
+  <div style="border:2px solid #0047CC;border-radius:12px;overflow:hidden;background:#EBF4FF;">
+    <div style="background:#0047CC;padding:14px 20px;">
+      <span style="color:#FFFFFF;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;">Temporary Password &mdash; Action Required</span>
+    </div>
+    <div style="padding:20px 24px;">
+      <p style="color:#1C1C2E;font-size:14px;margin:0 0 12px;line-height:1.6;">A temporary password has been assigned to your account. Set a permanent password before your first login.</p>
+      <div style="background:#FFFFFF;border:1.5px solid #0047CC;border-radius:8px;padding:14px 20px;margin-bottom:16px;text-align:center;">
+        <div style="color:#718096;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">Temporary Password</div>
+        <div style="color:#0047CC;font-size:18px;font-weight:900;letter-spacing:3px;font-family:monospace;">${tempPassword}</div>
       </div>
-    </td></tr>
-    <tr><td style="padding:0 0 12px;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #f59e0b;border-radius:10px;padding:16px 20px;">
-        <div style="color:#f59e0b;font-size:13px;font-weight:900;margin-bottom:4px;">🏆 NIL PORTAL</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Connect directly with brands, negotiate deals, and manage your Name, Image &amp; Likeness rights. AI-powered valuation shows you exactly what you're worth.</div>
+      <div style="text-align:center;">
+        <a href="https://athlynx.ai/set-password" style="display:inline-block;background:linear-gradient(135deg,#0047CC,#00AAFF);color:#FFFFFF;font-weight:900;font-size:14px;padding:14px 40px;border-radius:50px;text-decoration:none;letter-spacing:2px;text-transform:uppercase;">Set Your Password</a>
       </div>
-    </td></tr>
-    <tr><td style="padding:0 0 12px;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #10b981;border-radius:10px;padding:16px 20px;">
-        <div style="color:#10b981;font-size:13px;font-weight:900;margin-bottom:4px;">📊 AI RECRUITER</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Get discovered by college coaches and pro scouts nationwide. Your AI-built profile is automatically matched to programs that fit your stats, GPA, and goals.</div>
-      </div>
-    </td></tr>
-    <tr><td style="padding:0 0 12px;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #8b5cf6;border-radius:10px;padding:16px 20px;">
-        <div style="color:#8b5cf6;font-size:13px;font-weight:900;margin-bottom:4px;">🎯 TRANSFER PORTAL</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Navigate the transfer market with confidence. AI-powered program matching, eligibility tracking, and direct coach communication — all in one place.</div>
-      </div>
-    </td></tr>
-    <tr><td style="padding:0 0 12px;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #ec4899;border-radius:10px;padding:16px 20px;">
-        <div style="color:#ec4899;font-size:13px;font-weight:900;margin-bottom:4px;">💬 ATHLETE MESSENGER</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Secure, verified messaging with athletes, agents, coaches, and brands. Build your network. Close deals. Stay connected.</div>
-      </div>
-    </td></tr>
-    <tr><td style="padding:0 0 0;">
-      <div style="background:linear-gradient(135deg,#0a1f4e,#0d2a6e);border:1px solid #1e3a6e;border-left:3px solid #00c2ff;border-radius:10px;padding:16px 20px;">
-        <div style="color:#00c2ff;font-size:13px;font-weight:900;margin-bottom:4px;">📱 ATHLETE PROFILE + MEDIA HUB</div>
-        <div style="color:#94a3b8;font-size:13px;line-height:1.5;">Your verified athlete profile — stats, highlights, game film, awards, and social links — all in one shareable link. Your digital identity on and off the field.</div>
-      </div>
-    </td></tr>
-  </table>
+      <p style="color:#718096;font-size:11px;margin:12px 0 0;text-align:center;">This temporary password expires in 24 hours. Do not share it with anyone.</p>
+    </div>
+  </div>
+</td></tr>` : ""}
+
+<!-- FEATURES -->
+<tr><td style="background:#FFFFFF;padding:36px 40px;border-left:1px solid #CBD5E0;border-right:1px solid #CBD5E0;">
+  <h2 style="color:#1C1C2E;font-size:16px;font-weight:900;margin:0 0 20px;letter-spacing:1px;text-transform:uppercase;">What's Inside Your Platform</h2>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #0047CC;border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">LYNX AI Companion</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Powered by Nebius H200 GPUs &mdash; your personal AI coach for game film analysis, training plans, nutrition, mental performance, and real-time sport strategy.</div>
+  </div>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #00AAFF;border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">NIL Portal</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Connect directly with brands, negotiate deals, and manage your Name, Image and Likeness rights. AI-powered valuation shows you exactly what you are worth.</div>
+  </div>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #0047CC;border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">AI Recruiter</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Get discovered by college coaches and pro scouts nationwide. Your AI-built profile is automatically matched to programs that fit your stats, GPA, and goals.</div>
+  </div>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #00AAFF;border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">Transfer Portal</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Navigate the transfer market with confidence. AI-powered program matching, eligibility tracking, and direct coach communication &mdash; all in one place.</div>
+  </div>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #0047CC;border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">Athlete Messenger</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Secure, verified messaging with athletes, agents, coaches, and brands. Build your network. Close deals. Stay connected.</div>
+  </div>
+  <div style="border:1px solid #CBD5E0;border-left:4px solid #00AAFF;border-radius:8px;padding:16px 18px;background:#F7FAFC;">
+    <div style="color:#0047CC;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;">Athlete Profile + Media Hub</div>
+    <div style="color:#4A5568;font-size:13px;line-height:1.6;">Your verified athlete profile &mdash; stats, highlights, game film, awards, and social links &mdash; all in one shareable link.</div>
+  </div>
 </td></tr>
 
 <!-- STATS BAR -->
-<tr><td style="background:#060d1f;padding:24px 40px;border-left:1px solid #1e3a6e;border-right:1px solid #1e3a6e;">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td style="text-align:center;padding:0 8px;">
-        <div style="color:#0066ff;font-size:22px;font-weight:900;">44</div>
-        <div style="color:#64748b;font-size:10px;letter-spacing:1px;">SPORTS</div>
-      </td>
-      <td style="text-align:center;padding:0 8px;border-left:1px solid #1e3a6e;">
-        <div style="color:#0066ff;font-size:22px;font-weight:900;">213+</div>
-        <div style="color:#64748b;font-size:10px;letter-spacing:1px;">FEATURES</div>
-      </td>
-      <td style="text-align:center;padding:0 8px;border-left:1px solid #1e3a6e;">
-        <div style="color:#0066ff;font-size:22px;font-weight:900;">4</div>
-        <div style="color:#64748b;font-size:10px;letter-spacing:1px;">AI ENGINES</div>
-      </td>
-      <td style="text-align:center;padding:0 8px;border-left:1px solid #1e3a6e;">
-        <div style="color:#0066ff;font-size:22px;font-weight:900;">$135B</div>
-        <div style="color:#64748b;font-size:10px;letter-spacing:1px;">MARKET</div>
-      </td>
-    </tr>
-  </table>
+<tr><td style="background:#0047CC;padding:24px 40px;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td style="text-align:center;padding:0 8px;">
+      <div style="color:#FFFFFF;font-size:24px;font-weight:900;">44</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:2px;">Sports</div>
+    </td>
+    <td style="text-align:center;padding:0 8px;border-left:1px solid rgba(255,255,255,0.25);">
+      <div style="color:#FFFFFF;font-size:24px;font-weight:900;">213+</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:2px;">Features</div>
+    </td>
+    <td style="text-align:center;padding:0 8px;border-left:1px solid rgba(255,255,255,0.25);">
+      <div style="color:#FFFFFF;font-size:24px;font-weight:900;">4</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:2px;">AI Engines</div>
+    </td>
+    <td style="text-align:center;padding:0 8px;border-left:1px solid rgba(255,255,255,0.25);">
+      <div style="color:#FFFFFF;font-size:24px;font-weight:900;">$135B</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:2px;">Market</div>
+    </td>
+  </tr></table>
 </td></tr>
 
 <!-- CTA -->
-<tr><td style="background:#0d1b3e;padding:36px 40px;text-align:center;border-left:1px solid #1e3a6e;border-right:1px solid #1e3a6e;">
-  <p style="color:#94a3b8;font-size:14px;margin:0 0 24px;">Your platform is ready. Complete your athlete profile and unlock everything.</p>
-  <a href="https://athlynx.ai/onboarding" style="display:inline-block;background:linear-gradient(135deg,#0047cc,#00aaff);color:#fff;font-weight:900;font-size:16px;padding:18px 48px;border-radius:50px;text-decoration:none;letter-spacing:2px;box-shadow:0 8px 32px rgba(0,102,255,0.4);">ENTER THE PLATFORM →</a>
-  <p style="color:#475569;font-size:12px;margin:20px 0 0;">Or sign in anytime at <a href="https://athlynx.ai/signin" style="color:#00c2ff;text-decoration:none;">athlynx.ai/signin</a></p>
+<tr><td style="background:#FFFFFF;padding:40px;text-align:center;border-left:1px solid #CBD5E0;border-right:1px solid #CBD5E0;">
+  <p style="color:#4A5568;font-size:15px;margin:0 0 28px;line-height:1.6;">Your platform is ready. Complete your athlete profile and unlock everything AthlynX has to offer.</p>
+  <a href="https://athlynx.ai/onboarding" style="display:inline-block;background:linear-gradient(135deg,#0047CC,#00AAFF);color:#FFFFFF;font-weight:900;font-size:15px;padding:18px 52px;border-radius:50px;text-decoration:none;letter-spacing:2px;text-transform:uppercase;">Enter the Platform</a>
+  <p style="color:#A0AEC0;font-size:12px;margin:20px 0 0;">Or sign in anytime at <a href="https://athlynx.ai/signin" style="color:#0047CC;text-decoration:none;font-weight:600;">athlynx.ai/signin</a></p>
 </td></tr>
 
 <!-- FOOTER -->
-<tr><td style="background:#040810;padding:28px 40px;text-align:center;border-radius:0 0 20px 20px;border:1px solid #1e3a6e;border-top:none;">
-  <p style="color:#334155;font-size:12px;margin:0 0 8px;"><strong style="color:#475569;">AthlynX</strong> — A Dozier Holdings Group Company</p>
-  <p style="color:#334155;font-size:11px;margin:0 0 8px;">Questions? Reply to this email or contact <a href="mailto:cdozier14@athlynx.ai" style="color:#00c2ff;text-decoration:none;">cdozier14@athlynx.ai</a></p>
-  <p style="color:#1e3a6e;font-size:11px;margin:0;">Isaiah 40:31 &mdash; Dreams Do Come True 2026</p>
+<tr><td style="background:#1C1C2E;padding:28px 40px;text-align:center;border-radius:0 0 16px 16px;">
+  <p style="color:#718096;font-size:11px;margin:0 0 6px;">AthlynX &mdash; A Dozier Holdings Group Company</p>
+  <p style="color:#718096;font-size:11px;margin:0 0 6px;">Questions? <a href="mailto:cdozier14@athlynx.ai" style="color:#00AAFF;text-decoration:none;">cdozier14@athlynx.ai</a></p>
+  <p style="color:#4A5568;font-size:11px;margin:12px 0 0;font-style:italic;">Isaiah 40:31 &mdash; Dreams Do Come True 2026</p>
 </td></tr>
 
 </table>
@@ -223,9 +231,9 @@ export async function sendWelcomeEmail(to: string, name: string, memberNumber?: 
 
   return sendEmail({
     to,
-    subject: memberNum ? `Welcome to AthlynX, ${name}! You are Member #${memberNum} 🏆` : `Welcome to AthlynX — Complete Your Setup 🏆`,
+    subject: memberNum ? `Welcome to AthlynX, ${name} — Member #${memberNum}` : `Welcome to AthlynX — Your Platform is Ready, ${name}`,
     html,
-    text: `Welcome to AthlynX, ${name}!${memberNum ? ` You are Member #${memberNum}.` : ""} Login: ${to}. Joined: ${signedUpStr}. Complete your setup and choose your plan at https://athlynx.ai/onboarding — 7 days free, card required, no charge until day 8. Isaiah 40:31 · Dreams Do Come True 2026`,
+    text: `Welcome to AthlynX, ${name}.${memberNum ? ` Member #${memberNum}.` : ""} Login: ${to}. Joined: ${signedUpStr}.${tempPassword ? ` Temporary password: ${tempPassword} — set your permanent password at https://athlynx.ai/set-password` : ""} Complete your setup at https://athlynx.ai/onboarding — 7 days free, no charge until day 8. Isaiah 40:31 · Dreams Do Come True 2026`,
   });
 }
 
