@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
-import { handleRedirectResult } from '@/lib/okta'
+import { handleRedirectResult } from '@/lib/auth'
 import { trpc } from '@/lib/trpc'
 import { RouteErrorBoundary } from '@/components/GlobalErrorBoundary'
 

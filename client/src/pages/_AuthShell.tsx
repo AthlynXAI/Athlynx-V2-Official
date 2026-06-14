@@ -7,7 +7,7 @@ import {
   signInWithFacebook,
   loginWithRedirect,
   isAuthConfigured,
-} from "@/lib/okta";
+} from "@/lib/auth";
 import { captureGrowthAttribution, getGrowthAttribution } from "@/lib/growthTracking";
 
 // Build 2 — Auth0 PKCE auth shell used by SignIn.tsx and SignUp.tsx.

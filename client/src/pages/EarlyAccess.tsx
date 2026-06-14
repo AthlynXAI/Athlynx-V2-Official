@@ -8,7 +8,7 @@ import {
   signInWithApple,
   signInWithFacebook,
   signInWithTwitter,
-} from '@/lib/okta'
+} from '@/lib/auth'
 
 function EarlyAccessInner() {
   const [, setLocation] = useLocation()

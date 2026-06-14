@@ -141,6 +141,17 @@ export const customAuthRouter = router({
         }
       }
 
+      // Send welcome email to the new user (social login)
+      if (isNewUser && email) {
+        try {
+          const { sendWelcomeEmail } = await import("../services/aws-ses");
+          await sendWelcomeEmail(email, name, user?.id ?? undefined);
+          console.log("[AUTH] Welcome email sent to", email);
+        } catch (welcomeEmailErr) {
+          console.error("[AUTH] Welcome email failed:", welcomeEmailErr);
+        }
+      }
+
       // Notify Chad (all 5 emails) when a brand new user signs up via social login
       if (isNewUser) {
         try {
