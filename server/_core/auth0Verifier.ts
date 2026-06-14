@@ -3,12 +3,13 @@
  *
  * ╔══════════════════════════════════════════════════════════════════╗
  * ║  ⚠️  AUTH CREDENTIALS FROZEN — DO NOT MODIFY — EVER            ║
+ * ║  App:       AthlynXAI OS v1                                     ║
  * ║  Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com                  ║
- * ║  Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI                  ║
+ * ║  Client ID: RRvBzovJvplzd1pERlrw5iTOpWoMI2wg                  ║
  * ║  These are the ONLY valid credentials for athlynx.ai           ║
  * ║  Changing these WILL break production auth immediately          ║
- * ║  Verified working: 2026-06-13 (real users signing up live)     ║
- * ║  Locked by: Chad Dozier — Build 1 Session 5                    ║
+ * ║  Unified app created: 2026-06-14 (all 5 old apps deleted)      ║
+ * ║  Locked by: Chad Dozier — Build 1 Session 6                    ║
  * ╚══════════════════════════════════════════════════════════════════╝
  *
  * Verifies Auth0 ID tokens (RS256) via JWKS endpoint.
@@ -20,6 +21,7 @@
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
 // ⚠️ FROZEN — DO NOT CHANGE THIS VALUE — see header above
+// App: AthlynXAI OS v1 (Client ID: RRvBzovJvplzd1pERlrw5iTOpWoMI2wg)
 const AUTH0_DOMAIN =
   process.env.AUTH0_DOMAIN || "dev-8yqdmei0v8kc3qqy.us.auth0.com";
 

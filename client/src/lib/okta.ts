@@ -3,12 +3,13 @@
  *
  * ╔══════════════════════════════════════════════════════════════════╗
  * ║  ⚠️  AUTH CREDENTIALS FROZEN — DO NOT MODIFY — EVER            ║
+ * ║  App:       AthlynXAI OS v1                                     ║
  * ║  Domain:    dev-8yqdmei0v8kc3qqy.us.auth0.com                  ║
- * ║  Client ID: eDJT34flTy4oOq1cie6ItFubLDPHOrcI                  ║
+ * ║  Client ID: RRvBzovJvplzd1pERlrw5iTOpWoMI2wg                  ║
  * ║  These are the ONLY valid credentials for athlynx.ai           ║
  * ║  Changing these WILL break production auth immediately          ║
- * ║  Verified working: 2026-06-13 (real users signing up live)     ║
- * ║  Locked by: Chad Dozier — Build 1 Session 5                    ║
+ * ║  Unified app created: 2026-06-14 (all 5 old apps deleted)      ║
+ * ║  Locked by: Chad Dozier — Build 1 Session 6                    ║
  * ╚══════════════════════════════════════════════════════════════════╝
  *
  * Uses @auth0/auth0-spa-js which handles iOS Safari ITP automatically.
@@ -23,8 +24,9 @@
 import { createAuth0Client, Auth0Client } from "@auth0/auth0-spa-js";
 
 // ⚠️ FROZEN — DO NOT CHANGE THESE VALUES — see header above
+// App: AthlynXAI OS v1 — unified SPA, PKCE, no client secret
 const AUTH0_DOMAIN    = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_DOMAIN) || "dev-8yqdmei0v8kc3qqy.us.auth0.com";
-const AUTH0_CLIENT_ID = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_CLIENT_ID) || "eDJT34flTy4oOq1cie6ItFubLDPHOrcI";
+const AUTH0_CLIENT_ID = (typeof import.meta !== "undefined" && import.meta.env?.VITE_AUTH0_CLIENT_ID) || "RRvBzovJvplzd1pERlrw5iTOpWoMI2wg";
 const AUTH0_REDIRECT_URI =
   typeof window !== "undefined"
     ? `${window.location.origin}/callback`
